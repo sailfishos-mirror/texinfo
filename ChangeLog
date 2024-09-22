@@ -1,5 +1,10 @@
 2024-09-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am: change order of xs_LTLIBRARIES for
+	relinking in make distcheck.
+
+2024-09-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/get_converter_perl_info.c (get_sv_converter)
 	(converter_initialize, converter_set_document, reset_output_init_conf)
 	(copy_sv_options_for_convert_text),

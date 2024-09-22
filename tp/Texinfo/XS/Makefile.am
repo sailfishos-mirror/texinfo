@@ -298,6 +298,30 @@ $(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main
 MAINTAINERCLEANFILES += main/options_init_free.c main/options_types.h \
                         main/options_get_perl.c
 
+########################## shared perl XS library for texinfo XS codes
+# it is separate from libtexinfo because of different dependencies; it
+# does not depend on gnulib.  Both libraries are used by following XS.
+
+if HAVE_ICONV
+xs_LTLIBRARIES += libtexinfoxs.la
+endif
+
+libtexinfoxs_la_SOURCES= \
+		      main/build_perl_info.c \
+		      main/build_perl_info.h \
+		      main/get_perl_info.c \
+		      main/get_perl_info.h \
+		      main/options_get_perl.c
+
+# locate include files under out-of-source builds.
+libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
+libtexinfoxs_la_LIBADD = libtexinfo.la
+# example to trigger errors associated with no undefined
+#libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_PERL_LINK) $(LTLIBINTL)
+libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL)
+
+
 ########################## shared C library for conversion
 # conversion to raw text and to Texinfo code is in the libtexinfo library.
 # Note that having a library and not reusing source files is important to
@@ -327,29 +351,6 @@ libtexinfo_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfo_convert_la_LIBADD = libtexinfo.la libtexinfoxs.la $(top_builddir)/gnulib/lib/libgnu.la
 libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 #libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_PERL_LINK) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
-
-########################## shared perl XS library for texinfo XS codes
-# it is separate from libtexinfo because of different dependencies; it
-# does not depend on gnulib.  Both libraries are used by following XS.
-
-if HAVE_ICONV
-xs_LTLIBRARIES += libtexinfoxs.la
-endif
-
-libtexinfoxs_la_SOURCES= \
-		      main/build_perl_info.c \
-		      main/build_perl_info.h \
-		      main/get_perl_info.c \
-		      main/get_perl_info.h \
-		      main/options_get_perl.c
-
-# locate include files under out-of-source builds.
-libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
-libtexinfoxs_la_LIBADD = libtexinfo.la
-# example to trigger errors associated with no undefined
-#libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_PERL_LINK) $(LTLIBINTL)
-libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL)
 
 
 ########################## Parsetexi XS parser
