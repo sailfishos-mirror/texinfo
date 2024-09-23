@@ -31,10 +31,10 @@ $(doc)-a4.pdf: $(srcdir)/$(doc).tex
 	ps2pdf $(doc)-a4.ps $@
 
 ccheck:
-	./txicmdcheck $(txi_check_args)
+	$(srcdir)/txicmdcheck $(txi_check_args)
 
 vcheck:
-	./txivarcheck $(txi_check_args)
+	$(srcdir)/txivarcheck $(txi_check_args)
 
 spell:
 	aspell list --mode=tex --add-extra-dicts=`pwd`/refcard.spell \

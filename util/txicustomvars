@@ -24,6 +24,9 @@ BEGIN {
   (my $mydir = $0) =~ s,/[^/]+$,,;
   chomp (my $tpdir = `cd $mydir/../tp && pwd`);
   unshift (@INC, $tpdir);
+  if (defined($ENV{'top_builddir'})) {
+    unshift (@INC, $ENV{'top_builddir'}.'/tp');
+  }
 
   $ENV{top_srcdir} = "$tpdir/..";
   require Texinfo::ModulePath;

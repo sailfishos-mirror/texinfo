@@ -1,3 +1,12 @@
+2024-09-23  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/refcard/Makefile.am (ccheck, vcheck), doc/refcard/txicmdcheck
+	(main), doc/refcard/txivarcheck (main): use srcdir to find programs
+	and input files for out of source build.
+
+	* util/txicmdlist (BEGIN), util/txicustomvars (BEGIN): use
+	top_builddir to find Texinfo::ModulePath for out of source build.
+
 2024-09-22  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* NEWS: remove bug-fix item that was in 7.1.1.

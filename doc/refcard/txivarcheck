@@ -23,17 +23,20 @@
 
 use strict;
 
+my $srcdir = $ENV{'srcdir'};
+$srcdir = '.' if (!defined($srcdir));
+
 exit (&main ());
 
 sub main {
   my $no_common = $ARGV[0] eq "--no-common";
 
   my ($man_customization_vars, $man_cmds_customization_vars)
-                             = &read_refman ("../texinfo.texi");
+                             = &read_refman ("$srcdir/../texinfo.texi");
   my @man_vars = @$man_customization_vars;
   my @man_cmds_vars = @$man_cmds_customization_vars;
-  my @tp_vars = &read_tp ("../../util/txicustomvars");
-  my @tp_cmds_vars = &read_tp ("../../util/txicustomvars --commands");
+  my @tp_vars = &read_tp ("$srcdir/../../util/txicustomvars");
+  my @tp_cmds_vars = &read_tp ("$srcdir/../../util/txicustomvars --commands");
 
   my (%man_vars, %tp_vars, %man_cmds_vars, %tp_cmds_vars);  # list to hash
   @man_vars{@man_vars} = ();
