@@ -389,10 +389,8 @@ my $conf_file_name = 'texi2any-config.pm';
 #  $HOME/texinfo should be $XDG_CONFIG_HOME default: $HOME/.config/texinfo
 my %deprecated_directories;
 
-# We use first the environment variable, then the installation directory
-# and last the SDG basedir specification default, even if the environment
-# variable was set, to be sure to have implementation independent locations
-# used.
+# We use first the environment variable, then the installation directory,
+# even if the environment variable was set.
 sub add_config_paths($$$$) {
   my $env_string = shift;
   my $subdir = shift;
@@ -416,11 +414,12 @@ sub add_config_paths($$$$) {
     $used_base_dirs{$installation_dir} = 1;
   }
 
-  foreach my $dir (@$default_base_dirs) {
-    if (!$used_base_dirs{$dir}) {
-      push @result_dirs, File::Spec->catdir($dir, $subdir);
-    }
-  }
+  # to also use XDG Base Directory Specification defaults
+  #foreach my $dir (@$default_base_dirs) {
+  #  if (!$used_base_dirs{$dir}) {
+  #    push @result_dirs, File::Spec->catdir($dir, $subdir);
+  #  }
+  #}
   return \@result_dirs;
 }
 
@@ -448,7 +447,7 @@ sub set_subdir_directories($$) {
     if (defined($deprecated_config_home));
 
   my $config_dirs = add_config_paths('XDG_CONFIG_DIRS', $subdir,
-                       ['/etc/xdg'], $sysconfdir);
+                       ['/etc/xdg'], File::Spec->catdir($sysconfdir, 'xdg'));
   push @result, @$config_dirs;
 
   my $data_dirs = add_config_paths('XDG_DATA_DIRS', 'texinfo',
@@ -490,7 +489,7 @@ my $program_config_dirs_array_ref
 #  if (defined($datadir));
 
 @program_init_dirs = @program_config_dirs;
-foreach my $texinfo_config_dir ($curdir, @texinfo_language_config_dirs) {
+foreach my $texinfo_config_dir (@texinfo_language_config_dirs) {
   my $init_dir = File::Spec->catdir($texinfo_config_dir, 'init');
   push @program_init_dirs, $init_dir;
   if ($deprecated_directories{$texinfo_config_dir}) {
@@ -502,6 +501,9 @@ foreach my $texinfo_config_dir ($curdir, @texinfo_language_config_dirs) {
 # add texi2any extensions dir too, such as the init files there
 # can also be loaded as regular init files.
 push @program_init_dirs, $extensions_dir;
+
+#print STDERR join("\n", @program_init_dirs)."\n\n";
+#print STDERR join("\n", sort(keys(%deprecated_directories)))."\n";
 
 
 sub _decode_i18n_string($$)
