@@ -391,11 +391,13 @@ my %deprecated_directories;
 
 # We use first the environment variable, then the installation directory,
 # even if the environment variable was set.
-sub add_config_paths($$$$) {
+sub add_config_paths($$$$;$$) {
   my $env_string = shift;
   my $subdir = shift;
   my $default_base_dirs = shift;
   my $installation_dir = shift;
+  my $overriding_dirs = shift;
+  my $deprecated_dirs = shift;
 
   my @result_dirs;
   my %used_base_dirs;
@@ -412,6 +414,15 @@ sub add_config_paths($$$$) {
     my $install_result_dir = File::Spec->catdir($installation_dir, $subdir);
     push @result_dirs, $install_result_dir;
     $used_base_dirs{$installation_dir} = 1;
+    if ($overriding_dirs and $overriding_dirs->{$installation_dir}) {
+      my $deprecated_dir
+       = File::Spec->catdir($overriding_dirs->{$installation_dir}, $subdir);
+      if (not $used_base_dirs{$deprecated_dir}) {
+        $deprecated_dirs->{$deprecated_dir} = $install_result_dir;
+        push @result_dirs, $deprecated_dir;
+        $used_base_dirs{$deprecated_dir} = 1;
+      }
+    }
   }
 
   # to also use XDG Base Directory Specification defaults
@@ -446,8 +457,13 @@ sub set_subdir_directories($$) {
   push @result, $deprecated_config_home
     if (defined($deprecated_config_home));
 
+  my $sysconf_install_dir = File::Spec->catdir($sysconfdir, 'xdg');
+  # associate new location to deprecated location
+  my $overriding_dirs = {$sysconf_install_dir => $sysconfdir};
+  # in 2024, mark $sysconfdir deprecated in favor of $sysconfdir/xdg.
   my $config_dirs = add_config_paths('XDG_CONFIG_DIRS', $subdir,
-                       ['/etc/xdg'], File::Spec->catdir($sysconfdir, 'xdg'));
+                       ['/etc/xdg'], File::Spec->catdir($sysconfdir, 'xdg'),
+                       $overriding_dirs, $deprecated_dirs);
   push @result, @$config_dirs;
 
   my $data_dirs = add_config_paths('XDG_DATA_DIRS', 'texinfo',
