@@ -17843,7 +17843,7 @@ web.
 information for cross-references to other manuals in HTML output.  It
 is looked for in the following directories, based on the
 @url{https://specifications.freedesktop.org/basedir-spec/latest/, XDG Base
-Directory Specification} with additional possibilities:
+Directory Specification} with defaults based on installation directories:
 
 @table @file
 @item ./

@@ -108,7 +108,7 @@ You can write so-called @dfn{initialization files}, or @dfn{init
 files} for short, to modify almost every aspect of output formatting.
 The program loads init files named @file{texi2any-config.pm} each time it
 is run.  The directories lookup is based on the @url{https://specifications.freedesktop.org/basedir-spec/latest/, XDG Base
-Directory Specification} with additional possibilities.
+Directory Specification} with defaults based on installation directories.
 The @file{texi2any-config.pm} files are looked for in the
 following directories:
 
