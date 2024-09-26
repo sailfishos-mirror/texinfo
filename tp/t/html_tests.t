@@ -986,6 +986,31 @@ my $css_init_file_texinfo = '@node Top
 @titlefont{in a new heading}
 ';
 
+my $nodedescription_description_texinfo = '@node Top
+@top test of descriptions with nodedescription*
+
+@node toto
+@chapter Toto
+
+@nodedescription toto is there:: and the @emph{is a description}@w{slightly long} and @verb{:vv somewhat:} @ringaccent anexpected
+
+@nodedescriptionblock
+Block along line node description for toto
+@end nodedescriptionblock
+
+@node titi
+@chapter Titi
+
+@nodedescriptionblock
+description of titi in block
+@end nodedescriptionblock
+
+@node other
+@chapter Other
+
+@nodedescription other comes here
+';
+
 my @file_tests = (
 ['empty_node_in_html_title_no_sec_name',
 '@node Top
@@ -1534,6 +1559,16 @@ undef, {'test_file' => 'simple_only_special_spaces_node.texi',
 ', {}, {'USE_NODES' => 0,
         # needed for the test
         'SPLIT' => 'node'}],
+['nodedescription_description',
+$nodedescription_description_texinfo, {}, {'FORMAT_MENU' => 'menu',
+        # needed for the test
+        'SPLIT' => 'node'}],
+['nodedescription_description_no_use_nodes',
+$nodedescription_description_texinfo, {}, {'FORMAT_MENU' => 'menu',
+        'USE_NODES' => 0,
+        # needed for the test
+        'SPLIT' => 'node'}],
+
 );
 
 

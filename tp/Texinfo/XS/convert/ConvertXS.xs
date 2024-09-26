@@ -1420,6 +1420,46 @@ html_internal_command_text (SV *converter_in, SV *element_sv, const char *type)
     OUTPUT:
          RETVAL
 
+SV *
+html_command_description (SV *converter_in, SV *element_sv, const char *type=0)
+     PREINIT:
+         CONVERTER *self;
+         char *text = 0;
+         const ELEMENT *element;
+     CODE:
+         element = element_converter_from_sv (converter_in, element_sv,
+                                         "html_command_description", &self);
+         if (element)
+           {
+             int j;
+             enum html_text_type text_type = 0;
+             for (j = 0; j < HTT_string +1; j++)
+               {
+                 if (!strcmp (html_command_text_type_name[j], type))
+                   {
+                     text_type = j;
+                     break;
+                   }
+               }
+             text
+               = html_command_description (self, element, text_type);
+             if (self->modified_state)
+               {
+                 build_html_formatting_state (self, self->modified_state);
+                 self->modified_state = 0;
+               }
+           }
+
+         if (text)
+           {
+             RETVAL = newSVpv_utf8 (text, 0);
+             non_perl_free (text);
+           }
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
 void
 html_set_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
          const char *cmdname = (char *)SvPVutf8_nolen($arg);

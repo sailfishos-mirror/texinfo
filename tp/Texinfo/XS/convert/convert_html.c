@@ -4124,6 +4124,130 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
 
 /* return value to be freed by caller */
 char *
+html_command_description (CONVERTER *self, const ELEMENT *command,
+                          const enum html_text_type type)
+{
+  HTML_TARGET *target_info;
+
+  ELEMENT *manual_content = lookup_extra_element (command,
+                                                  "manual_content");
+  if (manual_content)
+    return 0;
+
+  target_info = html_get_target (self, command);
+
+  if (target_info)
+    {
+      if (target_info->command_description[type])
+        return strdup (target_info->command_description[type]);
+      else
+        {
+          const ELEMENT *node = 0;
+          ELEMENT *tree_root;
+          char *explanation;
+          char *context_name;
+          const ELEMENT *node_description;
+          int formatted_nodedescription_nr = 0;
+          HTML_TARGET *node_target_info;
+          char *multiple_formatted = 0;
+          ELEMENT *description_element;
+          const char *command_name;
+
+          if (command->type == ET_special_unit_element)
+            return 0;
+
+          if (command->cmd && (command->cmd == CM_float
+                               || command->cmd == CM_anchor))
+            return 0;
+
+          if (command->cmd == CM_node)
+            node = command;
+          else
+            node = lookup_extra_element (command, "associated_node");
+
+          if (!node)
+            return 0;
+
+          node_description = lookup_extra_element (node, "node_description");
+
+          if (!node_description)
+            return 0;
+
+          node_target_info
+            = find_element_target (self->html_targets, node);
+          node_target_info->formatted_nodedescription_nr++;
+          formatted_nodedescription_nr
+            = node_target_info->formatted_nodedescription_nr;
+
+          if (formatted_nodedescription_nr > 1)
+            {
+              xasprintf (&multiple_formatted,
+                         "node-description-%d",
+                         formatted_nodedescription_nr);
+            }
+
+          if (node_description->cmd == CM_nodedescription)
+            description_element = node_description->args.list[0];
+          else
+            {
+              description_element = new_element (ET_NONE);
+              description_element->contents = node_description->contents;
+              add_tree_to_build (self, description_element);
+            }
+
+          command_name = element_command_name (command);
+          xasprintf (&context_name, "%s description", command_name);
+          xasprintf (&explanation, "command_description:%s @%s",
+                     html_command_text_type_name[type],
+                     command_name);
+
+          if (type == HTT_string)
+            {
+              tree_root = new_element (ET__string);
+              add_to_contents_as_array (tree_root, description_element);
+              add_tree_to_build (self, tree_root);
+            }
+          else
+            tree_root = description_element;
+
+          target_info->command_description[type]
+            = convert_tree_new_formatting_context (self, tree_root,
+                 context_name, multiple_formatted,
+                 explanation, 0);
+          free (context_name);
+          free (explanation);
+
+          if (formatted_nodedescription_nr > 1)
+            free (multiple_formatted);
+          if (node_description->cmd != CM_nodedescription)
+            {
+              remove_tree_to_build (self, description_element);
+              description_element->contents.list = 0;
+              destroy_element (description_element);
+            }
+          if (type == HTT_string)
+            {
+              remove_tree_to_build (self, tree_root);
+              destroy_element (tree_root);
+            }
+          return strdup (target_info->command_description[type]);
+        }
+    }
+ /*
+    Can happen
+    * if USE_NODES is 0 and there are no sectioning commands.
+    * if a special element target was set to undef in user defined code.
+    * for @*ref with missing targets (maybe @novalidate needed in that case).
+    * for @node header if the node consist only in spaces (example in sectioning
+      in_menu_only_special_ascii_spaces_node).
+    * for multiple targets with the same name, eg both @node and @anchor
+    * with @inforef with node argument only, without manual argument.
+  */
+  return 0;
+}
+
+/* return value to be freed by caller */
+char *
 from_element_direction (CONVERTER *self, int direction,
                         enum  html_text_type type,
                         const OUTPUT_UNIT *source_unit,
@@ -6520,7 +6644,7 @@ format_single_footnote (CONVERTER *self, const ELEMENT *element,
       char *footnote
         = call_formatting_function_format_single_footnote (self,
                                    formatting_reference, element, footid,
-                                   number_in_doc, footnote_location_href, 
+                                   number_in_doc, footnote_location_href,
                                    mark);
 
       text_append (result, footnote);
@@ -7041,6 +7165,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
   BEGIN_FILE_INFORMATION *begin_info = (BEGIN_FILE_INFORMATION *)
                           malloc (sizeof (BEGIN_FILE_INFORMATION));
   const char *description = self->documentdescription_string;
+  char *command_description = 0;
   int status;
   TEXT text;
   char *root_html_element_attributes
@@ -7117,15 +7242,25 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
           destroy_element_and_children (title_tree);
         }
       free (command_string);
+
+      command_description = html_command_description (self, command,
+                                                      HTT_string);
     }
   if (!begin_info->title)
     begin_info->title = strdup (self->title_string);
 
-  if (begin_info->title)
+  if (command_description && strlen (command_description))
+    begin_info->keywords = strdup (command_description);
+  else if (begin_info->title)
     begin_info->keywords = strdup (begin_info->title);
 
   if (!description || !strlen (description))
-    description = begin_info->title;
+    {
+      if (command_description && strlen (command_description))
+        description = command_description;
+      else
+        description = begin_info->title;
+    }
 
   if (description && strlen (description))
     {
@@ -7134,6 +7269,8 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
       close_html_lone_element (self, &text);
       begin_info->description = strdup (text.text);
     }
+
+  free (command_description);
 
   text_reset (&text);
   if (self->conf->OUTPUT_ENCODING_NAME.o.string
@@ -17054,6 +17191,9 @@ reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
           for (j = 0; j < HTT_string_nonumber+1; j++)
             free (html_target->command_text[j]);
 
+          for (j = 0; j < HTT_string_nonumber+1; j++)
+            free (html_target->command_description[j]);
+
           free_tree_added_elements (self, &html_target->tree);
           free_tree_added_elements (self, &html_target->tree_nonumber);
         }
@@ -17823,6 +17963,10 @@ html_translate_names (CONVERTER *self)
                       target_info->command_text[HTT_string] = 0;
                       free (target_info->command_text[HTT_text]);
                       target_info->command_text[HTT_text] = 0;
+                      free (target_info->command_description[HTT_string]);
+                      target_info->command_description[HTT_string] = 0;
+                      free (target_info->command_description[HTT_text]);
+                      target_info->command_description[HTT_text] = 0;
                     }
                 }
             }

@@ -738,6 +738,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/node_footnote_use_node/res_html \
   t/results/html_tests/node_footnote_use_node_separate.pl \
   t/results/html_tests/node_footnote_use_node_separate/res_html \
+  t/results/html_tests/nodedescription_description.pl \
+  t/results/html_tests/nodedescription_description/res_html \
+  t/results/html_tests/nodedescription_description_no_use_nodes.pl \
+  t/results/html_tests/nodedescription_description_no_use_nodes/res_html \
   t/results/html_tests/raw_html.pl \
   t/results/html_tests/redirection_same_labels.pl \
   t/results/html_tests/redirection_same_labels/res_html \

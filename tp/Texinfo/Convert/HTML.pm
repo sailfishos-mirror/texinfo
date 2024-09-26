@@ -145,6 +145,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_internal_command_tree",
   "Texinfo::Convert::HTML::_internal_command_text"
    => "Texinfo::Convert::ConvertXS::html_internal_command_text",
+  "Texinfo::Convert::HTML::command_description"
+   => "Texinfo::Convert::ConvertXS::html_command_description",
 
   "Texinfo::Convert::HTML::_XS_set_shared_conversion_state"
    => "Texinfo::Convert::ConvertXS::html_set_shared_conversion_state",
@@ -1426,7 +1428,7 @@ sub _internal_command_text($$$)
   return undef;
 }
 
-# Return text to be used for a hyperlink to $COMMAND.
+# Return text to be used for $COMMAND.
 # $TYPE refers to the type of value returned from this function:
 #  'text' - return text
 #  'text_nonumber' - return text, without the section/chapter number
@@ -1473,6 +1475,100 @@ sub command_text($$;$)
   }
 
   return _internal_command_text($self, $command, $type);
+}
+
+# Return text to be used for $COMMAND description.
+# $TYPE refers to the type of value returned from this function:
+#  'text' - return text
+#  'string' - return simpler text that can be used in element attributes
+sub command_description($$;$)
+{
+  my $self = shift;
+  my $command = shift;
+  my $type = shift;
+
+  if (!defined($type)) {
+    $type = 'text';
+  }
+
+  if (!defined($command)) {
+    cluck "in command_description($type) command not defined";
+  }
+
+  if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
+    return undef;
+  }
+
+  my $target = $self->_get_target($command);
+  if ($target) {
+    my $cached_type = 'description_'.${type};
+    if (defined($target->{$cached_type})) {
+      return $target->{$cached_type};
+    }
+
+    if (($command->{'type'}
+         and $command->{'type'} eq 'special_unit_element')
+        or ($command->{'cmdname'} and ($command->{'cmdname'} eq 'anchor'
+                                       or $command->{'cmdname'} eq 'float'))) {
+      $target->{$cached_type} = undef;
+      return undef;
+    }
+    my $node;
+
+    if ($command->{'cmdname'} and $command->{'cmdname'} eq 'node') {
+      $node = $command;
+    } elsif ($command->{'extra'}
+             and $command->{'extra'}->{'associated_node'}) {
+      $node = $command->{'extra'}->{'associated_node'};
+    }
+
+    if (!$node or !$node->{'extra'}) {
+      return undef;
+    }
+
+    my $node_description = $node->{'extra'}->{'node_description'};
+
+    if (!$node_description) {
+      return undef;
+    }
+
+    # TODO is it needed to have both $multiple_formatted and
+    # document_global_context ($explanation) set?
+    my $formatted_nodedescription_nr
+       = _formatted_nodedescription_nr($self, $node_description);
+
+    my $cmdname = $command->{'cmdname'};
+    my $context_name = "$cmdname description";
+    my $explanation = "command_description:$type \@$cmdname";
+
+    my $description_element;
+    if ($node_description->{'cmdname'} eq 'nodedescription') {
+      $description_element = $node_description->{'args'}->[0];
+    } else {
+      $description_element = {'contents' => $node_description->{'contents'}};
+    }
+    my $multiple_formatted;
+    if ($formatted_nodedescription_nr > 1) {
+      $multiple_formatted
+        = 'node-description-'.$formatted_nodedescription_nr;
+    }
+
+    my $tree_root;
+    if ($type eq 'string') {
+      $tree_root = {'type' => '_string',
+                    'contents' => [$description_element]};
+    } else {
+      $tree_root = $description_element;
+    }
+
+    $target->{$cached_type}
+      = $self->convert_tree_new_formatting_context($tree_root,
+                                                   $context_name,
+                                     $multiple_formatted, $explanation);
+
+    return $target->{$cached_type};
+  }
+  return undef;
 }
 
 
@@ -2847,7 +2943,8 @@ sub _translate_names($)
       if ($command
           and $self->{'targets'}->{$command}) {
         my $target = $self->{'targets'}->{$command};
-        foreach my $key ('text', 'string', 'tree') {
+        foreach my $key ('text', 'string', 'tree', 'description_text',
+                         'description_string') {
           delete $target->{$key};
         }
       }
@@ -7556,6 +7653,25 @@ sub _convert_multitable_body_type($$$$) {
 
 $default_types_conversion{'multitable_body'} = \&_convert_multitable_body_type;
 
+sub _formatted_nodedescription_nr($$)
+{
+  my $self = shift;
+  my $node_description = shift;
+
+  # update the number of time the node description was formatted
+  my $formatted_nodedescription_nr
+    = $self->get_shared_conversion_state('nodedescription',
+                                    'formatted_nodedescriptions',
+                                     $node_description);
+  $formatted_nodedescription_nr = 0
+     if (!defined($formatted_nodedescription_nr));
+  $formatted_nodedescription_nr++;
+  $self->set_shared_conversion_state('nodedescription',
+                                    'formatted_nodedescriptions',
+                    $node_description, $formatted_nodedescription_nr);
+  return $formatted_nodedescription_nr;
+}
+
 sub _convert_menu_entry_type($$$)
 {
   my $self = shift;
@@ -7631,17 +7747,8 @@ sub _convert_menu_entry_type($$$)
                              and $menu_description->{'contents'}->[0]
                                   ->{'contents'}->[0]->{'text'} !~ /\S/)))) {
           $node_description = $node->{'extra'}->{'node_description'};
-          # update the number of time the node description was formatted
           $formatted_nodedescription_nr
-            = $self->get_shared_conversion_state('nodedescription',
-                                            'formatted_nodedescriptions',
-                                             $node_description);
-          $formatted_nodedescription_nr = 0
-             if (!defined($formatted_nodedescription_nr));
-          $formatted_nodedescription_nr++;
-          $self->set_shared_conversion_state('nodedescription',
-                                            'formatted_nodedescriptions',
-                            $node_description, $formatted_nodedescription_nr);
+            = _formatted_nodedescription_nr($self, $node_description);
         }
       }
     }
@@ -11300,6 +11407,7 @@ sub _file_header_information($$;$)
   my $filename = shift;
 
   my $title;
+  my $command_description;
   if ($command) {
     my $command_string = $self->command_text($command, 'string');
     if (defined($command_string) and $command_string ne ''
@@ -11335,12 +11443,16 @@ sub _file_header_information($$;$)
                                                      $context_str,
                                                      'element_title');
     }
+    $command_description = $self->command_description($command, 'string');
   }
   $title = $self->get_info('title_string') if (!defined($title));
 
-  my $keywords = $title;
+  my $keywords = $command_description;
+  $keywords = $title if (not defined($keywords) or $keywords eq '');
 
   my $description = $self->get_info('documentdescription_string');
+  $description = $command_description
+    if (not defined($description) or $description eq '');
   $description = $title
     if (not defined($description) or $description eq '');
   $description = $self->close_html_lone_element(

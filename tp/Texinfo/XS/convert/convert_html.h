@@ -141,6 +141,8 @@ TREE_ADDED_ELEMENTS *html_internal_command_tree (CONVERTER *self,
                             const ELEMENT *command, int no_number);
 char *html_internal_command_text (CONVERTER *self, const ELEMENT *command,
                                   const enum html_text_type type);
+char *html_command_description (CONVERTER *self, const ELEMENT *command,
+                                const enum html_text_type type);
 
 EXPLAINED_COMMAND_TYPE *find_explained_command_string
                       (const EXPLAINED_COMMAND_TYPE_LIST *type_explanations,

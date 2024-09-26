@@ -290,6 +290,7 @@ typedef struct HTML_TARGET {
     char *shortcontents_target;
 
     char *command_text[HTT_string_nonumber+1];
+    char *command_description[HTT_string_nonumber+1];
     TREE_ADDED_ELEMENTS tree;
     TREE_ADDED_ELEMENTS tree_nonumber;
     FILE_NUMBER_NAME file_number_name;
