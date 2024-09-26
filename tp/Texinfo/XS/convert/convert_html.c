@@ -6867,6 +6867,7 @@ format_end_file (CONVERTER *self, const char *filename,
 typedef struct BEGIN_FILE_INFORMATION {
     char *title;
     char *description;
+    char *keywords;
     char *encoding;
     char *css_lines;
     char *root_html_element_attributes;
@@ -6880,6 +6881,7 @@ destroy_begin_file_information (BEGIN_FILE_INFORMATION *begin_info)
 {
   free (begin_info->title);
   free (begin_info->description);
+  free (begin_info->keywords);
   free (begin_info->encoding);
   free (begin_info->css_lines);
   free (begin_info->root_html_element_attributes);
@@ -7119,6 +7121,9 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
   if (!begin_info->title)
     begin_info->title = strdup (self->title_string);
 
+  if (begin_info->title)
+    begin_info->keywords = strdup (begin_info->title);
+
   if (!description || !strlen (description))
     description = begin_info->title;
 
@@ -7351,10 +7356,13 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
   if (begin_info->description)
     text_append (&result, begin_info->description);
   text_append_n (&result, "\n", 1);
-  text_printf (&result, "<meta name=\"keywords\" content=\"%s\"",
-               begin_info->title);
-  close_html_lone_element (self, &result);
-  text_append_n (&result, "\n", 1);
+  if (begin_info->keywords)
+    {
+      text_printf (&result, "<meta name=\"keywords\" content=\"%s\"",
+                   begin_info->keywords);
+      close_html_lone_element (self, &result);
+      text_append_n (&result, "\n", 1);
+    }
   text_append (&result, "<meta name=\"resource-type\" content=\"document\"");
   close_html_lone_element (self, &result);
   text_append_n (&result, "\n", 1);
@@ -8482,10 +8490,13 @@ html_default_format_node_redirection_page (CONVERTER *self,
   if (begin_info->description)
     text_append (&result, begin_info->description);
   text_append_n (&result, "\n", 1);
-  text_printf (&result, "<meta name=\"keywords\" content=\"%s\"",
-               begin_info->title);
-  close_html_lone_element (self, &result);
-  text_append_n (&result, "\n", 1);
+  if (begin_info->keywords)
+    {
+      text_printf (&result, "<meta name=\"keywords\" content=\"%s\"",
+                   begin_info->keywords);
+      close_html_lone_element (self, &result);
+      text_append_n (&result, "\n", 1);
+    }
   text_append (&result, "<meta name=\"resource-type\" content=\"document\"");
   close_html_lone_element (self, &result);
   text_append_n (&result, "\n", 1);

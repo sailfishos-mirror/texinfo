@@ -11338,6 +11338,8 @@ sub _file_header_information($$;$)
   }
   $title = $self->get_info('title_string') if (!defined($title));
 
+  my $keywords = $title;
+
   my $description = $self->get_info('documentdescription_string');
   $description = $title
     if (not defined($description) or $description eq '');
@@ -11437,10 +11439,10 @@ $mathjax_configuration
 
   }
 
-  return ($title, $description, $encoding, $date, $css_lines, $doctype,
-          $root_html_element_attributes, $body_attributes, $copying_comment,
-          $after_body_open, $extra_head, $program_and_version, $program_homepage,
-          $program, $generator);
+  return ($title, $description, $keywords, $encoding, $date, $css_lines,
+          $doctype, $root_html_element_attributes, $body_attributes,
+          $copying_comment, $after_body_open, $extra_head,
+          $program_and_version, $program_homepage, $program, $generator);
 }
 
 sub _get_links($$$$)
@@ -11496,13 +11498,19 @@ sub _default_format_begin_file($$$)
     }
   }
 
-  my ($title, $description, $encoding, $date, $css_lines, $doctype,
+  my ($title, $description, $keywords, $encoding, $date, $css_lines, $doctype,
       $root_html_element_attributes, $body_attributes, $copying_comment,
       $after_body_open, $extra_head, $program_and_version, $program_homepage,
       $program, $generator)
         = $self->_file_header_information($command_for_title, $filename);
 
   my $links = $self->_get_links($filename, $output_unit, $node_command);
+
+  my $keywords_output = '';
+  if (defined($keywords)) {
+    $keywords_output = $self->close_html_lone_element(
+        "<meta name=\"keywords\" content=\"$keywords\"")."\n";
+  }
 
   my $result = "$doctype
 <html${root_html_element_attributes}>
@@ -11512,8 +11520,7 @@ $encoding
 $copying_comment<title>$title</title>
 
 $description\n".
-    $self->close_html_lone_element(
-      "<meta name=\"keywords\" content=\"$title\"")."\n".
+    $keywords_output.
     $self->close_html_lone_element(
       "<meta name=\"resource-type\" content=\"document\"")."\n".
      $self->close_html_lone_element(
@@ -11546,11 +11553,17 @@ sub _default_format_node_redirection_page($$;$)
       { 'href' => {'type' => '_converted', 'text' => $direction }}),
       'Tr redirection sentence');
 
-  my ($title, $description, $encoding, $date, $css_lines, $doctype,
+  my ($title, $description, $keywords, $encoding, $date, $css_lines, $doctype,
       $root_html_element_attributes, $body_attributes, $copying_comment,
       $after_body_open, $extra_head, $program_and_version, $program_homepage,
       $program, $generator) = $self->_file_header_information($command,
                                                               $filename);
+
+  my $keywords_output = '';
+  if (defined($keywords)) {
+    $keywords_output = $self->close_html_lone_element(
+        "<meta name=\"keywords\" content=\"$keywords\"")."\n";
+  }
 
   my $result = "$doctype
 <html${root_html_element_attributes}>
@@ -11561,8 +11574,7 @@ $encoding
 $copying_comment<title>$title</title>
 
 $description\n".
-   $self->close_html_lone_element(
-     "<meta name=\"keywords\" content=\"$title\"")."\n".
+   $keywords_output.
    $self->close_html_lone_element(
      "<meta name=\"resource-type\" content=\"document\"")."\n".
    $self->close_html_lone_element(

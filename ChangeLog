@@ -1,3 +1,13 @@
+2024-09-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_file_header_information)
+	(_default_format_begin_file, _default_format_node_redirection_page),
+	tp/Texinfo/XS/convert/convert_html.c (BEGIN_FILE_INFORMATION)
+	(destroy_begin_file_information, file_header_information)
+	(html_default_format_begin_file)
+	(html_default_format_node_redirection_page): add keywords to
+	file_header_information returned information.
+
 2024-09-25  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Loading Init Files), doc/texinfo.texi (HTML
