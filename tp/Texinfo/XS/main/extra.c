@@ -362,7 +362,7 @@ lookup_extra_misc_args (const ELEMENT *e, const char *key)
       fatal (msg);
       free (msg);
     }
-  return k->list;
+  return k->k.list;
 }
 
 ELEMENT *

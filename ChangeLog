@@ -1,15 +1,11 @@
-2024-09-28  Gavin Smith <gavinsmith0123@gmail.com>
+2024-09-28  Patrice Dumas  <pertusus@free.fr>
 
-	Tweak config paths for Info
+	* tp/Texinfo/XS/main/extra.c (lookup_extra_misc_args),
+	tp/Texinfo/XS/main/manipulate_tree.c (associate_info_references),
+	tp/Texinfo/XS/main/tree.c (destroy_associated_info): add missing
+	KEY_PAIR union name k.
 
-	* info/infomap.c (locate_init_file):
-	Check ~/.infokey before checking XDG_CONFIG_HOME,
-	simililar to how GNU Emacs does it.   Do not use /etc/xdg as
-	a default for XDG_CONFIG_DIRS.  Check in $sysconfdir/xdg/texinfo
-	before XDG_CONFIG_DIRS, as with recent changes to texi2any.
-	* info/Makefile.am (AM_CPPFLAGS): propagate sysconfdir
-
-	* NEWS, doc/info-stnd.texi (Custom Key Bindings): update.
+	Reorder ChangeLog to correspond to commits order.
 
 2024-05-31  Patrice Dumas  <pertusus@free.fr>
 
@@ -182,8 +178,21 @@
 	no additional information nor contents nor args.
 
 	* tp/Texinfo/XS/main/convert_utils.c
-	(find_root_command_next_heading_command): add a but message if normal
+	(find_root_command_next_heading_command): add a bug message if normal
 	text appears directly in top level (should be in a paragraph).
+
+2024-09-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Tweak config paths for Info
+
+	* info/infomap.c (locate_init_file):
+	Check ~/.infokey before checking XDG_CONFIG_HOME,
+	simililar to how GNU Emacs does it.   Do not use /etc/xdg as
+	a default for XDG_CONFIG_DIRS.  Check in $sysconfdir/xdg/texinfo
+	before XDG_CONFIG_DIRS, as with recent changes to texi2any.
+	* info/Makefile.am (AM_CPPFLAGS): propagate sysconfdir
+
+	* NEWS, doc/info-stnd.texi (Custom Key Bindings): update.
 
 2024-05-31  Patrice Dumas  <pertusus@free.fr>
 

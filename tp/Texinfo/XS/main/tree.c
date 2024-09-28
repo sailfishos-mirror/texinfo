@@ -162,7 +162,7 @@ destroy_associated_info (ASSOCIATED_INFO *a)
           for (j = 0; j < l->number; j++)
             destroy_element (l->list[j]);
 
-          destroy_list (a->info[i].list);
+          destroy_list (a->info[i].k.list);
           }
           break;
 

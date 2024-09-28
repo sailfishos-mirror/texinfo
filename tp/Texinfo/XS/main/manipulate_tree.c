@@ -285,7 +285,7 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
           }
         case extra_container:
           {
-            const ELEMENT *f = k_ref->element;
+            const ELEMENT *f = k_ref->k.element;
             KEY_PAIR *k = lookup_associated_info (new_info, key);
             ELEMENT *new_extra_element = k->k.element;
             for (j = 0; j < f->contents.number; j++)
@@ -325,8 +325,8 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
           int j;
           KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
           ELEMENT_LIST *new_extra_misc_args = new_list();
-          k->k.list = new_extra_mk.isc_args;
-          for (j = 0; j < k_ref->list->number; j++)
+          k->k.list = new_extra_misc_args;
+          for (j = 0; j < k_ref->k.list->number; j++)
             {
               const ELEMENT *e = k_ref->k.list->list[j];
               ELEMENT *new_e;
