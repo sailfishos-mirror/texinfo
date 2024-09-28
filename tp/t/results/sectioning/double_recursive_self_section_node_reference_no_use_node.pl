@@ -132,7 +132,7 @@ $result_trees{'double_recursive_self_section_node_reference_no_use_node'} = {
                     },
                     'normalized' => 'to-node1'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -193,7 +193,7 @@ $result_trees{'double_recursive_self_section_node_reference_no_use_node'} = {
                     },
                     'normalized' => 'node1'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
