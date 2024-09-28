@@ -4192,11 +4192,11 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
             }
 
           if (node_description->cmd == CM_nodedescription)
-            description_element = node_description->args.list[0];
+            description_element = node_description->c->args.list[0];
           else
             {
               description_element = new_element (ET_NONE);
-              description_element->contents = node_description->contents;
+              description_element->c->contents = node_description->c->contents;
               add_tree_to_build (self, description_element);
             }
 
@@ -4227,7 +4227,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
           if (node_description->cmd != CM_nodedescription)
             {
               remove_tree_to_build (self, description_element);
-              description_element->contents.list = 0;
+              description_element->c->contents.list = 0;
               destroy_element (description_element);
             }
           if (type == HTT_string)
@@ -6604,7 +6604,7 @@ html_default_format_single_footnote (CONVERTER *self, const ELEMENT *element,
   xasprintf (&context_str, "%s %d %s", element_command_name (element),
                            number_in_doc, footid);
   footnote_text
-    = convert_tree_new_formatting_context (self, element->args.list[0],
+    = convert_tree_new_formatting_context (self, element->c->args.list[0],
                                                  context_str, 0, 0, 0);
   free (context_str);
 

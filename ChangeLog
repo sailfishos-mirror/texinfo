@@ -1,11 +1,9 @@
 2024-09-28  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/main/extra.c (lookup_extra_misc_args),
-	tp/Texinfo/XS/main/manipulate_tree.c (associate_info_references),
-	tp/Texinfo/XS/main/tree.c (destroy_associated_info): add missing
-	KEY_PAIR union name k.
-
-	Reorder ChangeLog to correspond to commits order.
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_description)
+	(html_default_format_single_footnote),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (new_node_menu_entry):
+	add missing ELEMENT c union.
 
 2024-05-31  Patrice Dumas  <pertusus@free.fr>
 
@@ -123,6 +121,15 @@
 	(handle_block_command), tp/Texinfo/XS/parsetexi/parser.c (merge_text)
 	(abort_empty_line): use type_data[type].name instead of
 	element_type_names[type].
+
+2024-09-28  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/extra.c (lookup_extra_misc_args),
+	tp/Texinfo/XS/main/manipulate_tree.c (associate_info_references),
+	tp/Texinfo/XS/main/tree.c (destroy_associated_info): add missing
+	KEY_PAIR union name k.
+
+	Reorder ChangeLog to correspond to commits order.
 
 2024-05-31  Patrice Dumas  <pertusus@free.fr>
 
