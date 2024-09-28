@@ -30,7 +30,8 @@ AM_CPPFLAGS =                                   \
   -I$(top_builddir)/gnulib/lib                  \
   -DLOCALEDIR=\"$(datadir)/locale\"             \
   -DINFODIR=\"$(infodir)\"                      \
-  -DINFODIR2=\"$(datadir)/info\"
+  -DINFODIR2=\"$(datadir)/info\"                \
+  -DSYSCONFDIR=\"$(sysconfdir)\"
 
 LDADD = $(top_builddir)/gnulib/lib/libgnu.a $(TERMLIBS)
 

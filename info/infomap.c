@@ -633,11 +633,22 @@ locate_init_file (void)
       free (filename);
     }
 
+  /* Next, check sysconfdir. */
+#ifdef SYSCONFDIR
+  filename = xmalloc (strlen (SYSCONFDIR) + strlen("/xdg/")
+                      + strlen (PACKAGE) + 1
+                      + strlen (INFOKEY_FILE) + 1);
+  sprintf (filename, "%s/xdg/%s/%s", SYSCONFDIR, PACKAGE, INFOKEY_FILE);
+  if (stat (filename, &finfo) == 0)
+    return filename;
+  free (filename);
+#endif
+
   /* Finally, check through XDG_CONFIG_DIRS. */
 
   char *xdg_config_dirs = getenv ("XDG_CONFIG_DIRS");
   if (!xdg_config_dirs)
-    xdg_config_dirs = "/etc/xdg";
+    return 0;
 
   char *xdg_config_dirs_split = xstrdup (xdg_config_dirs);
 

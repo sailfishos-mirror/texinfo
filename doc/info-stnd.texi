@@ -2301,29 +2301,35 @@ On startup, GNU Info looks for a configuration file:
 
 @itemize @bullet
 @item
-First, Info checks
-for @file{@env{$XDG_CONFIG_HOME/texinfo/infokey}}.  The default value
-of @env{$XDG_CONFIG_HOME} is @file{~/.config},
-so usually the file will be at @file{~/.config/texinfo/infokey}.
-(@file{~} here refers to the user's @env{HOME} directory.)
-
-@item
-If the file is not present at this location, Info then checks
-@file{~/.infokey}.@footnote{Due to the limitations of DOS filesystems,
+First, Info checks @file{~/.infokey},
+where @file{~} refers to the user's @env{HOME}
+directory.@footnote{Due to the limitations of DOS filesystems,
 the MS-DOS version of Info looks for a file @file{_infokey} instead.  If
 the @env{HOME} variable is not defined, Info additionally looks in the
 current directory.}
 
 @item
-Finally, Info checks through @env{$XDG_CONFIG_DIRS} (default value:
-@samp{/etc/xdg}), which is a colon-separated list of directory names,
-for a file named @file{texinfo/infokey}.
+If the file is not present at this location, Info then checks
+for @file{@env{$XDG_CONFIG_HOME/texinfo/infokey}}.  The default value
+of @env{$XDG_CONFIG_HOME} is @file{~/.config},
+so usually the file will be at @file{~/.config/texinfo/infokey}.
+
+@item
+Info then checks for @file{@var{sysconfdir}/xdg/texinfo/infokey}, where
+@var{sysconfdir} is was set when Info was built, usually to @samp{/etc/}
+or @samp{/usr/local/etc}.
+
+@item
+Finally, Info checks through @env{$XDG_CONFIG_DIRS} which is
+a colon-separated list of directory names, for a file named
+@file{texinfo/infokey}.
 
 @end itemize
 
 @noindent
-This search order is in accordance with the
-@uref{https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html, XDG Base Directory Specification}.
+This search order is compatible with the
+@uref{https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html, XDG Base Directory Specification}
+although doesn't follow it in every detail.
 
 To use an alternative configuration file, use the @option{--init-file}
 option (@pxref{--init-file}).
