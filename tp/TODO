@@ -164,7 +164,7 @@ It would be nice to also have a translation in parser in a translation
 in parser.  That would mean having a po/gmo file where the string
 translated in the parser for @def* indices, for instance "{name} of {class}"
 is translated to a string including @def* commands, like
-@deftypeop a b c d e f        
+@deftypeop a b c d e f
 AA
 @end deftypeop
 
@@ -400,7 +400,7 @@ could be done automatically now with
 tp/maintain/copy_change_file_name_encoding.pl.
 However, there is already a test with an include file in latin1, it
 is enough.
-Create the lain1 encoded from a latin1 console:
+Create the latin1 encoded from a latin1 console:
 cp tests/tex_html/tex_encode_latin1.texi tex_encodé_latin1.texi
 Run from an UTF-8 locale console.  The resulting file has a ? in the name
 but result is otherwise ok.
@@ -648,7 +648,7 @@ Normally happens only for invalid Texinfo, missing @def* name, empty
 
 <td> attribute "width" not allowed for HTML5
 <th> attribute "width" not allowed for HTML5
-These attributes are obsolete (though the elements are 
+These attributes are obsolete (though the elements are
 still part of the language), and must not be used by authors.
 The CSS replacement would be style="width: 40%".
 However, width is kept as an attribute in texi2any @multitable output and not
@@ -733,7 +733,7 @@ Also possible to install Texinfo dependencies with openCSW, like
 pkgutil -y -i CSWhelp2man CSWpm-data-compare CSWpm-test-deep
 
 The system perl may not be suitable to build XS modules, and the
-system gawk may be too old, openCSW may be needed.  For example: 
+system gawk may be too old, openCSW may be needed.  For example:
 ./configure PERL=/opt/csw/bin/perl GAWK=/opt/csw/bin/gawk CFLAGS='-g'
 
 ./configure PERL=/opt/csw/bin/perl GAWK=/opt/csw/bin/gawk CFLAGS='-g' LDFLAGS=-L/opt/csw/lib/ CPPFLAGS='-I/opt/csw/include/' PERL_EXT_LDFLAGS=-L/opt/csw/lib/ LIBS=-liconv
@@ -826,6 +826,7 @@ dlcosing becomes inaccessible, while being kept in valgrind output and appear
 as memory leaks.
 Call with --keep-debuginfo=yes:
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --keep-debuginfo=yes -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
+for file in $srcdir/t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --keep-debuginfo=yes -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
 
 For tests in tp/tests, a way to have valgrind call prependend is to add,
 in tp/defs:
@@ -914,7 +915,7 @@ Decomposition of the time used for the Texinfo manual with full XS
  structuring transformation2: 0.19
  remaining Texinfo XS code: 0.35
   = 8.95
- Perl: 22.5 = 7 + 15.2 + (75.57 - 54.8 - 11.5 - 8.95) 
+ Perl: 22.5 = 7 + 15.2 + (75.57 - 54.8 - 11.5 - 8.95)
 SUM: 98
 
 
