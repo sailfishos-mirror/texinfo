@@ -125,20 +125,21 @@ following directories:
 (where @var{datadir} is the system data directory specified at
 compile-time, e.g., @file{/usr/local/share})
 
-@item @env{XDG_DATA_DIRS}/texi2any
-(for each directory in the @code{:} delimited @env{XDG_DATA_DIRS} environment
-variable, in reverse order)
+@c @item @env{XDG_DATA_DIRS}/texi2any
+@c (for each directory in the @code{:} delimited @env{XDG_DATA_DIRS} environment
+@c variable, in reverse order)
 
 @c @item /etc/xdg/texi2any/
 @c (with @file{/etc/xdg} the default directory for @env{XDG_CONFIG_DIRS}
 @c in the XDG Base Directory Specification)
 
-@item @var{sysconfdir}/xdg/texi2any/
-(specified at compile time, e.g., @file{/usr/local/etc})
-
 @item @env{XDG_CONFIG_DIRS}/texi2any
 (for each directory in the @code{:} delimited @env{XDG_CONFIG_DIRS}
 environment variable, in reverse order)
+
+@item @var{sysconfdir}/xdg/texi2any/
+(where @var{sysconfdir} is specified at compile time, e.g.,
+@file{/usr/local/etc})
 
 @item ~/.config/texi2any/
 (where @code{~} is the current user's home directory, only if
@@ -172,27 +173,27 @@ file found is used:
 
 @item @file{./.texi2any/} under the current directory;
 
-@item @env{XDG_CONFIG_HOME}/texi2any if the @env{XDG_CONFIG_HOME} environment 
-is set, otherwise ~/.config/texi2any/ where @code{~} is the current user's home
-directory;
-
-@item if the environment variable @env{XDG_CONFIG_DIRS} is set,
-@var{directory}/texi2any for each @var{directory} in the
-@code{:} delimited @env{XDG_CONFIG_DIRS} environment variable value;
+@item @file{@env{XDG_CONFIG_HOME}/texi2any} if the @env{XDG_CONFIG_HOME}
+environment is set, otherwise @file{~/.config/texi2any/} where @code{~} is the
+current user's home directory;
 
 @item @file{@var{sysconfdir}/xdg/texi2any/}
 where @var{sysconfdir} is the system configuration directory
 specified at compile-time, e.g., @file{/usr/local/etc};
 
-@c @item @file{/etc/xdg/texi2any/}
+@item if the environment variable @env{XDG_CONFIG_DIRS} is set,
+@file{@var{directory}/texi2any} for each @var{directory} in the
+@code{:} delimited @env{XDG_CONFIG_DIRS} environment variable value;
 
-@item if the environment variable @env{XDG_DATA_DIRS} is set,
-@var{directory}/texi2any for each @var{directory} in the
-@code{:} delimited @env{XDG_DATA_DIRS} environment variable value;
+@c @item @file{/etc/xdg/texi2any/}
 
 @item @file{@var{datadir}/texi2any/}
 Where @var{datadir} is the system data directory specified at
 compile time, e.g., @file{/usr/local/share};
+
+@c @item if the environment variable @env{XDG_DATA_DIRS} is set,
+@c @var{directory}/texi2any for each @var{directory} in the
+@c @code{:} delimited @env{XDG_DATA_DIRS} environment variable value;
 
 @c @item @file{/usr/local/share/texi2any/}
 
@@ -202,23 +203,23 @@ compile time, e.g., @file{/usr/local/share};
 
 @c @item @file{~/.texinfo/init/} under the current home directory;
 
-@item @env{XDG_CONFIG_HOME}/texinfo/init if the @env{XDG_CONFIG_HOME}
-environment is set, otherwise ~/.config/texinfo/init/ where @code{~} is the
-current user's home directory;
-
-@item if the environment variable @env{XDG_CONFIG_DIRS} is set,
-@var{directory}/texinfo/init for each @var{directory} in the
-@code{:} delimited @env{XDG_CONFIG_DIRS} environment variable value;
+@item @file{@env{XDG_CONFIG_HOME}/texinfo/init} if the @env{XDG_CONFIG_HOME}
+environment is set, otherwise @file{~/.config/texinfo/init/} where @code{~} is
+the current user's home directory;
 
 @item @file{@var{sysconfdir}/xdg/texinfo/init/} with @var{sysconfdir} as above;
 
+@item if the environment variable @env{XDG_CONFIG_DIRS} is set,
+@file{@var{directory}/texinfo/init} for each @var{directory} in the
+@code{:} delimited @env{XDG_CONFIG_DIRS} environment variable value;
+
 @c @item @file{/etc/xdg/texinfo/init/}
 
-@item if the environment variable @env{XDG_DATA_DIRS} is set,
-@var{directory}/texinfo/init for each @var{directory} in the
-@code{:} delimited @env{XDG_DATA_DIRS} environment variable value;
-
 @item @file{@var{datadir}/texinfo/init/} with @var{datadir} as above.
+
+@c @item if the environment variable @env{XDG_DATA_DIRS} is set,
+@c @file{@var{directory}/texinfo/init} for each @var{directory} in the
+@c @code{:} delimited @env{XDG_DATA_DIRS} environment variable value;
 
 @c @item @file{/usr/local/share/texinfo/init/}
 

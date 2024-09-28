@@ -17864,24 +17864,24 @@ For example, if the input file is @file{some/dir/mymanual.texi},
 (where @code{~} is the current user's home directory, only if
 @env{XDG_CONFIG_HOME} is not set)
 
-@item @env{XDG_CONFIG_DIRS}/texinfo
-(for each directory in the @code{:} delimited @env{XDG_CONFIG_DIRS}
-environment variable)
-
 @item @var{sysconfdir}/xdg/texinfo/
 (where @var{sysconfdir} is the system configuration directory
 specified at compile-time, e.g., @file{/usr/local/etc})
+
+@item @env{XDG_CONFIG_DIRS}/texinfo
+(for each directory in the @code{:} delimited @env{XDG_CONFIG_DIRS}
+environment variable)
 
 @c @item /etc/xdg/texinfo/
 @c (with @file{/etc/xdg} the default directory for @env{XDG_CONFIG_DIRS}
 @c in the XDG Base Directory Specification)
 
-@item @env{XDG_DATA_DIRS}/texinfo
-(for each directory in the @code{:} delimited @env{XDG_DATA_DIRS} environment
-variable)
-
 @item @var{datadir}/texinfo/
 (specified at compile time, e.g., @file{/usr/local/share})
+
+@c @item @env{XDG_DATA_DIRS}/texinfo
+@c (for each directory in the @code{:} delimited @env{XDG_DATA_DIRS} environment
+@c variable)
 
 @c @item /usr/local/share/texinfo/
 @c (with @file{/usr/local/share} the first default directory for
@@ -17891,10 +17891,6 @@ variable)
 @c (with @file{/usr/share/} the second default directory for @env{XDG_DATA_DIRS}
 @c in the XDG Base Directory Specification)
 @end table
-
-A directory appearing more than once, for example if
-@file{@var{datadir}/texinfo/} is in @env{XDG_DATA_DIRS}, is only looked up
-once.
 
 All files found are used, with earlier entries overriding later ones.
 The Texinfo distribution includes a default file which handles many

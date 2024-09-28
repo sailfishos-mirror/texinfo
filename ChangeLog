@@ -1,3 +1,11 @@
+2024-09-28  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Loading Init Files), doc/texinfo.texi (HTML
+	Xref Configuration), tp/texi2any.pl (add_config_paths)
+	(set_subdir_directories): search in $sysconfdir/xdg before
+	XDG_CONFIG_DIRS.  Do not search in XDG_DATA_DIRS.  Agreement on Gavin
+	report.
+
 2024-09-26  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_formatted_nodedescription_nr)

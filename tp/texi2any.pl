@@ -389,8 +389,8 @@ my $conf_file_name = 'texi2any-config.pm';
 #  $HOME/texinfo should be $XDG_CONFIG_HOME default: $HOME/.config/texinfo
 my %deprecated_directories;
 
-# We use first the environment variable, then the installation directory,
-# even if the environment variable was set.
+# We use first the installation directory, and then the environment variable
+# directories.
 sub add_config_paths($$$$;$$) {
   my $env_string = shift;
   my $subdir = shift;
@@ -399,29 +399,41 @@ sub add_config_paths($$$$;$$) {
   my $overriding_dirs = shift;
   my $deprecated_dirs = shift;
 
-  my @result_dirs;
-  my %used_base_dirs;
+  # read the env directories to avoid setting the overriding_dirs
+  # as deprecated if they are explicitely specified in the environnement
+  # variable.
+  my @xdg_result_dirs;
+  my %used_xdg_base_dirs;
   if (defined($ENV{$env_string}) and $ENV{$env_string} ne '') {
     foreach my $dir (split(':', $ENV{$env_string})) {
       if ($dir ne '') {
-        push @result_dirs, File::Spec->catdir($dir, $subdir);
-        $used_base_dirs{$dir} = 1;
+        push @xdg_result_dirs, File::Spec->catdir($dir, $subdir);
+        $used_xdg_base_dirs{$dir} = 1;
       }
     }
   }
-  if (defined($installation_dir)
-      and not $used_base_dirs{$installation_dir}) {
+  my @result_dirs;
+  my %used_base_dirs;
+  if (defined($installation_dir)) {
+      #and not $used_base_dirs{$installation_dir}) {
     my $install_result_dir = File::Spec->catdir($installation_dir, $subdir);
     push @result_dirs, $install_result_dir;
     $used_base_dirs{$installation_dir} = 1;
     if ($overriding_dirs and $overriding_dirs->{$installation_dir}) {
       my $deprecated_dir
        = File::Spec->catdir($overriding_dirs->{$installation_dir}, $subdir);
-      if (not $used_base_dirs{$deprecated_dir}) {
+      if (not $used_xdg_base_dirs{$deprecated_dir}) {
         $deprecated_dirs->{$deprecated_dir} = $install_result_dir;
         push @result_dirs, $deprecated_dir;
         $used_base_dirs{$deprecated_dir} = 1;
       }
+    }
+  }
+
+  foreach my $dir (@xdg_result_dirs) {
+    if (!$used_base_dirs{$dir}) {
+      push @result_dirs, File::Spec->catdir($dir, $subdir);
+      $used_base_dirs{$dir} = 1;
     }
   }
 
@@ -460,16 +472,23 @@ sub set_subdir_directories($$) {
   my $sysconf_install_dir = File::Spec->catdir($sysconfdir, 'xdg');
   # associate new location to deprecated location
   my $overriding_dirs = {$sysconf_install_dir => $sysconfdir};
-  # in 2024, mark $sysconfdir deprecated in favor of $sysconfdir/xdg.
+  # in 2024, mark $sysconfdir overriden by $sysconfdir/xdg.
   my $config_dirs = add_config_paths('XDG_CONFIG_DIRS', $subdir,
                        ['/etc/xdg'], File::Spec->catdir($sysconfdir, 'xdg'),
                        $overriding_dirs, $deprecated_dirs);
   push @result, @$config_dirs;
 
-  my $data_dirs = add_config_paths('XDG_DATA_DIRS', 'texinfo',
-      ['/usr/local/share/', '/usr/share/'], $datadir);
+  # the following code could have been used to use XDG_DATA_DIRS for
+  # datadir directories and files too
+  #my $data_dirs = add_config_paths('XDG_DATA_DIRS', $subdir,
+  #    ['/usr/local/share/', '/usr/share/'], $datadir);
 
-  push @result, @$data_dirs;
+  #push @result, @$data_dirs;
+  # Do not use XDG base specification for directories and files in
+  # datadir, there is no need for customization of those directories
+  # since the sysconfdir directories are already customized, just use
+  # the installation directory.
+  push @result, File::Spec->catdir($datadir, $subdir);
 
   return \@result;
 }
