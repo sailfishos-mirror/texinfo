@@ -1,3 +1,7 @@
+2024-09-28  Patrice Dumas  <pertusus@free.fr>
+
+	Update test result
+
 2024-06-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Converter.pm (table_item_content_tree),

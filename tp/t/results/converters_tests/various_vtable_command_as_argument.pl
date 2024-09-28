@@ -1834,7 +1834,7 @@ $result_converted{'html_text'}->{'various_vtable_command_as_argument'} = '<div c
 <a class="summary-letter-printindex" href="#Indices_vr_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="vr-entries-printindex" border="0">
+<table class="vr-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Indices_vr_symbol-1">:</th></tr>
