@@ -31,6 +31,7 @@
 #undef context
 
 #include "converter_types.h"
+#include "builtin_commands.h"
 #include "utils.h"
 #include "converter.h"
 #include "get_perl_info.h"
