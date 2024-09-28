@@ -116,7 +116,7 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
                           'text' => 'is a description'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'emph',
@@ -132,7 +132,7 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
                           'text' => 'slightly long'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'w',
@@ -152,7 +152,7 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
                           'type' => 'raw'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'verb',
