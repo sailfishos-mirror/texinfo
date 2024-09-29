@@ -1,3 +1,9 @@
+2024-09-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES)
+	(nodist_IndicesXS_la_SOURCES, ConvertXS_la_SOURCES): put converter C
+	files in libtexinfo_convert_la_SOURCES.
+
 2024-07-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES, EXTRA_DIST)

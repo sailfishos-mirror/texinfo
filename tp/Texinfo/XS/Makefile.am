@@ -244,6 +244,7 @@ BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
 # Need to be distributed
 EXTRA_DIST+=main/element_types.txt main/element_types.awk \
 	   main/command_data.awk
+EXTRA_DIST += convert/cmd_converter.c
 
 $(srcdir)/main/element_types.c $(srcdir)/main/element_types.h: main/element_types.txt main/element_types.awk
 	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/element_types.awk \
@@ -338,12 +339,15 @@ endif
 libtexinfo_convert_la_SOURCES= \
                        convert/converter.c \
                        convert/converter.h \
+                       convert/cmd_converter.c \
                        convert/convert_html.h \
                        convert/convert_html.c \
                        convert/build_html_perl_state.h \
                        convert/build_html_perl_state.c \
                        convert/call_html_perl_function.h \
-                       convert/call_html_perl_function.c
+                       convert/call_html_perl_function.c \
+                       convert/get_converter_perl_info.c \
+                       convert/get_converter_perl_info.h
 
 # locate include files under out-of-source builds.
 # parsetexi will only be needed for texinfo.c
@@ -420,9 +424,7 @@ xs_LTLIBRARIES += IndicesXS.la
 endif
 
 nodist_IndicesXS_la_SOURCES = \
-                    main/IndicesXS.c \
-                    convert/get_converter_perl_info.c \
-                    convert/get_converter_perl_info.h
+                    main/IndicesXS.c
 
 CLEANFILES += \
                     main/IndicesXS.c
@@ -448,14 +450,10 @@ CLEANFILES += convert/ConvertXS.c
 ConvertXS_la_SOURCES = \
                        convert/get_html_perl_info.c \
                        convert/get_html_perl_info.h \
-                       convert/converter.h \
-                       convert/converter.c \
-                       convert/cmd_converter.c \
                        convert/convert_html.h \
                        convert/convert_html.c
 
 EXTRA_DIST += convert/ConvertXS.xs
-EXTRA_DIST += convert/cmd_converter.c
 
 # To locate include files under out-of-source builds.
 ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/convert $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
