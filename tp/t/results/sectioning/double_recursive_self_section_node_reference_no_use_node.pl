@@ -381,21 +381,10 @@ $result_floats{'double_recursive_self_section_node_reference_no_use_node'} = {};
 $result_converted{'plaintext'}->{'double_recursive_self_section_node_reference_no_use_node'} = 'top
 ***
 
-1 *note to *note node1::::
-**************************
+1 to node1
+**********
 
 ';
-
-$result_converted_errors{'plaintext'}->{'double_recursive_self_section_node_reference_no_use_node'} = [
-  {
-    'error_line' => 'warning: @ref node name should not contain `:\'
-',
-    'line_nr' => 5,
-    'text' => '@ref node name should not contain `:\'',
-    'type' => 'warning'
-  }
-];
-
 
 
 $result_converted{'html'}->{'double_recursive_self_section_node_reference_no_use_node'} = '<!DOCTYPE html>
