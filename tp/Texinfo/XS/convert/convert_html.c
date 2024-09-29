@@ -4181,7 +4181,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
   HTML_TARGET *target_info;
 
   ELEMENT *manual_content = lookup_extra_element (command,
-                                                  "manual_content");
+                                                  AI_key_manual_content);
   if (manual_content)
     return 0;
 
@@ -4214,12 +4214,13 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
           if (command->cmd == CM_node)
             node = command;
           else
-            node = lookup_extra_element (command, "associated_node");
+            node = lookup_extra_element (command, AI_key_associated_node);
 
           if (!node)
             return 0;
 
-          node_description = lookup_extra_element (node, "node_description");
+          node_description
+             = lookup_extra_element (node, AI_key_node_description);
 
           if (!node_description)
             return 0;
