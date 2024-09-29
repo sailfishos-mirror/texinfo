@@ -93,12 +93,8 @@
 
 2024-06-05  Patrice Dumas  <pertusus@free.fr>
 
-	Do not use unnamed union for KEY_PAIR in rebased code
-
-	* tp/Texinfo/XS/main/extra.c (lookup_extra_misc_args),
-	tp/Texinfo/XS/main/manipulate_tree.c (associate_info_references),
-	tp/Texinfo/XS/main/tree.c (destroy_associated_info): update code after
-	rebasing master.
+	* tp/Texinfo/XS/main/tree.c (destroy_associated_info): use k_pair
+	variable.
 
 2024-06-05  Patrice Dumas  <pertusus@free.fr>
 
@@ -242,7 +238,7 @@
 	(convert_to_texinfo_internal), tp/Texinfo/XS/main/manipulate_tree.c
 	(copy_tree_internal), tp/Texinfo/XS/main/tree_types.h (ELEMENT),
 	tp/Texinfo/XS/parsetexi/def.c (parse_def): replace inserted field by
-	flags and add a corresponding flag. 
+	flags and add a corresponding flag.
 
 	* tp/Texinfo/XS/convert/converter.c (table_item_content_tree),
 	tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash),
@@ -1158,7 +1154,7 @@
 
 	* tp/Texinfo/Convert/HTML.pm (%defaults): do not set MISC_BUTTONS to
 	SECTION_BUTTONS in the default case, as there are no regular
-	directions set for special output units.  Add Top button instead of 
+	directions set for special output units.  Add Top button instead of
 	regular directions, with default now being the same as with TEXI2HTML
 	style.  Report from Rudolf Adamkovič.
 
@@ -1376,7 +1372,7 @@
 2024-09-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/ext/epub3.pm (epub_convert_special_unit_type): rename
-	$element variable as $output_unit. 
+	$element variable as $output_unit.
 
 2024-09-05  Patrice Dumas  <pertusus@free.fr>
 
@@ -1534,7 +1530,7 @@
 
 	* tp/texi2any.pl (%converter_format_expanded_region_name)
 	(set_format): more explicit code and variable names to distinguish
-	output format, converter format and expanded region. 
+	output format, converter format and expanded region.
 
 2024-08-25  Patrice Dumas  <pertusus@free.fr>
 
@@ -2171,7 +2167,7 @@
 	(indices_sort_strings), tp/Texinfo/XS/main/build_perl_info.c
 	(BUILD_PERL_DOCUMENT_ITEM, BUILD_PERL_DOCUMENT_LIST)
 	(document_global_information): rename sv_ref to avoid false positiver
-	reported by ppport.h as sv_ref is also exported as part of Perl API as 
+	reported by ppport.h as sv_ref is also exported as part of Perl API as
 	a function.  Report by Gavin.
 
 2024-06-06  Patrice Dumas  <pertusus@free.fr>
@@ -2390,7 +2386,7 @@
 	* tp/Texinfo/XS/main/document.c
 	(destroy_document_information_except_tree)
 	(remove_document_descriptor): destroy the document structure fields
-	and the small_strings even if the tree is not set. 
+	and the small_strings even if the tree is not set.
 
 	* tp/Texinfo/XS/main/document.c
 	(unregister_document_merge_with_document): free the removed document
@@ -2719,7 +2715,7 @@
 	(parse_string, parse_text), tp/Texinfo/XS/parsetexi/conf.c
 	(reset_parser_conf): pass parser to parser_* functions in Parsetexi.xs
 	to retrieve the parser_conf_descriptor kept in the parser with
-	apply_sv_parser_conf.  Replace the current global_parser_conf with the 
+	apply_sv_parser_conf.  Replace the current global_parser_conf with the
 	parser_conf associated with the parser by calling apply_conf.
 	Do not clear global_parser_conf structures in reset_parser_conf if the
 	global_parser_conf is registered.  Inline clear_global_parser_conf.
@@ -3080,7 +3076,7 @@
 	value_list, value_number and value_space that are removed.  Add
 	store_parser_value that does the same as store_value previously by
 	calling store_value with parser_values.  Update fetch_value and
-	clear_value to use parser_values.  
+	clear_value to use parser_values.
 
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
 	tp/Texinfo/XS/parsetexi/Parsetexi.xs (parser_store_values),
@@ -3928,7 +3924,7 @@
 2024-05-01  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Simple Navigation Panel Customization):
-	comment out documentation of buttons specification that is not used in 
+	comment out documentation of buttons specification that is not used in
 	code nor tests.
 
 2024-05-01  Patrice Dumas  <pertusus@free.fr>
@@ -4296,7 +4292,7 @@
 
 2024-04-16  Patrice Dumas  <pertusus@free.fr>
 
-	* doc/texinfo.texi (@LaTeX{} Customization Variables), 
+	* doc/texinfo.texi (@LaTeX{} Customization Variables),
 	tp/Texinfo/Convert/LaTeX.pm (%defaults, _latex_header),
 	tp/Texinfo/options_data.txt: add new customization variable
 	LATEX_FLOATS_FILE_EXTENSION.
