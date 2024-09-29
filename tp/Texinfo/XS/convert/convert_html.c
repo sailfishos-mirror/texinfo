@@ -4192,11 +4192,12 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
             }
 
           if (node_description->cmd == CM_nodedescription)
-            description_element = node_description->c->args.list[0];
+            description_element = node_description->e.c->args.list[0];
           else
             {
               description_element = new_element (ET_NONE);
-              description_element->c->contents = node_description->c->contents;
+              description_element->e.c->contents
+                 = node_description->e.c->contents;
               add_tree_to_build (self, description_element);
             }
 
@@ -4227,7 +4228,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
           if (node_description->cmd != CM_nodedescription)
             {
               remove_tree_to_build (self, description_element);
-              description_element->c->contents.list = 0;
+              description_element->e.c->contents.list = 0;
               destroy_element (description_element);
             }
           if (type == HTT_string)
