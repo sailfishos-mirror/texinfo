@@ -1,3 +1,8 @@
+2024-09-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_description):
+	update for move of cmd to CONTAINER.
+
 2024-06-16  Patrice Dumas  <pertusus@free.fr>
 
 	Turn source_mark_list to a pointer

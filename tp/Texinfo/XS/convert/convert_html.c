@@ -4204,15 +4204,15 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
           char *multiple_formatted = 0;
           ELEMENT *description_element;
           const char *command_name;
+          enum command_id cmd = element_builtin_cmd (command);
 
           if (command->type == ET_special_unit_element)
             return 0;
 
-          if (command->cmd && (command->cmd == CM_float
-                               || command->cmd == CM_anchor))
+          if (cmd == CM_float || cmd == CM_anchor)
             return 0;
 
-          if (command->cmd == CM_node)
+          if (cmd == CM_node)
             node = command;
           else
             node = lookup_extra_element (command, AI_key_associated_node);
@@ -4239,7 +4239,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
                          formatted_nodedescription_nr);
             }
 
-          if (node_description->cmd == CM_nodedescription)
+          if (node_description->e.c->cmd == CM_nodedescription)
             description_element = node_description->e.c->args.list[0];
           else
             {
@@ -4273,7 +4273,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
 
           if (formatted_nodedescription_nr > 1)
             free (multiple_formatted);
-          if (node_description->cmd != CM_nodedescription)
+          if (node_description->e.c->cmd != CM_nodedescription)
             {
               remove_tree_to_build (self, description_element);
               description_element->e.c->contents.list = 0;
