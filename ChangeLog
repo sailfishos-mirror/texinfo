@@ -1,3 +1,9 @@
+2024-09-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/get_converter_perl_info.h: move back
+	get_converter_perl_info.c functions declarations to
+	get_converter_perl_info.h.
+
 2024-07-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Converter.pm (set_document): remove a redundant
