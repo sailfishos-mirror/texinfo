@@ -449,9 +449,7 @@ CLEANFILES += convert/ConvertXS.c
 
 ConvertXS_la_SOURCES = \
                        convert/get_html_perl_info.c \
-                       convert/get_html_perl_info.h \
-                       convert/convert_html.h \
-                       convert/convert_html.c
+                       convert/get_html_perl_info.h
 
 EXTRA_DIST += convert/ConvertXS.xs
 
