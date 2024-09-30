@@ -37,6 +37,7 @@
 #  --no-conditional-dependencies \
 #  --libtool \
 #  --macro-prefix=gl \
+#  copy-file \
 #  getline \
 #  iconv \
 #  libunistring \
@@ -75,6 +76,7 @@
 # Specification in the form of a few gnulib-tool.m4 macro invocations:
 gl_LOCAL_DIR([])
 gl_MODULES([
+  copy-file
   getline
   iconv
   libunistring
