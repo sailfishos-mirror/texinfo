@@ -850,11 +850,7 @@ call_formatting_function_format_single_footnote (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   dSP;
 
