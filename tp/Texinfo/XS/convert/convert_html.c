@@ -25,7 +25,7 @@
 #include <unistr.h>
 #include <unictype.h>
 
-#include "copy-file_but_owner.h"
+#include "copy-file.h"
 
 #include "text.h"
 #include "element_types.h"
@@ -20891,7 +20891,7 @@ do_js_files (CONVERTER *self)
 
                   xasprintf (&from, "%s/%s", jssrcdir, js_files[i]);
                   xasprintf (&to, "%s/%s", encoded_jsdir, js_files[i]);
-                  status = qcopy_file_preserving_but_owner (from, to);
+                  status = copy_file_to (from, to);
 
                   if (status != 0)
                     {

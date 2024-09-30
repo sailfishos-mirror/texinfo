@@ -1,9 +1,7 @@
 2024-09-30  Patrice Dumas  <pertusus@free.fr>
 
-	Add gnulib copy-file module
-
-	* tp/Texinfo/XS:
-	Run "gnulib-tool --add-import copy-file"
+	* tp/Texinfo/XS/convert/convert_html.c (do_js_files): use
+	copy_file_to.
 
 2024-07-23  Patrice Dumas  <pertusus@free.fr>
 
@@ -31,6 +29,13 @@
 	tp/Texinfo/XS/convert/build_html_perl_state.c
 	(html_pass_converter_output_state): always set converter_info in Perl
 	converter for calls to get_info in Perl, which can happen anywhere.
+
+2024-09-30  Patrice Dumas  <pertusus@free.fr>
+
+	Add gnulib copy-file module
+
+	* tp/Texinfo/XS:
+	Run "gnulib-tool --add-import copy-file"
 
 2024-07-23  Patrice Dumas  <pertusus@free.fr>
 
