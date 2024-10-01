@@ -1,3 +1,9 @@
+2024-10-01  Patrice Dumas  <pertusus@free.fr>
+
+	* Makefile.am, ChangeLog: remove spurious references to
+	copy-file_but_owner.c. copy-file_but_owner.c never existed in this
+	timeline.
+
 2024-07-28  Patrice Dumas  <pertusus@free.fr>
 
 	* po_document/Makevars (XGETTEXT_OPTIONS): add cdt_tree and
@@ -46,8 +52,7 @@
 
 	* po/Makevars (XGETTEXT_OPTIONS): add pass-perl-format flag for __p.
 
-	* Makefile.am (po-check): add missing keywords.  Add an exception for
-	copy-file_but_owner.c false positive where _() are commented out.
+	* Makefile.am (po-check): add missing keywords.
 
 2024-07-28  Patrice Dumas  <pertusus@free.fr>
 

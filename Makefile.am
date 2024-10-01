@@ -104,7 +104,6 @@ update-po:
 # Note that pgettext is not matched to avoid a false positive in
 # tp/Texinfo/Translations.pm, but it is not problematic as it appears
 # only in errors.c, which matches other function names.
-# copy-file_but_owner.c is a false positive as _() are commented out.
 po-check:
 	@if test -f po/POTFILES.in; then				\
 	  grep -E -v '^(#|$$)' po/POTFILES.in				\
@@ -120,7 +119,6 @@ po-check:
 	      texinfo-*/*) continue;;					\
               tp/maintain/* ) continue;;				\
               tp/t/results* ) continue;;				\
-	      tp/Texinfo/XS/copy-file_but_owner.c) continue;;		\
 	      tp/Texinfo/XS/gnulib/lib/*) continue;;			\
 	    esac;							\
 	    files="$$files $$file";					\
