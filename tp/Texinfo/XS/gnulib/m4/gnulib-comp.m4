@@ -676,32 +676,32 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([0.9.11], [unicase/empty-suffix-context])
   AC_REQUIRE([AC_C_INLINE])
   AC_PROG_MKDIR_P
-  gl_LIBUNISTRING_MODULE([0.9.11], [unicase/tolower])
-  gl_LIBUNISTRING_MODULE([0.9.11], [unicase/toupper])
-  gl_LIBUNISTRING_MODULE([1.1], [unicase/u8-tolower])
-  gl_LIBUNISTRING_MODULE([1.1], [unicase/u8-toupper])
-  gl_LIBUNISTRING_LIBHEADER([1.2], [unictype.h])
+  gl_LIBUNISTRING_MODULE([1.3], [unicase/tolower])
+  gl_LIBUNISTRING_MODULE([1.3], [unicase/toupper])
+  gl_LIBUNISTRING_MODULE([1.3], [unicase/u8-tolower])
+  gl_LIBUNISTRING_MODULE([1.3], [unicase/u8-toupper])
+  gl_LIBUNISTRING_LIBHEADER([1.3], [unictype.h])
   gl_UNICTYPE_H
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
-  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.2], [unictype/category-L])
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.3], [unictype/category-L])
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
-  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [unictype/category-M])
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.3], [unictype/category-M])
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
-  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [unictype/category-Mn])
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.3], [unictype/category-Mn])
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
-  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [unictype/category-Nd])
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.3], [unictype/category-Nd])
   AC_REQUIRE([AC_C_INLINE])
   gl_LIBUNISTRING_MODULE([0.9.8], [unictype/category-test])
-  gl_LIBUNISTRING_MODULE([1.1], [unictype/combining-class])
+  gl_LIBUNISTRING_MODULE([1.3], [unictype/combining-class])
   AC_REQUIRE([AC_C_INLINE])
-  gl_LIBUNISTRING_MODULE([1.2], [unictype/ctype-print])
+  gl_LIBUNISTRING_MODULE([1.3], [unictype/ctype-print])
   AC_REQUIRE([AC_C_INLINE])
-  gl_LIBUNISTRING_MODULE([0.9.11], [unictype/ctype-upper])
+  gl_LIBUNISTRING_MODULE([1.3], [unictype/ctype-upper])
   AC_REQUIRE([AC_C_INLINE])
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
-  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.2], [unictype/property-alphabetic])
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.3], [unictype/property-alphabetic])
   AC_REQUIRE([AC_C_INLINE])
   gl_UNICTYPE_H_REQUIRE_DEFAULTS
   gl_LIBUNISTRING_MODULE_WITH_VARIABLE([0.9.8], [unictype/property-join-control])
@@ -713,18 +713,18 @@ AC_DEFUN([gl_INIT],
   gl_UNINORM_H
   gl_UNINORM_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
-  gl_LIBUNISTRING_MODULE([1.1], [uninorm/canonical-decomposition])
-  gl_LIBUNISTRING_MODULE([0.9.11], [uninorm/composition])
-  gl_LIBUNISTRING_MODULE([1.1], [uninorm/decomposition])
+  gl_LIBUNISTRING_MODULE([1.3], [uninorm/canonical-decomposition])
+  gl_LIBUNISTRING_MODULE([1.3], [uninorm/composition])
+  gl_LIBUNISTRING_MODULE([1.3], [uninorm/decomposition])
   AC_REQUIRE([AC_C_INLINE])
   gl_UNINORM_H_REQUIRE_DEFAULTS
-  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [uninorm/nfc])
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.3], [uninorm/nfc])
   gl_UNINORM_H_REQUIRE_DEFAULTS
-  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [uninorm/nfd])
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.3], [uninorm/nfd])
   gl_UNINORM_H_REQUIRE_DEFAULTS
-  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.1], [uninorm/nfkd])
+  gl_LIBUNISTRING_MODULE_WITH_VARIABLE([1.3], [uninorm/nfkd])
   gl_MODULE_INDICATOR_FOR_TESTS([uninorm/u8-normalize])
-  gl_LIBUNISTRING_MODULE([1.1], [uninorm/u8-normalize])
+  gl_LIBUNISTRING_MODULE([1.3], [uninorm/u8-normalize])
   gl_UNISTD_H
   gl_UNISTD_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
@@ -764,9 +764,9 @@ AC_DEFUN([gl_INIT],
   ])
   gl_LIBUNISTRING_LIBHEADER([0.9.11], [uniwidth.h])
   AC_PROG_MKDIR_P
-  gl_LIBUNISTRING_MODULE([1.2], [uniwidth/u8-strwidth])
-  gl_LIBUNISTRING_MODULE([1.2], [uniwidth/u8-width])
-  gl_LIBUNISTRING_MODULE([1.2], [uniwidth/width])
+  gl_LIBUNISTRING_MODULE([1.3], [uniwidth/u8-strwidth])
+  gl_LIBUNISTRING_MODULE([1.3], [uniwidth/u8-width])
+  gl_LIBUNISTRING_MODULE([1.3], [uniwidth/width])
   gl_FUNC_UNSETENV
   gl_CONDITIONAL([GL_COND_OBJ_UNSETENV],
                  [test $HAVE_UNSETENV = 0 || test $REPLACE_UNSETENV = 1])
@@ -1183,6 +1183,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/uninorm.in.h
   lib/uninorm/canonical-decomposition.c
   lib/uninorm/compat-decomposition.c
+  lib/uninorm/composition-table-bounds.h
   lib/uninorm/composition-table.gperf
   lib/uninorm/composition.c
   lib/uninorm/decompose-internal.c

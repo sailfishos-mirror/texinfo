@@ -1,8 +1,8 @@
 /* DO NOT EDIT! GENERATED AUTOMATICALLY! */
-/* Decomposition of Unicode characters.  */
+/* Canonical composition of Unicode characters.  */
 /* Generated automatically by gen-uni-tables.c for Unicode 16.0.0.  */
 
-/* Copyright (C) 2000-2024 Free Software Foundation, Inc.
+/* Copyright (C) 2009-2024 Free Software Foundation, Inc.
 
    This file is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as
@@ -17,19 +17,9 @@
    You should have received a copy of the GNU Lesser General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
-extern const unsigned char gl_uninorm_decomp_chars_table[];
-
-#define decomp_header_0 10
-#define decomp_header_1 191
-#define decomp_header_2 5
-#define decomp_header_3 31
-#define decomp_header_4 31
-
-typedef struct
-  {
-    int level1[191];
-    int level2[30 << 5];
-    unsigned short level3[293 << 5];
-  }
-decomp_index_table_t;
-extern const decomp_index_table_t gl_uninorm_decomp_index_table;
+/* Maximum value of the first argument for which gl_uninorm_compose_lookup
+   can return a non-NULL value.  */
+#define UNINORM_COMPOSE_MAX_ARG1 0x16d69
+/* Maximum value of the second argument for which gl_uninorm_compose_lookup
+   can return a non-NULL value.  */
+#define UNINORM_COMPOSE_MAX_ARG2 0x16d67
