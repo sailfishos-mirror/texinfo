@@ -26,6 +26,8 @@ use warnings;
 
 use Text::Wrap;
 
+my $program_name = basename($0);
+
 my $base_default_css_element_class_styles_file = $ARGV[0];
 
 open (BDCSS, "<$base_default_css_element_class_styles_file") 
@@ -71,7 +73,7 @@ die "Need an output file\n" if (!defined($out_file));
 
 open(OUT, ">$out_file") or die "Open $out_file: $!\n";
     
-print OUT "# Automatically generated from $0\n\n";
+print OUT "# Automatically generated from $program_name\n\n";
 
 print OUT "package Texinfo::Data;\n\n";
 
