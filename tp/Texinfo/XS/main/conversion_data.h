@@ -1,4 +1,4 @@
-/* Automatically generated from ./../../maintain/generate_code_convert_data.pl */
+/* Automatically generated from generate_code_convert_data.pl */
 
 #ifndef CONVERSION_DATA_H
 #define CONVERSION_DATA_H
@@ -8,7 +8,7 @@ typedef struct HTML_DEFAULT_DIRECTION_STRING_TRANSLATED {
     const char *to_convert;
 } HTML_DEFAULT_DIRECTION_STRING_TRANSLATED;
 
-#define BASE_DEFAULT_CSS_ELEMENT_CLASS_STYLE_NR 39
+#define BASE_DEFAULT_CSS_ELEMENT_CLASS_STYLE_NR 50
 
 enum special_unit_info_type {
    SUI_type_none = -1,

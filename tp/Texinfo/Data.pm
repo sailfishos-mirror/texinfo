@@ -1,4 +1,4 @@
-# Automatically generated from generate_convert_data_perl_code.pl
+# Automatically generated from generate_code_convert_data.pl
 
 package Texinfo::Data;
 

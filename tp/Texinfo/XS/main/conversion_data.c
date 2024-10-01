@@ -1,4 +1,4 @@
-/* Automatically generated from ./../../maintain/generate_code_convert_data.pl */
+/* Automatically generated from generate_code_convert_data.pl */
 
 #include <config.h>
 
@@ -15,6 +15,9 @@ const CSS_SELECTOR_STYLE base_default_css_element_class_styles[] = {
     {"pre.menu-preformatted", "font-family: serif"},
     {"a.summary-letter-printindex", "text-decoration: none"},
     {"pre.display-preformatted", "font-family: inherit"},
+/* 'display: flex; justify-content: center' centers the pre as a whole */
+    {"pre.displaymath", "font-style: italic; font-family: serif; display: flex; justify-content: center"},
+    {"table.cartouche", "border-style: solid; border-radius: 0.5em"},
 /* used with PROGRAM_NAME_IN_FOOTER */
     {"span.program-in-footer", "font-size: smaller"},
     {"span.sansserif", "font-family: sans-serif; font-weight: normal"},
@@ -39,14 +42,23 @@ const CSS_SELECTOR_STYLE base_default_css_element_class_styles[] = {
     {"td.printindex-index-section", "vertical-align: top; padding-left: 1em"},
     {"td.printindex-index-see-also", "vertical-align: top; padding-left: 1em"},
     {"td.menu-entry-destination", "vertical-align: top"},
-    {"td.menu-entry-description", "vertical-align: top"},
+    {"td.menu-entry-description", "vertical-align: top; padding-left: 1em"},
     {"th.entries-header-printindex", "text-align:left"},
     {"th.sections-header-printindex", "text-align:left; padding-left: 1em"},
     {"th.menu-comment", "text-align:left"},
     {"td.category-def", "text-align:right"},
     {"td.call-def", "text-align:left"},
-    {"td.button-direction-about", "text-align:center"},
-    {"td.name-direction-about", "text-align:center"},
+    {"table.direction-about", "border-collapse: collapse"},
+    {"th.button-direction-about", "border-width: thin; border-bottom-style: solid; border-right-style: solid"},
+    {"th.name-direction-about", "border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid"},
+    {"th.description-direction-about", "border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid"},
+    {"th.example-direction-about", "border-width: thin; border-bottom-style: solid; border-left-style: solid"},
+    {"td.button-direction-about", "text-align: center; border-width: thin; border-right-style: solid"},
+    {"td.name-direction-about", "text-align: center; border-width: thin; border-right-style: solid; border-left-style: solid"},
+    {"td.description-direction-about", "border-width: thin; border-right-style: solid; border-left-style: solid"},
+    {"td.example-direction-about", "border-width: thin; border-left-style: solid"},
+    {"img.nav-icon", "vertical-align: middle"},
+    {"table.def-block", "width: 100%"},
 /* The anchor element is wrapped in a <span> rather than a block level element
    to avoid it appearing unless the mouse pointer is directly over the
    text, as it is annoying for anchors to flicker when you are moving your
