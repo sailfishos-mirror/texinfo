@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnulib 2.0.0.3462.e9796\n"
 "Report-Msgid-Bugs-To: bug-gnulib@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 10:46+0200\n"
+"POT-Creation-Date: 2024-10-01 22:45+0200\n"
 "PO-Revision-Date: 2011-05-19 15:10+0300\n"
 "Last-Translator: Toomas Soome <Toomas.Soome@microlink.ee>\n"
 "Language-Team: Estonian <linux-ee@lists.eenet.ee>\n"
@@ -18,42 +18,42 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gnulib/lib/copy-file.c:192
+#: gnulib/lib/copy-file.c:212
 #, fuzzy, c-format
 #| msgid "error while opening \"%s\" for reading"
 msgid "error while opening %s for reading"
 msgstr "viga \"%s\" lugemiseks avamisel"
 
-#: gnulib/lib/copy-file.c:196
+#: gnulib/lib/copy-file.c:216
 #, fuzzy, c-format
 #| msgid "cannot open backup file \"%s\" for writing"
 msgid "cannot open backup file %s for writing"
 msgstr "Varukoopia faili \"%s\" ei õnnestu kirjutamiseks avada"
 
-#: gnulib/lib/copy-file.c:200
+#: gnulib/lib/copy-file.c:220
 #, fuzzy, c-format
 #| msgid "error reading \"%s\""
 msgid "error reading %s"
 msgstr "viga \"%s\" lugemisel"
 
-#: gnulib/lib/copy-file.c:204
+#: gnulib/lib/copy-file.c:224
 #, fuzzy, c-format
 #| msgid "error writing \"%s\""
 msgid "error writing %s"
 msgstr "viga \"%s\" kirjutamisel"
 
-#: gnulib/lib/copy-file.c:208
+#: gnulib/lib/copy-file.c:228
 #, fuzzy, c-format
 #| msgid "error after reading \"%s\""
 msgid "error after reading %s"
 msgstr "viga peale \"%s\" lugemist"
 
-#: gnulib/lib/copy-file.c:215
+#: gnulib/lib/copy-file.c:235
 #, c-format
 msgid "preserving permissions for %s"
 msgstr "säilitan %s õiguseid"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "Tundmatu süsteemne viga"
 

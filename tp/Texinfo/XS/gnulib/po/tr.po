@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: coreutils 5.3.0\n"
 "Report-Msgid-Bugs-To: bug-gnulib@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 10:46+0200\n"
+"POT-Creation-Date: 2024-10-01 22:45+0200\n"
 "PO-Revision-Date: 2005-03-14 04:17+0200\n"
 "Last-Translator: Deniz Akkus Kanca <deniz@arayan.com>\n"
 "Language-Team: Turkish <gnu-tr-u12a@lists.sourceforge.net>\n"
@@ -21,38 +21,38 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.9.1\n"
 
-#: gnulib/lib/copy-file.c:192
+#: gnulib/lib/copy-file.c:212
 #, fuzzy, c-format
 msgid "error while opening %s for reading"
 msgstr "%s okumak için açılamadı"
 
-#: gnulib/lib/copy-file.c:196
+#: gnulib/lib/copy-file.c:216
 #, fuzzy, c-format
 msgid "cannot open backup file %s for writing"
 msgstr "%s yazmak için açılamadı"
 
-#: gnulib/lib/copy-file.c:200
+#: gnulib/lib/copy-file.c:220
 #, fuzzy, c-format
 msgid "error reading %s"
 msgstr "%s'i okunurken hata"
 
-#: gnulib/lib/copy-file.c:204
+#: gnulib/lib/copy-file.c:224
 #, fuzzy, c-format
 msgid "error writing %s"
 msgstr "%s'e yazarken hata"
 
-#: gnulib/lib/copy-file.c:208
+#: gnulib/lib/copy-file.c:228
 #, fuzzy, c-format
 msgid "error after reading %s"
 msgstr "%s'i okunurken hata"
 
-#: gnulib/lib/copy-file.c:215
+#: gnulib/lib/copy-file.c:235
 #, fuzzy, c-format
 #| msgid "cannot change permissions of %s"
 msgid "preserving permissions for %s"
 msgstr "%s'in erişim izinleri değiştirilemiyor"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "Bilinmeyen sistem hatası"
 

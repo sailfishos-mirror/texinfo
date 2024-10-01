@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnulib 2.0.0.3462.e9796\n"
 "Report-Msgid-Bugs-To: bug-gnulib@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 10:46+0200\n"
+"POT-Creation-Date: 2024-10-01 22:45+0200\n"
 "PO-Revision-Date: 2011-01-20 22:11+0100\n"
 "Last-Translator: Keld Simonsen <keld@keldix.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -24,42 +24,42 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gnulib/lib/copy-file.c:192
+#: gnulib/lib/copy-file.c:212
 #, fuzzy, c-format
 #| msgid "error while opening \"%s\" for reading"
 msgid "error while opening %s for reading"
 msgstr "fejl ved åbning af '%s' for læsning"
 
-#: gnulib/lib/copy-file.c:196
+#: gnulib/lib/copy-file.c:216
 #, fuzzy, c-format
 #| msgid "cannot open backup file \"%s\" for writing"
 msgid "cannot open backup file %s for writing"
 msgstr "kan ikke åbne sikkerhedskopifil '%s' for skrivning"
 
-#: gnulib/lib/copy-file.c:200
+#: gnulib/lib/copy-file.c:220
 #, fuzzy, c-format
 #| msgid "error reading \"%s\""
 msgid "error reading %s"
 msgstr "fejl ved læsning af '%s'"
 
-#: gnulib/lib/copy-file.c:204
+#: gnulib/lib/copy-file.c:224
 #, fuzzy, c-format
 #| msgid "error writing \"%s\""
 msgid "error writing %s"
 msgstr "fejl ved skrivning af '%s'"
 
-#: gnulib/lib/copy-file.c:208
+#: gnulib/lib/copy-file.c:228
 #, fuzzy, c-format
 #| msgid "error after reading \"%s\""
 msgid "error after reading %s"
 msgstr "fejl efter læsning af '%s'"
 
-#: gnulib/lib/copy-file.c:215
+#: gnulib/lib/copy-file.c:235
 #, c-format
 msgid "preserving permissions for %s"
 msgstr "bevarer rettigheder på %s"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "Ukendt systemfejl"
 
