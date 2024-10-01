@@ -17972,13 +17972,16 @@ If the keyword is @code{node}, @code{section}, or @code{chapter},
 @var{urlprefix} gives the host and directory for @var{manual} split
 into nodes, sections, or chapters, respectively.
 
-When available, @command{texi2any} will use the ``corresponding''
-value for cross-references between manuals.  That is, when generating
-monolithic output (@option{--no-split}), the @code{mono} URL will be
-used, when generating output that is split by node, the @code{node}
-URL will be used, etc.  However, if a manual is not available in that
-form, anything that is available can be used.  Here is the search
-order for each style:
+When @command{texi2any} is generating a link to another Texinfo manual,
+it will prefer to use a line for the manual with the same
+splitting option as the current output.  That is, when generating
+monolithic output (@option{--no-split}), a @code{mono} URL will be
+preferred; when generating output that is split by node, a @code{node}
+URL will be preferred, etc.
+
+If no information line with the preferred splitting option is present
+for a given manual, then other lines for that manual can be used if
+present.  Here is the full search order for each splitting option:
 
 @example
 node    @result{} node,    section, chapter, mono
