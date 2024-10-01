@@ -120,7 +120,7 @@
    that can be freed by passing them as the Ith argument to the
    function F.  */
 #ifndef _GL_ATTRIBUTE_DEALLOC
-# if __GNUC__ >= 11
+# if __GNUC__ >= 11 && !defined __clang__
 #  define _GL_ATTRIBUTE_DEALLOC(f, i) __attribute__ ((__malloc__ (f, i)))
 # else
 #  define _GL_ATTRIBUTE_DEALLOC(f, i)
@@ -178,7 +178,7 @@
    standardized by ISO C99 and POSIX.
    _GL_ATTRIBUTE_SPEC_PRINTF_STANDARD  */
 /* __gnu_printf__ is supported in GCC >= 4.4.  */
-#if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 4)
+#if (__GNUC__ + (__GNUC_MINOR__ >= 4) > 4) && !defined __clang__
 # define _GL_ATTRIBUTE_SPEC_PRINTF_STANDARD __gnu_printf__
 #else
 # define _GL_ATTRIBUTE_SPEC_PRINTF_STANDARD __printf__
@@ -392,7 +392,7 @@ _GL_CXXALIAS_RPL (fdopen, FILE *, (int fd, const char *mode));
 #  endif
 _GL_CXXALIAS_MDA (fdopen, FILE *, (int fd, const char *mode));
 # else
-#  if __GNUC__ >= 11
+#  if __GNUC__ >= 11 && !defined __clang__
 /* For -Wmismatched-dealloc: Associate fdopen with fclose or rpl_fclose.  */
 #   if __GLIBC__ + (__GLIBC_MINOR__ >= 2) > 2
 _GL_FUNCDECL_SYS (fdopen, FILE *,
@@ -413,7 +413,7 @@ _GL_CXXALIAS_SYS (fdopen, FILE *, (int fd, const char *mode));
 # endif
 _GL_CXXALIASWARN (fdopen);
 #else
-# if @GNULIB_FCLOSE@ && __GNUC__ >= 11 && !defined fdopen
+# if @GNULIB_FCLOSE@ && (__GNUC__ >= 11 && !defined __clang__) && !defined fdopen
 /* For -Wmismatched-dealloc: Associate fdopen with fclose or rpl_fclose.  */
 #  if __GLIBC__ + (__GLIBC_MINOR__ >= 2) > 2
 _GL_FUNCDECL_SYS (fdopen, FILE *,
@@ -461,7 +461,7 @@ _GL_CXXALIASWARN (fdopen);
 #  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
 #   define fflush rpl_fflush
 #  endif
-_GL_FUNCDECL_RPL (fflush, int, (FILE *gl_stream));
+_GL_FUNCDECL_RPL (fflush, int, (FILE *gl_stream), );
 _GL_CXXALIAS_RPL (fflush, int, (FILE *gl_stream));
 # else
 _GL_CXXALIAS_SYS (fflush, int, (FILE *gl_stream));
@@ -542,7 +542,7 @@ _GL_FUNCDECL_RPL (fopen, FILE *,
 _GL_CXXALIAS_RPL (fopen, FILE *,
                   (const char *restrict filename, const char *restrict mode));
 # else
-#  if __GNUC__ >= 11
+#  if __GNUC__ >= 11 && !defined __clang__
 /* For -Wmismatched-dealloc: Associate fopen with fclose or rpl_fclose.  */
 _GL_FUNCDECL_SYS (fopen, FILE *,
                   (const char *restrict filename, const char *restrict mode),
@@ -556,7 +556,7 @@ _GL_CXXALIAS_SYS (fopen, FILE *,
 _GL_CXXALIASWARN (fopen);
 # endif
 #else
-# if @GNULIB_FCLOSE@ && __GNUC__ >= 11 && !defined fopen
+# if @GNULIB_FCLOSE@ && (__GNUC__ >= 11 && !defined __clang__) && !defined fopen
 /* For -Wmismatched-dealloc: Associate fopen with fclose or rpl_fclose.  */
 _GL_FUNCDECL_SYS (fopen, FILE *,
                   (const char *restrict filename, const char *restrict mode),
@@ -646,7 +646,9 @@ _GL_FUNCDECL_SYS (fpurge, int, (FILE *gl_stream), _GL_ARG_NONNULL ((1)));
 #  endif
 _GL_CXXALIAS_SYS (fpurge, int, (FILE *gl_stream));
 # endif
+# if __GLIBC__ >= 2
 _GL_CXXALIASWARN (fpurge);
+# endif
 #elif defined GNULIB_POSIXCHECK
 # undef fpurge
 # if HAVE_RAW_DECL_FPURGE
@@ -947,9 +949,9 @@ _GL_CXXALIAS_SYS (fwrite, size_t,
    which sometimes causes an unwanted diagnostic for fwrite calls.
    This affects only function declaration attributes under certain
    versions of gcc and clang, and is not needed for C++.  */
-#  if (0 < __USE_FORTIFY_LEVEL                                          \
+#  if (0 < __USE_FORTIFY_LEVEL                                            \
        && __GLIBC__ == 2 && 4 <= __GLIBC_MINOR__ && __GLIBC_MINOR__ <= 15 \
-       && 3 < __GNUC__ + (4 <= __GNUC_MINOR__)                          \
+       && (3 < __GNUC__ + (4 <= __GNUC_MINOR__) || defined __clang__)     \
        && !defined __cplusplus)
 #   undef fwrite
 #   undef fwrite_unlocked
@@ -992,7 +994,7 @@ _GL_CXXALIASWARN (getc);
 #   undef getchar
 #   define getchar rpl_getchar
 #  endif
-_GL_FUNCDECL_RPL (getchar, int, (void));
+_GL_FUNCDECL_RPL (getchar, int, (void), );
 _GL_CXXALIAS_RPL (getchar, int, (void));
 # else
 _GL_CXXALIAS_SYS (getchar, int, (void));
@@ -1110,7 +1112,7 @@ _GL_CXXALIAS_MDA (getw, int, (FILE *restrict stream));
 #  if @HAVE_DECL_GETW@
 #   if defined __APPLE__ && defined __MACH__
 /* The presence of the declaration depends on _POSIX_C_SOURCE.  */
-_GL_FUNCDECL_SYS (getw, int, (FILE *restrict stream));
+_GL_FUNCDECL_SYS (getw, int, (FILE *restrict stream), );
 #   endif
 _GL_CXXALIAS_SYS (getw, int, (FILE *restrict stream));
 #  endif
@@ -1219,7 +1221,7 @@ _GL_WARN_ON_USE (pclose, "pclose is unportable - "
 #  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
 #   define perror rpl_perror
 #  endif
-_GL_FUNCDECL_RPL (perror, void, (const char *string));
+_GL_FUNCDECL_RPL (perror, void, (const char *string), );
 _GL_CXXALIAS_RPL (perror, void, (const char *string));
 # else
 _GL_CXXALIAS_SYS (perror, void, (const char *string));
@@ -1246,7 +1248,7 @@ _GL_FUNCDECL_RPL (popen, FILE *,
                   _GL_ATTRIBUTE_MALLOC _GL_ATTRIBUTE_NODISCARD);
 _GL_CXXALIAS_RPL (popen, FILE *, (const char *cmd, const char *mode));
 # else
-#  if !@HAVE_POPEN@ || __GNUC__ >= 11
+#  if !@HAVE_POPEN@ || (__GNUC__ >= 11 && !defined __clang__)
 _GL_FUNCDECL_SYS (popen, FILE *,
                   (const char *cmd, const char *mode),
                   _GL_ARG_NONNULL ((1, 2)) _GL_ATTRIBUTE_DEALLOC (pclose, 1)
@@ -1256,7 +1258,8 @@ _GL_CXXALIAS_SYS (popen, FILE *, (const char *cmd, const char *mode));
 # endif
 _GL_CXXALIASWARN (popen);
 #else
-# if @GNULIB_PCLOSE@ && __GNUC__ >= 11 && !defined popen
+# if @GNULIB_PCLOSE@ \
+     && (__GNUC__ >= 11 && !defined __clang__) && !defined popen
 /* For -Wmismatched-dealloc: Associate popen with pclose or rpl_pclose.  */
 _GL_FUNCDECL_SYS (popen, FILE *,
                   (const char *cmd, const char *mode),
@@ -1363,7 +1366,7 @@ _GL_CXXALIASWARN (putc);
 #   undef putchar
 #   define putchar rpl_putchar
 #  endif
-_GL_FUNCDECL_RPL (putchar, int, (int c));
+_GL_FUNCDECL_RPL (putchar, int, (int c), );
 _GL_CXXALIAS_RPL (putchar, int, (int c));
 # else
 _GL_CXXALIAS_SYS (putchar, int, (int c));
@@ -1403,7 +1406,7 @@ _GL_CXXALIAS_MDA (putw, int, (int w, FILE *restrict stream));
 #  if @HAVE_DECL_PUTW@
 #   if defined __APPLE__ && defined __MACH__
 /* The presence of the declaration depends on _POSIX_C_SOURCE.  */
-_GL_FUNCDECL_SYS (putw, int, (int w, FILE *restrict stream));
+_GL_FUNCDECL_SYS (putw, int, (int w, FILE *restrict stream), );
 #   endif
 _GL_CXXALIAS_SYS (putw, int, (int w, FILE *restrict stream));
 #  endif
@@ -1665,7 +1668,7 @@ _GL_FUNCDECL_RPL (tmpfile, FILE *, (void),
                                    _GL_ATTRIBUTE_NODISCARD);
 _GL_CXXALIAS_RPL (tmpfile, FILE *, (void));
 # else
-#  if __GNUC__ >= 11
+#  if __GNUC__ >= 11 && !defined __clang__
 /* For -Wmismatched-dealloc: Associate tmpfile with fclose or rpl_fclose.  */
 _GL_FUNCDECL_SYS (tmpfile, FILE *, (void),
                                    _GL_ATTRIBUTE_DEALLOC (fclose, 1)
@@ -1678,7 +1681,8 @@ _GL_CXXALIAS_SYS (tmpfile, FILE *, (void));
 _GL_CXXALIASWARN (tmpfile);
 # endif
 #else
-# if @GNULIB_FCLOSE@ && __GNUC__ >= 11 && !defined tmpfile
+# if @GNULIB_FCLOSE@ \
+     && (__GNUC__ >= 11 && !defined __clang__) && !defined tmpfile
 /* For -Wmismatched-dealloc: Associate tmpfile with fclose or rpl_fclose.  */
 _GL_FUNCDECL_SYS (tmpfile, FILE *, (void),
                                    _GL_ATTRIBUTE_DEALLOC (fclose, 1)

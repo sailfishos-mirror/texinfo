@@ -585,11 +585,11 @@ _GL_WARN_ON_USE (fstatat, "fstatat is not portable - "
 #   undef futimens
 #   define futimens rpl_futimens
 #  endif
-_GL_FUNCDECL_RPL (futimens, int, (int fd, struct timespec const times[2]));
+_GL_FUNCDECL_RPL (futimens, int, (int fd, struct timespec const times[2]), );
 _GL_CXXALIAS_RPL (futimens, int, (int fd, struct timespec const times[2]));
 # else
 #  if !@HAVE_FUTIMENS@
-_GL_FUNCDECL_SYS (futimens, int, (int fd, struct timespec const times[2]));
+_GL_FUNCDECL_SYS (futimens, int, (int fd, struct timespec const times[2]), );
 #  endif
 _GL_CXXALIAS_SYS (futimens, int, (int fd, struct timespec const times[2]));
 # endif
@@ -608,9 +608,9 @@ _GL_WARN_ON_USE (futimens, "futimens is not portable - "
 #if @GNULIB_GETUMASK@
 # if !@HAVE_GETUMASK@
 #  if __GLIBC__ + (__GLIBC_MINOR__ >= 2) > 2
-_GL_FUNCDECL_SYS (getumask, mode_t, (void)) _GL_ATTRIBUTE_NOTHROW;
+_GL_FUNCDECL_SYS (getumask, mode_t, (void), ) _GL_ATTRIBUTE_NOTHROW;
 #  else
-_GL_FUNCDECL_SYS (getumask, mode_t, (void));
+_GL_FUNCDECL_SYS (getumask, mode_t, (void), );
 #  endif
 # endif
 _GL_CXXALIAS_SYS (getumask, mode_t, (void));
@@ -675,12 +675,6 @@ _GL_CXXALIAS_RPL (mkdir, int, (char const *name, mode_t mode));
 _GL_CXXALIAS_SYS (mkdir, int, (char const *name, mode_t mode));
 # endif
 _GL_CXXALIASWARN (mkdir);
-#elif defined GNULIB_POSIXCHECK
-# undef mkdir
-# if HAVE_RAW_DECL_MKDIR
-_GL_WARN_ON_USE (mkdir, "mkdir does not always support two parameters - "
-                 "use gnulib module mkdir for portability");
-# endif
 #elif @GNULIB_MDA_MKDIR@
 /* On native Windows, map 'mkdir' to '_mkdir', so that -loldnames is not
    required.  In C++ with GNULIB_NAMESPACE, avoid differences between
@@ -703,6 +697,12 @@ _GL_CXXALIAS_RPL (mkdir, int, (char const *name, mode_t mode));
 _GL_CXXALIAS_SYS (mkdir, int, (char const *name, mode_t mode));
 # endif
 _GL_CXXALIASWARN (mkdir);
+#elif defined GNULIB_POSIXCHECK
+# undef mkdir
+# if HAVE_RAW_DECL_MKDIR
+_GL_WARN_ON_USE (mkdir, "mkdir does not always support two parameters - "
+                 "use gnulib module mkdir for portability");
+# endif
 #endif
 
 
