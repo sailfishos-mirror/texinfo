@@ -227,6 +227,7 @@ gnulib/lib/unictype/pr_test.c
 gnulib/lib/uninorm.in.h
 gnulib/lib/uninorm/canonical-decomposition.c
 gnulib/lib/uninorm/compat-decomposition.c
+gnulib/lib/uninorm/composition-table-bounds.h
 gnulib/lib/uninorm/composition-table.gperf
 gnulib/lib/uninorm/composition.c
 gnulib/lib/uninorm/decompose-internal.c

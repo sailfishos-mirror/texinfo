@@ -1,3 +1,9 @@
+2024-10-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/gnulib/lib/Makefile.am,
+	tp/Texinfo/XS/gnulib/m4/gnulib-cache.m4,
+	tp/Texinfo/XS/gnulib/po/POTFILES.in: update tp/Texinfo/XS gnulib.
+
 2024-07-28  Patrice Dumas  <pertusus@free.fr>
 
 	Setup separate po files directory for tp/Texinfo/XS directory gnulib

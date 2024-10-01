@@ -33,8 +33,8 @@
 #  --no-conditional-dependencies \
 #  --libtool \
 #  --macro-prefix=gl \
-#  copy-file \
 #  --po-domain=texinfo_tp \
+#  copy-file \
 #  getline \
 #  iconv \
 #  libunistring \
