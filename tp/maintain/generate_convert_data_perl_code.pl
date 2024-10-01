@@ -24,6 +24,7 @@ use strict;
 
 use warnings;
 
+use File::Basename;
 use Text::Wrap;
 
 my $program_name = basename($0);

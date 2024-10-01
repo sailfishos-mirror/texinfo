@@ -1,5 +1,10 @@
 2024-10-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/generate_convert_data_perl_code.pl: import
+	File::Basename.
+
+2024-10-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/generate_convert_data_perl_code.pl: use generating file
 	basename in comment.
 
