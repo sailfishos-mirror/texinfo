@@ -1,3 +1,7 @@
+2024-10-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* NEWS: remove items that were in 7.1.1
+
 2024-10-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/get_converter_perl_info.c
