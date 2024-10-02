@@ -330,7 +330,7 @@ close(CODE);
 open(OCDEF, ">$converter_defaults_code_file")
  or die "Open $converter_defaults_code_file: $!\n";
 
-print OCDEF "/* Automatically generated from $0 */\n\n";
+print OCDEF "/* Automatically generated from $program_name */\n\n";
 
 print OCDEF '#include <config.h>'."\n\n";
 

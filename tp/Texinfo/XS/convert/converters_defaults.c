@@ -1,4 +1,4 @@
-/* Automatically generated from ./../../maintain/regenerate_C_options_info.pl */
+/* Automatically generated from regenerate_C_options_info.pl */
 
 #include <config.h>
 
