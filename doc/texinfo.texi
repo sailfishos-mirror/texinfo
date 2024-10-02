@@ -17864,6 +17864,14 @@ web.
 @cindex Cross-reference configuration, for HTML
 @cindex Configuration, for HTML cross-manual references
 
+For other manuals published on the World Wide Web to be able to have
+correct cross-references to your manual, the @var{host} and
+@var{dir} parts of the cross-reference need to be known by Texinfo
+converters when they produce HTML for those other manuals.
+Similarly, for your manual in HTML format to have correct
+cross-references to other manuals, @command{texi2any} needs to know
+how to construct the URLs for other manuals.
+
 @command{texi2any} reads a file named @file{htmlxref.cnf} to gather
 information for cross-references to other manuals in HTML output.  It
 is looked for in the following directories, based on the
@@ -17921,6 +17929,11 @@ All files found are used, with earlier entries overriding later ones.
 The Texinfo distribution includes a default file which handles many
 GNU manuals; it is installed in @file{@var{datadir}/texinfo/htmlxref.cnf},
 one of the last of the above directories.
+
+You can use a local @file{htmlxref.cnf} to complete or correct the
+default file from the Texinfo distribution.  This could be useful to
+correct outdated data, or even to generate cross-references to local
+files for some manuals.
 
 The @code{HTMLXREF_MODE} customization variable can be set to modify how the
 files are found.  For instance, if set to @samp{none}, no external information
