@@ -1,3 +1,14 @@
+2024-10-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/get_converter_perl_info.c: remove
+	reset_output_init_conf.
+
+	* tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(copy_sv_options_for_convert_text): fix init_copy_sv_options calls.
+
+	* tp/Texinfo/XS/main/get_perl_info.h: declare
+	get_sorted_options_key_sv_option.
+
 2024-08-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/ConvertXS.xs,

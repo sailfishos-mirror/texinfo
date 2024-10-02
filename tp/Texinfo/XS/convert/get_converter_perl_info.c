@@ -308,26 +308,6 @@ converter_initialize_sv (SV *converter_sv, CONVERTER *converter,
                                      converter->conf);
 }
 
-/* currently unused */
-/* reset output_init_conf.  Can be called after it has been modified */
-void
-reset_output_init_conf (SV *sv_in)
-{
-  CONVERTER *converter;
-
-  dTHX;
-
-  converter = get_sv_converter (sv_in, "reset_output_init_conf");
-
-  if (converter)
-    {
-      HV *hv_in = (HV *)SvRV (sv_in);
-
-      copy_converter_conf_sv (hv_in, converter, &converter->init_conf,
-                             "output_init_conf", 1);
-    }
-}
-
 /* output format specific */
 
 /* map hash reference of Convert::Text options to TEXT_OPTIONS */
@@ -406,13 +386,13 @@ copy_sv_options_for_convert_text (SV *sv_in)
           SV **conf_sv = hv_fetch (converter_hv, "conf", strlen ("conf"), 0);
           if (conf_sv)
             text_options->other_converter_options
-              = init_copy_sv_options (*conf_sv, 0, 1);
+              = init_copy_sv_options (*conf_sv, 0, 1, 0);
         }
     }
   else
     {
       text_options->self_converter_options
-       = init_copy_sv_options (sv_in, 0, 1);
+       = init_copy_sv_options (sv_in, 0, 1, 0);
     }
 
   return text_options;

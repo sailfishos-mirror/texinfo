@@ -30,6 +30,9 @@ void set_option_key_configured (OPTIONS *options, const char *key,
 void get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
                      CONVERTER *converter, int force);
 void set_translated_commands (CONVERTER *converter, HV *hv_in);
+int get_sorted_options_key_sv_option (OPTIONS *options, OPTION **sorted_options,
+                                      const char *key, SV *value,
+                                      int force, const CONVERTER *converter);
 
 DOCUMENT *get_sv_tree_document (SV *tree_in, char *warn_string);
 DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);
