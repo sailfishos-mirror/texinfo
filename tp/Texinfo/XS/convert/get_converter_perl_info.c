@@ -207,6 +207,9 @@ get_converter_info_from_sv (SV *conf_sv, const char *class,
                   if (!strcmp (key, "translated_commands"))
                     initialization_info->translated_commands
                       = set_translated_commands (value, converter);
+                  /* FIXME get deprecated_config_directories if needed */
+                  else if (!strcmp (key, "deprecated_config_directories"))
+                    {}
                   else if (!strcmp (key, "output_format"))
                     initialization_info->output_format
                       = non_perl_strdup (SvPVutf8_nolen (value));
