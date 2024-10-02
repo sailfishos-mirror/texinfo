@@ -238,6 +238,26 @@ converter_initialize (SV *converter_sv)
   return converter_descriptor;
 }
 
+/* currently unused */
+/* reset output_init_conf.  Can be called after it has been modified */
+void
+reset_output_init_conf (SV *sv_in)
+{
+  CONVERTER *converter;
+
+  dTHX;
+
+  converter = get_sv_converter (sv_in, "reset_output_init_conf");
+
+  if (converter)
+    {
+      HV *hv_in = (HV *)SvRV (sv_in);
+
+      copy_converter_conf_sv (hv_in, converter, &converter->init_conf,
+                             "output_init_conf", 1);
+    }
+}
+
 /* output format specific */
 
 /* map hash reference of Convert::Text options to TEXT_OPTIONS */

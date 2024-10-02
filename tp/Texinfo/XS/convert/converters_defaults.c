@@ -15,6 +15,7 @@ void set_array_cmdline_regular_defaults (OPTIONS *options)
   set_conf (&options->CSS_REFS, -2, 0);
   set_conf (&options->EXPANDED_FORMATS, -2, 0);
   set_conf (&options->INCLUDE_DIRECTORIES, -2, 0);
+  set_conf (&options->TEXINFO_LANGUAGE_DIRECTORIES, -2, 0);
 }
 
 
@@ -118,6 +119,7 @@ void set_converter_customization_regular_defaults (OPTIONS *options)
   set_conf (&options->L2H_L2H, -2, 0);
   set_conf (&options->L2H_SKIP, -1, 0);
   set_conf (&options->L2H_TMP, -2, 0);
+  set_conf (&options->MATHJAX_CONFIGURATION, -2, 0);
   set_conf (&options->MATHJAX_SCRIPT, -2, 0);
   set_conf (&options->MATHJAX_SOURCE, -2, 0);
   set_conf (&options->MAX_HEADER_LEVEL, -1, 0);
@@ -179,6 +181,7 @@ void set_converter_customization_regular_defaults (OPTIONS *options)
   set_conf (&options->XS_EXTERNAL_CONVERSION, -1, 0);
   set_conf (&options->XS_EXTERNAL_FORMATTING, -1, 0);
   set_conf (&options->XS_STRXFRM_COLLATION_LOCALE, -2, 0);
+  set_conf (&options->_INLINE_STYLE_WIDTH, -1, 0);
 }
 
 
