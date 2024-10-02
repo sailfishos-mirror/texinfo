@@ -1,3 +1,16 @@
+2024-10-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/get_converter_perl_info.c: remove
+	converter_initialize_sv.
+
+	* tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(set_translated_commands): add converter argument.
+
+	* tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(get_option_from_sv, set_non_customization_sv)
+	(get_converter_defaults_from_sv, converter_get_defaults_sv),
+	tp/Texinfo/XS/main/get_perl_info.c: move to get_converter_perl_info.c.
+
 2024-08-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/api_to_perl.c (register_perl_data),

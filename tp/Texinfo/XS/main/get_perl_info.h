@@ -15,6 +15,8 @@
 /* in options_get_perl.c */
 void html_fill_options (OPTIONS *options, const CONVERTER *converter);
 
+int get_sv_option (OPTION *option, SV *value, int force,
+                   OPTIONS *options, const CONVERTER *converter);
 void get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
                      CONVERTER *converter, int force);
 int get_sorted_options_key_sv_option (OPTIONS *options, OPTION **sorted_options,
@@ -41,11 +43,6 @@ OPTIONS *init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force,
                                OPTION ***sorted_options_out);
 int set_sv_conf (CONVERTER *converter, const char *conf, SV *value);
 void force_sv_conf (CONVERTER *converter, const char *conf, SV *value);
-
-int converter_get_defaults_sv (SV *converter_sv, CONVERTER *converter,
-                              SV *format_defaults_sv, SV *conf_sv,
-                              CONVERTER_DEFAULTS_INFO *format_defaults,
-                              CONVERTER_DEFAULTS_INFO *conf);
 
 INDEX_ENTRY *find_index_entry_sv (const SV *index_entry_sv,
                      INDEX_LIST *indices_info,

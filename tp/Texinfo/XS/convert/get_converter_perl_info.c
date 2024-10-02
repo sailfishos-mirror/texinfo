@@ -86,7 +86,7 @@ converter_set_document_from_sv (SV *converter_in, SV *document_in)
 }
 
 TRANSLATED_COMMAND *
-set_translated_commands (SV *translated_commands_sv)
+set_translated_commands (SV *translated_commands_sv, CONVERTER *converter)
 {
   TRANSLATED_COMMAND *translated_commands = 0;
 
@@ -139,6 +139,118 @@ set_translated_commands (SV *translated_commands_sv)
   return translated_commands;
 }
 
+/* OPTION should be already allocated but otherwise set to 0 */
+static int
+get_option_from_sv (OPTION *option, SV *option_sv, CONVERTER *converter,
+                    OPTION **sorted_options, const char *option_name)
+{
+  int status;
+
+  const OPTION *ref_option = find_option_string (sorted_options, option_name);
+  if (!ref_option)
+    return -2;
+
+  initialize_option (option, ref_option->type, ref_option->name);
+  option->number = ref_option->number;
+
+  status = get_sv_option (option, option_sv, 0, 0, converter);
+
+  return status;
+}
+
+static void
+set_non_customization_sv (HV *converter_hv, SV *defaults_sv,
+                          STRING_LIST *non_valid_customization)
+{
+  dTHX;
+
+  if (non_valid_customization->number > 0)
+    {
+      HV *defaults_hv = (HV *) SvRV (defaults_sv);
+      size_t i;
+      for (i = 0; i < non_valid_customization->number; i++)
+        {
+          const char *key
+               = non_valid_customization->list[i];
+          /* not a customization variable, set in converter */
+          SV **value = hv_fetch (defaults_hv, key, strlen (key), 0);
+          if (*value)
+            {
+              if (SvOK (*value))
+                SvREFCNT_inc (*value);
+              hv_store (converter_hv, key, strlen (key), *value, 0);
+            }
+        }
+    }
+}
+
+static int
+get_converter_defaults_from_sv (SV *conf_sv, CONVERTER *converter,
+                                OPTION **sorted_options,
+                                CONVERTER_DEFAULTS_INFO *defaults_info)
+{
+  dTHX;
+
+  if (conf_sv && SvOK (conf_sv))
+    {
+      I32 hv_number;
+      I32 i;
+
+      HV *conf_hv = (HV *)SvRV (conf_sv);
+
+      hv_number = hv_iterinit (conf_hv);
+
+      if (!hv_number)
+        return 0;
+
+      defaults_info->conf.list
+        = (OPTION *) malloc (sizeof (OPTION) * hv_number);
+      memset (defaults_info->conf.list, 0, sizeof (OPTION) * hv_number);
+
+      for (i = 0; i < hv_number; i++)
+        {
+          OPTION *option = &defaults_info->conf.list[defaults_info->conf.number];
+          char *key;
+          I32 retlen;
+          SV *value = hv_iternextsv (conf_hv, &key, &retlen);
+          int status = get_option_from_sv (option, value, converter,
+                                           sorted_options, key);
+          if (!status)
+            {
+              defaults_info->conf.number++;
+            }
+          else
+            {
+              memset (option, 0, sizeof (OPTION));
+              if (status == -2)
+                {
+                  add_string (key, &defaults_info->non_valid_customization);
+
+                  if (!strcmp (key, "translated_commands"))
+                    defaults_info->translated_commands
+                      = set_translated_commands (value, converter);
+                  else if (!strcmp (key, "output_format"))
+                    defaults_info->output_format
+                      = non_perl_strdup (SvPVutf8_nolen (value));
+                  else if (!strcmp (key, "converted_format"))
+                    defaults_info->converted_format
+                      = non_perl_strdup (SvPVutf8_nolen (value));
+         /* TODO in defaults here means in format_defaults or
+            non customization variable
+            in Texinfo::Convert::Converter::common_converters_defaults
+      } elsif (!exists($defaults{$key})) {
+        warn "$key not a possible configuration in $class\n";
+          */
+                }
+              else
+                fprintf (stderr, "ERROR: %s unexpected conf error\n", key);
+            }
+        }
+      return 1;
+    }
+  return 0;
+}
+
 void
 get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
 {
@@ -173,6 +285,47 @@ get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
     }
 }
 
+/* Texinfo::Convert::Converter generic initialization for all the converters */
+/* Called early, in particuliar before any format specific code has been
+   called */
+int
+converter_get_defaults_sv (SV *converter_sv, CONVERTER *converter,
+                         SV *format_defaults_sv, SV *conf_sv,
+                         CONVERTER_DEFAULTS_INFO *format_defaults,
+                         CONVERTER_DEFAULTS_INFO *conf)
+{
+  HV *converter_hv;
+  int has_format_defaults;
+  int has_conf;
+
+  dTHX;
+
+  converter_hv = (HV *)SvRV (converter_sv);
+
+  converter->hv = converter_hv;
+
+  has_format_defaults
+    = get_converter_defaults_from_sv (format_defaults_sv, converter,
+                              converter->sorted_options, format_defaults);
+
+  has_conf = get_converter_defaults_from_sv (conf_sv, converter,
+                               converter->sorted_options, conf);
+
+  set_non_customization_sv (converter_hv, format_defaults_sv,
+                            &format_defaults->non_valid_customization);
+
+  set_non_customization_sv (converter_hv, conf_sv,
+                            &conf->non_valid_customization);
+
+   /*
+  fprintf (stderr, "XS|CONVERTER Init from SV: %d; %d %d\n",
+                   converter->converter_descriptor, has_format_defaults,
+                   has_conf);
+    */
+
+  return has_format_defaults + has_conf;
+}
+
 /* Unused */
 void
 get_sv_configured_options (SV *configured_sv_in, OPTION **sorted_options)
@@ -197,116 +350,6 @@ get_sv_configured_options (SV *configured_sv_in, OPTION **sorted_options)
           set_sorted_option_key_configured (sorted_options, key, configured);
         }
     }
-}
-
-/* Texinfo::Convert::Converter generic initialization for all the converters */
-/* Called early, in particuliar before any format specific code has been
-   called */
-void
-converter_initialize_sv (SV *converter_sv, CONVERTER *converter,
-                         SV *format_defaults, SV *conf)
-{
-  HV *converter_hv;
-
-  dTHX;
-
-  converter_hv = (HV *)SvRV (converter_sv);
-
-  converter->hv = converter_hv;
-
-  if (format_defaults && SvOK (format_defaults))
-    {
-      SV **output_format_sv;
-      SV **converted_format_sv;
-      HV *format_defaults_hv = (HV *)SvRV (format_defaults);
-
-      get_sv_options (format_defaults, converter->conf,
-                      converter->sorted_options, converter, 0);
-
-#define FETCH(key) key##_sv = hv_fetch (format_defaults_hv, #key, strlen (#key), 0);
-      FETCH(output_format)
-      if (output_format_sv && SvOK (*output_format_sv))
-        {
-          converter->output_format
-            = non_perl_strdup (SvPVutf8_nolen (*output_format_sv));
-        }
-      FETCH(converted_format)
-      if (converted_format_sv && SvOK (*converted_format_sv))
-        {
-          converter->converted_format
-            = non_perl_strdup (SvPVutf8_nolen (*converted_format_sv));
-        }
-     }
-#undef FETCH
-
-  if (conf && SvOK (conf))
-    {
-      I32 hv_number;
-      I32 i;
-
-      HV *conf_hv = (HV *)SvRV (conf);
-
-      hv_number = hv_iterinit (conf_hv);
-      for (i = 0; i < hv_number; i++)
-        {
-          char *key;
-          I32 retlen;
-          SV *value = hv_iternextsv (conf_hv, &key, &retlen);
-          int status = get_sorted_options_key_sv_option (converter->conf,
-                        converter->sorted_options, key, value, 0, converter);
-
-          /*
-          fprintf (stderr, "CONF: format %s: set %s: %d\n",
-                           converter->output_format, key, status);
-           */
-          if (!status)
-            {
-              set_sorted_option_key_configured (converter->sorted_options,
-                                                key, 1);
-            }
-         /* TODO in defaults here means in format_defaults or
-            non customization variable
-            in Texinfo::Convert::Converter::common_converters_defaults
-      } elsif (!exists($defaults{$key})) {
-        warn "$key not a possible configuration in $class\n";
-          */
-          else if (status == -2)
-            {
-              if (!strcmp (key, "translated_commands"))
-                set_translated_commands (converter, conf_hv);
-              else if (!strcmp (key, "output_format"))
-                converter->output_format
-                  = non_perl_strdup (SvPVutf8_nolen (value));
-              else if (!strcmp (key, "converted_format"))
-                converter->converted_format
-                  = non_perl_strdup (SvPVutf8_nolen (value));
-
-              /* not a customization variable, set in converter */
-              if (SvOK (value))
-                SvREFCNT_inc (value);
-              hv_store (converter_hv, key, strlen (key), value, 0);
-            }
-          else
-            fprintf (stderr, "ERROR: %s unexpected conf error\n", key);
-        }
-    }
-
-   /*
-  fprintf (stderr, "XS|CONVERTER Init: %d; %s, %s\n",
-                   converter->converter_descriptor,
-                   converter->output_format,
-                   converter->converted_format);
-    */
-
-  /* in Perl sets converter_init_conf, but in C we use only one
-     structure for converter_init_conf and output_init_conf, which
-     is overwritten to set the similar values as output_init_conf
-     in specific converters.
-   */
-  copy_options (converter->init_conf, converter->conf);
-
-  set_expanded_formats_from_options (converter->expanded_formats,
-                                     converter->conf);
 }
 
 /* output format specific */
