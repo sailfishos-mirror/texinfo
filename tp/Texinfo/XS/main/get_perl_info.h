@@ -47,9 +47,6 @@ OPTIONS *init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force,
 int set_sv_conf (CONVERTER *converter, const char *conf, SV *value);
 void force_sv_conf (CONVERTER *converter, const char *conf, SV *value);
 
-void html_fill_button_sv_specification_list (const CONVERTER *converter,
-                                     BUTTON_SPECIFICATION_LIST *result);
-
 INDEX_ENTRY *find_index_entry_sv (const SV *index_entry_sv,
                      INDEX_LIST *indices_info,
                      const char *warn_string, const INDEX **entry_idx,
@@ -60,8 +57,8 @@ INDEX_SORTED_BY_LETTER *get_sv_index_entries_sorted_by_letter
 
 BUTTON_SPECIFICATION_LIST *html_get_button_specification_list
                                 (const CONVERTER *converter, const SV *buttons_sv);
-void html_fill_button_specification_list (const CONVERTER *converter,
-                                          BUTTON_SPECIFICATION_LIST *result);
+void html_fill_button_sv_specification_list (const CONVERTER *converter,
+                                     BUTTON_SPECIFICATION_LIST *result);
 void html_fill_direction_icons (const CONVERTER *converter,
                                 DIRECTION_ICON_LIST *direction_icons);
 void html_get_direction_icons_sv (const CONVERTER *converter,
