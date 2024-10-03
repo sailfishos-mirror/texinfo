@@ -93,6 +93,8 @@ HV *build_sorted_indices_by_index (
 
 SV *html_build_direction_icons (const CONVERTER *converter,
                             const DIRECTION_ICON_LIST *direction_icons);
+SV *html_build_buttons_specification (CONVERTER *converter,
+                                  BUTTON_SPECIFICATION_LIST *buttons);
 
 void pass_document_to_converter_sv (const CONVERTER *converter,
                                     SV *converter_sv, SV *document_in);

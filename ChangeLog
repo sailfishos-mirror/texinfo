@@ -1,11 +1,12 @@
 2024-10-03  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/Makefile.am (libtexinfoxs*): readd mistakenly removed
-	libtexinfoxs in conflicts resolution on 2024-10-02 "remove block of
-	definition of libtexinfo_convert that crept in".
+	* tp/Texinfo/XS/main/build_perl_info.h: declare
+	html_build_buttons_specification.
 
-	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES): really
-	add converter_options.c.
+	* tp/Texinfo/XS/convert/converter_options.c
+	(new_directions_list_buttons_specifications): rename
+	new_texi2html_buttons_specifications as
+	new_directions_list_buttons_specifications.
 
 2024-08-04  Patrice Dumas  <pertusus@free.fr>
 
@@ -82,6 +83,15 @@
 
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_defaults): return
 	undef, all the HTML customization default setup is done in C now.
+
+2024-10-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfoxs*): readd mistakenly removed
+	libtexinfoxs in conflicts resolution on 2024-10-02 "remove block of
+	definition of libtexinfo_convert that crept in".
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES): really
+	add converter_options.c.
 
 2024-08-04  Patrice Dumas  <pertusus@free.fr>
 

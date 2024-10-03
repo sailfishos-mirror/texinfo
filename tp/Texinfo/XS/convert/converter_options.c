@@ -221,7 +221,8 @@ static const int T2H_SECTION_FOOTER_BUTTONS[] = {
 
 
 static BUTTON_SPECIFICATION_LIST *
-new_texi2html_buttons_specifications (CONVERTER *self, const int* directions)
+new_directions_list_buttons_specifications (CONVERTER *self,
+                                            const int* directions)
 {
   int buttons_nr = 0;
   int i;
@@ -286,28 +287,28 @@ set_texi2html_default_buttons_specifications (CONVERTER *self)
 {
   OPTIONS *options = self->conf;
   set_option_buttons_specification (&options->SECTION_BUTTONS,
-        new_texi2html_buttons_specifications (self, T2H_SECTION_BUTTONS));
+      new_directions_list_buttons_specifications (self, T2H_SECTION_BUTTONS));
 
   set_option_buttons_specification (&options->TOP_BUTTONS,
-        new_texi2html_buttons_specifications (self, T2H_TOP_BUTTONS));
+      new_directions_list_buttons_specifications (self, T2H_TOP_BUTTONS));
 
   set_option_buttons_specification (&options->TOP_FOOTER_BUTTONS,
-        new_texi2html_buttons_specifications (self, T2H_TOP_BUTTONS));
+      new_directions_list_buttons_specifications (self, T2H_TOP_BUTTONS));
 
   set_option_buttons_specification (&options->MISC_BUTTONS,
-        new_texi2html_buttons_specifications (self, T2H_MISC_BUTTONS));
+      new_directions_list_buttons_specifications (self, T2H_MISC_BUTTONS));
 
   set_option_buttons_specification (&options->CHAPTER_BUTTONS,
-        new_texi2html_buttons_specifications (self, T2H_CHAPTER_BUTTONS));
+      new_directions_list_buttons_specifications (self, T2H_CHAPTER_BUTTONS));
 
   set_option_buttons_specification (&options->SECTION_FOOTER_BUTTONS,
-    new_texi2html_buttons_specifications (self, T2H_SECTION_FOOTER_BUTTONS));
+ new_directions_list_buttons_specifications (self, T2H_SECTION_FOOTER_BUTTONS));
 
   set_option_buttons_specification (&options->CHAPTER_FOOTER_BUTTONS,
-        new_texi2html_buttons_specifications (self, T2H_CHAPTER_BUTTONS));
+      new_directions_list_buttons_specifications (self, T2H_CHAPTER_BUTTONS));
 
   set_option_buttons_specification (&options->NODE_FOOTER_BUTTONS,
-        new_texi2html_buttons_specifications (self, T2H_SECTION_BUTTONS));
+      new_directions_list_buttons_specifications (self, T2H_SECTION_BUTTONS));
 }
 
 void
