@@ -332,6 +332,30 @@ $(srcdir)/main/conversion_data.c $(srcdir)/main/conversion_data.h: main/command_
 MAINTAINERCLEANFILES += main/conversion_data.c main/conversion_data.h
 
 
+########################## shared perl XS library for texinfo XS codes
+# it is separate from libtexinfo because of different dependencies; it
+# does not depend on gnulib.  Both libraries are used by following XS.
+
+if HAVE_ICONV
+xs_LTLIBRARIES += libtexinfoxs.la
+endif
+
+libtexinfoxs_la_SOURCES= \
+                     main/build_perl_info.c \
+                     main/build_perl_info.h \
+                     main/get_perl_info.c \
+                     main/get_perl_info.h \
+                     main/options_get_perl.c
+
+# locate include files under out-of-source builds.
+libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
+libtexinfoxs_la_LIBADD = libtexinfo.la
+# example to trigger errors associated with no undefined
+#libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_PERL_LINK) $(LTLIBINTL)
+libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL)
+
+
 ########################## shared C library for conversion
 # conversion to raw text and to Texinfo code is in the libtexinfo library.
 # Note that having a library and not reusing source files is important to
@@ -352,6 +376,8 @@ libtexinfo_convert_la_SOURCES= \
                        convert/convert_html.c \
                        convert/converters_defaults.c \
                        convert/converters_defaults.h \
+                       convert/converter_options.c \
+                       convert/converter_options.h \
                        convert/build_html_perl_state.h \
                        convert/build_html_perl_state.c \
                        convert/call_html_perl_function.h \
