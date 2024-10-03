@@ -1,5 +1,14 @@
 2024-10-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter_options.c (DEFAULT_MISC_BUTTONS):
+	rename T2H_MISC_BUTTONS as DEFAULT_MISC_BUTTONS.
+
+	* tp/Texinfo/XS/convert/converter_options.c
+	(set_html_default_buttons_specifications): set default MISC_BUTTONS
+	matching Perl using new_directions_list_buttons_specifications.
+
+2024-10-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter_options.c
 	(buttons_special_units_names),
 	tp/Texinfo/XS/convert/converter_options.h (enum

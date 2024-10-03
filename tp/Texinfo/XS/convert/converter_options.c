@@ -181,6 +181,11 @@ new_section_footer_buttons (const CONVERTER *self)
 
 
 
+static const int DEFAULT_MISC_BUTTONS[] = {
+ D_direction_Top, BSUD_D_Contents, D_direction_Index, BSUD_D_About,
+ -1
+};
+
 /* same as NODE_FOOTER_BUTTONS */
 static const int T2H_SECTION_BUTTONS[] = {
  D_direction_FastBack, D_direction_Back, D_direction_Up, D_direction_Forward,
@@ -194,11 +199,6 @@ static const int T2H_SECTION_BUTTONS[] = {
 static const int T2H_TOP_BUTTONS[] = {
  D_direction_Back, D_direction_Forward, D_direction_Space,
  BSUD_D_Contents, D_direction_Index, BSUD_D_About,
- -1
-};
-
-static const int T2H_MISC_BUTTONS[] = {
- D_direction_Top, BSUD_D_Contents, D_direction_Index, BSUD_D_About,
  -1
 };
 
@@ -275,7 +275,7 @@ set_html_default_buttons_specifications (CONVERTER *self)
   set_option_buttons_specification (&options->CHAPTER_BUTTONS,
                                     new_section_buttons (self));
   set_option_buttons_specification (&options->MISC_BUTTONS,
-                                    new_section_buttons (self));
+      new_directions_list_buttons_specifications (self, DEFAULT_MISC_BUTTONS));
   set_option_buttons_specification (&options->TOP_BUTTONS,
                                     new_section_buttons (self));
   set_option_buttons_specification (&options->CHAPTER_FOOTER_BUTTONS,
@@ -298,7 +298,7 @@ set_texi2html_default_buttons_specifications (CONVERTER *self)
       new_directions_list_buttons_specifications (self, T2H_TOP_BUTTONS));
 
   set_option_buttons_specification (&options->MISC_BUTTONS,
-      new_directions_list_buttons_specifications (self, T2H_MISC_BUTTONS));
+      new_directions_list_buttons_specifications (self, DEFAULT_MISC_BUTTONS));
 
   set_option_buttons_specification (&options->CHAPTER_BUTTONS,
       new_directions_list_buttons_specifications (self, T2H_CHAPTER_BUTTONS));
