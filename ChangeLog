@@ -1,3 +1,8 @@
+2024-10-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/get_perl_info.h: declare html_fill_sv_options and
+	html_fill_button_sv_specification_list.
+
 2024-08-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/utils.c (initialize_options_list),

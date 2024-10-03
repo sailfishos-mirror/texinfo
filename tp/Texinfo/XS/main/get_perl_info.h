@@ -13,7 +13,7 @@
 #include "convert_to_text.h"
 
 /* in options_get_perl.c */
-void html_fill_options (OPTIONS *options, const CONVERTER *converter);
+void html_fill_sv_options (OPTIONS *options, const CONVERTER *converter);
 
 extern const char *html_button_function_type_string[];
 
@@ -46,6 +46,9 @@ OPTIONS *init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force,
                                OPTION ***sorted_options_out);
 int set_sv_conf (CONVERTER *converter, const char *conf, SV *value);
 void force_sv_conf (CONVERTER *converter, const char *conf, SV *value);
+
+void html_fill_button_sv_specification_list (const CONVERTER *converter,
+                                     BUTTON_SPECIFICATION_LIST *result);
 
 INDEX_ENTRY *find_index_entry_sv (const SV *index_entry_sv,
                      INDEX_LIST *indices_info,
