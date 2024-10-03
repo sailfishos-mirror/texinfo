@@ -23,9 +23,17 @@
 #include "converter_types.h"
 #include "converters_defaults.h"
 #include "utils.h"
+#include "converter_options.h"
 
 /* code for converters options setting.  Not with format specific converter
    code, since this code is called from generic converter code. */
+
+/* should be consistent with enum BUTTON_special_unit_directions.  See
+   the comment there */
+static const char *buttons_special_units_names[] = {
+    "Contents",
+    "About",
+};
 
 /* create button specification */
 void
@@ -173,35 +181,24 @@ new_section_footer_buttons (const CONVERTER *self)
 
 
 
-/* TEXI2HTML buttons */
-enum T2H_special_unit_directions {
-    T2H_D_About = -3,
-    T2H_D_Contents,
-};
-
-static const char *t2h_special_units_names[] = {
-    "Contents",
-    "About",
-};
-
 /* same as NODE_FOOTER_BUTTONS */
 static const int T2H_SECTION_BUTTONS[] = {
  D_direction_FastBack, D_direction_Back, D_direction_Up, D_direction_Forward,
  D_direction_FastForward,
  D_direction_Space, D_direction_Space, D_direction_Space, D_direction_Space,
- D_direction_Top, T2H_D_Contents, D_direction_Index, T2H_D_About,
+ D_direction_Top, BSUD_D_Contents, D_direction_Index, BSUD_D_About,
  -1
 };
 
 /* same as TOP_FOOTER_BUTTONS */
 static const int T2H_TOP_BUTTONS[] = {
  D_direction_Back, D_direction_Forward, D_direction_Space,
- T2H_D_Contents, D_direction_Index, T2H_D_About,
+ BSUD_D_Contents, D_direction_Index, BSUD_D_About,
  -1
 };
 
 static const int T2H_MISC_BUTTONS[] = {
- D_direction_Top, T2H_D_Contents, D_direction_Index, T2H_D_About,
+ D_direction_Top, BSUD_D_Contents, D_direction_Index, BSUD_D_About,
  -1
 };
 
@@ -209,7 +206,7 @@ static const int T2H_MISC_BUTTONS[] = {
 static const int T2H_CHAPTER_BUTTONS[] = {
  D_direction_FastBack, D_direction_FastForward, D_direction_Space,
  D_direction_Space, D_direction_Space, D_direction_Space, D_direction_Space,
- D_direction_Top, T2H_D_Contents, D_direction_Index, T2H_D_About,
+ D_direction_Top, BSUD_D_Contents, D_direction_Index, BSUD_D_About,
  -1
 };
 
@@ -219,9 +216,14 @@ static const int T2H_SECTION_FOOTER_BUTTONS[] = {
  -1
 };
 
+/* a negative direction in DIRECTIONS corresponds to a special direction
+   which index is not known early and is better stored as a string.
 
-static BUTTON_SPECIFICATION_LIST *
-new_directions_list_buttons_specifications (CONVERTER *self,
+   Mainly called for texi2html style navigation buttons, but also for
+   default special units navigation panel buttons.
+ */
+BUTTON_SPECIFICATION_LIST *
+new_directions_list_buttons_specifications (const CONVERTER *self,
                                             const int* directions)
 {
   int buttons_nr = 0;
@@ -239,7 +241,7 @@ new_directions_list_buttons_specifications (CONVERTER *self,
       if (direction < 0)
         {
           int name_idx = -direction - 2;
-          direction_string = t2h_special_units_names[name_idx];
+          direction_string = buttons_special_units_names[name_idx];
         }
       new_button_specification (&result->list[i], BST_direction,
                         0, direction, direction_string, 0, 0, 0);
