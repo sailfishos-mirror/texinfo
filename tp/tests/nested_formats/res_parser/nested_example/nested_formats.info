@@ -50,7 +50,7 @@ lone mu-ltitable item
 
      s--mallexample
 
- - c-ategory: d--effn_name a--rguments...
+ -- c-ategory: d--effn_name a--rguments...
      d-effn
 
 a
@@ -81,7 +81,7 @@ f-lushleft
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d--effn
 
      a
@@ -145,7 +145,7 @@ f-lushleft
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d--effn
 
      a
@@ -176,7 +176,7 @@ f-lushleft
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -234,7 +234,7 @@ f-lushleft
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -265,7 +265,7 @@ f-lushleft
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -322,7 +322,7 @@ f-lushleft
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -353,7 +353,7 @@ f-lushleft
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -417,7 +417,7 @@ f-lushleft
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -448,7 +448,7 @@ f-lushleft
 
                     s--mallexample
 
-                - c-ategory: d--effn_name a--rguments...
+                -- c-ategory: d--effn_name a--rguments...
                     d--effn
 
                a
@@ -506,7 +506,7 @@ f-lushleft
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -537,7 +537,7 @@ f-lushleft
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -594,7 +594,7 @@ f-lushleft
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -625,7 +625,7 @@ f-lushleft
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -689,7 +689,7 @@ f-lushleft
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -720,7 +720,7 @@ f-lushleft
 
                     s--mallexample
 
-                - c-ategory: d--effn_name a--rguments...
+                -- c-ategory: d--effn_name a--rguments...
                     d--effn
 
                a
@@ -781,7 +781,8 @@ lone mu-ltitable item
 
      s--mallexample
 
- - c-ategory: d--effn_name a--rguments...
+ -- c-ategory: d--effn_name
+          a--rguments...
      d-effn
 
 a
@@ -812,7 +813,7 @@ f-lushleft
 
           s--mallexample
 
-      - c-ategory: d--effn_name
+      -- c-ategory: d--effn_name
                a--rguments...
           d--effn
 
@@ -871,7 +872,7 @@ multitable item 2                           multitable tab 2 Call macro in mutit
                                             
                                                  s--mallexample
                                             
-                                             - c-ategory: d--effn_name a--rguments...
+                                             -- c-ategory: d--effn_name a--rguments...
                                                  d-effn
                                             
                                             a
@@ -902,7 +903,7 @@ multitable item 2                           multitable tab 2 Call macro in mutit
                                             
                                                       s--mallexample
                                             
-                                                  - c-ategory: d--effn_name a--rguments...
+                                                  -- c-ategory: d--effn_name a--rguments...
                                                       d--effn
                                             
                                                  a
@@ -967,7 +968,7 @@ mutitable in format_command
 
           s--mallexample
 
-      - c-ategory: d--effn_name
+      -- c-ategory: d--effn_name
                a--rguments...
           d--effn
 
@@ -999,7 +1000,7 @@ mutitable in format_command
 
                s--mallexample
 
-           - c-ategory: d--effn_name
+           -- c-ategory: d--effn_name
                     a--rguments...
                d--effn
 
@@ -1064,7 +1065,7 @@ mutitable in format_command
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d--effn
 
      a
@@ -1095,7 +1096,7 @@ mutitable in format_command
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -1161,7 +1162,7 @@ mutitable in format_command
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d--effn
 
      a
@@ -1192,7 +1193,7 @@ mutitable in format_command
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -1258,7 +1259,7 @@ mutitable in format_command
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -1289,7 +1290,7 @@ mutitable in format_command
 
                     s--mallexample
 
-                - c-ategory: d--effn_name a--rguments...
+                -- c-ategory: d--effn_name a--rguments...
                     d--effn
 
                a
@@ -1305,7 +1306,7 @@ mutitable in format_command
 
      s--mallexample
 
- - c-ategory: d--effn_name a--rguments...
+ -- c-ategory: d--effn_name a--rguments...
      deffn call macro in deffn in macro
 
           in format_command
@@ -1349,7 +1350,7 @@ mutitable in format_command
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -1380,7 +1381,7 @@ mutitable in format_command
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -1444,7 +1445,7 @@ mutitable in format_command
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -1475,7 +1476,7 @@ mutitable in format_command
 
                     s--mallexample
 
-                - c-ategory: d--effn_name a--rguments...
+                -- c-ategory: d--effn_name a--rguments...
                     d--effn
 
                a
@@ -1490,7 +1491,7 @@ mutitable in format_command
                             ce-ntered line
 
    call macro in deffn at the beginning
- - c-ategory2: d--effn_name2 a--rguments2...
+ -- c-ategory2: d--effn_name2 a--rguments2...
      in macro
 
           in format_command
@@ -1534,7 +1535,7 @@ mutitable in format_command
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -1565,7 +1566,7 @@ mutitable in format_command
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -1623,7 +1624,7 @@ a line
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -1654,7 +1655,7 @@ a line
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -1713,7 +1714,7 @@ a line
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -1744,7 +1745,7 @@ a line
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -1809,7 +1810,7 @@ a line2
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -1840,7 +1841,7 @@ a line2
 
                     s--mallexample
 
-                - c-ategory: d--effn_name a--rguments...
+                -- c-ategory: d--effn_name a--rguments...
                     d--effn
 
                a
@@ -1898,7 +1899,7 @@ lone mu-ltitable item
 
      s--mallexample
 
- - c-ategory: d--effn_name a--rguments...
+ -- c-ategory: d--effn_name a--rguments...
      d-effn
 
 a
@@ -1929,7 +1930,7 @@ f-lushleft
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d--effn
 
      a
@@ -1986,7 +1987,7 @@ lone mu-ltitable item
 
      s--mallexample
 
- - c-ategory: d--effn_name a--rguments...
+ -- c-ategory: d--effn_name a--rguments...
      d-effn
 
 a
@@ -2017,7 +2018,7 @@ f-lushleft
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d--effn
 
      a
@@ -2081,7 +2082,7 @@ f-lushleft
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d--effn
 
      a
@@ -2112,7 +2113,7 @@ f-lushleft
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -2170,7 +2171,7 @@ lone mu-ltitable item
 
      s--mallexample
 
- - c-ategory: d--effn_name a--rguments...
+ -- c-ategory: d--effn_name a--rguments...
      d-effn
 
 a
@@ -2201,7 +2202,7 @@ f-lushleft
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d--effn
 
      a
@@ -2266,7 +2267,7 @@ call macro in flushleft in format_command
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d--effn
 
      a
@@ -2297,7 +2298,7 @@ call macro in flushleft in format_command
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -2354,7 +2355,7 @@ in verbatim
 
      s--mallexample
 
- - c-ategory: d--effn_name a--rguments...
+ -- c-ategory: d--effn_name a--rguments...
                                                                  d-effn
 
 a
@@ -2385,7 +2386,7 @@ f-lushleft
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d--effn
 
      a
@@ -2449,7 +2450,7 @@ f-lushleft
 
           s--mallexample
 
-      - c-ategory: d--effn_name a--rguments...
+      -- c-ategory: d--effn_name a--rguments...
           d--effn
 
      a
@@ -2480,7 +2481,7 @@ f-lushleft
 
                s--mallexample
 
-           - c-ategory: d--effn_name a--rguments...
+           -- c-ategory: d--effn_name a--rguments...
                d--effn
 
           a

@@ -274,7 +274,7 @@ $result_indices_sort_strings{'comment_index_before_defline'} = {
 
 
 
-$result_converted{'plaintext'}->{'comment_index_before_defline'} = ' - a: b c d
+$result_converted{'plaintext'}->{'comment_index_before_defline'} = ' -- a: b c d
 ';
 
 

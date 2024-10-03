@@ -11,9 +11,9 @@ This is a test manual, trivially and explicitly in the public domain(1).
    This test demonstrates @anchor and indices in @copying and titlepage,
 and various wrong index entries.
 
- - truc:
- - truc:
- - :
+ -- truc:
+ -- truc:
+ -- :
 
 fun
 

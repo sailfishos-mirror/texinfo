@@ -1060,8 +1060,8 @@ $result_indices_sort_strings{'printindex_index_entry_in_copying'} = {
 
 $result_converted{'info'}->{'printindex_index_entry_in_copying'} = 'This is , produced from .
 
- - Function: fun arg
- - Function: xf arg
+ -- Function: fun arg
+ -- Function: xf arg
      Defun
 
 ftable item
@@ -1075,8 +1075,8 @@ top
 
 Top.
 
- - Function: fun arg
- - Function: xf arg
+ -- Function: fun arg
+ -- Function: xf arg
      Defun
 
 ftable item
@@ -1101,8 +1101,8 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 1 Chapter
 *********
 
- - Function: fun arg
- - Function: xf arg
+ -- Function: fun arg
+ -- Function: xf arg
      Defun
 
 ftable item
@@ -1128,8 +1128,8 @@ xftable xitem
 
 
 Tag Table:
-Node: Top107
-Node: chapter661
+Node: Top109
+Node: chapter665
 
 End Tag Table
 
@@ -1145,8 +1145,8 @@ $result_converted{'plaintext'}->{'printindex_index_entry_in_copying'} = 'top
 
 Top.
 
- - Function: fun arg
- - Function: xf arg
+ -- Function: fun arg
+ -- Function: xf arg
      Defun
 
 ftable item
@@ -1163,8 +1163,8 @@ xftable xitem
 1 Chapter
 *********
 
- - Function: fun arg
- - Function: xf arg
+ -- Function: fun arg
+ -- Function: xf arg
      Defun
 
 ftable item

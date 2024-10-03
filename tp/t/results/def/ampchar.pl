@@ -322,7 +322,7 @@ $result_indices_sort_strings{'ampchar'} = {
 
 
 
-$result_converted{'plaintext'}->{'ampchar'} = ' - Constructor on a: b (const std::vector<int>&)
+$result_converted{'plaintext'}->{'ampchar'} = ' -- Constructor on a: b (const std::vector<int>&)
    & & & { } @
 ';
 

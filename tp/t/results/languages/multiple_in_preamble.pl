@@ -1171,16 +1171,16 @@ $result_converted{'plaintext'}->{'multiple_in_preamble'} = 'top section
 1 chap
 ******
 
- - Primjerak varijable od hr: BBB CCC
+ -- Primjerak varijable of hr: BBB CCC
      greška→
 
- - Instanzvariable of de: FFF GGG
+ -- Instanzvariable of de: FFF GGG
 ';
 
 
 $result_converted{'info'}->{'multiple_in_preamble'} = 'This is , produced from .
 
- - Primjerak varijable od copying: a b
+ -- Primjerak varijable of copying: a b
      greška→
 
 
@@ -1199,15 +1199,15 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 1 chap
 ******
 
- - Primjerak varijable od hr: BBB CCC
+ -- Primjerak varijable of hr: BBB CCC
      greška→
 
- - Instanzvariable of de: FFF GGG
+ -- Instanzvariable of de: FFF GGG
 
 
 Tag Table:
-Node: Top80
-Node: chapter177
+Node: Top81
+Node: chapter178
 
 End Tag Table
 

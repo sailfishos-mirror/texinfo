@@ -330,8 +330,8 @@ $result_indices_sort_strings{'defx_after_comment'} = {
 
 
 
-$result_converted{'plaintext'}->{'defx_after_comment'} = ' - fset: I a g
- - truc: bidulr machin...
+$result_converted{'plaintext'}->{'defx_after_comment'} = ' -- fset: I a g
+ -- truc: bidulr machin...
 ';
 
 1;

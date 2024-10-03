@@ -22,7 +22,7 @@ File: multiple_lang_chapters.info,  Node: chapter ja,  Next: chapter en,  Prev: 
 ****
 
 In japanese.  *Note chapter ja::.
- - Instance Variable of AAA: BBB CCC
+ -- Instance Variable of AAA: BBB CCC
 
 
 File: multiple_lang_chapters.info,  Node: chapter en,  Next: chapter fr_FR,  Prev: chapter ja,  Up: Top
@@ -31,7 +31,7 @@ File: multiple_lang_chapters.info,  Node: chapter en,  Next: chapter fr_FR,  Pre
 ****
 
 In english.  *Note chapter ja::.
- - Instance Variable of AAA: BBB CCC
+ -- Instance Variable of AAA: BBB CCC
 
 
 File: multiple_lang_chapters.info,  Node: chapter fr_FR,  Next: chapter de,  Prev: chapter en,  Up: Top
@@ -39,7 +39,7 @@ File: multiple_lang_chapters.info,  Node: chapter fr_FR,  Next: chapter de,  Pre
 3 fr_FR
 *******
 
- - Variable d'instance de AAA : BBB CCC
+ -- Variable d'instance of AAA: BBB CCC
 
 
 File: multiple_lang_chapters.info,  Node: chapter de,  Next: chapter pt_BR,  Prev: chapter fr_FR,  Up: Top
@@ -59,10 +59,10 @@ In brazilian.  *Note chapter ja::.
 Tag Table:
 Node: Top81
 Node: chapter ja293
-Node: chapter en473
-Node: chapter fr_FR662
-Node: chapter de827
-Node: chapter pt_BR948
+Node: chapter en474
+Node: chapter fr_FR664
+Node: chapter de829
+Node: chapter pt_BR950
 
 End Tag Table
 

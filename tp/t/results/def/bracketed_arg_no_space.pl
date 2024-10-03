@@ -273,7 +273,7 @@ $result_indices_sort_strings{'bracketed_arg_no_space'} = {
 
 $result_converted{'info'}->{'bracketed_arg_no_space'} = 'This is , produced from .
 
- - a bc d: e gh mll restand more
+ -- a bc d: e gh mll restand more
 
 Tag Table:
 

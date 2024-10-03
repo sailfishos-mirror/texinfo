@@ -326,9 +326,9 @@ $result_indices_sort_strings{'defx_after_empty_line'} = {
 
 
 
-$result_converted{'plaintext'}->{'defx_after_empty_line'} = ' - fset: I a g
+$result_converted{'plaintext'}->{'defx_after_empty_line'} = ' -- fset: I a g
 
- - truc: bidulr machin...
+ -- truc: bidulr machin...
 ';
 
 1;

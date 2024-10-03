@@ -315,8 +315,8 @@ $result_floats{'adjacent_defline'} = {};
 
 
 
-$result_converted{'plaintext'}->{'adjacent_defline'} = ' - Funoid: foo (bar)
- - Funnyoid: foo2 (bar2, baz2)
+$result_converted{'plaintext'}->{'adjacent_defline'} = ' -- Funoid: foo (bar)
+ -- Funnyoid: foo2 (bar2, baz2)
      description
 ';
 

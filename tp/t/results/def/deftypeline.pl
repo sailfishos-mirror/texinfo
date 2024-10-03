@@ -308,7 +308,7 @@ $result_floats{'deftypeline'} = {};
 
 
 
-$result_converted{'plaintext'}->{'deftypeline'} = ' - Function: long int foo (int BAR, int BAZ)
+$result_converted{'plaintext'}->{'deftypeline'} = ' -- Function: long int foo (int BAR, int BAZ)
      ...
 ';
 

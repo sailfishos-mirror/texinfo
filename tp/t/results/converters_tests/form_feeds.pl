@@ -1394,8 +1394,8 @@ aa
 
    ‘ in indicateurl’
 
- - truc: machin bidule chose arg
- - xtruc: xmachin xbidule xchose xarg
+ -- truc: machin bidule chose arg
+ -- xtruc: xmachin xbidule xchose xarg
      T
 
 a float

@@ -1,3 +1,10 @@
+2024-10-03  Patrice Dumas  <pertusus@free.fr>
+
+	* NEWS, tp/Texinfo/Convert/Plaintext.pm (_convert_def_line): use a ---
+	for definition line leading hyphen to end up with two hyphen in the
+	default case as was the case previously.  See
+	https://lists.gnu.org/archive/html/bug-texinfo/2004-02/msg00021.html
+
 2024-08-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/document.c (initialize_document_options): add

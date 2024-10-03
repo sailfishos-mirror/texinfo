@@ -5249,85 +5249,85 @@ $result_indices_sort_strings{'all_commands'} = {
 
 
 
-$result_converted{'plaintext'}->{'all_commands'} = ' - c-ategory: d--efvr_name
+$result_converted{'plaintext'}->{'all_commands'} = ' -- c-ategory: d--efvr_name
      d-efvr
 
- - c-ategory: n--ame a--rguments...
+ -- c-ategory: n--ame a--rguments...
      d-effn
 
- - c-ategory: n--ame
+ -- c-ategory: n--ame
      d-effn no arg
 
- - c-ategory: t--ype d--eftypefn_name a--rguments...
+ -- c-ategory: t--ype d--eftypefn_name a--rguments...
      d-eftypefn
 
- - c-ategory: t--ype d--eftypefn_name
+ -- c-ategory: t--ype d--eftypefn_name
      d-eftypefn no arg
 
- - c-ategory on c--lass: t--ype d--eftypeop_name a--rguments...
+ -- c-ategory on c--lass: t--ype d--eftypeop_name a--rguments...
      d-eftypeop
 
- - c-ategory on c--lass: t--ype d--eftypeop_name
+ -- c-ategory on c--lass: t--ype d--eftypeop_name
      d-eftypeop no arg
 
- - c-ategory: t--ype d--eftypevr_name
+ -- c-ategory: t--ype d--eftypevr_name
      d-eftypevr
 
- - c-ategory of c--lass: d--efcv_name
+ -- c-ategory of c--lass: d--efcv_name
      d-efcv
 
- - c-ategory of c--lass: d--efcv_name a--rguments...
+ -- c-ategory of c--lass: d--efcv_name a--rguments...
      d-efcv with arguments
 
- - c-ategory of c--lass: t--ype d--eftypecv_name
+ -- c-ategory of c--lass: t--ype d--eftypecv_name
      d-eftypecv
 
- - c-ategory of c--lass: t--ype d--eftypecv_name a--rguments...
+ -- c-ategory of c--lass: t--ype d--eftypecv_name a--rguments...
      d-eftypecv with arguments
 
- - c-ategory on c--lass: d--efop_name a--rguments...
+ -- c-ategory on c--lass: d--efop_name a--rguments...
      d-efop
 
- - c-ategory on c--lass: d--efop_name
+ -- c-ategory on c--lass: d--efop_name
      d-efop no arg
 
- - c-ategory: d--eftp_name a--ttributes...
+ -- c-ategory: d--eftp_name a--ttributes...
      d-eftp
 
- - Function: d--efun_name a--rguments...
+ -- Function: d--efun_name a--rguments...
      d-efun
 
- - Macro: d--efmac_name a--rguments...
+ -- Macro: d--efmac_name a--rguments...
      d-efmac
 
- - Special Form: d--efspec_name a--rguments...
+ -- Special Form: d--efspec_name a--rguments...
      d-efspec
 
- - Variable: d--efvar_name
+ -- Variable: d--efvar_name
      d-efvar
 
- - Variable: d--efvar_name arg--var arg--var1
+ -- Variable: d--efvar_name arg--var arg--var1
      d-efvar with args
 
- - User Option: d--efopt_name
+ -- User Option: d--efopt_name
      d-efopt
 
- - Function: t--ype d--eftypefun_name a--rguments...
+ -- Function: t--ype d--eftypefun_name a--rguments...
      d-eftypefun
 
- - Variable: t--ype d--eftypevar_name
+ -- Variable: t--ype d--eftypevar_name
      d-eftypevar
 
- - Instance Variable of c--lass: d--efivar_name
+ -- Instance Variable of c--lass: d--efivar_name
      d-efivar
 
- - Instance Variable of c--lass: t--ype d--eftypeivar_name
+ -- Instance Variable of c--lass: t--ype d--eftypeivar_name
      d-eftypeivar
 
- - Method on c--lass: d--efmethod_name a--rguments...
+ -- Method on c--lass: d--efmethod_name a--rguments...
      d-efmethod
 
- - Method on c--lass: t--ype d--eftypemethod_name a--rguments...
+ -- Method on c--lass: t--ype d--eftypemethod_name a--rguments...
      d-eftypemethod
 ';
 

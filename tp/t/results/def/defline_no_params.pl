@@ -171,7 +171,7 @@ $result_floats{'defline_no_params'} = {};
 
 
 
-$result_converted{'plaintext'}->{'defline_no_params'} = ' - Builtin: truc
+$result_converted{'plaintext'}->{'defline_no_params'} = ' -- Builtin: truc
      Description of truc
 ';
 

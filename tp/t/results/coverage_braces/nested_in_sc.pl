@@ -222,11 +222,6 @@ $result_floats{'nested_in_sc'} = {};
 
 
 
-$result_converted{'docbook'}->{'nested_in_sc'} = '<para>AAA &#209; &#197; &tex; &#197;&#771; <footnote><para>In footnote</para></footnote>, <abbrev>ABR</abbrev> (EXPL), 
-<literal>IN VERB</literal>
-</para>';
-
-
 $result_converted{'plaintext'}->{'nested_in_sc'} = 'AAA Ñ Å TeX Å̃ (1), ABR (EXPL), in verb
 
    ---------- Footnotes ----------

@@ -231,7 +231,7 @@ $result_indices_sort_strings{'section_on_def_line'} = {
 
 
 
-$result_converted{'plaintext'}->{'section_on_def_line'} = ' - a: b
+$result_converted{'plaintext'}->{'section_on_def_line'} = ' -- a: b
 
 1 s
 ===

@@ -2372,14 +2372,14 @@ sub _convert_def_line($$)
          'name' => $formatted_name,
          'arguments' => $formatted_arguments};
         if ($omit_def_space) {
-          $tree = $self->cdt('@tie{}-- {category}: {name}{arguments}',
+          $tree = $self->cdt('@tie{}--- {category}: {name}{arguments}',
                              $strings);
         } else {
-          $tree = $self->cdt('@tie{}-- {category}: {name} {arguments}',
+          $tree = $self->cdt('@tie{}--- {category}: {name} {arguments}',
                              $strings);
         }
       } else {
-        $tree = $self->cdt('@tie{}-- {category}: {name}', {
+        $tree = $self->cdt('@tie{}--- {category}: {name}', {
              'category' => $category,
              'name' => $formatted_name});
       }
@@ -2397,21 +2397,21 @@ sub _convert_def_line($$)
             and $cmdname eq 'deftypefn') {
           if ($omit_def_space) {
             $tree
-              = $self->cdt('@tie{}-- {category}:@*{type}@*{name}{arguments}',
+              = $self->cdt('@tie{}--- {category}:@*{type}@*{name}{arguments}',
                            $strings);
           } else {
             $tree
-              = $self->cdt('@tie{}-- {category}:@*{type}@*{name} {arguments}',
+              = $self->cdt('@tie{}--- {category}:@*{type}@*{name} {arguments}',
                            $strings);
           }
         } else {
           if ($omit_def_space) {
             $tree
-              = $self->cdt('@tie{}-- {category}: {type} {name}{arguments}',
+              = $self->cdt('@tie{}--- {category}: {type} {name}{arguments}',
                            $strings);
           } else {
             $tree
-              = $self->cdt('@tie{}-- {category}: {type} {name} {arguments}',
+              = $self->cdt('@tie{}--- {category}: {type} {name} {arguments}',
                            $strings);
           }
         }
@@ -2423,10 +2423,10 @@ sub _convert_def_line($$)
         if ($self->get_conf('deftypefnnewline')
             and $self->get_conf('deftypefnnewline') eq 'on'
             and $cmdname eq 'deftypefn') {
-          $tree = $self->cdt('@tie{}-- {category}:@*{type}@*{name}',
+          $tree = $self->cdt('@tie{}--- {category}:@*{type}@*{name}',
                              $strings);
         } else {
-          $tree = $self->cdt('@tie{}-- {category}: {type} {name}',
+          $tree = $self->cdt('@tie{}--- {category}: {type} {name}',
                              $strings);
         }
       }
@@ -2441,15 +2441,15 @@ sub _convert_def_line($$)
          'arguments' => $formatted_arguments};
         if ($omit_def_space) {
           $tree
-           = $self->cdt('@tie{}-- {category} of {class}: {name}{arguments}',
+           = $self->cdt('@tie{}--- {category} of {class}: {name}{arguments}',
                         $strings);
         } else {
           $tree
-           = $self->cdt('@tie{}-- {category} of {class}: {name} {arguments}',
+           = $self->cdt('@tie{}--- {category} of {class}: {name} {arguments}',
                         $strings);
         }
       } else {
-        $tree = $self->cdt('@tie{}-- {category} of {class}: {name}', {
+        $tree = $self->cdt('@tie{}--- {category} of {class}: {name}', {
          'category' => $category,
          'class' => {'type' => '_code', 'contents' => [$class]},
          'name' => $formatted_name});
@@ -2465,15 +2465,15 @@ sub _convert_def_line($$)
          'arguments' => $formatted_arguments};
         if ($omit_def_space) {
           $tree
-            = $self->cdt('@tie{}-- {category} on {class}: {name}{arguments}',
+            = $self->cdt('@tie{}--- {category} on {class}: {name}{arguments}',
                          $strings);
         } else {
           $tree
-            = $self->cdt('@tie{}-- {category} on {class}: {name} {arguments}',
+            = $self->cdt('@tie{}--- {category} on {class}: {name} {arguments}',
                          $strings);
         }
       } else {
-        $tree = $self->cdt('@tie{}-- {category} on {class}: {name}', {
+        $tree = $self->cdt('@tie{}--- {category} on {class}: {name}', {
          'category' => $category,
          'class' => {'type' => '_code', 'contents' => [$class]},
          'name' => $formatted_name});
@@ -2491,24 +2491,24 @@ sub _convert_def_line($$)
           if ($omit_def_space) {
             $tree
               = $self->cdt(
-               '@tie{}-- {category} on {class}:@*{type}@*{name}{arguments}',
+               '@tie{}--- {category} on {class}:@*{type}@*{name}{arguments}',
                            $strings);
           } else {
             $tree
               = $self->cdt(
-               '@tie{}-- {category} on {class}:@*{type}@*{name} {arguments}',
+               '@tie{}--- {category} on {class}:@*{type}@*{name} {arguments}',
                            $strings);
           }
         } else {
           if ($omit_def_space) {
             $tree
               = $self->cdt(
-             '@tie{}-- {category} on {class}: {type} {name}{arguments}',
+             '@tie{}--- {category} on {class}: {type} {name}{arguments}',
                            $strings);
           } else {
             $tree
               = $self->cdt(
-              '@tie{}-- {category} on {class}: {type} {name} {arguments}',
+              '@tie{}--- {category} on {class}: {type} {name} {arguments}',
                            $strings);
           }
         }
@@ -2521,11 +2521,11 @@ sub _convert_def_line($$)
         if ($self->get_conf('deftypefnnewline')
             and $self->get_conf('deftypefnnewline') eq 'on') {
           $tree
-            = $self->cdt('@tie{}-- {category} on {class}:@*{type}@*{name}',
+            = $self->cdt('@tie{}--- {category} on {class}:@*{type}@*{name}',
                          $strings);
         } else {
           $tree
-            = $self->cdt('@tie{}-- {category} on {class}: {type} {name}',
+            = $self->cdt('@tie{}--- {category} on {class}: {type} {name}',
                          $strings);
         }
       }
@@ -2540,12 +2540,12 @@ sub _convert_def_line($$)
         if ($omit_def_space) {
           $tree
             = $self->cdt(
-                 '@tie{}-- {category} of {class}: {type} {name}{arguments}',
+                 '@tie{}--- {category} of {class}: {type} {name}{arguments}',
                          $strings);
         } else {
           $tree
             = $self->cdt(
-               '@tie{}-- {category} of {class}: {type} {name} {arguments}',
+               '@tie{}--- {category} of {class}: {type} {name} {arguments}',
                          $strings);
         }
       } else {
@@ -2555,7 +2555,7 @@ sub _convert_def_line($$)
          'class' => {'type' => '_code', 'contents' => [$class]},
          'name' => $formatted_name};
         $tree
-          = $self->cdt('@tie{}-- {category} of {class}: {type} {name}',
+          = $self->cdt('@tie{}--- {category} of {class}: {type} {name}',
                          $strings);
       }
     }

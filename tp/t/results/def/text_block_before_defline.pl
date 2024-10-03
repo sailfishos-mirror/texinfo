@@ -686,7 +686,7 @@ $result_converted{'plaintext'}->{'text_block_before_defline'} = 'top
 
      * (other_manual)::
 
- - a: b c d
+ -- a: b c d
 
    ---------- Footnotes ----------
 

@@ -910,8 +910,8 @@ $result_indices_sort_strings{'def_in_copying'} = {
 $result_converted{'info'}->{'def_in_copying'} = 'This is , produced from .
 
 In copying
- - aa: bb cc
- - aax: bbx ccx
+ -- aa: bb cc
+ -- aax: bbx ccx
      deffnx lines
 
 
@@ -921,8 +921,8 @@ Test for definition commands
 ****************************
 
 In text
- - aa: bb cc
- - aax: bbx ccx
+ -- aa: bb cc
+ -- aax: bbx ccx
      deffnx lines
 
  [index ]
@@ -933,7 +933,7 @@ In text
 
 
 Tag Table:
-Node: Top86
+Node: Top88
 
 End Tag Table
 

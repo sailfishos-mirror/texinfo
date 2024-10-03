@@ -2095,11 +2095,11 @@ In text w: z? n; p. f
 
      c: d? j
 
- - cat: r. a on class: MyC. b: type: t. c name? n. d arg? e: f. V: G. H
+ -- cat: r. a on class: MyC. b: type: t. c name? n. d arg? e: f. V: G. H
           code? is: k
      deftypeop
 
- - vcat: r. z on vclass: MyC. u: vname? n; d varg? ve: f. VV: G? B
+ -- vcat: r. z on vclass: MyC. u: vname? n; d varg? ve: f. VV: G? B
           vcode? is: a
      defop
 
@@ -2112,11 +2112,11 @@ In text w: z?  n; p.  fn
 
      c: d? jn
 
- - cat: r.  a on class: MyC. b: type: t. c name? n. d narg? e: f. V: G.
+ -- cat: r.  a on class: MyC. b: type: t. c name? n. d narg? e: f. V: G.
           H code? is: k
      deftypeop n
 
- - vcat: r.  z on nvclass: MyC. u: vname? n; d varg? ve: f. VV: G? B
+ -- vcat: r.  z on nvclass: MyC. u: vname? n; d varg? ve: f. VV: G? B
           vcode? is: a
      defop n
 ';

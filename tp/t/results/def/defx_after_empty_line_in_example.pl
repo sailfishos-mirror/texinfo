@@ -418,10 +418,10 @@ $result_indices_sort_strings{'defx_after_empty_line_in_example'} = {
 
 
 
-$result_converted{'plaintext'}->{'defx_after_empty_line_in_example'} = '      - fset: I a g
+$result_converted{'plaintext'}->{'defx_after_empty_line_in_example'} = '      -- fset: I a g
 
 
-      - truc: bidulr machin...
+      -- truc: bidulr machin...
 ';
 
 1;

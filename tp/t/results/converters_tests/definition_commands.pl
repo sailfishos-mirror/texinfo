@@ -20579,121 +20579,122 @@ $result_converted{'plaintext'}->{'definition_commands'} = 'top section
 1 chapter
 *********
 
- - Func: fname a---rg1 a--rg2
+ -- Func: fname a---rg1 a--rg2
      deffn no var for A--RG1 and A-RG2
 
- - Func: fname A---RG1 A--RG2
+ -- Func: fname A---RG1 A--RG2
      deffn explict var for A--RG1 and A-RG2
 
- - Func: fname a--rg1 a-rg2
+ -- Func: fname a--rg1 a-rg2
      deffn r slanted for A--RG1 and A-RG2
 
- - Special Form: foobar (var [from to [inc]]) default
- - Special Form: foobar (var [from to [inc]]) r
- - Special Form: foobar (var [from to [inc]]) var
- - Special Form: foobar (var [from to [inc]]) slanted
- - Special Form: foobar (var [from to [inc]]) code
- - Special Form: foobar (var [from to [inc]]) t
- - Special Form: foobar (var [from to [inc]]) t:b
- - Special Form: foobar (var [from to [inc]]) r:var
- - Special Form: foobar (var [from to [inc]]) r:slanted
- - Special Form: foobar (var [from to [inc]]) r:code
- - Special Form: foobar (var [from to [inc]]) r:t
- - Special Form: foobar (var [from to [inc]]) code:var
- - Special Form: foobar (var [from to [inc]]) t:var
- - Special Form: foobar (var [from to [inc]]) code:slanted
- - Special Form: foobar (var [from to [inc]]) t:slanted
+ -- Special Form: foobar (var [from to [inc]]) default
+ -- Special Form: foobar (var [from to [inc]]) r
+ -- Special Form: foobar (var [from to [inc]]) var
+ -- Special Form: foobar (var [from to [inc]]) slanted
+ -- Special Form: foobar (var [from to [inc]]) code
+ -- Special Form: foobar (var [from to [inc]]) t
+ -- Special Form: foobar (var [from to [inc]]) t:b
+ -- Special Form: foobar (var [from to [inc]]) r:var
+ -- Special Form: foobar (var [from to [inc]]) r:slanted
+ -- Special Form: foobar (var [from to [inc]]) r:code
+ -- Special Form: foobar (var [from to [inc]]) r:t
+ -- Special Form: foobar (var [from to [inc]]) code:var
+ -- Special Form: foobar (var [from to [inc]]) t:var
+ -- Special Form: foobar (var [from to [inc]]) code:slanted
+ -- Special Form: foobar (var [from to [inc]]) t:slanted
      separators
 
- - Special Form: foobar va---riable default
- - Special Form: foobar VA---RIABLE var
- - Special Form: foobar va--riable r
- - Special Form: foobar va---riable slanted
- - Special Form: foobar va---riable code
- - Special Form: foobar va---riable t
- - Special Form: foobar va---riable t:b
- - Special Form: foobar VA--RIABLE r:var
- - Special Form: foobar va--riable r:slanted
- - Special Form: foobar va---riable r:code
- - Special Form: foobar va---riable r:t
- - Special Form: foobar VA---RIABLE code:var
- - Special Form: foobar VA---RIABLE t:var
- - Special Form: foobar va---riable code:slanted
- - Special Form: foobar va---riable t:slanted
+ -- Special Form: foobar va---riable default
+ -- Special Form: foobar VA---RIABLE var
+ -- Special Form: foobar va--riable r
+ -- Special Form: foobar va---riable slanted
+ -- Special Form: foobar va---riable code
+ -- Special Form: foobar va---riable t
+ -- Special Form: foobar va---riable t:b
+ -- Special Form: foobar VA--RIABLE r:var
+ -- Special Form: foobar va--riable r:slanted
+ -- Special Form: foobar va---riable r:code
+ -- Special Form: foobar va---riable r:t
+ -- Special Form: foobar VA---RIABLE code:var
+ -- Special Form: foobar VA---RIABLE t:var
+ -- Special Form: foobar va---riable code:slanted
+ -- Special Form: foobar va---riable t:slanted
      name
 
- - Request: .ft [font]
- - Escape sequence: \\ff
- - Escape sequence: \\f(fn
- - Escape sequence: \\f[font] \\f[font]
- - Register: \\n[.sty]
+ -- Request: .ft [font]
+ -- Escape sequence: \\ff
+ -- Escape sequence: \\f(fn
+ -- Escape sequence: \\f[font] \\f[font]
+ -- Register: \\n[.sty]
      The ‘ft’ request and the ‘\\f’ escape change the current font to
      FONT (one-character name F, two-character name FN).
 
- - Special Form: foobar [ [ [ [ [ [ [ [ [ , , , , , , , , , ] ] ] ] ] ]
+ -- Special Form: foobar [ [ [ [ [ [ [ [ [ , , , , , , , , , ] ] ] ] ] ]
           ] ] ]
- - Special Form: foobar [] [] [] [] [] [] [] []
+ -- Special Form: foobar [] [] [] [] [] [] [] []
      test formatting of separators
 
- - Library Function: int foobar (int F---OO, float B--AR)
+ -- Library Function: int foobar (int F---OO, float B--AR)
      ... with var for F--OO and B-AR
 
- - Library Function: int foobar (int f--oo, float b-ar)
+ -- Library Function: int foobar (int f--oo, float b-ar)
      ... with r slanted for F--OO and B-AR
 
 produces:
- - Class Option of Window: border-pattern
+ -- Class Option of Window: border-pattern
      ...
 
- - Class Option of Window: int border-pattern
+ -- Class Option of Window: int border-pattern
      ...
 
-      - Library Function: int foobar (int FOO, float BAR)
+      -- Library Function: int foobar (int FOO, float BAR)
           ... for FOO and BAR
 
- - Function: apply function &rest arguments
+ -- Function: apply function &rest arguments
      ‘apply’ calls no var FUNCTION with ARGUMENTS
 
- - Function: apply function &rest argument
+ -- Function: apply function &rest argument
      explicit keyword marking, no var FUNCTION with ARGUMENTS
 
- - Category: name argument int a--b V--AR1, word -- (type o--ther,
+ -- Category: name argument int a--b V--AR1, word -- (type o--ther,
           V---AR2 [float [VAR4]])
      In deffn with code and var used
 
- - Library Function: int foobar (int F---OO[, float B--AR]) default
- - Library Function: int foobar (int F---OO[, float B--AR]) r
- - Library Function: int foobar (int F---OO[, float B--AR]) var
- - Library Function: int foobar (int F---OO[, float B--AR]) slanted
- - Library Function: int foobar (int F---OO[, float B--AR]) code
- - Library Function: int foobar (int F---OO[, float B--AR]) t
- - Library Function: int foobar (int F---OO[, float B--AR]) t:b
- - Library Function: int foobar (int F---OO[, float B--AR]) r:var
- - Library Function: int foobar (int F---OO[, float B--AR]) r:slanted
- - Library Function: int foobar (int F---OO[, float B--AR]) r:code
- - Library Function: int foobar (int F---OO[, float B--AR]) r:t
- - Library Function: int foobar (int F---OO[, float B--AR]) code:var
- - Library Function: int foobar (int F---OO[, float B--AR]) t:var
- - Library Function: int foobar (int F---OO[, float B--AR]) code:slanted
- - Library Function: int foobar (int F---OO[, float B--AR]) t:slanted
+ -- Library Function: int foobar (int F---OO[, float B--AR]) default
+ -- Library Function: int foobar (int F---OO[, float B--AR]) r
+ -- Library Function: int foobar (int F---OO[, float B--AR]) var
+ -- Library Function: int foobar (int F---OO[, float B--AR]) slanted
+ -- Library Function: int foobar (int F---OO[, float B--AR]) code
+ -- Library Function: int foobar (int F---OO[, float B--AR]) t
+ -- Library Function: int foobar (int F---OO[, float B--AR]) t:b
+ -- Library Function: int foobar (int F---OO[, float B--AR]) r:var
+ -- Library Function: int foobar (int F---OO[, float B--AR]) r:slanted
+ -- Library Function: int foobar (int F---OO[, float B--AR]) r:code
+ -- Library Function: int foobar (int F---OO[, float B--AR]) r:t
+ -- Library Function: int foobar (int F---OO[, float B--AR]) code:var
+ -- Library Function: int foobar (int F---OO[, float B--AR]) t:var
+ -- Library Function: int foobar (int F---OO[, float B--AR])
+          code:slanted
+ -- Library Function: int foobar (int F---OO[, float B--AR]) t:slanted
      separators
 
- - Library Function: int foobar (i--nt F---OO[, float B--AR]) default
- - Library Function: int foobar (i-nt F---OO[, float B--AR]) r
- - Library Function: int foobar (I--NT F---OO[, float B--AR]) var
- - Library Function: int foobar (i--nt F---OO[, float B--AR]) slanted
- - Library Function: int foobar (i--nt F---OO[, float B--AR]) code
- - Library Function: int foobar (i--nt F---OO[, float B--AR]) t
- - Library Function: int foobar (i--nt F---OO[, float B--AR]) t:b
- - Library Function: int foobar (I-NT F---OO[, float B--AR]) r:var
- - Library Function: int foobar (i-nt F---OO[, float B--AR]) r:slanted
- - Library Function: int foobar (i--nt F---OO[, float B--AR]) r:code
- - Library Function: int foobar (i--nt F---OO[, float B--AR]) r:t
- - Library Function: int foobar (I--NT F---OO[, float B--AR]) code:var
- - Library Function: int foobar (I--NT F---OO[, float B--AR]) t:var
- - Library Function: int foobar (i--nt F---OO[, float B--AR])
+ -- Library Function: int foobar (i--nt F---OO[, float B--AR]) default
+ -- Library Function: int foobar (i-nt F---OO[, float B--AR]) r
+ -- Library Function: int foobar (I--NT F---OO[, float B--AR]) var
+ -- Library Function: int foobar (i--nt F---OO[, float B--AR]) slanted
+ -- Library Function: int foobar (i--nt F---OO[, float B--AR]) code
+ -- Library Function: int foobar (i--nt F---OO[, float B--AR]) t
+ -- Library Function: int foobar (i--nt F---OO[, float B--AR]) t:b
+ -- Library Function: int foobar (I-NT F---OO[, float B--AR]) r:var
+ -- Library Function: int foobar (i-nt F---OO[, float B--AR]) r:slanted
+ -- Library Function: int foobar (i--nt F---OO[, float B--AR]) r:code
+ -- Library Function: int foobar (i--nt F---OO[, float B--AR]) r:t
+ -- Library Function: int foobar (I--NT F---OO[, float B--AR]) code:var
+ -- Library Function: int foobar (I--NT F---OO[, float B--AR]) t:var
+ -- Library Function: int foobar (i--nt F---OO[, float B--AR])
           code:slanted
- - Library Function: int foobar (i--nt F---OO[, float B--AR]) t:slanted
+ -- Library Function: int foobar (i--nt F---OO[, float B--AR]) t:slanted
      name
 
 ';

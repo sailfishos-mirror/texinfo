@@ -343,10 +343,10 @@ $result_floats{'multiple_defline'} = {};
 
 
 
-$result_converted{'plaintext'}->{'multiple_defline'} = ' - Funoid: foo (bar)
+$result_converted{'plaintext'}->{'multiple_defline'} = ' -- Funoid: foo (bar)
      description1 description1 description1 description1 description1
      description1 description1 description1 description1 description1
- - Funnyoid: foo2 (bar2, baz2)
+ -- Funnyoid: foo2 (bar2, baz2)
      description2 description2 description2 description2 description2
      description2 description2 description2 description2 description2
 ';

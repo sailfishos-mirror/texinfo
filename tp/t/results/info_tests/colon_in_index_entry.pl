@@ -676,8 +676,8 @@ File: ,  Node: Top,  Up: (dir)
 
 _%main::value_
 
- - a:b: c:d e f
- - x:y: z:t n m o
+ -- a:b: c:d e f
+ -- x:y: z:t n m o
 
  [index ]
 * Menu:
