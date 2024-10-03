@@ -19466,7 +19466,7 @@ html_setup_output (CONVERTER *self, char **paths)
  "http://docs.mathjax.org/en/latest/web/hosting.html#getting-mathjax-via-git");
 
        if (!self->conf->MATHJAX_CONFIGURATION.o.string)
-         set_conf (&self->conf->MATHJAX_CONFIGURATION, 0,
+         option_set_conf (&self->conf->MATHJAX_CONFIGURATION, 0,
  "  options: {\n"
  "    skipHtmlTags: {'[-]': ['pre']},       // do not skip pre\n"
  "    ignoreHtmlClass: 'tex2jax_ignore',\n"

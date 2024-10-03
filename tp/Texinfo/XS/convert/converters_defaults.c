@@ -119,6 +119,7 @@ void set_converter_customization_regular_defaults (OPTIONS *options)
   option_set_conf (&options->L2H_L2H, -2, 0);
   option_set_conf (&options->L2H_SKIP, -1, 0);
   option_set_conf (&options->L2H_TMP, -2, 0);
+  option_set_conf (&options->MATHJAX_CONFIGURATION, -2, 0);
   option_set_conf (&options->MATHJAX_SCRIPT, -2, 0);
   option_set_conf (&options->MATHJAX_SOURCE, -2, 0);
   option_set_conf (&options->MAX_HEADER_LEVEL, -1, 0);
