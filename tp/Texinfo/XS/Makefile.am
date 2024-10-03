@@ -110,9 +110,7 @@ endif
 # in main but not the other way around.
 # Files in structuring_transfo depend only on the files in main and not
 # the other way around.
-# api_to_perl.c and call_perl_function.c functions are called in other
-# parts of the code and need to be linked against Perl
-libtexinfo_la_SOURCES= \
+C_libtexinfo_sources = \
 		      main/tree_types.h \
 		      main/document_types.h \
 		      main/tree.c \
@@ -208,7 +206,11 @@ libtexinfo_la_SOURCES= \
 		      structuring_transfo/structuring.c \
 		      structuring_transfo/structuring.h \
 		      structuring_transfo/transformations.c \
-		      structuring_transfo/transformations.h \
+		      structuring_transfo/transformations.h
+
+# api_to_perl.c and call_perl_function.c functions are called in other
+# parts of the code and need to be linked against Perl
+XS_libtexinfo_sources = \
 		      main/api_to_perl.c \
 		      main/api_to_perl.h \
 		      main/call_perl_function.c \
@@ -223,6 +225,10 @@ EXTRA_DIST += main/cmd_unicode.c
 EXTRA_DIST += main/cmd_text.c
 EXTRA_DIST += main/global_multi_commands_case.c
 EXTRA_DIST += main/global_unique_commands_case.c
+
+libtexinfo_la_SOURCES = \
+   $(C_libtexinfo_sources) \
+   $(XS_libtexinfo_sources)
 
 # locate include files under out-of-source builds.
 libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
@@ -370,7 +376,7 @@ endif
 # call_html_perl_function.c functions are called in other
 # parts of the code and need to be linked against Perl.
 # build_html_perl_state.c functions are called from call_html_perl_function.c.
-libtexinfo_convert_la_SOURCES= \
+C_libtexinfo_convert_sources = \
                        convert/converter.c \
                        convert/converter.h \
                        convert/cmd_converter.c \
@@ -379,13 +385,19 @@ libtexinfo_convert_la_SOURCES= \
                        convert/converters_defaults.c \
                        convert/converters_defaults.h \
                        convert/html_converter_init_options.c \
-                       convert/html_converter_init_options.h \
+                       convert/html_converter_init_options.h
+
+XS_libtexinfo_convert_sources = \
                        convert/build_html_perl_state.h \
                        convert/build_html_perl_state.c \
                        convert/call_html_perl_function.h \
                        convert/call_html_perl_function.c \
                        convert/get_converter_perl_info.c \
                        convert/get_converter_perl_info.h
+
+libtexinfo_convert_la_SOURCES = \
+   $(C_libtexinfo_convert_sources) \
+   $(XS_libtexinfo_convert_sources)
 
 # locate include files under out-of-source builds.
 # parsetexi will only be needed for texinfo.c
@@ -500,12 +512,15 @@ ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 noinst_PROGRAMS = teximakehtml
 
-teximakehtml_SOURCES = teximakehtml.c \
+teximakehtml_SOURCES = \
+                       $(C_libtexinfo_sources) \
+                       $(C_libtexinfo_convert_sources) \
+                       teximakehtml.c \
                        main/replace_perl_api_call.c \
                        convert/replace_perl_call_html_function.c
 
 teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
-teximakehtml_LDFLAGS = $(XSLIBS_LDFLAGS)
-teximakehtml_LDADD = libtexinfo.la libtexinfo-convert.la $(top_builddir)/gnulib/lib/libgnu.la
+#teximakehtml_LDADD = libtexinfo.la libtexinfo-convert.la $(top_builddir)/gnulib/lib/libgnu.la
+teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la
 
 

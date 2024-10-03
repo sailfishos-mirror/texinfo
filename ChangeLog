@@ -1,9 +1,14 @@
 2024-10-03  Patrice Dumas  <pertusus@free.fr>
 
-	* NEWS, tp/Texinfo/Convert/Plaintext.pm (_convert_def_line): use a ---
-	for definition line leading hyphen to end up with two hyphen in the
-	default case as was the case previously.  See
-	https://lists.gnu.org/archive/html/bug-texinfo/2004-02/msg00021.html
+	* tp/Texinfo/XS/Makefile.am (C_libtexinfo_sources)
+	(XS_libtexinfo_sources, libtexinfo_la_SOURCES)
+	(C_libtexinfo_convert_sources, XS_libtexinfo_convert_sources)
+	(libtexinfo_convert_la_SOURCES): separate libtexinfo_la_SOURCES and
+	libtexinfo_convert_la_SOURCES in C and XS code using variables.
+
+	* tp/Texinfo/XS/Makefile.am (teximakehtml_SOURCES)
+	(teximakehtml_LDADD): list libtexinfo and libtexinfo_convert C code
+	files using the variables instead of lining against the libraries.
 
 2024-08-07  Patrice Dumas  <pertusus@free.fr>
 
@@ -58,6 +63,13 @@
 	C code to parser and convert Texinfo to HTML.  No customization at
 	all, the intent is to use the program as a demonstrator of how the C
 	code could be used separately from Perl.
+
+2024-10-03  Patrice Dumas  <pertusus@free.fr>
+
+	* NEWS, tp/Texinfo/Convert/Plaintext.pm (_convert_def_line): use a ---
+	for definition line leading hyphen to end up with two hyphen in the
+	default case as was the case previously.  See
+	https://lists.gnu.org/archive/html/bug-texinfo/2004-02/msg00021.html
 
 2024-08-07  Patrice Dumas  <pertusus@free.fr>
 
