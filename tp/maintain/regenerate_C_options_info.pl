@@ -194,7 +194,7 @@ print CODE '#include "option_types.h"'."\n";
 print CODE '#include "options_types.h"'."\n";
 print CODE '#include "converter_types.h"'."\n";
 # for html_fill_button_directions_specification_list
-print CODE '#include "main/utils.h"'."\n";
+print CODE '#include "utils.h"'."\n";
 print CODE '#include "customization_options.h"'."\n\n";
 
 print CODE "void\ninitialize_options (OPTIONS *options)\n{\n";

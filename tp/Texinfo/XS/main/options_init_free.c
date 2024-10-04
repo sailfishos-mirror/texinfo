@@ -9,6 +9,7 @@
 #include "options_types.h"
 #include "converter_types.h"
 #include "utils.h"
+#include "customization_options.h"
 
 void
 initialize_options (OPTIONS *options)
