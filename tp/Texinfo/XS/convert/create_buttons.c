@@ -189,14 +189,14 @@ new_base_navigation_section_footer_buttons (const CONVERTER *self)
 }
 
 /* a negative direction in DIRECTIONS corresponds to a special direction
-    which index is not known early and is better stored as a string.
+   which index is not known early and is better stored as a string.
 
-    Mainly called for texi2html style navigation buttons, but also for
-    default special units navigation panel buttons.
-  */
+   Mainly called for texi2html style navigation buttons, but also for
+   default special units navigation panel buttons.
+ */
 BUTTON_SPECIFICATION_LIST *
 new_directions_list_buttons_specifications (const CONVERTER *self,
-                                            const int* directions)
+                                            const int *directions)
 {
   int buttons_nr = 0;
   int i;
