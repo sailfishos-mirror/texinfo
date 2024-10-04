@@ -25,7 +25,7 @@ use if $] >= 5.014, re => '/a';
 
 # for file names portability
 use File::Spec;
-# for fileparse
+# for fileparse and basename
 use File::Basename;
 
 use Encode;
@@ -337,7 +337,7 @@ my %xml_text_entity_no_arg_commands
 
 open(CONV, '>', $converter_file) or die "Open $converter_file: $!\n";
 
-print CONV "/* Automatically generated from $0 */\n\n";
+print CONV "/* Automatically generated from $program_name */\n\n";
 
 print CONV "const char *xml_text_entity_no_arg_commands[] = {\n";
 foreach my $command_name (@commands_order) {
