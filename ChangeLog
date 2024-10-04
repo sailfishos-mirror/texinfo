@@ -1,5 +1,9 @@
 2024-10-04  Patrice Dumas  <pertusus@free.fr>
 
+	Add tp/Texinfo/Commands.pm tp/Texinfo/Options.pm generated files
+
+2024-10-04  Patrice Dumas  <pertusus@free.fr>
+
 	Add generated code files to version control
 
 2024-10-04  Patrice Dumas  <pertusus@free.fr>

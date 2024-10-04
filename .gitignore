@@ -299,9 +299,7 @@ tp/*.trs
 tp/t/*.log
 tp/tests/*.log
 
-tp/Texinfo/Commands.pm
 tp/Texinfo/ModulePath.pm
-tp/Texinfo/Options.pm
 
 tp/Texinfo/XS/*.lo
 tp/Texinfo/XS/*.la
