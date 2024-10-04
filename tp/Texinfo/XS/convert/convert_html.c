@@ -560,6 +560,12 @@ html_setup_output_simple_page (CONVERTER *self, const char *output_filename)
   memset (self->html_files_information.list, 0,
           self->html_files_information.number * sizeof (FILE_ASSOCIATED_INFO));
 
+  self->pending_closes.number = 1+1;
+  self->pending_closes.list = (STRING_STACK *)
+       malloc (self->pending_closes.number * sizeof (STRING_STACK));
+  memset (self->pending_closes.list, 0,
+          self->pending_closes.number * sizeof (STRING_STACK));
+
   self->page_name_number.number = 1;
   self->page_name_number.list = (PAGE_NAME_NUMBER *)
       malloc (self->page_name_number.number * sizeof (PAGE_NAME_NUMBER));
@@ -2627,8 +2633,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
           if (!node_description)
             return 0;
 
-          node_target_info
-            = find_element_target (self->html_targets, node);
+          node_target_info = html_get_target (self, node);
           node_target_info->formatted_nodedescription_nr++;
           formatted_nodedescription_nr
             = node_target_info->formatted_nodedescription_nr;

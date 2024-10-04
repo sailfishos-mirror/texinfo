@@ -4532,6 +4532,12 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
   memset (self->html_files_information.list, 0,
           self->html_files_information.number * sizeof (FILE_ASSOCIATED_INFO));
 
+  self->pending_closes.number = self->output_unit_files.number +1;
+  self->pending_closes.list = (STRING_STACK *)
+    malloc (self->pending_closes.number * sizeof (STRING_STACK));
+  memset (self->pending_closes.list, 0,
+          self->pending_closes.number * sizeof (STRING_STACK));
+
   return files_source_info;
 }
 

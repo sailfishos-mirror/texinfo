@@ -1,13 +1,12 @@
 2024-10-04  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/convert/convert_html.c,
-	tp/Texinfo/XS/convert/html_prepare_converter.c
-	(commands_internal_open_table): remove duplicate
-	commands_internal_open_table from convert_html.c, add
-	html_open_node_part_command.
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_setup_output_simple_page),
+	tp/Texinfo/XS/convert/html_prepare_converter.c (html_set_pages_files):
+	readd self->pending_closes initialization that disappeared.
 
-	* tp/Texinfo/XS/convert/convert_html.h: declare node_part_command
-	open function.
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_description):
+	call html_get_target instead of find_element_target.
 
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
@@ -18,6 +17,7 @@
 	* tp/Texinfo/XS/convert/convert_html.c (html_get_top_unit)
 	(html_set_file_source_info, html_add_to_files_source_info)
 	(html_find_file_source_info, html_setup_output_simple_page):
+	prepend html_ and declare.
 
 	* tp/Texinfo/XS/convert/html_prepare_converter.c (html_get_target)
 	(html_prepare_output_units_global_targets)
@@ -81,6 +81,17 @@
 	(html_convert_output): create directory at the very beginning of
 	html_convert_output, not in setup_output, to delay modifications
 	to the start of the conversion.
+
+2024-10-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(commands_internal_open_table): remove duplicate
+	commands_internal_open_table from convert_html.c, add
+	html_open_node_part_command.
+
+	* tp/Texinfo/XS/convert/convert_html.h: declare node_part_command
+	open function.
 
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
