@@ -24,6 +24,7 @@ void add_array_cmdline_regular_options_defaults (OPTIONS_LIST *options_list)
   add_new_option_value (options_list, GOT_char_string_list, "CSS_REFS", -2, 0);
   add_new_option_value (options_list, GOT_bytes_string_list, "EXPANDED_FORMATS", -2, 0);
   add_new_option_value (options_list, GOT_file_string_list, "INCLUDE_DIRECTORIES", -2, 0);
+  add_new_option_value (options_list, GOT_file_string_list, "TEXINFO_LANGUAGE_DIRECTORIES", -2, 0);
 }
 
 
@@ -287,6 +288,7 @@ void add_converter_customization_regular_options_defaults (OPTIONS_LIST *options
   add_new_option_value (options_list, GOT_char, "L2H_L2H", -2, 0);
   add_new_option_value (options_list, GOT_integer, "L2H_SKIP", -1, 0);
   add_new_option_value (options_list, GOT_char, "L2H_TMP", -2, 0);
+  add_new_option_value (options_list, GOT_char, "MATHJAX_CONFIGURATION", -2, 0);
   add_new_option_value (options_list, GOT_char, "MATHJAX_SCRIPT", -2, 0);
   add_new_option_value (options_list, GOT_char, "MATHJAX_SOURCE", -2, 0);
   add_new_option_value (options_list, GOT_integer, "MAX_HEADER_LEVEL", -1, 0);
@@ -348,6 +350,7 @@ void add_converter_customization_regular_options_defaults (OPTIONS_LIST *options
   add_new_option_value (options_list, GOT_integer, "XS_EXTERNAL_CONVERSION", -1, 0);
   add_new_option_value (options_list, GOT_integer, "XS_EXTERNAL_FORMATTING", -1, 0);
   add_new_option_value (options_list, GOT_char, "XS_STRXFRM_COLLATION_LOCALE", -2, 0);
+  add_new_option_value (options_list, GOT_integer, "_INLINE_STYLE_WIDTH", -1, 0);
 }
 
 
