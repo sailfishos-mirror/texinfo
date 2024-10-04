@@ -36,6 +36,8 @@
 #include "convert_to_texinfo.h"
  */
 #include "create_buttons.h"
+/* html_free_converter */
+#include "html_converter_finish.h"
 #include "convert_html.h"
 #include "texinfo.h"
 
