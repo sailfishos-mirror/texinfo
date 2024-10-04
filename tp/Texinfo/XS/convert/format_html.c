@@ -1351,6 +1351,131 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
   return href.text;
 }
 
+/* return value to be freed by caller */
+char *
+html_command_description (CONVERTER *self, const ELEMENT *command,
+                          const enum html_text_type type)
+{
+  HTML_TARGET *target_info;
+
+  ELEMENT *manual_content = lookup_extra_element (command,
+                                                  AI_key_manual_content);
+  if (manual_content)
+    return 0;
+
+  target_info = html_get_target (self, command);
+
+  if (target_info)
+    {
+      if (target_info->command_description[type])
+        return strdup (target_info->command_description[type]);
+      else
+        {
+          const ELEMENT *node = 0;
+          ELEMENT *tree_root;
+          char *explanation;
+          char *context_name;
+          const ELEMENT *node_description;
+          int formatted_nodedescription_nr = 0;
+          HTML_TARGET *node_target_info;
+          char *multiple_formatted = 0;
+          ELEMENT *description_element;
+          const char *command_name;
+          enum command_id cmd = element_builtin_cmd (command);
+
+          if (command->type == ET_special_unit_element)
+            return 0;
+
+          if (cmd == CM_float || cmd == CM_anchor)
+            return 0;
+
+          if (cmd == CM_node)
+            node = command;
+          else
+            node = lookup_extra_element (command, AI_key_associated_node);
+
+          if (!node)
+            return 0;
+
+          node_description
+            = lookup_extra_element (node, AI_key_node_description);
+
+          if (!node_description)
+            return 0;
+
+          node_target_info = html_get_target (self, node);
+          node_target_info->formatted_nodedescription_nr++;
+          formatted_nodedescription_nr
+            = node_target_info->formatted_nodedescription_nr;
+
+          if (formatted_nodedescription_nr > 1)
+            {
+              xasprintf (&multiple_formatted,
+                         "node-description-%d",
+                         formatted_nodedescription_nr);
+            }
+
+          if (node_description->e.c->cmd == CM_nodedescription)
+            description_element = node_description->e.c->args.list[0];
+          else
+            {
+              description_element = new_element (ET_NONE);
+              description_element->e.c->contents
+                 = node_description->e.c->contents;
+              add_tree_to_build (self, description_element);
+            }
+
+          command_name = element_command_name (command);
+          xasprintf (&context_name, "%s description", command_name);
+          xasprintf (&explanation, "command_description:%s @%s",
+                     html_command_text_type_name[type],
+                     command_name);
+
+          if (type == HTT_string)
+            {
+              tree_root = new_element (ET__string);
+              add_to_contents_as_array (tree_root, description_element);
+              add_tree_to_build (self, tree_root);
+            }
+          else
+            tree_root = description_element;
+
+          target_info->command_description[type]
+            = html_convert_tree_new_formatting_context (self, tree_root,
+                 context_name, multiple_formatted,
+                 explanation, 0);
+          free (context_name);
+          free (explanation);
+
+          if (formatted_nodedescription_nr > 1)
+            free (multiple_formatted);
+          if (node_description->e.c->cmd != CM_nodedescription)
+            {
+              remove_tree_to_build (self, description_element);
+              description_element->e.c->contents.list = 0;
+              destroy_element (description_element);
+            }
+          if (type == HTT_string)
+            {
+              remove_tree_to_build (self, tree_root);
+              destroy_element (tree_root);
+            }
+          return strdup (target_info->command_description[type]);
+        }
+    }
+ /*
+    Can happen
+    * if USE_NODES is 0 and there are no sectioning commands.
+    * if a special element target was set to undef in user defined code.
+    * for @*ref with missing targets (maybe @novalidate needed in that case).
+    * for @node header if the node consist only in spaces (example in sectioning
+      in_menu_only_special_ascii_spaces_node).
+    * for multiple targets with the same name, eg both @node and @anchor
+    * with @inforef with node argument only, without manual argument.
+  */
+  return 0;
+}
+
 /* return value to be freed */
 /* Return string for linking to $COMMAND with <a href>.
    SOURCE_COMMAND is for messages only.
@@ -3881,7 +4006,7 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
     {
       text_printf (&result, "<meta name=\"keywords\" content=\"%s\"",
                    begin_info->keywords);
-      close_html_lone_element (self, &result);
+      html_close_lone_element (self, &result);
       text_append_n (&result, "\n", 1);
     }
   text_append (&result, "<meta name=\"resource-type\" content=\"document\"");
@@ -5120,7 +5245,7 @@ html_default_format_node_redirection_page (CONVERTER *self,
     {
       text_printf (&result, "<meta name=\"keywords\" content=\"%s\"",
                    begin_info->keywords);
-      close_html_lone_element (self, &result);
+      html_close_lone_element (self, &result);
       text_append_n (&result, "\n", 1);
     }
   text_append (&result, "<meta name=\"resource-type\" content=\"document\"");
@@ -12542,22 +12667,22 @@ html_default_format_special_body_about (CONVERTER *self,
   open_element_with_class (self, "th", &button_direction_about_classes,
                            result);
   text_append_n (result, " ", 1);
-  translate_convert_tree_append ("Button", self, 0, 0, result, "ABOUT");
+  html_translate_convert_tree_append ("Button", self, 0, 0, result, "ABOUT");
   text_append_n (result, " </th>\n    ", 11);
   open_element_with_class (self, "th", &name_direction_about_classes,
                            result);
   text_append_n (result, " ", 1);
-  translate_convert_tree_append ("Name", self, 0, 0, result, "ABOUT");
+  html_translate_convert_tree_append ("Name", self, 0, 0, result, "ABOUT");
   text_append_n (result, " </th>\n    ", 11);
   open_element_with_class (self, "th", &description_direction_about_classes,
                            result);
   text_append_n (result, " ", 1);
-  translate_convert_tree_append ("Go to", self, 0, 0, result, "ABOUT");
+  html_translate_convert_tree_append ("Go to", self, 0, 0, result, "ABOUT");
   text_append_n (result, " </th>\n    ", 11);
   open_element_with_class (self, "th", &example_direction_about_classes,
                            result);
   text_append_n (result, " ", 1);
-  translate_convert_tree_append ("From 1.2.3 go to", self, 0, 0,
+  html_translate_convert_tree_append ("From 1.2.3 go to", self, 0, 0,
                                       result, "ABOUT");
   text_append (result, "</th>\n  </tr>\n");
 

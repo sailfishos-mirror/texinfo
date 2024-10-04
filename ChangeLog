@@ -1,3 +1,13 @@
+2024-10-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/convert/format_html.c (html_command_description): move
+	html_command_description to format_html.c.
+
+	* tp/Texinfo/XS/convert/format_html.c (html_default_format_begin_file)
+	(html_default_format_node_redirection_page)
+	(html_default_format_special_body_about): fix function names.
+
 2024-08-15  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/html_converter_types.h: declare
