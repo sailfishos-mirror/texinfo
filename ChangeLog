@@ -1,5 +1,9 @@
 2024-10-04  Patrice Dumas  <pertusus@free.fr>
 
+	Add generated code files to version control
+
+2024-10-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/setup_converters_code_tables.pl: use the basename to
 	name the script generating the code files such that the file content
 	is the same in in and out of source builds.

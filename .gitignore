@@ -349,19 +349,6 @@ tp/Texinfo/XS/gnulib/lib/sys/types.h
 
 tp/Texinfo/XS/main/DocumentXS.c
 tp/Texinfo/XS/main/IndicesXS.c
-tp/Texinfo/XS/main/accent_tables_8bit_codepoints.c
-tp/Texinfo/XS/main/command_data.c
-tp/Texinfo/XS/main/cmd_normalization.c
-tp/Texinfo/XS/main/cmd_unicode.c
-tp/Texinfo/XS/main/cmd_structuring.c
-tp/Texinfo/XS/main/cmd_symbol.c
-tp/Texinfo/XS/main/cmd_text.c
-tp/Texinfo/XS/main/global_commands_types.h
-tp/Texinfo/XS/main/global_multi_commands_case.c
-tp/Texinfo/XS/main/global_unique_commands_case.c
-tp/Texinfo/XS/main/options_get_perl.c
-tp/Texinfo/XS/main/options_init_free.c
-tp/Texinfo/XS/main/options_types.h
 
 tp/Texinfo/XS/main/*.lo
 
@@ -376,7 +363,6 @@ tp/Texinfo/XS/parsetexi/*.la
 tp/Texinfo/XS/parsetexi/*.lo
 
 tp/Texinfo/XS/convert/ConvertXS.c
-tp/Texinfo/XS/convert/cmd_converter.c
 
 tp/Texinfo/XS/convert/.libs
 tp/Texinfo/XS/convert/*.la
