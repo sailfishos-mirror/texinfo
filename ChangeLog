@@ -1,3 +1,14 @@
+2024-09-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/create_buttons.c
+	(new_special_unit_direction_button): pass direction information as an
+	enum BUTTON_special_unit_directions.  Use buttons_special_units_names
+	to get the button name.  Pass converter and call
+	html_get_direction_index in new_special_unit_direction_button.  Update
+	callers.
+	Move new_directions_list_buttons_specifications to the end of the
+	file.
+
 2024-10-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/create_buttons.h (enum

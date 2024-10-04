@@ -101,6 +101,92 @@ new_button_specification_list (size_t buttons_nr)
   return result;
 }
 
+/* this function may be called too early for special units direction
+   indices to be known, in that case we register direction string name
+   for such directions, directions are set afterwards.
+ */
+static void
+new_special_unit_direction_button (const CONVERTER *self,
+                                   BUTTON_SPECIFICATION *button,
+                       enum BUTTON_special_unit_directions special_direction)
+{
+  const char *button_name = buttons_special_units_names[-special_direction -2];
+  int direction = html_get_direction_index (self, button_name);
+
+  if (direction < 0)
+    new_button_specification (button, BST_direction,
+                              0, -1, button_name, 0, 0, 0);
+  else
+    new_button_specification (button, BST_direction,
+                              0, direction, 0, 0, 0, 0);
+}
+
+/* BFT_type_panel_directions */
+BUTTON_SPECIFICATION_LIST *
+new_base_navigation_buttons (const CONVERTER *self,
+                             enum button_function_type function_type,
+                             int with_about)
+{
+  BUTTON_SPECIFICATION_LIST *result;
+  int buttons_nr = 6;
+
+  if (with_about)
+    buttons_nr++;
+
+  result = new_button_specification_list (buttons_nr);
+
+  new_button_specification (&result->list[0], BST_direction_info,
+                            BIT_function, D_direction_Next, 0, 0,
+                            function_type, 0);
+  new_button_specification (&result->list[1], BST_direction_info,
+                            BIT_function, D_direction_Prev, 0, 0,
+                            function_type, 0);
+  new_button_specification (&result->list[2], BST_direction_info,
+                            BIT_function, D_direction_Up, 0, 0,
+                            function_type, 0);
+  new_button_specification (&result->list[3], BST_direction, 0,
+                            D_direction_Space, 0, 0, 0, 0);
+  new_special_unit_direction_button (self, &result->list[4], BSUD_D_Contents);
+  new_button_specification (&result->list[5], BST_direction, 0,
+                            D_direction_Index, 0, 0, 0, 0);
+  if (with_about)
+    new_special_unit_direction_button (self, &result->list[6], BSUD_D_About);
+  return result;
+}
+
+BUTTON_SPECIFICATION_LIST *
+new_base_links_buttons (const CONVERTER *self)
+{
+  BUTTON_SPECIFICATION_LIST *result = new_button_specification_list (7);
+  new_button_specification (&result->list[0], BST_direction,
+                            0, D_direction_Top, 0, 0, 0, 0);
+  new_button_specification (&result->list[1], BST_direction,
+                            0, D_direction_Index, 0, 0, 0, 0);
+
+  new_special_unit_direction_button (self, &result->list[2], BSUD_D_Contents);
+  new_special_unit_direction_button (self, &result->list[3], BSUD_D_About);
+
+  new_button_specification (&result->list[4], BST_direction,
+                            0, D_direction_NodeUp, 0, 0, 0, 0);
+  new_button_specification (&result->list[5], BST_direction,
+                            0, D_direction_NodeNext, 0, 0, 0, 0);
+  new_button_specification (&result->list[6], BST_direction,
+                            0, D_direction_NodePrev, 0, 0, 0, 0);
+  return result;
+}
+
+BUTTON_SPECIFICATION_LIST *
+new_base_navigation_section_buttons (const CONVERTER *self)
+{
+  return new_base_navigation_buttons (self, BFT_type_panel_directions, 1);
+}
+
+BUTTON_SPECIFICATION_LIST *
+new_base_navigation_section_footer_buttons (const CONVERTER *self)
+{
+  return new_base_navigation_buttons (self, BFT_type_panel_section_footer, 0);
+}
+
 /* a negative direction in DIRECTIONS corresponds to a special direction
     which index is not known early and is better stored as a string.
 
@@ -139,99 +225,5 @@ new_directions_list_buttons_specifications (CONVERTER *self,
                         0, direction, direction_string, 0, 0, 0);
     }
   return result;
-}
-
-static void
-new_special_unit_direction_button (BUTTON_SPECIFICATION *button,
-                                   int direction, const char *name)
-{
-  if (direction < 0)
-    new_button_specification (button, BST_direction,
-                              0, -1, name, 0, 0, 0);
-  else
-    new_button_specification (button, BST_direction,
-                              0, direction, 0, 0, 0, 0);
-}
-
-/* BFT_type_panel_directions */
-BUTTON_SPECIFICATION_LIST *
-new_base_navigation_buttons (const CONVERTER *self,
-                             enum button_function_type function_type,
-                             int with_about)
-{
-  BUTTON_SPECIFICATION_LIST *result;
-  int buttons_nr = 6;
-
-  if (with_about)
-    buttons_nr++;
-
-  result = new_button_specification_list (buttons_nr);
-  /* this function may be called too early for special units direction
-     indices to be known, in that case we register direction string name
-     for such directions, directions are set afterwards.
-   */
-  int contents_direction = html_get_direction_index (self, "Contents");
-  int about_direction = html_get_direction_index (self, "About");
-
-  new_button_specification (&result->list[0], BST_direction_info,
-                            BIT_function, D_direction_Next, 0, 0,
-                            function_type, 0);
-  new_button_specification (&result->list[1], BST_direction_info,
-                            BIT_function, D_direction_Prev, 0, 0,
-                            function_type, 0);
-  new_button_specification (&result->list[2], BST_direction_info,
-                            BIT_function, D_direction_Up, 0, 0,
-                            function_type, 0);
-  new_button_specification (&result->list[3], BST_direction, 0,
-                            D_direction_Space, 0, 0, 0, 0);
-  new_special_unit_direction_button (&result->list[4], contents_direction,
-                                     "Contents");
-  new_button_specification (&result->list[5], BST_direction, 0,
-                            D_direction_Index, 0, 0, 0, 0);
-  if (with_about)
-    new_special_unit_direction_button (&result->list[6], about_direction,
-                                       "About");
-  return result;
-}
-
-BUTTON_SPECIFICATION_LIST *
-new_base_links_buttons (const CONVERTER *self)
-{
-  BUTTON_SPECIFICATION_LIST *result = new_button_specification_list (7);
-  /* this function may be called too early for special units direction
-     indices to be known, in that case we register direction string name
-     for such directions, directions are set afterwards.
-   */
-  int contents_direction = html_get_direction_index (self, "Contents");
-  int about_direction = html_get_direction_index (self, "About");
-  new_button_specification (&result->list[0], BST_direction,
-                            0, D_direction_Top, 0, 0, 0, 0);
-  new_button_specification (&result->list[1], BST_direction,
-                            0, D_direction_Index, 0, 0, 0, 0);
-
-  new_special_unit_direction_button (&result->list[2], contents_direction,
-                                     "Contents");
-  new_special_unit_direction_button (&result->list[3], about_direction,
-                                     "About");
-
-  new_button_specification (&result->list[4], BST_direction,
-                            0, D_direction_NodeUp, 0, 0, 0, 0);
-  new_button_specification (&result->list[5], BST_direction,
-                            0, D_direction_NodeNext, 0, 0, 0, 0);
-  new_button_specification (&result->list[6], BST_direction,
-                            0, D_direction_NodePrev, 0, 0, 0, 0);
-  return result;
-}
-
-BUTTON_SPECIFICATION_LIST *
-new_base_navigation_section_buttons (const CONVERTER *self)
-{
-  return new_base_navigation_buttons (self, BFT_type_panel_directions, 1);
-}
-
-BUTTON_SPECIFICATION_LIST *
-new_base_navigation_section_footer_buttons (const CONVERTER *self)
-{
-  return new_base_navigation_buttons (self, BFT_type_panel_section_footer, 0);
 }
 
