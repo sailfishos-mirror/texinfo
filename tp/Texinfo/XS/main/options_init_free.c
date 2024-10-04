@@ -3142,3 +3142,466 @@ COMMAND_OPTION_DEFAULT command_option_default_table[] = {
 {GOT_NONE, -2, 0},
 };
 
+static OPTION _sorted_options_ACTIVE_ICONS_tmp = {GOT_icons, "ACTIVE_ICONS", 1, 0, -1};  /* converter_other */
+static OPTION _sorted_options_AFTER_BODY_OPEN_tmp = {GOT_char, "AFTER_BODY_OPEN", 2, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_AFTER_SHORT_TOC_LINES_tmp = {GOT_char, "AFTER_SHORT_TOC_LINES", 3, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_AFTER_TOC_LINES_tmp = {GOT_char, "AFTER_TOC_LINES", 4, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_ASCII_DASHES_AND_QUOTES_tmp = {GOT_integer, "ASCII_DASHES_AND_QUOTES", 5, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_ASCII_GLYPH_tmp = {GOT_integer, "ASCII_GLYPH", 6, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_ASCII_PUNCTUATION_tmp = {GOT_integer, "ASCII_PUNCTUATION", 7, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_AUTO_MENU_DESCRIPTION_ALIGN_COLUMN_tmp = {GOT_integer, "AUTO_MENU_DESCRIPTION_ALIGN_COLUMN", 8, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_AUTO_MENU_MAX_WIDTH_tmp = {GOT_integer, "AUTO_MENU_MAX_WIDTH", 9, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_BASEFILENAME_LENGTH_tmp = {GOT_integer, "BASEFILENAME_LENGTH", 10, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_BEFORE_SHORT_TOC_LINES_tmp = {GOT_char, "BEFORE_SHORT_TOC_LINES", 11, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_BEFORE_TOC_LINES_tmp = {GOT_char, "BEFORE_TOC_LINES", 12, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_BIG_RULE_tmp = {GOT_char, "BIG_RULE", 13, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_BODY_ELEMENT_ATTRIBUTES_tmp = {GOT_char, "BODY_ELEMENT_ATTRIBUTES", 14, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_CASE_INSENSITIVE_FILENAMES_tmp = {GOT_integer, "CASE_INSENSITIVE_FILENAMES", 15, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_CHAPTER_BUTTONS_tmp = {GOT_buttons, "CHAPTER_BUTTONS", 16, 0, -1};  /* converter_other */
+static OPTION _sorted_options_CHAPTER_FOOTER_BUTTONS_tmp = {GOT_buttons, "CHAPTER_FOOTER_BUTTONS", 17, 0, -1};  /* converter_other */
+static OPTION _sorted_options_CHAPTER_HEADER_LEVEL_tmp = {GOT_integer, "CHAPTER_HEADER_LEVEL", 18, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_CHECK_HTMLXREF_tmp = {GOT_integer, "CHECK_HTMLXREF", 19, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_CHECK_MISSING_MENU_ENTRY_tmp = {GOT_integer, "CHECK_MISSING_MENU_ENTRY", 20, 0, -1};  /* program_customization */
+static OPTION _sorted_options_CHECK_NORMAL_MENU_STRUCTURE_tmp = {GOT_integer, "CHECK_NORMAL_MENU_STRUCTURE", 21, 0, -1};  /* program_customization */
+static OPTION _sorted_options_CLASS_BEGIN_USEPACKAGE_tmp = {GOT_char, "CLASS_BEGIN_USEPACKAGE", 22, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_CLOSE_DOUBLE_QUOTE_SYMBOL_tmp = {GOT_char, "CLOSE_DOUBLE_QUOTE_SYMBOL", 23, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_CLOSE_QUOTE_SYMBOL_tmp = {GOT_char, "CLOSE_QUOTE_SYMBOL", 24, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_COLLATION_LANGUAGE_tmp = {GOT_char, "COLLATION_LANGUAGE", 25, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_COMMAND_LINE_ENCODING_tmp = {GOT_char, "COMMAND_LINE_ENCODING", 26, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_CONTENTS_OUTPUT_LOCATION_tmp = {GOT_char, "CONTENTS_OUTPUT_LOCATION", 27, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_CONVERT_TO_LATEX_IN_MATH_tmp = {GOT_integer, "CONVERT_TO_LATEX_IN_MATH", 28, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_COPIABLE_LINKS_tmp = {GOT_integer, "COPIABLE_LINKS", 29, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_CSS_FILES_tmp = {GOT_bytes_string_list, "CSS_FILES", 30, 0, -1};  /* array_cmdline */
+static OPTION _sorted_options_CSS_REFS_tmp = {GOT_char_string_list, "CSS_REFS", 31, 0, -1};  /* array_cmdline */
+static OPTION _sorted_options_DATE_IN_HEADER_tmp = {GOT_integer, "DATE_IN_HEADER", 32, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_DEBUG_tmp = {GOT_integer, "DEBUG", 33, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_DEFAULT_RULE_tmp = {GOT_char, "DEFAULT_RULE", 34, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_DEF_TABLE_tmp = {GOT_integer, "DEF_TABLE", 35, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_DOCTYPE_tmp = {GOT_char, "DOCTYPE", 36, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_DOCUMENTLANGUAGE_COLLATION_tmp = {GOT_integer, "DOCUMENTLANGUAGE_COLLATION", 37, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_DOC_ENCODING_FOR_INPUT_FILE_NAME_tmp = {GOT_integer, "DOC_ENCODING_FOR_INPUT_FILE_NAME", 38, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_DOC_ENCODING_FOR_OUTPUT_FILE_NAME_tmp = {GOT_integer, "DOC_ENCODING_FOR_OUTPUT_FILE_NAME", 39, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_DO_ABOUT_tmp = {GOT_integer, "DO_ABOUT", 40, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_DUMP_TEXI_tmp = {GOT_integer, "DUMP_TEXI", 41, 0, -1};  /* program_customization */
+static OPTION _sorted_options_DUMP_TREE_tmp = {GOT_integer, "DUMP_TREE", 42, 0, -1};  /* program_customization */
+static OPTION _sorted_options_ENABLE_ENCODING_tmp = {GOT_integer, "ENABLE_ENCODING", 43, 0, -1};  /* converter_cmdline */
+static OPTION _sorted_options_END_USEPACKAGE_tmp = {GOT_char, "END_USEPACKAGE", 44, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_EPUB_CREATE_CONTAINER_FILE_tmp = {GOT_integer, "EPUB_CREATE_CONTAINER_FILE", 45, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_EPUB_KEEP_CONTAINER_FOLDER_tmp = {GOT_integer, "EPUB_KEEP_CONTAINER_FOLDER", 46, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_ERROR_LIMIT_tmp = {GOT_integer, "ERROR_LIMIT", 47, 0, -1};  /* program_cmdline */
+static OPTION _sorted_options_EXPANDED_FORMATS_tmp = {GOT_bytes_string_list, "EXPANDED_FORMATS", 48, 0, -1};  /* array_cmdline */
+static OPTION _sorted_options_EXTENSION_tmp = {GOT_char, "EXTENSION", 49, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_EXTERNAL_CROSSREF_EXTENSION_tmp = {GOT_char, "EXTERNAL_CROSSREF_EXTENSION", 50, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_EXTERNAL_CROSSREF_SPLIT_tmp = {GOT_char, "EXTERNAL_CROSSREF_SPLIT", 51, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_EXTERNAL_DIR_tmp = {GOT_char, "EXTERNAL_DIR", 52, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_EXTRA_HEAD_tmp = {GOT_char, "EXTRA_HEAD", 53, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_FILLCOLUMN_tmp = {GOT_integer, "FILLCOLUMN", 54, 0, -1};  /* converter_cmdline */
+static OPTION _sorted_options_FOOTNOTE_END_HEADER_LEVEL_tmp = {GOT_integer, "FOOTNOTE_END_HEADER_LEVEL", 55, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_FOOTNOTE_SEPARATE_HEADER_LEVEL_tmp = {GOT_integer, "FOOTNOTE_SEPARATE_HEADER_LEVEL", 56, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_FORCE_tmp = {GOT_integer, "FORCE", 57, 0, -1};  /* program_cmdline */
+static OPTION _sorted_options_FORMAT_MENU_tmp = {GOT_char, "FORMAT_MENU", 58, 0, -1};  /* program_cmdline */
+static OPTION _sorted_options_HANDLER_FATAL_ERROR_LEVEL_tmp = {GOT_integer, "HANDLER_FATAL_ERROR_LEVEL", 59, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_HEADERS_tmp = {GOT_integer, "HEADERS", 60, 0, -1};  /* converter_cmdline */
+static OPTION _sorted_options_HEADER_IN_TABLE_tmp = {GOT_integer, "HEADER_IN_TABLE", 61, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_HIGHLIGHT_SYNTAX_tmp = {GOT_char, "HIGHLIGHT_SYNTAX", 62, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE_tmp = {GOT_char, "HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE", 63, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_HTMLXREF_FILE_tmp = {GOT_char, "HTMLXREF_FILE", 64, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_HTMLXREF_MODE_tmp = {GOT_char, "HTMLXREF_MODE", 65, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_HTML_MATH_tmp = {GOT_char, "HTML_MATH", 66, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_HTML_ROOT_ELEMENT_ATTRIBUTES_tmp = {GOT_char, "HTML_ROOT_ELEMENT_ATTRIBUTES", 67, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_ICONS_tmp = {GOT_integer, "ICONS", 68, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_IGNORE_REF_TO_TOP_NODE_UP_tmp = {GOT_integer, "IGNORE_REF_TO_TOP_NODE_UP", 69, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_IMAGE_LINK_PREFIX_tmp = {GOT_char, "IMAGE_LINK_PREFIX", 70, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_INCLUDE_DIRECTORIES_tmp = {GOT_file_string_list, "INCLUDE_DIRECTORIES", 71, 0, -1};  /* array_cmdline */
+static OPTION _sorted_options_INDENTED_BLOCK_COMMANDS_IN_TABLE_tmp = {GOT_integer, "INDENTED_BLOCK_COMMANDS_IN_TABLE", 72, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_INDEX_ENTRY_COLON_tmp = {GOT_char, "INDEX_ENTRY_COLON", 73, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_INDEX_SPECIAL_CHARS_WARNING_tmp = {GOT_integer, "INDEX_SPECIAL_CHARS_WARNING", 74, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_INFO_JS_DIR_tmp = {GOT_char, "INFO_JS_DIR", 75, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_INFO_SPECIAL_CHARS_QUOTE_tmp = {GOT_char, "INFO_SPECIAL_CHARS_QUOTE", 76, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_INFO_SPECIAL_CHARS_WARNING_tmp = {GOT_integer, "INFO_SPECIAL_CHARS_WARNING", 77, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_INLINE_CSS_STYLE_tmp = {GOT_integer, "INLINE_CSS_STYLE", 78, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_INPUT_FILE_NAME_ENCODING_tmp = {GOT_char, "INPUT_FILE_NAME_ENCODING", 79, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_INTERNAL_LINKS_tmp = {GOT_bytes, "INTERNAL_LINKS", 80, 0, -1};  /* program_cmdline */
+static OPTION _sorted_options_JS_WEBLABELS_tmp = {GOT_char, "JS_WEBLABELS", 81, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_JS_WEBLABELS_FILE_tmp = {GOT_char, "JS_WEBLABELS_FILE", 82, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_L2H_CLEAN_tmp = {GOT_integer, "L2H_CLEAN", 83, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_L2H_FILE_tmp = {GOT_char, "L2H_FILE", 84, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_L2H_HTML_VERSION_tmp = {GOT_char, "L2H_HTML_VERSION", 85, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_L2H_L2H_tmp = {GOT_char, "L2H_L2H", 86, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_L2H_SKIP_tmp = {GOT_integer, "L2H_SKIP", 87, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_L2H_TMP_tmp = {GOT_char, "L2H_TMP", 88, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_LATEX_FLOATS_FILE_EXTENSION_tmp = {GOT_char, "LATEX_FLOATS_FILE_EXTENSION", 89, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_LINKS_BUTTONS_tmp = {GOT_buttons, "LINKS_BUTTONS", 90, 0, -1};  /* converter_other */
+static OPTION _sorted_options_LOCALE_ENCODING_tmp = {GOT_char, "LOCALE_ENCODING", 91, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_MACRO_EXPAND_tmp = {GOT_bytes, "MACRO_EXPAND", 92, 0, -1};  /* program_cmdline */
+static OPTION _sorted_options_MATHJAX_CONFIGURATION_tmp = {GOT_char, "MATHJAX_CONFIGURATION", 93, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_MATHJAX_SCRIPT_tmp = {GOT_char, "MATHJAX_SCRIPT", 94, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_MATHJAX_SOURCE_tmp = {GOT_char, "MATHJAX_SOURCE", 95, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_MAX_HEADER_LEVEL_tmp = {GOT_integer, "MAX_HEADER_LEVEL", 96, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_MENU_ENTRY_COLON_tmp = {GOT_char, "MENU_ENTRY_COLON", 97, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_MENU_SYMBOL_tmp = {GOT_char, "MENU_SYMBOL", 98, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_MESSAGE_ENCODING_tmp = {GOT_char, "MESSAGE_ENCODING", 99, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_MISC_BUTTONS_tmp = {GOT_buttons, "MISC_BUTTONS", 100, 0, -1};  /* converter_other */
+static OPTION _sorted_options_MONOLITHIC_tmp = {GOT_integer, "MONOLITHIC", 101, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_NODE_FILES_tmp = {GOT_integer, "NODE_FILES", 102, 0, -1};  /* converter_cmdline */
+static OPTION _sorted_options_NODE_FOOTER_BUTTONS_tmp = {GOT_buttons, "NODE_FOOTER_BUTTONS", 103, 0, -1};  /* converter_other */
+static OPTION _sorted_options_NODE_NAME_IN_INDEX_tmp = {GOT_integer, "NODE_NAME_IN_INDEX", 104, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_NODE_NAME_IN_MENU_tmp = {GOT_integer, "NODE_NAME_IN_MENU", 105, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_NO_CSS_tmp = {GOT_integer, "NO_CSS", 106, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_NO_CUSTOM_HTML_ATTRIBUTE_tmp = {GOT_integer, "NO_CUSTOM_HTML_ATTRIBUTE", 107, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_NO_NUMBER_FOOTNOTE_SYMBOL_tmp = {GOT_char, "NO_NUMBER_FOOTNOTE_SYMBOL", 108, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_NO_TOP_NODE_OUTPUT_tmp = {GOT_integer, "NO_TOP_NODE_OUTPUT", 109, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_NO_WARN_tmp = {GOT_integer, "NO_WARN", 110, 0, -1};  /* program_cmdline */
+static OPTION _sorted_options_NUMBER_FOOTNOTES_tmp = {GOT_integer, "NUMBER_FOOTNOTES", 111, 0, -1};  /* converter_cmdline */
+static OPTION _sorted_options_NUMBER_SECTIONS_tmp = {GOT_integer, "NUMBER_SECTIONS", 112, 0, -1};  /* converter_cmdline */
+static OPTION _sorted_options_OPEN_DOUBLE_QUOTE_SYMBOL_tmp = {GOT_char, "OPEN_DOUBLE_QUOTE_SYMBOL", 113, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_OPEN_QUOTE_SYMBOL_tmp = {GOT_char, "OPEN_QUOTE_SYMBOL", 114, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_OUTFILE_tmp = {GOT_char, "OUTFILE", 115, 0, -1};  /* converter_cmdline */
+static OPTION _sorted_options_OUTPUT_CHARACTERS_tmp = {GOT_integer, "OUTPUT_CHARACTERS", 116, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_OUTPUT_ENCODING_NAME_tmp = {GOT_char, "OUTPUT_ENCODING_NAME", 117, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_OUTPUT_FILE_NAME_ENCODING_tmp = {GOT_char, "OUTPUT_FILE_NAME_ENCODING", 118, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_OUTPUT_PERL_ENCODING_tmp = {GOT_char, "OUTPUT_PERL_ENCODING", 119, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_PACKAGE_tmp = {GOT_char, "PACKAGE", 120, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_PACKAGE_AND_VERSION_tmp = {GOT_char, "PACKAGE_AND_VERSION", 121, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_PACKAGE_NAME_tmp = {GOT_char, "PACKAGE_NAME", 122, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_PACKAGE_URL_tmp = {GOT_char, "PACKAGE_URL", 123, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_PACKAGE_VERSION_tmp = {GOT_char, "PACKAGE_VERSION", 124, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_PASSIVE_ICONS_tmp = {GOT_icons, "PASSIVE_ICONS", 125, 0, -1};  /* converter_other */
+static OPTION _sorted_options_PREFIX_tmp = {GOT_char, "PREFIX", 126, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_PRE_BODY_CLOSE_tmp = {GOT_char, "PRE_BODY_CLOSE", 127, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_PROGRAM_tmp = {GOT_char, "PROGRAM", 128, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_PROGRAM_NAME_IN_ABOUT_tmp = {GOT_integer, "PROGRAM_NAME_IN_ABOUT", 129, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_PROGRAM_NAME_IN_FOOTER_tmp = {GOT_integer, "PROGRAM_NAME_IN_FOOTER", 130, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_SECTION_BUTTONS_tmp = {GOT_buttons, "SECTION_BUTTONS", 131, 0, -1};  /* converter_other */
+static OPTION _sorted_options_SECTION_FOOTER_BUTTONS_tmp = {GOT_buttons, "SECTION_FOOTER_BUTTONS", 132, 0, -1};  /* converter_other */
+static OPTION _sorted_options_SECTION_NAME_IN_TITLE_tmp = {GOT_integer, "SECTION_NAME_IN_TITLE", 133, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_SHORT_TOC_LINK_TO_TOC_tmp = {GOT_integer, "SHORT_TOC_LINK_TO_TOC", 134, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_SHOW_BUILTIN_CSS_RULES_tmp = {GOT_integer, "SHOW_BUILTIN_CSS_RULES", 135, 0, -1};  /* program_customization */
+static OPTION _sorted_options_SHOW_TITLE_tmp = {GOT_integer, "SHOW_TITLE", 136, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_SILENT_tmp = {GOT_char, "SILENT", 137, 0, -1};  /* program_cmdline */
+static OPTION _sorted_options_SORT_ELEMENT_COUNT_tmp = {GOT_char, "SORT_ELEMENT_COUNT", 138, 0, -1};  /* program_customization */
+static OPTION _sorted_options_SORT_ELEMENT_COUNT_WORDS_tmp = {GOT_integer, "SORT_ELEMENT_COUNT_WORDS", 139, 0, -1};  /* program_customization */
+static OPTION _sorted_options_SPLIT_tmp = {GOT_char, "SPLIT", 140, 0, -1};  /* converter_cmdline */
+static OPTION _sorted_options_SPLIT_SIZE_tmp = {GOT_integer, "SPLIT_SIZE", 141, 0, -1};  /* converter_cmdline */
+static OPTION _sorted_options_SUBDIR_tmp = {GOT_char, "SUBDIR", 142, 0, -1};  /* converter_cmdline */
+static OPTION _sorted_options_T4H_LATEX_CONVERSION_tmp = {GOT_char, "T4H_LATEX_CONVERSION", 143, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_T4H_MATH_CONVERSION_tmp = {GOT_char, "T4H_MATH_CONVERSION", 144, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_T4H_TEX_CONVERSION_tmp = {GOT_char, "T4H_TEX_CONVERSION", 145, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_TEST_tmp = {GOT_integer, "TEST", 146, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_TEXI2DVI_tmp = {GOT_char, "TEXI2DVI", 147, 0, -1};  /* program_customization */
+static OPTION _sorted_options_TEXI2HTML_tmp = {GOT_integer, "TEXI2HTML", 148, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_TEXINFO_DTD_VERSION_tmp = {GOT_char, "TEXINFO_DTD_VERSION", 149, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_TEXINFO_LANGUAGE_DIRECTORIES_tmp = {GOT_file_string_list, "TEXINFO_LANGUAGE_DIRECTORIES", 150, 0, -1};  /* array_cmdline */
+static OPTION _sorted_options_TEXINFO_OUTPUT_FORMAT_tmp = {GOT_char, "TEXINFO_OUTPUT_FORMAT", 151, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_TEXTCONTENT_COMMENT_tmp = {GOT_integer, "TEXTCONTENT_COMMENT", 152, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_TOC_LINKS_tmp = {GOT_integer, "TOC_LINKS", 153, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_TOP_BUTTONS_tmp = {GOT_buttons, "TOP_BUTTONS", 154, 0, -1};  /* converter_other */
+static OPTION _sorted_options_TOP_FILE_tmp = {GOT_char, "TOP_FILE", 155, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_TOP_FOOTER_BUTTONS_tmp = {GOT_buttons, "TOP_FOOTER_BUTTONS", 156, 0, -1};  /* converter_other */
+static OPTION _sorted_options_TOP_NODE_FILE_TARGET_tmp = {GOT_char, "TOP_NODE_FILE_TARGET", 157, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_TOP_NODE_UP_tmp = {GOT_char, "TOP_NODE_UP", 158, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_TOP_NODE_UP_URL_tmp = {GOT_char, "TOP_NODE_UP_URL", 159, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_TRACE_INCLUDES_tmp = {GOT_integer, "TRACE_INCLUDES", 160, 0, -1};  /* program_cmdline */
+static OPTION _sorted_options_TRANSLITERATE_FILE_NAMES_tmp = {GOT_integer, "TRANSLITERATE_FILE_NAMES", 161, 0, -1};  /* converter_cmdline */
+static OPTION _sorted_options_TREE_TRANSFORMATIONS_tmp = {GOT_char, "TREE_TRANSFORMATIONS", 162, 0, -1};  /* program_customization */
+static OPTION _sorted_options_TXI_MARKUP_NO_SECTION_EXTENT_tmp = {GOT_integer, "TXI_MARKUP_NO_SECTION_EXTENT", 163, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_USE_ACCESSKEY_tmp = {GOT_integer, "USE_ACCESSKEY", 164, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_USE_ISO_tmp = {GOT_integer, "USE_ISO", 165, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_USE_LINKS_tmp = {GOT_integer, "USE_LINKS", 166, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_USE_NEXT_HEADING_FOR_LONE_NODE_tmp = {GOT_integer, "USE_NEXT_HEADING_FOR_LONE_NODE", 167, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_USE_NODES_tmp = {GOT_integer, "USE_NODES", 168, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_USE_NODE_DIRECTIONS_tmp = {GOT_integer, "USE_NODE_DIRECTIONS", 169, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_USE_NUMERIC_ENTITY_tmp = {GOT_integer, "USE_NUMERIC_ENTITY", 170, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_USE_REL_REV_tmp = {GOT_integer, "USE_REL_REV", 171, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_USE_SETFILENAME_EXTENSION_tmp = {GOT_integer, "USE_SETFILENAME_EXTENSION", 172, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_USE_TITLEPAGE_FOR_TITLE_tmp = {GOT_integer, "USE_TITLEPAGE_FOR_TITLE", 173, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_USE_UNICODE_COLLATION_tmp = {GOT_integer, "USE_UNICODE_COLLATION", 174, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_USE_UNIDECODE_tmp = {GOT_integer, "USE_UNIDECODE", 175, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_USE_XML_SYNTAX_tmp = {GOT_integer, "USE_XML_SYNTAX", 176, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_VERBOSE_tmp = {GOT_integer, "VERBOSE", 177, 0, -1};  /* converter_cmdline */
+static OPTION _sorted_options_VERTICAL_HEAD_NAVIGATION_tmp = {GOT_integer, "VERTICAL_HEAD_NAVIGATION", 178, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_WORDS_IN_PAGE_tmp = {GOT_integer, "WORDS_IN_PAGE", 179, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_XREF_USE_FLOAT_LABEL_tmp = {GOT_integer, "XREF_USE_FLOAT_LABEL", 180, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_XREF_USE_NODE_NAME_ARG_tmp = {GOT_integer, "XREF_USE_NODE_NAME_ARG", 181, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_XS_EXTERNAL_CONVERSION_tmp = {GOT_integer, "XS_EXTERNAL_CONVERSION", 182, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_XS_EXTERNAL_FORMATTING_tmp = {GOT_integer, "XS_EXTERNAL_FORMATTING", 183, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_XS_STRXFRM_COLLATION_LOCALE_tmp = {GOT_char, "XS_STRXFRM_COLLATION_LOCALE", 184, 0, -1};  /* converter_customization */
+static OPTION _sorted_options__INLINE_STYLE_WIDTH_tmp = {GOT_integer, "_INLINE_STYLE_WIDTH", 185, 0, -1};  /* converter_customization */
+static OPTION _sorted_options_afivepaper_tmp = {GOT_char, "afivepaper", 186, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_afourlatex_tmp = {GOT_char, "afourlatex", 187, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_afourpaper_tmp = {GOT_char, "afourpaper", 188, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_afourwide_tmp = {GOT_char, "afourwide", 189, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_allowcodebreaks_tmp = {GOT_char, "allowcodebreaks", 190, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_bsixpaper_tmp = {GOT_char, "bsixpaper", 191, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_clickstyle_tmp = {GOT_char, "clickstyle", 192, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_codequotebacktick_tmp = {GOT_char, "codequotebacktick", 193, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_codequoteundirected_tmp = {GOT_char, "codequoteundirected", 194, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_contents_tmp = {GOT_integer, "contents", 195, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_deftypefnnewline_tmp = {GOT_char, "deftypefnnewline", 196, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_documentdescription_tmp = {GOT_char, "documentdescription", 197, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_documentencoding_tmp = {GOT_char, "documentencoding", 198, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_documentlanguage_tmp = {GOT_char, "documentlanguage", 199, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_evenfooting_tmp = {GOT_char, "evenfooting", 200, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_evenfootingmarks_tmp = {GOT_char, "evenfootingmarks", 201, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_evenheading_tmp = {GOT_char, "evenheading", 202, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_evenheadingmarks_tmp = {GOT_char, "evenheadingmarks", 203, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_everyfooting_tmp = {GOT_char, "everyfooting", 204, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_everyfootingmarks_tmp = {GOT_char, "everyfootingmarks", 205, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_everyheading_tmp = {GOT_char, "everyheading", 206, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_everyheadingmarks_tmp = {GOT_char, "everyheadingmarks", 207, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_exampleindent_tmp = {GOT_char, "exampleindent", 208, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_firstparagraphindent_tmp = {GOT_char, "firstparagraphindent", 209, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_fonttextsize_tmp = {GOT_integer, "fonttextsize", 210, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_footnotestyle_tmp = {GOT_char, "footnotestyle", 211, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_frenchspacing_tmp = {GOT_char, "frenchspacing", 212, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_headings_tmp = {GOT_char, "headings", 213, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_kbdinputstyle_tmp = {GOT_char, "kbdinputstyle", 214, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_microtype_tmp = {GOT_char, "microtype", 215, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_novalidate_tmp = {GOT_integer, "novalidate", 216, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_oddfooting_tmp = {GOT_char, "oddfooting", 217, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_oddfootingmarks_tmp = {GOT_char, "oddfootingmarks", 218, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_oddheading_tmp = {GOT_char, "oddheading", 219, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_oddheadingmarks_tmp = {GOT_char, "oddheadingmarks", 220, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_pagesizes_tmp = {GOT_char, "pagesizes", 221, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_paragraphindent_tmp = {GOT_char, "paragraphindent", 222, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_setchapternewpage_tmp = {GOT_char, "setchapternewpage", 223, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_setfilename_tmp = {GOT_char, "setfilename", 224, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_shortcontents_tmp = {GOT_integer, "shortcontents", 225, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_smallbook_tmp = {GOT_char, "smallbook", 226, 0, -1};  /* unique_at_command */
+static OPTION _sorted_options_summarycontents_tmp = {GOT_integer, "summarycontents", 227, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_urefbreakstyle_tmp = {GOT_char, "urefbreakstyle", 228, 0, -1};  /* multiple_at_command */
+static OPTION _sorted_options_xrefautomaticsectiontitle_tmp = {GOT_char, "xrefautomaticsectiontitle", 229, 0, -1};  /* multiple_at_command */
+
+
+OPTION *txi_base_sorted_options[TXI_OPTIONS_NR] = {
+&_sorted_options_ACTIVE_ICONS_tmp,
+&_sorted_options_AFTER_BODY_OPEN_tmp,
+&_sorted_options_AFTER_SHORT_TOC_LINES_tmp,
+&_sorted_options_AFTER_TOC_LINES_tmp,
+&_sorted_options_ASCII_DASHES_AND_QUOTES_tmp,
+&_sorted_options_ASCII_GLYPH_tmp,
+&_sorted_options_ASCII_PUNCTUATION_tmp,
+&_sorted_options_AUTO_MENU_DESCRIPTION_ALIGN_COLUMN_tmp,
+&_sorted_options_AUTO_MENU_MAX_WIDTH_tmp,
+&_sorted_options_BASEFILENAME_LENGTH_tmp,
+&_sorted_options_BEFORE_SHORT_TOC_LINES_tmp,
+&_sorted_options_BEFORE_TOC_LINES_tmp,
+&_sorted_options_BIG_RULE_tmp,
+&_sorted_options_BODY_ELEMENT_ATTRIBUTES_tmp,
+&_sorted_options_CASE_INSENSITIVE_FILENAMES_tmp,
+&_sorted_options_CHAPTER_BUTTONS_tmp,
+&_sorted_options_CHAPTER_FOOTER_BUTTONS_tmp,
+&_sorted_options_CHAPTER_HEADER_LEVEL_tmp,
+&_sorted_options_CHECK_HTMLXREF_tmp,
+&_sorted_options_CHECK_MISSING_MENU_ENTRY_tmp,
+&_sorted_options_CHECK_NORMAL_MENU_STRUCTURE_tmp,
+&_sorted_options_CLASS_BEGIN_USEPACKAGE_tmp,
+&_sorted_options_CLOSE_DOUBLE_QUOTE_SYMBOL_tmp,
+&_sorted_options_CLOSE_QUOTE_SYMBOL_tmp,
+&_sorted_options_COLLATION_LANGUAGE_tmp,
+&_sorted_options_COMMAND_LINE_ENCODING_tmp,
+&_sorted_options_CONTENTS_OUTPUT_LOCATION_tmp,
+&_sorted_options_CONVERT_TO_LATEX_IN_MATH_tmp,
+&_sorted_options_COPIABLE_LINKS_tmp,
+&_sorted_options_CSS_FILES_tmp,
+&_sorted_options_CSS_REFS_tmp,
+&_sorted_options_DATE_IN_HEADER_tmp,
+&_sorted_options_DEBUG_tmp,
+&_sorted_options_DEFAULT_RULE_tmp,
+&_sorted_options_DEF_TABLE_tmp,
+&_sorted_options_DOCTYPE_tmp,
+&_sorted_options_DOCUMENTLANGUAGE_COLLATION_tmp,
+&_sorted_options_DOC_ENCODING_FOR_INPUT_FILE_NAME_tmp,
+&_sorted_options_DOC_ENCODING_FOR_OUTPUT_FILE_NAME_tmp,
+&_sorted_options_DO_ABOUT_tmp,
+&_sorted_options_DUMP_TEXI_tmp,
+&_sorted_options_DUMP_TREE_tmp,
+&_sorted_options_ENABLE_ENCODING_tmp,
+&_sorted_options_END_USEPACKAGE_tmp,
+&_sorted_options_EPUB_CREATE_CONTAINER_FILE_tmp,
+&_sorted_options_EPUB_KEEP_CONTAINER_FOLDER_tmp,
+&_sorted_options_ERROR_LIMIT_tmp,
+&_sorted_options_EXPANDED_FORMATS_tmp,
+&_sorted_options_EXTENSION_tmp,
+&_sorted_options_EXTERNAL_CROSSREF_EXTENSION_tmp,
+&_sorted_options_EXTERNAL_CROSSREF_SPLIT_tmp,
+&_sorted_options_EXTERNAL_DIR_tmp,
+&_sorted_options_EXTRA_HEAD_tmp,
+&_sorted_options_FILLCOLUMN_tmp,
+&_sorted_options_FOOTNOTE_END_HEADER_LEVEL_tmp,
+&_sorted_options_FOOTNOTE_SEPARATE_HEADER_LEVEL_tmp,
+&_sorted_options_FORCE_tmp,
+&_sorted_options_FORMAT_MENU_tmp,
+&_sorted_options_HANDLER_FATAL_ERROR_LEVEL_tmp,
+&_sorted_options_HEADERS_tmp,
+&_sorted_options_HEADER_IN_TABLE_tmp,
+&_sorted_options_HIGHLIGHT_SYNTAX_tmp,
+&_sorted_options_HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE_tmp,
+&_sorted_options_HTMLXREF_FILE_tmp,
+&_sorted_options_HTMLXREF_MODE_tmp,
+&_sorted_options_HTML_MATH_tmp,
+&_sorted_options_HTML_ROOT_ELEMENT_ATTRIBUTES_tmp,
+&_sorted_options_ICONS_tmp,
+&_sorted_options_IGNORE_REF_TO_TOP_NODE_UP_tmp,
+&_sorted_options_IMAGE_LINK_PREFIX_tmp,
+&_sorted_options_INCLUDE_DIRECTORIES_tmp,
+&_sorted_options_INDENTED_BLOCK_COMMANDS_IN_TABLE_tmp,
+&_sorted_options_INDEX_ENTRY_COLON_tmp,
+&_sorted_options_INDEX_SPECIAL_CHARS_WARNING_tmp,
+&_sorted_options_INFO_JS_DIR_tmp,
+&_sorted_options_INFO_SPECIAL_CHARS_QUOTE_tmp,
+&_sorted_options_INFO_SPECIAL_CHARS_WARNING_tmp,
+&_sorted_options_INLINE_CSS_STYLE_tmp,
+&_sorted_options_INPUT_FILE_NAME_ENCODING_tmp,
+&_sorted_options_INTERNAL_LINKS_tmp,
+&_sorted_options_JS_WEBLABELS_tmp,
+&_sorted_options_JS_WEBLABELS_FILE_tmp,
+&_sorted_options_L2H_CLEAN_tmp,
+&_sorted_options_L2H_FILE_tmp,
+&_sorted_options_L2H_HTML_VERSION_tmp,
+&_sorted_options_L2H_L2H_tmp,
+&_sorted_options_L2H_SKIP_tmp,
+&_sorted_options_L2H_TMP_tmp,
+&_sorted_options_LATEX_FLOATS_FILE_EXTENSION_tmp,
+&_sorted_options_LINKS_BUTTONS_tmp,
+&_sorted_options_LOCALE_ENCODING_tmp,
+&_sorted_options_MACRO_EXPAND_tmp,
+&_sorted_options_MATHJAX_CONFIGURATION_tmp,
+&_sorted_options_MATHJAX_SCRIPT_tmp,
+&_sorted_options_MATHJAX_SOURCE_tmp,
+&_sorted_options_MAX_HEADER_LEVEL_tmp,
+&_sorted_options_MENU_ENTRY_COLON_tmp,
+&_sorted_options_MENU_SYMBOL_tmp,
+&_sorted_options_MESSAGE_ENCODING_tmp,
+&_sorted_options_MISC_BUTTONS_tmp,
+&_sorted_options_MONOLITHIC_tmp,
+&_sorted_options_NODE_FILES_tmp,
+&_sorted_options_NODE_FOOTER_BUTTONS_tmp,
+&_sorted_options_NODE_NAME_IN_INDEX_tmp,
+&_sorted_options_NODE_NAME_IN_MENU_tmp,
+&_sorted_options_NO_CSS_tmp,
+&_sorted_options_NO_CUSTOM_HTML_ATTRIBUTE_tmp,
+&_sorted_options_NO_NUMBER_FOOTNOTE_SYMBOL_tmp,
+&_sorted_options_NO_TOP_NODE_OUTPUT_tmp,
+&_sorted_options_NO_WARN_tmp,
+&_sorted_options_NUMBER_FOOTNOTES_tmp,
+&_sorted_options_NUMBER_SECTIONS_tmp,
+&_sorted_options_OPEN_DOUBLE_QUOTE_SYMBOL_tmp,
+&_sorted_options_OPEN_QUOTE_SYMBOL_tmp,
+&_sorted_options_OUTFILE_tmp,
+&_sorted_options_OUTPUT_CHARACTERS_tmp,
+&_sorted_options_OUTPUT_ENCODING_NAME_tmp,
+&_sorted_options_OUTPUT_FILE_NAME_ENCODING_tmp,
+&_sorted_options_OUTPUT_PERL_ENCODING_tmp,
+&_sorted_options_PACKAGE_tmp,
+&_sorted_options_PACKAGE_AND_VERSION_tmp,
+&_sorted_options_PACKAGE_NAME_tmp,
+&_sorted_options_PACKAGE_URL_tmp,
+&_sorted_options_PACKAGE_VERSION_tmp,
+&_sorted_options_PASSIVE_ICONS_tmp,
+&_sorted_options_PREFIX_tmp,
+&_sorted_options_PRE_BODY_CLOSE_tmp,
+&_sorted_options_PROGRAM_tmp,
+&_sorted_options_PROGRAM_NAME_IN_ABOUT_tmp,
+&_sorted_options_PROGRAM_NAME_IN_FOOTER_tmp,
+&_sorted_options_SECTION_BUTTONS_tmp,
+&_sorted_options_SECTION_FOOTER_BUTTONS_tmp,
+&_sorted_options_SECTION_NAME_IN_TITLE_tmp,
+&_sorted_options_SHORT_TOC_LINK_TO_TOC_tmp,
+&_sorted_options_SHOW_BUILTIN_CSS_RULES_tmp,
+&_sorted_options_SHOW_TITLE_tmp,
+&_sorted_options_SILENT_tmp,
+&_sorted_options_SORT_ELEMENT_COUNT_tmp,
+&_sorted_options_SORT_ELEMENT_COUNT_WORDS_tmp,
+&_sorted_options_SPLIT_tmp,
+&_sorted_options_SPLIT_SIZE_tmp,
+&_sorted_options_SUBDIR_tmp,
+&_sorted_options_T4H_LATEX_CONVERSION_tmp,
+&_sorted_options_T4H_MATH_CONVERSION_tmp,
+&_sorted_options_T4H_TEX_CONVERSION_tmp,
+&_sorted_options_TEST_tmp,
+&_sorted_options_TEXI2DVI_tmp,
+&_sorted_options_TEXI2HTML_tmp,
+&_sorted_options_TEXINFO_DTD_VERSION_tmp,
+&_sorted_options_TEXINFO_LANGUAGE_DIRECTORIES_tmp,
+&_sorted_options_TEXINFO_OUTPUT_FORMAT_tmp,
+&_sorted_options_TEXTCONTENT_COMMENT_tmp,
+&_sorted_options_TOC_LINKS_tmp,
+&_sorted_options_TOP_BUTTONS_tmp,
+&_sorted_options_TOP_FILE_tmp,
+&_sorted_options_TOP_FOOTER_BUTTONS_tmp,
+&_sorted_options_TOP_NODE_FILE_TARGET_tmp,
+&_sorted_options_TOP_NODE_UP_tmp,
+&_sorted_options_TOP_NODE_UP_URL_tmp,
+&_sorted_options_TRACE_INCLUDES_tmp,
+&_sorted_options_TRANSLITERATE_FILE_NAMES_tmp,
+&_sorted_options_TREE_TRANSFORMATIONS_tmp,
+&_sorted_options_TXI_MARKUP_NO_SECTION_EXTENT_tmp,
+&_sorted_options_USE_ACCESSKEY_tmp,
+&_sorted_options_USE_ISO_tmp,
+&_sorted_options_USE_LINKS_tmp,
+&_sorted_options_USE_NEXT_HEADING_FOR_LONE_NODE_tmp,
+&_sorted_options_USE_NODES_tmp,
+&_sorted_options_USE_NODE_DIRECTIONS_tmp,
+&_sorted_options_USE_NUMERIC_ENTITY_tmp,
+&_sorted_options_USE_REL_REV_tmp,
+&_sorted_options_USE_SETFILENAME_EXTENSION_tmp,
+&_sorted_options_USE_TITLEPAGE_FOR_TITLE_tmp,
+&_sorted_options_USE_UNICODE_COLLATION_tmp,
+&_sorted_options_USE_UNIDECODE_tmp,
+&_sorted_options_USE_XML_SYNTAX_tmp,
+&_sorted_options_VERBOSE_tmp,
+&_sorted_options_VERTICAL_HEAD_NAVIGATION_tmp,
+&_sorted_options_WORDS_IN_PAGE_tmp,
+&_sorted_options_XREF_USE_FLOAT_LABEL_tmp,
+&_sorted_options_XREF_USE_NODE_NAME_ARG_tmp,
+&_sorted_options_XS_EXTERNAL_CONVERSION_tmp,
+&_sorted_options_XS_EXTERNAL_FORMATTING_tmp,
+&_sorted_options_XS_STRXFRM_COLLATION_LOCALE_tmp,
+&_sorted_options__INLINE_STYLE_WIDTH_tmp,
+&_sorted_options_afivepaper_tmp,
+&_sorted_options_afourlatex_tmp,
+&_sorted_options_afourpaper_tmp,
+&_sorted_options_afourwide_tmp,
+&_sorted_options_allowcodebreaks_tmp,
+&_sorted_options_bsixpaper_tmp,
+&_sorted_options_clickstyle_tmp,
+&_sorted_options_codequotebacktick_tmp,
+&_sorted_options_codequoteundirected_tmp,
+&_sorted_options_contents_tmp,
+&_sorted_options_deftypefnnewline_tmp,
+&_sorted_options_documentdescription_tmp,
+&_sorted_options_documentencoding_tmp,
+&_sorted_options_documentlanguage_tmp,
+&_sorted_options_evenfooting_tmp,
+&_sorted_options_evenfootingmarks_tmp,
+&_sorted_options_evenheading_tmp,
+&_sorted_options_evenheadingmarks_tmp,
+&_sorted_options_everyfooting_tmp,
+&_sorted_options_everyfootingmarks_tmp,
+&_sorted_options_everyheading_tmp,
+&_sorted_options_everyheadingmarks_tmp,
+&_sorted_options_exampleindent_tmp,
+&_sorted_options_firstparagraphindent_tmp,
+&_sorted_options_fonttextsize_tmp,
+&_sorted_options_footnotestyle_tmp,
+&_sorted_options_frenchspacing_tmp,
+&_sorted_options_headings_tmp,
+&_sorted_options_kbdinputstyle_tmp,
+&_sorted_options_microtype_tmp,
+&_sorted_options_novalidate_tmp,
+&_sorted_options_oddfooting_tmp,
+&_sorted_options_oddfootingmarks_tmp,
+&_sorted_options_oddheading_tmp,
+&_sorted_options_oddheadingmarks_tmp,
+&_sorted_options_pagesizes_tmp,
+&_sorted_options_paragraphindent_tmp,
+&_sorted_options_setchapternewpage_tmp,
+&_sorted_options_setfilename_tmp,
+&_sorted_options_shortcontents_tmp,
+&_sorted_options_smallbook_tmp,
+&_sorted_options_summarycontents_tmp,
+&_sorted_options_urefbreakstyle_tmp,
+&_sorted_options_xrefautomaticsectiontitle_tmp,
+};
+
