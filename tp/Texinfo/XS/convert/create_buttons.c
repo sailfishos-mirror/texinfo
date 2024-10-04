@@ -158,6 +158,7 @@ BUTTON_SPECIFICATION_LIST *
 new_base_links_buttons (const CONVERTER *self)
 {
   BUTTON_SPECIFICATION_LIST *result = new_button_specification_list (7);
+
   new_button_specification (&result->list[0], BST_direction,
                             0, D_direction_Top, 0, 0, 0, 0);
   new_button_specification (&result->list[1], BST_direction,
@@ -194,11 +195,12 @@ new_base_navigation_section_footer_buttons (const CONVERTER *self)
     default special units navigation panel buttons.
   */
 BUTTON_SPECIFICATION_LIST *
-new_directions_list_buttons_specifications (CONVERTER *self,
+new_directions_list_buttons_specifications (const CONVERTER *self,
                                             const int* directions)
 {
   int buttons_nr = 0;
   int i;
+
   BUTTON_SPECIFICATION_LIST *result;
 
   for (buttons_nr = 0; directions[buttons_nr] != -1; buttons_nr++) {};

@@ -25,10 +25,6 @@ void new_button_specification (BUTTON_SPECIFICATION *button,
                           enum html_text_type text_type);
 BUTTON_SPECIFICATION_LIST *new_button_specification_list (size_t buttons_nr);
 
-BUTTON_SPECIFICATION_LIST *new_directions_list_buttons_specifications
-                                           (CONVERTER *self,
-                                            const int* directions);
-
 BUTTON_SPECIFICATION_LIST *new_base_navigation_buttons (const CONVERTER *self,
                              enum button_function_type function_type,
                              int with_about);
@@ -37,5 +33,9 @@ BUTTON_SPECIFICATION_LIST *new_base_navigation_section_buttons
                                                    (const CONVERTER *self);
 BUTTON_SPECIFICATION_LIST *new_base_navigation_section_footer_buttons
                                                    (const CONVERTER *self);
+
+BUTTON_SPECIFICATION_LIST *new_directions_list_buttons_specifications
+                                           (const CONVERTER *self,
+                                            const int* directions);
 
 #endif
