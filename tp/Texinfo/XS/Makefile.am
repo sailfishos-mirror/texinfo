@@ -341,45 +341,6 @@ $(srcdir)/main/conversion_data.c $(srcdir)/main/conversion_data.h: main/command_
 
 MAINTAINERCLEANFILES += main/conversion_data.c main/conversion_data.h
 
-<<<<<<< HEAD
-=======
-########################## shared C library for conversion
-# conversion to raw text and to Texinfo code is in the libtexinfo library.
-# Note that having a library and not reusing source files is important to
-# share converter data among the XS objects used for conversion.
-
-if HAVE_ICONV
-xs_LTLIBRARIES += libtexinfo-convert.la
-endif
-
-libtexinfo_convert_la_SOURCES= \
-                       convert/converter.c \
-                       convert/converter.h \
-                       convert/cmd_converter.c \
-                       convert/converters_defaults.c \
-                       convert/converters_defaults.h \
-                       convert/create_buttons.c \
-                       convert/create_buttons.h \
-                       convert/html_converter_types.h \
-                       convert/html_converter_init_options.c \
-                       convert/html_converter_init_options.h \
-                       convert/html_converter_finish.c \
-                       convert/html_converter_finish.h \
-                       convert/html_conversion_state.c \
-                       convert/html_conversion_state.h \
-                       convert/html_prepare_converter.c \
-                       convert/html_prepare_converter.h \
-                       convert/convert_html.h \
-                       convert/convert_html.c \
-                       convert/texinfo.c \
-                       convert/texinfo.h
-
-# locate include files under out-of-source builds.
-# parsetexi is only needed for texinfo.c
-libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
-libtexinfo_convert_la_LIBADD = libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la
-libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
->>>>>>> d36edb77bf (* tp/Texinfo/XS/convert/convert_html.c)
 
 ########################## shared perl XS library for texinfo XS codes
 # it is separate from libtexinfo because of different dependencies; it
@@ -421,12 +382,12 @@ C_libtexinfo_convert_sources = \
                        convert/converter.c \
                        convert/converter.h \
                        convert/cmd_converter.c \
-                       convert/convert_html.h \
-                       convert/convert_html.c \
                        convert/converters_defaults.c \
                        convert/converters_defaults.h \
                        convert/create_buttons.c \
                        convert/create_buttons.h \
+                       convert/convert_html.h \
+                       convert/convert_html.c \
                        convert/html_converter_types.h \
                        convert/html_converter_init_options.c \
                        convert/html_converter_init_options.h \
