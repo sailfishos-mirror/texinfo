@@ -861,7 +861,7 @@ html_fill_button_sv_specification_list (const CONVERTER *converter,
         {
           if (button->sv)
             {
-              const char *direction_name = SvPVutf8_nolen (button->sv);
+              const char *direction_name = SvPVutf8_nolen ((SV *)button->sv);
               if (direction_name)
                 button->b.direction = html_get_direction_index (converter,
                                                               direction_name);
