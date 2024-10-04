@@ -12747,15 +12747,6 @@ html_type_conversion_external (CONVERTER *self, const enum element_type type,
                            element, content, result);
 }
 
-/* associate command to the C function implementing the opening */
-static const COMMAND_INTERNAL_OPEN commands_internal_open_table[] = {
-  {CM_node, &html_open_node_part_command},
-  {CM_part, &html_open_node_part_command},
-  {CM_quotation, &html_open_quotation_command},
-  {CM_smallquotation, &html_open_quotation_command},
-  {0, 0},
-};
-
 void
 html_convert_text (CONVERTER *self, const enum element_type type,
                    const ELEMENT *element, const char *content,

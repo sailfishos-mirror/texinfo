@@ -207,6 +207,7 @@ void html_open_##name (CONVERTER *self, const enum command_id cmd, \
                   const ELEMENT *element, TEXT *result);
 
 COMMAND_OPEN_FUNCTION(quotation_command)
+COMMAND_OPEN_FUNCTION(node_part_command)
 
 #undef COMMAND_OPEN_FUNCTION
 
