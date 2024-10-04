@@ -30,10 +30,6 @@
  */
 #include "create_buttons.h"
 
-/* HTML converter options setting and initialization.  Not with format
-   specific converter code, since this code is called from generic
-   converter code. */
-
 /* should be consistent with enum BUTTON_special_unit_directions.  See
    the comment there */
 static const char *buttons_special_units_names[] = {

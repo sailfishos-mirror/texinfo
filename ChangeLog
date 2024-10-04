@@ -1,11 +1,9 @@
 2024-10-04  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/main/get_perl_info.c
-	(html_fill_button_sv_specification_list): cast to (SV *) before
-	callling SvPVutf8_nolen.  Report from Gavin.  Analysis of Andreas
-	Schwab: before v5.37.2 SvPVutf8_nolen was a macro that dereferenced
-	its argument, after that the implementation moved into an inline
-	function.
+	* tp/Texinfo/XS/convert/create_buttons.h (enum
+	BUTTON_special_unit_directions),
+	tp/Texinfo/XS/convert/html_converter_init_options.h: move enum
+	BUTTON_special_unit_directions to create_buttons.h.
 
 2024-08-10  Patrice Dumas  <pertusus@free.fr>
 
@@ -17,6 +15,15 @@
 	tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES): put buttons
 	creations functions in a separate file, create_buttons.c.  Rename some
 	functions.
+
+2024-10-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/get_perl_info.c
+	(html_fill_button_sv_specification_list): cast to (SV *) before
+	callling SvPVutf8_nolen.  Report from Gavin.  Analysis of Andreas
+	Schwab: before v5.37.2 SvPVutf8_nolen was a macro that dereferenced
+	its argument, after that the implementation moved into an inline
+	function.
 
 2024-08-10  Patrice Dumas  <pertusus@free.fr>
 
