@@ -1,5 +1,9 @@
 2024-10-04  Patrice Dumas  <pertusus@free.fr>
 
+	Update po files
+
+2024-10-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/create_buttons.c
 	(new_directions_list_buttons_specifications): add const.
 
