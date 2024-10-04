@@ -51,9 +51,13 @@ void html_register_file_information (CONVERTER *self, const char *key,
 int html_get_file_information (const CONVERTER *self, const char *key,
                                const char *filename, int *status);
 
+void html_register_opened_section_level (CONVERTER *self, size_t file_number,
+                                    int level, const char *close_string);
 void html_register_opened_filename_section_level (CONVERTER *self,
                                              const char *filename,
                                          int level, const char *close_string);
+STRING_LIST *html_close_registered_sections_level (CONVERTER *self,
+                                      size_t file_number, int level);
 STRING_LIST *html_close_registered_filename_sections_level (CONVERTER *self,
                                       const char *filename, int level);
 
