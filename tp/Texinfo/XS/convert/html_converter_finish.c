@@ -611,9 +611,9 @@ html_free_converter (CONVERTER *self)
   free (style_formatted_cmd.list);
  */
 
-  for (i = 0; i < self->pending_closes.number; i++)
+  for (j = 0; j < self->pending_closes.number; j++)
     {
-      STRING_STACK *file_pending_closes = &self->pending_closes.list[i];
+      STRING_STACK *file_pending_closes = &self->pending_closes.list[j];
       free (file_pending_closes->stack);
     }
   free (self->pending_closes.list);
