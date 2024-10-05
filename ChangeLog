@@ -5,6 +5,12 @@
 
 2024-10-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am: add teximakehtml_LDFLAGS.  Set
+	explicitely teximakehtml_LINK to link with C++ only if
+	TXI_HAVE_CXX_HASHMAP is set.
+
+2024-10-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_html_cxx_function.cpp,
 	tp/Texinfo/XS/configure.ac (texinfo_cv_cxx_hashmap): include string
 	for std::string.
