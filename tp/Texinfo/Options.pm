@@ -266,7 +266,7 @@ my %converter_common_regular_options_defaults = (
   'PACKAGE_NAME'                     => 'GNU Texinfo',
   'PACKAGE_AND_VERSION'              => 'texinfo',
   'PACKAGE_VERSION'                  => '',
-  'PACKAGE_URL'                      => 'http://www.gnu.org/software/texinfo/',
+  'PACKAGE_URL'                      => 'https://www.gnu.org/software/texinfo/',
   'PROGRAM'                          => '',
 );
 
