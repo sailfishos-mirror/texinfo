@@ -1,3 +1,12 @@
+2024-10-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix translated strings for definition lines beginning @tie{}--
+
+	* po_document/adjust-translations.pl: adjust translations
+	for strings beginning "@tie{}-- " to have an extra hyphen as
+	these strings have changed in the program and the translations
+	wouldn't be used otherwise.
+
 2024-10-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/html_prepare_converter.c

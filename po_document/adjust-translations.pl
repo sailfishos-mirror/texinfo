@@ -30,6 +30,11 @@ if (!close ($fh)) {
 #
 $data =~ s/#, fuzzy\n((#.*\n)*msgctxt)/$1/g;
 
+# Translated string changed -- to ---
+$data =~ s/#, fuzzy, perl-brace-format\n#\| msgid "\@tie\{\}-- .*\n(msgid "\@tie\{)/$1/g;
+$data =~ s/msgstr "\@tie\{\}-- /msgstr "\@tie\{\}--- /g;
+$data =~ s/msgstr "\@tie\{ \}-- /msgstr "\@tie\{\}--- /g;
+
 # Overwrite original file
 print $data >$input_file;
 if (!open($fh, '>', $input_file)) {

@@ -973,7 +973,7 @@ top section
 
 $result_converted{'info'}->{'multiple_in_preamble_before_node'} = 'This is , produced from .
 
- -- Primjerak varijable of copying: a b
+ -- Primjerak varijable od copying: a b
      greška→
 
    Text ending the preamble

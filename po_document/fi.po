@@ -316,7 +316,6 @@ msgid "Last"
 msgstr "Viimeinen"
 
 #: tp/Texinfo/Data.pm:281 tp/Texinfo/XS/main/conversion_data.c:251
-#, fuzzy
 #| msgctxt "This direction button label"
 #| msgid "This"
 msgctxt "This (current section) direction button label"
@@ -837,16 +836,12 @@ msgid "{name}"
 msgstr ""
 
 #: tp/Texinfo/Convert/Plaintext.pm:2375
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}: {name} {arguments}"
 msgid "@tie{}--- {category}: {name}{arguments}"
-msgstr "@tie{}-- {category}: {name} {arguments}"
+msgstr "@tie{}--- {category}: {name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2378
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}: {name} {arguments}"
 msgid "@tie{}--- {category}: {name} {arguments}"
-msgstr "@tie{}-- {category}: {name} {arguments}"
+msgstr "@tie{}--- {category}: {name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2382
 #, fuzzy, perl-brace-format
@@ -854,40 +849,28 @@ msgid "@tie{}--- {category}: {name}"
 msgstr "luokka puuttuu: @%s"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2400
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}:@*{type}@*{name} {arguments}"
 msgid "@tie{}--- {category}:@*{type}@*{name}{arguments}"
-msgstr "@tie{}-- {category}:@*{type}@*{name} {arguments}"
+msgstr "@tie{}--- {category}:@*{type}@*{name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2404
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}:@*{type}@*{name} {arguments}"
 msgid "@tie{}--- {category}:@*{type}@*{name} {arguments}"
-msgstr "@tie{}-- {category}:@*{type}@*{name} {arguments}"
+msgstr "@tie{}--- {category}:@*{type}@*{name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2410
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}: {type} {name} {arguments}"
 msgid "@tie{}--- {category}: {type} {name}{arguments}"
-msgstr "@tie{}-- {category}: {type} {name} {arguments}"
+msgstr "@tie{}--- {category}: {type} {name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2414
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}: {type} {name} {arguments}"
 msgid "@tie{}--- {category}: {type} {name} {arguments}"
-msgstr "@tie{}-- {category}: {type} {name} {arguments}"
+msgstr "@tie{}--- {category}: {type} {name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2426
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}:@*{type}@*{name}"
 msgid "@tie{}--- {category}:@*{type}@*{name}"
-msgstr "@tie{}-- {category}:@*{type}@*{name}"
+msgstr "@tie{}--- {category}:@*{type}@*{name}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2429
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}: {type} {name}"
 msgid "@tie{}--- {category}: {type} {name}"
-msgstr "@tie{}-- {category}: {type} {name}"
+msgstr "@tie{}--- {category}: {type} {name}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2444
 #, fuzzy, perl-brace-format
@@ -920,34 +903,24 @@ msgid "@tie{}--- {category} on {class}: {name}"
 msgstr "Virheellinen merkkiluokan nimi"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2494
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}:@*{type}@*{name} {arguments}"
 msgid "@tie{}--- {category} on {class}:@*{type}@*{name}{arguments}"
-msgstr "@tie{}-- {category}:@*{type}@*{name} {arguments}"
+msgstr "@tie{}--- {category}:@*{type}@*{name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2499
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}:@*{type}@*{name} {arguments}"
 msgid "@tie{}--- {category} on {class}:@*{type}@*{name} {arguments}"
-msgstr "@tie{}-- {category}:@*{type}@*{name} {arguments}"
+msgstr "@tie{}--- {category}:@*{type}@*{name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2506
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}: {type} {name} {arguments}"
 msgid "@tie{}--- {category} on {class}: {type} {name}{arguments}"
-msgstr "@tie{}-- {category}: {type} {name} {arguments}"
+msgstr "@tie{}--- {category}: {type} {name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2511
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}: {type} {name} {arguments}"
 msgid "@tie{}--- {category} on {class}: {type} {name} {arguments}"
-msgstr "@tie{}-- {category}: {type} {name} {arguments}"
+msgstr "@tie{}--- {category}: {type} {name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2524
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}:@*{type}@*{name} {arguments}"
 msgid "@tie{}--- {category} on {class}:@*{type}@*{name}"
-msgstr "@tie{}-- {category}:@*{type}@*{name} {arguments}"
+msgstr "@tie{}--- {category}:@*{type}@*{name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2528
 #, fuzzy, perl-brace-format
@@ -955,16 +928,12 @@ msgid "@tie{}--- {category} on {class}: {type} {name}"
 msgstr "Virheellinen merkkiluokan nimi"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2543
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}: {type} {name} {arguments}"
 msgid "@tie{}--- {category} of {class}: {type} {name}{arguments}"
-msgstr "@tie{}-- {category}: {type} {name} {arguments}"
+msgstr "@tie{}--- {category}: {type} {name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2548
-#, fuzzy, perl-brace-format
-#| msgid "@tie{}-- {category}: {type} {name} {arguments}"
 msgid "@tie{}--- {category} of {class}: {type} {name} {arguments}"
-msgstr "@tie{}-- {category}: {type} {name} {arguments}"
+msgstr "@tie{}--- {category}: {type} {name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2558
 #, fuzzy, perl-brace-format

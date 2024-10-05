@@ -39,7 +39,7 @@ File: multiple_lang_chapters.info,  Node: chapter fr_FR,  Next: chapter de,  Pre
 3 fr_FR
 *******
 
- -- Variable d'instance of AAA: BBB CCC
+ -- Variable d'instance de AAA : BBB CCC
 
 
 File: multiple_lang_chapters.info,  Node: chapter de,  Next: chapter pt_BR,  Prev: chapter fr_FR,  Up: Top
@@ -61,8 +61,8 @@ Node: Top81
 Node: chapter ja293
 Node: chapter en474
 Node: chapter fr_FR664
-Node: chapter de829
-Node: chapter pt_BR950
+Node: chapter de830
+Node: chapter pt_BR951
 
 End Tag Table
 

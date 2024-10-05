@@ -412,7 +412,7 @@ $result_indices_sort_strings{'unknown_region'} = {
 
 
 
-$result_converted{'plaintext'}->{'unknown_region'} = ' -- Variable d\'instance of AAA: BBB CCC
+$result_converted{'plaintext'}->{'unknown_region'} = ' -- Variable d\'instance de AAA : BBB CCC
 ';
 
 
@@ -424,7 +424,7 @@ File: ,  Node: Top,  Next: chap,  Up: (dir)
 
 File: ,  Node: chap,  Prev: Top
 
- -- Variable d\'instance of AAA: BBB CCC
+ -- Variable d\'instance de AAA : BBB CCC
 
 
 Tag Table:
