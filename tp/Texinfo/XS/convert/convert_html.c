@@ -296,34 +296,6 @@ html_convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
 
 
 
-void
-default_css_string_format_protect_text (const char *text, TEXT *result)
-{
-  const char *p = text;
-
-  while (*p)
-    {
-      int before_sep_nr = strcspn (p, "\\'");
-      if (before_sep_nr)
-        {
-          text_append_n (result, p, before_sep_nr);
-          p += before_sep_nr;
-        }
-      if (!*p)
-        break;
-      switch (*p)
-        {
-        case '\\':
-          text_append_n (result, "\\\\", 2);
-          break;
-        case '\'':
-          text_append_n (result, "\\'", 2);
-          break;
-        }
-      p++;
-    }
-}
-
 /* NOTE these switches are not done in perl, so the only perl functions
    that can be called are perl functions that do not call formatting/conversion
    functions or the formatting/conversion functions for HTML will be used. */

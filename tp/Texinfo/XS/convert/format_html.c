@@ -1383,10 +1383,12 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
           char *multiple_formatted = 0;
           ELEMENT *description_element;
           const char *command_name;
-          enum command_id cmd = element_builtin_cmd (command);
+          enum command_id cmd;
 
           if (command->type == ET_special_unit_element)
             return 0;
+
+          cmd = element_builtin_cmd (command);
 
           if (cmd == CM_float || cmd == CM_anchor)
             return 0;

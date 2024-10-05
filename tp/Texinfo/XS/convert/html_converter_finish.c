@@ -77,6 +77,9 @@ reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
           for (j = 0; j < HTT_string_nonumber+1; j++)
             free (html_target->command_text[j]);
 
+          for (j = 0; j < HTT_string_nonumber+1; j++)
+            free (html_target->command_description[j]);
+
           free_tree_added_elements (self, &html_target->tree);
           free_tree_added_elements (self, &html_target->tree_nonumber);
         }
