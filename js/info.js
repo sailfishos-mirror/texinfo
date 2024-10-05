@@ -252,8 +252,8 @@ updater (state, action)
       }
     case "cache-index-links":
       {
-        // Initially res.index is undefined, which is ignored.
-        res.index = Object.assign ({}, res.index, action.links);
+        // Initially res.TI_index is undefined, which is ignored.
+        res.TI_index = Object.assign ({}, res.TI_index, action.links);
         return res;
       }
     case "section":
@@ -348,9 +348,9 @@ updater (state, action)
             /* When CURRENT is in index but doesn't have the requested
                direction, ask its corresponding 'pageid'.  */
             var is_index_ref =
-              Object.keys (state.index)
+              Object.keys (state.TI_index)
                     .reduce (function (acc, val) {
-                      return acc || state.index[val] === current;
+                      return acc || state.TI_index[val] === current;
                     }, false);
             if (is_index_ref)
               {
@@ -683,12 +683,11 @@ init_index_page ()
       }
     };
 
-    var index = new Text_input ("index");
-    index.render = function (state) {
-      if (state.text_input === "index")
-      {
-        if (state.index)
-          this.show (state.index);
+    var TI_index = new Text_input ("index");
+    TI_index.render = function (state) {
+      if (state.text_input === "index") {
+        if (state.TI_index)
+          this.show (state.TI_index);
         else
           store.dispatch (actions.warn ("No index in this document"))
       }
@@ -701,7 +700,7 @@ init_index_page ()
     };
 
     elem.appendChild (TI_menu.element);
-    elem.appendChild (index.element);
+    elem.appendChild (TI_index.element);
     elem.appendChild (search.element);
 
     /* Create a container for warning when no menu in current page.*/
@@ -711,7 +710,7 @@ init_index_page ()
 
     this.element = elem;
     this.TI_menu = TI_menu;
-    this.index = index;
+    this.TI_index = TI_index;
     this.search = search;
     this.warn = warn$;
     this.toid = null;
@@ -737,12 +736,12 @@ init_index_page ()
     if (!state.text_input || state.warning)
       {
         this.TI_menu.hide ();
-        this.index.hide ();
+        this.TI_index.hide ();
         this.search.hide ();
       }
     else
       {
-        this.index.render (state);
+        this.TI_index.render (state);
         this.TI_menu.render (state);
         this.search.render (state);
       }

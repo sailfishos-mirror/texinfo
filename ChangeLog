@@ -1,5 +1,15 @@
 2024-10-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Rename info.js variable
+
+	* js/info.js (init_index_page, updater):
+	Rename "index" variable and fields to "TI_index" to mark it as a
+	Text_input object and make it clearer when this object is being
+	used as opposed to other various contradictory uses of the
+	word "index".
+
+2024-10-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* js/info.js (init_index_page, navigation_links): rename
 	"menu" variable and fields to "TI_menu" to mark it as a
 	Text_input object.
