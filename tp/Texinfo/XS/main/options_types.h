@@ -16,8 +16,6 @@
 
 #define TXI_OPTIONS_NR 229
 
-extern OPTION *txi_base_sorted_options[TXI_OPTIONS_NR];
-
 typedef struct OPTIONS {
     size_t BIT_user_function_number;
 
