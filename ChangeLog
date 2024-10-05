@@ -2,6 +2,14 @@
 
 	Rename info.js variable
 
+	* js/info.js (updater): Rename local variable from 'res' to
+	'result' so that we are reminded that is it is the result that
+	is returned from this function.  Correct spelling of "functional".
+
+2024-10-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Rename info.js variable
+
 	* js/info.js (init_index_page, updater):
 	Rename "index" variable and fields to "TI_index" to mark it as a
 	Text_input object and make it clearer when this object is being

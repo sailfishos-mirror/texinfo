@@ -221,7 +221,7 @@ var actions = {
 };
 
 /** Update STATE based on the type of ACTION.  This update is purely
-    fonctional since STATE is not modified in place and a new state object
+    functional since STATE is not modified in place and a new state object
     is returned instead.
     @arg {Object} state
     @arg {Action} action
@@ -232,7 +232,7 @@ var actions = {
 function
 updater (state, action)
 {
-  var res = Object.assign ({}, state, { action: action });
+  var result = Object.assign ({}, state, { action: action });
   var linkid;
   switch (action.type)
     {
@@ -248,18 +248,18 @@ updater (state, action)
               nodes[key] = action.links[key];
           });
 
-        return Object.assign (res, { loaded_nodes: nodes });
+        return Object.assign (result, { loaded_nodes: nodes });
       }
     case "cache-index-links":
       {
-        // Initially res.TI_index is undefined, which is ignored.
-        res.TI_index = Object.assign ({}, res.TI_index, action.links);
-        return res;
+        // Initially result.TI_index is undefined, which is ignored.
+        result.TI_index = Object.assign ({}, result.TI_index, action.links);
+        return result;
       }
     case "section":
       {
-        res.section_hash = action.section_hash;
-        return res;
+        result.section_hash = action.section_hash;
+        return result;
       }
     case "current-url":
       {
@@ -270,41 +270,41 @@ updater (state, action)
         linkid = (action.pointer) ?
             state.loaded_nodes[action.pointer] : action.url;
 
-        res.current = linkid;
-        res.section_hash = null;
-        res.history = action.history;
-        res.text_input = null;
-        res.warning = null;
-        res.window_title = null;
-        res.help = false;
-        res.focus = false;
-        res.highlight = null;
-        res.loaded_nodes = Object.assign ({}, res.loaded_nodes);
-        res.loaded_nodes[linkid] = res.loaded_nodes[linkid] || {};
-        return res;
+        result.current = linkid;
+        result.section_hash = null;
+        result.history = action.history;
+        result.text_input = null;
+        result.warning = null;
+        result.window_title = null;
+        result.help = false;
+        result.focus = false;
+        result.highlight = null;
+        result.loaded_nodes = Object.assign ({}, result.loaded_nodes);
+        result.loaded_nodes[linkid] = result.loaded_nodes[linkid] || {};
+        return result;
       }
     case "unfocus":
       {
-        if (!res.focus)
+        if (!result.focus)
           return state;
         else
           {
-            res.help = false;
-            res.text_input = null;
-            res.focus = false;
-            return res;
+            result.help = false;
+            result.text_input = null;
+            result.focus = false;
+            return result;
           }
       }
     case "help":
       {
-        res.help = action.visible;
-        res.focus = true;
-        return res;
+        result.help = action.visible;
+        result.focus = true;
+        return result;
       }
     case "show-sidebar": // "yes" (show), "no" (hide) or "hide-if-narrow"
       {
-        res.show_sidebar = action.show === "hide-if-narrow" && res.show_sidebar === "no" ? "no" : action.show;
-        return res;
+        result.show_sidebar = action.show === "hide-if-narrow" && result.show_sidebar === "no" ? "no" : action.show;
+        return result;
       }
     case "navigate":
       {
@@ -363,69 +363,69 @@ updater (state, action)
           return state;
         else
           {
-            res.current = linkid;
-            res.section_hash = null;
-            res.history = action.history;
-            res.text_input = null;
-            res.warning = null;
-            res.window_title = null;
-            res.help = false;
-            res.highlight = null;
-            res.focus = false;
-            res.loaded_nodes = Object.assign ({}, res.loaded_nodes);
-            res.loaded_nodes[action.url] = res.loaded_nodes[action.url] || {};
-            return res;
+            result.current = linkid;
+            result.section_hash = null;
+            result.history = action.history;
+            result.text_input = null;
+            result.warning = null;
+            result.window_title = null;
+            result.help = false;
+            result.highlight = null;
+            result.focus = false;
+            result.loaded_nodes = Object.assign ({}, result.loaded_nodes);
+            result.loaded_nodes[action.url] = result.loaded_nodes[action.url] || {};
+            return result;
           }
       }
     case "search-init":
       {
-        res.search = {
+        result.search = {
           regexp: action.regexp || state.search.regexp,
           input: action.input || state.search.input,
           status: "ready",
           current_pageid: linkid_split (state.current).pageid,
           found: false
         };
-        res.focus = false;
-        res.help = false;
-        res.text_input = null;
-        res.warning = null;
-        return res;
+        result.focus = false;
+        result.help = false;
+        result.text_input = null;
+        result.warning = null;
+        return result;
       }
     case "search-query":
       {
-        res.search = Object.assign ({}, state.search);
-        res.search.status = "searching";
-        return res;
+        result.search = Object.assign ({}, state.search);
+        result.search.status = "searching";
+        return result;
       }
     case "search-result":
       {
-        res.search = Object.assign ({}, state.search);
+        result.search = Object.assign ({}, state.search);
         if (action.found)
           {
-            res.search.status = "done";
-            res.search.found = true;
-            res.current = res.search.current_pageid;
-            res.section_hash = null;
-            res.history = "pushState";
-            res.highlight = res.search.regexp;
+            result.search.status = "done";
+            result.search.found = true;
+            result.current = result.search.current_pageid;
+            result.section_hash = null;
+            result.history = "pushState";
+            result.highlight = result.search.regexp;
           }
         else
           {
             var fwd = forward_pageid (state, state.search.current_pageid);
             if (fwd === null)
               {
-                res.search.status = "done";
-                res.warning = "Search failed: \"" + res.search.input + "\"";
-                res.highlight = null;
+                result.search.status = "done";
+                result.warning = "Search failed: \"" + result.search.input + "\"";
+                result.highlight = null;
               }
             else
               {
-                res.search.current_pageid = fwd;
-                res.search.status = "ready";
+                result.search.current_pageid = fwd;
+                result.search.status = "ready";
               }
           }
-        return res;
+        return result;
       }
     case "input":
       {
@@ -438,35 +438,35 @@ updater (state, action)
           return state;
         else
           {
-            res.focus = Boolean (action.input);
-            res.help = false;
-            res.text_input = action.input;
-            res.warning = null;
-            return res;
+            result.focus = Boolean (action.input);
+            result.help = false;
+            result.text_input = action.input;
+            result.warning = null;
+            return result;
           }
       }
     case "iframe-ready":
       {
-        res.ready = Object.assign ({}, res.ready);
-        res.ready[action.id] = true;
-        return res;
+        result.ready = Object.assign ({}, result.ready);
+        result.ready[action.id] = true;
+        return result;
       }
     case "echo":
       {
-        res.echo = action.msg;
-        return res;
+        result.echo = action.msg;
+        return result;
       }
     case "window-title":
       {
-        res.window_title = action.title;
-        return res;
+        result.window_title = action.title;
+        return result;
       }
     case "warning":
       {
-        res.warning = action.msg;
+        result.warning = action.msg;
         if (action.msg !== null)
-          res.text_input = null;
-        return res;
+          result.text_input = null;
+        return result;
       }
     default:
       console.error ("no reducer for action type:", action.type);
