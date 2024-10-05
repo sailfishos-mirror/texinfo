@@ -138,12 +138,6 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
     TexinfoXML, or to a format corresponding to the tree structure of Texinfo
     documents as parsed by the Parser.
 
-    If others are interested in processing Texinfo files directly,
-    however, it could be possible to work on providing a practical and
-    public API for the C codes in the Texinfo project, especially if the
-    existing APIs can be reused, and maybe bindings for other languages
-    than C or Perl.
-
 ***********************************************************************
 
 * Ideas that will not be implemented:

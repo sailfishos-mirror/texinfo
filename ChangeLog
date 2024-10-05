@@ -1,5 +1,9 @@
 2024-10-05  Patrice Dumas  <pertusus@free.fr>
 
+	TODO: remove unclear information mixing direct processing and bindings
+
+2024-10-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/html_converter_finish.c (html_free_converter):
 	use a size_t index for self->pending_closes.list.
 
