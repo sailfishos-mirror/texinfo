@@ -262,6 +262,8 @@ our %unique_at_command_options = (
 my %regular_options_types;
 
 my %converter_common_regular_options_defaults = (
+  'PACKAGE'                          => 'texinfo',
+  'PACKAGE_NAME'                     => 'GNU Texinfo',
   'PACKAGE_AND_VERSION'              => 'texinfo',
   'PACKAGE_VERSION'                  => '',
   'PACKAGE_URL'                      => 'http://www.gnu.org/software/texinfo/',
