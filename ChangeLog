@@ -1,3 +1,8 @@
+2024-10-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* js/info.js: Exdent entire body of file (except inside a string
+	constant) in attempt to make nested functions more apparent.
+
 2024-10-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/call_html_cxx_function.cpp,
