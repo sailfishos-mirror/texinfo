@@ -347,11 +347,15 @@ updater (state, action)
           {
             /* When CURRENT is in index but doesn't have the requested
                direction, ask its corresponding 'pageid'.  */
+
+            /* This checks if CURRENT is a value in state.TI_index for
+               some key. */
             var is_index_ref =
               Object.keys (state.TI_index)
                     .reduce (function (acc, val) {
                       return acc || state.TI_index[val] === current;
                     }, false);
+
             if (is_index_ref)
               {
                 ids = state.loaded_nodes[link.pageid];
