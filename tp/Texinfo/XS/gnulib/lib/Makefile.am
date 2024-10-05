@@ -101,6 +101,7 @@ EXTRA_libgnu_la_SOURCES =
 libgnu_la_LDFLAGS = $(AM_LDFLAGS)
 libgnu_la_LDFLAGS += -no-undefined
 libgnu_la_LDFLAGS += $(CLOCK_TIME_LIB)
+libgnu_la_LDFLAGS += $(EUIDACCESS_LIBGEN)
 libgnu_la_LDFLAGS += $(HARD_LOCALE_LIB)
 libgnu_la_LDFLAGS += $(LIB_ACL)
 libgnu_la_LDFLAGS += $(LTLIBC32CONV)
@@ -121,6 +122,14 @@ AM_CPPFLAGS += -DDEFAULT_TEXT_DOMAIN=\"texinfo_tp-gnulib\"
 HAVE_INCLUDE_NEXT = (__GNUC__ || __clang__ || 60000000 <= __DECC_VER)
 
 ## end   gnulib module absolute-header
+
+## begin gnulib module access
+
+if GL_COND_OBJ_ACCESS
+libgnu_la_SOURCES += access.c
+endif
+
+## end   gnulib module access
 
 ## begin gnulib module acl-permissions
 
@@ -367,6 +376,14 @@ EXTRA_DIST += error.in.h
 
 ## end   gnulib module error-h
 
+## begin gnulib module euidaccess
+
+if GL_COND_OBJ_EUIDACCESS
+libgnu_la_SOURCES += euidaccess.c
+endif
+
+## end   gnulib module euidaccess
+
 ## begin gnulib module exitfail
 
 libgnu_la_SOURCES += exitfail.c
@@ -531,6 +548,14 @@ endif
 
 ## end   gnulib module getdtablesize
 
+## begin gnulib module getgroups
+
+if GL_COND_OBJ_GETGROUPS
+libgnu_la_SOURCES += getgroups.c
+endif
+
+## end   gnulib module getgroups
+
 ## begin gnulib module getline
 
 if GL_COND_OBJ_GETLINE
@@ -577,6 +602,14 @@ V_GPERF_ = $(V_GPERF_@AM_DEFAULT_V@)
 V_GPERF_0 = @echo "  GPERF   " $@;
 
 ## end   gnulib module gperf
+
+## begin gnulib module group-member
+
+if GL_COND_OBJ_GROUP_MEMBER
+libgnu_la_SOURCES += group-member.c
+endif
+
+## end   gnulib module group-member
 
 ## begin gnulib module hard-locale
 
@@ -967,6 +1000,13 @@ libgnu_la_SOURCES += reallocarray.c
 endif
 
 ## end   gnulib module reallocarray
+
+## begin gnulib module root-uid
+
+
+EXTRA_DIST += root-uid.h
+
+## end   gnulib module root-uid
 
 ## begin gnulib module safe-read
 

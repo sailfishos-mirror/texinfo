@@ -43,6 +43,7 @@ AC_DEFUN([gl_EARLY],
   AC_REQUIRE([gl_PROG_AR_RANLIB])
 
   # Code from module absolute-header:
+  # Code from module access:
   # Code from module acl-permissions:
   # Code from module alignasof:
   # Code from module alignof:
@@ -70,6 +71,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module errno:
   # Code from module error:
   # Code from module error-h:
+  # Code from module euidaccess:
   # Code from module exitfail:
   # Code from module extensions:
   # This is actually already done in the pre-early phase.
@@ -88,12 +90,14 @@ AC_DEFUN([gl_EARLY],
   # Code from module gen-header:
   # Code from module getdelim:
   # Code from module getdtablesize:
+  # Code from module getgroups:
   # Code from module getline:
   # Code from module getprogname:
   # Code from module gettext-h:
   # Code from module gettime:
   # Code from module gettimeofday:
   # Code from module gperf:
+  # Code from module group-member:
   # Code from module hard-locale:
   # Code from module havelib:
   # Code from module ialloc:
@@ -136,6 +140,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module realloc-gnu:
   # Code from module realloc-posix:
   # Code from module reallocarray:
+  # Code from module root-uid:
   # Code from module safe-read:
   # Code from module safe-write:
   # Code from module setenv:
@@ -258,6 +263,9 @@ AC_DEFUN([gl_INIT],
   gl_COMMON
   gl_source_base='gnulib/lib'
   gl_source_base_prefix=
+  gl_FUNC_ACCESS
+  gl_CONDITIONAL([GL_COND_OBJ_ACCESS], [test $REPLACE_ACCESS = 1])
+  gl_UNISTD_MODULE_INDICATOR([access])
   gl_FUNC_ACL
   gl_ALIGNASOF
   gl_FUNC_ALLOCA
@@ -372,6 +380,10 @@ AC_DEFUN([gl_INIT],
     gl_PREREQ_GETDTABLESIZE
   ])
   gl_UNISTD_MODULE_INDICATOR([getdtablesize])
+  gl_FUNC_GETGROUPS
+  gl_CONDITIONAL([GL_COND_OBJ_GETGROUPS],
+                 [test $HAVE_GETGROUPS = 0 || test $REPLACE_GETGROUPS = 1])
+  gl_UNISTD_MODULE_INDICATOR([getgroups])
   gl_FUNC_GETLINE
   gl_CONDITIONAL([GL_COND_OBJ_GETLINE], [test $REPLACE_GETLINE = 1])
   AM_COND_IF([GL_COND_OBJ_GETLINE], [
@@ -396,6 +408,12 @@ AC_DEFUN([gl_INIT],
     gl_PREREQ_GETTIMEOFDAY
   ])
   gl_SYS_TIME_MODULE_INDICATOR([gettimeofday])
+  gl_FUNC_GROUP_MEMBER
+  gl_CONDITIONAL([GL_COND_OBJ_GROUP_MEMBER], [test $HAVE_GROUP_MEMBER = 0])
+  AM_COND_IF([GL_COND_OBJ_GROUP_MEMBER], [
+    gl_PREREQ_GROUP_MEMBER
+  ])
+  gl_UNISTD_MODULE_INDICATOR([group-member])
   AC_REQUIRE([gl_FUNC_SETLOCALE_NULL])
   HARD_LOCALE_LIB="$SETLOCALE_NULL_LIB"
   AC_SUBST([HARD_LOCALE_LIB])
@@ -985,6 +1003,7 @@ AC_DEFUN([gltests_LIBSOURCES], [
 AC_DEFUN([gl_FILE_LIST], [
   build-aux/config.rpath
   lib/_Noreturn.h
+  lib/access.c
   lib/acl-errno-valid.c
   lib/acl-internal.c
   lib/acl-internal.h
@@ -1040,12 +1059,14 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/get-permissions.c
   lib/getdelim.c
   lib/getdtablesize.c
+  lib/getgroups.c
   lib/getline.c
   lib/getprogname.c
   lib/getprogname.h
   lib/gettext.h
   lib/gettime.c
   lib/gettimeofday.c
+  lib/group-member.c
   lib/hard-locale.c
   lib/hard-locale.h
   lib/ialloc.c
@@ -1100,6 +1121,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/read.c
   lib/realloc.c
   lib/reallocarray.c
+  lib/root-uid.h
   lib/safe-read.c
   lib/safe-read.h
   lib/safe-write.c
@@ -1255,6 +1277,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/xsize.h
   m4/00gnulib.m4
   m4/absolute-header.m4
+  m4/access.m4
   m4/acl.m4
   m4/alloca.m4
   m4/assert_h.m4
@@ -1286,6 +1309,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/fstat.m4
   m4/getdelim.m4
   m4/getdtablesize.m4
+  m4/getgroups.m4
   m4/getline.m4
   m4/getprogname.m4
   m4/gettime.m4
