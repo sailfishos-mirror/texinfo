@@ -352,7 +352,6 @@ void add_converter_customization_regular_defaults (OPTIONS_LIST *options_list)
   add_new_option_value (options_list, GOT_integer, "XS_EXTERNAL_FORMATTING", -1, 0);
   add_new_option_value (options_list, GOT_char, "XS_STRXFRM_COLLATION_LOCALE", -2, 0);
   add_new_option_value (options_list, GOT_integer, "_INLINE_STYLE_WIDTH", -1, 0);
-
 }
 
 
