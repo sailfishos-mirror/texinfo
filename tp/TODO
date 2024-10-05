@@ -19,13 +19,6 @@ in Perl.
 Bugs
 ====
 
-From Bruno:
-../../../../tp/Texinfo/XS/convert/convert_html.c: In function 'html_process_css_file':
-../../../../tp/Texinfo/XS/convert/convert_html.c:18912:11: error: label at end of compound statement
-            nocharset:
-            ^
-You need to add a semicolon (empty statement) after the label.
-
 
 HTML API
 ========

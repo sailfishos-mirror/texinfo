@@ -2980,6 +2980,7 @@ html_process_css_file (CONVERTER *self, FILE *fh, char *filename,
               continue;
             }
           nocharset:
+            ;
         }
 
       if (in_rules)
