@@ -91,6 +91,8 @@ gnulib/lib/getrandom.c
 gnulib/lib/gettext.h
 gnulib/lib/glthread/lock.c
 gnulib/lib/glthread/lock.h
+gnulib/lib/glthread/once.c
+gnulib/lib/glthread/once.h
 gnulib/lib/glthread/threadlib.c
 gnulib/lib/hard-locale.c
 gnulib/lib/hard-locale.h
