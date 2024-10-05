@@ -1,5 +1,13 @@
 2024-10-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/configure.ac (PACKAGE_XS_VERSION),
+	tp/Texinfo/XSLoader.pm ($xs_version, init): replace hyphen by dot in
+	version for XS_VERSION comparison.  Rename
+	PACKAGE_PERL_NUMERICAL_VERSION as PACKAGE_XS_VERSION and
+	$numerical_version as $xs_version.
+
+2024-10-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (XSLIBS_CPPFLAGS),
 	tp/Texinfo/XS/configure.ac (PACKAGE_PERL_NUMERICAL_VERSION)
 	(XS_VERSION), tp/Texinfo/XSLoader.pm ($numerical_version, init):
