@@ -1,5 +1,13 @@
 2024-10-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	info.js start tracing option
+
+	* js/info.js (debug): add function.
+	(config): add DEBUG key.
+	(updater): log action type with debug
+
+2024-10-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* js/info.js (updater): add a comment
 
 2024-10-05  Gavin Smith <gavinsmith0123@gmail.com>

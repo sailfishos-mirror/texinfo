@@ -50,7 +50,8 @@ var config = {
   /** Define a function called after 'DOMContentLoaded' event in
       the iframe context.
       @type {(function (): void)} */
-  on_iframe_load: null
+  on_iframe_load: null,
+  DEBUG: 0,
 };
 
 /*-------------------.
@@ -234,6 +235,7 @@ updater (state, action)
 {
   var result = Object.assign ({}, state, { action: action });
   var linkid;
+  debug (action.type);
   switch (action.type)
     {
     case "cache-links":
@@ -2139,6 +2141,18 @@ remove_highlight (elem)
       var parent = span.parentElement;
       parent.replaceChild (span.firstChild, span);
     }
+}
+
+/*--------------.
+|   Tracing.    |
+`--------------*/
+
+function
+debug (msg)
+{
+  if (config.DEBUG) {
+    console.log (msg);
+  }
 }
 
 /*--------------.
