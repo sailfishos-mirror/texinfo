@@ -21,6 +21,8 @@ use warnings;
 
 use DynaLoader;
 
+use version;
+
 BEGIN {
   eval 'require Texinfo::ModulePath';
   if ($@ ne '') {
@@ -34,6 +36,10 @@ BEGIN {
 our $TEXINFO_XS;
 
 our $VERSION = '7.1.90';
+
+# used for comparison with XS version.  Before some Perl version
+# (5.38 maybe?), need to be numerical.
+my $numerical_version = version->declare($VERSION)->numify;
 
 sub XS_parser_enabled {
   return ((not defined($ENV{TEXINFO_XS})
@@ -211,7 +217,8 @@ sub init {
   # and thePerl modules VERSION should be synchronized with the top-level
   # configure.ac version.  The check therefore ensures that the XS objects
   # and the Perl module come from the same GNU Texinfo distribution.
-  &$boot_fn($module, $VERSION);
+  #print STDERR "REMARK: numerical version: $numerical_version\n";
+  &$boot_fn($module, $numerical_version);
 
   # This makes it easier to refer to packages and symbols by name.
   no strict 'refs';

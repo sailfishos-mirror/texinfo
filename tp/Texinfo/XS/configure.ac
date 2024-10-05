@@ -83,12 +83,15 @@ perl_conf_CFLAGS=
 perl_conf_LDFLAGS=
 XSUBPPARGS=
 PERL_INC=
+PACKAGE_PERL_NUMERICAL_VERSION=0
 
 # See (automake)Conditional Subdirectories.  Even if --disable-perl-xs
 # is given, we still need to configure this directory minimally, so that
 # "make dist" will work.
 if test x$disable_xs != xyes; then
   AC_PATH_PROG([PERL], [perl])
+
+  PACKAGE_PERL_NUMERICAL_VERSION=`${PERL} -e 'use version; print version->declare('"$PACKAGE_VERSION"')->numify;'`
 
   if test -n "$PERL_EXT_CC" ; then
     CC=$PERL_EXT_CC
@@ -139,6 +142,7 @@ fi # not disable_xs
 AC_SUBST([PERL_INC], [$PERL_INC])
 AC_SUBST([XSUBPPARGS], [$XSUBPPARGS])
 
+AC_SUBST([XS_VERSION], [$PACKAGE_PERL_NUMERICAL_VERSION])
 
 AC_PROG_CC
 

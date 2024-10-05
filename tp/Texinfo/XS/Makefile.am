@@ -46,7 +46,7 @@ xsdir = $(pkglibdir)
 
 # XS_VERSION is used in version check in the bootstrap function created
 # by xsubpp in C code generated from .xs, and called in XSLoader.pm
-XSLIBS_CPPFLAGS = -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(VERSION)\"
+XSLIBS_CPPFLAGS = -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(XS_VERSION)\"
 XSLIBS_CPPFLAGS += -I$(PERL_INC)
 
 XSLIBS_CFLAGS = $(perl_conf_CFLAGS)
