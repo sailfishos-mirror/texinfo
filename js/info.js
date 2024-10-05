@@ -16,8 +16,8 @@
    You should have received a copy of the GNU General Public License
    along with GNU Texinfo.  If not, see <http://www.gnu.org/licenses/>.  */
 
-# Note that the entire body of this file apart from the first and last
-# lines are within a function call.
+/* Note that the entire body of this file apart from the first and last
+   lines are within a function call. */
 
 (function (features, user_config) {
 "use strict";
