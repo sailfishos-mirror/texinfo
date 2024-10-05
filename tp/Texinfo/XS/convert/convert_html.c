@@ -294,8 +294,6 @@ html_convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
   return result;
 }
 
-
-
 /* NOTE these switches are not done in perl, so the only perl functions
    that can be called are perl functions that do not call formatting/conversion
    functions or the formatting/conversion functions for HTML will be used. */

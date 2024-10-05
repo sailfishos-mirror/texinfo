@@ -1,5 +1,13 @@
 2024-10-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/format_html.c (html_convert_heading_command):
+	remove code related to in_skipped_node_top that was readded during
+	rebasing, but should have stayed out since 2024-09-05 "set
+	in_skipped_node_top when opening a @node (or associated @part), not
+	after processing the contents.".
+
+2024-10-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/html_converter_finish.c
 	(reset_html_targets_list): free command_description.
 

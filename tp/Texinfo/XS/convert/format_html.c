@@ -7121,41 +7121,9 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
   if (self->conf->NO_TOP_NODE_OUTPUT.o.integer > 0
       && builtin_command_data[cmd].flags & CF_root)
     {
-      const ELEMENT *node_element = 0;
       int in_skipped_node_top
         = self->shared_conversion_state.in_skipped_node_top;
 
-      if (cmd == CM_node)
-        node_element = element;
-      else if (cmd == CM_part)
-        {
-          const ELEMENT *part_following_node
-            = lookup_extra_element (element, AI_key_part_following_node);
-          if (part_following_node)
-            node_element = part_following_node;
-        }
-      if (node_element || cmd == CM_part)
-        {
-          int node_is_top = 0;
-          if (node_element)
-            {
-              const char *normalized = lookup_extra_string (node_element,
-                                                            AI_key_normalized);
-              if (normalized && !strcmp (normalized, "Top"))
-                {
-                  node_is_top = 1;
-                  in_skipped_node_top = 1;
-                  self->shared_conversion_state.in_skipped_node_top
-                    = in_skipped_node_top;
-                }
-            }
-          if (!node_is_top && in_skipped_node_top == 1)
-            {
-              in_skipped_node_top = -1;
-              self->shared_conversion_state.in_skipped_node_top
-                = in_skipped_node_top;
-            }
-        }
       if (in_skipped_node_top == 1)
         {
           format_separate_anchor (self, element_id,
