@@ -267,8 +267,6 @@ BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
 EXTRA_DIST+=main/element_types.txt main/element_types.awk \
 	   main/command_data.awk
 EXTRA_DIST += convert/cmd_converter.c
-EXTRA_DIST += convert/converters_defaults.c
-EXTRA_DIST += convert/converters_defaults.h
 EXTRA_DIST += convert/converters_options.c
 EXTRA_DIST += convert/converters_options.h
 
@@ -421,6 +419,12 @@ XS_libtexinfo_convert_sources = \
                        convert/call_html_perl_function.c \
                        convert/get_converter_perl_info.c \
                        convert/get_converter_perl_info.h
+
+if HAVE_CXX_HASHMAP
+C_libtexinfo_convert_sources += convert/call_html_cxx_function.cpp
+else
+EXTRA_DIST += convert/call_html_cxx_function.cpp
+endif
 
 libtexinfo_convert_la_SOURCES = \
    $(C_libtexinfo_convert_sources) \
