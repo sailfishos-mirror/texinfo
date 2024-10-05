@@ -3,7 +3,7 @@
 #ifndef OPTIONS_TYPES_H
 #define OPTIONS_TYPES_H
 
-#include "main/option_types.h"
+#include "option_types.h"
 
 /* Undefine values set from autoconf as we use these as
    customization variable names.  The original values are
