@@ -671,11 +671,11 @@ init_index_page ()
     var elem = document.createElement ("div");
     elem.classList.add ("text-input");
 
-    var menu = new Text_input ("menu");
-    menu.render = function (state) {
+    var TI_menu = new Text_input ("menu");
+    TI_menu.render = function (state) {
       if (state.text_input === "menu")
       {
-        var current_menu = state.loaded_nodes[state.current].menu;
+        var current_menu = state.loaded_nodes[state.current].TI_menu;
         if (current_menu)
           this.show (current_menu);
         else
@@ -700,7 +700,7 @@ init_index_page ()
         this.show ();
     };
 
-    elem.appendChild (menu.element);
+    elem.appendChild (TI_menu.element);
     elem.appendChild (index.element);
     elem.appendChild (search.element);
 
@@ -710,7 +710,7 @@ init_index_page ()
     elem.appendChild (warn$);
 
     this.element = elem;
-    this.menu = menu;
+    this.TI_menu = TI_menu;
     this.index = index;
     this.search = search;
     this.warn = warn$;
@@ -736,14 +736,14 @@ init_index_page ()
 
     if (!state.text_input || state.warning)
       {
-        this.menu.hide ();
+        this.TI_menu.hide ();
         this.index.hide ();
         this.search.hide ();
       }
     else
       {
         this.index.render (state);
-        this.menu.render (state);
+        this.TI_menu.render (state);
         this.search.render (state);
       }
   };
@@ -2012,8 +2012,8 @@ navigation_links (content)
         }
       else /* this link is part of local table of content. */
         {
-          res.menu = res.menu || {};
-          res.menu[link.text] = href_hash (link_href (link));
+          res.TI_menu = res.TI_menu || {};
+          res.TI_menu[link.text] = href_hash (link_href (link));
         }
     }
 

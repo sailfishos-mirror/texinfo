@@ -1,5 +1,11 @@
 2024-10-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* js/info.js (init_index_page, navigation_links): rename
+	"menu" variable and fields to "TI_menu" to mark it as a
+	Text_input object.
+
+2024-10-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* js/info.js: Exdent entire body of file (except inside a string
 	constant) in attempt to make nested functions more apparent.
 
