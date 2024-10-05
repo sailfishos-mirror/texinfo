@@ -1,5 +1,10 @@
 2024-10-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_LIBADD): reorder
+	libraries.
+
+2024-10-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (EXTRA_DIST)
 	(C_libtexinfo_convert_sources): remove converters_defaults.c, add
 	call_html_cxx_function.cpp.
