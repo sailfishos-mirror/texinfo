@@ -129,14 +129,9 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
     Get Emacs to support node name quoting. See
     https://lists.gnu.org/archive/html/bug-gnu-emacs/2022-08/msg01756.html
   - Process Texinfo files directly instead of converting to other formats.
-    There are already C code libraries with different (internal) API levels.
-    For parsing, document structure and conversion to some formats.
-
-    There is no plan to use these libraries to process Texinfo files directly
-    in the Texinfo project, as it will always be easier to convert Texinfo
-    to a format with the same information and easier to process such as
-    TexinfoXML, or to a format corresponding to the tree structure of Texinfo
-    documents as parsed by the Parser.
+    There is no plan to process Texinfo files directly in the Texinfo
+    project, only to convert to output formats.  New output formats
+    representing the Texinfo input could be output if useful.
 
 ***********************************************************************
 
