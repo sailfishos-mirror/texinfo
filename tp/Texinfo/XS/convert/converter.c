@@ -450,7 +450,7 @@ converter_converter (enum converter_format format,
                      const CONVERTER_INITIALIZATION_INFO *input_user_conf)
 {
   CONVERTER_INITIALIZATION_INFO *format_defaults;
-  /* NOTE if HAVE_CXX_HASHMAP is not defined, even with CONVF_cxx_hashmap
+  /* NOTE if HAVE_CXX_HASHMAP is not set, even with CONVF_cxx_hashmap
      string lists will be used */
   size_t converter_descriptor = new_converter (format, CONVF_cxx_hashmap);
    /*

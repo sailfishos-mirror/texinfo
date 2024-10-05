@@ -412,8 +412,7 @@ C_libtexinfo_convert_sources = \
                        convert/html_converter_api.c \
                        convert/html_converter_api.h \
                        convert/texinfo.c \
-                       convert/texinfo.h \
-                       convert/call_html_cxx_function.h
+                       convert/texinfo.h
 
 XS_libtexinfo_convert_sources = \
                        convert/build_html_perl_state.h \
@@ -422,12 +421,6 @@ XS_libtexinfo_convert_sources = \
                        convert/call_html_perl_function.c \
                        convert/get_converter_perl_info.c \
                        convert/get_converter_perl_info.h
-
-if HAVE_CXX_HASHMAP
-C_libtexinfo_convert_sources += convert/call_html_cxx_function.cpp
-else
-EXTRA_DIST += convert/call_html_cxx_function.cpp
-endif
 
 libtexinfo_convert_la_SOURCES = \
    $(C_libtexinfo_convert_sources) \
@@ -553,7 +546,17 @@ teximakehtml_SOURCES = \
                        main/replace_perl_api_call.c \
                        convert/replace_perl_call_html_function.c
 
-teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
+if TXI_HAVE_CXX_HASHMAP
+teximakehtml_SOURCES += convert/call_html_cxx_function.cpp \
+                        convert/call_html_cxx_function.h
+TXI_CXX_CPPFLAGS = -DHAVE_CXX_HASHMAP=1
+else
+EXTRA_DIST += convert/call_html_cxx_function.cpp \
+              convert/call_html_cxx_function.h
+TXI_CXX_CPPFLAGS = 
+endif
+
+teximakehtml_CPPFLAGS = -save-temps -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(TXI_CXX_CPPFLAGS) $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 #teximakehtml_LDADD = libtexinfo.la libtexinfo-convert.la $(top_builddir)/gnulib/lib/libgnu.la
 teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la
 

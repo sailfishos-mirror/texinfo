@@ -16,6 +16,7 @@
 #include <config.h>
 
 #include <unordered_map>
+#include <string>
 #include <iostream>
 
 extern "C"

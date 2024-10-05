@@ -183,6 +183,7 @@ texinfo_cv_cxx_hashmap=no
 
 AC_COMPILE_IFELSE([AC_LANG_SOURCE([[
 #include <unordered_map>
+#include <string>
 
 void
 init_registered_ids_hashmap (void)
@@ -193,11 +194,7 @@ init_registered_ids_hashmap (void)
 ]])], [texinfo_cv_cxx_hashmap=yes])
 ])
 
-if test $texinfo_cv_cxx_hashmap = yes; then
-  AC_DEFINE([HAVE_CXX_HASHMAP], [1], [Define if C++ hashmap can be used])
-fi
-
-AM_CONDITIONAL([HAVE_CXX_HASHMAP],
+AM_CONDITIONAL([TXI_HAVE_CXX_HASHMAP],
                [test "x$texinfo_cv_cxx_hashmap" = "xyes"])
 
 AC_LANG_POP([C++])
