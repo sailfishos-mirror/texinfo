@@ -973,6 +973,8 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
                 }
             }
 
+          /* No warning for an empty URL prefix as it is the only way to
+             override an entry appearing in a file processed later on
           if (!href)
             {
               SOURCE_INFO source_info;
@@ -985,7 +987,7 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
               free (manual);
               continue;
             }
-
+           */
           free (split_or_mono);
 
           htmlxref_manual
@@ -1002,17 +1004,22 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
               continue;
             }
 
-          subst_href = substitute_variables (href, &variables);
-
-          free (href);
-
-          if (htmlxref_type != htmlxref_split_type_mono)
+          if (href)
             {
-              size_t j;
-              for (j = strlen (subst_href); j > 0; j--)
-                if (subst_href[j-1] == '/')
-                  subst_href[j-1] = '\0';
+              subst_href = substitute_variables (href, &variables);
+
+              free (href);
+
+              if (htmlxref_type != htmlxref_split_type_mono)
+                {
+                  size_t j;
+                  for (j = strlen (subst_href); j > 0; j--)
+                    if (subst_href[j-1] == '/')
+                      subst_href[j-1] = '\0';
+                }
             }
+          else
+            subst_href = strdup ("");
 
            /*
           fprintf (stderr, "HHH %s '%s' %d\n", htmlxref_manual->manual,
