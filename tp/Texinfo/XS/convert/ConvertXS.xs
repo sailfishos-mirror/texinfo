@@ -2190,8 +2190,6 @@ html_command_description (SV *converter_in, SV *element_sv, const char *type=0)
                }
              text
                = html_command_description (self, element, text_type);
-
-             build_html_formatting_state (self);
            }
 
          if (text)

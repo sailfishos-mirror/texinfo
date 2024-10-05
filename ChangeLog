@@ -1,5 +1,14 @@
 2024-10-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_command_description):
+	remove build_html_formatting_state call, there is nothing set in C
+	that needs to be passed.
+
+	* tp/Texinfo/XS/convert/format_html.c (html_command_description): add
+	const.
+
+2024-10-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (MAINTAINERCLEANFILES): add Texinfo/Data.pm.
 
 2024-10-05  Patrice Dumas  <pertusus@free.fr>
