@@ -1,5 +1,9 @@
 2024-10-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (MAINTAINERCLEANFILES): add Texinfo/Data.pm.
+
+2024-10-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_LIBADD): reorder
 	libraries.
 

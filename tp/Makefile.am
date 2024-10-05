@@ -445,4 +445,4 @@ distclean-local:
 
 CLEANFILES = texi2any makeinfo Texinfo/ModulePath.pm
 DISTCLEANFILES = maintain/catalog.xml
-MAINTAINERCLEANFILES = Texinfo/Commands.pm Texinfo/Options.pm
+MAINTAINERCLEANFILES = Texinfo/Commands.pm Texinfo/Options.pm Texinfo/Data.pm
