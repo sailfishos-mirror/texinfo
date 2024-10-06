@@ -570,7 +570,7 @@ locate_init_file (void)
 {
   struct stat finfo;
   char *xdg_config_home, *homedir;
-  char *filename;
+  char *filename = 0;
 
   /* First, check for init file under XDG_CONFIG_HOME. */
 

@@ -1,5 +1,10 @@
 2024-10-06  Patrice Dumas  <pertusus@free.fr>
 
+	* info/infomap.c (locate_init_file): initialize filename such that it
+	is not used uninitialized if homedir is not set.
+
+2024-10-06  Patrice Dumas  <pertusus@free.fr>
+
 	* configure.ac (additional-checks), tp/Texinfo/XS/configure.ac
 	(additional-checks, DISABLE_ADDITIONAL_CHECKS): add configure
 	--enable-additional-checks and associated DISABLE_ADDITIONAL_CHECKS
