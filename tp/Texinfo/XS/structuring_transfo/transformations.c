@@ -487,7 +487,9 @@ move_index_entries_after_items (ELEMENT *current)
                 last_entry_nr = j;
               else if ((!(type_data[content->type].flags & TF_at_command))
                        || (content->e.c->cmd != CM_comment
-                           && content->e.c->cmd != CM_c))
+                           && content->e.c->cmd != CM_c
+                      /* subentry is not within the index entry in the tree */
+                           && content->e.c->cmd != CM_subentry))
                 break;
             }
 
