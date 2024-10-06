@@ -799,6 +799,7 @@ static void
 initialize_byte_map (void)
 {
   int i;
+  size_t j;
 
   static struct special_keys {
       int key_id;
@@ -862,18 +863,18 @@ initialize_byte_map (void)
   byte_seq_to_key['\177'].next = 0;
 
   /* For each special key, record its byte sequence. */
-  for (i = 0; i < sizeof (keys) / sizeof (*keys); i++)
+  for (j = 0; j < sizeof (keys) / sizeof (*keys); j++)
     {
-      if (!*keys[i].byte_seq)
+      if (!*keys[j].byte_seq)
         continue; /* No byte sequence known for this key. */
 
-      add_seq_to_byte_map (keys[i].key_id, *keys[i].byte_seq);
+      add_seq_to_byte_map (keys[j].key_id, *keys[j].byte_seq);
     }
 
   /* Hard-coded byte sequences. */
-  for (i = 0; i < sizeof (keys2) / sizeof (*keys2); i++)
+  for (j = 0; j < sizeof (keys2) / sizeof (*keys2); j++)
     {
-      add_seq_to_byte_map (keys2[i].key_id, keys2[i].byte_seq);
+      add_seq_to_byte_map (keys2[j].key_id, keys2[j].byte_seq);
     }
 
   /* In case "normal tracking mode" is on. */

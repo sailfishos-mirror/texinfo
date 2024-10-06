@@ -220,11 +220,11 @@ void window_clear_echo_area (void);
 int window_line_of_point (WINDOW *window);
 
 /* Get and return the printed column offset of the cursor in this window. */
-int window_get_cursor_column (WINDOW *window);
+long window_get_cursor_column (WINDOW *window);
 
 void window_compute_line_map (WINDOW *win);
 
-int window_point_to_column (WINDOW *win, long point, long *np);
+size_t window_point_to_column (WINDOW *win, long point, long *np);
 
 void window_line_map_init (WINDOW *win);
 

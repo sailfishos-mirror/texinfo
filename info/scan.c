@@ -53,10 +53,10 @@ char *info_parsed_nodename = NULL;
 /* Read a filename surrounded by "(" and ")", accounting for matching
    characters, and place it in *FILENAME if FILENAME is not null.  Return 
    length of read filename.  On error, set *FILENAME to null and return 0.  */
-int
+size_t
 read_bracketed_filename (char *string, char **filename)
 {
-  register int i = 0;
+  register size_t i = 0;
   int count = 0; /* Level of nesting. */
   int first_close = -1; /* First ")" encountered. */
 
@@ -141,15 +141,15 @@ info_parse_node (char *string)
    the number of lines that the string can span.  If LINES is zero, there is no
    limit.  Return length of string including any quoting characters.  Return
    0 if input was invalid. */
-long
-read_quoted_string (char *start, char *terminator, int lines, char **output)
+size_t
+read_quoted_string (char *start, char *terminator, size_t lines, char **output)
 {
-  long len;
+  size_t len;
   char *nl = 0, saved_char;
 
   if (lines)
     {
-      int i;
+      size_t i;
       nl = start;
       for (i = 0; i < lines; i++)
         {
@@ -645,7 +645,7 @@ degrade_utf8 (char **from, size_t *from_left)
   for (erp = er; erp->from_string != 0; erp++)
     {
       /* Avoid reading past end of input. */
-      int width = strlen (erp->from_string);
+      size_t width = strlen (erp->from_string);
       if (width > *from_left)
         continue;
 
@@ -896,7 +896,7 @@ copy_input_to_output (long n)
 }
 
 static void
-skip_input (long n)
+skip_input (size_t n)
 {
   if (preprocess_nodes_p)
     {
@@ -954,7 +954,7 @@ parse_top_node_line (NODE *node)
   char **store_in = 0;
   char *nodename;
   char *ptr;
-  int value_length;
+  size_t value_length;
 
   /* If the first line is empty, leave it in.  This is the case
      in the index-apropos window. */
@@ -1117,8 +1117,8 @@ scan_reference_marker (REFERENCE *entry, int in_parentheses)
 static int
 scan_reference_label (REFERENCE *entry, int in_index)
 {
-  int max_lines;
-  int len, label_len = 0;
+  size_t max_lines;
+  size_t len, label_len = 0;
 
   /* Handle case of cross-reference like (FILE)NODE::. */
   if (inptr[0] == '(' && !in_index)
@@ -1147,7 +1147,7 @@ scan_reference_label (REFERENCE *entry, int in_index)
          as long as the node name does not contain a colon as well. */
 
       char *p;
-      int n, m = 0;
+      size_t n, m = 0;
       p = inptr + label_len;
 
       while (1)
@@ -1231,17 +1231,17 @@ scan_reference_label (REFERENCE *entry, int in_index)
 static int
 scan_reference_target (REFERENCE *entry, NODE *node, int in_parentheses)
 {
-  int i;
+  size_t i;
 
   /* This entry continues with a specific target.  Parse the
      file name and node name from the specification. */
 
   if (entry->type == REFERENCE_XREF)
     {
-      int length = 0; /* Length of specification */
+      size_t length = 0; /* Length of specification */
       char *target_start = inptr;
       char *nl_off = 0;
-      int space_at_start_of_line = 0;
+      size_t space_at_start_of_line = 0;
 
       length += skip_whitespace_and_newlines (inptr);
 
@@ -1274,7 +1274,7 @@ scan_reference_target (REFERENCE *entry, NODE *node, int in_parentheses)
           if (nl_off
               && nl_off < target_start + (length - space_at_start_of_line) / 2)
             {
-              int i;
+              size_t i;
               write_extra_bytes_to_output ("\n", 1);
 
               for (i = 0; i < space_at_start_of_line; i++)
@@ -1307,7 +1307,7 @@ scan_reference_target (REFERENCE *entry, NODE *node, int in_parentheses)
          a paragraph. */
       if (nl_off && *inptr != '\n')
         { 
-          int i;
+          size_t i;
 
           write_extra_bytes_to_output ("\n", 1);
           for (i = 0; i < space_at_start_of_line; i++)
@@ -1317,8 +1317,8 @@ scan_reference_target (REFERENCE *entry, NODE *node, int in_parentheses)
     }
   else /* entry->type == REFERENCE_MENU_ITEM */
     {
-      int line_len;
-      int length = 0; /* Length of specification */
+      size_t line_len;
+      size_t length = 0; /* Length of specification */
 
       length = skip_whitespace (inptr);
       length += read_bracketed_filename (inptr + length, &entry->filename);

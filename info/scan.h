@@ -35,8 +35,8 @@ extern char *info_parsed_nodename;
 /* Parse the filename and nodename out of STRING. */ 
 void info_parse_node (char *string);
 
-long read_quoted_string (char *start, char *terminator, int lines,
-                         char **output);
+size_t read_quoted_string (char *start, char *terminator, size_t lines,
+                           char **output);
 
 void scan_node_contents (NODE *node, FILE_BUFFER *fb, TAG **tag_ptr);
 

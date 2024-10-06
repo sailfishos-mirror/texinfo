@@ -947,7 +947,7 @@ forget_node (WINDOW *win)
 void
 forget_window_and_nodes (WINDOW *win)
 {
-  int i;
+  size_t i;
   for (i = 0; i < win->hist_index; i++)
     {
       free_history_node (win->hist[i]->node);
@@ -1142,7 +1142,7 @@ static void
 point_forward_char (WINDOW *win)
 {
   long point = win->point;
-  int col;
+  size_t col;
 
   /* Find column in the line map after the current one that advances the
      point.  (This may not be the very next character if we are at a
@@ -1184,7 +1184,7 @@ point_backward_char (WINDOW *win)
 static void
 point_forward_word (WINDOW *win)
 {
-  int col;
+  size_t col;
 
   col = window_point_to_column (win, win->point, &win->point);
 
@@ -1714,8 +1714,8 @@ gc_file_buffers_and_nodes (void)
   /* Array to record whether each file buffer was referenced or not. */
   int *fb_referenced = xcalloc (info_loaded_files_index, sizeof (int));
   WINDOW *win;
-  int i;
-  int fb_index;
+  size_t i;
+  size_t fb_index;
 
   /* Loop over nodes in the history of displayed windows recording
      which file buffers were referenced. */
@@ -2940,7 +2940,7 @@ DECLARE_INFO_COMMAND (info_menu_sequence,
 /* Get the node pointed to by the LABEL pointer of WINDOW->node into WINDOW.
    Display error message if there is no such pointer, and return zero. */
 static int
-info_handle_pointer (char *label, WINDOW *window)
+info_handle_pointer (const char *label, WINDOW *window)
 {
   char *description;
   NODE *node;
@@ -3994,7 +3994,7 @@ info_search_in_node_internal (WINDOW *window, NODE *node,
   enum search_result result = search_not_found;
 
   long start1, end1;
-  int match_index;
+  size_t match_index;
   long new_point;
 
   MATCH_STATE matches;
@@ -4629,7 +4629,7 @@ funexit:
 void
 wipe_seen_flags (void)
 {
-  int fb_index;
+  size_t fb_index;
   TAG **t;
 
   for (fb_index = 0; fb_index < info_loaded_files_index; fb_index++)
@@ -4648,7 +4648,7 @@ DECLARE_INFO_COMMAND (info_tree_search,
                       _("Search this node and subnodes for a string"))
 {
   char *prompt, *line;
-  int i;
+  size_t i;
 
   /* TODO: Display manual name */
   /* TRANSLATORS: %s is the title of a node. */
@@ -4936,7 +4936,7 @@ pop_isearch (WINDOW *window, int *search_index, int *direction,
 static void
 free_isearch_states (void)
 {
-  register int i;
+  register size_t i;
 
   for (i = 0; i < isearch_states_index; i++)
     {
@@ -4951,7 +4951,7 @@ static void
 show_isearch_prompt (int dir, unsigned char *string,
                      enum search_result failing)
 {
-  register int i;
+  register size_t i;
   const char *prefix;
   char *prompt, *p_rep;
   unsigned int prompt_len, p_rep_index, p_rep_size;

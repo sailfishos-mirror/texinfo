@@ -158,7 +158,7 @@ infopath_add_dir (char *path)
 {
   struct stat dirinfo;
   INFO_DIR *entry;
-  int i;
+  size_t i;
 
   if (stat (path, &dirinfo) == -1)
     {

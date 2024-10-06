@@ -1,5 +1,40 @@
 2024-10-06  Patrice Dumas  <pertusus@free.fr>
 
+	* info/scan.c (match_in_match_list): add an indicatric variable such
+	that index can be used solely as an index.
+
+	* info/scan.c (read_bracketed_filename, read_quoted_string),
+	info/search.c (skip_whitespace, skip_whitespace_and_newlines)
+	(skip_non_whitespace, skip_node_separator), info/window.c
+	(window_point_to_column): return size_t as it is a length.
+
+	* info/window.c (window_get_cursor_column): return long as it is the
+	type of the variable assigned to.
+
+	* info/scan.c (read_quoted_string, skip_input), info/search.c
+	(match_in_match_list, match_by_index, at_end_of_matches): use size_t
+	in argument for an index in array, a length or a number.
+
+	* info/echo-area.c (ea_possible_completions)
+	(remove_completion_duplicates), info/info.c
+	(info_find_matching_files), info/infopath.c (infopath_add_dir),
+	info/nodemenu.c (get_visited_nodes), info/scan.c (read_quoted_string)
+	(parse_top_node_line, scan_reference_label, scan_reference_target),
+	info/search.c (match_in_match_list, find_file_section), info/session.c
+	(forget_window_and_nodes, point_forward_char, point_forward_word)
+	(gc_file_buffers_and_nodes, info_search_in_node_internal)
+	(wipe_seen_flags, info_tree_search, pop_isearch, show_isearch_prompt)
+	(initialize_byte_map), info/terminal.c (initialize_byte_map): use
+	size_t for variables representing length, numbers or indices in
+	arrays.
+
+	* info/echo-area.c (input_line_node, LCD_reference): complete with 0
+	for code clarity.
+
+	* info/session.c (info_handle_pointer): add const.
+
+2024-10-06  Patrice Dumas  <pertusus@free.fr>
+
 	* info/infomap.c (locate_init_file): initialize filename such that it
 	is not used uninitialized if homedir is not set.
 

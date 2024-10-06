@@ -421,13 +421,14 @@ looking_at_line (char *string, char *pointer)
 enum search_result
 match_in_match_list (MATCH_STATE *match_state,
                      long start, long end, int dir,
-                     int *match_index)
+                     size_t *match_index)
 {
   regmatch_t *matches = match_state->matches;
   size_t match_count = match_state->match_count;
 
-  int i;
-  int index = -1;
+  size_t i;
+  size_t index;
+  int found = 0;
 
   for (i = 0; i < match_count || !match_state->finished; i++)
     {
@@ -448,6 +449,7 @@ match_in_match_list (MATCH_STATE *match_state,
       if (matches[i].rm_so >= start)
         {
           index = i;
+          found = 1;
           if (dir > 0)
             {
               *match_index = index;
@@ -456,7 +458,7 @@ match_in_match_list (MATCH_STATE *match_state,
         }
     }
 
-  if (index != -1)
+  if (found)
     {
       *match_index = index;
       return search_success;
@@ -468,7 +470,7 @@ match_in_match_list (MATCH_STATE *match_state,
 
 /* Return match INDEX in STATE.  INDEX must be a valid index. */
 regmatch_t
-match_by_index (MATCH_STATE *state, int index)
+match_by_index (MATCH_STATE *state, size_t index)
 {
   while (state->match_alloc <= index)
     extend_matches (state);
@@ -522,7 +524,7 @@ decide_if_in_match (long off, int *in_match,
 
 /* Used for iterating through a match list. */
 int
-at_end_of_matches (MATCH_STATE *state, int index)
+at_end_of_matches (MATCH_STATE *state, size_t index)
 {
   if (index < state->match_count)
     return 0;
@@ -553,10 +555,10 @@ at_end_of_matches (MATCH_STATE *state, int index)
    of -1 if the item being looked for couldn't be found. */
 
 /* Return the index of the first non-whitespace character in STRING. */
-int
+size_t
 skip_whitespace (char *string)
 {
-  register int i;
+  register size_t i;
 
   for (i = 0; string && whitespace (string[i]); i++);
   return i;
@@ -564,20 +566,20 @@ skip_whitespace (char *string)
 
 /* Return the index of the first non-whitespace or newline character in
    STRING. */
-int
+size_t
 skip_whitespace_and_newlines (char *string)
 {
-  register int i;
+  register size_t i;
 
   for (i = 0; string && whitespace_or_newline (string[i]); i++);
   return i;
 }
 
 /* Return the index of the first whitespace character in STRING. */
-int
+size_t
 skip_non_whitespace (char *string)
 {
-  register int i;
+  register size_t i;
 
   for (i = 0; string && string[i] && !whitespace (string[i]); i++);
   return i;
@@ -635,10 +637,10 @@ find_node_separator (SEARCH_BINDING *binding)
 
 /* Return the length of the node separator characters that BODY is currently
    pointing at.  If it's not pointing at a node separator, return 0. */
-int
+size_t
 skip_node_separator (char *body)
 {
-  register int i;
+  register size_t i;
 
   i = 0;
 
@@ -677,7 +679,7 @@ find_file_section (SEARCH_BINDING *binding, char *label)
 
   while ((position = find_node_separator (&s)) != -1 )
     {
-      long offset = position;
+      size_t offset = position;
       offset += skip_node_separator (s.buffer + offset);
       if (looking_at_line (label, s.buffer + offset))
         return position;

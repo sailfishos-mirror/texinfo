@@ -117,7 +117,7 @@ static char *nodemenu_nodename = "*Node Menu*";
 static NODE *
 get_visited_nodes (void)
 {
-  register int i;
+  register size_t i;
   WINDOW *info_win;
   NODE *node;
   char **lines = NULL;
@@ -147,7 +147,7 @@ get_visited_nodes (void)
   /* Sort the array of information lines, if there are any. */
   if (lines)
     {
-      register int j, newlen;
+      register size_t j, newlen;
       char **temp;
 
       qsort (lines, lines_index, sizeof (char *), compare_strings);

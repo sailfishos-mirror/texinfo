@@ -45,8 +45,8 @@ static int input_line_beg;       /* End of prompt, and start of user input. */
 static int input_line_end;       /* End of user input. */
 
 static NODE input_line_node = {
-  NULL, NULL, NULL, input_line,
-  EA_MAX_INPUT, 0, N_IsInternal
+  NULL, NULL, NULL, input_line, EA_MAX_INPUT, 0,
+  N_IsInternal, 0, 0, 0, 0, 0, 0
 };
 
 static void echo_area_initialize_node (void);
@@ -1055,7 +1055,7 @@ DECLARE_INFO_COMMAND (ea_possible_completions, _("List possible completions"))
       /* Find the maximum length of a label. */
       for (i = 0; i < completions_found_index; i++)
         {
-          int len = strlen (completions_found[i]->label);
+          size_t len = strlen (completions_found[i]->label);
           if (len > max_label)
             max_label = len;
         }
@@ -1083,7 +1083,7 @@ DECLARE_INFO_COMMAND (ea_possible_completions, _("List possible completions"))
       /* Print the sorted items, up-and-down alphabetically. */
       for (i = 0; i < iterations; i++)
         {
-          register int j;
+          register size_t j;
 
           for (j = 0, l = i; j < limit; j++)
             {
@@ -1092,7 +1092,8 @@ DECLARE_INFO_COMMAND (ea_possible_completions, _("List possible completions"))
               else
                 {
                   char *label;
-                  int printed_length, k;
+                  size_t printed_length;
+                  int k;
 
                   label = completions_found[l]->label;
                   printed_length = strlen (label);
@@ -1190,7 +1191,7 @@ DECLARE_INFO_COMMAND (ea_complete, _("Insert completion"))
 
 /* Utility REFERENCE used to store possible LCD. */
 static REFERENCE LCD_reference = {
-    NULL, NULL, NULL, 0, 0, 0
+    NULL, NULL, NULL, 0, 0, 0, 0
 };
 
 static void remove_completion_duplicates (void);
@@ -1349,7 +1350,7 @@ remove_completion_duplicates (void)
 {
   size_t i, j;
   REFERENCE **temp;
-  int newlen;
+  size_t newlen;
 
   if (!completions_found_index)
     return;

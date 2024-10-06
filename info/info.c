@@ -603,7 +603,7 @@ info_find_matching_files (char *filename)
   while (1)
     {
       char *p;
-      int j;
+      size_t j;
 
       p = info_file_find_next_in_path (filename, &i, 0);
       if (!p)
