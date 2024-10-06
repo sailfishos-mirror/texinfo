@@ -537,8 +537,10 @@ ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 ############################################### demonstrator of the API
 
+if ! DISABLE_ADDITIONAL_CHECKS
 if HAVE_ICONV
 noinst_PROGRAMS = teximakehtml
+endif
 endif
 
 teximakehtml_SOURCES = \

@@ -57,6 +57,13 @@ AC_DEFUN([lookup_perl_conf_values],
           [m4_foreach([var], [$1], [lookup_perl_conf(var)])
 ])
 
+AC_ARG_ENABLE([additional-checks],
+    AS_HELP_STRING([--enable-additional-checks], [run tests on non-distributed components]),
+    [ enable_additional_tests=$enableval],
+    [ enable_additional_tests=no])
+
+AM_CONDITIONAL([DISABLE_ADDITIONAL_CHECKS], [test "z$enable_additional_tests" = zno])
+
 AC_ARG_ENABLE([perl-xs],
     AS_HELP_STRING([--enable-perl-xs],
               [build Perl XS modules for speed (default: yes)]),

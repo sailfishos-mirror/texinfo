@@ -441,6 +441,12 @@ AC_ARG_WITH([external-libintl-perl],
 
 AC_SUBST([USE_EXTERNAL_LIBINTL])
 
+AC_ARG_ENABLE([additional-checks],
+    AS_HELP_STRING([--enable-additional-checks], [run tests on non-distributed components]),
+    [ enable_additional_tests=$enableval],
+    [ enable_additional_tests=no])
+
+
 AC_ARG_ENABLE([perl-xs],
     AS_HELP_STRING([--enable-perl-xs],[build Perl XS modules for speed (default: check)]),
     [ enable_xs=$enableval],
