@@ -138,7 +138,8 @@ CONVERTER_INITIALIZATION_INFO *converter_defaults (
                     enum converter_format converter_format,
                     CONVERTER_INITIALIZATION_INFO *user_conf);
 CONVERTER *converter_converter (enum converter_format format,
-                           const CONVERTER_INITIALIZATION_INFO *user_conf);
+                     const CONVERTER_INITIALIZATION_INFO *input_user_conf,
+                     unsigned long converter_flags);
 
 CONVERTER_INITIALIZATION_INFO *new_converter_initialization_info (void);
 void destroy_converter_initialization_info (

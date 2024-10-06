@@ -445,18 +445,27 @@ converter_initialize (CONVERTER *converter)
 }
 
 /* Texinfo::Convert::XXXX->converter($conf) in Perl */
+/* only called from C, not from Perl */
 CONVERTER *
 converter_converter (enum converter_format format,
-                     const CONVERTER_INITIALIZATION_INFO *input_user_conf)
+                     const CONVERTER_INITIALIZATION_INFO *input_user_conf,
+                     unsigned long converter_flags)
 {
   CONVERTER_INITIALIZATION_INFO *format_defaults;
+  unsigned long flags;
+
   /* NOTE if HAVE_CXX_HASHMAP is not set, even with CONVF_cxx_hashmap
      string lists will be used */
-  size_t converter_descriptor = new_converter (format, CONVF_cxx_hashmap);
+  if (!converter_flags)
+    flags = CONVF_cxx_hashmap;
    /*
    To use a string list.  Slower.
-  size_t converter_descriptor = new_converter (format, CONVF_string_list);
+    flags = CONVF_string_list;
     */
+  else
+    flags = converter_flags;
+
+  size_t converter_descriptor = new_converter (format, flags);
   CONVERTER *converter = retrieve_converter (converter_descriptor);
 
   CONVERTER_INITIALIZATION_INFO *user_conf

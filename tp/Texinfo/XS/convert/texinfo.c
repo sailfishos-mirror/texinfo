@@ -274,13 +274,6 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
                                          document->options);
 }
 
-CONVERTER *
-txi_converter (enum converter_format format,
-               CONVERTER_INITIALIZATION_INFO *user_conf)
-{
-  return converter_converter (format, user_conf);
-}
-
 static void
 err_add_option_string_value (OPTIONS_LIST *options_list,
                              OPTION **sorted_options,
@@ -300,7 +293,8 @@ txi_converter_setup (const char *format_str,
                      const char *locale_encoding,
                      const char *program_file,
                      const STRING_LIST *texinfo_language_config_dirs,
-                     OPTIONS_LIST *customizations)
+                     OPTIONS_LIST *customizations,
+                     unsigned long converter_flags)
 {
   enum converter_format converter_format
     = find_format_name_converter_format (format_str);
@@ -366,7 +360,7 @@ txi_converter_setup (const char *format_str,
       copy_options_list (&conf->conf, customizations);
     }
 
-  self = converter_converter (converter_format, conf);
+  self = converter_converter (converter_format, conf, converter_flags);
 
   destroy_converter_initialization_info (conf);
   return self;
