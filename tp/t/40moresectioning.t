@@ -178,7 +178,7 @@ undef, {'test_file' => 'character_and_spaces_in_refs_text.texi'}],
 undef, {'test_file' => 'special_spaces_in_nodes.texi',
         'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, }],
 # TODO for LINE SEPARATOR and PARAGRAPH SEPARATOR Perl and XS code give
-# different widtha.
+# different width.
 ['only_special_spaces_node',
 undef, {'test_file' => 'only_special_spaces_node.texi',
         'skip' => ($] < 5.018) ? 'Perl too old: LINE TABULATION in /a needed' : undef, }],

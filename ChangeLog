@@ -686,7 +686,7 @@
 2024-08-17  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/build_perl_info.c
-	(fill_output_units_descriptor_av): store a the document descriptor
+	(fill_output_units_descriptor_av): store the document descriptor
 	along with output_units descriptor in the Perl output units data, as
 	both the document and output units list number in document are needed
 	to retrieve the output units list in C.
@@ -1355,7 +1355,7 @@
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/test_utils.pl (test): call convert_to_texinfo for plaintext
-	test as it requires lessresources, no need to set up a Parser.
+	test as it requires less resources, no need to set up a Parser.
 
 2024-08-13  Patrice Dumas  <pertusus@free.fr>
 
@@ -5651,7 +5651,7 @@
 
 2024-06-26  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/t/test_utils.pl (test): reset ir create output directories early.
+	* tp/t/test_utils.pl (test): reset or create output directories early.
 	Set parser errors only once.  Do not abort if input file is not found
 	and $document is undef.  Skip structuring and conversion with a goto
 	if there is no $document.  Skip most of test out file output if there
@@ -7272,7 +7272,7 @@
 	(isolate_last_space), tp/Texinfo/XS/parsetexi/separator.c
 	(handle_open_brace): use a different container for brace commands args
 	if the brace command is of the arguments type and the spaces are in
-	the info dataof the brace commands args, called
+	the info data of the brace commands args, called
 	brace_command_container.
 
 2024-06-01  Patrice Dumas  <pertusus@free.fr>
