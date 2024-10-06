@@ -81,9 +81,14 @@ static VALUE values_array[] = {
 };
 static const VALUE_LIST values = {1, 1, values_array};
 
-static char *parser_EXPANDED_FORMATS_array[] = {"HTML", "tex"};
+static char *parser_EXPANDED_FORMATS_array[] = {"html"};
 static STRING_LIST parser_EXPANDED_FORMATS
-  = {parser_EXPANDED_FORMATS_array, 2, 2};
+  = {parser_EXPANDED_FORMATS_array, 1, 1};
+
+/* in test mode, also expand @iftex for the sake of testing */
+static char *test_parser_EXPANDED_FORMATS_array[] = {"HTML", "tex"};
+static STRING_LIST test_parser_EXPANDED_FORMATS
+  = {test_parser_EXPANDED_FORMATS_array, 2, 2};
 
 
 int
@@ -206,8 +211,16 @@ main (int argc, char *argv[])
   add_new_option_value (&parser_options, GOT_integer,
                            "DEBUG", 1, 0);
    */
-  add_new_option_strlist_value (&parser_options, GOT_char_string_list,
-                        "EXPANDED_FORMATS", &parser_EXPANDED_FORMATS);
+  if (test)
+    {
+      add_new_option_strlist_value (&parser_options, GOT_char_string_list,
+                        "EXPANDED_FORMATS", &test_parser_EXPANDED_FORMATS);
+    }
+  else
+    {
+      add_new_option_strlist_value (&parser_options, GOT_char_string_list,
+                            "EXPANDED_FORMATS", &parser_EXPANDED_FORMATS);
+    }
 
   /* initialize parser */
   txi_parser (input_file_path, locale_encoding, expanded_formats, &values,
