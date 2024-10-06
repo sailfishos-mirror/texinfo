@@ -272,6 +272,10 @@ updater (state, action)
         linkid = (action.pointer) ?
             state.loaded_nodes[action.pointer] : action.url;
 
+        debug (":linkid: " + linkid);
+        if (action.pointer)
+          debug (":pointer: " + action.pointer);
+
         result.current = linkid;
         result.section_hash = null;
         result.history = action.history;
@@ -638,6 +642,7 @@ init_index_page ()
           var linkid = this.data[this.input.value];
           if (linkid)
             {
+              debug ("Text input set linkid " + linkid);
               hide_sidebar_if_narrow ();
               store.dispatch (actions.set_current_url (linkid));
             }
@@ -1453,10 +1458,14 @@ init_sidebar ()
         /* Remove the hash part for the main page.  */
         var pageid = linkid_split (data.selected).pageid;
         var selected = (pageid === config.INDEX_ID) ? pageid : data.selected;
+        debug ("sidebar - " + selected);
+
         /* Highlight the current LINKID in the table of content.  */
         var elem = scan_toc (toc_div, selected, data.section_hash);
         if (elem)
           elem.scrollIntoView (true);
+        else
+          debug ("sidebar - no elem " + selected);
       }
   }
 

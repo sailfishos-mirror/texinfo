@@ -1,3 +1,7 @@
+2024-10-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* js/info.js: add more debug statements
+
 2024-10-06  Patrice Dumas  <pertusus@free.fr>
 
 	* info/scan.c (match_in_match_list): add an indicatric variable such
