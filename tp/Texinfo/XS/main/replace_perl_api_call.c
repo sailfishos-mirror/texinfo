@@ -62,10 +62,11 @@ call_nodenamenormalization_unicode_to_transliterate (const char *text)
   return result;
 }
 
+/* happens if not linked against Perl and a collation locale was specified
+   but not found */
 const void *
 call_setup_collator (int use_unicode_collation, const char *locale_lang)
 {
-  fprintf (stderr, "BUG: no Perl collation\n");
   return 0;
 }
 

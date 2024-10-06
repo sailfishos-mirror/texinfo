@@ -618,8 +618,13 @@ setup_collator (int use_unicode_collation, const char *collation_language,
       #endif
       #endif
 
-      result->type = ctn_unicode;
       result->coll.sv = call_setup_collator (1, 0);
+      if (result->coll.sv == 0)
+        /* not sure that it may happen with Perl, but if not linked against
+           Perl, this is a likely outcome */
+        result->type = ctn_no_unicode;
+      else
+        result->type = ctn_unicode;
     }
   return result;
 }
