@@ -147,32 +147,31 @@ var actions = {
     return { type: "cache-links", links: links };
   },
 
-  /** @arg {NodeListOf<Element>} links */
-  cache_index_links: function (links) {
+  /** @arg {NodeListOf<Element>} entries */
+  cache_index_links: function (entries) {
     var dict = {};
     var text0 = "", text1 = ""; // for subentries
-    for (var i = 0; i < links.length; i += 1)
+    for (var i = 0; i < entries.length; i += 1)
       {
-        var link = links[i];
-        var link_cl = link.classList;
-        var text = link.textContent;
-        if (link_cl.contains("index-entry-level-2"))
+        var entry = entries[i];
+        var entry_cl = entry.classList;
+        var text = entry.textContent;
+        if (entry_cl.contains("index-entry-level-2"))
           {
-              text = text0 + "; " + text1 + "; " + text;
+            text = text0 + "; " + text1 + "; " + text;
           }
-        else if (link_cl.contains("index-entry-level-1"))
+        else if (entry_cl.contains("index-entry-level-1"))
           {
             text1 = text;
-              text = text0 + "; " + text;
+            text = text0 + "; " + text;
           }
         else
           {
             text0 = text;
           }
 
-        if ((link = link.nextSibling)
-            && link.classList.contains("printindex-index-section")
-            && (link = link.firstChild))
+        var link = entry.firstChild;
+        if (link && link.nodeName == 'A')
           {
             dict[text] = href_hash (link_href (link));
           }
@@ -1457,15 +1456,14 @@ init_sidebar ()
 
         /* Remove the hash part for the main page.  */
         var pageid = linkid_split (data.selected).pageid;
-        var selected = (pageid === config.TOP_ID) ? pageid : data.selected;
-        debug ("sidebar - " + selected);
+        debug ("sidebar - " + pageid);
 
         /* Highlight the current LINKID in the table of content.  */
-        var elem = scan_toc (toc_div, selected, data.section_hash);
+        var elem = scan_toc (toc_div, pageid, data.section_hash);
         if (elem)
           elem.scrollIntoView (true);
         else
-          debug ("sidebar - no elem " + selected);
+          debug ("sidebar - no elem " + pageid);
       }
   }
 

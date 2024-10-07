@@ -1,5 +1,18 @@
 2024-10-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Fix info.js index lookup to go to correct location
+
+	* js/info.js (cache_index_links): Save location of index anchor
+	rather than just the node it is in.  This means that lookups
+	of the index entry can scroll to the correct part of the node.
+	Rename local variables to refer to "entries" rather than "links"
+	as this is now misnamed. 
+	(init_sidebar): Always use result of linkid_split to update sidebar.
+
+	Report and investigation by Benjamin Kalish.
+
+2024-10-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@cartouche): Remove statement that there is
 	a simple rectangle for cartouche in HTML output.
 
