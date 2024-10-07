@@ -226,7 +226,8 @@ regexp_search (char *regexp, int is_literal, int is_insensitive,
 enum search_result
 search_forward (char *string, SEARCH_BINDING *binding, long *poff)
 {
-  register int c, i, len;
+  register int c;
+  register size_t i, len;
   register char *buff, *end;
   char *alternate = NULL;
 
@@ -286,7 +287,8 @@ search_forward (char *string, SEARCH_BINDING *binding, long *poff)
 enum search_result
 search_backward (char *input_string, SEARCH_BINDING *binding, long *poff)
 {
-  register int c, i, len;
+  register int i_end, c;
+  register size_t i, len;
   register char *buff, *end;
   char *string;
   char *alternate = NULL;
@@ -295,10 +297,10 @@ search_backward (char *input_string, SEARCH_BINDING *binding, long *poff)
 
   /* Reverse the characters in the search string. */
   string = xmalloc (1 + len);
-  for (c = 0, i = len - 1; input_string[c]; c++, i--)
-    string[i] = input_string[c];
+  for (i = 0, i_end = len - 1; input_string[i]; i++, i_end--)
+    string[i_end] = input_string[i];
 
-  string[c] = '\0';
+  string[i] = '\0';
 
   /* We match characters in the search buffer against STRING and ALTERNATE.
      ALTERNATE is a case reversed version of STRING; this is cheaper than
@@ -359,7 +361,7 @@ search_backward (char *input_string, SEARCH_BINDING *binding, long *poff)
 int
 string_in_line (char *string, char *line)
 {
-  register int end;
+  register size_t end;
   SEARCH_BINDING binding;
   long offset;
   

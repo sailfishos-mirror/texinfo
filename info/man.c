@@ -155,7 +155,7 @@ get_manpage_node (char *pagename)
   /* Node wasn't found, or its contents were freed since last time. */
   if (!node->contents)
     {
-      int plen;
+      size_t plen;
 
       page = get_manpage_contents (pagename);
       if (!page)
@@ -570,7 +570,7 @@ xrefs_of_manpage (NODE *node)
   s.end = node->nodelen;
 
   /* Exclude first line, which often looks like:
-CAT(1)                           User Commands                          CAT(1)
+ CAT(1)                           User Commands                          CAT(1)
   */
   s.start = strcspn (node->contents, "\n");
 
@@ -578,8 +578,8 @@ CAT(1)                           User Commands                          CAT(1)
      followed by non-whitespace text within parenthesis leading with a digit. */
   while (search_forward ("(", &s, &position) == search_success)
     {
-      register int name, name_end;
-      int section, section_end;
+      register size_t name, name_end;
+      size_t section, section_end;
 
       name = position;
       if (name == 0)
@@ -673,7 +673,7 @@ CAT(1)                           User Commands                          CAT(1)
           add_pointer_to_array (entry, refs_index, refs, refs_slots, 10);
         }
 
-skip:
+ skip:
       s.start = position + 1;
     }
 

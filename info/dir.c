@@ -23,8 +23,8 @@
 #include "tilde.h"
 
 static void add_menu_to_node (char *contents, size_t size, NODE *node);
-static void insert_text_into_node (NODE *node, long start,
-    char *text, int textlen);
+static void insert_text_into_node (NODE *node, size_t start,
+    char *text, size_t textlen);
 
 static NODE *dir_node = 0;
 
@@ -203,7 +203,7 @@ add_menu_to_node (char *contents, size_t size, NODE *node)
 }
 
 static void
-insert_text_into_node (NODE *node, long start, char *text, int textlen)
+insert_text_into_node (NODE *node, size_t start, char *text, size_t textlen)
 {
   char *contents;
   long end;

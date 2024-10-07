@@ -1,3 +1,16 @@
+2024-10-07  Patrice Dumas  <pertusus@free.fr>
+
+	* info/dir.c (insert_text_into_node): use size_t in argument for a
+	length.
+
+	* info/nodes.c (get_node_length): return size_t.
+
+	* info/man.c (get_manpage_node, xrefs_of_manpage), info/nodes.c
+	(build_tags_and_nodes, get_tags_of_indirect_tags_table)
+	(get_file_character_encoding, get_node_length), info/search.c
+	(search_forward, search_backward, string_in_line): use size_t for
+	variables representing length, numbers or indices in arrays.
+
 2024-10-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix info.js index lookup to go to correct location

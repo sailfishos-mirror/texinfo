@@ -4163,7 +4163,7 @@ info_search_internal (char *string, WINDOW *window,
       if (!search_other_nodes)
         break;
 
-search_next_node:
+ search_next_node:
       /* If we've searched our starting node twice, there are no matches.
          Bail out.  (We searched the second time in case there were matches 
          before the starting offset.) */

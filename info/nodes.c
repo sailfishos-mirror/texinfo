@@ -60,7 +60,7 @@ build_tags_and_nodes (FILE_BUFFER *file_buffer)
 {
   SEARCH_BINDING binding;
   long position;
-  long tags_table_begin, tags_table_end;
+  size_t tags_table_begin, tags_table_end;
 
   free_file_buffer_tags (file_buffer);
   file_buffer->flags &= ~N_HasTagsTable;
@@ -337,7 +337,7 @@ static void
 get_tags_of_indirect_tags_table (FILE_BUFFER *file_buffer,
     SEARCH_BINDING *indirect_binding, SEARCH_BINDING *tags_binding)
 {
-  int i;
+  size_t i;
 
   /* A structure used only in `get_tags_of_indirect_tags_table' to hold onto
      an intermediate value. */
@@ -400,13 +400,13 @@ get_tags_of_indirect_tags_table (FILE_BUFFER *file_buffer,
     }
 
   {
-  int tags_index;
+  size_t tags_index;
   long header_length;
   SEARCH_BINDING binding;
 
   char *containing_dir;
   char *temp;
-  int len_containing_dir;
+  size_t len_containing_dir;
 
   /* Find the length of the header of the file containing the indirect
      tags table.  This header appears at the start of every file.  We
@@ -761,7 +761,8 @@ get_file_character_encoding (FILE_BUFFER *fb)
   SEARCH_BINDING binding;
   long position;
 
-  long int enc_start, enc_len;
+  long int enc_start;
+  size_t enc_len;
   char *enc_string;
 
   /* See if there is a local variables section in this info file. */
@@ -848,7 +849,7 @@ info_reload_file_buffer_contents (FILE_BUFFER *fb)
 
 /* Functions for node creation and retrieval. */
 
-static long get_node_length (SEARCH_BINDING *binding);
+static size_t get_node_length (SEARCH_BINDING *binding);
 static void node_set_body_start (NODE *node);
 static int adjust_nodestart (FILE_BUFFER *file_buffer, TAG *tag);
 
@@ -892,10 +893,10 @@ info_create_node (void)
 }
 
 /* Return the length of the node which starts at BINDING. */
-static long
+static size_t
 get_node_length (SEARCH_BINDING *binding)
 {
-  int i;
+  size_t i;
   char *body;
 
   /* [A node] ends with either a ^_, a ^L, or end of file.  */
