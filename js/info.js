@@ -30,8 +30,8 @@
     environment before loading this script.  */
 var config = {
   EXT: ".html",
-  INDEX_NAME: "index.html",
-  INDEX_ID: "index",
+  TOP_NAME: "index.html",
+  TOP_ID: "top",
   CONTENTS_ID: "SEC_Contents",
   MAIN_ANCHORS: ["Top"],
   WARNING_TIMEOUT: 3000,
@@ -44,7 +44,7 @@ var config = {
 
   // hooks:
   /** Define a function called after 'DOMContentLoaded' event in
-      the INDEX_NAME context.
+      the TOP_NAME context.
       @type {function (): void}*/
   on_main_load: null,
   /** Define a function called after 'DOMContentLoaded' event in
@@ -317,9 +317,9 @@ updater (state, action)
         var current = state.current;
         var link = linkid_split (state.current);
 
-        /* Handle inner 'config.INDEX_NAME' anchors specially.  */
-        if (link.pageid === config.INDEX_ID)
-          current = config.INDEX_ID;
+        /* Handle inner 'config.TOP_NAME' anchors specially.  */
+        if (link.pageid === config.TOP_ID)
+          current = config.TOP_ID;
 
         var ids = state.loaded_nodes[current];
         linkid = ids[action.direction];
@@ -874,14 +874,14 @@ init_index_page ()
   function
   Pages (index_div)
   {
-    index_div.setAttribute ("id", config.INDEX_ID);
-    index_div.setAttribute ("node", config.INDEX_ID);
+    index_div.setAttribute ("id", config.TOP_ID);
+    index_div.setAttribute ("node", config.TOP_ID);
     index_div.setAttribute ("hidden", "true");
     this.element = document.createElement ("div");
     this.element.setAttribute ("id", "sub-pages");
     this.element.appendChild (index_div);
     /** @type {string[]} Currently created divs.  */
-    this.ids = [config.INDEX_ID];
+    this.ids = [config.TOP_ID];
     /** @type {string} */
     this.prev_id = null;
     /** @type {HTMLElement} */
@@ -945,11 +945,11 @@ init_index_page ()
         && state.search.status === "ready")
       {
         this.prev_search = state.search;
-        if (state.search.current_pageid === config.INDEX_ID)
+        if (state.search.current_pageid === config.TOP_ID)
           {
             window.setTimeout (function () {
               store.dispatch ({ type: "search-query" });
-              var res = search (document.getElementById (config.INDEX_ID),
+              var res = search (document.getElementById (config.TOP_ID),
                                 state.search.regexp);
               store.dispatch ({ type: "search-result", found: res });
             }, 0);
@@ -971,8 +971,8 @@ init_index_page ()
     /* Update highlight of current page.  */
     if (!state.highlight)
       {
-        if (state.current === config.INDEX_ID)
-          remove_highlight (document.getElementById (config.INDEX_ID));
+        if (state.current === config.TOP_ID)
+          remove_highlight (document.getElementById (config.TOP_ID));
         else
           {
             var link = linkid_split (state.current);
@@ -1033,7 +1033,7 @@ init_index_page ()
 
     /* Create iframe if necessary unless the div is refering to the Index
        or Contents page.  */
-    if (pageid === config.INDEX_ID || pageid === config.CONTENTS_ID)
+    if (pageid === config.TOP_ID || pageid === config.CONTENTS_ID)
       {
         div.removeAttribute ("hidden");
         /* Unlike iframes, Elements are unlikely to be scrollable (CSSOM
@@ -1104,7 +1104,7 @@ init_index_page ()
           {
             /* Fallback to changing only the hash part which is safer.  */
             visible_url = window.location.pathname;
-            if (linkid !== config.INDEX_ID)
+            if (linkid !== config.TOP_ID)
               visible_url += ("#" + linkid);
             method.call (window.history, linkid, null, visible_url);
           }
@@ -1119,7 +1119,7 @@ init_index_page ()
   function
   post_message (pageid, msg)
   {
-    if (pageid === config.INDEX_ID || pageid === config.CONTENTS_ID)
+    if (pageid === config.TOP_ID || pageid === config.CONTENTS_ID)
       window.postMessage (msg, "*");
     else
       {
@@ -1144,7 +1144,7 @@ init_index_page ()
   | Event handlers for the top-level context.  |
   `-------------------------------------------*/
 
-  /* Initialize the top level 'config.INDEX_NAME' DOM.  */
+  /* Initialize the top level `config.TOP_NAME' DOM.  */
   function
   on_load ()
   {
@@ -1178,7 +1178,7 @@ init_index_page ()
           {
             var link = linkid_split (state.current);
             var elem = document.getElementById (link.pageid);
-            if (link.pageid !== config.INDEX_ID && link.pageid !== config.CONTENTS_ID)
+            if (link.pageid !== config.TOP_ID && link.pageid !== config.CONTENTS_ID)
               elem.querySelector ("iframe").focus ();
             else
               {
@@ -1207,9 +1207,9 @@ init_index_page ()
 
     /* Retrieve NEXT link and local menu.  */
     var links = {};
-    links[config.INDEX_ID] = navigation_links (document);
+    links[config.TOP_ID] = navigation_links (document);
     store.dispatch (actions.cache_links (links));
-    store.dispatch ({ type: "iframe-ready", id: config.INDEX_ID });
+    store.dispatch ({ type: "iframe-ready", id: config.TOP_ID });
     store.dispatch ({
       type: "echo",
       msg: "Welcome to Texinfo documentation viewer 7.1.90, type '?' for help."
@@ -1333,7 +1333,7 @@ init_sidebar ()
     }
 
     var ul = elem.querySelector ("ul");
-    if (linkid === config.INDEX_ID || linkid === config.CONTENTS_ID)
+    if (linkid === config.TOP_ID || linkid === config.CONTENTS_ID)
       {
         hide_grand_child_nodes (ul);
         res = document.getElementById(linkid);
@@ -1361,7 +1361,7 @@ init_sidebar ()
   function
   create_link_dict (nav)
   {
-    var prev_id = config.INDEX_ID;
+    var prev_id = config.TOP_ID;
     var links = {};
 
     function
@@ -1380,7 +1380,7 @@ init_sidebar ()
 
     depth_first_walk (nav, add_link, Node.ELEMENT_NODE);
     /* Add a reference to the first and last node of the manual.  */
-    links["*TOP*"] = config.INDEX_ID;
+    links["*TOP*"] = config.TOP_ID;
     links["*END*"] = prev_id;
     return links;
   }
@@ -1396,8 +1396,8 @@ init_sidebar ()
     if (h1)
       {
         var a = document.createElement ("a");
-        a.setAttribute ("href", config.INDEX_NAME);
-        a.setAttribute ("id", config.INDEX_ID);
+        a.setAttribute ("href", config.TOP_NAME);
+        a.setAttribute ("id", config.TOP_ID);
 
         let header = elem.previousSibling;
         header.appendChild (a);
@@ -1433,7 +1433,7 @@ init_sidebar ()
                        window.location.href.replace (/[/][^/]*$/, "/"));
     document.head.appendChild (base);
 
-    scan_toc (toc_div, config.INDEX_NAME);
+    scan_toc (toc_div, config.TOP_NAME);
 
     /* Get 'backward' and 'forward' link attributes.  */
     var dict = create_link_dict (toc_div.querySelector ("nav.contents ul"));
@@ -1457,7 +1457,7 @@ init_sidebar ()
 
         /* Remove the hash part for the main page.  */
         var pageid = linkid_split (data.selected).pageid;
-        var selected = (pageid === config.INDEX_ID) ? pageid : data.selected;
+        var selected = (pageid === config.TOP_ID) ? pageid : data.selected;
         debug ("sidebar - " + selected);
 
         /* Highlight the current LINKID in the table of content.  */
@@ -1590,7 +1590,7 @@ on_click (event)
           if (href && maybe_pageref_url_p (href)
                 && !external_manual_url_p (href))
             {
-              var linkid = href_hash (href) || config.INDEX_ID;
+              var linkid = href_hash (href) || config.TOP_ID;
               if (linkid === "index.SEC_Contents")
                   linkid = config.CONTENTS_ID;
               store.dispatch (actions.set_current_url (linkid, null,
@@ -1796,16 +1796,16 @@ undef_or_null (obj)
 }
 
 /** Return a relative URL corresponding to HREF, which refers to an anchor
-    of 'config.INDEX_NAME'.  HREF must be a USVString representing an
+    of 'config.TOP_NAME'.  HREF must be a USVString representing an
     absolute or relative URL.  For example "foo/bar.html" will return
-    "config.INDEX_NAME#bar".
+    "config.TOP_NAME#bar".
 
     @arg {string} href.*/
 function
 with_sidebar_query (href)
 {
-  if (basename (href) === config.INDEX_NAME)
-    return config.INDEX_NAME;
+  if (basename (href) === config.TOP_NAME)
+    return config.TOP_NAME;
   else
     {
       /* XXX: Do not use the URL API for IE portability.  */
@@ -1817,7 +1817,7 @@ with_sidebar_query (href)
          instead of directly to the page. */
       if (url.hash && new_hash !== url.hash)
         new_hash += ("." + url.hash.slice (1));
-      return config.INDEX_NAME + new_hash;
+      return config.TOP_NAME + new_hash;
     }
 }
 
@@ -1859,8 +1859,8 @@ fix_links (links, id)
             }
           if (id)
             {
-              var linkid = (href$ === config.INDEX_NAME) ?
-                  config.INDEX_ID : href_hash (href$);
+              var linkid = (href$ === config.TOP_NAME) ?
+                  config.TOP_ID : href_hash (href$);
               link.setAttribute ("id", linkid);
             }
         }
@@ -1875,11 +1875,11 @@ function
 normalize_hash (hash)
 {
   var text = hash.slice (1);
-  /* Some anchor elements are present in 'config.INDEX_NAME' and we need to
+  /* Some anchor elements are present in 'config.TOP_NAME' and we need to
      handle link to them specially (i.e. not try to find their corresponding
      iframe).*/
   if (config.MAIN_ANCHORS.includes (text))
-    return config.INDEX_ID + "." + text;
+    return config.TOP_ID + "." + text;
   else
     return text;
 }
@@ -1906,8 +1906,8 @@ linkid_split (linkid)
 function
 linkid_to_url (linkid)
 {
-  if (linkid === config.INDEX_ID)
-    return config.INDEX_NAME;
+  if (linkid === config.TOP_ID)
+    return config.TOP_NAME;
   else
     {
       var link = linkid_split (linkid);
@@ -2019,8 +2019,8 @@ navigation_links (content)
       if (nav_id)
         {
           var href = basename (link_href (link));
-          if (href === config.INDEX_NAME)
-            res[nav_id] = config.INDEX_ID;
+          if (href === config.TOP_NAME)
+            res[nav_id] = config.TOP_ID;
           else
             res[nav_id] = href_hash (href);
         }
@@ -2228,11 +2228,11 @@ register_polyfills ();
 config = Object.assign (config, user_config);
 
 var inside_iframe = top !== window;
-var inside_index_page = window.location.pathname === config.INDEX_NAME
-    || window.location.pathname.endsWith ("/" + config.INDEX_NAME)
+var inside_top_page = window.location.pathname === config.TOP_NAME
+    || window.location.pathname.endsWith ("/" + config.TOP_NAME)
     || window.location.pathname.endsWith ("/");
 
-if (inside_index_page)
+if (inside_top_page)
   {
     var initial_state = {
       /* Dictionary associating page ids to next, prev, up, forward,
@@ -2241,7 +2241,7 @@ if (inside_index_page)
       /* Dictionary associating keyword to linkids.  */
       index: undefined,
       /* page id of the current page.  */
-      current: config.INDEX_ID,
+      current: config.TOP_ID,
       /* dictionary associating a page id to a boolean.  */
       ready: {},
       /* Current mode for handling history.  */
@@ -2270,7 +2270,7 @@ else if (inside_iframe)
   }
 else
   {
-    /* Jump to 'config.INDEX_NAME' and adapt the selected iframe.  */
+    /* Jump to 'config.TOP_NAME' and adapt the selected iframe.  */
     window.location.replace (with_sidebar_query (window.location.href));
   }
 

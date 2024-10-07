@@ -1,3 +1,9 @@
+2024-10-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* js/info.js (config): Rename INDEX_NAME to TOP_NAME and
+	INDEX_ID to TOP_ID to avoid confusion with document indices.
+	Give TOP_ID the default value "top" instead of "index".
+
 2024-10-06  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* js/info.js: add more debug statements
