@@ -1,5 +1,18 @@
 2024-10-07  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.c (info_create_tag), info/nodes.h (TAG): set TAG
+	nodestart to be size_t and initialize to 0.  Indeed, right after
+	info_create_tag is called, the tag nodestart is set to a non-negative
+	value.  It should not be possible to have 0 for nodestart from
+	build_tag_table as there is at least the node separator.  A bogus
+	entry in tag table or a 0 in tag table is possible and although it is
+	unlikely to be correct, nodestart can be adjusted.
+
+	* info/nodes.c (adjust_nodestart, info_node_of_tag_ext): remove
+	conditions on tag->nodestart being >= 0, as it is always true.
+
+2024-10-07  Patrice Dumas  <pertusus@free.fr>
+
 	* info/nodes.c (get_nodes_of_tags_table): ignore node with bogus
 	negative offset in tag table.
 

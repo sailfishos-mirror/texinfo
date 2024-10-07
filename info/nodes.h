@@ -102,7 +102,7 @@ typedef struct {
 typedef struct {
   char *filename;               /* The file where this node can be found. */
   char *nodename;               /* The node pointed to by this tag. */
-  long nodestart;               /* The value read from the tag table. */
+  size_t nodestart;             /* The value read from the tag table. */
   long nodestart_adjusted;      /* Where the node or anchor actually is. */
   int flags;                    /* Same as NODE.flags. */
   NODE cache;                   /* Saved information about pointed-to node. */

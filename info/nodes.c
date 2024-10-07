@@ -876,7 +876,7 @@ info_create_tag (void)
   memset (t, 0, sizeof (TAG));
   t->filename = 0;
   t->nodename = 0;
-  t->nodestart = -1;
+  t->nodestart = 0;
   t->nodestart_adjusted = -1;
   t->cache.nodelen = -1;
 
@@ -1118,7 +1118,7 @@ adjust_nodestart (FILE_BUFFER *fb, TAG *node)
   s.end = s.start + 1;
 
   /* Check that the given nodestart is in fact inside the file buffer. */
-  if (s.start >= 0 && s.start < fb->filesize)
+  if (s.start < fb->filesize)
     {
       /* Check for node separator at node->nodestart
          introducting this node. */
@@ -1238,7 +1238,7 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **tag_ptr, int fast)
 
   /* If we were able to find this file and load it, then return
      the node within it. */
-  if (!(tag->nodestart >= 0 && tag->nodestart < subfile->filesize))
+  if (!(tag->nodestart < subfile->filesize))
     return NULL;
 
   node = 0;
