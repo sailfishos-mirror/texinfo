@@ -754,6 +754,8 @@ info_load_file (char *fullpath, int is_subfile)
   return file_buffer;
 }
 
+#define DEFAULT_INFO_LOCAL_VAR_RANGE 1000
+
 /* Look for local variables section in FB and set encoding */
 static void
 get_file_character_encoding (FILE_BUFFER *fb)
@@ -768,9 +770,10 @@ get_file_character_encoding (FILE_BUFFER *fb)
   /* See if there is a local variables section in this info file. */
   binding.buffer = fb->contents;
   binding.start = fb->filesize;
-  binding.end = binding.start - 1000;
-  if (binding.end < 0)
+  if (binding.start < DEFAULT_INFO_LOCAL_VAR_RANGE)
     binding.end = 0;
+  else
+    binding.end = binding.start - DEFAULT_INFO_LOCAL_VAR_RANGE;
   binding.flags = S_FoldCase;
 
   /* Null means the encoding is unknown. */
@@ -1125,13 +1128,16 @@ adjust_nodestart (FILE_BUFFER *fb, TAG *node)
          that accumulates throughout the file. */
       fudge += s.start >> 5;
 
-      s.start -= fudge;
       s.end += fudge;
 
-      if (s.start < 0)
+      if (s.start < fudge)
         s.start = 0;
-      else if (s.start > fb->filesize)
-        s.start = fb->filesize;
+      else
+        {
+          s.start -= fudge;
+          if (s.start > fb->filesize)
+            s.start = fb->filesize;
+        }
       if (s.end > fb->filesize)
         s.end = fb->filesize;
 
