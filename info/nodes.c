@@ -266,6 +266,7 @@ get_nodes_of_tags_table (FILE_BUFFER *file_buffer,
       char *nodedef;
       unsigned p;
       int anchor = 0;
+      long nodestart;
 
       /* Prepare to skip this line. */
       s.start = position;
@@ -309,11 +310,20 @@ get_nodes_of_tags_table (FILE_BUFFER *file_buffer,
           continue;
         }
 
+      nodestart = atol (nodedef + p + 1);
+
+      /* Ignore node with bogus negative offset. */
+      if (nodestart < 0)
+        {
+          free (entry);
+          continue;
+        }
+
       entry->nodename = xmalloc (p + 1);
       strncpy (entry->nodename, nodedef, p);
       entry->nodename[p] = 0;
-      p++;
-      entry->nodestart = atol (nodedef + p);
+
+      entry->nodestart = nodestart;
 
       /* If a node, we don't know the length yet, but if it's an
          anchor, the length is 0. */
