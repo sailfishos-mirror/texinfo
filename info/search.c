@@ -693,9 +693,9 @@ find_file_section (SEARCH_BINDING *binding, char *label)
         }
       else
         {
-          s.start = position - 1;
-          if (s.start <= s.end)
+          if (position <= s.end)
             break;
+          s.start = position - 1;
         }
     }
   return -1;
