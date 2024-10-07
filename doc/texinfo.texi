@@ -6531,11 +6531,10 @@ since @code{@@indent} is a command used outside of paragraphs
 @cindex Box with rounded corners
 @cindex Rounded rectangles, around text
 
-Where the output format allows, the @code{@@cartouche} command draws a box
-with rounded corners around its contents.  In HTML, a normal rectangle is
-drawn.  You can use this command to isolate a portion of the manual from the
-main flow.  You can also further highlight an example or quotation
-with @code{@@cartouche}.
+Where the output format allows, the @code{@@cartouche} command draws a
+box with rounded corners around its contents.  You can use this command
+to isolate a portion of the manual from the main flow.  You can also
+further highlight an example or quotation with @code{@@cartouche}.
 
 For instance, you could write a manual in which one type of example is
 surrounded by a cartouche for emphasis.  For example,
