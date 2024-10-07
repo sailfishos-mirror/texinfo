@@ -53,6 +53,8 @@ static void get_tags_of_indirect_tags_table (FILE_BUFFER *file_buffer,
 static void free_file_buffer_tags (FILE_BUFFER *file_buffer);
 static void free_info_tag (TAG *tag);
 
+#define DEFAULT_INFO_TAG_TABLE_RANGE 1000
+
 /* Grovel FILE_BUFFER->contents finding tags and nodes, and filling in the
    various slots.  This can also be used to rebuild a tag or node table. */
 void
@@ -68,9 +70,10 @@ build_tags_and_nodes (FILE_BUFFER *file_buffer)
   /* See if there is a tags table in this info file. */
   binding.buffer = file_buffer->contents;
   binding.start = file_buffer->filesize;
-  binding.end = binding.start - 1000;
-  if (binding.end < 0)
+  if (binding.start < DEFAULT_INFO_TAG_TABLE_RANGE)
     binding.end = 0;
+  else
+    binding.end = binding.start - DEFAULT_INFO_TAG_TABLE_RANGE;
   binding.flags = S_FoldCase;
 
   position = find_file_section (&binding, TAGS_TABLE_END_LABEL);
@@ -764,8 +767,6 @@ info_load_file (char *fullpath, int is_subfile)
   return file_buffer;
 }
 
-#define DEFAULT_INFO_LOCAL_VAR_RANGE 1000
-
 /* Look for local variables section in FB and set encoding */
 static void
 get_file_character_encoding (FILE_BUFFER *fb)
@@ -780,10 +781,10 @@ get_file_character_encoding (FILE_BUFFER *fb)
   /* See if there is a local variables section in this info file. */
   binding.buffer = fb->contents;
   binding.start = fb->filesize;
-  if (binding.start < DEFAULT_INFO_LOCAL_VAR_RANGE)
+  if (binding.start < DEFAULT_INFO_TAG_TABLE_RANGE)
     binding.end = 0;
   else
-    binding.end = binding.start - DEFAULT_INFO_LOCAL_VAR_RANGE;
+    binding.end = binding.start - DEFAULT_INFO_TAG_TABLE_RANGE;
   binding.flags = S_FoldCase;
 
   /* Null means the encoding is unknown. */

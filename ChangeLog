@@ -1,5 +1,13 @@
 2024-10-07  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.c (DEFAULT_INFO_TAG_TABLE_RANGE)
+	(build_tags_and_nodes): rename DEFAULT_INFO_LOCAL_VAR_RANGE as
+	DEFAULT_INFO_TAG_TABLE_RANGE.  Avoid setting search binding end or
+	start to negative numbers, even temporarily, using
+	DEFAULT_INFO_TAG_TABLE_RANGE as in get_file_character_encoding.
+
+2024-10-07  Patrice Dumas  <pertusus@free.fr>
+
 	* info/nodes.c (info_create_tag), info/nodes.h (TAG): set TAG
 	nodestart to be size_t and initialize to 0.  Indeed, right after
 	info_create_tag is called, the tag nodestart is set to a non-negative
