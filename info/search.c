@@ -388,9 +388,8 @@ looking_at (char *string, SEARCH_BINDING *binding)
   if (search (string, binding, &search_end) != search_success)
     return 0;
 
-  /* If the string was not found, SEARCH_END is -1.  If the string was found,
-     but not right away, SEARCH_END is != binding->start.  Otherwise, the
-     string was found at binding->start. */
+  /* If the string was not found right away, SEARCH_END is != binding->start.
+     Otherwise, the string was found at binding->start. */
   return search_end == binding->start;
 }
 
