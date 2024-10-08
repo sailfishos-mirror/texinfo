@@ -150,7 +150,7 @@ display_update_line (long pl_num, char *printed_line,
   DISPLAY_LINE **display = the_display;
   DISPLAY_LINE *entry;
 
- entry = display[pl_num];
+  entry = display[pl_num];
 
   /* We have the exact line as it should appear on the screen.
      Check to see if this line matches the one already appearing
@@ -178,6 +178,7 @@ display_update_line (long pl_num, char *printed_line,
       /* If the lines differed at all, we must do some redrawing. */
       if (i != -1)
 	{
+          int printed_line_len = strlen (printed_line);
 	  /* Move to the proper point on the terminal. */
 	  terminal_goto_xy (i, pl_num);
 
@@ -195,14 +196,14 @@ display_update_line (long pl_num, char *printed_line,
 	  fflush (stdout);
 	  
 	  /* Update the display text buffer. */
-	  if (strlen (printed_line) > (unsigned int) screenwidth)
+	  if (printed_line_len > screenwidth)
 	    /* printed_line[] can include more than screenwidth
 	       characters, e.g. if multibyte encoding is used or
 	       if we are under -R and there are escape sequences
 	       in it.  However, entry->text was allocated (in
 	       display_initialize_display) for screenwidth
 	       bytes only.  */
-	    entry->text = xrealloc (entry->text, strlen (printed_line) + 1);
+	    entry->text = xrealloc (entry->text, printed_line_len + 1);
 	  strcpy (entry->text + off, printed_line + off);
 	  entry->textlen = pl_chars;
 	  
@@ -515,14 +516,14 @@ display_update_node_text (WINDOW *win)
   mbi_avail (iter);
   while (1)
     {
-      int delim;
+      int delim, text_buffer_line_offset;
       mbi_copy (&bol_iter, &iter);
       bol_ref_index = ref_index;
       bol_match_index = match_index;
       bol_ref_highlighted = ref_highlighted;
 
       /* Come back here at end of line when write_out == COLLECT */
-start_of_line:
+ start_of_line:
       pl_chars = 0;
 
       text_buffer_reset (&tb_printed_line);
@@ -542,6 +543,8 @@ start_of_line:
       /* End of printed line. */
       text_buffer_add_char (&tb_printed_line, '\0');
 
+      text_buffer_line_offset = text_buffer_off (&tb_printed_line);
+
       finish = 0;
       /* If there are no highlighted regions in a line, we output the line with
          display_update_line, which does some optimization of the redisplay.
@@ -549,8 +552,8 @@ start_of_line:
       if (writing_out == DEFAULT)
         {
           finish = display_update_line (win->first_row + pl_num,
-                      text_buffer_base (&tb_printed_line),
-                      text_buffer_off (&tb_printed_line) - 1,
+                      tb_printed_line.base,
+                      text_buffer_line_offset - 1,
                       pl_chars);
         }
       else if (writing_out == COLLECT)
@@ -562,10 +565,10 @@ start_of_line:
           if (strcmp (tb_printed_line.base,
                       the_display[win->first_row + pl_num]->text))
             {
-              if (tb_printed_line.off > screenwidth)
+              if (text_buffer_line_offset > screenwidth)
                 {
                   entry->text = xrealloc (entry->text,
-                                          tb_printed_line.off + 1);
+                                          text_buffer_line_offset + 1);
                 }
               strcpy (entry->text, tb_printed_line.base);
               /* Record that the contents of this DISPLAY_LINE isn't

@@ -1,5 +1,11 @@
 2024-10-08  Patrice Dumas  <pertusus@free.fr>
 
+	* info/display.c (display_update_line): add int variables to avoid
+	issues with unsigned int underflow and compare only signed integers
+	with signed integers.
+
+2024-10-08  Patrice Dumas  <pertusus@free.fr>
+
 	* info/man.c (xrefs_of_manpage): use int for consistency.
 
 	* info/display.c (display_process_line), info/util.c (ansi_escape)
