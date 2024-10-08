@@ -34,8 +34,12 @@
 
 typedef struct {
   char *buffer;                 /* The buffer of text to search. */
-  long start;                   /* Offset of the start of the search. */
-  long end;                     /* Offset of the end of the searh. */
+  long start;                   /* Offset of the start of the search.
+                                   Should never be negative.
+                                 */
+  long end;                     /* Offset of the end of the search.
+                                   Should never be negative.
+                                 */
   int flags;                    /* Flags controlling the type of search. */
 } SEARCH_BINDING;
 

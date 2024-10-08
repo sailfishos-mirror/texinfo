@@ -1,5 +1,12 @@
 2024-10-08  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.c (SUBFILE), info/nodes.h (TAG): go back to long type
+	instead of size_t even if the variable should never be negative as it
+	is more robust for comparisons, as discussed in:
+	https://lists.gnu.org/archive/html/bug-texinfo/2024-10/msg00067.html
+
+2024-10-08  Patrice Dumas  <pertusus@free.fr>
+
 	* info/dir.c (add_menu_to_node): call insert_text_into_node with
 	node->nodelen argument directly instead of setting an intermediate
 	variable.

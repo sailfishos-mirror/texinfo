@@ -356,7 +356,7 @@ get_tags_of_indirect_tags_table (FILE_BUFFER *file_buffer,
      an intermediate value. */
   typedef struct {
     char *filename;
-    size_t first_byte;
+    long first_byte;          /* Should never be negative */
   } SUBFILE;
 
   SUBFILE **subfiles = NULL;
