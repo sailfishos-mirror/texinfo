@@ -299,7 +299,7 @@ clean_manpage (char *manpage)
        mbi_advance (iter))
     {
       const char *cur_ptr = mbi_cur_ptr (iter);
-      size_t cur_len = mb_len (mbi_cur (iter));
+      int cur_len = mb_len (mbi_cur (iter));
 
       if (cur_len == 1)
 	{
@@ -578,8 +578,8 @@ xrefs_of_manpage (NODE *node)
      followed by non-whitespace text within parenthesis leading with a digit. */
   while (search_forward ("(", &s, &position) == search_success)
     {
-      register size_t name, name_end;
-      size_t section, section_end;
+      register int name, name_end;
+      int section, section_end;
 
       name = position;
       if (name == 0)

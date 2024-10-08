@@ -128,7 +128,7 @@ get_internal_info_window (char *name)
    Otherwise, return 0.
  */
 int
-ansi_escape (mbi_iterator_t iter, size_t *plen)
+ansi_escape (mbi_iterator_t iter, int *plen)
 {
   if (raw_escapes_p && *mbi_cur_ptr (iter) == '\033' && mbi_avail (iter))
     {
@@ -176,12 +176,12 @@ static struct text_buffer printed_rep = { 0 };
    freed by caller. */
 char *
 printed_representation (mbi_iterator_t *iter, int *delim, size_t pl_chars,
-                        size_t *pchars, size_t *pbytes) 
+                        int *pchars, int *pbytes)
 {
   struct text_buffer *rep = &printed_rep;
 
   char *cur_ptr = (char *) mbi_cur_ptr (*iter);
-  size_t cur_len = mb_len (mbi_cur (*iter));
+  int cur_len = mb_len (mbi_cur (*iter));
 
   text_buffer_reset (&printed_rep);
 

@@ -1179,8 +1179,8 @@ calculate_line_starts (WINDOW *win)
        mbi_avail (iter);
        mbi_advance (iter))
     {
-      size_t pchars = 0; /* Screen columns for this character. */
-      size_t pbytes = 0; /* Not used. */
+      int pchars = 0; /* Screen columns for this character. */
+      int pbytes = 0; /* Not used. */
       int delim = 0;
 
       /* Set pchars. */
@@ -1304,7 +1304,7 @@ window_compute_line_map (WINDOW *win)
        !delim && mbi_avail (iter);
        mbi_advance (iter))
     {
-      size_t pchars, pbytes;
+      int pchars, pbytes;
       cur_ptr = mbi_cur_ptr (iter);
 
       if (cur_ptr >= endp)

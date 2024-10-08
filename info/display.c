@@ -330,8 +330,8 @@ display_process_line (WINDOW *win,
 {
   mbi_iterator_t iter;
   const char *cur_ptr;
-  size_t pchars = 0; /* Printed chars */
-  size_t pbytes = 0; /* Bytes to output. */
+  int pchars = 0; /* Printed chars */
+  int pbytes = 0; /* Bytes to output. */
   char *rep;
   int in_match = 0;
   int in_ref = 0, in_ref_proper = 0;
