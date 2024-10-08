@@ -1,3 +1,8 @@
+2024-10-08  Patrice Dumas  <pertusus@free.fr>
+
+	* info/nodes.c (get_tags_of_indirect_tags_table): ignore a bogus entry
+	in indirect tags table with a negative offset for a file.
+
 2024-10-07  Patrice Dumas  <pertusus@free.fr>
 
 	* info/search.c (find_file_section): stop as soon as the position
