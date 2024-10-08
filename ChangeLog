@@ -1,5 +1,11 @@
 2024-10-08  Patrice Dumas  <pertusus@free.fr>
 
+	* info/dir.c (add_menu_to_node): call insert_text_into_node with
+	node->nodelen argument directly instead of setting an intermediate
+	variable.
+
+2024-10-08  Patrice Dumas  <pertusus@free.fr>
+
 	* info/nodes.c (SUBFILE): turn first_byte field to size_t as it is
 	certain that it is positive now.
 

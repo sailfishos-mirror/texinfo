@@ -149,10 +149,8 @@ add_menu_to_node (char *contents, size_t size, NODE *node)
   if (search_forward (INFO_MENU_LABEL, &fb_binding, &fb_offset)
       != search_success)
     {
-      fb_binding.start = node->nodelen;
-
       insert_text_into_node
-        (node, fb_binding.start, INFO_MENU_LABEL, strlen (INFO_MENU_LABEL));
+        (node, node->nodelen, INFO_MENU_LABEL, strlen (INFO_MENU_LABEL));
 
       fb_binding.buffer = node->contents;
       fb_binding.start = 0;
