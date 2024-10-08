@@ -1,5 +1,13 @@
 2024-10-08  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.c (SUBFILE): turn first_byte field to size_t as it is
+	certain that it is positive now.
+
+	* info/nodes.c (get_tags_of_indirect_tags_table): rename
+	first_byte variable as line_first_byte.
+
+2024-10-08  Patrice Dumas  <pertusus@free.fr>
+
 	* info/nodes.c (get_tags_of_indirect_tags_table): ignore a bogus entry
 	in indirect tags table with a negative offset for a file.
 

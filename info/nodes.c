@@ -356,7 +356,7 @@ get_tags_of_indirect_tags_table (FILE_BUFFER *file_buffer,
      an intermediate value. */
   typedef struct {
     char *filename;
-    long first_byte;
+    size_t first_byte;
   } SUBFILE;
 
   SUBFILE **subfiles = NULL;
@@ -385,24 +385,24 @@ get_tags_of_indirect_tags_table (FILE_BUFFER *file_buffer,
   while (line < end)
     {
       int colon;
-      long first_byte;
+      long line_first_byte;
 
       colon = string_in_line (":", line);
 
       if (colon == -1)
         break;
 
-      first_byte = atol (line + colon);
+      line_first_byte = atol (line + colon);
 
       /* ignore an entry with a bogus negative offset */
-      if (first_byte < 0)
+      if (line_first_byte < 0)
         continue;
 
       subfile = xmalloc (sizeof (SUBFILE));
       subfile->filename = xmalloc (colon);
       strncpy (subfile->filename, line, colon - 1);
       subfile->filename[colon - 1] = 0;
-      subfile->first_byte = first_byte;
+      subfile->first_byte = line_first_byte;
 
       add_pointer_to_array (subfile, subfiles_index, subfiles, 
                             subfiles_slots, 10);
