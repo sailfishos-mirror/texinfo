@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 6; }
+BEGIN { plan tests => 7; }
 
 use Texinfo::Parser qw(parse_texi_piece);
 use Texinfo::Common qw(move_index_entries_after_items_in_tree);
@@ -164,3 +164,16 @@ run_test('@itemize i
 @item e--mph item
 @end itemize
 ', 'only comment');
+
+run_test('@enumerate
+@cindex pattern @subentry variable
+@item
+Set the variable
+@end enumerate
+', '@enumerate
+@item
+@cindex pattern @subentry variable
+Set the variable
+@end enumerate
+', 'subentry');
+

@@ -2356,7 +2356,10 @@ sub move_index_entries_after_items($)
                    and $previous_ending_container->{'contents'}->[-1]->{'type'} eq 'index_entry_command')
                   or ($previous_ending_container->{'contents'}->[-1]->{'cmdname'}
                       and ($previous_ending_container->{'contents'}->[-1]->{'cmdname'} eq 'c'
-                           or $previous_ending_container->{'contents'}->[-1]->{'cmdname'} eq 'comment')))) {
+                           or $previous_ending_container->{'contents'}->[-1]->{'cmdname'} eq 'comment'
+                           # subentry is not within the index entry in the tree
+                           or $previous_ending_container->{'contents'}->[-1]->{'cmdname'} eq 'subentry')
+                  ))) {
         unshift @gathered_index_entries, pop @{$previous_ending_container->{'contents'}};
       }
       #print STDERR "Gathered: @gathered_index_entries\n";

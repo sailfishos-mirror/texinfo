@@ -1,3 +1,12 @@
+2024-10-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (move_index_entries_after_items):
+	consider a @subentry to be part of the moved index entries.
+	Report from Thérèse Godefroy.
+
+	* tp/t/index_before_item.t (subentry): add test with @subentry
+	in @cindex.
+
 2024-09-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/formats_encodings.t (japanese_shift_jis): assume that test
