@@ -1,5 +1,9 @@
 2024-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	* info/window.c (window_log_to_phys_line): use consistent type.
+
+2024-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	* info/session.c (info_menu_or_ref_item): use long consistently with
 	node and windows length types, call labs instead of abs.
 

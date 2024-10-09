@@ -707,7 +707,7 @@ window_unmark_chain (WINDOW *chain, int flag)
 long
 window_log_to_phys_line (WINDOW *window, long ln)
 {
-  size_t i;
+  long i;
   
   if (ln > window->line_count)
     return 0;
