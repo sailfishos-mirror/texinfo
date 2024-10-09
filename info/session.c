@@ -1775,10 +1775,6 @@ gc_file_buffers_and_nodes (void)
           if ((fb->flags & N_IsCompressed) && !gc_compressed_files)
             continue;
 
-          /* If this file's contents are not gc-able, move on. */
-          if (fb->flags & N_CannotGC)
-            continue;
-
           /* Don't free file buffers corresponding to files that aren't there 
              any more, because a node may still refer to them. */
           if (fb->flags & N_Gone)

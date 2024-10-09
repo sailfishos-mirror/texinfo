@@ -58,7 +58,6 @@ typedef struct {
 #define N_TagsIndirect 0x02     /* The tags table was an indirect one. */
 #define N_IsCompressed 0x08     /* The file is compressed on disk. */
 #define N_IsInternal   0x10     /* This node was made by Info. */
-#define N_CannotGC     0x20     /* File buffer cannot be gc'ed. */
 #define N_IsManPage    0x40     /* This node is a manpage. */
 #define N_WasRewritten 0x100    /* NODE->contents can be passed to free(). */ 
 #define N_IsIndex      0x200    /* An index node. */

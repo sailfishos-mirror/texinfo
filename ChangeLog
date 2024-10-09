@@ -1,5 +1,12 @@
 2024-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	Remove N_CannotGC, it is checked but never set
+
+	* info/session.c (gc_file_buffers_and_nodes): do not check N_CannotGC
+	in file buffer flag as it is not set anywhere.
+
+2024-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	Remove N_UpdateTags, it is set but never checked
 
 	* info/nodes.c (adjust_nodestart): do not set N_UpdateTags in
