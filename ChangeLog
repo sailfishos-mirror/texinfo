@@ -1,5 +1,10 @@
 2024-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	* info/session.c (info_menu_or_ref_item): use long consistently with
+	node and windows length types, call labs instead of abs.
+
+2024-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	* info/session.c (ask_for_search_string): explicitely convert the
 	min_search_length variable to size_t before comparing with mbslen.
 

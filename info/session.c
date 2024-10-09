@@ -2399,8 +2399,8 @@ info_menu_or_ref_item (WINDOW *window, int menu_item, int xref, int ask_p)
            more than one label which matches, find the one that's
            closest to point.  */
         {
-          register int i;
-          int best = -1, min_dist = window->node->nodelen;
+          register long i;
+          long best = -1, min_dist = window->node->nodelen;
           REFERENCE *ref;
 
           for (i = 0; refs && (ref = refs[i]); i++)
@@ -2411,7 +2411,7 @@ info_menu_or_ref_item (WINDOW *window, int menu_item, int xref, int ask_p)
                 {
                   /* ref->end is more accurate estimate of position
                      for menus than ref->start.  Go figure.  */
-                  int dist = abs (window->point - ref->end);
+                  long dist = labs (window->point - ref->end);
 
                   if (dist < min_dist)
                     {
