@@ -1,5 +1,12 @@
 2024-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	* info/session.c (ask_for_search_string): explicitely convert the
+	min_search_length variable to size_t before comparing with mbslen.
+
+	* info/util.c (text_buffer_fill): use size_t to be consistent.
+
+2024-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	* info/session.c (move_to_goal_column): use size_t for long.  The
 	window->goal_column is necessarily positive, as move_to_goal_column is
 	called after window_get_cursor_column if window->goal_column was

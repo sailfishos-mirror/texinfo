@@ -386,7 +386,7 @@ size_t
 text_buffer_fill (struct text_buffer *buf, int c, size_t len)
 {
   char *p;
-  int i;
+  size_t i;
   
   text_buffer_alloc (buf, len);
   

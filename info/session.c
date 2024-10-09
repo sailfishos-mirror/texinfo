@@ -4254,6 +4254,9 @@ static int
 ask_for_search_string (int case_sensitive, int use_regex, int direction)
 {
   char *line, *prompt;
+  /* convert int to size_t for comparison with string length.  Bogus
+    values obtained with negative values should not be a concern. */
+  size_t min_length = min_search_length;
 
   if (search_string)
     xasprintf (&prompt, _("%s%s%s [%s]: "),
@@ -4280,7 +4283,7 @@ ask_for_search_string (int case_sensitive, int use_regex, int direction)
       return 1;
     }
 
-  if (mbslen (line) < min_search_length)
+  if (mbslen (line) < min_length)
     {
       info_error ("%s", _("Search string too short"));
       free (line);
