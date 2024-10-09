@@ -1245,7 +1245,7 @@ void info_prev_line (WINDOW *, int count);
 static void
 move_to_goal_column (WINDOW *window)
 {
-  long goal;
+  size_t goal;
 
   goal = window->goal_column;
   if (goal >= window->line_map.used)

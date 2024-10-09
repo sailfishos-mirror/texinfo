@@ -1,5 +1,12 @@
 2024-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	* info/session.c (move_to_goal_column): use size_t for long.  The
+	window->goal_column is necessarily positive, as move_to_goal_column is
+	called after window_get_cursor_column if window->goal_column was
+	negative.  And the LINE_MAP structure uses size_t for columns indices.
+
+2024-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	* info/search.c (extend_matches, regexp_search), info/window.h
 	(MATCH_STATE): make MATCH_STATE buflen long to be consistent with
 	nodes length types and also with regoff_t.
