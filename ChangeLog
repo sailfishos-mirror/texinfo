@@ -1,5 +1,16 @@
 2024-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.c (info_create_node): use consistent type.
+
+	* info/nodes.c (info_node_of_tag_ext): remove cast of node->nodelen to
+	unsigned long, it is not useful, node->nodelen should be positive at
+	this point, and could be dangerous, as node->display_pos is long.
+
+	* info/nodes.c (info_node_of_tag_ext): always reset node->display_pos
+	to zero if negative.  It should not happen, but it is always safer.
+
+2024-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	* info/echo-area.c (remove_completion_duplicates, build_completions):
 	get completions number in argument and return the new completions
 	number.

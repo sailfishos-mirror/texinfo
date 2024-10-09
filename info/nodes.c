@@ -917,7 +917,7 @@ info_create_node (void)
 static size_t
 get_node_length (SEARCH_BINDING *binding)
 {
-  size_t i;
+  long i;
   char *body;
 
   /* [A node] ends with either a ^_, a ^L, or end of file.  */
@@ -1345,9 +1345,10 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **tag_ptr, int fast)
       /* Otherwise an anchor at the end of a node ends up displaying at
          the end of the last line of the node (way over on the right of
          the screen), which looks wrong.  */
-      if (node->display_pos >= (unsigned long) node->nodelen)
+      if (node->display_pos >= node->nodelen)
         node->display_pos = node->nodelen - 1;
-      else if (node->display_pos < 0)
+
+      if (node->display_pos < 0)
         node->display_pos = 0; /* Shouldn't happen. */
     }
 
