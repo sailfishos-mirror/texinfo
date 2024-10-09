@@ -645,7 +645,7 @@ display_update_node_text (WINDOW *win)
 void
 display_update_one_window (WINDOW *win)
 {
-  size_t line_index = 0;
+  long line_index = 0;
   DISPLAY_LINE **display = the_display;
 
   signal_block_winch ();
