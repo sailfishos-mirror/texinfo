@@ -1116,10 +1116,10 @@ info_get_node_of_file_buffer (FILE_BUFFER *file_buffer, char *nodename)
 
 /* Find the actual starting memory location of NODE.  Because of the
    way that tags are implemented, the physical nodestart may
-   not actually be where the tag says it is.  If that is the case,
-   set N_UpdateTags in NODE->flags.  If the node is found, return non-zero.
+   not actually be where the tag says it is.
    Set NODE->nodestart_adjusted directly on the separator that precedes this 
-   node.  If the node could not be found, return 0. */
+   node.  If the node is found, return non-zero.  If the node could not be
+   found, return 0. */
 static int
 adjust_nodestart (FILE_BUFFER *fb, TAG *node)
 {
@@ -1171,11 +1171,6 @@ adjust_nodestart (FILE_BUFFER *fb, TAG *node)
       /* If the node still couldn't be found, we lose big. */
       if (position == -1)
         return 0;
-
-      /* Set the flag in NODE->flags to say that the the tags table could
-         need updating (if we used a tag to get here, that is). */
-      if (node->flags & N_HasTagsTable)
-        node->flags |= N_UpdateTags;
     }
 
   node->nodestart_adjusted = s.buffer + position - fb->contents;

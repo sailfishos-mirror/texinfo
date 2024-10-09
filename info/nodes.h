@@ -56,7 +56,6 @@ typedef struct {
 /* Values for NODE.flags or FILE_BUFFER.flags. */
 #define N_HasTagsTable 0x01     /* This node was found through a tags table. */
 #define N_TagsIndirect 0x02     /* The tags table was an indirect one. */
-#define N_UpdateTags   0x04     /* The tags table is out of date. */
 #define N_IsCompressed 0x08     /* The file is compressed on disk. */
 #define N_IsInternal   0x10     /* This node was made by Info. */
 #define N_CannotGC     0x20     /* File buffer cannot be gc'ed. */
