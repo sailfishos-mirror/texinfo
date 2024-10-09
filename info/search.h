@@ -62,7 +62,7 @@ enum search_result search (char *string, SEARCH_BINDING *binding,
                            long *poff);
 enum search_result regexp_search (char *regexp,
                int is_literal, int is_insensitive,
-               char *buffer, size_t buflen,
+               char *buffer, long buflen,
                MATCH_STATE *match_state);
 int looking_at (char *string, SEARCH_BINDING *binding);
 int looking_at_line (char *string, char *pointer);

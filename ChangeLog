@@ -1,5 +1,11 @@
 2024-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	* info/search.c (extend_matches, regexp_search), info/window.h
+	(MATCH_STATE): make MATCH_STATE buflen long to be consistent with
+	nodes length types and also with regoff_t.
+
+2024-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	* info/nodes.c (info_reload_file_buffer_contents): add an intermediate
 	variable for filesize passed to filesys_read_info_file.
 

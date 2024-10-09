@@ -60,7 +60,7 @@ typedef struct match_struct
   int finished;        /* Non-zero if all possible matches are stored. */
   regex_t regex;
   char *buffer;
-  size_t buflen;
+  long buflen;         /* Should not be negative */
 } MATCH_STATE;
 
 /* Structure which defines a window.  Windows are doubly linked, next

@@ -113,7 +113,7 @@ extend_matches (MATCH_STATE *state)
   size_t match_alloc = state->match_alloc;
   size_t match_count = state->match_count;
   char *buffer = state->buffer;
-  size_t buflen = state->buflen;
+  long buflen = state->buflen;    /* Should not be negative */
 
   regoff_t offset = 0;
   char saved_char;
@@ -176,7 +176,7 @@ extend_matches (MATCH_STATE *state)
    matches in MATCH_STATE. */
 enum search_result
 regexp_search (char *regexp, int is_literal, int is_insensitive,
-               char *buffer, size_t buflen,
+               char *buffer, long buflen,
                MATCH_STATE *match_state)
 {
   regex_t preg; /* Compiled pattern buffer for regexp. */
