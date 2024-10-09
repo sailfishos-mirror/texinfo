@@ -1,5 +1,16 @@
 2024-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.c (info_reload_file_buffer_contents): add an intermediate
+	variable for filesize passed to filesys_read_info_file.
+
+	* info/nodes.h (FILE_BUFFER), info/nodes.c
+	(info_reload_file_buffer_contents, info_load_file): use long for
+	filesize instead of size_t to be sure that comparisons with node and
+	search length are always safe.  Add comments to explicit where the
+	conversion from size_t to long is done.
+
+2024-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	* info/nodes.c (info_create_node): use consistent type.
 
 	* info/nodes.c (info_node_of_tag_ext): remove cast of node->nodelen to

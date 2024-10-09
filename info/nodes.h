@@ -119,7 +119,8 @@ typedef struct {
   char *fullpath;               /* The full pathname of this info file. */
   struct stat finfo;            /* Information about this file. */
   char *contents;               /* The contents of this particular file. */
-  size_t filesize;              /* The number of bytes this file expands to. */
+  long filesize;                /* The number of bytes this file expands to.
+                                   Should not be negative */
   char **subfiles;              /* If non-null, the list of subfiles. */
   TAG **tags;                   /* If non-null, the tags table. */
   size_t tags_slots;            /* Number of slots allocated for TAGS. */

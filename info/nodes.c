@@ -742,6 +742,8 @@ info_load_file (char *fullpath, int is_subfile)
       *p = '\0';
   }
   file_buffer->finfo = finfo;
+  /* NOTE conversion from size_t to long here to be sure that comparisons with
+     node and search length are always safe. */
   file_buffer->filesize = filesize;
   file_buffer->contents = contents;
   if (compressed)
@@ -856,13 +858,18 @@ static void
 info_reload_file_buffer_contents (FILE_BUFFER *fb)
 {
   int is_compressed;
+  size_t filesize;
 
   fb->flags &= ~N_IsCompressed;
 
   /* Let the filesystem do all the work for us. */
   fb->contents =
-    filesys_read_info_file (fb->fullpath, &(fb->filesize), &(fb->finfo),
+    filesys_read_info_file (fb->fullpath, &filesize, &(fb->finfo),
                             &is_compressed);
+  /* NOTE conversion from size_t to long here to be sure that comparisons with
+     node and search length are always safe. */
+  fb->filesize = filesize;
+
   if (is_compressed)
     fb->flags |= N_IsCompressed;
 }
