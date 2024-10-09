@@ -1,5 +1,19 @@
 2024-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	* info/echo-area.c (remove_completion_duplicates, build_completions):
+	get completions number in argument and return the new completions
+	number.
+
+	* info/echo-area.c (build_completions): use a size_t index variable to
+	add entries to completions_found.  Pass this variable to
+	remove_completion_duplicates and retirieve the modified value.  Set
+	completions_found_index at this point, such that the conversion to
+	long is explicit, and mark in a comment that the completions_found*
+	and LCD_completion should not be modified after that point and before
+	a call to build_completions.
+
+2024-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	* info/echo-area.c (completions_found_index)
 	(info_read_completing_internal, ea_possible_completions)
 	(build_completions, remove_completion_duplicates): use long even if
