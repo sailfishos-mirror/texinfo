@@ -872,7 +872,7 @@ REFERENCE **echo_area_completion_items = NULL;
    the variable echo_area_completion_items.  If there is only one element,
    it is the only possible completion. */
 static REFERENCE **completions_found = NULL;
-static size_t completions_found_index = 0;
+static long completions_found_index = 0;   /* Should not be negative */
 static size_t completions_found_slots = 0;
 
 /* The lowest common denominator found while completing. */
@@ -948,7 +948,7 @@ info_read_completing_internal (const char *prompt, REFERENCE **completions,
          a default or aborted, and if FORCE is active. */
       if (force && line && *line && completions)
         {
-          size_t i;
+          long i;
 	  
           build_completions ();
 
@@ -1042,8 +1042,8 @@ DECLARE_INFO_COMMAND (ea_possible_completions, _("List possible completions"))
     }
   else
     {
-      size_t i, l;
-      size_t limit, iterations, max_label = 0;
+      long i, l;
+      long limit, iterations, max_label = 0; /* Should not be negative */
       struct text_buffer message;
 
       text_buffer_init (&message);
@@ -1055,7 +1055,7 @@ DECLARE_INFO_COMMAND (ea_possible_completions, _("List possible completions"))
       /* Find the maximum length of a label. */
       for (i = 0; i < completions_found_index; i++)
         {
-          size_t len = strlen (completions_found[i]->label);
+          long len = strlen (completions_found[i]->label);
           if (len > max_label)
             max_label = len;
         }
@@ -1083,7 +1083,7 @@ DECLARE_INFO_COMMAND (ea_possible_completions, _("List possible completions"))
       /* Print the sorted items, up-and-down alphabetically. */
       for (i = 0; i < iterations; i++)
         {
-          register size_t j;
+          register long j;
 
           for (j = 0, l = i; j < limit; j++)
             {
@@ -1092,7 +1092,7 @@ DECLARE_INFO_COMMAND (ea_possible_completions, _("List possible completions"))
               else
                 {
                   char *label;
-                  size_t printed_length;
+                  long printed_length;
                   int k;
 
                   label = completions_found[l]->label;
@@ -1215,7 +1215,7 @@ completions_must_be_rebuilt (void)
 static void
 build_completions (void)
 {
-  size_t i;
+  long i;
   int len;
   register REFERENCE *entry;
   char *request;
@@ -1348,9 +1348,9 @@ compare_references (const void *entry1, const void *entry2)
 static void
 remove_completion_duplicates (void)
 {
-  size_t i, j;
+  long i, j;
   REFERENCE **temp;
-  size_t newlen;
+  long newlen;         /* Should not be negative */
 
   if (!completions_found_index)
     return;

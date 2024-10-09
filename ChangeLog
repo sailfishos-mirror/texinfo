@@ -1,5 +1,13 @@
 2024-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	* info/echo-area.c (completions_found_index)
+	(info_read_completing_internal, ea_possible_completions)
+	(build_completions, remove_completion_duplicates): use long even if
+	the variable should never be negative as it is more robust for
+	comparisons and consistent with windows fields types.
+
+2024-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	* info/display.c (display_update_one_window): use long type consistent
 	with windows fields types.
 
