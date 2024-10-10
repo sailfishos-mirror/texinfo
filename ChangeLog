@@ -1,5 +1,15 @@
 2024-10-10  Patrice Dumas  <pertusus@free.fr>
 
+	* info/session.c (info_read_and_dispatch, info_next_line)
+	(info_prev_line), info/window.c (window_make_window)
+	(set_window_pagetop), info/window.h (WINDOW): instead of using -1
+	value of WINDOW goal_column to signal that the cursor should be
+	placed in the column it is currently in, add and use the
+	W_CurrentColGoal flag.  Set WINDOW goal_column to size_t as it is
+	compared to unsigned fields of LINE_MAP.
+
+2024-10-10  Patrice Dumas  <pertusus@free.fr>
+
 	* info/window.c (collect_line_starts): add a comment to explain that
 	there is a comparison of unsigned and signed integers.
 

@@ -77,8 +77,8 @@ typedef struct window_struct
   long width;           /* Width of this window. */
   long height;          /* Height of this window. */
   long first_row;       /* Offset of the first line in the_screen. */
-  long goal_column;     /* Column to place the cursor in when moving it up and 
-                           down.  -1 means the column it is currently in. */
+  size_t goal_column;   /* Column to place the cursor in when moving it up and
+                           down (if W_CurrentColGoal flag is not set). */
   NODE *node;           /* The node displayed in this window. */
   long pagetop;         /* LINE_STARTS[PAGETOP] is first line in WINDOW. */
   long point;           /* Offset within NODE of the cursor position. */
@@ -110,6 +110,8 @@ typedef struct window_struct
 #define W_NoWrap        0x10    /* Lines do not wrap in this window. */
 #define W_InputWindow   0x20    /* Window accepts input. */
 #define W_TempWindow    0x40    /* Window is less important. */
+#define W_CurrentColGoal 0x80   /* Use the current column to place the
+                                   cursor in when moving it up and down. */
 
 extern WINDOW *windows;         /* List of visible Info windows. */
 extern WINDOW *active_window;   /* The currently active window. */

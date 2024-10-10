@@ -289,11 +289,11 @@ window_make_window (void)
   window->height = (active_window->height / 2) - 1;
   window->first_row = active_window->first_row +
     (active_window->height - window->height);
-  window->goal_column = -1;
+  window->goal_column = 0;
   memset (&window->line_map, 0, sizeof (window->line_map));
   window->modeline = xmalloc (1 + window->width);
   window->line_starts = NULL;
-  window->flags = W_UpdateWindow | W_WindowVisible;
+  window->flags = W_UpdateWindow | W_WindowVisible | W_CurrentColGoal;
 
   /* Adjust the height of the old active window. */
   active_window->height -= (window->height + 1);
@@ -735,17 +735,17 @@ set_window_pagetop (WINDOW *window, int desired_top)
   window->pagetop = desired_top;
 
   /* Make sure that point appears in this window. */
+  window->goal_column = 0;
+  window->flags &= ~W_CurrentColGoal;
   point_line = window_line_of_point (window);
   if (point_line < window->pagetop)
     {
       window->point = window->line_starts[window->pagetop];
-      window->goal_column = 0;
     }
   else if (point_line >= window->pagetop + window->height)
     {
       long bottom = window->pagetop + window->height - 1;
       window->point = window->line_starts[bottom];
-      window->goal_column = 0;
     }
 
   window->flags |= W_UpdateWindow;

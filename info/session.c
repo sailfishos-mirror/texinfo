@@ -256,7 +256,7 @@ info_read_and_dispatch (void)
              means we can go from a long line to a short line and back to
              a long line and end back in the same column. */
           if (!(cmd == &info_next_line || cmd == &info_prev_line))
-            active_window->goal_column = -1; /* Goal is current column. */
+            active_window->flags |= W_CurrentColGoal; /* Goal is current column. */
         }
     }
 }
@@ -1261,8 +1261,11 @@ DECLARE_INFO_COMMAND (info_next_line, _("Move down to the next line"))
     info_prev_line (window, -count);
   else
     {
-      if (window->goal_column == -1)
-        window->goal_column = window_get_cursor_column (window);
+      if (window->flags & W_CurrentColGoal)
+        {
+          window->goal_column = window_get_cursor_column (window);
+          window->flags &= ~W_CurrentColGoal;
+        }
       while (count--)
         point_next_line (window);
       move_to_goal_column (window);
@@ -1276,8 +1279,11 @@ DECLARE_INFO_COMMAND (info_prev_line, _("Move up to the previous line"))
     info_next_line (window, -count);
   else
     {
-      if (window->goal_column == -1)
-        window->goal_column = window_get_cursor_column (window);
+      if (window->flags & W_CurrentColGoal)
+        {
+          window->goal_column = window_get_cursor_column (window);
+          window->flags &= ~W_CurrentColGoal;
+        }
       while (count--)
         point_prev_line (window);
       move_to_goal_column (window);
