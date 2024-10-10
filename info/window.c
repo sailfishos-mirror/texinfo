@@ -1109,6 +1109,14 @@ text_buffer_to_node (struct text_buffer *tb)
 static void
 collect_line_starts (WINDOW *win, long ll_num, long pl_start)
 {
+  /* in the following macro call, win->line_count, a signed long is
+     compared to win->line_slots an unsigned size_t.  The comparison
+     should be ok as win->line_count should always be positive.
+     win->line_count is also increased, so using an intermediary
+     variable to explicit the conversion is not practical.  The comparison
+     may lead to a compile time warning like
+      comparison of integer expressions of different signedness
+    */
   add_element_to_array (pl_start, win->line_count,
                         win->line_starts, win->line_slots, 2);
 

@@ -1,5 +1,10 @@
 2024-10-10  Patrice Dumas  <pertusus@free.fr>
 
+	* info/window.c (collect_line_starts): add a comment to explain that
+	there is a comparison of unsigned and signed integers.
+
+2024-10-10  Patrice Dumas  <pertusus@free.fr>
+
 	* info/t/Init-test.inc: modify proposed valgrind call in comment to
 	use basename for out of source builds and put logs in t/.
 
