@@ -1,5 +1,20 @@
 2024-10-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/configure.ac (PERL_LIBS, perl_conf_LDFLAGS)
+	(platform_PERL_LIBADD): set PERL_LIBS to -L.. -l for Perl.  Add it to
+	platform_PERL_LIBADD but not to perl_conf_LDFLAGS.
+
+	* tp/Texinfo/XS/Makefile.am (TestXS_la_LIBADD, MiscXS_la_LIBADD)
+	(XSParagraph_la_LIBADD, libtexinfo_la_LIBADD, libtexinfoxs_la_LIBADD)
+	(libtexinfo_convert_la_LIBADD, Parsetexi_la_LIBADD)
+	(DocumentXS_la_LIBADD, StructuringTransfoXS_la_LIBADD)
+	(IndicesXS_la_LIBADD, ConvertXS_la_LIBADD): postpend
+	$(platform_PERL_LIBADD) when linking against Perl such that the
+	library appears after the other libraries to resolve the symbols.
+	From Eli.
+
+2024-10-10  Patrice Dumas  <pertusus@free.fr>
+
 	* info/session.c (info_read_and_dispatch, info_next_line)
 	(info_prev_line), info/window.c (window_make_window)
 	(set_window_pagetop), info/window.h (WINDOW): instead of using -1

@@ -227,17 +227,16 @@ AM_CONDITIONAL([HAVE_ICONV],
 CFLAGS=$PERL_EXT_CFLAGS
 LDFLAGS=$PERL_EXT_LDFLAGS
 
+PERL_LIBS="-L$PERL_INC $PERL_CONF_libperl"
 # Use the -no-undefined flag on MS-Windows.  See info node
-# `(gnulib)Libtool and Windows'.  The -L and -l options after it show
-# where to find the undefined symbols when linking against Perl.
+# `(gnulib)Libtool and Windows'.  The -L and -l options in
+# platform_PERL_LIBADD show where to find the undefined symbols when
+# linking against Perl.
 case "$host" in *-mingw32 | *-mingw64 | *-msdosdjgpp | *-cygwin )
-  perl_conf_LDFLAGS="$perl_conf_LDFLAGS -no-undefined -L$PERL_INC $PERL_CONF_libperl"
+  perl_conf_LDFLAGS="$perl_conf_LDFLAGS -no-undefined"
   # used for shared libraries not linked against Perl.
   platform_LDFLAGS='-no-undefined'
-  ;;
- *)
-  # can be used to explicitly link against Perl when not in perl_conf_LDFLAGS
-  perl_conf_PERL_LINK="-L$PERL_INC $PERL_CONF_libperl"
+  platform_PERL_LIBADD=$PERL_LIBS
   ;;
 esac
 
@@ -245,6 +244,8 @@ AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
 AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
 AC_SUBST([platform_LDFLAGS], [$platform_LDFLAGS])
 AC_SUBST([perl_conf_PERL_LINK], [$perl_conf_PERL_LINK])
+AC_SUBST([platform_PERL_LIBADD], [$platform_PERL_LIBADD])
+AC_SUBST([PERL_LIBS], [$PERL_LIBS])
 
 AC_CHECK_FUNCS(newlocale strxfrm_l)
 
