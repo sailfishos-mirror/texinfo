@@ -1,3 +1,13 @@
+2024-10-10  Patrice Dumas  <pertusus@free.fr>
+
+	* info/window.h (LINE_MAP): use long for nline field to be consistent
+	with the remaining line numbers that are unsigned.
+
+	* info/window.c (set_window_pagetop, window_line_of_point)
+	(line_map_init, window_compute_line_map): replace some int by long
+	for consistency across functions, structure fields and variables
+	types.
+
 2024-10-09  Patrice Dumas  <pertusus@free.fr>
 
 	Remove N_CannotGC, it is checked but never set

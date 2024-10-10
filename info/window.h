@@ -38,7 +38,8 @@
 typedef struct line_map_struct
 {
   NODE *node;      /* Node to which this line pertains */
-  size_t nline;    /* Line number for which the map is computed. */
+  long nline;      /* Line number for which the map is computed.
+                      Should not be negative. */
   size_t size;     /* Number of elements map can accomodate */
   size_t used;     /* Number of used map slots */
   long *map;       /* The map itself */
@@ -217,7 +218,7 @@ void unmessage_in_echo_area (void);
 void window_clear_echo_area (void);
 
 /* Return the index of the line containing point. */
-int window_line_of_point (WINDOW *window);
+long window_line_of_point (WINDOW *window);
 
 /* Get and return the printed column offset of the cursor in this window. */
 long window_get_cursor_column (WINDOW *window);

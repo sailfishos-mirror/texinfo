@@ -721,7 +721,7 @@ window_log_to_phys_line (WINDOW *window, long ln)
 void
 set_window_pagetop (WINDOW *window, int desired_top)
 {
-  int point_line, old_pagetop;
+  long point_line, old_pagetop;
 
   if (desired_top < 0)
     desired_top = 0;
@@ -816,10 +816,10 @@ window_adjust_pagetop (WINDOW *window)
 }
 
 /* Return the index of the line containing point. */
-int
+long
 window_line_of_point (WINDOW *window)
 {
-  register int i, start = 0;
+  register long i, start = 0;
 
   if (!window->line_starts)
     calculate_line_starts (window);
@@ -1247,7 +1247,7 @@ calculate_line_starts (WINDOW *win)
 
 
 static void
-line_map_init (LINE_MAP *map, NODE *node, int line)
+line_map_init (LINE_MAP *map, NODE *node, long line)
 {
   map->node = node;
   map->nline = line;
@@ -1280,7 +1280,7 @@ window_line_map_init (WINDOW *win)
 void
 window_compute_line_map (WINDOW *win)
 {
-  int line = window_line_of_point (win);
+  long line = window_line_of_point (win);
   mbi_iterator_t iter;
   int delim = 0;
   char *endp;
@@ -1338,4 +1338,4 @@ window_point_to_column (WINDOW *win, long point, long *np)
     *np = win->line_map.map[i];
   return i;
 }
-      
+
