@@ -1,5 +1,16 @@
 2024-10-10  Patrice Dumas  <pertusus@free.fr>
 
+	* info/filesys.c (filesys_read_info_file): convert to ssize_t to use
+	as read return value an not to size_t and convert to size_t later on.
+	Do not cast finfo->st_size to (long), leave it as off_t and convert to
+	either size_t or ssize_t depending on how the file is read.  Add
+	comments to mark conversion from unsigned to signed.
+
+	* info/filesys.c (convert_eols): use size_t in argument an as return
+	type.
+
+2024-10-10  Patrice Dumas  <pertusus@free.fr>
+
 	* info/window.h (LINE_MAP): use long for nline field to be consistent
 	with the remaining line numbers that are unsigned.
 
