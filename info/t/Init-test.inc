@@ -21,7 +21,7 @@ set -x
 
 # Use the second line to run the program under valgrind.
 ginfo="./ginfo --init-file $srcdir/t/Infokey-config"
-#ginfo="valgrind --log-file=$0.val.log --leak-check=full ./ginfo --init-file $srcdir/t/Infokey-config"
+#ginfo="valgrind --log-file=t/`basename $0.val.log` --leak-check=full ./ginfo --init-file $srcdir/t/Infokey-config"
 
 # Only look for Info files in our test directory
 INFOPATH=$srcdir/t/infodir; export INFOPATH

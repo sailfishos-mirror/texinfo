@@ -1,5 +1,10 @@
 2024-10-10  Patrice Dumas  <pertusus@free.fr>
 
+	* info/t/Init-test.inc: modify proposed valgrind call in comment to
+	use basename for out of source builds and put logs in t/.
+
+2024-10-10  Patrice Dumas  <pertusus@free.fr>
+
 	* info/filesys.c (filesys_read_info_file): convert to ssize_t to use
 	as read return value an not to size_t and convert to size_t later on.
 	Do not cast finfo->st_size to (long), leave it as off_t and convert to
