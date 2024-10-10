@@ -1,5 +1,14 @@
 2024-10-10  Patrice Dumas  <pertusus@free.fr>
 
+	* nfo/terminal.c (keys, keys2), info/variables.c (styles),
+	tp/Texinfo/XS/main/utils.c (def_aliases, default_expanded_formats),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/indices.c (default_indices)
+	(def_command_indices), tp/Texinfo/XS/parsetexi/def.c (def_maps): add
+	braces for each structure in arrays initialization.
+
+2024-10-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/command_data.awk,
 	tp/Texinfo/XS/main/element_types.awk,
 	tp/maintain/generate_code_convert_data.pl,

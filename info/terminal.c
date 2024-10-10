@@ -805,17 +805,17 @@ initialize_byte_map (void)
       int key_id;
       char **byte_seq;
   } keys[] = {
-      KEY_RIGHT_ARROW, &term_kr,
-      KEY_LEFT_ARROW, &term_kl,
-      KEY_UP_ARROW, &term_ku,
-      KEY_DOWN_ARROW, &term_kd,
-      KEY_PAGE_UP, &term_kP,
-      KEY_PAGE_DOWN, &term_kN,
-      KEY_HOME, &term_kh,
-      KEY_END, &term_ke,
-      KEY_DELETE, &term_kD,
-      KEY_INSERT, &term_ki,
-      KEY_BACK_TAB, &term_kB
+      {KEY_RIGHT_ARROW, &term_kr},
+      {KEY_LEFT_ARROW, &term_kl},
+      {KEY_UP_ARROW, &term_ku},
+      {KEY_DOWN_ARROW, &term_kd},
+      {KEY_PAGE_UP, &term_kP},
+      {KEY_PAGE_DOWN, &term_kN},
+      {KEY_HOME, &term_kh},
+      {KEY_END, &term_ke},
+      {KEY_DELETE, &term_kD},
+      {KEY_INSERT, &term_ki},
+      {KEY_BACK_TAB, &term_kB}
   };
 
   /* Recognize arrow key sequences with both of the usual prefixes in case they 
@@ -824,14 +824,14 @@ initialize_byte_map (void)
       int key_id;
       char *byte_seq;
   } keys2[] = {
-      KEY_RIGHT_ARROW, "\033[C",
-      KEY_RIGHT_ARROW, "\033OC",
-      KEY_LEFT_ARROW, "\033[D",
-      KEY_LEFT_ARROW, "\033OD",
-      KEY_UP_ARROW, "\033[A",
-      KEY_UP_ARROW, "\033OA",
-      KEY_DOWN_ARROW, "\033[B",
-      KEY_DOWN_ARROW, "\033OB"
+      {KEY_RIGHT_ARROW, "\033[C"},
+      {KEY_RIGHT_ARROW, "\033OC"},
+      {KEY_LEFT_ARROW, "\033[D"},
+      {KEY_LEFT_ARROW, "\033OD"},
+      {KEY_UP_ARROW, "\033[A"},
+      {KEY_UP_ARROW, "\033OA"},
+      {KEY_DOWN_ARROW, "\033[B"},
+      {KEY_DOWN_ARROW, "\033OB"}
   };
 
   byte_seq_to_key = xmalloc (256 * sizeof (BYTEMAP_ENTRY));

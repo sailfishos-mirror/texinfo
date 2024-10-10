@@ -153,13 +153,13 @@ init_index_commands (void)
   struct def { char *name; int in_code;
                enum command_id cmd2; enum command_id cmd1;}
   *p, default_indices[] = {
-    "cp", 0, CM_cpindex, CM_cindex, /* concepts */
-    "fn", 1, CM_fnindex, CM_findex, /* functions */
-    "vr", 1, CM_vrindex, CM_vindex, /* variables */
-    "ky", 1, CM_kyindex, CM_kindex, /* keystrokes */
-    "pg", 1, CM_pgindex, CM_pindex, /* programs */
-    "tp", 1, CM_tpindex, CM_tindex, /* types */
-    0, 0, 0, 0
+    {"cp", 0, CM_cpindex, CM_cindex}, /* concepts */
+    {"fn", 1, CM_fnindex, CM_findex}, /* functions */
+    {"vr", 1, CM_vrindex, CM_vindex}, /* variables */
+    {"ky", 1, CM_kyindex, CM_kindex}, /* keystrokes */
+    {"pg", 1, CM_pgindex, CM_pindex}, /* programs */
+    {"tp", 1, CM_tpindex, CM_tindex}, /* types */
+    {0, 0, 0, 0}
   };
   size_t i, j;
 
@@ -168,7 +168,7 @@ init_index_commands (void)
 #define X(command) CM_##command, CM_##command##x
   struct def_cmds { char *name; enum command_id id[MAX]; }
     def_command_indices[] = {
-      "fn",
+     {"fn",
 
       {X(deffn),
        X(deftypefn),
@@ -180,9 +180,10 @@ init_index_commands (void)
        X(deftypefun),
        X(defmethod),
        X(deftypemethod),
-      },
+      }
+     },
 
-      "vr",
+     {"vr",
 
       {X(defvr),
        X(deftypevr),
@@ -193,11 +194,13 @@ init_index_commands (void)
        X(defopt),
        X(deftypevar),
        X(deftypeivar),
-      },
+      }
+     },
 
-      "tp",
+     {"tp",
 
       {X(deftp),}
+     }
     };
 #undef X
 

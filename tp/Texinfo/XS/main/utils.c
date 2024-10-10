@@ -74,47 +74,47 @@ const char *whitespace_chars = " \t\v\f\r\n";
 const char *digit_chars = "0123456789";
 
 DEF_ALIAS def_aliases[] = {
-  CM_defun, CM_deffn, pgdt_context_noop("category of functions for @defun",
-                                        "Function"),
+  {CM_defun, CM_deffn, pgdt_context_noop("category of functions for @defun",
+                                        "Function")},
   /* TRANSLATORS: category of macros for @defmac */
-  CM_defmac, CM_deffn, gdt_noop("Macro"), 0,
+  {CM_defmac, CM_deffn, gdt_noop("Macro"), 0},
   /* TRANSLATORS: category of special forms for @defspec */
-  CM_defspec, CM_deffn, gdt_noop("Special Form"), 0,
-  CM_defvar, CM_defvr, pgdt_context_noop("category of variables for @defvar",
-                                         "Variable"),
+  {CM_defspec, CM_deffn, gdt_noop("Special Form"), 0},
+  {CM_defvar, CM_defvr, pgdt_context_noop("category of variables for @defvar",
+                                         "Variable")},
   /* TRANSLATORS: category of user-modifiable options for @defopt */
-  CM_defopt, CM_defvr, gdt_noop("User Option"), 0,
-  CM_deftypefun, CM_deftypefn,
-       pgdt_context_noop("category of functions for @deftypefun", "Function"),
-  CM_deftypevar, CM_deftypevr,
+  {CM_defopt, CM_defvr, gdt_noop("User Option"), 0},
+  {CM_deftypefun, CM_deftypefn,
+       pgdt_context_noop("category of functions for @deftypefun", "Function")},
+  {CM_deftypevar, CM_deftypevr,
    pgdt_context_noop("category of variables in typed languages for @deftypevar",
-                     "Variable"),
-  CM_defivar, CM_defcv,
+                     "Variable")},
+  {CM_defivar, CM_defcv,
    pgdt_context_noop("category of instance variables in object-oriented programming for @defivar",
-                     "Instance Variable"),
-  CM_deftypeivar, CM_deftypecv,
+                     "Instance Variable")},
+  {CM_deftypeivar, CM_deftypecv,
    pgdt_context_noop("category of instance variables with data type in object-oriented programming for @deftypeivar",
-                     "Instance Variable"),
-  CM_defmethod, CM_defop,
+                     "Instance Variable")},
+  {CM_defmethod, CM_defop,
    pgdt_context_noop("category of methods in object-oriented programming for @defmethod",
-                     "Method"),
-  CM_deftypemethod, CM_deftypeop,
+                     "Method")},
+  {CM_deftypemethod, CM_deftypeop,
    pgdt_context_noop("category of methods with data type in object-oriented programming for @deftypemethod",
-                     "Method"),
+                     "Method")},
 
   /* the following aliases are not used in the XS parser */
-  CM_defunx, CM_deffnx, "Function", "category of functions for @defun",
-  CM_defmacx, CM_deffnx, "Macro", 0,
-  CM_defspecx, CM_deffnx, "Special Form", 0,
-  CM_defvarx, CM_defvrx, "Variable", "category of variables for @defvar",
-  CM_defoptx, CM_defvrx, "User Option", 0,
-  CM_deftypefunx, CM_deftypefnx, "Function", "category of functions for @deftypefun",
-  CM_deftypevarx, CM_deftypevrx, "Variable", "category of variables in typed languages for @deftypevar",
-  CM_defivarx, CM_defcvx, "Instance Variable", "category of instance variables in object-oriented programming for @defivar",
-  CM_deftypeivarx, CM_deftypecvx, "Instance Variable", "category of instance variables with data type in object-oriented programming for @deftypeivar",
-  CM_defmethodx, CM_defopx, "Method", "category of methods in object-oriented programming for @defmethod",
-  CM_deftypemethodx, CM_deftypeopx, "Method", "category of methods with data type in object-oriented programming for @deftypemethod",
-  0, 0, 0, 0
+  {CM_defunx, CM_deffnx, "Function", "category of functions for @defun"},
+  {CM_defmacx, CM_deffnx, "Macro", 0},
+  {CM_defspecx, CM_deffnx, "Special Form", 0},
+  {CM_defvarx, CM_defvrx, "Variable", "category of variables for @defvar"},
+  {CM_defoptx, CM_defvrx, "User Option", 0},
+  {CM_deftypefunx, CM_deftypefnx, "Function", "category of functions for @deftypefun"},
+  {CM_deftypevarx, CM_deftypevrx, "Variable", "category of variables in typed languages for @deftypevar"},
+  {CM_defivarx, CM_defcvx, "Instance Variable", "category of instance variables in object-oriented programming for @defivar"},
+  {CM_deftypeivarx, CM_deftypecvx, "Instance Variable", "category of instance variables with data type in object-oriented programming for @deftypeivar"},
+  {CM_defmethodx, CM_defopx, "Method", "category of methods in object-oriented programming for @defmethod"},
+  {CM_deftypemethodx, CM_deftypeopx, "Method", "category of methods with data type in object-oriented programming for @deftypemethod"},
+  {0, 0, 0, 0}
 };
 
 /* to keep synchronized with enum directions in tree_types.h */
@@ -145,13 +145,13 @@ const char *command_location_names[]
 /* NOTE if you add a format, increase the size of CONF.expanded_formats
  */
 const EXPANDED_FORMAT default_expanded_formats[] = {
-    "html", 0,
-    "docbook", 0,
-    "plaintext", 0,
-    "tex", 0,
-    "xml", 0,
-    "info", 0,
-    "latex", 0,
+    {"html", 0},
+    {"docbook", 0},
+    {"plaintext", 0},
+    {"tex", 0},
+    {"xml", 0},
+    {"info", 0},
+    {"latex", 0},
 };
 
 /* special output units global directions are not there, they are

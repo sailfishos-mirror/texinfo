@@ -1440,17 +1440,17 @@ end_line_misc_line (ELEMENT *current)
                      about more encodings than what we know about here.
                    */
                     static const struct encoding_map map[] = {
-                          "utf-8", "utf-8",
-                          "utf8", "utf-8",
-                          "ascii",  "us-ascii",
-                          "shiftjis", "shift_jis",
-                          "latin1", "iso-8859-1",
-                          "latin-1", "iso-8859-1",
-                          "iso-8859-1",  "iso-8859-1",
-                          "iso-8859-2",  "iso-8859-2",
-                          "iso-8859-15", "iso-8859-15",
-                          "koi8-r",      "koi8-r",
-                          "koi8-u",      "koi8-u",
+                          {"utf-8", "utf-8"},
+                          {"utf8", "utf-8"},
+                          {"ascii",  "us-ascii"},
+                          {"shiftjis", "shift_jis"},
+                          {"latin1", "iso-8859-1"},
+                          {"latin-1", "iso-8859-1"},
+                          {"iso-8859-1",  "iso-8859-1"},
+                          {"iso-8859-2",  "iso-8859-2"},
+                          {"iso-8859-15", "iso-8859-15"},
+                          {"koi8-r",      "koi8-r"},
+                          {"koi8-u",      "koi8-u"},
              /* For some reason Encode mime_name() for GB2312, a simplified
                 chinese character set encoded as EUC-CN is EUC-CN, while in the
                 IANA character sets assignments, there is no EUC-CN and
@@ -1460,7 +1460,7 @@ end_line_misc_line (ELEMENT *current)
                 Set it the same as Perl here, even though it looks wrong,
                 just to have the same output.
                     */
-                          "gb2312",      "euc-cn",
+                          {"gb2312",      "euc-cn"},
                     };
                     for (i = 0; i < sizeof map / sizeof *map; i++)
                       {

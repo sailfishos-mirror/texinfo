@@ -182,17 +182,17 @@ enum element_type defop_types[] = {ET_def_category, ET_def_class , ET_def_name, 
 enum element_type deftp_types[] = {ET_def_category, ET_def_name, ET_def_typearg, 0};
 
 DEF_MAP def_maps[] = {
-  CM_defline, defline_types,
-  CM_deftypeline, deftypeline_types,
-  CM_deffn, defline_types,
-  CM_defvr, defvr_types,
-  CM_deftypefn, deftypefn_types,
-  CM_deftypeop, deftypeop_types,
-  CM_deftypevr, deftypevr_types,
-  CM_defcv, defcv_types,
-  CM_deftypecv, deftypecv_types,
-  CM_defop, defop_types,
-  CM_deftp, deftp_types,
+  {CM_defline, defline_types},
+  {CM_deftypeline, deftypeline_types},
+  {CM_deffn, defline_types},
+  {CM_defvr, defvr_types},
+  {CM_deftypefn, deftypefn_types},
+  {CM_deftypeop, deftypeop_types},
+  {CM_deftypevr, deftypevr_types},
+  {CM_defcv, defcv_types},
+  {CM_deftypecv, deftypecv_types},
+  {CM_defop, defop_types},
+  {CM_deftp, deftp_types},
 };
 
 /* Split non-space text elements into strings without [ ] ( ) , and single
