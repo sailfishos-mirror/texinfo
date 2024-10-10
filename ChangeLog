@@ -1,5 +1,15 @@
 2024-10-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/command_data.awk,
+	tp/Texinfo/XS/main/element_types.awk,
+	tp/maintain/generate_code_convert_data.pl,
+	tp/maintain/regenerate_C_options_info.pl,
+	tp/maintain/setup_converters_code_tables.pl: add braces for each
+	structure in arrays.  Update scripts generating codes reading
+	command_data.c to get the commands order.
+
+2024-10-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/configure.ac (PERL_LIBS, perl_conf_LDFLAGS)
 	(platform_PERL_LIBADD): set PERL_LIBS to -L.. -l for Perl.  Add it to
 	platform_PERL_LIBADD but not to perl_conf_LDFLAGS.

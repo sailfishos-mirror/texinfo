@@ -142,7 +142,7 @@ END {
     print "#include \"builtin_commands.h\"" "\n" > CD
     print "COMMAND builtin_command_data[] = {" > CD
 
-    print "0, 0, 0, 0, 0," > CD
+    print "{0, 0, 0, 0, 0}," > CD
 
     # We want the output sorted so we can use bsearch
     PROCINFO["sorted_in"]="@ind_str_asc"
@@ -262,7 +262,7 @@ END {
             }
         }
 
-        print "\"" c2 "\", " flags ", " other_flags ", " command_data ", " args_nr_data "," > CD
+        print "{\"" c2 "\", " flags ", " other_flags ", " command_data ", " args_nr_data "}," > CD
     }
     print "};" > CD
     print "};" > CI

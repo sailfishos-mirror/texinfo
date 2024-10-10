@@ -78,9 +78,9 @@ my %commands_map = (
 my %name_commands;
 while (<STDIN>) {
   my $command;
-  if (/^"([^"]+?)", /) {
+  if (/^{"([^"]+?)", /) {
     $command = $1;
-  } elsif (/^"\\"", /) {
+  } elsif (/^{"\\"", /) {
     $command = '\"';
   }
   next if (!defined($command));
