@@ -1778,7 +1778,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
             {
               const char *section_number
                 = lookup_extra_string (command, AI_key_section_number);
-              if (section_number && !self->conf->NUMBER_SECTIONS.o.integer == 0)
+              if (section_number && self->conf->NUMBER_SECTIONS.o.integer != 0)
                 {
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings
                     = new_named_string_element_list ();
