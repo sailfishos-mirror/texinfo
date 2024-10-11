@@ -133,7 +133,6 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
   ELEMENT *macro, *macro_name;
   char *name;
   const char *args_ptr;
-  int index;
 
  /* TODO not sure about using lineraw_command. There is an arg_line info,
     which is consistent with lineraw_command, but the *macro are block
@@ -179,7 +178,6 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
     }
   args_ptr++;
 
-  index = 0;
   while (1)
     {
       /* args_ptr is after a '{' or ','.  INDEX holds the number of
@@ -246,8 +244,6 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
 
       if (*q == '}')
         break;
-
-      index++;
     }
 
  check_trailing:
