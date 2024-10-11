@@ -49,14 +49,12 @@ find_footnotes_window (void)
 NODE *
 make_footnotes_node (NODE *node)
 {
-  NODE *fn_node, *footnotes_node = NULL, *result = NULL;
-  long fn_start = -1;
+  NODE *fn_node = 0, *footnotes_node = NULL, *result = NULL;
+  long fn_start;
   char *fnptr;
 
   /* Make the initial assumption that the footnotes appear as simple
      text within this windows node. */
-  fn_node = node;
-
   /* See if this node contains the magic footnote label. */
     {
       char saved = node->contents[node->nodelen];
@@ -65,10 +63,12 @@ make_footnotes_node (NODE *node)
       node->contents[node->nodelen] = saved;
     }
   if (fnptr)
-    fn_start = fnptr - node->contents;
-
+    {
+      fn_node = node;
+      fn_start = fnptr - node->contents;
+    }
   /* If it doesn't, check to see if it has an associated footnotes node. */
-  if (!fnptr)
+  else
     {
       REFERENCE **refs;
 
@@ -108,8 +108,8 @@ make_footnotes_node (NODE *node)
         }
     }
 
-  /* If we never found the start of a footnotes area, quit now. */
-  if (fn_start == -1)
+  /* Quit if we never found the node associated to the footnote. */
+  if (fn_node == 0)
     return NULL;
 
   /* Make the new node. */
