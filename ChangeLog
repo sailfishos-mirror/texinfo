@@ -1,5 +1,11 @@
 2024-11-10  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.c (info_get_node_with_defaults): remove filename_in in
+	condition inside, as it can only be setbecause of condition outside.
+	Do not initialize filename and nodename, they are always set.
+
+2024-11-10  Patrice Dumas  <pertusus@free.fr>
+
 	* info/footnotes.c (make_footnotes_node): use fn_node directly to
 	determine if the node associated to the footnote was found.
 

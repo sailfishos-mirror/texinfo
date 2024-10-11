@@ -953,17 +953,15 @@ info_get_node_with_defaults (char *filename_in, char *nodename_in,
 {
   NODE *node = 0;
   FILE_BUFFER *file_buffer = NULL;
-  char *filename = 0, *nodename = 0;
+  char *filename, *nodename;
 
   info_recent_file_error = NULL;
 
-  filename = filename_in;
   if (filename_in)
     {
       filename = xstrdup (filename_in);
       if (follow_strategy == FOLLOW_REMAIN
-          && defaults && defaults->fullpath
-          && filename_in)
+          && defaults && defaults->fullpath)
         {
           /* Find the directory in the filename for defaults, and look in
              that directory first. */
