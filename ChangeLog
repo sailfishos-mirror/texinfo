@@ -1,5 +1,9 @@
 2024-11-10  Patrice Dumas  <pertusus@free.fr>
 
+	* info/window.c: reindent, replace tables by spaces, remove spaces.
+
+2024-11-10  Patrice Dumas  <pertusus@free.fr>
+
 	* info/session.c (info_handle_pointer): abort if the input label is
 	not one of the expected labels.  It should never happen as the callers
 	set the label explicitely.

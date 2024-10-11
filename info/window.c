@@ -368,8 +368,8 @@ window_change_window_height (WINDOW *window, int amount)
      It can be impossible if there isn't enough available room on the
      screen, or if the resultant window would be too small. */
 
-    prev = window->prev;
-    next = window->next;
+  prev = window->prev;
+  next = window->next;
 
   /* WINDOW decreasing in size? */
   if (amount < 0)
@@ -654,7 +654,7 @@ window_delete_window (WINDOW *window)
     window_to_fix = prev;
   else
     window_to_fix = windows;
-    
+
   if (window_to_fix->first_row > window->first_row)
     {
       int diff;
@@ -708,7 +708,7 @@ long
 window_log_to_phys_line (WINDOW *window, long ln)
 {
   long i;
-  
+
   if (ln > window->line_count)
     return 0;
   for (i = ln; i < window->line_count && window->log_line_no[i] < ln; i++)
@@ -824,7 +824,7 @@ window_line_of_point (WINDOW *window)
   if (!window->line_starts)
     calculate_line_starts (window);
 
-  /* Check if point is past the pagetop for this window, and if so, start 
+  /* Check if point is past the pagetop for this window, and if so, start
      searching forward from there. */
   if (window->pagetop > -1 && window->pagetop < window->line_count
       && window->line_starts[window->pagetop] <= window->point)
@@ -991,7 +991,7 @@ free_echo_area (void)
   echo_area_node = NULL;
   window_set_node_of_window (the_echo_area, echo_area_node);
 }
-  
+
 /* Clear the echo area, removing any message that is already present.
    The echo area is cleared immediately. */
 void
@@ -1018,7 +1018,7 @@ void
 window_message_in_echo_area (const char *format, ...)
 {
   va_list ap;
-  
+
   va_start (ap, format);
   vwindow_message_in_echo_area (format, ap);
   va_end (ap);
@@ -1036,7 +1036,7 @@ void
 message_in_echo_area (const char *format, ...)
 {
   va_list ap;
-  
+
   if (echo_area_node)
     {
       add_pointer_to_array (echo_area_node, old_echo_area_nodes_index,
@@ -1080,7 +1080,7 @@ format_message_node (const char *format, ...)
 {
   NODE *node;
   va_list ap;
-  
+
   va_start (ap, format);
   node = build_message_node (format, ap);
   va_end (ap);
@@ -1220,12 +1220,12 @@ calculate_line_starts (WINDOW *win)
         pl_start += mb_len (mbi_cur (iter));
       pl_chars = 0;
 
-      /* If there is a character carried over, count it now.  Expected to be 
+      /* If there is a character carried over, count it now.  Expected to be
          "short", i.e. a representation like "^A". */
       if (carried_over_chars != 0)
         {
           pl_chars = carried_over_chars;
-    
+
           /* If this window has chosen not to wrap lines, skip to the end
              of the logical line in the buffer, and start a new line here. */
           if (win->flags & W_NoWrap)
@@ -1267,11 +1267,11 @@ line_map_add (LINE_MAP *map, long pos)
 {
   if (map->used == map->size)
     {
-      if (map->size == 0)				       
-	map->size = 80; /* Initial allocation */	       
+      if (map->size == 0)
+        map->size = 80; /* Initial allocation */
       map->map = x2nrealloc (map->map,
-			     &map->size,
-			     sizeof (map->map[0]));
+                             &map->size,
+                             sizeof (map->map[0]));
     }
 
   map->map[map->used++] = pos;
@@ -1305,10 +1305,10 @@ window_compute_line_map (WINDOW *win)
     endp = win->node->contents + win->line_starts[line + 1];
   else
     endp = win->node->contents + win->node->nodelen;
-  
+
   for (mbi_init (iter,
-		 win->node->contents + win->line_starts[line], 
-		 win->node->nodelen - win->line_starts[line]);
+                 win->node->contents + win->line_starts[line],
+                 win->node->nodelen - win->line_starts[line]);
        !delim && mbi_avail (iter);
        mbi_advance (iter))
     {
@@ -1316,8 +1316,8 @@ window_compute_line_map (WINDOW *win)
       cur_ptr = mbi_cur_ptr (iter);
 
       if (cur_ptr >= endp)
-	break;
-      
+        break;
+
       /* Set pchars */
       (void) printed_representation (&iter, &delim, win->line_map.used,
                                      &pchars, &pbytes);
@@ -1329,13 +1329,13 @@ window_compute_line_map (WINDOW *win)
 
 /* Translate the value of POINT into a column number.  If NP is given
    store there the value of point corresponding to the beginning of a
-   multibyte character in this column.  If the character at POINT spans 
+   multibyte character in this column.  If the character at POINT spans
    multiple columns (e.g. a tab), return the leftmost column it occupies. */
 size_t
 window_point_to_column (WINDOW *win, long point, long *np)
 {
   size_t i;
-  
+
   window_compute_line_map (win);
   if (!win->line_map.map || point < win->line_map.map[0])
     return 0;
