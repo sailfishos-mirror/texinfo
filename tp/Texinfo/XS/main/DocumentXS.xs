@@ -397,21 +397,23 @@ gdt (string, ...)
              hv_replaced_substrings = (HV *)SvRV (ST(2));
              hv_number = hv_iterinit (hv_replaced_substrings);
              if (hv_number > 0)
-               replaced_substrings = new_named_string_element_list ();
-               for (i = 0; i < hv_number; i++)
-                 {
-                   char *key;
-                   I32 retlen;
-                   SV *value = hv_iternextsv(hv_replaced_substrings,
-                                             &key, &retlen);
-                   DOCUMENT *document = get_sv_tree_document (value, 0);
-                   /* TODO should warn/error if not found or return
-                      a list of missing string identifiers?  Or check
-                      in caller?  In any case, it cannot be good to
-                      ignore a replaced substring */
-                   if (document && document->tree)
-                     add_element_to_named_string_element_list (
-                       replaced_substrings, key, document->tree);
+               {
+                 replaced_substrings = new_named_string_element_list ();
+                 for (i = 0; i < hv_number; i++)
+                   {
+                     char *key;
+                     I32 retlen;
+                     SV *value = hv_iternextsv(hv_replaced_substrings,
+                                               &key, &retlen);
+                     DOCUMENT *document = get_sv_tree_document (value, 0);
+                     /* TODO should warn/error if not found or return
+                        a list of missing string identifiers?  Or check
+                        in caller?  In any case, it cannot be good to
+                        ignore a replaced substring */
+                     if (document && document->tree)
+                       add_element_to_named_string_element_list (
+                         replaced_substrings, key, document->tree);
+                   }
                }
            }
 
