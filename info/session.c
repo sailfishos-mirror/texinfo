@@ -1121,7 +1121,10 @@ looking_at_newline (WINDOW *win, long point)
   mbi_iterator_t iter;
   mbi_init (iter, win->node->contents + point,
 	    win->node->nodelen - point);
-  mbi_avail (iter);
+
+  if (!mbi_avail (iter))
+    return 0;
+
   return mbi_cur (iter).wc_valid && mbi_cur (iter).wc == '\n';
 }
 
@@ -1132,7 +1135,9 @@ looking_at_alnum (WINDOW *win)
   mbi_iterator_t iter;
   mbi_init (iter, win->node->contents + win->point,
 	    win->node->nodelen - win->point);
-  mbi_avail (iter);
+
+  if (!mbi_avail (iter))
+    return 0;
 
   return mbi_cur (iter).wc_valid && iswalnum (mbi_cur (iter).wc);
 }

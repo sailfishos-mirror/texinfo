@@ -513,7 +513,10 @@ display_update_node_text (WINDOW *win)
 
   mbi_init (iter, win->node->contents + win->line_starts[win->pagetop],
             win->node->nodelen - win->line_starts[win->pagetop]);
-  mbi_avail (iter);
+
+  if (!mbi_avail (iter))
+    return 0;
+
   while (1)
     {
       int delim, text_buffer_line_offset;

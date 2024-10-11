@@ -1,3 +1,11 @@
+2024-11-10  Patrice Dumas  <pertusus@free.fr>
+
+	* info/display.c (display_update_node_text), info/session.c
+	(looking_at_newline, looking_at_alnum): check mbi_avail return value.
+	The caller probably makes sure that there are bytes, but this should
+	be more robust and could still be relevant for invalid multibytes
+	sequences depending on mbi_avail implementation.
+
 2024-10-10  Patrice Dumas  <pertusus@free.fr>
 
 	* nfo/terminal.c (keys, keys2), info/variables.c (styles),
