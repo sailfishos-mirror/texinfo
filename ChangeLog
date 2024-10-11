@@ -1,6 +1,6 @@
 2024-11-10  Patrice Dumas  <pertusus@free.fr>
 
-	* info/window.c: reindent, replace tables by spaces, remove spaces.
+	* info/window.c: reindent, replace tabs by spaces, remove spaces.
 
 2024-11-10  Patrice Dumas  <pertusus@free.fr>
 
@@ -49,7 +49,7 @@
 
 2024-10-10  Patrice Dumas  <pertusus@free.fr>
 
-	* nfo/terminal.c (keys, keys2), info/variables.c (styles),
+	* info/terminal.c (keys, keys2), info/variables.c (styles),
 	tp/Texinfo/XS/main/utils.c (def_aliases, default_expanded_formats),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
 	tp/Texinfo/XS/parsetexi/indices.c (default_indices)
@@ -196,7 +196,7 @@
 
 	* info/echo-area.c (build_completions): use a size_t index variable to
 	add entries to completions_found.  Pass this variable to
-	remove_completion_duplicates and retirieve the modified value.  Set
+	remove_completion_duplicates and retrieve the modified value.  Set
 	completions_found_index at this point, such that the conversion to
 	long is explicit, and mark in a comment that the completions_found*
 	and LCD_completion should not be modified after that point and before
