@@ -984,7 +984,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               destroy_element_and_children (verbatim_include_verbatim);
             }
         }
-      else if (element->e.c->cmd && CM_item
+      else if (element->e.c->cmd == CM_item
                && element->parent->e.c->cmd == CM_enumerate)
         {
           int status;
