@@ -286,7 +286,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
         goto unmacro_badname;
       r = skip_to_comment_if_comment_or_spaces (q, has_comment);
       if (!r || r != q)
-        goto clear_invalid; /* Trailing argument. */
+        goto unmacro_badname; /* Trailing argument. */
       delete_macro (value);
       ADD_ARG(value, q - p);
       debug ("UNMACRO %s", value);
