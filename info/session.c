@@ -2958,6 +2958,8 @@ info_handle_pointer (const char *label, WINDOW *window)
     description = window->node->next;
   else if (!strcmp (label, "Prev"))
     description = window->node->prev;
+  else /* Should not happen */
+    abort ();
 
   if (!description)
     {
