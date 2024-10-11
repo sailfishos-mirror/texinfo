@@ -56,6 +56,7 @@ set_html_regular_options_defaults (OPTIONS *options)
   option_set_conf (&options->CONTENTS_OUTPUT_LOCATION, -2, "after_top");
   option_set_conf (&options->CONVERT_TO_LATEX_IN_MATH, -1, 0);
   option_set_conf (&options->INDENTED_BLOCK_COMMANDS_IN_TABLE, 0, 0);
+  option_set_conf (&options->CHECK_HTMLXREF, 1, 0);
   option_set_conf (&options->COPIABLE_LINKS, 1, 0);
   option_set_conf (&options->DATE_IN_HEADER, 0, 0);
   option_set_conf (&options->DEFAULT_RULE, -2, "<hr>");
@@ -113,6 +114,7 @@ add_html_regular_options_defaults (OPTIONS_LIST *options_list)
   add_new_option_value (options_list, GOT_char, "CONTENTS_OUTPUT_LOCATION", -2, "after_top");
   add_new_option_value (options_list, GOT_integer, "CONVERT_TO_LATEX_IN_MATH", -1, 0);
   add_new_option_value (options_list, GOT_integer, "INDENTED_BLOCK_COMMANDS_IN_TABLE", 0, 0);
+  add_new_option_value (options_list, GOT_integer, "CHECK_HTMLXREF", 1, 0);
   add_new_option_value (options_list, GOT_integer, "COPIABLE_LINKS", 1, 0);
   add_new_option_value (options_list, GOT_integer, "DATE_IN_HEADER", 0, 0);
   add_new_option_value (options_list, GOT_char, "DEFAULT_RULE", -2, "<hr>");

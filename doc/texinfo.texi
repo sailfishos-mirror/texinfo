@@ -18314,12 +18314,12 @@ Cross-references between HTML manuals are specified precisely
 through the @file{htmlxref.cnf} file (@pxref{HTML Xref Configuration}).
 
 @vindex CHECK_HTMLXREF
-Defaults directories and file names are used for cross-reference target manual
-not found through HTML Xref Configuration (@pxref{HTML Xref Link Basics}).  If
-you want to make sure that all the manuals referred to are found in an HTML
-Xref configuration file, you should set @code{CHECK_HTMLXREF} to get a message
-for each external manual not in the HTML Xref configuration files.  This could
-be relevant, for example, if you know that no manual is installed locally.
+Default directories and file names are used for cross-reference target
+manual not found through HTML Xref Configuration (@pxref{HTML Xref Link
+Basics}).  By default, a warning is given for each external manual not in
+the HTML Xref configuration files.  If you do not want warnings about such
+manuals, you should set @code{CHECK_HTMLXREF} to @samp{0}.  This could
+be relevant, for example, if you know that manuals are installed locally.
 
 @vindex HTMLXREF_MODE
 @vindex HTMLXREF_FILE
@@ -18912,7 +18912,7 @@ commands; default @samp{2}.
 @item CHECK_HTMLXREF
 Check that manuals which are the target of external
 cross-references (@pxref{Four and Five Arguments}) are present in
-@file{htmlxref.cnf} (@pxref{HTML Xref Configuration}); default false.
+@file{htmlxref.cnf} (@pxref{HTML Xref Configuration}); default true.
 
 @item CONTENTS_OUTPUT_LOCATION
 If set to @samp{after_top}, output the contents at the end of the @code{@@top}

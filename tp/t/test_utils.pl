@@ -424,6 +424,10 @@ sub set_converter_option_defaults($$;$)
   if (!defined($converter_options->{'DEBUG'})) {
     $converter_options->{'DEBUG'} = $debug;
   }
+  if (!defined($converter_options->{'CHECK_HTMLXREF'})) {
+    # avoid bloating test results with warnings
+    $converter_options->{'CHECK_HTMLXREF'} = 0;
+  }
 
   return $converter_options;
 }

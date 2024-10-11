@@ -286,6 +286,7 @@ my %converter_html_regular_options_defaults = (
   'CONTENTS_OUTPUT_LOCATION'         => 'after_top',
   'CONVERT_TO_LATEX_IN_MATH'         => undef,
   'INDENTED_BLOCK_COMMANDS_IN_TABLE' => 0,
+  'CHECK_HTMLXREF'                   => 1,
   'COPIABLE_LINKS'                   => 1,
   'DATE_IN_HEADER'                   => 0,
   'DEFAULT_RULE'                     => '<hr>',

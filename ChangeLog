@@ -1,3 +1,15 @@
+2024-10-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	CHECK_HTMLXREF on by default.
+
+	* tp/Texinfo/Convert/converters_defaults.txt (html):
+	Set CHECK_HTMLXREF on by default.
+	* tp/t/test_utils.pl (set_converter_option_defaults):
+	Clear CHECK_HTMLXREF.
+
+	* doc/texinfo.texi (File Names and Links Customization for HTML),
+	* NEWS: Update.
+
 2024-11-10  Patrice Dumas  <pertusus@free.fr>
 
 	* info/nodes.c (info_get_node_with_defaults): remove filename_in in
