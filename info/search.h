@@ -53,37 +53,38 @@ enum search_result
     search_invalid
   };
 
-enum search_result search_forward (char *string,
-                                 SEARCH_BINDING *binding, long *poff);
-enum search_result search_backward (char *input_string,
-                                    SEARCH_BINDING *binding,
+enum search_result search_forward (const char *string,
+                                 const SEARCH_BINDING *binding, long *poff);
+enum search_result search_backward (const char *input_string,
+                                    const SEARCH_BINDING *binding,
                                     long *poff);
-enum search_result search (char *string, SEARCH_BINDING *binding,
+enum search_result search (const char *string, const SEARCH_BINDING *binding,
                            long *poff);
-enum search_result regexp_search (char *regexp,
+enum search_result regexp_search (const char *regexp,
                int is_literal, int is_insensitive,
                char *buffer, long buflen,
                MATCH_STATE *match_state);
-int looking_at (char *string, SEARCH_BINDING *binding);
-int looking_at_line (char *string, char *pointer);
+int looking_at (const char *string, const SEARCH_BINDING *binding);
+int looking_at_line (const char *string, char *pointer);
 
 /* Note that STRING_IN_LINE () always returns the offset of the 1st character
    after the string. */
-int string_in_line (char *string, char *line);
+int string_in_line (const char *string, char *line);
 
 /* Function names that start with "skip" are passed a string, and return
    an offset from the start of that string.  Function names that start
    with "find" are passed a SEARCH_BINDING, and return an absolute position
    marker of the item being searched for.  "Find" functions return a value
    of -1 if the item being looked for couldn't be found. */
-size_t skip_whitespace (char *string);
-size_t skip_non_whitespace (char *string);
-size_t skip_whitespace_and_newlines (char *string);
-size_t skip_node_separator (char *body);
+size_t skip_whitespace (const char *string);
+size_t skip_non_whitespace (const char *string);
+size_t skip_whitespace_and_newlines (const char *string);
+size_t skip_node_separator (const char *body);
 
-long find_node_separator (SEARCH_BINDING *binding);
-long find_file_section (SEARCH_BINDING *binding, char *label);
-long find_node_in_binding (char *nodename, SEARCH_BINDING *binding);
+long find_node_separator (const SEARCH_BINDING *binding);
+long find_file_section (const SEARCH_BINDING *binding, const char *label);
+long find_node_in_binding (const char *nodename,
+                           const SEARCH_BINDING *binding);
 
 regmatch_t match_by_index (MATCH_STATE *state, size_t index);
 enum search_result match_in_match_list (MATCH_STATE *state,

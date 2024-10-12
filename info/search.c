@@ -34,7 +34,7 @@
 /* Search forwards or backwards for the text delimited by BINDING.
    The search is forwards if BINDING->start is greater than BINDING->end. */
 enum search_result
-search (char *string, SEARCH_BINDING *binding, long *poff)
+search (const char *string, const SEARCH_BINDING *binding, long *poff)
 {
   enum search_result result;
 
@@ -49,10 +49,11 @@ search (char *string, SEARCH_BINDING *binding, long *poff)
 
 /* Expand \n and \t in regexp to newlines and tabs */
 static char *
-regexp_expand_newlines_and_tabs (char *regexp)
+regexp_expand_newlines_and_tabs (const char *regexp)
 {
   char *unescaped_regexp = xmalloc (1 + strlen (regexp));
-  char *p, *q;
+  const char *p;
+  char *q;
 
   for (p = regexp, q = unescaped_regexp; *p != '\0'; p++, q++)
     {
@@ -84,10 +85,11 @@ regexp_expand_newlines_and_tabs (char *regexp)
 
 /* Escape any special characters in SEARCH_STRING. */
 static char *
-regexp_escape_string (char *search_string)
+regexp_escape_string (const char *search_string)
 {
   char *special_chars = "\\[]^$.*(){}|+?";
-  char *p, *q;
+  const char *p;
+  char *q;
 
   char *escaped_string = xmalloc (strlen (search_string) * 2 + 1);
 
@@ -175,7 +177,7 @@ extend_matches (MATCH_STATE *state)
 /* Search BUFFER for REGEXP.  If matches are found, pass back the list of 
    matches in MATCH_STATE. */
 enum search_result
-regexp_search (char *regexp, int is_literal, int is_insensitive,
+regexp_search (const char *regexp, int is_literal, int is_insensitive,
                char *buffer, long buflen,
                MATCH_STATE *match_state)
 {
@@ -224,7 +226,7 @@ regexp_search (char *regexp, int is_literal, int is_insensitive,
 
 /* Search forwards for STRING through the text delimited in BINDING. */
 enum search_result
-search_forward (char *string, SEARCH_BINDING *binding, long *poff)
+search_forward (const char *string, const SEARCH_BINDING *binding, long *poff)
 {
   register int c;
   register size_t i, len;
@@ -285,7 +287,8 @@ search_forward (char *string, SEARCH_BINDING *binding, long *poff)
 
 /* Search for STRING backwards through the text delimited in BINDING. */
 enum search_result
-search_backward (char *input_string, SEARCH_BINDING *binding, long *poff)
+search_backward (const char *input_string, const SEARCH_BINDING *binding,
+                 long *poff)
 {
   register int i_end, c;
   register size_t i, len;
@@ -359,7 +362,7 @@ search_backward (char *input_string, SEARCH_BINDING *binding, long *poff)
    Return an offset of -1 if STRING does not appear in LINE.  The search
    is bound by the end of the line (i.e., either NEWLINE or 0). */
 int
-string_in_line (char *string, char *line)
+string_in_line (const char *string, char *line)
 {
   register size_t end;
   SEARCH_BINDING binding;
@@ -381,7 +384,7 @@ string_in_line (char *string, char *line)
 
 /* Return non-zero if STRING is the first text to appear at BINDING. */
 int
-looking_at (char *string, SEARCH_BINDING *binding)
+looking_at (const char *string, const SEARCH_BINDING *binding)
 {
   long search_end;
 
@@ -396,7 +399,7 @@ looking_at (char *string, SEARCH_BINDING *binding)
 /* Return non-zero if POINTER is looking at the text at STRING before an 
    end-of-line. */
 int
-looking_at_line (char *string, char *pointer)
+looking_at_line (const char *string, char *pointer)
 {
   int len;
 
@@ -557,7 +560,7 @@ at_end_of_matches (MATCH_STATE *state, size_t index)
 
 /* Return the index of the first non-whitespace character in STRING. */
 size_t
-skip_whitespace (char *string)
+skip_whitespace (const char *string)
 {
   register size_t i;
 
@@ -568,7 +571,7 @@ skip_whitespace (char *string)
 /* Return the index of the first non-whitespace or newline character in
    STRING. */
 size_t
-skip_whitespace_and_newlines (char *string)
+skip_whitespace_and_newlines (const char *string)
 {
   register size_t i;
 
@@ -578,7 +581,7 @@ skip_whitespace_and_newlines (char *string)
 
 /* Return the index of the first whitespace character in STRING. */
 size_t
-skip_non_whitespace (char *string)
+skip_non_whitespace (const char *string)
 {
   register size_t i;
 
@@ -596,10 +599,10 @@ skip_non_whitespace (char *string)
    starting in BINDING->buffer between BINDING->start and BINDING->end 
    inclusive.  Return -1 if no node separator was found. */
 long
-find_node_separator (SEARCH_BINDING *binding)
+find_node_separator (const SEARCH_BINDING *binding)
 {
   register long i;
-  char *body;
+  const char *body;
   int dir;
 
   body = binding->buffer;
@@ -639,7 +642,7 @@ find_node_separator (SEARCH_BINDING *binding)
 /* Return the length of the node separator characters that BODY is currently
    pointing at.  If it's not pointing at a node separator, return 0. */
 size_t
-skip_node_separator (char *body)
+skip_node_separator (const char *body)
 {
   register size_t i;
 
@@ -666,7 +669,7 @@ skip_node_separator (char *body)
 /* Return the absolute position of the beginning of a section in this file
    whose first line is LABEL, starting the search at binding->start. */
 long
-find_file_section (SEARCH_BINDING *binding, char *label)
+find_file_section (const SEARCH_BINDING *binding, const char *label)
 {
   SEARCH_BINDING s;
   long position;
@@ -707,7 +710,7 @@ find_file_section (SEARCH_BINDING *binding, char *label)
    really point to the right node.  It returns the absolute position of
    the separator preceding the node. */
 long
-find_node_in_binding (char *nodename, SEARCH_BINDING *binding)
+find_node_in_binding (const char *nodename, const SEARCH_BINDING *binding)
 {
   long position;
   int offset;
