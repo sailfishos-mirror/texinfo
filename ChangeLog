@@ -1,5 +1,10 @@
 2024-10-12  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.c (find_node_from_tag, info_node_of_tag_ext): remove
+	unused parent argument.
+
+2024-10-12  Patrice Dumas  <pertusus@free.fr>
+
 	* info/search.c: add const.
 
 2024-10-12  Patrice Dumas  <pertusus@free.fr>

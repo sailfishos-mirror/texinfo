@@ -1167,13 +1167,11 @@ adjust_nodestart (FILE_BUFFER *fb, TAG *node)
   return 1;
 }
 
-/* Look in the contents of *FB_PTR for a node referred to with TAG.  Set
+/* Look in the contents of *FB for a node referred to with TAG.  Set
    the location if found in TAG->nodestart_adjusted.
-
-   PARENT->tags contains the tags table for the whole file.  If file is
-   non-split, PARENT should be the same as FB. */
+ */
 static int
-find_node_from_tag (FILE_BUFFER *parent, FILE_BUFFER *fb, TAG *tag)
+find_node_from_tag (FILE_BUFFER *fb, TAG *tag)
 {
   int success;
 
@@ -1278,7 +1276,7 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **input_tag_ptr, int fast)
      around about it and adjust it if necessary. */
   if (node_tag->cache.nodelen == 0)
     {
-      if (!find_node_from_tag (parent, subfile, node_tag))
+      if (!find_node_from_tag (subfile, node_tag))
         return NULL; /* Node not found. */
 
       set_tag_nodelen (subfile, node_tag);
