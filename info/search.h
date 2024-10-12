@@ -65,7 +65,7 @@ enum search_result regexp_search (const char *regexp,
                char *buffer, long buflen,
                MATCH_STATE *match_state);
 int looking_at (const char *string, const SEARCH_BINDING *binding);
-int looking_at_line (const char *string, char *pointer);
+int looking_at_line (const char *string, const char *pointer);
 
 /* Note that STRING_IN_LINE () always returns the offset of the 1st character
    after the string. */

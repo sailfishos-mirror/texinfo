@@ -399,7 +399,7 @@ looking_at (const char *string, const SEARCH_BINDING *binding)
 /* Return non-zero if POINTER is looking at the text at STRING before an 
    end-of-line. */
 int
-looking_at_line (const char *string, char *pointer)
+looking_at_line (const char *string, const char *pointer)
 {
   int len;
 
