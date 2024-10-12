@@ -154,7 +154,6 @@ init_file_buffer_tag (FILE_BUFFER *fb, TAG *entry)
 {
   if (fb->flags & N_HasTagsTable)
     {
-      entry->flags |= N_HasTagsTable;
       entry->filename = fb->fullpath;
     }
 }

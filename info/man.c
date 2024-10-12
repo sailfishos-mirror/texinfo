@@ -144,7 +144,7 @@ get_manpage_node (char *pagename)
       node = info_create_node ();
       node->fullpath = MANPAGE_FILE_BUFFER_NAME;
       node->nodename = xstrdup (pagename);
-      node->flags |= N_HasTagsTable | N_IsManPage;
+      node->flags |= N_IsManPage;
 
       /* Save this node. */
       add_pointer_to_array (node, manpage_node_index,

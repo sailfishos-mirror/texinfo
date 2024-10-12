@@ -1,5 +1,11 @@
 2024-10-12  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.c (init_file_buffer_tag), info/man.c (get_manpage_node):
+	do not set N_HasTagsTable on a manpage node nor on a tag entry, it is
+	only relevant and used at the file buffer level.
+
+2024-10-12  Patrice Dumas  <pertusus@free.fr>
+
 	* info/nodes.c (init_file_buffer_tag): do not set N_TagsIndirect on
 	the entry, it is only relevant and used at the file buffer level.
 
