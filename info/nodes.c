@@ -1300,7 +1300,6 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **tag_ptr, int fast)
       node->contents += skip_node_separator (node->contents);
       node->nodelen = tag->cache.nodelen;
       node->nodename = tag->nodename;
-      node->flags = tag->flags;
 
       node->fullpath = parent->fullpath;
       if (parent != subfile)
