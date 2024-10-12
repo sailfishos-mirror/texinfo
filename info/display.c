@@ -104,7 +104,7 @@ find_diff (const char *a, size_t alen, const char *b, size_t blen, int *ppos)
   int pos = 0;
   int first_escape = -1;
   int escape_pos = -1;
-  
+
   for (i = 0, mbi_init (itra, a, alen), mbi_init (itrb, b, blen);
        mbi_avail (itra) && mbi_avail (itrb);
        i += wcwidth (itra.cur.wc), mbi_advance (itra), mbi_advance (itrb))
@@ -160,57 +160,57 @@ display_update_line (long pl_num, char *printed_line,
   if (entry)
     {
       int i, off;
-	      
+
       /* If the screen line is inversed, or if the entry is marked as
          invalid, then clear the line from the screen first. */
       if (entry->inverse)
-	{
-	  terminal_goto_xy (0, pl_num);
-	  terminal_clear_to_eol ();
-	  entry->inverse = 0;
-	  entry->text[0] = '\0';
-	  entry->textlen = 0;
-	}
+        {
+          terminal_goto_xy (0, pl_num);
+          terminal_clear_to_eol ();
+          entry->inverse = 0;
+          entry->text[0] = '\0';
+          entry->textlen = 0;
+        }
 
       i = find_diff (printed_line, pl_bytes,
-		     entry->text, strlen (entry->text), &off);
+                     entry->text, strlen (entry->text), &off);
 
       /* If the lines differed at all, we must do some redrawing. */
       if (i != -1)
-	{
+        {
           int printed_line_len = strlen (printed_line);
-	  /* Move to the proper point on the terminal. */
-	  terminal_goto_xy (i, pl_num);
+          /* Move to the proper point on the terminal. */
+          terminal_goto_xy (i, pl_num);
 
-	  /* If there is any text to print, print it. */
+          /* If there is any text to print, print it. */
           terminal_put_text (printed_line + off);
-	  
-	  /* If the printed text didn't extend all the way to the edge
-	     of the screen, and text was appearing between here and the
-	     edge of the screen, clear from here to the end of the
-	     line. */
-	  if ((pl_chars < screenwidth && pl_chars < entry->textlen)
-	      || entry->inverse)
-	    terminal_clear_to_eol ();
-	  
-	  fflush (stdout);
-	  
-	  /* Update the display text buffer. */
-	  if (printed_line_len > screenwidth)
-	    /* printed_line[] can include more than screenwidth
-	       characters, e.g. if multibyte encoding is used or
-	       if we are under -R and there are escape sequences
-	       in it.  However, entry->text was allocated (in
-	       display_initialize_display) for screenwidth
-	       bytes only.  */
-	    entry->text = xrealloc (entry->text, printed_line_len + 1);
-	  strcpy (entry->text + off, printed_line + off);
-	  entry->textlen = pl_chars;
-	  
-	  /* Lines showing node text are not in inverse.  Only modelines
-	     have that distinction. */
-	  entry->inverse = 0;
-	}
+
+          /* If the printed text didn't extend all the way to the edge
+             of the screen, and text was appearing between here and the
+             edge of the screen, clear from here to the end of the
+             line. */
+          if ((pl_chars < screenwidth && pl_chars < entry->textlen)
+              || entry->inverse)
+            terminal_clear_to_eol ();
+
+          fflush (stdout);
+
+          /* Update the display text buffer. */
+          if (printed_line_len > screenwidth)
+            /* printed_line[] can include more than screenwidth
+               characters, e.g. if multibyte encoding is used or
+               if we are under -R and there are escape sequences
+               in it.  However, entry->text was allocated (in
+               display_initialize_display) for screenwidth
+               bytes only.  */
+            entry->text = xrealloc (entry->text, printed_line_len + 1);
+          strcpy (entry->text + off, printed_line + off);
+          entry->textlen = pl_chars;
+
+          /* Lines showing node text are not in inverse.  Only modelines
+             have that distinction. */
+          entry->inverse = 0;
+        }
     }
 
   /* A line has been displayed, and the screen reflects that state.
@@ -271,9 +271,9 @@ static int writing_out;
    priority over RENDITION1. */
 static void
 wrap_terminal_switch_rendition (struct text_buffer *printed_line,
-                                 RENDITION rendition1,
-                                 RENDITION rendition2,
-                                 RENDITION rendition3)
+                                RENDITION rendition1,
+                                RENDITION rendition2,
+                                RENDITION rendition3)
 {
   long int desired_rendition = 0;
   desired_rendition = rendition1.value;
@@ -298,7 +298,7 @@ wrap_terminal_switch_rendition (struct text_buffer *printed_line,
     }
 }
 
-/* Set in display_update_node_text if matches or references are to be 
+/* Set in display_update_node_text if matches or references are to be
    distinguished with terminal appearance modes. */
 static MATCH_STATE *matches;
 static REFERENCE **refs;
@@ -308,7 +308,7 @@ static int ref_index;
 /* Number of screen columns output so far in a line. */
 static int pl_chars;
 
-/* Whether we are currently outputting a highlighted reference.  This can be 
+/* Whether we are currently outputting a highlighted reference.  This can be
    carried over from one line to another. */
 static int ref_highlighted;
 
@@ -405,7 +405,7 @@ display_process_line (WINDOW *win,
               else if (win->point >= refs[ref_index]->start
                        && win->point < refs[ref_index]->end)
                 {
-                  /* The point is in a cross-reference, but not in the 
+                  /* The point is in a cross-reference, but not in the
                      current line. */
                   ref_highlighted = 1;
                 }
@@ -536,7 +536,7 @@ display_update_node_text (WINDOW *win)
       if (pl_num == win->height)
         break;
 
-      /* Check if this line of the window is off the screen.  This might 
+      /* Check if this line of the window is off the screen.  This might
          happen if the screen was resized very small. */
       if (win->first_row + pl_num >= screenheight)
         break;
@@ -598,7 +598,7 @@ display_update_node_text (WINDOW *win)
         }
 
       /* Check if a line continuation character should be displayed.
-         Don't print one on the very last line of the display, as this could 
+         Don't print one on the very last line of the display, as this could
          cause it to scroll. */
       if (delim)
         mbi_advance (iter);
@@ -708,7 +708,7 @@ display_update_one_window (WINDOW *win)
       line_index = display_update_node_text (win);
 
       if (display_was_interrupted_p)
-	goto funexit;
+        goto funexit;
     }
 
   /* We have reached the end of the node or the end of the window.  If it
@@ -742,7 +742,7 @@ display_update_one_window (WINDOW *win)
 
   /* Okay, this window doesn't need updating anymore. */
   win->flags &= ~W_UpdateWindow;
-funexit:
+ funexit:
   signal_unblock_winch ();
 }
 

@@ -61,43 +61,42 @@ build_dir_node (void)
   node->fullpath = xstrdup ("dir");
   node->contents = xstrdup (
 
-"File: dir,	Node: Top,	This is the top of the INFO tree.\n"
-"\n"
-"This is the Info main menu (aka directory node).\n"
-"A few useful Info commands:\n"
-"\n"
-"  'q' quits;\n"
-"  'H' lists all Info commands;\n"
-"  'h' starts the Info tutorial;\n"
-"  'mTexinfo RET' visits the Texinfo manual, etc.\n"
-
+ "File: dir,	Node: Top,	This is the top of the INFO tree.\n"
+ "\n"
+ "This is the Info main menu (aka directory node).\n"
+ "A few useful Info commands:\n"
+ "\n"
+ "  'q' quits;\n"
+ "  'H' lists all Info commands;\n"
+ "  'h' starts the Info tutorial;\n"
+ "  'mTexinfo RET' visits the Texinfo manual, etc.\n"
   );
 
   node->nodelen = strlen (node->contents);
 
- for (this_dir = infopath_first (&path_index); this_dir; 
-        this_dir = infopath_next (&path_index))
-   {
-     char *result;
-     char *fullpath;
-     int len;
-     size_t filesize;
-     struct stat finfo;
-     int compressed;
-     char *contents;
+  for (this_dir = infopath_first (&path_index); this_dir;
+       this_dir = infopath_next (&path_index))
+    {
+      char *result;
+      char *fullpath;
+      int len;
+      size_t filesize;
+      struct stat finfo;
+      int compressed;
+      char *contents;
 
 /* Space for an appended compressed file extension, like ".gz". */
 #define PADDING "XXXXXXXXX"
 
-     len = xasprintf (&fullpath, "%s/dir%s", this_dir, PADDING);
-     fullpath[len - strlen(PADDING)] = '\0';
+      len = xasprintf (&fullpath, "%s/dir%s", this_dir, PADDING);
+      fullpath[len - strlen(PADDING)] = '\0';
 
-     result = info_check_compressed (fullpath, &finfo);
-     if (!result)
-       {
-         free (fullpath);
-         continue;
-       }
+      result = info_check_compressed (fullpath, &finfo);
+      if (!result)
+        {
+          free (fullpath);
+          continue;
+        }
 
       contents = filesys_read_info_file (fullpath, &filesize,
                                          &finfo, &compressed);
@@ -156,7 +155,7 @@ add_menu_to_node (char *contents, size_t size, NODE *node)
       fb_binding.start = 0;
       fb_binding.end = node->nodelen;
       if (search_forward (INFO_MENU_LABEL, &fb_binding, &fb_offset)
-	  != search_success)
+           != search_success)
         abort ();
     }
 
