@@ -65,7 +65,7 @@ build_tags_and_nodes (FILE_BUFFER *file_buffer)
   size_t tags_table_begin, tags_table_end;
 
   free_file_buffer_tags (file_buffer);
-  file_buffer->flags &= ~N_HasTagsTable;
+  file_buffer->flags &= ~F_HasTagsTable;
 
   /* See if there is a tags table in this info file. */
   binding.buffer = file_buffer->contents;
@@ -98,7 +98,7 @@ build_tags_and_nodes (FILE_BUFFER *file_buffer)
 
   /* The file contains a valid tags table.  Fill the FILE_BUFFER's
      tags member. */
-  file_buffer->flags |= N_HasTagsTable;
+  file_buffer->flags |= F_HasTagsTable;
   tags_table_begin = position;
 
   position += skip_node_separator (file_buffer->contents + position);
@@ -152,7 +152,7 @@ no_tags_table:
 static void
 init_file_buffer_tag (FILE_BUFFER *fb, TAG *entry)
 {
-  if (fb->flags & N_HasTagsTable)
+  if (fb->flags & F_HasTagsTable)
     {
       entry->filename = fb->fullpath;
     }
@@ -360,7 +360,7 @@ get_tags_of_indirect_tags_table (FILE_BUFFER *file_buffer,
   TAG *entry;
 
   /* Remember that tags table was indirect. */
-  file_buffer->flags |= N_TagsIndirect;
+  file_buffer->flags |= F_TagsIndirect;
 
   /* First get the list of tags from the tags table.  Then lookup the
      associated file in the indirect list for each tag, and update it. */
@@ -743,7 +743,7 @@ info_load_file (char *fullpath, int is_subfile)
   file_buffer->filesize = filesize;
   file_buffer->contents = contents;
   if (compressed)
-    file_buffer->flags |= N_IsCompressed;
+    file_buffer->flags |= F_IsCompressed;
   
   /* Find encoding of file, if set */
   get_file_character_encoding (file_buffer);
@@ -762,7 +762,7 @@ info_load_file (char *fullpath, int is_subfile)
         }
     }
   else
-    file_buffer->flags |= N_Subfile;
+    file_buffer->flags |= F_Subfile;
 
   /* If the file was loaded, remember the name under which it was found. */
   if (file_buffer)
@@ -839,7 +839,7 @@ make_file_buffer (void)
 static void
 forget_info_file (FILE_BUFFER *file_buffer)
 {
-  file_buffer->flags |= N_Gone;
+  file_buffer->flags |= F_Gone;
   file_buffer->filename[0] = '\0';
   file_buffer->fullpath = "";
   memset (&file_buffer->finfo, 0, sizeof (struct stat));
@@ -856,7 +856,7 @@ info_reload_file_buffer_contents (FILE_BUFFER *fb)
   int is_compressed;
   size_t filesize;
 
-  fb->flags &= ~N_IsCompressed;
+  fb->flags &= ~F_IsCompressed;
 
   /* Let the filesystem do all the work for us. */
   fb->contents =
@@ -867,7 +867,7 @@ info_reload_file_buffer_contents (FILE_BUFFER *fb)
   fb->filesize = filesize;
 
   if (is_compressed)
-    fb->flags |= N_IsCompressed;
+    fb->flags |= F_IsCompressed;
 }
 
 

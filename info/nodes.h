@@ -53,19 +53,21 @@ typedef struct {
   int active_menu;              /* Used for subnodes search. */
 } NODE;
 
-/* Values for NODE.flags or FILE_BUFFER.flags. */
-#define N_HasTagsTable 0x01     /* This node was found through a tags table. */
-#define N_TagsIndirect 0x02     /* The tags table was an indirect one. */
-#define N_IsCompressed 0x08     /* The file is compressed on disk. */
-#define N_IsInternal   0x10     /* This node was made by Info. */
-#define N_IsManPage    0x40     /* This node is a manpage. */
-#define N_WasRewritten 0x100    /* NODE->contents can be passed to free(). */ 
-#define N_IsIndex      0x200    /* An index node. */
-#define N_IsDir        0x400    /* A dir node. */
-#define N_Subfile      0x800    /* File buffer is a subfile of a split file. */
-#define N_Gone         0x1000   /* File is no more. */
-#define N_Simple       0x2000   /* Data about cross-references is missing. */
-#define N_SeenBySearch 0x4000   /* Node has already been seen in a search. */
+/* Values for FILE_BUFFER.flags. */
+#define F_HasTagsTable 0x01     /* This file has a tags table. */
+#define F_TagsIndirect 0x02     /* The tags table was an indirect one. */
+#define F_IsCompressed 0x04     /* The file is compressed on disk. */
+#define F_Subfile      0x08     /* File buffer is a subfile of a split file. */
+#define F_Gone         0x10     /* File is no more. */
+
+/* Values for NODE.flags */
+#define N_IsInternal   0x01     /* This node was made by Info. */
+#define N_IsManPage    0x02     /* This node is a manpage. */
+#define N_WasRewritten 0x04     /* NODE->contents can be passed to free(). */
+#define N_IsIndex      0x08     /* An index node. */
+#define N_IsDir        0x10     /* A dir node. */
+#define N_Simple       0x20     /* Data about cross-references is missing. */
+#define N_SeenBySearch 0x40     /* Node has already been seen in a search. */
 
 /* String constants. */
 #define INFO_FILE_LABEL                 "File:"

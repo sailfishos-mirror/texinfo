@@ -1745,7 +1745,7 @@ gc_file_buffers_and_nodes (void)
 
               /* Each node should match at most one file, either a subfile or a 
                  non-split file. */
-              if (fb->flags & N_Subfile)
+              if (fb->flags & F_Subfile)
                 {
                   if (n->subfile && !FILENAME_CMP (fb->fullpath, n->subfile))
                     {
@@ -1753,7 +1753,7 @@ gc_file_buffers_and_nodes (void)
                       break;
                     }
                 }
-              else if (!(fb->flags & N_TagsIndirect))
+              else if (!(fb->flags & F_TagsIndirect))
                 {
                   if (n->fullpath && !FILENAME_CMP (fb->fullpath, n->fullpath))
                     {
@@ -1773,7 +1773,7 @@ gc_file_buffers_and_nodes (void)
           FILE_BUFFER *fb = info_loaded_files[i];
           TAG **t;
 
-          if (fb->flags & N_TagsIndirect)
+          if (fb->flags & F_TagsIndirect)
             continue;
 
           /* If already gc-ed, do nothing. */
@@ -1783,12 +1783,12 @@ gc_file_buffers_and_nodes (void)
           /* If this file had to be uncompressed, check to see if we should
              gc it.  This means that the user-variable "gc-compressed-files"
              is non-zero. */
-          if ((fb->flags & N_IsCompressed) && !gc_compressed_files)
+          if ((fb->flags & F_IsCompressed) && !gc_compressed_files)
             continue;
 
           /* Don't free file buffers corresponding to files that aren't there 
              any more, because a node may still refer to them. */
-          if (fb->flags & N_Gone)
+          if (fb->flags & F_Gone)
             continue;
 
           free (fb->contents);

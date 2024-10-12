@@ -1,5 +1,11 @@
 2024-10-12  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.c, info/nodes.h, info/session.c: separate flags for nodes
+	and tags from flags for file buffers.  Use a leading F_ for file
+	buffer flags.
+
+2024-10-12  Patrice Dumas  <pertusus@free.fr>
+
 	* info/nodes.c (info_node_of_tag_ext): do not set N_IsCompressed on
 	nodes, it is only relevant and used at the file buffer level.
 
