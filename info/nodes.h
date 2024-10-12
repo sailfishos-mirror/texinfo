@@ -103,6 +103,7 @@ typedef struct {
 
 /* Values for TAG.flags. */
 #define T_SeenBySearch 0x01     /* Tag has already been seen in a search. */
+#define T_IsAnchor     0x02     /* Tag is an anchor */
 
 /* The following structure is used to remember information about the contents
    of Info files that we have loaded at least once before.  The FINFO member

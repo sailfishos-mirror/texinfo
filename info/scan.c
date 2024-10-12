@@ -883,7 +883,7 @@ copy_input_to_output (long n)
 
                 anchor_to_adjust++;
                 if (!*anchor_to_adjust
-                    || (*anchor_to_adjust)->cache.nodelen != 0)
+                    || !((*anchor_to_adjust)->flags & T_IsAnchor))
                   {
                     anchor_to_adjust = 0;
                     break;
@@ -1511,7 +1511,7 @@ scan_node_contents (NODE *node, FILE_BUFFER *fb, TAG **tag_ptr)
       if (!*anchor_to_adjust)
         anchor_to_adjust = 0;
       else if (*anchor_to_adjust
-               && (*anchor_to_adjust)->cache.nodelen != 0)
+               && !((*anchor_to_adjust)->flags & T_IsAnchor))
         anchor_to_adjust = 0;
 
       if (!node->subfile)
@@ -1667,7 +1667,7 @@ scan_node_contents (NODE *node, FILE_BUFFER *fb, TAG **tag_ptr)
     {
       /* Set nodestart_adjusted for all of the anchors in this node. */
       tag_ptr++;
-      while (*tag_ptr && (*tag_ptr)->cache.nodelen == 0)
+      while (*tag_ptr && ((*tag_ptr)->flags & T_IsAnchor))
         {
           (*tag_ptr)->nodestart_adjusted = (*tag_ptr)->nodestart
                                              - output_bytes_difference;

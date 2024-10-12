@@ -218,10 +218,7 @@ build_tag_table (FILE_BUFFER *file_buffer)
       init_file_buffer_tag (file_buffer, entry);
 
       if (anchor)
-        entry->cache.nodelen = 0;
-      else
-        /* Record that the length is unknown. */
-        entry->cache.nodelen = -1;
+        entry->flags |= T_IsAnchor;
 
       entry->filename = file_buffer->fullpath;
 
@@ -324,9 +321,8 @@ get_nodes_of_tags_table (FILE_BUFFER *file_buffer,
 
       entry->nodestart = nodestart;
 
-      /* If a node, we don't know the length yet, but if it's an
-         anchor, the length is 0. */
-      entry->cache.nodelen = anchor ? 0 : -1;
+      if (anchor)
+        entry->flags |= T_IsAnchor;
 
       /* The filename of this node is currently known as the same as the
          name of this file. */
@@ -889,7 +885,7 @@ info_create_tag (void)
   t->nodename = 0;
   t->nodestart = 0;
   t->nodestart_adjusted = -1;
-  t->cache.nodelen = -1;
+  t->cache.nodelen = 0;
 
   return t;
 }
@@ -1247,7 +1243,7 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **tag_ptr, int fast)
 
   node = 0;
 
-  is_anchor = tag->cache.nodelen == 0;
+  is_anchor = tag->flags & T_IsAnchor;
  
   if (is_anchor)
     {
@@ -1257,7 +1253,7 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **tag_ptr, int fast)
          the anchor (we're assuming the tags are given in order),
          skipping over any preceding anchors.  */
       for (node_pos = anchor_pos - 1;
-           node_pos >= 0 && fb->tags[node_pos]->cache.nodelen == 0;
+           node_pos >= 0 && (fb->tags[node_pos]->flags & T_IsAnchor);
            node_pos--)
         ;
 
@@ -1273,7 +1269,7 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **tag_ptr, int fast)
 
   /* We haven't checked the entry pointer yet.  Look for the node
      around about it and adjust it if necessary. */
-  if (tag->cache.nodelen == -1)
+  if (tag->cache.nodelen == 0)
     {
       if (!find_node_from_tag (parent, subfile, tag))
         return NULL; /* Node not found. */

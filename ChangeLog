@@ -1,5 +1,17 @@
 2024-10-12  Patrice Dumas  <pertusus@free.fr>
 
+	* info/indices.c (info_indices_of_file_buffer), info/nodes.c
+	(build_tag_table, get_nodes_of_tags_table, info_create_tag)
+	(info_node_of_tag_ext), info/nodes.h (T_IsAnchor), info/scan.c
+	(copy_input_to_output, scan_node_contents), info/session.c
+	(info_last_node, info_first_node, info_search_internal): add
+	T_IsAnchor tag flag to mark that a tag is a Ref anchor tag.  Do not
+	use TAG cache.nodelen to determine if a tag is an anchor, use the
+	flag.  Initialize TAG cache.nodelen to 0 and consider that the nodelen
+	has not been found for a node tag if cache.nodelen is 0.
+
+2024-10-12  Patrice Dumas  <pertusus@free.fr>
+
 	* info/nodes.h, info/session.c: separate flag for tags from flags for
 	nodes.  Use a leading T_ for for tag flags.  Move tag flag near TAG.
 

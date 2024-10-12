@@ -153,7 +153,7 @@ info_indices_of_file_buffer (FILE_BUFFER *file_buffer)
       for (i = 0; (tag = file_buffer->tags[i]); i++)
         {
           if (strcasestr (tag->nodename, "Index")
-              && tag->cache.nodelen != 0) /* Not an anchor. */
+              && !(tag->flags & T_IsAnchor)) /* Not an anchor. */
             {
               NODE *node;
               REFERENCE **menu;

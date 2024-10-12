@@ -3037,7 +3037,7 @@ DECLARE_INFO_COMMAND (info_last_node, _("Select the last node in this file"))
       if (count == 0 || (count == 1 && !info_explicit_arg))
         count = -1;
       for (i = 0; count && fb->tags[i]; i++)
-        if (fb->tags[i]->cache.nodelen != 0) /* don't count anchor tags */
+        if (!(fb->tags[i]->flags & T_IsAnchor)) /* don't count anchor tags */
           {
             count--;
             last_node_tag_idx = i;
@@ -3070,7 +3070,7 @@ DECLARE_INFO_COMMAND (info_first_node, _("Select the first node in this file"))
       int last_node_tag_idx = -1;
 
       for (i = 0; count && fb->tags[i]; i++)
-        if (fb->tags[i]->cache.nodelen != 0) /* don't count anchor tags */
+        if (!(fb->tags[i]->flags & T_IsAnchor)) /* don't count anchor tags */
           {
             count--;
             last_node_tag_idx = i;
@@ -4195,7 +4195,7 @@ info_search_internal (char *string, WINDOW *window,
             }
           
           tag = file_buffer->tags[i];
-          if (tag->cache.nodelen != 0)
+          if (!(tag->flags & T_IsAnchor))
             break;
         }
 
