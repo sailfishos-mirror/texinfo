@@ -884,7 +884,7 @@ info_create_tag (void)
   t->filename = 0;
   t->nodename = 0;
   t->nodestart = 0;
-  t->nodestart_adjusted = -1;
+  t->nodestart_adjusted = 0;
   t->cache.nodelen = 0;
 
   return t;
