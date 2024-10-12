@@ -1,5 +1,14 @@
 2024-10-12  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.c (info_create_node): initialize nodelen field to 0.
+	Previously it was set to -1, but it is confusing because the value was
+	never used.  In most cases nodelen is set right after the call to
+	info_create_node.  In case of man page, it may not be set right away,
+	but then it is the contents field that is used to determine if the man
+	page node was setup.
+
+2024-10-12  Patrice Dumas  <pertusus@free.fr>
+
 	* info/dir.c, info/display.c, info/scan.c: reindent, replace tabs by
 	spaces, remove spaces, minor edit of a comment.
 

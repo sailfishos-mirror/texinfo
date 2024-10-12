@@ -908,7 +908,7 @@ info_create_node (void)
   n->subfile = 0;
   n->nodename = 0;
   n->contents = 0;
-  n->nodelen = -1;
+  n->nodelen = 0;
   n->display_pos = 0;
   n->body_start = 0;
   n->flags = 0;
