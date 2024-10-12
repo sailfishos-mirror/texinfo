@@ -2528,7 +2528,7 @@ html_initialize_output_state (CONVERTER *self, const char *context)
 
   if (!self->document && self->conf->DEBUG.o.integer > 0)
     {
-      fprintf (stderr, "REMARK: html_initialize_output_state: no document");
+      fprintf (stderr, "REMARK: html_initialize_output_state: no document\n");
     }
 
   /* corresponds with default_no_arg_commands_formatting
