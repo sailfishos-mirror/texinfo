@@ -1201,29 +1201,31 @@ set_tag_nodelen (FILE_BUFFER *subfile, TAG *tag)
   tag->cache.nodelen = get_node_length (&node_body);
 }
 
-/* Return the node described by *TAG_PTR, retrieving contents from subfile
-   if the file is split.  Return 0 on failure.  If FAST, don't process the
-   node to find cross-references, a menu, or perform character encoding
-   conversion. */
+/* Return the node described by *INPUT_TAG_PTR, retrieving contents from
+   subfile if the file is split.  If the tag is an anchor tag, find the
+   associated node tag first.  Return 0 on failure.  If FAST, don't
+   process the node to find cross-references, a menu, or perform character
+   encoding conversion. */
 static NODE *
-info_node_of_tag_ext (FILE_BUFFER *fb, TAG **tag_ptr, int fast)
+info_node_of_tag_ext (FILE_BUFFER *fb, TAG **input_tag_ptr, int fast)
 {
-  TAG *tag = *tag_ptr;
+  TAG *input_tag = *input_tag_ptr;
   NODE *node;
   int is_anchor;
-  TAG *anchor_tag;
+  TAG **node_tag_ptr;
+  TAG *node_tag, *anchor_tag = 0;
   int node_pos, anchor_pos;
 
   FILE_BUFFER *parent; /* File containing tag table. */
   FILE_BUFFER *subfile; /* File containing node. */
  
-  if (!FILENAME_CMP (fb->fullpath, tag->filename))
+  if (!FILENAME_CMP (fb->fullpath, input_tag->filename))
     parent = subfile = fb;
   else
     {
       /* This is a split file. */
       parent = fb;
-      subfile = info_find_subfile (tag->filename);
+      subfile = info_find_subfile (input_tag->filename);
     }
 
   if (!subfile)
@@ -1238,16 +1240,16 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **tag_ptr, int fast)
 
   /* If we were able to find this file and load it, then return
      the node within it. */
-  if (!(tag->nodestart < subfile->filesize))
+  if (!(input_tag->nodestart < subfile->filesize))
     return NULL;
 
   node = 0;
 
-  is_anchor = tag->flags & T_IsAnchor;
+  is_anchor = input_tag->flags & T_IsAnchor;
  
   if (is_anchor)
     {
-      anchor_pos = tag_ptr - fb->tags;
+      anchor_pos = input_tag_ptr - fb->tags;
 
       /* Look backwards in the tag table for the node preceding
          the anchor (we're assuming the tags are given in order),
@@ -1262,44 +1264,49 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **tag_ptr, int fast)
       if (node_pos < 0)
         return NULL;
 
-      anchor_tag = tag;
-      tag = fb->tags[node_pos];
-      tag_ptr = &fb->tags[node_pos];
+      anchor_tag = input_tag;
+      node_tag = fb->tags[node_pos];
+      node_tag_ptr = &fb->tags[node_pos];
+    }
+  else
+    {
+      node_tag = input_tag;
+      node_tag_ptr = input_tag_ptr;
     }
 
-  /* We haven't checked the entry pointer yet.  Look for the node
+  /* We haven't checked the node tag pointer yet.  Look for the node
      around about it and adjust it if necessary. */
-  if (tag->cache.nodelen == 0)
+  if (node_tag->cache.nodelen == 0)
     {
-      if (!find_node_from_tag (parent, subfile, tag))
+      if (!find_node_from_tag (parent, subfile, node_tag))
         return NULL; /* Node not found. */
 
-      set_tag_nodelen (subfile, tag);
+      set_tag_nodelen (subfile, node_tag);
     }
 
   node = xmalloc (sizeof (NODE));
   memset (node, 0, sizeof (NODE));
-  if (tag->cache.references)
+  if (node_tag->cache.references)
     {
       /* Initialize the node from the cache. */
-      *node = tag->cache;
+      *node = node_tag->cache;
       if (!node->contents)
         {
-          node->contents = subfile->contents + tag->nodestart_adjusted;
+          node->contents = subfile->contents + node_tag->nodestart_adjusted;
           node->contents += skip_node_separator (node->contents);
         }
     }
   else
     {
       /* Data for node has not been generated yet. */
-      node->contents = subfile->contents + tag->nodestart_adjusted;
+      node->contents = subfile->contents + node_tag->nodestart_adjusted;
       node->contents += skip_node_separator (node->contents);
-      node->nodelen = tag->cache.nodelen;
-      node->nodename = tag->nodename;
+      node->nodelen = node_tag->cache.nodelen;
+      node->nodename = node_tag->nodename;
 
       node->fullpath = parent->fullpath;
       if (parent != subfile)
-        node->subfile = tag->filename;
+        node->subfile = node_tag->filename;
 
       if (fast)
         node->flags |= N_Simple;
@@ -1308,13 +1315,13 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **tag_ptr, int fast)
           /* Read locations of references in node and similar.  Strip Info file
              syntax from node if preprocess_nodes=On.  Adjust the offsets of
              anchors that occur within the node. */
-          scan_node_contents (node, parent, tag_ptr);
+          scan_node_contents (node, parent, node_tag_ptr);
 
           node_set_body_start (node);
-          tag->cache = *node;
+          node_tag->cache = *node;
           if (!(node->flags & N_WasRewritten))
-            tag->cache.contents = 0; /* Pointer into file buffer
-                                        is not saved.  */
+            node_tag->cache.contents = 0; /* Pointer into file buffer
+                                             is not saved.  */
         }
     }
 
@@ -1323,9 +1330,9 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **tag_ptr, int fast)
       /* Start displaying the node at the anchor position.  */
 
       node->display_pos = anchor_tag->nodestart_adjusted
-        - (tag->nodestart_adjusted
+        - (node_tag->nodestart_adjusted
            + skip_node_separator (subfile->contents
-                                  + tag->nodestart_adjusted));
+                                  + node_tag->nodestart_adjusted));
 
       /* Otherwise an anchor at the end of a node ends up displaying at
          the end of the last line of the node (way over on the right of

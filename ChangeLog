@@ -1,5 +1,11 @@
 2024-10-12  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.c (info_node_of_tag_ext): add an intermediary variable
+	for node tag and node tag pointer for a clearer code.  Rename input
+	tag and tag pointer variables.
+
+2024-10-12  Patrice Dumas  <pertusus@free.fr>
+
 	* info/indices.c (info_indices_of_file_buffer), info/nodes.c
 	(build_tag_table, get_nodes_of_tags_table, info_create_tag)
 	(info_node_of_tag_ext), info/nodes.h (T_IsAnchor), info/scan.c
