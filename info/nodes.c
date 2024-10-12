@@ -1167,24 +1167,6 @@ adjust_nodestart (FILE_BUFFER *fb, TAG *node)
   return 1;
 }
 
-/* Look in the contents of *FB for a node referred to with TAG.  Set
-   the location if found in TAG->nodestart_adjusted.
- */
-static int
-find_node_from_tag (FILE_BUFFER *fb, TAG *tag)
-{
-  int success;
-
-  if (tag->nodestart_adjusted != -1)
-    success = 1;
-  else
-    success = adjust_nodestart (fb, tag);
-
-  if (success)
-    return success;
-  return 0;
-}
-
 /* Calculate the length of the node. */
 static void
 set_tag_nodelen (FILE_BUFFER *subfile, TAG *tag)
@@ -1276,7 +1258,9 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **input_tag_ptr, int fast)
      around about it and adjust it if necessary. */
   if (node_tag->cache.nodelen == 0)
     {
-      if (!find_node_from_tag (subfile, node_tag))
+      /* Set the location of node_tag in subfile in
+         node_tag->nodestart_adjusted if found. */
+      if (!adjust_nodestart (subfile, node_tag))
         return NULL; /* Node not found. */
 
       set_tag_nodelen (subfile, node_tag);
