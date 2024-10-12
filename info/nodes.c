@@ -1323,12 +1323,6 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **tag_ptr, int fast)
         }
     }
 
-  /* We can't set this when tag table is built, because
-     if file is split, we don't know which of the sub-files
-     are compressed. */
-  if (subfile->flags & N_IsCompressed)
-    node->flags |= N_IsCompressed;
-
   if (is_anchor)
     {
       /* Start displaying the node at the anchor position.  */
