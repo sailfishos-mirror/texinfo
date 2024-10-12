@@ -60,7 +60,6 @@ typedef struct {
 #define N_IsIndex      0x08     /* An index node. */
 #define N_IsDir        0x10     /* A dir node. */
 #define N_Simple       0x20     /* Data about cross-references is missing. */
-#define N_SeenBySearch 0x40     /* Node has already been seen in a search. */
 
 /* String constants. */
 #define INFO_FILE_LABEL                 "File:"
@@ -98,9 +97,12 @@ typedef struct {
   long nodestart;               /* The value read from the tag table.
                                    Should never be negative */
   long nodestart_adjusted;      /* Where the node or anchor actually is. */
-  int flags;                    /* Same as NODE.flags. */
+  int flags;                    /* See immediately below. */
   NODE cache;                   /* Saved information about pointed-to node. */
 } TAG;
+
+/* Values for TAG.flags. */
+#define T_SeenBySearch 0x01     /* Tag has already been seen in a search. */
 
 /* The following structure is used to remember information about the contents
    of Info files that we have loaded at least once before.  The FINFO member

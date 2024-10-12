@@ -1,5 +1,10 @@
 2024-10-12  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.h, info/session.c: separate flag for tags from flags for
+	nodes.  Use a leading T_ for for tag flags.  Move tag flag near TAG.
+
+2024-10-12  Patrice Dumas  <pertusus@free.fr>
+
 	* info/nodes.c (info_node_of_tag_ext): do not copy tag flags to node.
 	The only flag set in tag is N_SeenBySearch and it is not used in nodes.
 

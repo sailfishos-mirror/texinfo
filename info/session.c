@@ -4461,9 +4461,9 @@ check_menus:
             if (!tag_of_reference (r, window, &file_buffer, &tag))
               continue;
 
-            if ((*tag)->flags & N_SeenBySearch)
+            if ((*tag)->flags & T_SeenBySearch)
               continue;
-            (*tag)->flags |= N_SeenBySearch;
+            (*tag)->flags |= T_SeenBySearch;
 
             window->node->active_menu = ref_index + 1;
             node = info_node_of_tag (file_buffer, tag);
@@ -4582,7 +4582,7 @@ check_menus:
               /* This inverts what is done for the forwards search.  It's 
                  possible that we will visit the nodes in a different order if 
                  there is more than one reference to a node. */
-              if (!((*tag)->flags & N_SeenBySearch))
+              if (!((*tag)->flags & T_SeenBySearch))
                 continue;
 
               node = info_node_of_tag (file_buffer, tag);
@@ -4623,7 +4623,7 @@ go_up:
          we set this flag just before going down. */
       if (r && tag_of_reference (r, window, &file_buffer, &tag))
         {
-          (*tag)->flags &= ~N_SeenBySearch;
+          (*tag)->flags &= ~T_SeenBySearch;
         }
 
       goto check_menus;
@@ -4637,7 +4637,7 @@ funexit:
 } /*********** end tree_search_check_node_backwards *************/
 
 
-/* Clear N_SeenBySearch for all nodes. */
+/* Clear T_SeenBySearch for all node tags. */
 void
 wipe_seen_flags (void)
 {
@@ -4651,7 +4651,7 @@ wipe_seen_flags (void)
         continue; /* Probably a sub-file of a split file. */
       for (; *t; t++)
         {
-          (*t)->flags &= ~N_SeenBySearch;
+          (*t)->flags &= ~T_SeenBySearch;
         }
     }
 }
