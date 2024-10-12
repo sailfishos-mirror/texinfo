@@ -1,5 +1,10 @@
 2024-10-12  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.h: change in comments.  Move values for FILE_BUFFER.flags
+	near FILE_BUFFER.  No change in code.
+
+2024-10-12  Patrice Dumas  <pertusus@free.fr>
+
 	* info/nodes.c, info/nodes.h, info/session.c: separate flags for nodes
 	and tags from flags for file buffers.  Use a leading F_ for file
 	buffer flags.

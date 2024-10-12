@@ -53,14 +53,7 @@ typedef struct {
   int active_menu;              /* Used for subnodes search. */
 } NODE;
 
-/* Values for FILE_BUFFER.flags. */
-#define F_HasTagsTable 0x01     /* This file has a tags table. */
-#define F_TagsIndirect 0x02     /* The tags table was an indirect one. */
-#define F_IsCompressed 0x04     /* The file is compressed on disk. */
-#define F_Subfile      0x08     /* File buffer is a subfile of a split file. */
-#define F_Gone         0x10     /* File is no more. */
-
-/* Values for NODE.flags */
+/* Values for NODE.flags. */
 #define N_IsInternal   0x01     /* This node was made by Info. */
 #define N_IsManPage    0x02     /* This node is a manpage. */
 #define N_WasRewritten 0x04     /* NODE->contents can be passed to free(). */
@@ -124,9 +117,16 @@ typedef struct {
   char **subfiles;              /* If non-null, the list of subfiles. */
   TAG **tags;                   /* If non-null, the tags table. */
   size_t tags_slots;            /* Number of slots allocated for TAGS. */
-  int flags;                    /* Various flags.  Mimics of N_* flags. */
+  int flags;                    /* Various flags.  See below. */
   char *encoding;               /* Name of character encoding of file. */
 } FILE_BUFFER;
+
+/* Values for FILE_BUFFER.flags. */
+#define F_HasTagsTable 0x01     /* This file has a tags table. */
+#define F_TagsIndirect 0x02     /* The tags table was an indirect one. */
+#define F_IsCompressed 0x04     /* The file is compressed on disk. */
+#define F_Subfile      0x08     /* File buffer is a subfile of a split file. */
+#define F_Gone         0x10     /* File is no more. */
 
 /* Array of FILE_BUFFER * which represents the currently loaded info files. */
 extern FILE_BUFFER **info_loaded_files;
