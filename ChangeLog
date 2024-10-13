@@ -1,5 +1,14 @@
 2024-10-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/init/documentation_examples.pm (MATHJAX_CONFIGURATION)
+	(HTML_MATH): set MATHJAX_CONFIGURATION to the Texinfo manual example
+	and HTML_MATH to mathjax.
+
+	* tp/t/init_files_tests.t ($documentation_examples_text): add
+	@displaymath using \dv from the LaTeX physics package.
+
+2024-10-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/format_html.c (file_header_information):
 	do not output mathjax header on every file if split.
 	Remove trailing end of line from text output if MATHJAX_CONFIGURATION
