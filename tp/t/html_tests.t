@@ -1593,7 +1593,21 @@ $nodedescription_description_texinfo, {}, {'FORMAT_MENU' => 'menu',
         'USE_NODES' => 0,
         # needed for the test
         'SPLIT' => 'node'}],
+# Show that HTML elements in inline raw in title or node name end up in
+# attributes, in meta description content, but also in link.  This can
+# be considered a feature, raw HTML should not be escaped, but it also
+# means that if it ends up in attributes there should only be entities,
+# no element.
+['inline_in_node',
+'@settitle @inlineraw{html,<strong class="ttitle">}Title@inlineraw{html,</strong>}
 
+@node Top
+@top
+
+@node @inlineraw{html,<code class="tnode">}One@inlineraw{html,</code>}
+@chapter @inlineraw{html,<span class="test">}One@inlineraw{html,</span>}
+
+'],
 );
 
 
