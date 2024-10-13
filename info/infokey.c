@@ -376,14 +376,21 @@ compile (FILE *fp, const char *filename, int *suppress_info, int *suppress_ea)
 		}
 	      if (seqstate != octal)
 		{
-		  if (oval)
-		    To_seq (oval);
-		  else
+		  if (oval == 0)
 		    {
 		      syntax_error (filename, lnum,
 				    _("NUL character (\\000) not permitted"));
 		      error = 1;
 		    }
+		  else if (oval > 0177)
+		    {
+		      syntax_error (filename, lnum,
+			_("invalid octal sequence for byte value (\\%o)"),
+			oval);
+		      error = 1;
+		    }
+		  else
+		    To_seq (oval);
 		}
 	      break;
 

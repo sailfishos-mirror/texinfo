@@ -1,5 +1,10 @@
 2024-10-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/infokey.c (compile): warn if octal sequence is out of range.
+	Report from Andreas Schwab.
+
+2024-10-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Avoid compiler warning
 
 	* info/infokey.c (compile): declare a variable as an int to avoid
