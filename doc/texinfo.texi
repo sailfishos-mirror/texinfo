@@ -17619,21 +17619,20 @@ name.
 
 Finally, the @var{target} part is always the expanded node name.
 
-Whether the present manual is split or mono is determined by user
-option; @command{texi2any} defaults to split, with the
+Whether the present manual is output as split or mono is determined by
+how you run @command{texi2any}; the default is to split, with the
 @option{--no-split} option overriding this.
-Whether the referent manual is split or mono, however, is another bit
-of the external information (@pxref{HTML Xref Configuration}).
 
-By default, @command{texi2any} uses the same form of the referent manual as the
-present manual.  Thus, there can be a mismatch between the format of the
-referent manual that the generating software assumes, and the format it's
-actually present in.  If there is no external information, both mono
-and split form should be generated to be sure that the cross-references
-work irrespective of the split option.  This is something the software
-which generated the @emph{referent} manual has to do in advance, it's
-not something the software generating the cross-reference in the present
-manual can control.
+By default, @command{texi2any} generates links to a referent manual using
+the same form as as the present manual: if the present manual is generated
+as split, then links to other manuals are to their split forms by default;
+likewise for mono output.
+
+However, the form of the referent manual (mono or split) should usually
+be specified in a configuation file (@pxref{HTML Xref Configuration}).
+This ensures that there is no mismatch between the format of the referent
+manual that the generating software assumes, and the format it's actually
+present in.
 
 
 @node HTML Xref Node Name Expansion

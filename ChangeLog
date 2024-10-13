@@ -1,5 +1,10 @@
 2024-10-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (HTML Xref Link Basics): edit text at end of
+	node discussing split/mono links.
+
+2024-10-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: add note about removing generated gnulib header
 	files after "git switch".
 
