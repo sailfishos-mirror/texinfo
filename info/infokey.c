@@ -205,7 +205,7 @@ compile (FILE *fp, const char *filename, int *suppress_info, int *suppress_ea)
      lengths are arbitrary (and should be large enough) and their
      lengths are not hard-coded anywhere else, so increasing them
      here will not break anything.  */
-  char oval = 0;
+  int oval = 0;
   char comment[10];
   unsigned int clen = 0;
   int seq[20];
