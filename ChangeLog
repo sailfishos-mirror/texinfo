@@ -1,3 +1,10 @@
+2024-10-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/format_html.c (file_header_information):
+	do not output mathjax header on every file if split.
+	Remove trailing end of line from text output if MATHJAX_CONFIGURATION
+	is set.
+
 2024-10-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (HTML Xref Link Basics): edit text at end of

@@ -3845,8 +3845,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
     }
   if (self->conf->HTML_MATH.o.string
       && !strcmp (self->conf->HTML_MATH.o.string, "mathjax")
-      && (html_get_file_information (self, "mathjax", filename, &status) > 0
-          || (self->conf->SPLIT.o.string && strlen (self->conf->SPLIT.o.string))))
+      && (html_get_file_information (self, "mathjax", filename, &status) > 0))
     {
       char *mathjax_script = url_protect_url_text (self,
                                 self->conf->MATHJAX_SCRIPT.o.string);
@@ -3885,8 +3884,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
  "      MathJax[component][field] = MathJax_conf[component][field];\n"
  "    }\n"
  "  }\n"
- "}\n"
- "\n", self->conf->MATHJAX_CONFIGURATION.o.string);
+ "}\n", self->conf->MATHJAX_CONFIGURATION.o.string);
         }
 
       text_printf (&text,
