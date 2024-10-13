@@ -24,14 +24,54 @@ div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
 h1.titlefont {text-align:center}
 pre.display-preformatted {font-family: inherit}
+pre.displaymath {font-style: italic; font-family: serif; display: flex; justify-content: center}
 span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
+<script type='text/javascript'>
+MathJax = {
+  options: {
+    skipHtmlTags: {'[-]': ['pre']},       // do not skip pre
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+  tex: {
+    processEscapes: false,      // do not use \$ to produce a literal dollar sign
+    processEnvironments: false, // do not process \begin{xxx}...\end{xxx} outside math mode
+    processRefs: false,         // do not process \ref{...} outside of math mode
+    displayMath: [             // start/end delimiter pairs for display math
+      ['\\[', '\\]']
+    ],
+  },
+};
+var MathJax_conf = {
+options: { enableMenu: false },
+loader: {
+load: ['[tex]/physics'],
+versionWarnings: false
+},
+tex: {
+packages: {'[+]': ['physics']}
+}
 
+};
+
+for (let component in MathJax_conf) {
+  if (!MathJax.hasOwnProperty(component)) {
+    MathJax[component] = MathJax_conf[component];
+  } else {
+    for (let field in MathJax_conf[component]) {
+      MathJax[component][field] = MathJax_conf[component][field];
+    }
+  }
+}
+</script><script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
 </head>
 
-<body lang="en">
+<body lang="en" class="tex2jax_ignore">
 <div class="chapter-level-extent" id="prepended_to_labels-chapter">
 <div class="nav-panel">
 <p>
@@ -47,7 +87,7 @@ Next: <a href="prepended_to_filenames-my-node.html" accesskey="n" rel="next">New
 <small class="sc">in Sc</small>
 <var class="var">IN VAR</var>
  <code>HTML</code> text </p>
-<p><em class="math jax_p"><span class="math-arg"><code class="sansserif">in--math</code> &shy; a=b error--&gt; is the <strong class="strong">same</strong> as</span></em>
+<p><em class="math jax_p"><span class="math-arg">\mathsf{in--math} \-{} a=b \fbox{error} \equiv{}</span></em>
  <code>HTML</code> text </p>
 <table class="indentedblock"><tr><td>&nbsp;</tr></td><div class="example">
 <pre class="example-preformatted">&lsquo;<code class="sansserif">in--example</code>&rsquo; &shy; c. error--&gt; is the <strong class="strong">same</strong> as
@@ -59,6 +99,8 @@ Next: <a href="prepended_to_filenames-my-node.html" accesskey="n" rel="next">New
 <pre class="display-preformatted"><a class="email" href="mailto:a@display">a@display Generated <em class="emph">a sunny day</em> using <a class="uref" href="https://www.gnu.org/software/texinfo/"><em class="emph"></em></a>. (<a class="myurl" href="a@display">a@display</a>);</a> [undefined text-align:center, is undef|end|separate]
 </pre></div>
 
+<pre class="displaymath tex2jax_process">\[\frac{h}{j^{2}} \dv[n]{f}{x}
+\]</pre>
 <table><p class="myanchor_class" id="anchor_id_1"></p>
 <td><tr><a href="#index-e1"><samp class="file">e1</samp><code>purple: 1, black: 42</code></a></tr><tr><a href="#prepended_to_labels-chapter">chapter</a></tr></td>
 <td><tr>e1</tr></td>
@@ -79,6 +121,6 @@ Next: <a href="prepended_to_filenames-my-node.html" accesskey="n" rel="next">New
 </div>
 
 
-
+<a href="js_licenses.html" rel="jslicense"><small>Information de licence de JavaScript</small></a>
 </body>
 </html>

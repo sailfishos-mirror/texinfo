@@ -80,6 +80,10 @@ my $documentation_examples_text = '
 @email{a@@display}
 @end display
 
+@displaymath
+\frac{h}{j@sup{2}} \dv[n]{f}{x}
+@end displaymath
+
 @cindex @file{e1}
 @cindex i2
 

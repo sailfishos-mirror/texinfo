@@ -850,6 +850,133 @@ $result_trees{'documentation_examples_texi2html'} = {
         {
           'args' => [
             {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'displaymath',
+          'contents' => [
+            {
+              'text' => '\\frac'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '{h}'
+                }
+              ],
+              'source_info' => {
+                'line_nr' => 33
+              },
+              'type' => 'balanced_braces'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '{j'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => '2'
+                        }
+                      ],
+                      'type' => 'brace_container'
+                    }
+                  ],
+                  'cmdname' => 'sup',
+                  'source_info' => {
+                    'line_nr' => 33
+                  }
+                },
+                {
+                  'text' => '}'
+                }
+              ],
+              'source_info' => {
+                'line_nr' => 33
+              },
+              'type' => 'balanced_braces'
+            },
+            {
+              'text' => ' \\dv[n]'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '{f}'
+                }
+              ],
+              'source_info' => {
+                'line_nr' => 33
+              },
+              'type' => 'balanced_braces'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '{x}'
+                }
+              ],
+              'source_info' => {
+                'line_nr' => 33
+              },
+              'type' => 'balanced_braces'
+            },
+            {
+              'text' => '
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'displaymath'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'text_arg' => 'displaymath'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'source_info' => {
+                'line_nr' => 34
+              }
+            }
+          ],
+          'source_info' => {
+            'line_nr' => 32
+          }
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
               'contents' => [
                 {
                   'args' => [
@@ -864,7 +991,7 @@ $result_trees{'documentation_examples_texi2html'} = {
                   ],
                   'cmdname' => 'file',
                   'source_info' => {
-                    'line_nr' => 32
+                    'line_nr' => 36
                   }
                 }
               ],
@@ -892,7 +1019,7 @@ $result_trees{'documentation_examples_texi2html'} = {
             }
           },
           'source_info' => {
-            'line_nr' => 32
+            'line_nr' => 36
           },
           'type' => 'index_entry_command'
         },
@@ -928,7 +1055,7 @@ $result_trees{'documentation_examples_texi2html'} = {
             }
           },
           'source_info' => {
-            'line_nr' => 33
+            'line_nr' => 37
           },
           'type' => 'index_entry_command'
         },
@@ -954,7 +1081,7 @@ $result_trees{'documentation_examples_texi2html'} = {
             'command_name' => 'vindex'
           },
           'source_info' => {
-            'line_nr' => 35
+            'line_nr' => 39
           },
           'type' => 'index_entry_command'
         },
@@ -990,7 +1117,7 @@ $result_trees{'documentation_examples_texi2html'} = {
             }
           },
           'source_info' => {
-            'line_nr' => 37
+            'line_nr' => 41
           }
         },
         {
@@ -1008,7 +1135,7 @@ $result_trees{'documentation_examples_texi2html'} = {
               ],
               'cmdname' => 'error',
               'source_info' => {
-                'line_nr' => 39
+                'line_nr' => 43
               }
             },
             {
@@ -1033,7 +1160,7 @@ $result_trees{'documentation_examples_texi2html'} = {
               ],
               'cmdname' => 'equiv',
               'source_info' => {
-                'line_nr' => 41
+                'line_nr' => 45
               }
             },
             {
@@ -1059,7 +1186,7 @@ $result_trees{'documentation_examples_texi2html'} = {
           'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
-            'line_nr' => 43
+            'line_nr' => 47
           }
         },
         {
@@ -1108,7 +1235,7 @@ $result_trees{'documentation_examples_texi2html'} = {
         }
       },
       'source_info' => {
-        'line_nr' => 45
+        'line_nr' => 49
       }
     },
     {
@@ -1162,7 +1289,7 @@ $result_trees{'documentation_examples_texi2html'} = {
             }
           },
           'source_info' => {
-            'line_nr' => 48
+            'line_nr' => 52
           }
         },
         {
@@ -1180,7 +1307,7 @@ $result_trees{'documentation_examples_texi2html'} = {
               ],
               'cmdname' => 'error',
               'source_info' => {
-                'line_nr' => 50
+                'line_nr' => 54
               }
             },
             {
@@ -1205,7 +1332,7 @@ $result_trees{'documentation_examples_texi2html'} = {
               ],
               'cmdname' => 'equiv',
               'source_info' => {
-                'line_nr' => 52
+                'line_nr' => 56
               }
             },
             {
@@ -1230,7 +1357,7 @@ $result_trees{'documentation_examples_texi2html'} = {
         }
       },
       'source_info' => {
-        'line_nr' => 46
+        'line_nr' => 50
       }
     },
     {
@@ -1262,7 +1389,7 @@ $result_trees{'documentation_examples_texi2html'} = {
         }
       },
       'source_info' => {
-        'line_nr' => 54
+        'line_nr' => 58
       }
     },
     {
@@ -1318,7 +1445,7 @@ $result_trees{'documentation_examples_texi2html'} = {
             }
           },
           'source_info' => {
-            'line_nr' => 57
+            'line_nr' => 61
           }
         },
         {
@@ -1336,15 +1463,15 @@ $result_trees{'documentation_examples_texi2html'} = {
         }
       },
       'source_info' => {
-        'line_nr' => 55
+        'line_nr' => 59
       }
     }
   ],
   'type' => 'document_root'
 };
 $result_trees{'documentation_examples_texi2html'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'documentation_examples_texi2html'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'args'}[0]{'contents'}[0];
-$result_trees{'documentation_examples_texi2html'}{'contents'}[4]{'contents'}[12]{'extra'}{'element_node'} = $result_trees{'documentation_examples_texi2html'}{'contents'}[3];
-$result_trees{'documentation_examples_texi2html'}{'contents'}[4]{'contents'}[13]{'extra'}{'element_node'} = $result_trees{'documentation_examples_texi2html'}{'contents'}[3];
+$result_trees{'documentation_examples_texi2html'}{'contents'}[4]{'contents'}[14]{'extra'}{'element_node'} = $result_trees{'documentation_examples_texi2html'}{'contents'}[3];
+$result_trees{'documentation_examples_texi2html'}{'contents'}[4]{'contents'}[15]{'extra'}{'element_node'} = $result_trees{'documentation_examples_texi2html'}{'contents'}[3];
 
 $result_texis{'documentation_examples_texi2html'} = '
 @settitle @email{someone@@example.com, me} @sansserif{in--title} @error{} @equiv{}
@@ -1376,6 +1503,10 @@ $result_texis{'documentation_examples_texi2html'} = '
 @display
 @email{a@@display}
 @end display
+
+@displaymath
+\\frac{h}{j@sup{2}} \\dv[n]{f}{x}
+@end displaymath
 
 @cindex @file{e1}
 @cindex i2
@@ -1428,6 +1559,8 @@ in--example  c. error--> ==
 a@example
 
 a@display
+
+\\frac{h}{j2} \\dv[n]{f}{x}
 
 
 
@@ -1653,7 +1786,7 @@ $result_errors{'documentation_examples_texi2html'} = [
   {
     'error_line' => 'warning: @vindex missing argument
 ',
-    'line_nr' => 35,
+    'line_nr' => 39,
     'text' => '@vindex missing argument',
     'type' => 'warning'
   }

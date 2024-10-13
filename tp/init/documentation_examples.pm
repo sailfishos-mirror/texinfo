@@ -10,6 +10,18 @@ use utf8;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
+texinfo_set_from_init_file('MATHJAX_CONFIGURATION',
+"options: { enableMenu: false },
+loader: {
+load: [\'[tex]/physics\'],
+versionWarnings: false
+},
+tex: {
+packages: {\'[+]\': [\'physics\']}
+}
+");
+texinfo_set_from_init_file('HTML_MATH', 'mathjax');
+
 my $default_footnotestyle = texinfo_get_conf('footnotestyle');
 my $main_program_footnotestyle;
 if (not defined($default_footnotestyle)) {
