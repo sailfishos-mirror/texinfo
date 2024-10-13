@@ -1,5 +1,10 @@
 2024-10-13  Patrice Dumas  <pertusus@free.fr>
 
+	* info/util.c (printed_representation): add a comment to explain tab
+	printed representation, based on Gavin explanation.
+
+2024-10-13  Patrice Dumas  <pertusus@free.fr>
+
 	* info/nodes.c (make_file_buffer, info_create_tag, info_create_node):
 	initialize with memset call zeroing the structure.
 
