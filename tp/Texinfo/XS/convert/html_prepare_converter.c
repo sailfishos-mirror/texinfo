@@ -3410,22 +3410,6 @@ html_setup_output (CONVERTER *self, char **paths)
        if (!self->conf->MATHJAX_SOURCE.o.string)
          option_set_conf (&self->conf->MATHJAX_SOURCE, 0,
  "http://docs.mathjax.org/en/latest/web/hosting.html#getting-mathjax-via-git");
-
-       if (!self->conf->MATHJAX_CONFIGURATION.o.string)
-         option_set_conf (&self->conf->MATHJAX_CONFIGURATION, 0,
- "  options: {\n"
- "    skipHtmlTags: {'[-]': ['pre']},       // do not skip pre\n"
- "    ignoreHtmlClass: 'tex2jax_ignore',\n"
- "    processHtmlClass: 'tex2jax_process'\n"
- "  },\n"
- "  tex: {\n"
- "    processEscapes: false,      // do not use \\$ to produce a literal dollar sign\n"
- "    processEnvironments: false, // do not process \\begin{xxx}...\\end{xxx} outside math mode\n"
- "    processRefs: false,         // do not process \\ref{...} outside of math mode\n"
- "    displayMath: [             // start/end delimiter pairs for display math\n"
- "      ['\\\\[', '\\\\]']\n"
- "    ],\n"
- "  },");
     }
 
   setup_handler_status = html_run_stage_handlers (self, HSHT_type_setup);

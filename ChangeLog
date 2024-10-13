@@ -1,3 +1,12 @@
+2024-10-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/format_html.c (file_header_information),
+	tp/Texinfo/XS/convert/html_prepare_converter.c (html_setup_output):
+	only put extra settings in MATHJAX_CONFIGURATION in C code.  Do not
+	set MATHJAX_CONFIGURATION in html_setup_output, move default MathJax
+	configuration to file_header_information.  Always output it.  Only
+	output value of MATHJAX_CONFIGURATION if set.
+
 2024-10-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Macros for struct initialiser
@@ -13,7 +22,7 @@
 	* tp/Texinfo/Convert/HTML.pm (_setup_output): do not set
 	MATHJAX_CONFIGURATION.
 	(_file_header_information) <MathJax>: Move default MathJax
-	configuration here from _setup_output.	Always output it.
+	configuration here from _setup_output.  Always output it.
 	Only output value of MATHJAX_CONFIGURATION if set.
 	* doc/texinfo.texi (MathJax Customization Variables): update.
 	do not show default texi2any configuration of MathJax.

@@ -3850,13 +3850,49 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
     {
       char *mathjax_script = url_protect_url_text (self,
                                 self->conf->MATHJAX_SCRIPT.o.string);
+      const char *default_mathjax_configuration =
+ "  options: {\n"
+ "    skipHtmlTags: {'[-]': ['pre']},       // do not skip pre\n"
+ "    ignoreHtmlClass: 'tex2jax_ignore',\n"
+ "    processHtmlClass: 'tex2jax_process'\n"
+ "  },\n"
+ "  tex: {\n"
+ "    processEscapes: false,      // do not use \\$ to produce a literal dollar sign\n"
+ "    processEnvironments: false, // do not process \\begin{xxx}...\\end{xxx} outside math mode\n"
+ "    processRefs: false,         // do not process \\ref{...} outside of math mode\n"
+ "    displayMath: [             // start/end delimiter pairs for display math\n"
+ "      ['\\\\[', '\\\\]']\n"
+ "    ],\n"
+ "  },";
+
       text_printf (&text, "<script type='text/javascript'>\n"
-"MathJax = {\n"
-"%s\n"
-"};\n"
-"</script><script type=\"text/javascript\" id=\"MathJax-script\" async\n"
-"  src=\"%s\">\n"
-"</script>", self->conf->MATHJAX_CONFIGURATION.o.string, mathjax_script);
+ "MathJax = {\n"
+ "%s\n"
+ "};\n", default_mathjax_configuration);
+
+      if (self->conf->MATHJAX_CONFIGURATION.o.string)
+        {
+          text_printf (&text,
+ "var MathJax_conf = {\n"
+ "%s\n"
+ "};\n"
+ "\n"
+ "for (let component in MathJax_conf) {\n"
+ "  if (!MathJax.hasOwnProperty(component)) {\n"
+ "    MathJax[component] = MathJax_conf[component];\n"
+ "  } else {\n"
+ "    for (let field in MathJax_conf[component]) {\n"
+ "      MathJax[component][field] = MathJax_conf[component][field];\n"
+ "    }\n"
+ "  }\n"
+ "}\n"
+ "\n", self->conf->MATHJAX_CONFIGURATION.o.string);
+        }
+
+      text_printf (&text,
+ "</script><script type=\"text/javascript\" id=\"MathJax-script\" async\n"
+ "  src=\"%s\">\n"
+ "</script>", mathjax_script);
       free (mathjax_script);
     }
   begin_info->extra_head = text.text;
