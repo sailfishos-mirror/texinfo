@@ -18733,26 +18733,31 @@ is set to @samp{mathjax}.
 
 @vtable @code
 @item MATHJAX_CONFIGURATION
-Global @samp{MathJax} object configuration (inside the object braces).
-If @code{undef}, @command{texi2any} provides a defaults, which could be,
-for example:
+Data to add to the global @samp{MathJax} configuration object.
+Specify as a comma-separated list of
+@code{@var{component}: @{ @var{name}: @var{value}, @dots{} @}}
+pairs.
+
+For example, you could set @code{MATHJAX_CONFIGURATION} to
+
 @example
-  options: @{
-    skipHtmlTags: @{'[-]': ['pre']@},       // do not skip pre
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process'
-  @},
-  tex: @{
-    processEscapes: false,
-    processEnvironments: false,
-    processRefs: false,
-    displayMath: [
-      ['\\[', '\\]']
-    ],
-  @},
+options: @{ enableMenu: false @},
+loader: @{
+    load: [\'[tex]/physics\'],
+    versionWarnings: false
+@},
+tex: @{
+  packages: @{\'[+]\': [\'physics\']@}
+@}
 @end example
 
-If you provide different defaults, you should make sure that they align
+@noindent to disable the MathJax right-click menu, and to load the
+MathJax @code{physics} extension.
+(See @uref{https://docs.mathjax.org/en/latest/options/index.html,
+Configuring MathJax} in the MathJax documentation.)
+
+If you override any of the defaults for this configuration output by
+@command{texi2any} you should make sure that your new settings align
 with the HTML output produced by @command{texi2any}.
 
 @item MATHJAX_SCRIPT

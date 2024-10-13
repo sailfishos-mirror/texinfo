@@ -1,3 +1,15 @@
+2024-10-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Only put extra settings in MATHJAX_CONFIGURATION
+
+	* tp/Texinfo/Convert/HTML.pm (_setup_output): do not set
+	MATHJAX_CONFIGURATION.
+	(_file_header_information) <MathJax>: Move default MathJax
+	configuration here from _setup_output.	Always output it.
+	Only output value of MATHJAX_CONFIGURATION if set.
+	* doc/texinfo.texi (MathJax Customization Variables): update.
+	do not show default texi2any configuration of MathJax.
+
 2024-10-13  Patrice Dumas  <pertusus@free.fr>
 
 	* info/util.c (printed_representation): add a comment to explain tab
