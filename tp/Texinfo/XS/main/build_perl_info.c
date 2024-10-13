@@ -157,7 +157,7 @@ perl_only_strndup (const char *s, size_t n)
 
 /* called once at loading time */
 int
-init (int texinfo_uninstalled, SV *pkgdatadir_sv, SV *builddir_sv,
+init (int texinfo_uninstalled, SV *converterdatadir_sv, SV *builddir_sv,
       SV *top_srcdir_sv)
 {
 #ifdef ENABLE_NLS

@@ -31,7 +31,7 @@ our $top_builddir;
 our $top_srcdir;
 
 # installed locations paths, if not $Texinfo::ModulePath::texinfo_uninstalled
-our $pkgdatadir;
+our $converterdatadir;
 
 # Other information passed to modules from configure
 our $conversion_from_euc_cn = '@ICONV_CONVERTS_EUC_CN@';
@@ -43,14 +43,14 @@ our $conversion_from_euc_cn = '@ICONV_CONVERTS_EUC_CN@';
 #
 # LIB_DIR is for bundled libraries.
 # LIBEXEC_DIR is for XS modules.
-# PKGDATADIR is for HTML extensions, javascript
+# CONVERTERDATADIR is for HTML extensions, javascript
 #
 # otherwise use 'top_srcdir'
 # and 'top_builddir' environment variables.
 sub init {
   my $lib_dir = shift;
   my $libexec_dir = shift;
-  $pkgdatadir = shift;
+  $converterdatadir = shift;
   my %named_args = @_;
 
   if (!$named_args{'installed'}) {
@@ -116,7 +116,6 @@ sub init {
       unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'Text-Unidecode', 'lib'));
     }
   }
-
 }
 
 sub import {

@@ -35,6 +35,9 @@ AC_CONFIG_SRCDIR([info/info.c])
 TEXINFO_DTD_VERSION=7.2
 AC_SUBST([TEXINFO_DTD_VERSION])
 
+CONVERTER=texi2any
+AC_SUBST([CONVERTER])
+
 # Package date.
 PACKAGE_DATE=`${SHELL} "$srcdir"/build-aux/mdate-sh "$srcdir"/configure.ac`
 AC_SUBST([PACKAGE_DATE])

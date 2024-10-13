@@ -2419,7 +2419,7 @@ html_do_js_files (CONVERTER *self)
               if (!conversion_paths_info.texinfo_uninstalled)
                 {
                   xasprintf (&jssrcdir, "%s/%s",
-                             conversion_paths_info.p.installed.pkgdatadir,
+                        conversion_paths_info.p.installed.converterdatadir,
                              "js");
                 }
               else

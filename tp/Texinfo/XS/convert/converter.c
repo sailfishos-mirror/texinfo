@@ -119,7 +119,7 @@ const char *xml_text_entity_no_arg_commands_formatting[BUILTIN_CMD_NUMBER];
 static void
 setup_converter_paths_information (int texinfo_uninstalled,
                                    const char *tp_builddir,
-                             const char *pkgdatadir, const char *top_srcdir)
+                         const char *converterdatadir, const char *top_srcdir)
 {
   memset (&conversion_paths_info, 0, sizeof (PATHS_INFORMATION));
   conversion_paths_info.texinfo_uninstalled = texinfo_uninstalled;
@@ -134,21 +134,21 @@ setup_converter_paths_information (int texinfo_uninstalled,
     }
   else
     {
-      if (pkgdatadir)
-        conversion_paths_info.p.installed.pkgdatadir
-          = strdup (pkgdatadir);
+      if (converterdatadir)
+        conversion_paths_info.p.installed.converterdatadir
+          = strdup (converterdatadir);
     }
 }
 
 /* called only once */
 void
 converter_setup (int texinfo_uninstalled, const char *tp_builddir,
-                 const char *pkgdatadir, const char *top_srcdir)
+                 const char *converterdatadir, const char *top_srcdir)
 {
   int i;
 
   setup_converter_paths_information (texinfo_uninstalled,
-                             pkgdatadir, tp_builddir, top_srcdir);
+                             converterdatadir, tp_builddir, top_srcdir);
 
   txi_setup_lib_data ();
 

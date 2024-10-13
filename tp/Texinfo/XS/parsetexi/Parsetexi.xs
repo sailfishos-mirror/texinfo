@@ -57,7 +57,7 @@ PROTOTYPES: ENABLE
 # Called from Texinfo::XSLoader.pm.  The arguments are not actually used.
 # File paths are byte strings and can be in any encoding.
 int
-init (int texinfo_uninstalled, SV *pkgdatadir, SV *tp_builddir, SV *top_srcdir)
+init (int texinfo_uninstalled, SV *converterdatadir, SV *tp_builddir, SV *top_srcdir)
 
 void
 reset_parser (int debug_output)

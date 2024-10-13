@@ -38,8 +38,9 @@ BEGIN
   my $updir = File::Spec->updir();
 
   my $datadir = '@datadir@';
-  my $package = '@PACKAGE@';
-  my $xsdir = '@pkglibdir@';
+  my $converter = '@CONVERTER@';
+  my $libdir = '@libdir@';
+  my $xsdir;
 
   # in-source run
   if ($datadir eq '@' .'datadir@'
@@ -58,26 +59,26 @@ BEGIN
     Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 1);
   } else {
     # Look for modules in their installed locations.
-    my $lib_dir = File::Spec->catdir($datadir, $package);
+    my $modules_dir = File::Spec->catdir($datadir, $converter);
     # look for package data in the installed location.
-    my $modules_pkgdatadir = $lib_dir;
+    my $modules_converterdatadir = $modules_dir;
 
     # try to make package relocatable, will only work if
     # standard relative paths are used
-    if (! -f File::Spec->catfile($lib_dir, 'Texinfo', 'Parser.pm')
+    if (! -f File::Spec->catfile($modules_dir, 'Texinfo', 'Parser.pm')
         and -f File::Spec->catfile($command_directory, $updir, 'share',
-                                   $package, 'Texinfo', 'Parser.pm')) {
-      $lib_dir = File::Spec->catdir($command_directory, $updir,
-                                          'share', $package);
-      $modules_pkgdatadir = File::Spec->catdir($command_directory, $updir,
-                                          'share', $package);
+                                   $converter, 'Texinfo', 'Parser.pm')) {
+      $modules_dir = File::Spec->catdir($command_directory, $updir,
+                                          'share', $converter);
+      $modules_converterdatadir = File::Spec->catdir($command_directory, $updir,
+                                          'share', $converter);
       $xsdir = File::Spec->catdir($command_directory, $updir,
-                                          'lib', $package);
+                                          'lib', $converter);
     }
-    unshift @INC, $lib_dir;
+    unshift @INC, $modules_dir;
 
     require Texinfo::ModulePath;
-    Texinfo::ModulePath::init($lib_dir, $xsdir, $modules_pkgdatadir,
+    Texinfo::ModulePath::init($modules_dir, $xsdir, $modules_converterdatadir,
                               'installed' => 1);
   }
 }

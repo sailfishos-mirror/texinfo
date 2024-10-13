@@ -28,7 +28,7 @@ size_t parse_file (const char *input_file_path, int *status);
 /* locales dir for output strings translations */
 void txi_setup (const char *localesdir, int texinfo_uninstalled,
                 const char *tp_builddir,
-                const char *pkgdatadir, const char *top_srcdir);
+                const char *converterdatadir, const char *top_srcdir);
 
 void txi_parser (const char *file_path, const char *locale_encoding,
                 const char **expanded_formats, const VALUE_LIST *values,

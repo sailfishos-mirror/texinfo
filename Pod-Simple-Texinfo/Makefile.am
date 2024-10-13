@@ -26,15 +26,16 @@ EXTRA_DIST = Changes \
  tests \
  $(test_files)
 
-modulesdir = $(pkgdatadir)/Pod-Simple-Texinfo/Pod/Simple/
+converterdatadir = $(datadir)/$(CONVERTER)
+modulesdir = $(converterdatadir)/Pod-Simple-Texinfo/Pod/Simple/
 
 dist_modules_DATA = \
  lib/Pod/Simple/Texinfo.pm
 
 pod2texi: pod2texi.pl Makefile
 	sed -e 's,[@]datadir[@],$(datadir),g' \
-	-e 's,[@]pkglibdir[@],$(pkglibdir),g' \
-	-e 's,[@]PACKAGE[@],$(PACKAGE),g' \
+	-e 's,[@]libdir[@],$(libdir),g' \
+	-e 's,[@]CONVERTER[@],$(CONVERTER),g' \
 	-e '1 s,/usr/bin/env perl,$(PERL),g' \
 	   $(srcdir)/pod2texi.pl >$@
 	chmod a+x $@

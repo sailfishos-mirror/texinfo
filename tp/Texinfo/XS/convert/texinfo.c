@@ -48,12 +48,13 @@
 void
 txi_setup (const char *localesdir, int texinfo_uninstalled,
                  const char *tp_builddir,
-                 const char *pkgdatadir, const char *top_srcdir)
+                 const char *converterdatadir, const char *top_srcdir)
 {
   if (localesdir)
     configure_output_strings_translations (localesdir, 0);
 
-  converter_setup (texinfo_uninstalled, tp_builddir, pkgdatadir, top_srcdir);
+  converter_setup (texinfo_uninstalled, tp_builddir,
+                   converterdatadir, top_srcdir);
   html_format_setup ();
 }
 

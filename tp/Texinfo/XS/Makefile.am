@@ -33,11 +33,13 @@ EXTRA_DIST+=gnulib/m4/gnulib-cache.m4
 
 ################### End Gnulib section #########################
 
+converterlibdir = $(libdir)/$(CONVERTER)
+
 AM_CPPFLAGS += -DDATADIR=\"$(datadir)\" -DSYSCONFDIR=\"$(sysconfdir)\"
 
 ######################## Perl ################################
 
-xsdir = $(pkglibdir)
+xsdir = $(converterlibdir)
 
 .xs.c:
 	$(XSUBPP) $(XSUBPPARGS) $< > $*.xsc && mv $*.xsc $*.c
@@ -439,7 +441,8 @@ libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(EUIDA
 
 ########################## Parsetexi XS parser
 
-modulesdir = $(pkgdatadir)/Texinfo/XS/parsetexi
+converterdatadir = $(datadir)/$(CONVERTER)
+modulesdir = $(converterdatadir)/Texinfo/XS/parsetexi
 dist_modules_DATA = parsetexi/Parsetexi.pm
 
 if HAVE_ICONV

@@ -74,7 +74,7 @@ typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
 } FLOAT_CAPTION_PREPENDED_ELEMENT;
 
 typedef struct INSTALLED_PATHS {
-    const char *pkgdatadir;
+    const char *converterdatadir;
 } INSTALLED_PATHS;
 
 typedef struct UNINSTALLED_PATHS {
@@ -121,7 +121,7 @@ extern PATHS_INFORMATION conversion_paths_info;
 extern CONVERTER_FORMAT_DATA converter_format_data[];
 
 void converter_setup (int texinfo_uninstalled, const char *tp_builddir,
-                      const char *pkgdatadir, const char *top_srcdir);
+                      const char *converterdatadir, const char *top_srcdir);
 
 enum converter_format find_format_name_converter_format (const char *format);
 enum converter_format find_perl_converter_class_converter_format (

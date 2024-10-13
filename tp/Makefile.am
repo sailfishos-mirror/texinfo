@@ -36,6 +36,7 @@ SUBDIRS += . tests
 
 DIST_SUBDIRS = Texinfo/XS tests
 
+converterdatadir = $(datadir)/$(CONVERTER)
 
 bin_SCRIPTS = texi2any
 
@@ -47,8 +48,9 @@ do_subst = sed \
   -e 's,[@]prefix[@],$(prefix),g' \
   -e 's,[@]datarootdir[@],$(datarootdir),g' \
   -e 's,[@]datadir[@],$(datadir),g' \
-  -e 's,[@]pkglibdir[@],$(pkglibdir),g' \
+  -e 's,[@]libdir[@],$(libdir),g' \
   -e 's,[@]PACKAGE[@],$(PACKAGE),g' \
+  -e 's,[@]CONVERTER[@],$(CONVERTER),g' \
   -e 's,[@]USE_EXTERNAL_LIBINTL[@],$(USE_EXTERNAL_LIBINTL),g' \
   -e 's,[@]USE_EXTERNAL_EASTASIANWIDTH[@],$(USE_EXTERNAL_EASTASIANWIDTH),g' \
   -e 's,[@]USE_EXTERNAL_UNIDECODE[@],$(USE_EXTERNAL_UNIDECODE),g' \
@@ -64,7 +66,7 @@ makeinfo: texi2any
 	rm -f $@
 	-$(LN_S) texi2any $@
 
-modulesdir = $(pkgdatadir)/Texinfo
+modulesdir = $(converterdatadir)/Texinfo
 dist_modules_DATA = \
  Texinfo/Config.pm \
  Texinfo/Common.pm \
@@ -101,8 +103,8 @@ dist_noinst_DATA = \
 modules_DATA = \
  Texinfo/ModulePath.pm
 
-convertersdir = $(pkgdatadir)/Texinfo/Convert
-dist_converters_DATA = \
+convertmodulesdir = $(converterdatadir)/Texinfo/Convert
+dist_convertmodules_DATA = \
  Texinfo/Convert/Converter.pm \
  Texinfo/Convert/ConvertXS.pm \
  Texinfo/Convert/DocBook.pm \
@@ -126,14 +128,14 @@ dist_converters_DATA = \
  Texinfo/Convert/Utils.pm
 
 # extensions used in main program
-extensionsdir = $(datadir)/texinfo/ext
+extensionsdir = $(converterdatadir)/ext
 dist_extensions_DATA = \
  ext/epub3.pm \
  ext/highlight_syntax.pm \
  ext/tex4ht.pm \
  ext/latex2html.pm
 
-initdir = $(datadir)/texinfo/init
+initdir = $(converterdatadir)/init
 dist_init_DATA = \
  init/book.pm \
  init/chm.pm \
@@ -404,26 +406,26 @@ libsrcdir = $(srcdir)/maintain/lib
 
 install-data-local:
 	if test $(USE_EXTERNAL_LIBINTL) != 'yes' ; then \
-	  $(MKDIR_P) $(DESTDIR)$(pkgdatadir)/lib/libintl-perl/lib/Locale/Recode \
-	    $(DESTDIR)$(pkgdatadir)/lib/libintl-perl/lib/Locale/RecodeData; \
+	  $(MKDIR_P) $(DESTDIR)$(converterdatadir)/lib/libintl-perl/lib/Locale/Recode \
+	    $(DESTDIR)$(converterdatadir)/lib/libintl-perl/lib/Locale/RecodeData; \
 	  $(INSTALL_DATA) $(libsrcdir)/libintl-perl/lib/Locale/*.pm \
-	    $(DESTDIR)$(pkgdatadir)/lib/libintl-perl/lib/Locale; \
+	    $(DESTDIR)$(converterdatadir)/lib/libintl-perl/lib/Locale; \
 	  $(INSTALL_DATA) $(libsrcdir)/libintl-perl/lib/Locale/Recode/*.pm \
-	    $(DESTDIR)$(pkgdatadir)/lib/libintl-perl/lib/Locale/Recode; \
+	    $(DESTDIR)$(converterdatadir)/lib/libintl-perl/lib/Locale/Recode; \
 	  $(INSTALL_DATA) $(libsrcdir)/libintl-perl/lib/Locale/RecodeData/*.pm \
-	    $(DESTDIR)$(pkgdatadir)/lib/libintl-perl/lib/Locale/RecodeData; \
+	    $(DESTDIR)$(converterdatadir)/lib/libintl-perl/lib/Locale/RecodeData; \
 	fi
 	if test $(USE_EXTERNAL_EASTASIANWIDTH) != 'yes' ; then \
-	  $(MKDIR_P) $(DESTDIR)$(pkgdatadir)/lib/Unicode-EastAsianWidth/lib/Unicode; \
+	  $(MKDIR_P) $(DESTDIR)$(converterdatadir)/lib/Unicode-EastAsianWidth/lib/Unicode; \
 	  $(INSTALL_DATA) $(libsrcdir)/Unicode-EastAsianWidth/lib/Unicode/EastAsianWidth.pm \
-	   $(DESTDIR)$(pkgdatadir)/lib/Unicode-EastAsianWidth/lib/Unicode; \
+	   $(DESTDIR)$(converterdatadir)/lib/Unicode-EastAsianWidth/lib/Unicode; \
 	fi
 	if test $(USE_EXTERNAL_UNIDECODE) != 'yes' ; then \
-	  $(MKDIR_P) $(DESTDIR)$(pkgdatadir)/lib/Text-Unidecode/lib/Text/Unidecode; \
+	  $(MKDIR_P) $(DESTDIR)$(converterdatadir)/lib/Text-Unidecode/lib/Text/Unidecode; \
 	  $(INSTALL_DATA) $(libsrcdir)/Text-Unidecode/lib/Text/Unidecode.pm \
-	    $(DESTDIR)$(pkgdatadir)/lib/Text-Unidecode/lib/Text; \
+	    $(DESTDIR)$(converterdatadir)/lib/Text-Unidecode/lib/Text; \
 	  $(INSTALL_DATA) $(libsrcdir)/Text-Unidecode/lib/Text/Unidecode/*.pm \
-	    $(DESTDIR)$(pkgdatadir)/lib/Text-Unidecode/lib/Text/Unidecode; \
+	    $(DESTDIR)$(converterdatadir)/lib/Text-Unidecode/lib/Text/Unidecode; \
 	fi
 
 install-exec-hook:
@@ -434,7 +436,7 @@ dist-hook:
 	rm -rf `find $(distdir)/maintain/lib -name .git -o -name gettext_xs.o`
 
 uninstall-local:
-	rm -rf $(DESTDIR)$(pkgdatadir)/lib/
+	rm -rf $(DESTDIR)$(converterdatadir)/lib/
 
 distclean-local:
 	rm -rf LocaleData

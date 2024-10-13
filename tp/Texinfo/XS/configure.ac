@@ -15,6 +15,9 @@ AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE
 AC_CONFIG_MACRO_DIR([gnulib/m4])
 
+CONVERTER=texi2any
+AC_SUBST([CONVERTER])
+
 b='\'
 d='$'
 o='@<:@' dnl quadrigraph for [ - see autoconf documentation

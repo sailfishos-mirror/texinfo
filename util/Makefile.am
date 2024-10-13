@@ -25,7 +25,8 @@ pdftexi2dvi: texi2pdf
 
 txixml2texi: txixml2texi.pl Makefile
 	sed -e 's,[@]datadir[@],$(datadir),g' \
-	-e 's,[@]PACKAGE[@],$(PACKAGE),g' \
+	-e 's,[@]libdir[@],$(libdir),g' \
+	-e 's,[@]CONVERTER[@],$(CONVERTER),g' \
 	-e 's,[@]USE_EXTERNAL_LIBINTL[@],$(USE_EXTERNAL_LIBINTL),g' \
 	-e 's,[@]USE_EXTERNAL_EASTASIANWIDTH[@],$(USE_EXTERNAL_EASTASIANWIDTH),g' \
 	-e 's,[@]USE_EXTERNAL_UNIDECODE[@],$(USE_EXTERNAL_UNIDECODE),g' \

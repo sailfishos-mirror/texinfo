@@ -1,3 +1,34 @@
+2024-10-13  Patrice Dumas  <pertusus@free.fr>
+
+	Install texi2any codes and included js in datadir/texi2any
+
+	* configure.ac (CONVERTER), tp/Texinfo/XS/configure.ac (CONVERTER):
+	add CONVERTER, set to texi2any.
+
+	* Pod-Simple-Texinfo/Makefile.am (pod2texi),
+	Pod-Simple-Texinfo/pod2texi.pl (BEGIN), tp/Makefile.am (do_subst),
+	tp/texi2any.pl (BEGIN), util/Makefile.am (txixml2texi),
+	util/txixml2texi.pl (BEGIN): pass libdir separately to set xsdir.
+	Rename $lib_dir as $modules_dir.
+
+	* Pod-Simple-Texinfo/Makefile.am (converterdatadir, modulesdir)
+	(pod2texi), Pod-Simple-Texinfo/pod2texi.pl (BEGIN), js/Makefile.am
+	(converterdatadir, jsdir), tp/Makefile.am (converterdatadir, do_subst)
+	(modulesdir, convertmodulesdir, extensionsdir, initdir)
+	(install-data-local, uninstall-local), tp/Texinfo/Convert/HTML.pm
+	(_do_js_files), tp/Texinfo/ModulePath.pm.in ($converterdatadir),
+	tp/Texinfo/XS/Makefile.am (converterlibdir, xsdir, converterdatadir)
+	(modulesdir), tp/Texinfo/XS/convert/ConvertXS.xs (init),
+	tp/Texinfo/XS/convert/convert_html.c (html_do_js_files),
+	tp/Texinfo/XS/convert/converter.c (setup_converter_paths_information)
+	(converter_setup), tp/Texinfo/XS/convert/converter.h
+	(INSTALLED_PATHS), tp/Texinfo/XS/convert/texinfo.c (txi_setup),
+	tp/Texinfo/XSLoader.pm (init), tp/texi2any.pl (BEGIN, $converter)
+	($extensions_dir, @converter_config_dirs, @converter_init_dirs),
+	util/Makefile.am (txixml2texi), util/txixml2texi.pl (BEGIN): pass
+	CONVERTER, install in $(datadir)/$(CONVERTER), rename/replace
+	pkgdatadir by converterdatadir.
+
 2024-10-12  Patrice Dumas  <pertusus@free.fr>
 
 	* info/nodes.c (info_create_tag): do not set nodestart_adjusted to -1,

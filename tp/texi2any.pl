@@ -68,8 +68,9 @@ BEGIN
 
   # These are substituted by the Makefile to create "texi2any".
   my $datadir = '@datadir@';
-  my $package = '@PACKAGE@';
-  my $xsdir = '@pkglibdir@';
+  my $converter = '@CONVERTER@';
+  my $libdir = '@libdir@';
+  my $xsdir;
 
   if ($datadir eq '@' .'datadir@'
       or defined($ENV{'TEXINFO_DEV_SOURCE'})
@@ -88,29 +89,32 @@ BEGIN
     Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 1);
   } else {
     # Look for modules in their installed locations.
-    my $lib_dir = File::Spec->catdir($datadir, $package);
+    my $modules_dir = File::Spec->catdir($datadir, $converter);
     # look for package data in the installed location.
-    # actually the same as $pkgdatadir in main program below, but use
+    # actually the same as $converterdatadir in main program below, but use
     # another name to avoid confusion.
-    my $modules_pkgdatadir = $lib_dir;
+    my $modules_converterdatadir = $modules_dir;
+    $xsdir = File::Spec->catdir($libdir, $converter);
 
     # try to make package relocatable, will only work if
     # standard relative paths are used
-    if (! -f File::Spec->catfile($lib_dir, 'Texinfo', 'Parser.pm')
+    if (! -f File::Spec->catfile($modules_dir, 'Texinfo', 'Parser.pm')
         and -f File::Spec->catfile($command_directory, $updir, 'share',
-                                   $package, 'Texinfo', 'Parser.pm')) {
-      $lib_dir = File::Spec->catdir($command_directory, $updir,
-                                          'share', $package);
-      $modules_pkgdatadir = File::Spec->catdir($command_directory, $updir,
-                                               'share', $package);
+                                   $converter, 'Texinfo', 'Parser.pm')) {
+      $modules_dir = File::Spec->catdir($command_directory, $updir,
+                                          'share', $converter);
+      $modules_converterdatadir
+                  = File::Spec->catdir($command_directory, $updir,
+                                               'share', $converter);
       $xsdir = File::Spec->catdir($command_directory, $updir,
-                                          'lib', $package);
+                                          'lib', $converter);
     }
 
-    unshift @INC, $lib_dir;
+    unshift @INC, $modules_dir;
 
     require Texinfo::ModulePath;
-    Texinfo::ModulePath::init($lib_dir, $xsdir, $modules_pkgdatadir,
+    Texinfo::ModulePath::init($modules_dir, $xsdir,
+                              $modules_converterdatadir,
                               'installed' => 1);
   }
 } # end BEGIN
@@ -146,10 +150,11 @@ my $updir = File::Spec->updir();
 # set by configure, prefix for the sysconfdir and so on
 # This could be used in the eval
 my $prefix = '@prefix@';
+my $datadir;
 my $datarootdir;
 my $sysconfdir;
 my $pkgdatadir;
-my $datadir;
+my $converter;
 
 my $fallback_prefix = File::Spec->catdir(File::Spec->rootdir(), 'usr', 'local');
 
@@ -171,10 +176,12 @@ if ('@datarootdir@' ne '@' . 'datarootdir@') {
 if ('@datadir@' ne '@' . 'datadir@' and '@PACKAGE@' ne '@' . 'PACKAGE@') {
   $datadir = eval '"@datadir@"';
   my $package = '@PACKAGE@';
+  $converter = '@CONVERTER@';
   $pkgdatadir = File::Spec->catdir($datadir, $package);
 } else {
   $datadir = File::Spec->catdir($fallback_prefix, 'share');
   $pkgdatadir = File::Spec->catdir($datadir, 'texinfo');
+  $converter = 'texi2any';
 }
 
 my $extensions_dir;
@@ -182,7 +189,8 @@ if ($Texinfo::ModulePath::texinfo_uninstalled) {
   $extensions_dir = File::Spec->catdir($Texinfo::ModulePath::top_srcdir,
                                        'tp', 'ext');
 } else {
-  $extensions_dir = File::Spec->catdir($Texinfo::ModulePath::pkgdatadir, 'ext');
+  $extensions_dir
+    = File::Spec->catdir($Texinfo::ModulePath::converterdatadir, 'ext');
 }
 
 my $internal_extension_dirs = [$extensions_dir];
@@ -508,27 +516,27 @@ my @texinfo_language_config_dirs = @$language_config_dirs;
 #                               if (defined($datadir));
 
 # these variables are used as part of binary strings.
-my @program_config_dirs;
-my @program_init_dirs;
+my @converter_config_dirs;
+my @converter_init_dirs;
 
-my $program_name = 'texi2any';
-my $program_config_dirs_array_ref
-  = set_subdir_directories($program_name, \%deprecated_directories);
+my $converter_config_dirs_array_ref
+  = set_subdir_directories($converter, \%deprecated_directories);
 
-@program_config_dirs = ($curdir, @$program_config_dirs_array_ref);
+@converter_config_dirs = ($curdir, @$converter_config_dirs_array_ref);
 
-#@program_config_dirs = ($curdir, File::Spec->catdir($curdir, ".$program_name"));
-#push @program_config_dirs, File::Spec->catdir($ENV{'HOME'}, ".$program_name")
+#@converter_config_dirs
+#   = ($curdir, File::Spec->catdir($curdir, ".$converter"));
+#push @converter_config_dirs, File::Spec->catdir($ENV{'HOME'}, ".$converter")
 #       if (defined($ENV{'HOME'}));
-#push @program_config_dirs, File::Spec->catdir($sysconfdir, $program_name)
+#push @converter_config_dirs, File::Spec->catdir($sysconfdir, $converter)
 #       if (defined($sysconfdir));
-#push @program_config_dirs, File::Spec->catdir($datadir, $program_name)
+#push @converter_config_dirs, File::Spec->catdir($datadir, $converter)
 #  if (defined($datadir));
 
-@program_init_dirs = @program_config_dirs;
+@converter_init_dirs = @converter_config_dirs;
 foreach my $texinfo_config_dir (@texinfo_language_config_dirs) {
   my $init_dir = File::Spec->catdir($texinfo_config_dir, 'init');
-  push @program_init_dirs, $init_dir;
+  push @converter_init_dirs, $init_dir;
   if ($deprecated_directories{$texinfo_config_dir}) {
     $deprecated_directories{$init_dir}
    = File::Spec->catdir($deprecated_directories{$texinfo_config_dir}, 'init');
@@ -537,9 +545,9 @@ foreach my $texinfo_config_dir (@texinfo_language_config_dirs) {
 
 # add texi2any extensions dir too, such as the init files there
 # can also be loaded as regular init files.
-push @program_init_dirs, $extensions_dir;
+push @converter_init_dirs, $extensions_dir;
 
-#print STDERR join("\n", @program_init_dirs)."\n\n";
+#print STDERR join("\n", @converter_init_dirs)."\n\n";
 #print STDERR join("\n", sort(keys(%deprecated_directories)))."\n";
 
 
@@ -733,7 +741,7 @@ set_translations_encoding($translations_encoding);
 # files replace default options.
 my ($config_init_files, $deprecated_dirs_for_config_init)
  = Texinfo::Common::locate_file_in_dirs($conf_file_name,
-                             [ reverse(@program_config_dirs) ], 1,
+                             [ reverse(@converter_config_dirs) ], 1,
                                         \%deprecated_directories);
 if (defined($config_init_files)) {
   foreach my $file (@$config_init_files) {
@@ -1131,7 +1139,7 @@ my $result_options = Getopt::Long::GetOptions (
  'help|h' => sub { print _encode_message(makeinfo_help()); exit 0; },
  'version|V' => sub {
     print _encode_message(
-                    "$program_name (GNU texinfo) $configured_version\n\n");
+                    "$converter (GNU texinfo) $configured_version\n\n");
     print _encode_message(sprintf __(
 "Copyright (C) %s Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -1234,7 +1242,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2024");
     if (get_conf('TEST')) {
       locate_and_load_init_file($_[1], [ @conf_dirs ]);
     } else {
-      locate_and_load_init_file($_[1], [ @conf_dirs, @program_init_dirs ],
+      locate_and_load_init_file($_[1], [ @conf_dirs, @converter_init_dirs ],
                                 \%deprecated_directories);
     }
  },

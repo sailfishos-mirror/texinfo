@@ -12459,7 +12459,7 @@ sub _do_js_files($$)
         my $jssrcdir;
         if (!$Texinfo::ModulePath::texinfo_uninstalled) {
           $jssrcdir = File::Spec->catdir(
-            $Texinfo::ModulePath::pkgdatadir, 'js');
+            $Texinfo::ModulePath::converterdatadir, 'js');
         } else {
           $jssrcdir = File::Spec->catdir(
             $Texinfo::ModulePath::top_srcdir, 'js');
