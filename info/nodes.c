@@ -820,13 +820,7 @@ make_file_buffer (void)
 {
   FILE_BUFFER *file_buffer = xmalloc (sizeof (FILE_BUFFER));
 
-  file_buffer->filename = file_buffer->fullpath = NULL;
-  file_buffer->contents = NULL;
-  file_buffer->tags = NULL;
-  file_buffer->subfiles = NULL;
-  file_buffer->tags_slots = 0;
-  file_buffer->flags = 0;
-  file_buffer->encoding = 0;
+  memset (file_buffer, 0, sizeof (FILE_BUFFER));
 
   return file_buffer;
 }
@@ -881,11 +875,6 @@ info_create_tag (void)
   TAG *t = xmalloc (sizeof (TAG));
 
   memset (t, 0, sizeof (TAG));
-  t->filename = 0;
-  t->nodename = 0;
-  t->nodestart = 0;
-  t->nodestart_adjusted = 0;
-  t->cache.nodelen = 0;
 
   return t;
 }
@@ -896,18 +885,7 @@ info_create_node (void)
 {
   NODE *n = xmalloc (sizeof (NODE));
 
-  n->fullpath = 0;
-  n->subfile = 0;
-  n->nodename = 0;
-  n->contents = 0;
-  n->nodelen = 0;
-  n->display_pos = 0;
-  n->body_start = 0;
-  n->flags = 0;
-  n->references = 0;
-  n->up = 0;
-  n->prev = 0;
-  n->next = 0;
+  memset (n, 0, sizeof (NODE));
 
   return n;
 }

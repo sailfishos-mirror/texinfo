@@ -1,5 +1,10 @@
 2024-10-13  Patrice Dumas  <pertusus@free.fr>
 
+	* info/nodes.c (make_file_buffer, info_create_tag, info_create_node):
+	initialize with memset call zeroing the structure.
+
+2024-10-13  Patrice Dumas  <pertusus@free.fr>
+
 	Install texi2any codes and included js in datadir/texi2any
 
 	* configure.ac (CONVERTER), tp/Texinfo/XS/configure.ac (CONVERTER):
