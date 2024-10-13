@@ -384,12 +384,19 @@ find . -type f
 (Keep a copy of README-hacking open in a text editor to update these
 release instructions.)
 
-Check on correct branch (master or release/*) and rebuild.
-./autogen.sh ; ./configure ; make
+Check on correct branch (master or release/*)
+
+git switch release/7.1
+# remove stale generated headers from gnulib
+git status -u | grep '\.h$' | xargs rm
 
 * For release/7.1 branch only: need to "rm -f doc/refcard/Makefile.in"
 after switching to prevent manually written Makefile being clobbered.
 [Remove this note once release/7.1 no longer relevant.]
+
+Then rebuild:
+
+./autogen.sh ; ./configure ; make
 
 Have a look at the output of "git status -u" to check for files that
   should be tracked in git or ignored.  Check for leftover result
