@@ -1,5 +1,13 @@
 2024-10-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Macros for struct initialiser
+
+	* info/variables.c (info_variables): Use macros to generate
+	some of the initialiser.  This is shorter and also allows
+	providing the final 'where_set' value explicitly.
+
+2024-10-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Only put extra settings in MATHJAX_CONFIGURATION
 
 	* tp/Texinfo/Convert/HTML.pm (_setup_output): do not set

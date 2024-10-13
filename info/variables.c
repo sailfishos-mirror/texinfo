@@ -60,108 +60,116 @@ static char *rendition_choices[] = { "black", "red", "green", "yellow", "blue",
 /* Address of this indicates the 'highlight-searches' variable. */
 static int *highlight_searches;
 
-/* Note that the 'where_set' field of each element in the array is
-   not given and defaults to 0. */
+/* Used for part of struct initialisers: value, choices, where_set */
+#define ON_OFF_VAR(variable) &variable, (char **)on_off_choices, 0
+#define NUM_VAR(variable) &variable, NULL, 0
+#define CHOICES_VAR(variable, choices) &variable, (char **)choices, 0
+
 VARIABLE_ALIST info_variables[] = {
   { "automatic-footnotes",
       N_("When \"On\", footnotes appear and disappear automatically"),
-      &auto_footnotes_p, (char **)on_off_choices },
+      ON_OFF_VAR(auto_footnotes_p) },
 
   { "automatic-tiling",
       N_("When \"On\", creating or deleting a window resizes other windows"),
-      &auto_tiling_p, (char **)on_off_choices },
+      ON_OFF_VAR(auto_tiling_p) },
 
   { "visible-bell",
       N_("When \"On\", flash the screen instead of ringing the bell"),
-      &terminal_use_visible_bell_p, (char **)on_off_choices },
+      ON_OFF_VAR(terminal_use_visible_bell_p) },
 
   { "errors-ring-bell",
       N_("When \"On\", errors cause the bell to ring"),
-      &info_error_rings_bell_p, (char **)on_off_choices },
+      ON_OFF_VAR(info_error_rings_bell_p) },
 
   { "gc-compressed-files",
       N_("When \"On\", Info garbage collects files which had to be uncompressed"),
-      &gc_compressed_files, (char **)on_off_choices },
+      ON_OFF_VAR(gc_compressed_files) },
+
   { "show-index-match",
       N_("When \"On\", the portion of the matched search string is highlighted"),
-      &show_index_match, (char **)on_off_choices },
+      ON_OFF_VAR(show_index_match) },
 
   { "scroll-behaviour",
       N_("Controls what happens when scrolling is requested at the end of a node"),
-      &info_scroll_behaviour, (char **)info_scroll_choices },
+      CHOICES_VAR(info_scroll_behaviour, info_scroll_choices) },
 
   /* Alternate spelling */
   { "scroll-behavior",
       N_("Same as scroll-behaviour"),
-      &info_scroll_behaviour, (char **)info_scroll_choices },
+      CHOICES_VAR(info_scroll_behaviour, info_scroll_choices) },
 
   { "scroll-step",
       N_("The number lines to scroll when the cursor moves out of the window"),
-      &window_scroll_step, NULL },
+      NUM_VAR(window_scroll_step) },
 
   { "cursor-movement-scrolls",
-    N_("Controls whether scroll-behavior affects cursor movement commands"),
-    &cursor_movement_scrolls_p, (char **)on_off_choices },
+      N_("Controls whether scroll-behavior affects cursor movement commands"),
+      ON_OFF_VAR(cursor_movement_scrolls_p) },
   
   { "ISO-Latin",
       N_("When \"On\", Info accepts and displays ISO Latin characters"),
-      &ISO_Latin_p, (char **)on_off_choices },
+      ON_OFF_VAR(ISO_Latin_p) },
 
   { "scroll-last-node",
-    N_("What to do when a scrolling command is issued at the end of the "
-       "last node"),
-    &scroll_last_node, (char**)scroll_last_node_choices },
+      N_("What to do when a scrolling command is issued at the end of the "
+         "last node"),
+      CHOICES_VAR(scroll_last_node, scroll_last_node_choices) },
   
   { "min-search-length",
-    N_("Minimal length of a search string"),
-    &min_search_length, NULL },
+      N_("Minimal length of a search string"),
+      NUM_VAR(min_search_length) },
 
   { "search-skip-screen",
       N_("Skip current window when searching"),
-    &search_skip_screen_p, (char **)on_off_choices },
+      ON_OFF_VAR(search_skip_screen_p) },
 
   { "infopath-no-defaults",
       N_("Exclude default directories from file search path"),
-    &infopath_no_defaults_p, (char **)on_off_choices },
+      ON_OFF_VAR(infopath_no_defaults_p) },
 
   { "hide-note-references",
       N_("Hide some Info file syntax in the text of nodes"),
-    &preprocess_nodes_p, (char **)on_off_choices },
+      ON_OFF_VAR(preprocess_nodes_p) },
 
   { "key-time",
       N_("Length of time in milliseconds to wait for the next byte in a sequence indicating that a key has been pressed"),
-    &key_time, NULL },
+      NUM_VAR(key_time) },
 
   { "mouse",
       N_("Method to use to track mouse events"),
-    &mouse_protocol, (char **)mouse_choices },
+      CHOICES_VAR(mouse_protocol, mouse_choices) },
 
   { "follow-strategy",
       N_("How to follow a cross-reference"),
-    &follow_strategy, (char **)follow_strategy_choices },
+      CHOICES_VAR(follow_strategy, follow_strategy_choices) },
 
   { "highlight-searches",
       N_("Highlight search matches"),
-    &highlight_searches, (char **)on_off_choices },
+      ON_OFF_VAR(highlight_searches) },
 
   { "link-style",
       N_("Styles for links"),
-    &ref_rendition, (char **)rendition_choices },
+      CHOICES_VAR(ref_rendition, rendition_choices) },
 
   { "active-link-style",
       N_("Styles for active links"),
-    &hl_ref_rendition, (char **)rendition_choices },
+      CHOICES_VAR(hl_ref_rendition, rendition_choices) },
 
   { "match-style",
       N_("Styles for search matches"),
-    &match_rendition, (char **)rendition_choices },
+      CHOICES_VAR(match_rendition, rendition_choices) },
 
   { "nodeline",
       N_("How to print the information line at the start of a node"),
-    &nodeline_print, (char **)nodeline_choices },
+      CHOICES_VAR(nodeline_print, nodeline_choices) },
 
   { NULL }
 };
+
+#undef ON_OFF_VAR
+#undef NUM_VAR
+#undef CHOICES_VAR
 
 static char *
 rendition_to_string (RENDITION *rendition)
