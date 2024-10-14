@@ -1,10 +1,19 @@
 2024-10-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/configure.ac (HAVE_USABLE_GETENV_IN_XS): redirect
+	stderr to /dev/null for test too.  Fix the use of AC_DEFINE to define
+	only if the test succeeded.
+
+	* tp/Texinfo/XS/main/call_perl_function.c
+	(call_translations_translate_string): fix Perl function name.
+
+2024-10-13  Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS, tp/Texinfo/Convert/HTML.pm (_external_node_href),
 	tp/Texinfo/XS/convert/format_html.c (external_node_href): remove .inf
-	or .info in cross-reference manual names, but warn that they should be
-	removed.  There are indeed manuals with .info in cross-references,
-	for instance the glibc manual.  Report from Gavin.
+	or .info in cross-reference manual names, but warn that they should
+	not have been there.  There are indeed manuals with .info in
+	cross-references, for instance the glibc manual.  Report from Gavin.
 
 2024-10-13  Patrice Dumas  <pertusus@free.fr>
 

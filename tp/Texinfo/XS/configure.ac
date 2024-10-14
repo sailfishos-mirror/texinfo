@@ -20,17 +20,18 @@ AC_SUBST([CONVERTER])
 
 AC_PATH_PROG([PERL], [perl])
 
+# Before Perl 5.38.0 getenv/setenv and similar cannot be reliably used in
+# XS and could lead to memory corruption, depending on the platform.
 usable_getenv_in_XS=no
 AC_MSG_CHECKING([Perl XS with usable getenv])
-if $PERL -e "use 5.038" >/dev/null ; then
+if $PERL -e "use 5.038" >/dev/null 2>&1; then
   usable_getenv_in_XS=yes
 fi
 AC_MSG_RESULT($usable_getenv_in_XS)
 
-AC_DEFINE([HAVE_USABLE_GETENV_IN_XS], [], [whether getenv can be used in XS])
-
 if test $usable_getenv_in_XS = yes ; then
-  AC_DEFINE([HAVE_USABLE_GETENV_IN_XS], [1])
+  AC_DEFINE([HAVE_USABLE_GETENV_IN_XS], [1],
+            [Define to 1 if getenv can be used in XS])
 fi
 
 b='\'

@@ -148,7 +148,7 @@ call_translations_translate_string (const char *string, const char *in_lang,
   PUTBACK;
 
   count = call_pv (
-    "Texinfo::Translation::translate_string",
+    "Texinfo::Translations::translate_string",
     G_SCALAR);
 
   SPAGAIN;
