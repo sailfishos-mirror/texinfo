@@ -18,6 +18,21 @@ AC_CONFIG_MACRO_DIR([gnulib/m4])
 CONVERTER=texi2any
 AC_SUBST([CONVERTER])
 
+AC_PATH_PROG([PERL], [perl])
+
+usable_getenv_in_XS=no
+AC_MSG_CHECKING([Perl XS with usable getenv])
+if $PERL -e "use 5.038" >/dev/null ; then
+  usable_getenv_in_XS=yes
+fi
+AC_MSG_RESULT($usable_getenv_in_XS)
+
+AC_DEFINE([HAVE_USABLE_GETENV_IN_XS], [], [whether getenv can be used in XS])
+
+if test $usable_getenv_in_XS = yes ; then
+  AC_DEFINE([HAVE_USABLE_GETENV_IN_XS], [1])
+fi
+
 b='\'
 d='$'
 o='@<:@' dnl quadrigraph for [ - see autoconf documentation
@@ -99,8 +114,6 @@ PACKAGE_XS_VERSION=0
 # is given, we still need to configure this directory minimally, so that
 # "make dist" will work.
 if test x$disable_xs != xyes; then
-  AC_PATH_PROG([PERL], [perl])
-
   #PACKAGE_XS_VERSION=`${PERL} -e 'use version; print version->declare('"$PACKAGE_VERSION"')->numify;'`
   PACKAGE_XS_VERSION=`echo $PACKAGE_VERSION | sed 's/-/./g'`
 

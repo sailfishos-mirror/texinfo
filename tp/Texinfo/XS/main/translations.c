@@ -41,6 +41,7 @@
 #include "document.h"
 #include "conf.h"
 #include "api.h"
+#include "call_perl_function.h"
 /* for debugging */
 #include "convert_to_texinfo.h"
 #include "translations.h"
@@ -54,13 +55,32 @@ static char *locale_command = 0;
 
 static const char *strings_textdomain = "texinfo_document";
 
+static int use_external_translate_string;
+
+/* USE_EXTERNAL_TRANSLATE_STRING_IN:
+    -1: never call external (Perl) translate string
+    0: default, use HAVE_USABLE_GETENV_IN_XS value
+    1: always call external (Perl) translate string
+ */
 void
 configure_output_strings_translations (const char *localesdir,
-                                       const char *strings_textdomain_in)
+                                       const char *strings_textdomain_in,
+                                       int use_external_translate_string_in)
 {
   const char *textdomain_directory;
   if (strings_textdomain_in)
     strings_textdomain = strings_textdomain_in;
+
+  if (use_external_translate_string_in != 0)
+    use_external_translate_string = use_external_translate_string_in;
+  else
+    {
+  #ifndef HAVE_USABLE_GETENV_IN_XS
+      use_external_translate_string = 1;
+  #else
+      use_external_translate_string = 0;
+  #endif
+    }
 
   #ifdef ENABLE_NLS
   textdomain_directory = bindtextdomain (strings_textdomain, localesdir);
@@ -152,7 +172,7 @@ switch_messages_locale (void)
 }
 
 char *
-translate_string (const char * string, const char *in_lang,
+translate_string (const char *string, const char *in_lang,
                   const char *translation_context)
 {
   const char *lang = in_lang;
@@ -177,9 +197,18 @@ translate_string (const char * string, const char *in_lang,
     }
 
 #ifndef ENABLE_NLS
-  translated_string = strdup (string);
-  return translated_string;
+  if (use_external_translate_string < 0)
+    {
+      translated_string = strdup (string);
+      return translated_string;
+    }
+  else
+    return call_translations_translate_string (string, in_lang,
+                                               translation_context);
 #endif
+  if (use_external_translate_string > 0)
+    return call_translations_translate_string (string, in_lang,
+                                               translation_context);
 
   /* with the following code valgrind reports issues in perl memory */
 

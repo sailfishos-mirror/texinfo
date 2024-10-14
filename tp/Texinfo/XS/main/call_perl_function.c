@@ -122,6 +122,52 @@ call_nodenamenormalization_unicode_to_transliterate (const char *text)
   return result;
 }
 
+char *
+call_translations_translate_string (const char *string, const char *in_lang,
+                                    const char *translation_context)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+
+  dTHX;
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 3);
+
+  PUSHs(sv_2mortal (newSVpv_utf8 (string, 0)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (in_lang, 0)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (translation_context, 0)));
+  PUTBACK;
+
+  count = call_pv (
+    "Texinfo::Translation::translate_string",
+    G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak ("translate_string should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
+  result = non_perl_strndup (result_ret, len);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
 const void *
 call_setup_collator (int use_unicode_collation, const char *locale_lang)
 {

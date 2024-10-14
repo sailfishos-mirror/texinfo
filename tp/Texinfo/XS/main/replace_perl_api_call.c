@@ -62,6 +62,13 @@ call_nodenamenormalization_unicode_to_transliterate (const char *text)
   return result;
 }
 
+char *
+call_translations_translate_string (const char *string, const char *in_lang,
+                                    const char *translation_context)
+{
+  return strdup (string);
+}
+
 /* happens if not linked against Perl and a collation locale was specified
    but not found */
 const void *

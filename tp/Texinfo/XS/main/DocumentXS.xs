@@ -52,11 +52,13 @@ PROTOTYPES: ENABLE
 # More related to translations than to the Texinfo Document, but we do not
 # to add another XS file for only one function.
 void
-configure_output_strings_translations (localesdir, strings_textdomain="texinfo_document")
+configure_output_strings_translations (localesdir, strings_textdomain="texinfo_document", int use_external_translate_string=0)
        char *localesdir = (char *)SvPVbyte_nolen($arg);
        char *strings_textdomain;
       CODE:
-       configure_output_strings_translations (localesdir, strings_textdomain);
+       configure_output_strings_translations (localesdir,
+                                              strings_textdomain,
+                                              use_external_translate_string);
 
 # Since build_document is called, the underlying document HV is destroyed
 # instead of being reused, which is somewhat inefficient.  Doing something

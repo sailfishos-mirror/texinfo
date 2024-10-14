@@ -22,7 +22,8 @@ typedef struct NAMED_STRING_ELEMENT_LIST {
 } NAMED_STRING_ELEMENT_LIST;
 
 void configure_output_strings_translations (const char *localesdir,
-                                            const char *strings_textdomain_in);
+                                            const char *strings_textdomain_in,
+                                         int use_external_translate_string_in);
 
 char *translate_string (const char * string, const char *lang,
                         const char *translation_context);

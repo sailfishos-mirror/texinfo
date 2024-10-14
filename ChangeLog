@@ -6,6 +6,33 @@
 
 2024-10-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/configure.ac (usable_getenv_in_XS)
+	(HAVE_USABLE_GETENV_IN_XS): add a define set if getenv can safely be
+	used in Perl, based on Perl version >= 5.38.
+
+	* tp/Texinfo/XS/main/call_perl_function.c
+	(call_translations_translate_string),
+	tp/Texinfo/XS/main/replace_perl_api_call.c
+	(call_translations_translate_string): add call to
+	Texinfo::Translation::translate_string.
+
+	* tp/Texinfo/Translations.pm (_XS_configure),
+	tp/Texinfo/XS/convert/texinfo.c (txi_setup),
+	tp/Texinfo/XS/main/DocumentXS.xs
+	(configure_output_strings_translations),
+	tp/Texinfo/XS/main/translations.c (use_external_translate_string)
+	(configure_output_strings_translations, translate_string): add an
+	argument to configure_output_strings_translations to specify whether
+	to call Perl translate_string or not.  Set the variable
+	use_external_translate_string variable based on the argument, or on
+	HAVE_USABLE_GETENV_IN_XS if the argument is 0.  Use
+	use_external_translate_string in translate_string to determine if
+	call_translations_translate_string should be called.
+
+	Report from Gavin.
+
+2024-10-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/html_tests.t (inline_in_node): test showing
 	that HTML elements in @inlineraw on @node and @title line end up in
 	attributes in link or meta.  Based on Benjamin Kalish report.

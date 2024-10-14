@@ -51,7 +51,7 @@ txi_setup (const char *localesdir, int texinfo_uninstalled,
                  const char *converterdatadir, const char *top_srcdir)
 {
   if (localesdir)
-    configure_output_strings_translations (localesdir, 0);
+    configure_output_strings_translations (localesdir, 0, -1);
 
   converter_setup (texinfo_uninstalled, tp_builddir,
                    converterdatadir, top_srcdir);

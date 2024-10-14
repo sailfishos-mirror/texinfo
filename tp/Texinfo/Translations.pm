@@ -81,7 +81,7 @@ my $DEFAULT_LANGUAGE = 'en';
 my $messages_textdomain = 'texinfo';
 my $strings_textdomain = 'texinfo_document';
 
-sub _XS_configure($;$)
+sub _XS_configure($;$$)
 {
   # do nothing if there is no XS code loaded
 }
