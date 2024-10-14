@@ -741,6 +741,8 @@ tar		node	${GS}/tar/manual/html_node/
 teseq		mono	${GS}/teseq/manual/teseq.html
 teseq		node	${GS}/teseq/manual/html_node/
 
+termcap		mono	${GS}/termutils/manual/termcap-1.3/html_mono/termcap.html
+
 TEXINFO = ${GS}/texinfo/manual
 texinfo		mono	${TEXINFO}/texinfo/texinfo.html
 texinfo		node	${TEXINFO}/texinfo/html_node/
