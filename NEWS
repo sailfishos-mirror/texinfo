@@ -52,8 +52,7 @@ See the manual for detailed information.
    An implementation of the conversion in C has been included.  Set the
     `TEXINFO_XS_CONVERT' environment variable to 1 to use.
  . HTML:
-   . Do not remove .inf or .info at the end of manual name for
-     cross-references to external nodes anymore.
+   . Warn if there is a .inf or .info suffix for cross-reference manual.
    . Use <pre> instead of <div><em> for displaymath formatting.
    . Remove border, cellpadding, cellspacing and align attributes, add
      classes and use CSS when needed.

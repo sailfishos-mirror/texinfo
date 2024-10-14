@@ -10680,6 +10680,13 @@ sub _external_node_href($$$)
       }
     }
     my $manual_base = $manual_name;
+    # in 2023 there were manuals with .info.  Warning added in 2024.
+    if ($manual_base =~ s/(\.info?)$//) {
+      $self->converter_line_warn(sprintf(__(
+                    "do not set %s suffix in reference for manual `%s'"),
+                                         $1, $manual_name),
+                             $source_command->{'source_info'});
+    }
     $manual_base =~ s/^.*\///;
     my $split_found;
     my $htmlxref_href;

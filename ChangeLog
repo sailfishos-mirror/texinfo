@@ -1,8 +1,10 @@
-2024-10-14  Gavin Smith <gavinsmith0123@gmail.com>
+2024-10-13  Patrice Dumas  <pertusus@free.fr>
 
-	* util/htmlxref.cnf (termcap): add link to single page version.
-	(Node anchors are broken as this is from an old version of
-	texi2html (1.52), but better than nothing.)
+	* NEWS, tp/Texinfo/Convert/HTML.pm (_external_node_href),
+	tp/Texinfo/XS/convert/format_html.c (external_node_href): remove .inf
+	or .info in cross-reference manual names, but warn that they should be
+	removed.  There are indeed manuals with .info in cross-references,
+	for instance the glibc manual.  Report from Gavin.
 
 2024-10-13  Patrice Dumas  <pertusus@free.fr>
 
@@ -30,6 +32,12 @@
 	call_translations_translate_string should be called.
 
 	Report from Gavin.
+
+2024-10-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* util/htmlxref.cnf (termcap): add link to single page version.
+	(Node anchors are broken as this is from an old version of
+	texi2html (1.52), but better than nothing.)
 
 2024-10-13  Patrice Dumas  <pertusus@free.fr>
 

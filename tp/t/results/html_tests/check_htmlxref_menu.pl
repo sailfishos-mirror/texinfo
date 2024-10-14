@@ -970,10 +970,24 @@ $result_converted_errors{'file_html'}->{'check_htmlxref_menu'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: do not set .info suffix in reference for manual `no_existing_no_manual.info\'
+',
+    'line_nr' => 5,
+    'text' => 'do not set .info suffix in reference for manual `no_existing_no_manual.info\'',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: no htmlxref.cnf entry found for `no_existing_no_manual.info\'
 ',
     'line_nr' => 5,
     'text' => 'no htmlxref.cnf entry found for `no_existing_no_manual.info\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: do not set .info suffix in reference for manual `no_existing_no_manual.info\'
+',
+    'line_nr' => 6,
+    'text' => 'do not set .info suffix in reference for manual `no_existing_no_manual.info\'',
     'type' => 'warning'
   },
   {
@@ -991,10 +1005,24 @@ $result_converted_errors{'file_html'}->{'check_htmlxref_menu'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: do not set .info suffix in reference for manual `no_existing_no_manual.info\'
+',
+    'line_nr' => 14,
+    'text' => 'do not set .info suffix in reference for manual `no_existing_no_manual.info\'',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: no htmlxref.cnf entry found for `no_existing_no_manual.info\'
 ',
     'line_nr' => 14,
     'text' => 'no htmlxref.cnf entry found for `no_existing_no_manual.info\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: do not set .info suffix in reference for manual `no_existing_no_manual.info\'
+',
+    'line_nr' => 14,
+    'text' => 'do not set .info suffix in reference for manual `no_existing_no_manual.info\'',
     'type' => 'warning'
   },
   {
@@ -1009,6 +1037,13 @@ $result_converted_errors{'file_html'}->{'check_htmlxref_menu'} = [
 ',
     'line_nr' => 16,
     'text' => 'no htmlxref.cnf entry found for `dir\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: do not set .inf suffix in reference for manual `some_name_inf.inf\'
+',
+    'line_nr' => 19,
+    'text' => 'do not set .inf suffix in reference for manual `some_name_inf.inf\'',
     'type' => 'warning'
   },
   {

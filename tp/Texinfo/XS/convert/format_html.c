@@ -739,6 +739,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
   if (manual_content)
     {
       char *manual_name;
+      size_t len;
       char *manual_base = 0;
       char *p;
       char *htmlxref_href = 0;
@@ -775,6 +776,30 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
       else
         p++;
       manual_base = strdup (p);
+
+      p = 0;
+      len = strlen (manual_base);
+      if (len >= 4)
+        {
+          p = manual_base + len - 4;
+          if (strcmp (p, ".inf"))
+            p = 0;
+        }
+      if (!p && len >= 5)
+        {
+          p = manual_base + len - 5;
+          if (strcmp (p, ".info"))
+            p = 0;
+        }
+
+      if (p)
+        {
+          message_list_command_warn (&self->error_messages, self->conf,
+                                     source_command, 0,
+                "do not set %s suffix in reference for manual `%s'",
+                                     p, manual_name);
+          *p = '\0';
+        }
 
       htmlxref_manual = find_htmlxref_manual (&self->htmlxref, manual_base);
 
