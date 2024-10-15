@@ -826,15 +826,13 @@ determine_file_type:
       /* Redirect stdin to the file and fork the decompression process
          reading from stdin.  This allows shell metacharacters in filenames. */
       char *command = concat (*compression_program, " -d", "");
-      FILE *f2;
 
       if (fclose (f) < 0)
         return 0;
-      f2 = freopen (*opened_filename, FOPEN_RBIN, stdin);
-      if (!f)
+      if (!freopen (*opened_filename, FOPEN_RBIN, stdin))
         return 0;
       f = popen (command, "r");
-      fclose (f2);
+      fclose (stdin);
       if (!f)
         {
           /* Used for error message in calling code. */
