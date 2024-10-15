@@ -1,3 +1,7 @@
+2024-10-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* README-hacking: add .git/hooks/post-commit script
+
 2024-10-15  Vitezslav Crhonek  <vcrhonek@redhat.com>
 
 	* info/util.c: add missing "va_end"

@@ -89,6 +89,40 @@ case $2 in
 esac
 ------------------------------------
 
+If you are frequently applying patches sent by other people, the following
+may be useful to have in .git/hooks/post-commit to get the --author
+information from the ChangeLog:
+
+------------------------------------
+#!/bin/sh
+
+# post-commit
+
+# avoid recursion
+test $IN_GIT_HOOK_POST_COMMIT && exit 0
+export IN_GIT_HOOK_POST_COMMIT=1
+
+# Get author from latest ChangeLog entry.  Remove date, leading and trailing
+# spaces, and condense multiple spaces to 1.
+CL_author=$(head -n 1 ChangeLog | sed -e 's/^[[:digit:]-]*//' -e 's/^ *//' -e 's/ *$//' -e 's/  \+/ /')
+
+# Get author from last commit
+HEAD_author=$(git log -1 --pretty=format:'%an <%ae>')
+
+if test "$CL_author" != "$HEAD_author" ; then
+    git commit --amend --author="$CL_author" --reuse-message=HEAD
+
+    echo "post-commit: changed author from '$HEAD_author'"
+    echo "post-commit: to '$CL_author'."
+    echo "post-commit: to override, run:"
+    echo "post-commit: IN_GIT_HOOK_POST_COMMIT=1 git commit --amend -C HEAD --author=\"$HEAD_author\""
+fi
+------------------------------------
+
+Please ensure they have appropriate copyright assignments in place with
+the FSF before committing other people's changes, and check with a
+maintainer if unsure.
+
 When unable to push commits due to other commits being made, please
 use "git pull --rebase" (the default for "git pull" complicates the
 git history).  To deal with conflicts in the ChangeLog, you should
