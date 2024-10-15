@@ -1,5 +1,18 @@
 2024-10-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Always null terminate key sequence array
+
+	* info/infokey.c (compile): Always null-terminate 'seq' array.
+	Avoid filling the array completely as this could lead to a segfault
+	if exactly 20 characters were given in a key sequence, e.g.
+
+	bbbbbbbbbbbbbbbbbbb down-line
+
+	Report of uninitialised variable from Vitezslav Crhonek, found
+	with a static analysis tool.
+
+2024-10-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* install-info/install-info.c (open_possibly_compressed_file):
 	Correct check of return value of freopen.
 

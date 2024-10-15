@@ -219,8 +219,11 @@ compile (FILE *fp, const char *filename, int *suppress_info, int *suppress_ea)
 
 #define	To_seq(c) \
 		  do { \
-		    if (slen < sizeof seq/sizeof(int)) \
-		      seq[slen++] = meta ? KEYMAP_META(c) : (c); \
+		    if (slen < sizeof seq/sizeof(int) - 1) \
+		      { \
+		        seq[slen++] = meta ? KEYMAP_META(c) : (c); \
+		        seq[slen] = '\0'; \
+		      } \
 		    else \
 		      { \
 			syntax_error(filename, lnum, \
@@ -229,6 +232,7 @@ compile (FILE *fp, const char *filename, int *suppress_info, int *suppress_ea)
 		      } \
 		    meta = 0; \
 		  } while (0)
+  seq[0] = '\0';
 
   while (!error && (rescan || (c = fgetc (fp)) != EOF))
     {
@@ -494,8 +498,6 @@ compile (FILE *fp, const char *filename, int *suppress_info, int *suppress_ea)
                       ke.value.function = a != A_INVALID
                                             ? &function_doc_array[a]
                                             : &invalid_function;
-                      To_seq (0);
-
                       if (section == info)
                         keymap_bind_keyseq (info_keymap, seq, &ke);
                       else /* section == ea */
