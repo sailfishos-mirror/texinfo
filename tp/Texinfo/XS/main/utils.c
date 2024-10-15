@@ -216,18 +216,24 @@ non_perl_xvasprintf (char **ptr, const char *template, va_list ap)
 int
 non_perl_xasprintf (char **ptr, const char *template, ...)
 {
+  int ret;
   va_list v;
   va_start (v, template);
-  return non_perl_xvasprintf (ptr, template, v);
+  ret = non_perl_xvasprintf (ptr, template, v);
+  va_end (v);
+  return ret;
 }
 
 /* wrapper for asprintf */
 int
 xasprintf (char **ptr, const char *template, ...)
 {
+  int ret;
   va_list v;
   va_start (v, template);
-  return xvasprintf (ptr, template, v);
+  ret = xvasprintf (ptr, template, v);
+  va_end (v);
+  return ret;
 }
 
 void bug (char *message)
