@@ -1,5 +1,11 @@
 2024-10-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Fix info memory leak
+
+	* info/variables.c (set_variable): Free user-entered line.
+
+2024-10-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Always null terminate key sequence array
 
 	* info/infokey.c (compile): Always null-terminate 'seq' array.

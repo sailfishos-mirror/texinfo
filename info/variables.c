@@ -333,14 +333,11 @@ DECLARE_INFO_COMMAND (set_variable, _("Set the value of an Info variable"))
           return;
         }
 
-      /* User accepted default choice?  If so, no change. */
-      if (!*line)
-        {
-          free (line);
-          return;
-        }
+      /* User entered non-empty value? */
+      if (*line)
+        set_variable_to_value (var, line, SET_IN_SESSION);
 
-      set_variable_to_value (var, line, SET_IN_SESSION);
+      free (line);
     }
 }
 
