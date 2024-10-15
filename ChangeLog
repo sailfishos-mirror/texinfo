@@ -1,5 +1,14 @@
 2024-10-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Fix install-info memory leak
+
+	* install-info/install-info.c (open_possibly_compressed_file):
+	Move a function call returning memory that has to be freed
+	to prevent a theoretical memory leak in case of an error calling
+	fclose or freopen.  Report from Vitezslav Crhonek.
+
+2024-10-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: add .git/hooks/post-commit script
 
 2024-10-15  Vitezslav Crhonek  <vcrhonek@redhat.com>
