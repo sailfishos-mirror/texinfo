@@ -34,9 +34,12 @@ xvasprintf (char **ptr, const char *template, va_list ap)
 int
 xasprintf (char **ptr, const char *template, ...)
 {
+  int ret;
   va_list v;
   va_start (v, template);
-  return xvasprintf (ptr, template, v);
+  ret = xvasprintf (ptr, template, v);
+  va_end (v);
+  return ret;
 }
 
 /* Return the file buffer which belongs to WINDOW's node. */
