@@ -1,3 +1,11 @@
+2024-10-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/session.c (info_menu_or_ref_item, info_intuit_options_node)
+	(info_goto_invocation_node): Use xasprintf instead of xmalloc/sprintf.
+	The previous code appeared not to allocate memory for a final null.
+
+	Report from Vitezslav Crhonek.
+
 2024-10-15  Vitezslav Crhonek  <vcrhonek@redhat.com>
 
 	* info/infomap.c (fetch_user_maps): fix resource leak

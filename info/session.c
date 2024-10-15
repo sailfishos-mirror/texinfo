@@ -2340,22 +2340,14 @@ info_menu_or_ref_item (WINDOW *window, int menu_item, int xref, int ask_p)
       if (menu_item && !xref)
         {
           if (defentry)
-            {
-              prompt = xmalloc (strlen (defentry->label)
-                                + strlen (_("Menu item (%s): ")));
-              sprintf (prompt, _("Menu item (%s): "), defentry->label);
-            }
+            xasprintf (&prompt, _("Menu item (%s): "), defentry->label);
           else
             prompt = xstrdup (_("Menu item: "));
         }
       else
         {
           if (defentry)
-            {
-              prompt = xmalloc (strlen (defentry->label)
-                                + strlen (_("Follow xref (%s): ")));
-              sprintf (prompt, _("Follow xref (%s): "), defentry->label);
-            }
+            xasprintf (&prompt, _("Follow xref (%s): "), defentry->label);
           else
             prompt = xstrdup (_("Follow xref: "));
         }
@@ -3508,8 +3500,7 @@ info_intuit_options_node (NODE *node, char *program)
         {
           char *nodename;
 
-          nodename = xmalloc (strlen (program) + strlen (*try_node));
-          sprintf (nodename, *try_node, program);
+          xasprintf (&nodename, *try_node, program);
           /* The last resort "%s" is dangerous, so we restrict it
              to exact matches here.  */
           entry = info_get_menu_entry_by_label
@@ -3583,9 +3574,7 @@ DECLARE_INFO_COMMAND (info_goto_invocation_node,
   file_name = window->node->fullpath;
   default_program_name = program_name_from_file_name (file_name);
 
-  prompt = xmalloc (strlen (default_program_name) +
-		    strlen (invocation_prompt));
-  sprintf (prompt, invocation_prompt, default_program_name);
+  xasprintf (&prompt, invocation_prompt, default_program_name);
   line = info_read_in_echo_area (prompt);
   free (prompt);
   if (!line)
