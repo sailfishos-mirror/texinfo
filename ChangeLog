@@ -1,3 +1,7 @@
+2024-10-15  Vitezslav Crhonek  <vcrhonek@redhat.com>
+
+	* info/variables.c (read_variable_name): fix memory leak
+
 2024-10-15  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix info memory leak

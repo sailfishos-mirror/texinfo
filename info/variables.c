@@ -365,6 +365,7 @@ read_variable_name (char *prompt, WINDOW *window)
 {
   char *line;
   REFERENCE **variables;
+  VARIABLE_ALIST *alist;
 
   /* Get the completion array of variable names. */
   variables = make_variable_completions_array ();
@@ -388,7 +389,9 @@ read_variable_name (char *prompt, WINDOW *window)
       return NULL;
     }
 
-  return variable_by_name (line);
+  alist = variable_by_name (line);
+  free (line);
+  return alist;
 }
 
 /* Make an array of REFERENCE which actually contains the names of the
