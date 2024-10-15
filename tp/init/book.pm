@@ -24,6 +24,8 @@ use strict;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
+#use Carp qw(cluck);
+
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
@@ -36,10 +38,34 @@ texinfo_set_from_init_file('contents', 1);
 texinfo_set_from_init_file('CONTENTS_OUTPUT_LOCATION', 'inline');
 texinfo_set_from_init_file('NO_TOP_NODE_OUTPUT', 1);
 
-my @book_buttons = ('Back', 'Forward', ' ', 'Contents', 'Index', 'About');
+# Following Rudolf Adamkovič idea, have Contents button for regular output
+# units link to the section in table of contents.
+sub book_in_contents_button {
+  my ($self, $direction, $element) = @_;
 
-foreach my $buttons ('SECTION_BUTTONS', 'CHAPTER_BUTTONS', 'TOP_BUTTONS') {
-  texinfo_set_from_init_file($buttons, \@book_buttons);
+  if ($element->{'extra'}->{'associated_section'}) {
+    $element = $element->{'extra'}->{'associated_section'};
+  }
+
+  my $href = $self->command_contents_href($element, 'contents');
+
+  # Call direction_string to have Contents translated.
+  return ("[<a href=\"$href\">".
+           $self->direction_string('Contents', 'text')."</a>]", 0);
+}
+
+my @book_contents_buttons = ('Back', 'Forward', ' ', 'Contents', 'Index', 'About');
+
+foreach my $buttons ('TOP_BUTTONS') {
+  texinfo_set_from_init_file($buttons, \@book_contents_buttons);
+}
+
+my @book_output_unit_buttons = ('Back', 'Forward', ' ',
+                                ['This', \&book_in_contents_button],
+                                'Index', 'About');
+
+foreach my $buttons ('SECTION_BUTTONS', 'CHAPTER_BUTTONS') {
+  texinfo_set_from_init_file($buttons, \@book_output_unit_buttons);
 }
 
 my @book_footer_buttons = ('Contents', 'Index', 'About');
