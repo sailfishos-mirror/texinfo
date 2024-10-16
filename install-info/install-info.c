@@ -1834,7 +1834,7 @@ munge_old_style_debian_options (int argc, char **argv,
                                 int *new_argc, char ***new_argv)
 {
   char *opt = NULL;
-  int i, err;
+  int i, err = 0;
   char *argz = NULL;
   size_t argz_len = 0;
   const char *regex, *title;
