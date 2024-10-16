@@ -1,3 +1,8 @@
+2024-10-16  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* install-info/install-info.c (readfile): re-order code
+	to prevent possible memory leak.  Report from Vitezslav Crhonek.
+
 2024-10-16  Vitezslav Crhonek  <vcrhonek@redhat.com>
 
 	* install-info/install-info.c (munge_old_style_debian_options):

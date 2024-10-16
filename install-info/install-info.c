@@ -875,7 +875,6 @@ readfile (char *filename, int *sizep,
   FILE *f;
   int filled = 0;
   int data_size = 8192;
-  char *data = xmalloc (data_size + 1);
 
   /* If they passed the space for the file name to return, use it.  */
   f = open_possibly_compressed_file (filename, create_callback,
@@ -884,6 +883,8 @@ readfile (char *filename, int *sizep,
 
   if (!f)
     return 0;
+
+  char *data = xmalloc (data_size + 1);
 
   for (;;)
     {
