@@ -752,11 +752,15 @@ open_possibly_compressed_file (char *filename,
                 return 0;
               nread = fread (data, sizeof (data), 1, f);
               if (nread == 0)
-                return 0;
+                {
+                  fclose (f);
+                  return 0;
+                }
               goto determine_file_type; /* success */
             }
         }
       errno = 0;
+      fclose (f);
       return 0; /* unknown error */
     }
 
@@ -852,7 +856,10 @@ determine_file_type:
 #else
       /* Seek back over the magic bytes.  */
       if (fseek (f, 0, 0) < 0)
-        return 0;
+        {
+          fclose (f);
+          return 0;
+        }
 #endif
     }
 
