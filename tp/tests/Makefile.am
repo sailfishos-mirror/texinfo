@@ -13,6 +13,7 @@
 # list-of-tests files specifying the tests to run, by category of test.
 include $(srcdir)/Makefile.onetst
 
+# should be kept in sync with autogen.sh call
 $(srcdir)/Makefile.onetst: \
   ../maintain/regenerate_cmd_tests.sh $(test_driving_files_generated_list)
 	cd $(srcdir) \

@@ -1,3 +1,9 @@
+2024-10-15  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Makefile.am, tp/tests/Makefile.am: add comments for script calls
+	that are also in autogen.sh to remind that they should be kept in sync
+	with autogen.sh calls.
+
 2024-10-16  Vitezslav Crhonek  <vcrhonek@redhat.com>
 
 	* install-info/install-info.c (open_possibly_compressed_file):

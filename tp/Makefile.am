@@ -18,9 +18,11 @@ include $(srcdir)/Makefile.tres
 # Generated list of document string locale files and associated rules.
 include $(srcdir)/Makefile.docstr
 
+# should be kept in sync with autogen.sh call
 $(srcdir)/Makefile.tres: maintain/regenerate_file_lists.pl
 	cd $(srcdir)/ && $(PERL) ./maintain/regenerate_file_lists.pl
 
+# should be kept in sync with autogen.sh call
 $(srcdir)/Makefile.docstr: maintain/regenerate_docstr.sh \
                            $(srcdir)/../po_document/LINGUAS
 	cd $(srcdir) \
