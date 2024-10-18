@@ -1,3 +1,12 @@
+2024-10-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Revert removal of gnulib *.m4 files
+
+	* gnulib/m4, tp/Texinfo/XS/gnulib/m4: revert removal of gettext.m4,
+	nls.m4, po.m4 and progtest.m4.
+
+	(Reverted commit dated 2024-07-28 10:45:10, applied 2024-10-01.)
+
 2024-10-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides): reorder code.
