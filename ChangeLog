@@ -1,5 +1,11 @@
 2024-10-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/gnulib/gettext.m4: re-add file by running
+	"gettextize" under tp/Texinfo/XS/gnulib and discarding most of
+	the changes.
+
+2024-10-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Revert removal of gnulib *.m4 files
 
 	* gnulib/m4, tp/Texinfo/XS/gnulib/m4: revert removal of gettext.m4,
