@@ -286,6 +286,7 @@ main (int argc, char *argv[])
       const char *configured_name_version
          = PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG "+dev";
 
+      free (program_file);
       program_file = strdup ("texi2any");
 
       add_new_option_value (&convert_options, GOT_char,

@@ -1,5 +1,11 @@
 2024-10-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Fix teximakehtml memory leak
+
+	* tp/Texinfo/XS/teximakehtml.c: free variable before clobbering.
+
+2024-10-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	C hashmap implementation
 
 	* tp/Texinfo/XS/convert/hashmap.c
