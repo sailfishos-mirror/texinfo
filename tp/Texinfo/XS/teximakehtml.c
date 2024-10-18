@@ -38,6 +38,8 @@
 #include "convert_to_texinfo.h"
  */
 #include "create_buttons.h"
+/* for html_format_setup */
+#include "html_converter_api.h"
 #include "texinfo.h"
 
 #define LOCALEDIR DATADIR "/locale"
@@ -260,6 +262,7 @@ main (int argc, char *argv[])
     = txi_handle_document_error_messages (document, 0, 1, locale_encoding);
   errors_count += errors_nr;
 
+  html_format_setup ();
 
   /* conversion initialization */
   initialize_options_list (&convert_options, 2);

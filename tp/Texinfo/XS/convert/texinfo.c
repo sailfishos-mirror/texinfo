@@ -55,7 +55,6 @@ txi_setup (const char *localesdir, int texinfo_uninstalled,
 
   converter_setup (texinfo_uninstalled, tp_builddir,
                    converterdatadir, top_srcdir);
-  html_format_setup ();
 }
 
 /* parser initialization, similar to Texinfo::Parser::parser in Perl.
