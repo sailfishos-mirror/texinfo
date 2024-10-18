@@ -4531,6 +4531,46 @@ sort_cmd_targets (CONVERTER *self)
     }
 }
 
+/* return the approximate number of targets for that manual */
+static size_t
+ids_hashmap_predicted_values (CONVERTER *self)
+{
+  size_t sectioning_commands_nr = 0;
+  size_t index_entries_nr = 0;
+  size_t heading_commands_nr = 0;
+  size_t i;
+
+  OUTPUT_UNIT_LIST *special_units = retrieve_output_units
+    (self->document, self->output_units_descriptors[OUDT_special_units]);
+  OUTPUT_UNIT_LIST *associated_special_units = retrieve_output_units
+   (self->document,
+    self->output_units_descriptors[OUDT_associated_special_units]);
+
+  if (self->document->sections_list)
+    sectioning_commands_nr = self->document->sections_list->number;
+
+  if (self->document->indices_info.number > 0)
+    {
+      size_t i;
+      for (i = 0; i < self->sorted_index_names.number; i++)
+        index_entries_nr += self->sorted_index_names.list[i]->entries_number;
+    }
+
+  for (i = 0; heading_commands_list[i]; i++)
+    {
+      enum command_id cmd = heading_commands_list[i];
+      const ELEMENT_LIST *global_command
+        = get_cmd_global_multi_command (&self->document->global_commands, cmd);
+      heading_commands_nr += global_command->number;
+    }
+
+  return special_units->number + associated_special_units->number
+   + self->document->identifiers_target.number
+   + 3 * sectioning_commands_nr
+   + index_entries_nr
+   + self->document->global_commands.footnotes.number * 2;
+}
+
 /* indirectly calls all the functions calling customization function
    requiring elements and output units except for external nodes formatting */
 /* for conversion units except for associated special units that require

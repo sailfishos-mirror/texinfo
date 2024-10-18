@@ -1,5 +1,12 @@
 2024-10-18  Patrice Dumas  <pertusus@free.fr>
 
+	Function to estimate number of "targets" for a manual
+
+	* tp/Texinfo/XS/convert/html_prepare_converter.c
+	(ids_hashmap_predicted_values): New function.
+
+2024-10-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Translations.pm (translate_string),
 	tp/Texinfo/XS/main/translations.c (translate_string): consider an
 	empty string to be an unset value, and do the same checks in C and
