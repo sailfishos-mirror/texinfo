@@ -55,6 +55,7 @@
 #include "converter.h"
 #include "call_html_perl_function.h"
 #include "call_html_cxx_function.h"
+#include "hashmap.h"
 #include "format_html.h"
 /* html_complete_no_arg_commands_formatting html_run_stage_handlers
    html_add_to_files_source_info html_find_file_source_info
@@ -1718,15 +1719,6 @@ html_converter_customize (CONVERTER *self)
   int external_type_conversion_function = 0;
   int external_type_open_function = 0;
   int external_formatting_function = 0;
-
-  if (self->ids_data_type == IDT_perl_hashmap)
-    init_registered_ids_hv (self);
-#ifdef HAVE_CXX_HASHMAP
-  else if (self->ids_data_type == IDT_cxx_hashmap)
-    init_registered_ids_hashmap (self);
-#endif
-  else
-    self->registered_ids = new_string_list ();
 
   /* for @sc */
   for (l = 0; default_upper_case_commands[l]; l++)
@@ -3768,6 +3760,8 @@ html_id_is_registered (CONVERTER *self, const char *string)
 {
   if (self->ids_data_type == IDT_perl_hashmap)
     return is_hv_registered_id (self, string);
+  else if (self->ids_data_type == IDT_hashmap)
+    return is_c_hashmap_registered_id (self, string);
 #ifdef HAVE_CXX_HASHMAP
   else if (self->ids_data_type == IDT_cxx_hashmap)
     return is_hashmap_registered_id (self, string);
@@ -3781,6 +3775,8 @@ html_register_id (CONVERTER *self, const char *string)
 {
   if (self->ids_data_type == IDT_perl_hashmap)
     hv_register_id (self, string);
+  else if (self->ids_data_type == IDT_hashmap)
+    c_hashmap_register_id (self, string);
 #ifdef HAVE_CXX_HASHMAP
   else if (self->ids_data_type == IDT_cxx_hashmap)
     hashmap_register_id (self, string);
@@ -4579,6 +4575,20 @@ void
 html_prepare_conversion_units_targets (CONVERTER *self,
                                        const char *document_name)
 {
+  if (self->ids_data_type == IDT_perl_hashmap)
+    init_registered_ids_hv (self);
+  else if (self->ids_data_type == IDT_hashmap)
+    {
+      size_t predicted_values = ids_hashmap_predicted_values (self);
+      init_registered_ids_c_hashmap (self, predicted_values);
+    }
+#ifdef HAVE_CXX_HASHMAP
+  else if (self->ids_data_type == IDT_cxx_hashmap)
+    init_registered_ids_hashmap (self);
+#endif
+  else
+    self->registered_ids = new_string_list ();
+
   /*
    Do that before the other elements, to be sure that special page ids
    are registered before elements id are.

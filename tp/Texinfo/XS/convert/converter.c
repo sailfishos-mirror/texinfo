@@ -287,8 +287,10 @@ new_converter (enum converter_format format, unsigned long flags)
   else if (flags & CONVF_cxx_hashmap)
     converter->ids_data_type = IDT_cxx_hashmap;
 #endif
-  else
+  else if (flags & CONVF_perl_hashmap)
     converter->ids_data_type = IDT_perl_hashmap;
+  else /* default */
+    converter->ids_data_type = IDT_hashmap;
 
   init_generic_converter (converter);
 
@@ -454,10 +456,8 @@ converter_converter (enum converter_format format,
   CONVERTER_INITIALIZATION_INFO *format_defaults;
   unsigned long flags;
 
-  /* NOTE if HAVE_CXX_HASHMAP is not set, even with CONVF_cxx_hashmap
-     string lists will be used */
   if (!converter_flags)
-    flags = CONVF_cxx_hashmap;
+    flags = CONVF_hashmap;
    /*
    To use a string list.  Slower.
     flags = CONVF_string_list;

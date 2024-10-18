@@ -105,7 +105,7 @@ get_or_create_sv_converter (SV *converter_in, const char *input_class)
         }
 
       converter_descriptor = new_converter (converter_format,
-                                            CONVF_perl_hashmap);
+                                            CONVF_hashmap);
                                              /*
                                             CONVF_string_list);
                                               */

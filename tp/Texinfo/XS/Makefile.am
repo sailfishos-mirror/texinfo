@@ -404,6 +404,8 @@ C_libtexinfo_convert_sources = \
                        convert/convert_html.c \
                        convert/format_html.h \
                        convert/format_html.c \
+                       convert/hashmap.c \
+                       convert/hashmap.h \
                        convert/html_converter_types.h \
                        convert/html_converter_init_options.c \
                        convert/html_converter_finish.c \

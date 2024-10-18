@@ -42,12 +42,14 @@ enum ids_data_type {
    IDT_perl_hashmap,
    IDT_cxx_hashmap,
    IDT_string_list,
+   IDT_hashmap,
 };
 
 /* converter low level customization */
 #define CONVF_perl_hashmap        0x0001
 #define CONVF_string_list         0x0002
 #define CONVF_cxx_hashmap         0x0004
+#define CONVF_hashmap             0x0008
 
 /* for string information passing to/from perl */
 enum sv_string_type {
@@ -883,6 +885,7 @@ typedef struct CONVERTER {
     STRING_LIST *registered_ids;
     /* actually HV * but we do not want to drag in Perl headers */
     void *registered_ids_hv;
+    void *registered_ids_c_hashmap;
 #ifdef HAVE_CXX_HASHMAP
     /* a pointer on C++ data */
     void *registered_ids_hashmap;

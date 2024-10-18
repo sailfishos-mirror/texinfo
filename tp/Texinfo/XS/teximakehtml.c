@@ -312,8 +312,7 @@ main (int argc, char *argv[])
                                    program_file,
                                    &converter_texinfo_language_config_dirs,
                                    &convert_options,
-   /* default, use C++ hashmap if available */
-                                   0);
+                                   CONVF_hashmap);
    /* to test linear search
                                    CONVF_string_list);
     */
