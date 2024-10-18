@@ -1,3 +1,10 @@
+2024-10-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Translations.pm (translate_string),
+	tp/Texinfo/XS/main/translations.c (translate_string): consider an
+	empty string to be an unset value, and do the same checks in C and
+	Perl.
+
 2024-10-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* NEWS: State new installation location for texi2any files.

@@ -159,7 +159,9 @@ sub translate_string($$;$)
 {
   my ($string, $lang, $translation_context) = @_;
 
-  $lang = $DEFAULT_LANGUAGE if (!defined($lang));
+  # language is not checked if set as a customization variable, in that
+  # case it could be the empty string or any other string.
+  $lang = $DEFAULT_LANGUAGE if (!defined($lang) or $lang eq '');
 
   my ($saved_LC_MESSAGES, $saved_LANGUAGE);
 
