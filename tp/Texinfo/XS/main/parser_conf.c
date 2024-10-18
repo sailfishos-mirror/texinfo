@@ -67,6 +67,7 @@ register_conf (void)
         {
           slot_found = 1;
           parser_conf_index = i;
+          break;
         }
     }
   if (!slot_found)

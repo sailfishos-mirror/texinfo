@@ -20,6 +20,11 @@
 
 2024-10-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/parser_conf.c (register_conf): break immediately
+	if a slot is found.
+
+2024-10-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/texinfo.c (txi_setup),
 	tp/Texinfo/XS/teximakehtml.c (main): do not call html_format_setup in
 	txi_setup to be output format independent, call in teximakehtml.c.
