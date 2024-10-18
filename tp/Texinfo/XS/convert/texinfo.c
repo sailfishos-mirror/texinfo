@@ -287,7 +287,7 @@ err_add_option_string_value (OPTIONS_LIST *options_list,
 }
 
 /* converter setup. Similar to an initialization of converter
-   from texi2any */
+   in texi2any */
 CONVERTER *
 txi_converter_setup (const char *format_str,
                      const char *output_format,
@@ -370,14 +370,6 @@ txi_converter_setup (const char *format_str,
 
 
 /* formats conversion */
-
-/*
-char *
-txi_output (CONVERTER *converter, DOCUMENT *document)
-{
-  return converter_output (converter, document);
-}
-*/
 
 /* similar to Texinfo::Convert::HTML->output */
 char *

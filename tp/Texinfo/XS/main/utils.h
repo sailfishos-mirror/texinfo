@@ -100,29 +100,8 @@ extern const enum command_id small_block_associated_command[][2];
 
 /* HTML modified state flags */
 #define HMSF_current_root            0x0001
-/*
-#define HMSF_  0x0002
-#define HMSF_      0x0004
-#define HMSF_     0x0008
-#define HMSF_    0x0010
-#define HMSF_          0x0020
-#define HMSF_               0x0040
-#define HMSF_  0x0080
-#define HMSF_        0x0100
- */
-#define HMSF_current_node            0x0200
-/*
-#define HMSF_     0x0400
-#define HMSF_        0x0800
-#define HMSF_           0x1000
-#define HMSF_           0x2000
-*/
-#define HMSF_translations            0x4000
-/*
-#define HMSF_            0x8000
-#define HMSF_            0x00010000
-#define HMSF_  0x00020000
- */
+#define HMSF_current_node            0x0002
+#define HMSF_translations            0x0004
 
 typedef struct ACCENTS_STACK {
     ELEMENT_STACK stack;

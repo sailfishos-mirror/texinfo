@@ -103,20 +103,22 @@ my %XS_overrides = (
 );
 
 my %XS_conversion_overrides = (
+  "Texinfo::Convert::HTML::_XS_format_setup"
+   => "Texinfo::Convert::ConvertXS::html_format_setup",
+
   "Texinfo::Convert::HTML::converter_defaults"
    => "Texinfo::Convert::ConvertXS::converter_defaults",
+  "Texinfo::Convert::HTML::_XS_html_converter_initialize_beginning"
+   => "Texinfo::Convert::ConvertXS::html_converter_initialize_beginning",
+  "Texinfo::Convert::HTML::_XS_html_converter_get_customization"
+   => "Texinfo::Convert::ConvertXS::html_converter_get_customization_sv",
+
   "Texinfo::Convert::HTML::output"
    => "Texinfo::Convert::ConvertXS::html_output",
   "Texinfo::Convert::HTML::convert"
    => "Texinfo::Convert::ConvertXS::html_convert",
 
   # following are not called when output and convert are overriden
-  "Texinfo::Convert::HTML::_XS_format_setup"
-   => "Texinfo::Convert::ConvertXS::html_format_setup",
-  "Texinfo::Convert::HTML::_XS_html_converter_initialize_beginning"
-   => "Texinfo::Convert::ConvertXS::html_converter_initialize_beginning",
-  "Texinfo::Convert::HTML::_XS_html_converter_get_customization"
-   => "Texinfo::Convert::ConvertXS::html_converter_get_customization_sv",
   "Texinfo::Convert::HTML::conversion_initialization"
    => "Texinfo::Convert::ConvertXS::html_conversion_initialization",
   "Texinfo::Convert::HTML::_setup_convert"
@@ -130,13 +132,16 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::_prepare_converted_output_info"
    => "Texinfo::Convert::ConvertXS::html_prepare_converted_output_info",
 
+  # not called when _prepare_conversion_units is overriden
   "Texinfo::Convert::HTML::_register_id"
    => "Texinfo::Convert::ConvertXS::html_register_id",
   "Texinfo::Convert::HTML::_id_is_registered"
    => "Texinfo::Convert::ConvertXS::html_id_is_registered",
 
+  # only called from overriden functions
   "Texinfo::Convert::HTML::_get_target"
    => "Texinfo::Convert::ConvertXS::html_get_target",
+
   "Texinfo::Convert::HTML::command_id"
    => "Texinfo::Convert::ConvertXS::html_command_id",
   "Texinfo::Convert::HTML::command_contents_target"
@@ -290,14 +295,16 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::_check_htmlxref_already_warned"
    => "Texinfo::Convert::ConvertXS::html_check_htmlxref_already_warned",
 
+  "Texinfo::Convert::HTML::_translate_names"
+   => "Texinfo::Convert::ConvertXS::html_translate_names",
+
+  # following are not called when output and convert are overriden
   "Texinfo::Convert::HTML::_prepare_conversion_units"
    => "Texinfo::Convert::ConvertXS::html_prepare_conversion_units",
   "Texinfo::Convert::HTML::_prepare_units_directions_files"
    => "Texinfo::Convert::ConvertXS::html_prepare_units_directions_files",
   "Texinfo::Convert::HTML::_prepare_output_units_global_targets"
    => "Texinfo::Convert::ConvertXS::html_prepare_output_units_global_targets",
-  "Texinfo::Convert::HTML::_translate_names"
-   => "Texinfo::Convert::ConvertXS::html_translate_names",
   "Texinfo::Convert::HTML::_prepare_title_titlepage"
    => "Texinfo::Convert::ConvertXS::html_prepare_title_titlepage",
   "Texinfo::Convert::HTML::_html_convert_convert"

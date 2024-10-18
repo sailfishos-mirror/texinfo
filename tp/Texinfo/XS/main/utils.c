@@ -102,7 +102,8 @@ DEF_ALIAS def_aliases[] = {
    pgdt_context_noop("category of methods with data type in object-oriented programming for @deftypemethod",
                      "Method")},
 
-  /* the following aliases are not used in the XS parser */
+  /* the following aliases are not used in the parser.  They do not need
+     to be marked for translation as it is already done just above */
   {CM_defunx, CM_deffnx, "Function", "category of functions for @defun"},
   {CM_defmacx, CM_deffnx, "Macro", 0},
   {CM_defspecx, CM_deffnx, "Special Form", 0},
