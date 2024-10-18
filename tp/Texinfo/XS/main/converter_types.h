@@ -40,7 +40,6 @@ enum converter_format {
 
 enum ids_data_type {
    IDT_perl_hashmap,
-   IDT_cxx_hashmap,
    IDT_string_list,
    IDT_hashmap,
 };
@@ -48,8 +47,7 @@ enum ids_data_type {
 /* converter low level customization */
 #define CONVF_perl_hashmap        0x0001
 #define CONVF_string_list         0x0002
-#define CONVF_cxx_hashmap         0x0004
-#define CONVF_hashmap             0x0008
+#define CONVF_hashmap             0x0004
 
 /* for string information passing to/from perl */
 enum sv_string_type {

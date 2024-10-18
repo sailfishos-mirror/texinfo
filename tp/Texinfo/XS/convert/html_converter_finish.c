@@ -30,7 +30,6 @@
 #include "converter.h"
 #include "api_to_perl.h"
 #include "call_html_perl_function.h"
-#include "call_html_cxx_function.h"
 #include "hashmap.h"
 /* html_reset_translated_special_unit_info_tree
    html_clear_direction_string_type */
@@ -164,10 +163,6 @@ html_reset_converter (CONVERTER *self)
     clear_registered_ids_hv (self);
   else if (self->ids_data_type == IDT_hashmap)
     clear_registered_ids_c_hashmap (self);
-#ifdef HAVE_CXX_HASHMAP
-  else if (self->ids_data_type == IDT_cxx_hashmap)
-    clear_registered_ids_hashmap (self);
-#endif
   else if (self->registered_ids)
     clear_strings_list (self->registered_ids);
 
@@ -347,10 +342,6 @@ html_free_converter (CONVERTER *self)
     free_registered_ids_hv (self);
   else if (self->ids_data_type == IDT_hashmap)
     free_registered_ids_c_hashmap (self);
-#ifdef HAVE_CXX_HASHMAP
-  else if (self->ids_data_type == IDT_cxx_hashmap)
-    free_registered_ids_hashmap (self);
-#endif
   else
     {
       if (self->registered_ids)

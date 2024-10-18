@@ -559,17 +559,7 @@ teximakehtml_SOURCES = \
 teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la
 teximakehtml_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
-if TXI_HAVE_CXX_HASHMAP
-teximakehtml_SOURCES += convert/call_html_cxx_function.cpp \
-                        convert/call_html_cxx_function.h
-TXI_CXX_CPPFLAGS = -DHAVE_CXX_HASHMAP=1
-teximakehtml_LINK = $(CXXLINK) $(teximakehtml_CXXFLAGS) $(teximakehtml_LDFLAGS)
-else
-EXTRA_DIST += convert/call_html_cxx_function.cpp \
-              convert/call_html_cxx_function.h
-TXI_CXX_CPPFLAGS = 
 teximakehtml_LINK = $(LINK) $(teximakehtml_CFLAGS) $(teximakehtml_LDFLAGS)
-endif
 
-teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(TXI_CXX_CPPFLAGS) $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
+teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 

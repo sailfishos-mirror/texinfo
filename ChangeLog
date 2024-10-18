@@ -1,5 +1,29 @@
 2024-10-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove C++ source files
+
+	* tp/Texinfo/XS/convert/call_html_cxx_function.cpp,
+	* tp/Texinfo/XS/convert/call_html_cxx_function.h: remove
+
+	* tp/Texinfo/XS/configure.ac: Remove AC_PROG_CXX check and
+	check if C++ hashmap can be used.
+	* tp/Texinfo/XS/Makefile.am (teximakehtml):
+	Build without options for C++.
+
+	* tp/Texinfo/XS/main/converter_types.h
+	(enum ids_data_type): remove IDT_cxx_hashmap
+	(CONVF_cxx_hashmap): remove
+
+	* tp/Texinfo/XS/convert/converter.c (new_converter) [HAVE_CXX_HASHMAP],
+	* tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_prepare_conversion_units, html_register_id)
+	(html_id_is_registered)  [HAVE_CXX_HASHMAP],
+	* tp/Texinfo/XS/convert/html_converter_finish.c
+	(html_reset_converter, html_free_converter) [HAVE_CXX_HASHMAP]:
+	Remove all code.
+
+2024-10-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Fix teximakehtml memory leak
 
 	* tp/Texinfo/XS/teximakehtml.c: free variable before clobbering.
