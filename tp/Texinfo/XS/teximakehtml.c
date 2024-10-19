@@ -106,10 +106,13 @@ main (int argc, char *argv[])
   BUTTON_SPECIFICATION_LIST *custom_node_footer_buttons;
   OPTIONS_LIST parser_options;
   OPTIONS_LIST convert_options;
+  /* not really cmdline_options but options common to parser and converter */
+  OPTIONS_LIST cmdline_options;
   size_t errors_count = 0;
   size_t errors_nr;
   STRING_LIST texinfo_language_config_dirs;
   STRING_LIST converter_texinfo_language_config_dirs;
+  CONVERTER_INITIALIZATION_INFO *format_defaults;
   char *home_dir;
   const char *curdir = ".";
 
@@ -130,6 +133,12 @@ main (int argc, char *argv[])
   input_directory = program_file_name_and_directory[1];
 
   locale_encoding = nl_langinfo (CODESET);
+
+  initialize_options_list (&cmdline_options, 2);
+  /*
+  add_new_option_value (&cmdline_options, GOT_integer,
+                           "DEBUG", 1, 0);
+   */
 
   while (1)
     {
@@ -183,16 +192,28 @@ main (int argc, char *argv[])
   if (strlen (DATADIR))
     add_string (DATADIR "/texinfo", &texinfo_language_config_dirs);
 
+  /*
+   if ($^O eq 'MSWin32') {
+     $main_program_set_options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'} = 0;
+   }
+  */
 
   txi_general_setup (LOCALEDIR, 0, 0, 0, 0);
 
-/*
- if ($^O eq 'MSWin32') {
-  $main_program_set_options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'} = 0;
-}
-*/
+  txi_converter_output_format_setup ("html");
 
+  /*
+  add_new_option_value (&cmdline_options, GOT_integer,
+                        "TEXI2HTML", 1, 0);
+   */
 
+  /* FORMAT_MENU for parser should be set based on converter_defaults taking into
+     account cmdline_options in case TEXI2HTML is set
+  format_defaults = txi_converter_format_defaults ("html", &cmdline_options);
+  fprintf (stderr, "FORMAT_MENU %s\n", format_defaults->options->FORMAT_MENU.o.string);
+   */
+
+  /* TODO add cmdline_options filtering in only parser options */
   initialize_options_list (&parser_options, 2);
   /*
   add_new_option_value (&parser_options, GOT_integer,
@@ -208,6 +229,7 @@ main (int argc, char *argv[])
       add_new_option_strlist_value (&parser_options, GOT_char_string_list,
                             "EXPANDED_FORMATS", &parser_EXPANDED_FORMATS);
     }
+
 
   /* Texinfo file parsing */
   input_file_path = argv[optind];
@@ -249,8 +271,6 @@ main (int argc, char *argv[])
   errors_nr
     = txi_handle_document_error_messages (document, 0, 1, locale_encoding);
   errors_count += errors_nr;
-
-  txi_converter_output_format_setup ("html");
 
   /* conversion initialization */
   initialize_options_list (&convert_options, 2);

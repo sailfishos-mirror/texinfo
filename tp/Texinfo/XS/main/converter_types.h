@@ -767,6 +767,9 @@ typedef struct CONVERTER_INITIALIZATION_INFO {
     OPTIONS_LIST conf;
     /* gather strings that are not customization options */
     STRING_LIST non_valid_customization;
+  /* can be used for direct access to OPTIONS structure if needed, but
+     should be NULL in many cases */
+    OPTIONS *options;
 } CONVERTER_INITIALIZATION_INFO;
 
 typedef struct CONVERTER {

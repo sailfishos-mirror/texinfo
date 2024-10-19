@@ -29,6 +29,10 @@ void txi_general_setup (const char *localesdir, int texinfo_uninstalled,
 
 void txi_converter_output_format_setup (const char *format_str);
 
+CONVERTER_INITIALIZATION_INFO *txi_converter_format_defaults (
+                               const char *format_str,
+                               OPTIONS_LIST *customizations);
+
 void txi_parser (const char *file_path, const char *locale_encoding,
                 const char **expanded_formats, const VALUE_LIST *values,
                 OPTIONS_LIST *options);

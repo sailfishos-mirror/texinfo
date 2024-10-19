@@ -34,6 +34,26 @@
 
 2024-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c
+	(destroy_converter_initialization_info),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER_INITIALIZATION_INFO):
+	add OPTIONS options field and free it, in case a direct access to an
+	OPTIONS structure is needed.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_converter_format_defaults): add
+	to get default options based on a customization list and a format
+	string, also setting the returned CONVERTER_INITIALIZATION_INFO
+	options field.
+
+	* tp/Texinfo/XS/convert/converter.c: move converter_set_document below
+	convert API functions.
+
+	* tp/Texinfo/XS/teximakehtml.c (main): add cmdline_options for options
+	common for parser and converter.  Add some code in comments using
+	txi_converter_format_defaults.  Move code around.
+
+2024-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm: change in comments.
 
 2024-10-19  Patrice Dumas  <pertusus@free.fr>

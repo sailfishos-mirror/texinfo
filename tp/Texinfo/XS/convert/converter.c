@@ -390,6 +390,12 @@ destroy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
   if (init_info->translated_commands)
     destroy_translated_commands (init_info->translated_commands);
 
+  if (init_info->options)
+    {
+      free_options (init_info->options);
+      free (init_info->options);
+    }
+
   free_options_list (&init_info->conf);
 
   free_strings_list (&init_info->non_valid_customization);
@@ -406,7 +412,7 @@ copy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *dst_info,
   copy_options_list (&dst_info->conf, &src_info->conf);
 }
 
-/* Next three functions are not called from Perl as the Perl equivalent
+/* Next five functions are not called from Perl as the Perl equivalent
    functions are already called (and possibly overriden).  Inheritance
    in Perl is replaced by dispatching using a table here.
 
@@ -489,25 +495,6 @@ converter_converter (enum converter_format format,
   return converter;
 }
 
-void
-converter_set_document (CONVERTER *converter, DOCUMENT *document)
-{
-   /*
-  if (document)
-    {
-      fprintf (stderr, "XS|CONVERTER %d: Document %d\n",
-           converter->converter_descriptor, document->descriptor);
-    }
-    */
-
-  converter->document = document;
-
-  set_output_encoding (converter->conf, converter->document);
-
-  converter->convert_text_options
-    = copy_converter_options_for_convert_text (converter);
-}
-
 char *
 converter_output (CONVERTER *self, DOCUMENT *document)
 {
@@ -542,6 +529,25 @@ converter_convert (CONVERTER *self, DOCUMENT *document)
       return result;
     }
   return 0;
+}
+
+void
+converter_set_document (CONVERTER *converter, DOCUMENT *document)
+{
+   /*
+  if (document)
+    {
+      fprintf (stderr, "XS|CONVERTER %d: Document %d\n",
+           converter->converter_descriptor, document->descriptor);
+    }
+    */
+
+  converter->document = document;
+
+  set_output_encoding (converter->conf, converter->document);
+
+  converter->convert_text_options
+    = copy_converter_options_for_convert_text (converter);
 }
 
 
