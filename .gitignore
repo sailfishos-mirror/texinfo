@@ -110,6 +110,11 @@ tp/Texinfo/XS/gnulib/lib/error.h
 tp/Texinfo/XS/gnulib/lib/float.h
 tp/Texinfo/XS/gnulib/lib/fcntl.h
 tp/Texinfo/XS/gnulib/lib/obstack.h
+tp/Texinfo/XS/gnulib/lib/signal.h
+tp/Texinfo/XS/gnulib/lib/sys/stat.h
+tp/Texinfo/XS/gnulib/lib/sys/time.h
+tp/Texinfo/XS/gnulib/lib/time.h
+tp/Texinfo/XS/gnulib/lib/utime.h
 tp/Texinfo/XS/gnulib/lib/stdckdint.h
 tp/Texinfo/XS/gnulib/lib/stdlib.h
 tp/Texinfo/XS/gnulib/lib/unistd.h
