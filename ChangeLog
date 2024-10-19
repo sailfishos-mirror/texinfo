@@ -1,5 +1,9 @@
 2024-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: Document gnulib-tool network access.
+
+2024-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Separate directory for non-gnulib m4 files (XS)
 
 	* tp/Texinfo/XS/m4, tp/Texinfo/XS/build-aux/m4: Move directory.

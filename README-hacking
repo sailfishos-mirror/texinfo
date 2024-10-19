@@ -155,6 +155,9 @@ in your top-level Texinfo directory and
   ../../../../gnulib/gnulib-tool --add-import
 
 under tp/Texinfo/XS.  (gnulib-tool is in the gnulib source tree.)
+These commands now access the Internet to update translations of
+Gnulib strings due to the --po-base and --po-domain options
+being saved.
 
 The currently-used gnulib modules and other gnulib information are
 recorded in gnulib/m4/gnulib-cache.m4.
