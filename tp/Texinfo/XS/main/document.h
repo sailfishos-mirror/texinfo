@@ -12,9 +12,6 @@
 /* avoid an interdependency with convert_to_text.h */
 struct TEXT_OPTIONS;
 
-/* library data initialization */
-void txi_setup_lib_data (void);
-
 
 DOCUMENT *retrieve_document (size_t document_descriptor);
 DOCUMENT *new_document (void);

@@ -153,7 +153,7 @@ my $prefix = '@prefix@';
 my $datadir;
 my $datarootdir;
 my $sysconfdir;
-my $pkgdatadir;
+#my $pkgdatadir;
 my $converter;
 
 my $fallback_prefix = File::Spec->catdir(File::Spec->rootdir(), 'usr', 'local');
@@ -177,10 +177,10 @@ if ('@datadir@' ne '@' . 'datadir@' and '@PACKAGE@' ne '@' . 'PACKAGE@') {
   $datadir = eval '"@datadir@"';
   my $package = '@PACKAGE@';
   $converter = '@CONVERTER@';
-  $pkgdatadir = File::Spec->catdir($datadir, $package);
+  #$pkgdatadir = File::Spec->catdir($datadir, $package);
 } else {
   $datadir = File::Spec->catdir($fallback_prefix, 'share');
-  $pkgdatadir = File::Spec->catdir($datadir, 'texinfo');
+  #$pkgdatadir = File::Spec->catdir($datadir, 'texinfo');
   $converter = 'texi2any';
 }
 

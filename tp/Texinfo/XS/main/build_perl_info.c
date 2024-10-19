@@ -35,6 +35,7 @@
  */
 
 #include <config.h>
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -49,10 +50,6 @@
 #include "XSUB.h"
 
 #undef context
-
-#ifdef ENABLE_NLS
-#include <libintl.h>
-#endif
 
 #include "command_ids.h"
 #include "element_types.h"
@@ -87,8 +84,6 @@
 /* also button_function_type_string */
 #include "get_perl_info.h"
 #include "build_perl_info.h"
-
-#define LOCALEDIR DATADIR "/locale"
 
   /* NOTE This file includes the Perl headers, therefore we get the Perl
      redefinitions of functions related to memory allocation, such as
@@ -160,28 +155,7 @@ int
 init (int texinfo_uninstalled, SV *converterdatadir_sv, SV *builddir_sv,
       SV *top_srcdir_sv)
 {
-#ifdef ENABLE_NLS
-
-  setlocale (LC_ALL, "");
-
-  /* Note: this uses the installed translations even when running an
-     uninstalled program. */
-  bindtextdomain (PACKAGE_CONFIG, LOCALEDIR);
-
-  textdomain (PACKAGE_CONFIG);
-
-  /* set the tp gnulib text message domain. */
-  bindtextdomain (PACKAGE_CONFIG "_tp-gnulib", LOCALEDIR);
-#else
-
-#endif
-
-  /* do that before any other call to get_encoding_conversion with
-     &output_conversions, otherwise the utf-8 conversion will never
-     be initialized.  Same for &input_conversions.
-    */
-  get_encoding_conversion ("utf-8", &output_conversions);
-  get_encoding_conversion ("utf-8", &input_conversions);
+  txi_base_setup ();
 
   return 1;
 }

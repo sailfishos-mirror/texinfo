@@ -31,7 +31,7 @@
 
 #include "document_types.h"
 #include "converter_types.h"
-/* parse_file_path */
+/* parse_file_path txi_base_setup */
 #include "utils.h"
 #include "customization_options.h"
 /*
@@ -127,22 +127,13 @@ main (int argc, char *argv[])
   const char *texinfo_text;
    */
 
-#ifdef ENABLE_NLS
-  setlocale (LC_ALL, "");
-
-  /* Set the text message domain.  */
-  bindtextdomain (PACKAGE_CONFIG, LOCALEDIR);
-  textdomain (PACKAGE_CONFIG);
-
-  /* set the gnulib text message domain. */
-  bindtextdomain (PACKAGE_CONFIG "_tp-gnulib", LOCALEDIR);
-#endif
-
-  locale_encoding = nl_langinfo (CODESET);
-
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
   input_directory = program_file_name_and_directory[1];
+
+  txi_base_setup ();
+
+  locale_encoding = nl_langinfo (CODESET);
 
   while (1)
     {
@@ -176,8 +167,6 @@ main (int argc, char *argv[])
   if (optind >= argc)
     exit (EXIT_FAILURE);
 
-  txi_setup (LOCALEDIR, 0, 0, 0, 0);
-
   memset (&texinfo_language_config_dirs, 0, sizeof (STRING_LIST));
   add_string (".config", &texinfo_language_config_dirs);
 
@@ -199,14 +188,14 @@ main (int argc, char *argv[])
     add_string (DATADIR "/texinfo", &texinfo_language_config_dirs);
 
 
+  txi_setup (LOCALEDIR, 0, 0, 0, 0);
+
 /*
  if ($^O eq 'MSWin32') {
   $main_program_set_options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'} = 0;
 }
 */
 
-  /* Texinfo file parsing */
-  input_file_path = argv[optind];
 
   initialize_options_list (&parser_options, 2);
   /*
@@ -223,6 +212,9 @@ main (int argc, char *argv[])
       add_new_option_strlist_value (&parser_options, GOT_char_string_list,
                             "EXPANDED_FORMATS", &parser_EXPANDED_FORMATS);
     }
+
+  /* Texinfo file parsing */
+  input_file_path = argv[optind];
 
   /* initialize parser */
   txi_parser (input_file_path, locale_encoding, expanded_formats, &values,

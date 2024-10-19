@@ -147,11 +147,15 @@ converter_setup (int texinfo_uninstalled, const char *tp_builddir,
 {
   int i;
 
+  /* for now the following information is only used in converters, although
+     it may have been relevant at earlier steps */
   setup_converter_paths_information (texinfo_uninstalled,
                              converterdatadir, tp_builddir, top_srcdir);
 
-  txi_setup_lib_data ();
+  set_element_type_name_info ();
+  txi_initialise_base_options ();
 
+  /* conversion specific information */
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
     {
       if (xml_text_entity_no_arg_commands[i])

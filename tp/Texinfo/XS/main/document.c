@@ -45,19 +45,6 @@ static size_t document_number;
 static size_t document_space;
 
 
-/* Call code only called once needed for the library data initialization.
-   This function is not related to the Texinfo document, but needs to be
-   in a code file that can include all the headers needed for the
-   initialization, and is included in all the codes that need to initialize
-   the library, so the current file was chosen.
- */
-void
-txi_setup_lib_data (void)
-{
-  set_element_type_name_info ();
-  txi_initialise_base_options ();
-}
-
 DOCUMENT *
 retrieve_document (size_t document_descriptor)
 {
