@@ -12,7 +12,7 @@
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 # Find our headers and gnulib headers.
-ACLOCAL_AMFLAGS = -I gnulib/m4
+ACLOCAL_AMFLAGS = -I build-aux/m4 -I gnulib/m4
 
 # Wrapper for the build environment.
 noinst_SCRIPTS = pre-inst-env

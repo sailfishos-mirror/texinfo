@@ -1,5 +1,19 @@
 2024-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Attempt at separate directory for non-gnulib m4 files (top level)
+
+	* configure.ac (AC_CONFIG_MACRO_DIRS): Add with value of
+	"build-aux/m4 gnulib/m4".  This means that gettextize can
+	install files under build-aux/m4, not in the same directory
+	as files from gnulib.
+	* Makefile.am (ACLOCAL_AMFLAGS): Add -I build-aux/m4
+
+	* build-aux/m4: add directory
+	* gnulib/m4: remove several files that are only added by
+	gettextize, not by gnulib --add-import
+
+2024-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS: re-run "gettextize" and track files in
 	new locations.
 

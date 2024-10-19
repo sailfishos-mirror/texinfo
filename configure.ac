@@ -17,6 +17,7 @@ AC_CONFIG_AUX_DIR([build-aux])
 dnl tar-ustar because we have long filenames for some test files.
 AM_INIT_AUTOMAKE([1.16.1 dist-xz
                  info-in-builddir parallel-tests tar-ustar])
+AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4])
 
 # Where to generate output; srcdir location.
 AC_CONFIG_HEADERS([config.h:config.in])dnl Keep filename to 8.3 for MS-DOS.
