@@ -1,5 +1,13 @@
 2024-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/texinfo.c (txi_document_remove)
+	(txi_converter_reset, txi_converter_destroy): rename
+	txi_remove_document as txi_document_remove, txi_reset_converter as
+	txi_converter_reset and txi_destroy_converter as
+	txi_converter_destroy, for consistency.  Update caller.
+
+2024-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (converter_format_data)
 	(converter_output, converter_convert),
 	tp/Texinfo/XS/convert/converter.h (CONVERTER_FORMAT_DATA),

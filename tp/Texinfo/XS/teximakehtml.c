@@ -228,7 +228,7 @@ main (int argc, char *argv[])
   if (status)
     {
       txi_handle_parser_error_messages (document, 0, 1, locale_encoding);
-      txi_remove_document (document);
+      txi_document_remove (document);
       exit (EXIT_FAILURE);
     }
 
@@ -331,13 +331,13 @@ main (int argc, char *argv[])
   errors_count += errors_nr;
 
   /* free after output */
-  txi_reset_converter (converter);
+  txi_converter_reset (converter);
 
 
   /* destroy converter */
-  txi_destroy_converter (converter);
+  txi_converter_destroy (converter);
   /* destroy document */
-  txi_remove_document (document);
+  txi_document_remove (document);
 
   if (errors_count > 0)
     exit (EXIT_FAILURE);

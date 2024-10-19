@@ -390,19 +390,19 @@ txi_converter_convert (CONVERTER *converter, DOCUMENT *document)
 }
 
 void
-txi_remove_document (DOCUMENT *document)
+txi_document_remove (DOCUMENT *document)
 {
   remove_document_descriptor (document->descriptor);
 }
 
 void
-txi_reset_converter (CONVERTER *converter)
+txi_converter_reset (CONVERTER *converter)
 {
   reset_converter (converter);
 }
 
 void
-txi_destroy_converter (CONVERTER *converter)
+txi_converter_destroy (CONVERTER *converter)
 {
   destroy_converter (converter);
 }
