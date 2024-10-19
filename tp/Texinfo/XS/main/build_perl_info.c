@@ -150,16 +150,6 @@ perl_only_strndup (const char *s, size_t n)
   return ret;
 }
 
-/* called once at loading time */
-int
-init (int texinfo_uninstalled, SV *converterdatadir_sv, SV *builddir_sv,
-      SV *top_srcdir_sv)
-{
-  txi_base_setup ();
-
-  return 1;
-}
-
 
 /* Build Texinfo tree data and Texinfo tree to Perl */
 

@@ -34,6 +34,8 @@
 
 #include "api.h"
 #include "conf.h"
+/* for txi_base_setup */
+#include "utils.h"
 #include "parser_conf.h"
 #include "build_perl_info.h"
 #include "get_perl_info.h"
@@ -54,10 +56,15 @@ PROTOTYPES: ENABLE
 # encodings, they are never decoded/encoded but used as is
 # and passed as byte strings.
 
-# Called from Texinfo::XSLoader.pm.  The arguments are not actually used.
-# File paths are byte strings and can be in any encoding.
+# Called once from Texinfo::XSLoader.pm at loading time.
+# File paths (not used) are byte strings and can be in any encoding.
 int
 init (int texinfo_uninstalled, SV *converterdatadir, SV *tp_builddir, SV *top_srcdir)
+    CODE:
+      txi_base_setup ();
+      RETVAL = 1;
+    OUTPUT:
+      RETVAL
 
 void
 reset_parser (int debug_output)
