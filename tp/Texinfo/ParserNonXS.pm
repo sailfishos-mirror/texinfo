@@ -919,10 +919,6 @@ sub get_parser_info($)
   my $perl_encoding = Texinfo::Common::perl_encoding_name($encoding);
   if (defined($perl_encoding)) {
     $document->{'global_info'}->{'input_perl_encoding'} = $perl_encoding
-  } elsif (defined($encoding)) {
-    $self->{'registrar'}->document_warn(
-      sprintf(__("unrecognized encoding name `%s'"), $encoding),
-        $self->{'conf'}->{'PROGRAM'});
   }
 
   my $global_commands = $document->{'commands_info'};
