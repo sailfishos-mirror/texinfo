@@ -1,5 +1,11 @@
 2024-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm, tp/Texinfo/XS/parsetexi/Parsetexi.pm:
+	remove registrar method, it is a bad idea to be able to access
+	directly the registrar.
+
+2024-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (perl_encoding_name): add function.
 
 	* tp/Texinfo/ParserNonXS.pm (get_parser_info),

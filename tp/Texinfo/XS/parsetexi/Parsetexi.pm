@@ -278,13 +278,6 @@ sub parse_texi_line($$;$$)
   return $document->tree();
 }
 
-# Only used in a test, not documented, there for symmetry with document
-sub registrar($)
-{
-  my $self = shift;
-  return $self->{'registrar'};
-}
-
 sub errors($)
 {
   my $self = shift;
