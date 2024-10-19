@@ -1,3 +1,8 @@
+2024-10-19  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Makefile.tres: remove t/test_parser_registrar.t test, the
+	registrar should be internal only.
+
 2024-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: Document gnulib-tool network access.

@@ -61,7 +61,6 @@ test_tap_files_generated_list = \
   t/test_fill_gaps_in_sectioning.t \
   t/test_is_content_empty.t \
   t/test_parse_texi_line.t \
-  t/test_parser_registrar.t \
   t/test_protect_contents.t \
   t/test_protect_hashchar_at_line_beginning.t \
   t/test_sort.t \
