@@ -47,7 +47,8 @@ CONVERTER *txi_converter_setup (const char *converter_format,
                      OPTIONS_LIST *customizations,
                      unsigned long converter_flags);
 
-char *txi_html_output (CONVERTER *converter, DOCUMENT *document);
+char *txi_converter_output (CONVERTER *converter, DOCUMENT *document);
+char *txi_converter_convert (CONVERTER *converter, DOCUMENT *document);
 
 size_t txi_handle_parser_error_messages (DOCUMENT *document, int no_warn,
                                        int use_filename,

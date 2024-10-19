@@ -97,6 +97,13 @@ typedef struct CONVERTER_FORMAT_DATA {
        (* converter_defaults) (enum converter_format format,
                                CONVERTER_INITIALIZATION_INFO *conf);
     void (* converter_initialize) (CONVERTER *self);
+    char * (* converter_output) (CONVERTER *converter, DOCUMENT *document);
+    char * (* converter_convert) (CONVERTER *converter, DOCUMENT *document);
+    /* API to be determined, in HTML there is a debugging explanation
+       argument
+    char *(* converter_convert_tree) (CONVERTER *converter,
+                                      const ELEMENT *tree);
+     */
     void (* converter_reset) (CONVERTER *self);
     void (* converter_free) (CONVERTER *self);
 } CONVERTER_FORMAT_DATA;
@@ -146,6 +153,9 @@ void destroy_converter_initialization_info (
                             CONVERTER_INITIALIZATION_INFO *defaults);
 
 void converter_set_document (CONVERTER *converter, DOCUMENT *document);
+
+char *converter_output (CONVERTER *self, DOCUMENT *document);
+char *converter_convert (CONVERTER *self, DOCUMENT *document);
 
 void reset_converter (CONVERTER *converter);
 void destroy_converter (CONVERTER *converter);

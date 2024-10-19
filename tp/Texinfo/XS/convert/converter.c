@@ -67,8 +67,8 @@
    Same purpose as inherited methods in Texinfo::Convert::Converter */
 CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"html", "Texinfo::Convert::HTML", &html_converter_defaults,
-   &html_converter_initialize, &html_reset_converter,
-   &html_free_converter},
+   &html_converter_initialize, &html_output, &html_convert,
+   &html_reset_converter, &html_free_converter},
 };
 
 /* associate lower case no brace accent command to the upper case
@@ -249,8 +249,8 @@ init_generic_converter (CONVERTER *self)
 }
 
 /* descriptor starts at 1, 0 is not found or an error */
-/* flags set low-level implementation choices, currently using Perl hash
-   map or (slower) string lists */
+/* flags set low-level implementation choices, currently hash map
+   implementation */
 size_t
 new_converter (enum converter_format format, unsigned long flags)
 {
@@ -506,6 +506,42 @@ converter_set_document (CONVERTER *converter, DOCUMENT *document)
 
   converter->convert_text_options
     = copy_converter_options_for_convert_text (converter);
+}
+
+char *
+converter_output (CONVERTER *self, DOCUMENT *document)
+{
+  enum converter_format converter_format = self->format;
+
+  if (converter_format != COF_none
+      && converter_format_data[converter_format].converter_output)
+    {
+      char *result;
+      char * (* format_converter_output) (CONVERTER *self,
+                                          DOCUMENT *document)
+        = converter_format_data[converter_format].converter_output;
+      result = format_converter_output (self, document);
+      return result;
+    }
+  return 0;
+}
+
+char *
+converter_convert (CONVERTER *self, DOCUMENT *document)
+{
+  enum converter_format converter_format = self->format;
+
+  if (converter_format != COF_none
+      && converter_format_data[converter_format].converter_convert)
+    {
+      char *result;
+      char * (* format_converter_convert) (CONVERTER *self,
+                                          DOCUMENT *document)
+        = converter_format_data[converter_format].converter_convert;
+      result = format_converter_convert (self, document);
+      return result;
+    }
+  return 0;
 }
 
 

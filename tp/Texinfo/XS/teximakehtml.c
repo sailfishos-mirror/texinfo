@@ -323,7 +323,7 @@ main (int argc, char *argv[])
   /* conversion */
   /* return value can be NULL in case of errors or an empty string, but
      not anything else as parse_file is used with a file */
-  result = txi_html_output (converter, document);
+  result = txi_converter_output (converter, document);
   free (result);
 
   errors_nr

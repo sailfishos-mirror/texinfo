@@ -366,26 +366,6 @@ txi_converter_setup (const char *format_str,
   return self;
 }
 
-
-
-/* formats conversion */
-
-/* similar to Texinfo::Convert::HTML->output */
-char *
-txi_html_output (CONVERTER *converter, DOCUMENT *document)
-{
-  return html_output (converter, document);
-}
-
-/* similar to Texinfo::Convert::HTML->convert */
-char *
-txi_html_convert (CONVERTER *converter, DOCUMENT *document)
-{
-  return html_convert (converter, document);
-}
-
-
-
 /* high level interface, possibly hiding some details of the data */
 
 DOCUMENT *
@@ -393,6 +373,20 @@ txi_parse_texi_file (const char *input_file_path, int *status)
 {
   size_t document_descriptor = parse_file (input_file_path, status);
   return retrieve_document (document_descriptor);
+}
+
+/* similar to Texinfo::Convert::XXX->output */
+char *
+txi_converter_output (CONVERTER *converter, DOCUMENT *document)
+{
+  return converter_output (converter, document);
+}
+
+/* similar to Texinfo::Convert::XXX->convert */
+char *
+txi_converter_convert (CONVERTER *converter, DOCUMENT *document)
+{
+  return converter_convert (converter, document);
 }
 
 void
