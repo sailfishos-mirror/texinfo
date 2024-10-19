@@ -34,6 +34,10 @@
 
 2024-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm: change in comments.
+
+2024-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (messages_and_encodings_setup): rename
 	txi_base_setup as messages_and_encodings_setup.
 

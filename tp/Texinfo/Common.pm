@@ -137,12 +137,11 @@ my %common_parser_customization = (
   'DEBUG' => 0,     # if >= 10, tree is printed in texi2any.pl after parsing.
                     # If >= 100 tree is printed every line.
   'FORMAT_MENU' => 'menu',           # if not 'menu' no menu error related.
-  # next three related to file names encoding
   'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1, # use document encoding for input file
                                            # names encoding if set
   'COMMAND_LINE_ENCODING' => undef, # encoding of command line strings
                                     # used to decode file names for error message
-  'INPUT_FILE_NAME_ENCODING' => undef, # used for input file encoding
+  'INPUT_FILE_NAME_ENCODING' => undef, # used for input file name encoding
   'LOCALE_ENCODING' => undef, # used for file name encoding
 );
 
