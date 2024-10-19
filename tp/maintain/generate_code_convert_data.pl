@@ -201,7 +201,7 @@ foreach my $header (@su_header) {
     push @su_ordered_translated_hashes, $su_type;
     $su_header_indices{$su_type} = {$spec => $su_header_index};
   } elsif ($header eq '') {
-    continue;
+    next;
   } else {
     push @su_ordered_untranslated_hashes, $header;
     $su_type = undef;
@@ -393,7 +393,7 @@ foreach my $header (@d_header) {
     }
     $d_header_indices{$type}->{'to_convert'} = $d_header_index;
   } elsif ($header eq '') {
-    continue;
+    next;
   } else {
     push @d_ordered_untranslated_hashes, $header;
     $type = undef;
