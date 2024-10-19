@@ -1,3 +1,14 @@
+2024-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Attempt at separate directory for non-gnulib m4 files
+
+	* tp/Texinfo/XS/configure.ac (AC_CONFIG_MACRO_DIRS):
+	Add 'm4' as a directory as well as 'gnulib/m4'.
+	* tp/Texinfo/XS/Makefile.am (ACLOCAL_AMFLAGS): Add '-I m4'.
+
+	This means files from libtoolize and gettextize should be
+	copied under tp/Texinfo/XS/m4, not tp/Texinfo/XS/gnulib/m4.
+
 2024-10-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/utils.c (messages_and_encodings_setup): rename
