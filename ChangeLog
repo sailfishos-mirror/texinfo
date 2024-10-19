@@ -1,5 +1,10 @@
 2024-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS: re-run "gettextize" and track files in
+	new locations.
+
+2024-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Attempt at separate directory for non-gnulib m4 files
 
 	* tp/Texinfo/XS/configure.ac (AC_CONFIG_MACRO_DIRS):
