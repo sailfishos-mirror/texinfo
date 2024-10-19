@@ -54,37 +54,14 @@ sub parser (;$)
 {
   my $conf = shift;
 
-  # In Texinfo::Common because all the
-  # customization options information is gathered here, and also
-  # because it is used in other codes, in particular the XS parser.
-  # Note that it also contains inner options like accept_internalvalue
-  # and customizable document parser state values in addition to
-  # regular customization options.
-  my $parser_conf = dclone(\%Texinfo::Common::parser_document_parsing_options);
   my $parser = {};
   bless $parser;
-
-  # Reset conf from argument, restricting to parser_document_parsing_options
-  if (defined($conf)) {
-    foreach my $key (keys(%$conf)) {
-      if (exists($Texinfo::Common::parser_document_parsing_options{$key})) {
-        if (ref($conf->{$key})) {
-          $parser_conf->{$key} = dclone($conf->{$key});
-        } else {
-          $parser_conf->{$key} = $conf->{$key};
-        }
-      } else {
-        # no warning here as in pure Perl as it is warned below
-        #warn "ignoring parser configuration value \"$key\"\n";
-      }
-    }
-  }
 
   # pass directly DEBUG value to reset_parser to override previous
   # parser configuration, as the configuration isn't already reset and the new
   # configuration is set afterwards.
   my $debug = 0;
-  $debug = $parser_conf->{'DEBUG'} if ($parser_conf->{'DEBUG'});
+  $debug = $conf->{'DEBUG'} if ($conf->{'DEBUG'});
 
   # The reset_parser call resets the conf to the same values as found in
   # Texinfo::Common parser_document_parsing_options.
@@ -157,10 +134,6 @@ sub parser (;$)
   }
   if ($store_conf) {
     register_parser_conf($parser);
-
-    # variables set to the parser initialization values
-    # only.  What is found in the document has no effect.
-    $parser->{'conf'} = $parser_conf;
   }
 
   $parser->{'registrar'} = Texinfo::Report::new();

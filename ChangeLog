@@ -1,5 +1,11 @@
 2024-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser): never set the 'conf'
+	parser key, it is not used since the time parser conf became internal
+	only.
+
+2024-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (parser),
 	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser): set only parser keys
 	from parser_document_parsing_options, which in practice means do not
