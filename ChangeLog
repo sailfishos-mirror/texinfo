@@ -34,6 +34,12 @@
 
 2024-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/customization_options.c
+	(options_list_add_option): replace option with the same name in list
+	if already there.
+
+2024-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c
 	(destroy_converter_initialization_info),
 	tp/Texinfo/XS/main/converter_types.h (CONVERTER_INITIALIZATION_INFO):

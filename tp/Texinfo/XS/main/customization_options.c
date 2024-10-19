@@ -502,6 +502,20 @@ initialize_options_list (OPTIONS_LIST *options_list, size_t number)
 void
 options_list_add_option (OPTIONS_LIST *options_list, OPTION *option)
 {
+  size_t i;
+
+  for (i = 0; i < options_list->number; i++)
+    {
+      OPTION *list_option = options_list->list[i];
+      if (!strcmp (list_option->name, option->name))
+        {
+          free_option (list_option);
+          free (list_option);
+          options_list->list[i] = option;
+          return;
+        }
+    }
+
   if (options_list->number >= options_list->space)
     {
       options_list->list = realloc (options_list->list,
