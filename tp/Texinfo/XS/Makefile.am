@@ -559,7 +559,5 @@ teximakehtml_SOURCES = \
 teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la
 teximakehtml_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
-teximakehtml_LINK = $(LINK) $(teximakehtml_CFLAGS) $(teximakehtml_LDFLAGS)
-
 teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 
