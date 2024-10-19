@@ -1,5 +1,17 @@
 2024-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (perl_encoding_name): add function.
+
+	* tp/Texinfo/ParserNonXS.pm (get_parser_info),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_parser_info): determine
+	Perl encoding based on global_info input_encoding_name by calling
+	perl_encoding_name.  Remove get_perl_encoding.  Note that the warning
+	in get_perl_encoding was not kept, as it cannot happen since
+	input_encoding_name is only set if the perl encoding is known in Perl
+	parser, and if in a list of known encoding, all known by Perl in C.
+
+2024-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres: remove t/test_parser_registrar.t test, the
 	registrar should be internal only.
 

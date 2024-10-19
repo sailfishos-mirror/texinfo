@@ -669,33 +669,6 @@ sub _add_preamble_before_content($)
   unshift (@{$before_node_section->{'contents'}}, @first_types);
 }
 
-# Called in both Parsetexi.pm and perl parser
-sub get_perl_encoding($$;$)
-{
-  my $commands_info = shift;
-  my $registrar = shift;
-  my $debug = shift;
-
-  my $result;
-  if (defined($commands_info->{'documentencoding'})) {
-    foreach my $element (@{$commands_info->{'documentencoding'}}) {
-      my $perl_encoding = element_associated_processing_encoding($element);
-      if (!defined($perl_encoding)) {
-        my $encoding = $element->{'extra'}->{'input_encoding_name'}
-          if ($element->{'extra'});
-        if (defined($encoding)) {
-          $registrar->line_warn(
-                     sprintf(__("unrecognized encoding name `%s'"), $encoding),
-                                    $element->{'source_info'}, 0, $debug);
-        }
-      } else {
-        $result = $perl_encoding;
-      }
-    }
-  }
-  return $result;
-}
-
 # for Parser and main program
 sub warn_unknown_language($) {
   my $lang = shift;
@@ -1079,14 +1052,11 @@ sub locate_file_in_dirs($$$;$)
   return undef, undef;
 }
 
-sub element_associated_processing_encoding($)
+sub perl_encoding_name($)
 {
-  my $element = shift;
+  my $encoding = shift;
 
   my $perl_encoding;
-
-  my $encoding = $element->{'extra'}->{'input_encoding_name'}
-    if ($element->{'extra'});
 
   if (defined($encoding) and $encoding ne '') {
     $encoding = $encoding_name_conversion_map{$encoding}
@@ -1100,6 +1070,16 @@ sub element_associated_processing_encoding($)
   }
 
   return $perl_encoding;
+}
+
+sub element_associated_processing_encoding($)
+{
+  my $element = shift;
+
+  my $encoding = $element->{'extra'}->{'input_encoding_name'}
+    if ($element->{'extra'});
+
+  return perl_encoding_name($encoding);
 }
 
 # Reverse the decoding of the file name from the input encoding.  When

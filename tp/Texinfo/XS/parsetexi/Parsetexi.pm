@@ -193,9 +193,12 @@ sub _get_parser_info($$;$) {
   }
 
   # additional info relevant in perl only.
-  my $perl_encoding
-    = Texinfo::Common::get_perl_encoding($document->{'commands_info'},
-                        $self->{'registrar'}, $self->{'conf'}->{'DEBUG'});
+  my $encoding = $document->{'global_info'}->{'input_encoding_name'};
+
+  my $perl_encoding = Texinfo::Common::perl_encoding_name($encoding);
+  if (defined($perl_encoding)) {
+    $document->{'global_info'}->{'input_perl_encoding'} = $perl_encoding
+  }
   $perl_encoding = 'utf-8' if (!defined($perl_encoding));
   Texinfo::Document::set_document_global_info($document,
                      'input_perl_encoding', $perl_encoding);
