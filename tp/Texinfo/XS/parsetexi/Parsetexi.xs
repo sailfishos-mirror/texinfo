@@ -34,7 +34,7 @@
 
 #include "api.h"
 #include "conf.h"
-/* for txi_base_setup */
+/* for messages_and_encodings_setup */
 #include "utils.h"
 #include "parser_conf.h"
 #include "build_perl_info.h"
@@ -61,7 +61,7 @@ PROTOTYPES: ENABLE
 int
 init (int texinfo_uninstalled, SV *converterdatadir, SV *tp_builddir, SV *top_srcdir)
     CODE:
-      txi_base_setup ();
+      messages_and_encodings_setup ();
       RETVAL = 1;
     OUTPUT:
       RETVAL

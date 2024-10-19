@@ -130,7 +130,7 @@ char *to_upper_or_lower_multibyte (const char *text, int lower_or_upper);
 int width_multibyte (const char *text);
 int word_bytes_len_multibyte (const char *text);
 
-void txi_base_setup (void);
+void messages_and_encodings_setup (void);
 
 void wipe_values (VALUE_LIST *values);
 

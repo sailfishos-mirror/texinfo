@@ -31,15 +31,13 @@
 
 #include "document_types.h"
 #include "converter_types.h"
-/* parse_file_path txi_base_setup */
+/* parse_file_path */
 #include "utils.h"
 #include "customization_options.h"
 /*
 #include "convert_to_texinfo.h"
  */
 #include "create_buttons.h"
-/* for html_format_setup */
-#include "html_converter_api.h"
 #include "texinfo.h"
 
 #define LOCALEDIR DATADIR "/locale"
@@ -131,8 +129,6 @@ main (int argc, char *argv[])
   program_file = program_file_name_and_directory[0];
   input_directory = program_file_name_and_directory[1];
 
-  txi_base_setup ();
-
   locale_encoding = nl_langinfo (CODESET);
 
   while (1)
@@ -188,7 +184,7 @@ main (int argc, char *argv[])
     add_string (DATADIR "/texinfo", &texinfo_language_config_dirs);
 
 
-  txi_setup (LOCALEDIR, 0, 0, 0, 0);
+  txi_general_setup (LOCALEDIR, 0, 0, 0, 0);
 
 /*
  if ($^O eq 'MSWin32') {
@@ -254,7 +250,7 @@ main (int argc, char *argv[])
     = txi_handle_document_error_messages (document, 0, 1, locale_encoding);
   errors_count += errors_nr;
 
-  html_format_setup ();
+  txi_converter_output_format_setup ("html");
 
   /* conversion initialization */
   initialize_options_list (&convert_options, 2);

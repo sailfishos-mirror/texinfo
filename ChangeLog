@@ -1,5 +1,19 @@
 2024-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (messages_and_encodings_setup): rename
+	txi_base_setup as messages_and_encodings_setup.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_general_setup): rename
+	txi_setup as txi_general_setup and add a call to
+	messages_and_encodings_setup.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_converter_output_format_setup):
+	add a function to dispatch output format global data setup.
+
+	* tp/Texinfo/XS/teximakehtml.c (main): update.
+
+2024-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/texinfo.c (txi_document_remove)
 	(txi_converter_reset, txi_converter_destroy): rename
 	txi_remove_document as txi_document_remove, txi_reset_converter as

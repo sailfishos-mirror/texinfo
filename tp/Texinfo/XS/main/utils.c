@@ -290,7 +290,7 @@ isascii_upper (int c)
 /* Setup global information that is not specific of Texinfo.
    Should be called once and early */
 void
-txi_base_setup (void)
+messages_and_encodings_setup (void)
 {
 #ifdef ENABLE_NLS
 

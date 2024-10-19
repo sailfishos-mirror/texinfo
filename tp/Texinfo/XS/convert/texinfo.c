@@ -14,8 +14,8 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 /* Interface similar to the Perl modules interface for Texinfo parsing,
-   and higher-level interface for document structure and transformations
-   and conversion */
+   higher-level interface for document structure and transformations,
+   and interface similar to the Perl modules interface for conversion */
 
 /* not used in code called from texi2any/Perl, meant to be used exclusively
    from C code */
@@ -33,7 +33,7 @@
 #include "api.h"
 #include "conf.h"
 #include "errors.h"
-/* parse_file_path */
+/* parse_file_path messages_and_encodings_setup */
 #include "utils.h"
 #include "customization_options.h"
 #include "document.h"
@@ -44,17 +44,30 @@
 #include "html_converter_api.h"
 #include "texinfo.h"
 
-/* initialization of the library. */
+/* initialization of the library for parsing and conversion. */
 void
-txi_setup (const char *localesdir, int texinfo_uninstalled,
+txi_general_setup (const char *localesdir, int texinfo_uninstalled,
                  const char *tp_builddir,
                  const char *converterdatadir, const char *top_srcdir)
 {
+  messages_and_encodings_setup ();
+
   if (localesdir)
     configure_output_strings_translations (localesdir, 0, -1);
 
   converter_setup (texinfo_uninstalled, tp_builddir,
                    converterdatadir, top_srcdir);
+}
+
+/* to be called once (per output format) */
+void
+txi_converter_output_format_setup (const char *format_str)
+{
+  enum converter_format converter_format
+    = find_format_name_converter_format (format_str);
+
+  if (converter_format == COF_html)
+    html_format_setup ();
 }
 
 /* parser initialization, similar to Texinfo::Parser::parser in Perl.

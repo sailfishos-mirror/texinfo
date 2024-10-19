@@ -22,13 +22,12 @@
    and regenerate_master_menu */
 #define STTF_complete_menus_use_sections            0x0400
 
-/* in api.c */
-size_t parse_file (const char *input_file_path, int *status);
-
 /* locales dir for output strings translations */
-void txi_setup (const char *localesdir, int texinfo_uninstalled,
+void txi_general_setup (const char *localesdir, int texinfo_uninstalled,
                 const char *tp_builddir,
                 const char *converterdatadir, const char *top_srcdir);
+
+void txi_converter_output_format_setup (const char *format_str);
 
 void txi_parser (const char *file_path, const char *locale_encoding,
                 const char **expanded_formats, const VALUE_LIST *values,
