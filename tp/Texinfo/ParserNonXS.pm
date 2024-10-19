@@ -182,8 +182,7 @@ my %parser_document_state_initialization = (
 
   'sections_level_modifier' => 0, # modified by raise/lowersections
 
-  'input_file_encoding' => 'utf-8', # perl encoding name used for the input
-                                    # file
+  'input_file_encoding' => 'utf-8', # encoding name used for the input file
 );
 
 my %parsing_state_initialization = (
@@ -257,6 +256,10 @@ my %parser_state_initialization = (%parser_document_state_initialization,
 #                         by @-commands.  For example documentlanguage.
 # conf                    Customization and document state configuration
 #                         based on defaults and parser argument.
+
+# other keys for the parser state initialized at parser creation
+# registrar          # Texinfo::Report object used for error
+#                    # reporting.
 
 # A source information is an hash reference with the keys:
 # line_nr        the line number.
@@ -583,7 +586,7 @@ foreach my $begin_paragraph_context ('base') {
 
 # initialization entry point.  Set up a parser.
 # The last argument, optional, is a hash provided by the user to change
-# the default values for what is present in %parser_settable_configuration.
+# the default values for what is present in %parser_document_parsing_options.
 sub parser(;$)
 {
   my $conf = shift;
@@ -598,9 +601,7 @@ sub parser(;$)
   my $parser = {};
   bless $parser;
 
-  # Reset conf from argument, restricting to parser_document_parsing_options,
-  # and set directly parser keys if in parser_settable_configuration and not in
-  # parser_document_parsing_options.
+  # Reset conf from argument, restricting to parser_document_parsing_options
   $parser->{'set'} = {};
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
@@ -613,10 +614,6 @@ sub parser(;$)
         if ($initialization_overrides{$key}) {
           $parser->{'set'}->{$key} = $parser_conf->{$key};
         }
-      } elsif (exists($Texinfo::Common::parser_settable_configuration{$key})) {
-        # we keep instead of copying on purpose, to reuse the objects
-        # Should only be registrar
-        $parser->{$key} = $conf->{$key};
       } else {
         warn "ignoring parser configuration value \"$key\"\n";
       }
@@ -634,9 +631,7 @@ sub parser(;$)
     $parser->{'expanded_formats_hash'}->{$expanded_format} = 1;
   }
 
-  if (not defined($parser->{'registrar'})) {
-    $parser->{'registrar'} = Texinfo::Report::new();
-  }
+  $parser->{'registrar'} = Texinfo::Report::new();
 
   # variables set to the parser initialization values only.  What is
   # found in the document has no effect.  Also used to initialize some

@@ -1,5 +1,15 @@
 2024-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser): set only parser keys
+	from parser_document_parsing_options, which in practice means do not
+	accept a registrar in options.
+
+	* tp/Texinfo/Common.pm: remove %parser_configuration and
+	%parser_settable_configuration.
+
+2024-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm, tp/Texinfo/XS/parsetexi/Parsetexi.pm:
 	remove registrar method, it is a bad idea to be able to access
 	directly the registrar.

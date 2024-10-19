@@ -49,7 +49,7 @@ use Texinfo::Document;
 
 # Initialize the parser
 # The last argument, optional, is a hash provided by the user to change
-# the default values for what is present in %parser_settable_configuration.
+# the default values for what is present in %parser_document_parsing_options.
 sub parser (;$)
 {
   my $conf = shift;
@@ -64,9 +64,7 @@ sub parser (;$)
   my $parser = {};
   bless $parser;
 
-  # Reset conf from argument, restricting to parser_document_parsing_options,
-  # and set directly parser keys if in parser_settable_configuration and not in
-  # parser_document_parsing_options.
+  # Reset conf from argument, restricting to parser_document_parsing_options
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       if (exists($Texinfo::Common::parser_document_parsing_options{$key})) {
@@ -75,10 +73,6 @@ sub parser (;$)
         } else {
           $parser_conf->{$key} = $conf->{$key};
         }
-      } elsif (exists($Texinfo::Common::parser_settable_configuration{$key})) {
-        # we keep instead of copying on purpose, to reuse the objects
-        # Should only be registrar
-        $parser->{$key} = $conf->{$key};
       } else {
         # no warning here as in pure Perl as it is warned below
         #warn "ignoring parser configuration value \"$key\"\n";
@@ -154,8 +148,8 @@ sub parser (;$)
           parser_conf_set_accept_internalvalue(1);
           $store_conf = 0;
         }
-      } elsif ($key eq 'registrar' or $key eq 'DEBUG') {
-        # no action needed, already taken into account or only for Perl code
+      } elsif ($key eq 'DEBUG') {
+        # no action needed, already taken into account
       } else {
         warn "ignoring parser configuration value \"$key\"\n";
       }
@@ -169,9 +163,7 @@ sub parser (;$)
     $parser->{'conf'} = $parser_conf;
   }
 
-  if (not $parser->{'registrar'}) {
-    $parser->{'registrar'} = Texinfo::Report::new();
-  }
+  $parser->{'registrar'} = Texinfo::Report::new();
 
   return $parser;
 }

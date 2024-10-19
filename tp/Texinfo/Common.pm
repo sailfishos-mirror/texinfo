@@ -162,13 +162,6 @@ my %parser_customization = (
 our %default_parser_customization_values = (%common_parser_customization,
                                             %parser_customization);
 
-# can be passed to the parser function, but not document parsing nor
-# customization, and can only be passed through code.
-my %parser_configuration = (
-  'registrar' => undef,        # Texinfo::Report object used for error
-                               # reporting.
-);
-
 # can be modified through command-line, but not customization options
 our %parser_document_state_configuration = (
   # parsed document parsing information still relevant after parsing
@@ -192,13 +185,6 @@ our %parser_document_parsing_options = (
                        %default_parser_customization_values,
                        %parser_document_state_configuration,
                        %parser_inner_options);
-
-# configurable parser keys
-our %parser_settable_configuration = (
-  %parser_document_parsing_options,
-  %parser_configuration,
-);
-
 
 # check that settable commands are contained in global commands
 # from command_data.txt
@@ -2103,7 +2089,7 @@ and C<plaintext>.
 =back
 
 TODO: undocumented
-%null_device_file %default_parser_customization_values %parser_settable_configuration %multiple_at_command_options %unique_at_command_options %converter_cmdline_options %default_main_program_customization_options %converter_customization_options %document_settable_at_commands %def_map %command_structuring_level %level_to_structuring_command %encoding_name_conversion_map %text_brace_no_arg_commands
+%null_device_file %default_parser_customization_values %multiple_at_command_options %unique_at_command_options %converter_cmdline_options %default_main_program_customization_options %converter_customization_options %document_settable_at_commands %def_map %command_structuring_level %level_to_structuring_command %encoding_name_conversion_map %text_brace_no_arg_commands
 
 =head1 @-COMMAND INFORMATION
 
