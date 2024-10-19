@@ -42,7 +42,7 @@ fi
 : ${AUTOHEADER=autoheader}
 : ${AUTOMAKE=automake}
 : ${AUTOCONF=autoconf}
-cmd="$ACLOCAL -I gnulib/m4 && $AUTOCONF && $AUTOHEADER && $AUTOMAKE -a -c"
+cmd="$ACLOCAL -I build-aux/m4 -I gnulib/m4 && $AUTOCONF && $AUTOHEADER && $AUTOMAKE -a -c"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 

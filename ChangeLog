@@ -1,5 +1,9 @@
 2024-10-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* autogen.sh: pass "-I build-aux/m4" to aclocal
+
+2024-10-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Attempt at separate directory for non-gnulib m4 files (top level)
 
 	* configure.ac (AC_CONFIG_MACRO_DIRS): Add with value of
