@@ -1087,7 +1087,7 @@ sub test($$)
   # a "handle" is returned.
   my $tree = $document->tree($XS_structuring);
 
-  my ($errors, $error_nrs) = $parser->errors();
+  my ($errors, $error_nrs) = $document->parser_errors();
 
   my ($sorted_index_entries, $index_entries_sort_strings);
   my $indices_sorted_sort_strings;

@@ -151,6 +151,40 @@ document_errors (SV *document_in)
         PUSHs(sv_2mortal(errors_warnings_sv));
         PUSHs(sv_2mortal(error_nrs_sv));
 
+void
+document_parser_errors (SV *document_in)
+    PREINIT:
+        DOCUMENT *document = 0;
+        SV *errors_warnings_sv = 0;
+        SV *error_nrs_sv = 0;
+        AV *av;
+     PPCODE:
+        /* if XS is used, a document should be found.  It could
+           also have been possible to abort if a document is not
+           found.
+         */
+        document = get_sv_document_document (document_in,
+                                             "document_parser_errors");
+        if (document)
+          {
+            ERROR_MESSAGE_LIST *error_messages
+                  = &document->parser_error_messages;
+            av = build_errors (error_messages->list,
+                               error_messages->number);
+            error_nrs_sv = newSViv (error_messages->error_nrs);
+            clear_error_message_list (error_messages);
+          }
+        else
+          {
+            /* Should never happen */
+            av = newAV ();
+            error_nrs_sv = newSViv (0);
+          }
+        errors_warnings_sv = newRV_noinc ((SV *) av);
+
+        EXTEND(SP, 2);
+        PUSHs(sv_2mortal(errors_warnings_sv));
+        PUSHs(sv_2mortal(error_nrs_sv));
 
 void
 register_document_options (SV *document_in, SV *sv_options_in)

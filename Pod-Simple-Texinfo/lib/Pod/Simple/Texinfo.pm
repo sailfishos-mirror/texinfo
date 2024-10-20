@@ -424,12 +424,12 @@ sub _prepend_internal_section_manual($$$;$$)
 }
 
 # also used in pod2texi.pl, not public.
-sub print_texinfo_errors($;$)
+sub print_texinfo_errors($$;$)
 {
-  my $error_source = shift;
+  my $error_messages = shift;
+  my $error_count = shift;
   my $location = shift;
 
-  my ($error_messages, $error_count) = $error_source->errors();
   foreach my $error_message (@$error_messages) {
     my $type_string;
     if ($error_message->{'type'} eq 'error') {
@@ -480,11 +480,16 @@ sub _normalize_texinfo_name($$;$)
   }
   my $parser = Texinfo::Parser::parser($parser_options);
   my $document = $parser->parse_texi_piece($texinfo_text);
-  if (!defined($document)) {
+
+  my $tree = $document->tree();
+
+  my ($error_messages, $error_count) = $document->parser_errors();
+
+  if (!defined($tree)) {
     my $texinfo_text_str = $texinfo_text;
     chomp($texinfo_text_str);
     warn "ERROR: Texinfo parsing failed for: $texinfo_text_str\n";
-    print_texinfo_errors($parser);
+    print_texinfo_errors($error_messages, $error_count);
     return undef;
   # use a high debug number, as the errors and warnings are likely to be
   # redundant with the warnings and errors emitted when fixing the document
@@ -492,9 +497,9 @@ sub _normalize_texinfo_name($$;$)
   # not only to apply transformations, but also possibly to fix invalid
   # constructs.
   } elsif (defined($debug) and $debug > 3) {
-    print_texinfo_errors($parser, '_normalize_texinfo_name');
+    print_texinfo_errors($error_messages, $error_count,
+                         '_normalize_texinfo_name');
   }
-  my $tree = $document->tree();
   if ($command eq 'anchor') {
     Texinfo::Transformations::protect_first_parenthesis_in_targets($tree);
     # rebuild the tree

@@ -321,8 +321,9 @@ sub _parsed_manual_tree($$$$$)
   my $tree = $document->tree();
 
   if ($debug > 1) {
-    Pod::Simple::Texinfo::print_texinfo_errors($texi_parser,
-                                           '_parsed_manual_tree');
+    my ($error_messages, $error_count) = $document->parser_errors();
+    Pod::Simple::Texinfo::print_texinfo_errors($error_messages,
+                               $error_count, '_parsed_manual_tree');
   }
 
   my $identifier_target = $document->labels_information();
@@ -363,8 +364,9 @@ sub _parsed_manual_tree($$$$$)
     if ($section_nodes and $do_node_menus);
 
   if ($debug > 1) {
-    Pod::Simple::Texinfo::print_texinfo_errors($document,
-                                      '_parsed_manual_tree document');
+    my ($error_messages, $error_count) = $document->errors();
+    Pod::Simple::Texinfo::print_texinfo_errors($error_messages,
+                       $error_count, '_parsed_manual_tree document');
   }
 
   return ($texi_parser, $document, $identifier_target);

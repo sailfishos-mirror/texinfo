@@ -119,7 +119,7 @@ sub _run_test($$$)
     my $document = $test_parser->Texinfo::Parser::parse_texi_file($test_file);
 
     my $parsing_errors = '';
-    my ($test_parser_errors, $test_parser_error_count) = $test_parser->errors();
+    my ($test_parser_errors, $test_parser_error_count) = $document->parser_errors();
     foreach my $error_message (@$test_parser_errors) {
       $parsing_errors .= $error_message->{'error_line'};
     }

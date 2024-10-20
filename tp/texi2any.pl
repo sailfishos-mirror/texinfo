@@ -1753,18 +1753,18 @@ while(@input_files) {
   }
 
   if (!defined($tree)) {
-    handle_errors($parser->errors(), $error_count, \%opened_files);
+    handle_errors($document->parser_errors(), $error_count, \%opened_files);
     goto NEXT;
   }
 
   if ($output_format eq 'parse') {
-    handle_errors($parser->errors(), $error_count, \%opened_files);
+    handle_errors($document->parser_errors(), $error_count, \%opened_files);
     goto NEXT;
   }
 
   my $document_information = $document->global_information();
   if (get_conf('TRACE_INCLUDES')) {
-    handle_errors($parser->errors(), $error_count, \%opened_files);
+    handle_errors($document->parser_errors(), $error_count, \%opened_files);
     my $included_file_paths = $document_information->{'included_files'};
     if (defined($included_file_paths)) {
       foreach my $included_file (@$included_file_paths) {
@@ -1867,7 +1867,7 @@ while(@input_files) {
   }
   if (get_conf('DUMP_TEXI')
       or $formats_table{$output_format}->{'texi2dvi_format'}) {
-    handle_errors($parser->errors(), $error_count, \%opened_files);
+    handle_errors($document->parser_errors(), $error_count, \%opened_files);
     goto NEXT;
   }
 
@@ -1946,7 +1946,7 @@ while(@input_files) {
   #Texinfo::Document::rebuild_document($document);
 
   # parser errors
-  my ($errors, $new_error_count) = $parser->errors();
+  my ($errors, $new_error_count) = $document->parser_errors();
   $error_count += $new_error_count if ($new_error_count);
   # document/structuring errors
   my ($document_errors, $document_error_count) = $document->errors();

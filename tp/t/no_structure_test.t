@@ -128,7 +128,7 @@ my $result_texi
 is ($result_texi, $texi, 'back to Texinfo');
 
 
-my ($test_parser_errors, $test_parser_error_count) = $test_parser->errors();
+my ($test_parser_errors, $test_parser_error_count) = $document->parser_errors();
 foreach my $error_message (@$test_parser_errors) {
   warn "W: ".$error_message->{'error_line'}
    ;# if ($debug);

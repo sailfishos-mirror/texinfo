@@ -50,6 +50,8 @@ our %XS_overrides = (
     => "Texinfo::DocumentXS::set_document_global_info",
   "Texinfo::Document::errors"
     => "Texinfo::DocumentXS::document_errors",
+  "Texinfo::Document::parser_errors"
+    => "Texinfo::DocumentXS::document_parser_errors",
   "Texinfo::Document::rebuild_tree"
     => "Texinfo::DocumentXS::rebuild_tree",
   "Texinfo::Document::tree"
@@ -110,7 +112,9 @@ sub new_document($)
     'commands_info' => {},
     'identifiers_target' => {},
     'labels_list' => [],
-     # New error registrar for the document for structuring, not for parsing
+     # error registrar for parsing
+    'parser_registrar' => Texinfo::Report::new(),
+     # error registrar for the document for structuring, not for parsing
     'registrar' => Texinfo::Report::new(),
   };
 
@@ -495,6 +499,19 @@ sub rebuild_tree($;$)
   return $tree;
 }
 
+sub parser_errors($)
+{
+  my $document = shift;
+
+  my $registrar = $document->{'parser_registrar'};
+
+  my ($error_warnings_list, $error_count) = $registrar->errors();
+
+  $registrar->clear();
+
+  return ($error_warnings_list, $error_count);
+}
+
 # The XS override pass C error messages to the document registrar and destroys
 # C associated data.
 sub errors($)
@@ -502,7 +519,6 @@ sub errors($)
   my $document = shift;
 
   my $registrar = $document->{'registrar'};
-  return if !defined($registrar);
 
   my ($error_warnings_list, $error_count) = $registrar->errors();
 

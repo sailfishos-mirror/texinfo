@@ -15,7 +15,7 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_file("somefile.texi");
 
-  my ($errors, $errors_count) = $parser->errors();
+  my ($errors, $errors_count) = $document->parser_errors();
   foreach my $error_message (@$errors) {
     warn $error_message->{'error_line'};
   }
@@ -161,13 +161,13 @@ is parsed into a tree.  @emph{$file_name} should be a binary string.
 @end table
 
 The errors collected during the tree parsing are available with
-@code{errors}.  These errors are internally registered in a @code{Texinfo::Report}
-object.
+the resulting document @code{parser_errors}.  These errors are internally
+registered in a @code{Texinfo::Report} object.
 
 @table @asis
-@item ($error_warnings_list, $error_count) = $parser->errors()
-@anchor{Texinfo@asis{::}Parser ($error_warnings_list@comma{} $error_count) = $parser->errors()}
-@cindex @code{errors}
+@item ($error_warnings_list, $error_count) = $document->parser_errors()
+@anchor{Texinfo@asis{::}Parser ($error_warnings_list@comma{} $error_count) = $document->parser_errors()}
+@cindex @code{parser_errors}
 
 This function returns as @emph{$error_count} the count of parsing errors.
 The @emph{$error_warnings_list} is an array of hash references

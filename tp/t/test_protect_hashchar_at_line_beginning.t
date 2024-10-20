@@ -48,7 +48,7 @@ sub run_test($$$;$)
     $reference_error_nrs = scalar(@$errors_references);
   }
 
-  my ($error_warnings_list, $parser_errors_count) = $parser->errors();
+  my ($error_warnings_list, $parser_errors_count) = $document->parser_errors();
   my ($document_errors, $document_errors_count)
       = $document->errors();
   push @$error_warnings_list, @$document_errors;
