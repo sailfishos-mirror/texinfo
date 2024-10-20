@@ -28,8 +28,6 @@
 # * the input file name passed through parse_texi_file is a binary string
 # * the 'file_name' values in 'source_info' from convert_errors and in
 #   the tree elements 'source_info' are returned as binary strings
-#
-# Binary strings are passed from parse_texi_file as arguments of parse_file.
 
 package Texinfo::Parser;
 
@@ -131,8 +129,6 @@ sub parser (;$)
   if ($store_conf) {
     register_parser_conf($parser);
   }
-
-  $parser->{'registrar'} = Texinfo::Report::new();
 
   return $parser;
 }

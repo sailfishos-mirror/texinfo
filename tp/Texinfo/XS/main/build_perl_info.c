@@ -1308,15 +1308,44 @@ pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
   return newSV (0);
 }
 
+/* same as calling Texinfo::Report::new() */
+static SV *
+new_texinfo_report (void)
+{
+  HV *hv_stash;
+  HV *hv;
+  SV *sv;
+  AV *errors_warnings;
+
+  dTHX;
+
+  hv = newHV ();
+
+  hv_store (hv, "errors_nrs", strlen ("errors_nrs"), newSViv (0), 0);
+
+  errors_warnings = newAV ();
+  hv_store (hv, "errors_warnings", strlen ("errors_warnings"),
+            newRV_noinc ((SV *) errors_warnings), 0);
+
+  hv_stash = gv_stashpv ("Texinfo::Report", GV_ADD);
+  sv = newRV_noinc ((SV *) hv);
+  sv_bless (sv, hv_stash);
+  return sv;
+}
+
 void
 pass_document_parser_errors_to_registrar (size_t document_descriptor,
                                           SV *parser_sv)
 {
   DOCUMENT *document;
+  SV *registrar_sv;
   SV *errors_warnings_sv = 0;
   SV *error_nrs_sv = 0;
+  HV *parser_hv;
 
   dTHX;
+
+  parser_hv = (HV *) SvRV (parser_sv);
 
   document = retrieve_document (document_descriptor);
 
@@ -1325,6 +1354,11 @@ pass_document_parser_errors_to_registrar (size_t document_descriptor,
   if (!document)
     return;
    */
+
+  /* Add error registrar to Parser */
+  registrar_sv = new_texinfo_report ();
+  SvREFCNT_inc (registrar_sv);
+  hv_store (parser_hv, "registrar", strlen ("registrar"), registrar_sv, 0);
 
   pass_errors_to_registrar (&document->parser_error_messages, parser_sv,
                             &errors_warnings_sv, &error_nrs_sv);
@@ -1687,31 +1721,6 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
 
 
   return hv;
-}
-
-/* same as calling Texinfo::Report::new() */
-static SV *
-new_texinfo_report (void)
-{
-  HV *hv_stash;
-  HV *hv;
-  SV *sv;
-  AV *errors_warnings;
-
-  dTHX;
-
-  hv = newHV ();
-
-  hv_store (hv, "errors_nrs", strlen ("errors_nrs"), newSViv (0), 0);
-
-  errors_warnings = newAV ();
-  hv_store (hv, "errors_warnings", strlen ("errors_warnings"),
-            newRV_noinc ((SV *) errors_warnings), 0);
-
-  hv_stash = gv_stashpv ("Texinfo::Report", GV_ADD);
-  sv = newRV_noinc ((SV *) hv);
-  sv_bless (sv, hv_stash);
-  return sv;
 }
 
 /* build a minimal document, without tree/global commands/indices, only
