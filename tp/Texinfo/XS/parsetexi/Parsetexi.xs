@@ -85,30 +85,30 @@ register_parser_conf (SV *parser)
 # the file is already a byte string, taken as is from the command line.
 # The encoding was detected as COMMAND_LINE_ENCODING.
 SV *
-parse_texi_file (SV *parser, input_file_path)
+parse_texi_file (SV *parser_sv, input_file_path)
         char *input_file_path = (char *)SvPVbyte_nolen ($arg);
     PREINIT:
         size_t document_descriptor = 0;
       CODE:
-        if (!SvOK(parser))
+        if (!SvOK(parser_sv))
           RETVAL = newSV (0);
         else
           {
             int status;
-            apply_sv_parser_conf (parser);
+            apply_sv_parser_conf (parser_sv);
             document_descriptor = parse_file (input_file_path, &status);
             if (status)
               /* if the input file could not be opened */
               {
                 pass_document_parser_errors_to_registrar (document_descriptor,
-                                                          parser);
+                                                          parser_sv);
                 remove_document_descriptor (document_descriptor);
                 RETVAL = newSV (0);
               }
             else
               {
                 RETVAL
-                 = get_or_build_document (parser, document_descriptor, 0);
+                 = get_or_build_document (parser_sv, document_descriptor, 0);
               }
           }
       OUTPUT:
@@ -116,13 +116,13 @@ parse_texi_file (SV *parser, input_file_path)
 
 # Used in tests under tp/t.
 SV *
-parse_texi_piece (SV *parser, SV *string_sv, ...)
+parse_texi_piece (SV *parser_sv, SV *string_sv, ...)
     PREINIT:
         size_t document_descriptor = 0;
         int no_store = 0;
         int line_nr = 1;
       CODE:
-        if (!SvOK(string_sv) || !SvOK(parser))
+        if (!SvOK(string_sv) || !SvOK(parser_sv))
           RETVAL = newSV (0);
         else
           {
@@ -131,22 +131,22 @@ parse_texi_piece (SV *parser, SV *string_sv, ...)
               line_nr = SvIV (ST(2));
             if (items > 3 && SvOK(ST(3)))
               no_store = SvIV (ST(3));
-            apply_sv_parser_conf (parser);
+            apply_sv_parser_conf (parser_sv);
             document_descriptor = parse_piece (string, line_nr);
-            RETVAL = get_or_build_document (parser, document_descriptor,
+            RETVAL = get_or_build_document (parser_sv, document_descriptor,
                                             no_store);
           }
       OUTPUT:
         RETVAL
 
 SV *
-parse_texi_line (SV *parser, SV *string_sv, ...)
+parse_texi_line (SV *parser_sv, SV *string_sv, ...)
     PREINIT:
         size_t document_descriptor = 0;
         int no_store = 0;
         int line_nr = 1;
       CODE:
-        if (!SvOK(string_sv) || !SvOK(parser))
+        if (!SvOK(string_sv) || !SvOK(parser_sv))
           RETVAL = newSV (0);
         else
           {
@@ -156,9 +156,9 @@ parse_texi_line (SV *parser, SV *string_sv, ...)
               line_nr = SvIV (ST(2));
             if (items > 3 && SvOK(ST(3)))
               no_store = SvIV (ST(3));
-            apply_sv_parser_conf (parser);
+            apply_sv_parser_conf (parser_sv);
             document_descriptor = parse_string (string, line_nr);
-            document_sv = get_or_build_document (parser, document_descriptor,
+            document_sv = get_or_build_document (parser_sv, document_descriptor,
                                                  no_store);
             RETVAL = document_tree (document_sv, 0);
           }
@@ -167,21 +167,21 @@ parse_texi_line (SV *parser, SV *string_sv, ...)
 
 # Used in tests under tp/t.
 SV *
-parse_texi_text (SV *parser, SV *string_sv, ...)
+parse_texi_text (SV *parser_sv, SV *string_sv, ...)
     PREINIT:
         size_t document_descriptor = 0;
         int line_nr = 1;
       CODE:
-        if (!SvOK(string_sv) || !SvOK(parser))
+        if (!SvOK(string_sv) || !SvOK(parser_sv))
           RETVAL = newSV (0);
         else
           {
             char *string = (char *)SvPVutf8_nolen (string_sv);
             if (items > 2 && SvOK(ST(2)))
               line_nr = SvIV (ST(2));
-            apply_sv_parser_conf (parser);
+            apply_sv_parser_conf (parser_sv);
             document_descriptor = parse_text (string, line_nr);
-            RETVAL = get_or_build_document (parser, document_descriptor, 0);
+            RETVAL = get_or_build_document (parser_sv, document_descriptor, 0);
           }
       OUTPUT:
         RETVAL
