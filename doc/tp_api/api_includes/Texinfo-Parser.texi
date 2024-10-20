@@ -158,8 +158,6 @@ the line number of the first text line, if undef, it will be set to 1.
 The file with name @emph{$file_name} is considered to be a Texinfo file and
 is parsed into a tree.  @emph{$file_name} should be a binary string.
 
-undef is returned if the file couldn't be read.
-
 @end table
 
 The errors collected during the tree parsing are available with
