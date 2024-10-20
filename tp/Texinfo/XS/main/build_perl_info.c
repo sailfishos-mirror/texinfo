@@ -1338,6 +1338,7 @@ pass_document_parser_errors_to_registrar (size_t document_descriptor,
   SV *errors_warnings_sv = 0;
   SV *error_nrs_sv = 0;
   HV *parser_hv;
+  SV **parser_registrar_sv;
 
   dTHX;
 
@@ -1352,9 +1353,18 @@ pass_document_parser_errors_to_registrar (size_t document_descriptor,
    */
 
   /* Add error registrar to Parser */
-  registrar_sv = new_texinfo_report ();
-  SvREFCNT_inc (registrar_sv);
-  hv_store (parser_hv, "registrar", strlen ("registrar"), registrar_sv, 0);
+  parser_registrar_sv = hv_fetch (parser_hv, "registrar",
+                                  strlen ("registrar"), 0);
+  if (parser_registrar_sv)
+    {
+      registrar_sv = *parser_registrar_sv;
+    }
+  else
+    {
+      registrar_sv = new_texinfo_report ();
+      SvREFCNT_inc (registrar_sv);
+      hv_store (parser_hv, "registrar", strlen ("registrar"), registrar_sv, 0);
+    }
 
   pass_errors_to_registrar (&document->parser_error_messages, parser_sv,
                             &errors_warnings_sv, &error_nrs_sv);
