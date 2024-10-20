@@ -15,6 +15,7 @@
 
 #include <config.h>
 
+#include <stdlib.h>
 #include <stddef.h>
 
 /* Avoid namespace conflicts. */
@@ -327,6 +328,12 @@ errors (SV *parser_sv)
                       newRV_noinc ((SV *) empty_errors_warnings), 0);
             hv_store (registrar_hv, "error_nrs",
                       strlen ("error_nrs"), newSViv (0), 0);
+          }
+        else
+          {
+            fprintf (stderr,
+                     "BUG: no registrar but Parser::errors is called\n");
+            abort ();
           }
 
         EXTEND(SP, 2);
