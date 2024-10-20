@@ -1,5 +1,25 @@
 2024-10-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_initialize_parsing): merge parser and
+	parser state in the function, return the document.  Update callers.
+
+	* tp/Texinfo/ParserNonXS.pm (_input_push_file): return file_name and
+	directories even if the file could not be opened.
+
+	* tp/Texinfo/ParserNonXS.pm (parse_texi_file),
+	tp/Texinfo/XS/main/build_perl_info.c (get_document, fill_document_hv)
+	(store_document_texinfo_tree), tp/Texinfo/XS/parsetexi/Parsetexi.xs
+	(parse_texi_file), tp/Texinfo/XS/parsetexi/api.c (parse_file),
+	tp/t/test_utils.pl (test), tp/texi2any.pl: return a document, with
+	information on directories and file name even if the input file could
+	not be opened, but do not set the tree.  Use the presence of a tree to
+	determine if parsing was successful.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_texinfo_tree): return 0
+	if there is no tree in document.
+
+2024-10-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.xs: reindent.
 
 2024-10-20  Patrice Dumas  <pertusus@free.fr>

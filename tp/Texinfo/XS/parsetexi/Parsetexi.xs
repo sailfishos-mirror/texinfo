@@ -97,19 +97,8 @@ parse_texi_file (SV *parser_sv, input_file_path)
             int status;
             apply_sv_parser_conf (parser_sv);
             document_descriptor = parse_file (input_file_path, &status);
-            if (status)
-              /* if the input file could not be opened */
-              {
-                pass_document_parser_errors_to_registrar (document_descriptor,
-                                                          parser_sv);
-                remove_document_descriptor (document_descriptor);
-                RETVAL = newSV (0);
-              }
-            else
-              {
-                RETVAL
-                 = get_or_build_document (parser_sv, document_descriptor, 0);
-              }
+            RETVAL
+              = get_or_build_document (parser_sv, document_descriptor, 0);
           }
       OUTPUT:
         RETVAL
@@ -299,8 +288,9 @@ void
 parser_conf_set_accept_internalvalue (int value)
 
 # two possibilities
-#   - errors should be in the last parsed document->parser_error_messages
-#   - errors were put in a registrar key in the parser
+#   - errors should be in the last parsed document->parser_error_messages,
+#     which can be found with "last_document_descriptor"
+#   - errors were put as the "registrar" key value in the parser
 void
 errors (SV *parser_sv)
     PREINIT:

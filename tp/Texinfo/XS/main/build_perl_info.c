@@ -1003,13 +1003,9 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 HV *
 build_texinfo_tree (ELEMENT *root, int avoid_recursion)
 {
+  /* should not happen because called should make sure to call with a tree */
   if (! root)
-      /* use an empty element with contents if there is nothing.
-         This should only happen if the input file was not opened
-         or no parse_* function was called after initialization
-         and should not happen with the current calling code.
-      */
-      root = new_element (ET_NONE);
+    return 0;
   /*
   fprintf (stderr, "BTT ------------------------------------------------\n");
    */
@@ -1733,7 +1729,6 @@ get_document (size_t document_descriptor)
   HV *hv;
   DOCUMENT *document;
   SV *sv;
-  HV *hv_tree;
   HV *hv_info;
   SV *registrar_sv;
 
@@ -1742,23 +1737,27 @@ get_document (size_t document_descriptor)
   document = retrieve_document (document_descriptor);
 
   hv = newHV ();
-  hv_tree = newHV ();
 
   hv_info = build_global_info (&document->global_info,
                                &document->global_commands);
 
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
-  STORE("tree", hv_tree);
+  if (document->tree)
+    {
+      HV *hv_tree = newHV ();
+      STORE("tree", hv_tree);
+
+      hv_store (hv_tree, "tree_document_descriptor",
+                strlen ("tree_document_descriptor"),
+                newSViv (document_descriptor), 0);
+    }
+
   STORE("global_info", hv_info);
 
   document->modified_information &= ~F_DOCM_global_info;
 #undef STORE
 
   hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
-            newSViv (document_descriptor), 0);
-
-  hv_store (hv_tree, "tree_document_descriptor",
-            strlen ("tree_document_descriptor"),
             newSViv (document_descriptor), 0);
 
   /* New error registrar for document to be used after parsing, for
@@ -1789,7 +1788,7 @@ static void
 fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
 {
   DOCUMENT *document;
-  HV *hv_tree;
+  HV *hv_tree = 0;
   HV *hv_info;
   HV *hv_commands_info;
   HV *hv_index_names;
@@ -1805,7 +1804,8 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
 
   document = retrieve_document (document_descriptor);
 
-  hv_tree = build_texinfo_tree (document->tree, 0);
+  if (document->tree)
+    hv_tree = build_texinfo_tree (document->tree, 0);
 
   hv_info = build_global_info (&document->global_info,
                                &document->global_commands);
@@ -1843,7 +1843,8 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
 
   /* must be kept in sync with Texinfo::Document register keys */
-  STORE("tree", hv_tree);
+  if (hv_tree)
+    STORE("tree", hv_tree);
   document->modified_information &= ~F_DOCM_tree;
   STORE("indices", hv_index_names);
   document->modified_information &= ~F_DOCM_index_names;
@@ -1886,9 +1887,10 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
       hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
                 newSViv (document_descriptor), 0);
 
-      hv_store (hv_tree, "tree_document_descriptor",
-                strlen ("tree_document_descriptor"),
-                newSViv (document_descriptor), 0);
+      if (hv_tree)
+        hv_store (hv_tree, "tree_document_descriptor",
+                  strlen ("tree_document_descriptor"),
+                  newSViv (document_descriptor), 0);
 
       if (!document->hv)
         {
@@ -1994,7 +1996,8 @@ store_document_texinfo_tree (DOCUMENT *document, HV *document_hv)
 
   dTHX;
 
-  if (document->modified_information & F_DOCM_tree)
+  if (document->modified_information & F_DOCM_tree
+      && document->tree)
     {
       HV *result_hv = build_texinfo_tree (document->tree, 0);
       hv_store (result_hv, "tree_document_descriptor",

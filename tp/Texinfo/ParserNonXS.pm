@@ -713,7 +713,11 @@ sub _initialize_parsing($$)
     $parser_state->{'basic_inline_commands'} = {%contain_basic_inline_commands};
   }
 
-  return $parser_state;
+  # We rely on parser state overriding the previous state infomation
+  # in self, as documented in perldata:
+  #   If a key appears more than once in the initializer list of a hash, the last occurrence wins
+  %$parser = (%$parser, %$parser_state);
+  return $document;
 }
 
 sub _new_text_input($$)
@@ -799,17 +803,13 @@ sub parse_texi_piece($$;$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  my $parser_state = $self->_initialize_parsing('ct_base');
-  # We rely on parser state overriding the previous state infomation
-  # in self, as documented in perldata:
-  #   If a key appears more than once in the initializer list of a hash, the last occurrence wins
-  %$self = (%$self, %$parser_state);
+  my $document = $self->_initialize_parsing('ct_base');
 
   _input_push_text($self, $text, $line_nr);
 
   my ($document_root, $before_node_section)
      = _setup_document_root_and_before_node_section();
-  my $document = $self->_parse_texi($document_root, $before_node_section);
+  $self->_parse_texi($document_root, $before_node_section);
 
   get_parser_info($self);
 
@@ -824,13 +824,12 @@ sub parse_texi_line($$;$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  my $parser_state = $self->_initialize_parsing('ct_line');
-  %$self = (%$self, %$parser_state);
+  my $document = $self->_initialize_parsing('ct_line');
 
   _input_push_text($self, $text, $line_nr);
 
   my $root = {'type' => 'root_line'};
-  my $document = $self->_parse_texi($root, $root);
+  $self->_parse_texi($root, $root);
   get_parser_info($self);
   return $document->tree();
 }
@@ -843,12 +842,11 @@ sub parse_texi_text($$;$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  my $parser_state = $self->_initialize_parsing('ct_base');
-  %$self = (%$self, %$parser_state);
+  my $document = $self->_initialize_parsing('ct_base');
 
   _input_push_text($self, $text, $line_nr);
 
-  my $document = $self->_parse_texi_document();
+  $self->_parse_texi_document();
 
   get_parser_info($self);
   return $document;
@@ -861,9 +859,11 @@ sub _input_push_file
 {
   my ($self, $input_file_path, $file_name_encoding) = @_;
 
+  my ($file_name, $directories, $suffix) = fileparse($input_file_path);
+
   my $filehandle = do { local *FH };
   if (!open($filehandle, $input_file_path)) {
-    return 0, undef, undef, $!;
+    return 0, $file_name, $directories, $!;
   }
 
   # to be able to change the encoding in the midst of reading a file,
@@ -880,8 +880,6 @@ sub _input_push_file
   # This is tested in the formats_encodings multiple_include_encodings
   # test.
   binmode($filehandle);
-
-  my ($file_name, $directories, $suffix) = fileparse($input_file_path);
 
   my $file_input = {
        'input_source_info' => {
@@ -940,11 +938,14 @@ sub parse_texi_file($$)
 
   return undef if (!defined($self));
 
-  my $parser_state = $self->_initialize_parsing('ct_base');
-  %$self = (%$self, %$parser_state);
+  my $document = $self->_initialize_parsing('ct_base');
 
   my ($status, $file_name, $directories, $error_message)
     = _input_push_file($self, $input_file_path);
+
+  $document->{'global_info'}->{'input_file_name'} = $file_name;
+  $document->{'global_info'}->{'input_directory'} = $directories;
+
   if (!$status) {
     my $decoded_input_file_path = $input_file_path;
     my $encoding = $self->{'conf'}->{'COMMAND_LINE_ENCODING'};
@@ -954,13 +955,11 @@ sub parse_texi_file($$)
     $self->{'registrar'}->document_error(
                  sprintf(__("could not open %s: %s"),
                                   $decoded_input_file_path, $error_message));
-    return undef;
+    return $document;
   }
 
-  my $document = $self->_parse_texi_document();
+  $self->_parse_texi_document();
   get_parser_info($self);
-  $document->{'global_info'}->{'input_file_name'} = $file_name;
-  $document->{'global_info'}->{'input_directory'} = $directories;
 
   return $document;
 }
@@ -8420,8 +8419,6 @@ X<C<parse_texi_file>>
 
 The file with name I<$file_name> is considered to be a Texinfo file and
 is parsed into a tree.  I<$file_name> should be a binary string.
-
-undef is returned if the file couldn't be read.
 
 =back
 

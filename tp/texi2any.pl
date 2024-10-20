@@ -1733,7 +1733,12 @@ while(@input_files) {
   my $parser = Texinfo::Parser::parser($parser_file_options);
   my $document = $parser->parse_texi_file($input_file_name);
 
-  if (defined($document)
+  # Get the tree object.  Note that if XS structuring in on, the argument
+  # prevents the tree being built as a Perl structure at this stage; only
+  # a "handle" is returned.
+  my $tree = $document->tree($XS_structuring);
+
+  if (defined($tree)
       and (defined(get_conf('DUMP_TREE'))
            or (get_conf('DEBUG') and get_conf('DEBUG') >= 10))) {
     my $tree = $document->tree();
@@ -1746,8 +1751,13 @@ while(@input_files) {
     local $Data::Dumper::Sortkeys = 1;
     print STDERR Data::Dumper->Dump([$tree]);
   }
-  # object registering errors and warnings
-  if (!defined($document) or $output_format eq 'parse') {
+
+  if (!defined($tree)) {
+    handle_errors($parser->errors(), $error_count, \%opened_files);
+    goto NEXT;
+  }
+
+  if ($output_format eq 'parse') {
     handle_errors($parser->errors(), $error_count, \%opened_files);
     goto NEXT;
   }
@@ -1803,10 +1813,6 @@ while(@input_files) {
   my $document_options = $main_configuration->get_customization_options_hash();
   $document->register_document_options($document_options);
 
-  # Get the tree object.  Note that if XS structuring in on, the argument
-  # prevents the tree being built as a Perl structure at this stage; only
-  # a "handle" is returned.
-  my $tree = $document->tree($XS_structuring);
 
   if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
     require Texinfo::Convert::Texinfo;

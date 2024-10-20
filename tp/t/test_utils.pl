@@ -1082,14 +1082,18 @@ sub test($$)
     $document = $parser->parse_texi_file($test_file);
   }
 
+  # Get the tree object.  Note that if XS structuring in on, the argument
+  # prevents the tree being built as a Perl structure at this stage; only
+  # a "handle" is returned.
+  my $tree = $document->tree($XS_structuring);
+
   my ($errors, $error_nrs) = $parser->errors();
 
-  my $tree;
   my ($sorted_index_entries, $index_entries_sort_strings);
   my $indices_sorted_sort_strings;
   my $indices;
 
-  if (not defined($document)) {
+  if (not defined($tree)) {
     warn "ERROR: $test_name: parsing result undef\n";
     foreach my $error_message (@$errors) {
       warn $error_message->{'error_line'}
@@ -1097,11 +1101,6 @@ sub test($$)
     }
     goto COMPARE;
   }
-
-  # Get the tree object.  Note that if XS structuring in on, the argument
-  # prevents the tree being built as a Perl structure at this stage; only
-  # a "handle" is returned.
-  $tree = $document->tree($XS_structuring);
 
   # Setup main configuration options, used for structuring.
   my $document_information = $document->global_information();

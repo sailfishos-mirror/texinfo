@@ -137,6 +137,15 @@ parse_file (const char *input_file_path, int *status)
   char *input_file_name_and_directory[2];
   int input_error;
 
+  parse_file_path (input_file_path, input_file_name_and_directory);
+
+  global_info = &parsed_document->global_info;
+
+  free (global_info->input_file_name);
+  free (global_info->input_directory);
+  global_info->input_file_name = input_file_name_and_directory[0];
+  global_info->input_directory = input_file_name_and_directory[1];
+
   input_error = input_push_file (input_file_path);
   if (input_error)
     {
@@ -160,15 +169,6 @@ parse_file (const char *input_file_path, int *status)
       *status = 1;
       return document_descriptor;
     }
-
-  parse_file_path (input_file_path, input_file_name_and_directory);
-
-  global_info = &parsed_document->global_info;
-
-  free (global_info->input_file_name);
-  free (global_info->input_directory);
-  global_info->input_file_name = input_file_name_and_directory[0];
-  global_info->input_directory = input_file_name_and_directory[1];
 
   parse_texi_document ();
 
