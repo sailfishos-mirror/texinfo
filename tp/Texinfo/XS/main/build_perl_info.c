@@ -1321,7 +1321,7 @@ new_texinfo_report (void)
 
   hv = newHV ();
 
-  hv_store (hv, "errors_nrs", strlen ("errors_nrs"), newSViv (0), 0);
+  hv_store (hv, "error_nrs", strlen ("error_nrs"), newSViv (0), 0);
 
   errors_warnings = newAV ();
   hv_store (hv, "errors_warnings", strlen ("errors_warnings"),
