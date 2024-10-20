@@ -137,7 +137,7 @@ parse_texi_piece (SV *parser, SV *string_sv, ...)
         RETVAL
 
 SV *
-parse_string (SV *parser, SV *string_sv, ...)
+parse_texi_line (SV *parser, SV *string_sv, ...)
     PREINIT:
         size_t document_descriptor = 0;
         int no_store = 0;
@@ -148,14 +148,16 @@ parse_string (SV *parser, SV *string_sv, ...)
         else
           {
             char *string = (char *)SvPVutf8_nolen (string_sv);
+            SV *document_sv;
             if (items > 2 && SvOK(ST(2)))
               line_nr = SvIV (ST(2));
             if (items > 3 && SvOK(ST(3)))
               no_store = SvIV (ST(3));
             apply_sv_parser_conf (parser);
             document_descriptor = parse_string (string, line_nr);
-            RETVAL = get_or_build_document (parser, document_descriptor,
-                                            no_store);
+            document_sv = get_or_build_document (parser, document_descriptor,
+                                                 no_store);
+            RETVAL = document_tree (document_sv, 0);
           }
       OUTPUT:
         RETVAL

@@ -49,6 +49,7 @@ SV *get_or_build_document (SV *parser_sv, size_t document_descriptor,
 
 SV *store_document_texinfo_tree (DOCUMENT *document, HV *document_hv);
 
+SV *document_tree (SV *document_in, int handler_only);
 SV *document_indices_information (SV *document_in);
 SV *document_global_commands_information (SV *document_in);
 SV *document_labels_information (SV *document_in);

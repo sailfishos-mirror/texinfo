@@ -41,6 +41,9 @@ use warnings;
 #no autovivification qw(fetch delete exists store strict);
 
 use Texinfo::Report;
+# Not directly used, but the returned variables are in this module, this
+# import makes sure that the functions associated to the objects are found.
+use Texinfo::Document;
 
 # Initialize the parser
 # The last argument, optional, is a hash provided by the user to change
@@ -132,14 +135,6 @@ sub parser (;$)
   $parser->{'registrar'} = Texinfo::Report::new();
 
   return $parser;
-}
-
-sub parse_texi_line($$;$$)
-{
-  my ($self, $text, $line_nr, $no_store) = @_;
-  my $document = parse_string($self, $text, $line_nr, $no_store);
-  return undef if (!defined($document));
-  return $document->tree();
 }
 
 sub errors($)

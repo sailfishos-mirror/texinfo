@@ -223,36 +223,6 @@ set_document_global_info (SV *document_in, char *key, SV *value_sv)
 
 SV *
 document_tree (SV *document_in, int handler_only=0)
-    PREINIT:
-        HV *document_hv;
-        SV *result_sv = 0;
-        const char *key = "tree";
-     CODE:
-        document_hv = (HV *) SvRV (document_in);
-
-        if (!handler_only)
-          {
-            DOCUMENT *document = get_sv_document_document (document_in, 0);
-            if (document)
-              result_sv = store_document_texinfo_tree (document, document_hv);
-          }
-
-        if (!result_sv)
-          {
-            SV **sv_reference = hv_fetch (document_hv, key, strlen (key), 0);
-            if (sv_reference && SvOK (*sv_reference))
-              result_sv = *sv_reference;
-          }
-
-        if (result_sv)
-          {
-            RETVAL = result_sv;
-            SvREFCNT_inc (result_sv);
-          }
-        else
-          RETVAL = newSV (0);
-    OUTPUT:
-        RETVAL
 
 SV *
 document_global_information (SV *document_in)

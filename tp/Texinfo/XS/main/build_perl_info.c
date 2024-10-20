@@ -1988,6 +1988,44 @@ store_document_texinfo_tree (DOCUMENT *document, HV *document_hv)
   return result_sv;
 }
 
+/* Get a reference to the document tree.  Either from C data if the
+   document could be found and if HANDLER_ONLY is not set, else from
+   the Perl DOCUMENT_IN.
+   If the C document data was not stored, the tree will be only be
+   in the Perl document. */
+SV *
+document_tree (SV *document_in, int handler_only)
+{
+  HV *document_hv;
+  SV *result_sv = 0;
+
+  dTHX;
+
+  document_hv = (HV *) SvRV (document_in);
+
+  if (!handler_only)
+    {
+      DOCUMENT *document = get_sv_document_document (document_in, 0);
+      if (document)
+        result_sv = store_document_texinfo_tree (document, document_hv);
+    }
+
+  if (!result_sv)
+    {
+      SV **sv_reference = hv_fetch (document_hv, "tree", strlen ("tree"), 0);
+      if (sv_reference && SvOK (*sv_reference))
+        result_sv = *sv_reference;
+    }
+
+  if (result_sv)
+    {
+      SvREFCNT_inc (result_sv);
+      return result_sv;
+    }
+  else
+    return newSV (0);
+}
+
 /* Build Texinfo Document registered data to Perl */
 
 /* there are 2 differences between BUILD_PERL_DOCUMENT_ITEM and
