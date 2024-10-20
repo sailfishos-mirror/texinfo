@@ -67,8 +67,6 @@ sub parser (;$)
   # Texinfo::Common parser_document_parsing_options.
   reset_parser($debug);
 
-  # Following code does the same as Perl code just above to
-  # setup parser_conf in C.
   # (re)set debug in any case, assuming that undef DEBUG is no debug
   parser_conf_set_DEBUG($debug);
 
@@ -156,17 +154,6 @@ sub _get_parser_info($$;$) {
   } else {
     $document = build_document ($document_descriptor, 1);
   }
-
-  # additional info relevant in perl only.
-  my $encoding = $document->{'global_info'}->{'input_encoding_name'};
-
-  my $perl_encoding = Texinfo::Common::perl_encoding_name($encoding);
-  if (defined($perl_encoding)) {
-    $document->{'global_info'}->{'input_perl_encoding'} = $perl_encoding
-  }
-  $perl_encoding = 'utf-8' if (!defined($perl_encoding));
-  Texinfo::Document::set_document_global_info($document,
-                     'input_perl_encoding', $perl_encoding);
 
   # New error registrar for document to be used after parsing, for
   # structuring and tree modifications

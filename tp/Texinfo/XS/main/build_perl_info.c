@@ -1553,9 +1553,6 @@ build_global_info (const GLOBAL_INFO *global_info_ref,
   if (global_info.input_directory)
     hv_store (hv, "input_directory", strlen ("input_directory"),
               newSVpv (global_info.input_directory, 0), 0);
-  if (global_info.input_perl_encoding)
-    hv_store (hv, "input_perl_encoding", strlen ("input_perl_encoding"),
-              newSVpv (global_info.input_perl_encoding, 0), 0);
 
   if (global_info.included_files.number)
     {

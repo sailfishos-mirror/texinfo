@@ -135,8 +135,7 @@ our $VERSION = '7.1.90';
                                # external manual.
   #'labels_list' => [],        # array of elements associated with labels.
                               # information on document
-  #'global_info' => {'input_perl_encoding' => 'utf-8',
-  #                  'input_encoding_name' => 'utf-8',
+  #'global_info' => {'input_encoding_name' => 'utf-8',
   #                  'included_files' => [],},
 # indices             a structure holding the link between index
 #                     names and merged indices;
@@ -908,13 +907,6 @@ sub get_parser_info($)
   my $self = shift;
 
   my $document = $self->{'document'};
-
-  my $encoding = $document->{'global_info'}->{'input_encoding_name'};
-
-  my $perl_encoding = Texinfo::Common::perl_encoding_name($encoding);
-  if (defined($perl_encoding)) {
-    $document->{'global_info'}->{'input_perl_encoding'} = $perl_encoding
-  }
 
   my $global_commands = $document->{'commands_info'};
 

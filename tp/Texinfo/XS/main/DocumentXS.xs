@@ -213,14 +213,6 @@ set_document_global_info (SV *document_in, char *key, SV *value_sv)
                 document->global_info.input_file_name
                   = non_perl_strdup (value);
               }
-            else if (!strcmp (key, "input_perl_encoding"))
-              {
-                /* should not be needed, but in case global information
-                   is reused, it will avoid memory leaks */
-                non_perl_free (document->global_info.input_perl_encoding);
-                document->global_info.input_perl_encoding
-                   = non_perl_strdup ((char *)SvPVbyte_nolen(value_sv));
-              }
             else
               {
                 add_other_global_info_string (

@@ -602,9 +602,9 @@ sub encoded_output_file_name($$)
       $document_info = $self->{'document'}->global_information();
     }
 
-    $encoding = $document_info->{'input_perl_encoding'}
+    $encoding = $document_info->{'input_encoding_name'}
       if ($document_info
-          and defined($document_info->{'input_perl_encoding'}));
+          and defined($document_info->{'input_encoding_name'}));
   } else {
     $encoding = $self->get_conf('LOCALE_ENCODING');
   }
@@ -645,9 +645,9 @@ sub encoded_input_file_name($$;$)
         $document_info = $self->{'document'}->global_information();
       }
 
-      $encoding = $document_info->{'input_perl_encoding'}
+      $encoding = $document_info->{'input_encoding_name'}
         if ($document_info
-          and defined($document_info->{'input_perl_encoding'}));
+          and defined($document_info->{'input_encoding_name'}));
     }
   } else {
     $encoding = $self->get_conf('LOCALE_ENCODING');

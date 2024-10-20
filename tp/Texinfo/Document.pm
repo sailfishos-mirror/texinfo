@@ -104,8 +104,7 @@ sub new_document($)
     'indices' => $indices_information,
     'listoffloats_list' => {},
     'internal_references' => [],
-    'global_info' => {'input_perl_encoding' => 'utf-8',
-                    'input_encoding_name' => 'utf-8',
+    'global_info' => {'input_encoding_name' => 'utf-8',
                     #'included_files' => [],
                     },
     'commands_info' => {},
@@ -599,11 +598,8 @@ strings.  From both C<@include> and C<@verbatiminclude>.
 
 =item input_encoding_name
 
-=item input_perl_encoding
-
 C<input_encoding_name> string is the encoding name used for the
 Texinfo code.
-C<input_perl_encoding> string is a corresponding Perl encoding name.
 
 =item input_file_name
 

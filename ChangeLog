@@ -1,5 +1,19 @@
 2024-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Utils.pm (encoded_output_file_name)
+	(encoded_input_file_name): use input_encoding_name instead of
+	input_perl_encoding, Encode determines the alias itself.
+
+	* tp/Texinfo/Document.pm (new_document), tp/Texinfo/ParserNonXS.pm
+	(get_parser_info), tp/Texinfo/XS/main/DocumentXS.xs
+	(set_document_global_info), tp/Texinfo/XS/main/build_perl_info.c
+	(build_global_info), tp/Texinfo/XS/main/document_types.h
+	(GLOBAL_INFO), tp/Texinfo/XS/main/utils.c (delete_global_info),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_parser_info),
+	tp/t/test_document.t: remove input_perl_encoding.
+
+2024-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser): never set the 'conf'
 	parser key, it is not used since the time parser conf became internal
 	only.

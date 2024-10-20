@@ -1242,9 +1242,6 @@ delete_global_info (GLOBAL_INFO *global_info)
       free (k->string);
     }
   free (global_info->other_info.info);
-
-  /* perl specific information */
-  free (global_info->input_perl_encoding);
 }
 
 void
