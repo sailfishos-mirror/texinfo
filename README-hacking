@@ -338,14 +338,18 @@ whether script is working as intended.)
 
 check at latest automake/autoconf/gettext/help2man version:
   . to upgrade gettext, run
+      gettextize -f --po-dir=po --po-dir=po_document --dry-run
       gettextize -f --po-dir=po --po-dir=po_document
     after installing new version of gettext.
-    (check that this does not actually downgrade files due to files also
-    being updated from gnulib --add-import)
       .  (note upgrade to gettext 0.22 is stalled - see
          https://lists.gnu.org/archive/html/bug-gettext/2023-07/msg00008.html)
-  . also upgrade gettext under tp/Texinfo/XS (need to write instructions how
-    to do this properly)
+    if gettextize makes too many changes that need to be reverted, try
+      autopoint -f --dry-run
+      autopoint -f
+    check that this does not actually downgrade files due to files also
+    being updated from gnulib --add-import.  check for duplicate files
+    under build-aux/m4 and gnulib/m4.
+  . also upgrade gettext under tp/Texinfo/XS using autopoint and/or gettextize
   . After upgrading automake/autoconf/gettext, run ./autogen.sh
     and/or "autoreconf --verbose --force --install" to update ancilliary
     files in build-aux and elsewhere.  Check changes before committing.

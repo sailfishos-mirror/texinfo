@@ -1,3 +1,8 @@
+2024-10-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* README-hacking: suggest running autopoint instead of gettextize
+	and using --dry-run option
+
 2024-10-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_initialize_parsing): merge parser and
