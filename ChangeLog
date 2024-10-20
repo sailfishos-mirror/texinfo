@@ -1,5 +1,14 @@
 2024-10-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (get_or_build_document),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (parse_texi_file)
+	(errors): if a handle on a document is returned, do not set a
+	registrar but instead keep with last_document_descriptor key a
+	way to find the document where parser errors are registered for the
+	next call to parser->errors.
+
+2024-10-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm,
 	tp/Texinfo/XS/parsetexi/Parsetexi.xs (errors): implement errors in XS,
 	remove from Parsetexi.pm.

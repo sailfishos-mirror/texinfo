@@ -97,16 +97,19 @@ parse_texi_file (SV *parser, input_file_path)
             int status;
             apply_sv_parser_conf (parser);
             document_descriptor = parse_file (input_file_path, &status);
-            pass_document_parser_errors_to_registrar (document_descriptor,
-                                                      parser);
             if (status)
               /* if the input file could not be opened */
               {
+                pass_document_parser_errors_to_registrar (document_descriptor,
+                                                          parser);
                 remove_document_descriptor (document_descriptor);
                 RETVAL = newSV (0);
               }
             else
-              RETVAL = get_document (document_descriptor);
+              {
+                RETVAL
+                 = get_or_build_document (parser, document_descriptor, 0);
+              }
           }
       OUTPUT:
         RETVAL
@@ -296,26 +299,50 @@ void
 parser_conf_set_accept_internalvalue (int value)
 
 # two possibilities
+#   - errors should be in the last parsed document->parser_error_messages
 #   - errors were put in a registrar key in the parser
-#   - TODO: errors are still in the last parsed document->parser_error_messages
 void
 errors (SV *parser_sv)
     PREINIT:
         SV *errors_warnings_sv = 0;
         SV *error_nrs_sv = 0;
-        SV **registrar_sv;
+        SV **last_document_descriptor_sv;
         HV *parser_hv;
     PPCODE:
         parser_hv = (HV *)SvRV (parser_sv);
-        registrar_sv = hv_fetch (parser_hv, "registrar", strlen ("registrar"),
-                                 0);
+        last_document_descriptor_sv = hv_fetch (parser_hv,
+          "last_document_descriptor", strlen ("last_document_descriptor"), 0);
 
-        if (registrar_sv)
+        if (last_document_descriptor_sv)
           {
-            HV *registrar_hv = (HV *)SvRV (*registrar_sv);
+            AV *av;
+            size_t document_descriptor = SvIV (*last_document_descriptor_sv);
+            DOCUMENT *document = retrieve_document (document_descriptor);
+            if (document)
+              {
+                ERROR_MESSAGE_LIST *error_messages
+                  = &document->parser_error_messages;
+                av = build_errors (error_messages->list,
+                                   error_messages->number);
+                error_nrs_sv = newSViv (error_messages->error_nrs);
+              }
+            else
+              {
+    /* This could theoretically happen if the document is destroyed before
+       getting the parser errors */
+                av = newAV ();
+                error_nrs_sv = newSViv (0);
+              }
+            errors_warnings_sv = newRV_noinc ((SV *) av);
+          }
+        else
+          {
             SV **registrar_errors_warnings_sv;
             SV **registrar_error_nrs_sv;
             AV *empty_errors_warnings = newAV ();
+            SV **registrar_sv = hv_fetch (parser_hv, "registrar",
+                                          strlen ("registrar"), 0);
+            HV *registrar_hv = (HV *)SvRV (*registrar_sv);
 
             registrar_errors_warnings_sv
                     = hv_fetch (registrar_hv, "errors_warnings",

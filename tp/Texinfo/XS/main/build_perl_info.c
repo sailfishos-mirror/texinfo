@@ -1941,14 +1941,24 @@ get_or_build_document (SV *parser_sv, size_t document_descriptor, int no_store)
 {
   dTHX;
 
-  /* get hold of errors before calling build_document, as if no_store is set
-     they will be destroyed. */
-  pass_document_parser_errors_to_registrar (document_descriptor, parser_sv);
-
   if (!no_store)
-    return get_document (document_descriptor);
+    {
+      /* Keep an information on the document descriptor to be able to get the
+         parser errors */
+      HV *parser_hv = (HV *) SvRV (parser_sv);
+      hv_store (parser_hv, "last_document_descriptor",
+                strlen ("last_document_descriptor"),
+                newSViv (document_descriptor), 0);
+      return get_document (document_descriptor);
+    }
   else
-    return build_document (document_descriptor, 1);
+    {
+      /* get hold of errors before calling build_document, as they will be
+         destroyed since no_store is set. */
+      pass_document_parser_errors_to_registrar (document_descriptor,
+                                                parser_sv);
+      return build_document (document_descriptor, 1);
+    }
 }
 
 /* Currently unused, but could be */
