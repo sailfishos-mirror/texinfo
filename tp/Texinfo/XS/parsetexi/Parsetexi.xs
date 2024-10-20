@@ -101,9 +101,7 @@ parse_file (SV *parser, input_file_path)
             RETVAL = newSV (0);
           }
         else
-          {
-            RETVAL = get_document (document_descriptor);
-          }
+          RETVAL = get_document (document_descriptor);
       OUTPUT:
         RETVAL
 
@@ -151,28 +149,6 @@ parse_text (SV *parser, string, int line_nr)
         RETVAL = get_or_build_document (parser, document_descriptor, 0);
       OUTPUT:
         RETVAL
-
-
-# note that giving optional arguments, like: int no_store=0
-# would have been nice, but in that case an undef value cannot be passed
-# and leads to a perl warning
-SV *
-build_document (size_t document_descriptor, ...)
-      PROTOTYPE: $;$
-      PREINIT:
-        int no_store = 0;
-      CODE:
-        if (items > 1 && SvOK(ST(1)))
-          no_store = SvIV (ST(1));
-        RETVAL = build_document (document_descriptor, no_store);
-      OUTPUT:
-        RETVAL
-
-SV *
-get_document (size_t document_descriptor)
-
-void
-pass_document_parser_errors_to_registrar (size_t document_descriptor, SV *parser_sv)
 
 void
 parser_store_values (SV *values)
