@@ -133,20 +133,6 @@ sub parser (;$)
   return $parser;
 }
 
-sub errors($)
-{
-  my $self = shift;
-  my $registrar = $self->{'registrar'};
-  if (!$registrar) {
-    return undef;
-  }
-  my ($error_warnings_list, $error_count) = $registrar->errors();
-
-  $registrar->clear();
-
-  return ($error_warnings_list, $error_count);
-}
-
 1;
 __END__
 

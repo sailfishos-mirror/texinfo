@@ -295,3 +295,47 @@ parser_conf_set_DEBUG (int i)
 void
 parser_conf_set_accept_internalvalue (int value)
 
+# two possibilities
+#   - errors were put in a registrar key in the parser
+#   - TODO: errors are still in the last parsed document->parser_error_messages
+void
+errors (SV *parser_sv)
+    PREINIT:
+        SV *errors_warnings_sv = 0;
+        SV *error_nrs_sv = 0;
+        SV **registrar_sv;
+        HV *parser_hv;
+    PPCODE:
+        parser_hv = (HV *)SvRV (parser_sv);
+        registrar_sv = hv_fetch (parser_hv, "registrar", strlen ("registrar"),
+                                 0);
+
+        if (registrar_sv)
+          {
+            HV *registrar_hv = (HV *)SvRV (*registrar_sv);
+            SV **registrar_errors_warnings_sv;
+            SV **registrar_error_nrs_sv;
+            AV *empty_errors_warnings = newAV ();
+
+            registrar_errors_warnings_sv
+                    = hv_fetch (registrar_hv, "errors_warnings",
+                                           strlen ("errors_warnings"), 0);
+            errors_warnings_sv = *registrar_errors_warnings_sv;
+            SvREFCNT_inc (errors_warnings_sv);
+            registrar_error_nrs_sv = hv_fetch (registrar_hv, "error_nrs",
+                                               strlen ("error_nrs"), 0);
+            error_nrs_sv = *registrar_error_nrs_sv;
+            SvREFCNT_inc (error_nrs_sv);
+
+            /* registrar->clear() */
+            hv_store (registrar_hv, "errors_warnings",
+                      strlen ("errors_warnings"),
+                      newRV_noinc ((SV *) empty_errors_warnings), 0);
+            hv_store (registrar_hv, "errors_nrs",
+                      strlen ("errors_nrs"), newSViv (0), 0);
+          }
+
+        EXTEND(SP, 2);
+        PUSHs(sv_2mortal(errors_warnings_sv));
+        PUSHs(sv_2mortal(error_nrs_sv));
+
