@@ -44,6 +44,8 @@ SV *pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
 
 SV *build_document (size_t document_descriptor, int no_store);
 SV *get_document (size_t document_descriptor);
+SV *get_or_build_document (SV *parser_sv, size_t document_descriptor,
+                           int no_store);
 
 SV *store_document_texinfo_tree (DOCUMENT *document, HV *document_hv);
 

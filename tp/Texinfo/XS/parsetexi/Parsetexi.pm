@@ -139,46 +139,16 @@ sub parser (;$)
   return $parser;
 }
 
-sub _get_parser_info($$;$) {
-  my $self = shift;
-  my $document_descriptor = shift;
-  my $no_store = shift;
-
-  # get hold of errors before calling build_document, as if $no_store is set
-  # they will be destroyed.
-  pass_document_parser_errors_to_registrar($document_descriptor, $self);
-
-  my $document;
-  if (!$no_store) {
-    $document = get_document ($document_descriptor);
-  } else {
-    $document = build_document ($document_descriptor, 1);
-  }
-
-  # New error registrar for document to be used after parsing, for
-  # structuring and tree modifications
-  $document->{'registrar'} = Texinfo::Report::new();
-
-  return $document;
-}
-
 sub parse_texi_file ($$)
 {
   my $self = shift;
   my $input_file_path = shift;
-  my $tree_stream;
 
   return undef if (!defined($self));
 
   # the file is already a byte string, taken as is from the command
   # line.  The encoding was detected as COMMAND_LINE_ENCODING.
-  my $document_descriptor = parse_file($self, $input_file_path);
-  if (!$document_descriptor) {
-    return undef;
-  }
-
-  my $document = _get_parser_info($self, $document_descriptor);
-
+  my $document = parse_file($self, $input_file_path);
   return $document;
 }
 
@@ -192,9 +162,7 @@ sub parse_texi_piece($$;$$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  my $document_descriptor = parse_piece($self, $text, $line_nr);
-
-  my $document = _get_parser_info($self, $document_descriptor, $no_store);
+  my $document = parse_piece($self, $text, $line_nr, $no_store);
 
   return $document;
 }
@@ -208,9 +176,7 @@ sub parse_texi_text($$;$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  my $document_descriptor = parse_text($self, $text, $line_nr);
-
-  my $document = _get_parser_info($self, $document_descriptor);
+  my $document = parse_text($self, $text, $line_nr);
 
   return $document;
 }
@@ -223,9 +189,7 @@ sub parse_texi_line($$;$$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  my $document_descriptor = parse_string($self, $text, $line_nr);
-
-  my $document = _get_parser_info($self, $document_descriptor, $no_store);
+  my $document = parse_string($self, $text, $line_nr, $no_store);
 
   return $document->tree();
 }

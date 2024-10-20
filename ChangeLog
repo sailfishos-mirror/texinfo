@@ -1,3 +1,19 @@
+2024-10-20  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/build_perl_info.c (new_texinfo_report): add code
+	doing the same as calling Texinfo::Report::new() in XS.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (get_document, build_document):
+	add a registrar key by calling new_texinfo_report.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (get_or_build_document),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_file)
+	(parse_texi_piece, parse_texi_text, parse_texi_line),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (parse_file, parse_piece)
+	(parse_string, parse_text): build the document directly in parse_* by
+	calling the new function get_or_build_document or directly
+	get_document. Remove _get_parser_info.
+
 2024-10-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Utils.pm (encoded_output_file_name)

@@ -1689,6 +1689,31 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
   return hv;
 }
 
+/* same as calling Texinfo::Report::new() */
+static SV *
+new_texinfo_report (void)
+{
+  HV *hv_stash;
+  HV *hv;
+  SV *sv;
+  AV *errors_warnings;
+
+  dTHX;
+
+  hv = newHV ();
+
+  hv_store (hv, "errors_nrs", strlen ("errors_nrs"), newSViv (0), 0);
+
+  errors_warnings = newAV ();
+  hv_store (hv, "errors_warnings", strlen ("errors_warnings"),
+            newRV_noinc ((SV *) errors_warnings), 0);
+
+  hv_stash = gv_stashpv ("Texinfo::Report", GV_ADD);
+  sv = newRV_noinc ((SV *) hv);
+  sv_bless (sv, hv_stash);
+  return sv;
+}
+
 /* build a minimal document, without tree/global commands/indices, only
    with the document descriptor information, errors and information that do
    not refer directly to tree elements */
@@ -1701,6 +1726,7 @@ get_document (size_t document_descriptor)
   SV *sv;
   HV *hv_tree;
   HV *hv_info;
+  SV *registrar_sv;
 
   dTHX;
 
@@ -1725,6 +1751,12 @@ get_document (size_t document_descriptor)
   hv_store (hv_tree, "tree_document_descriptor",
             strlen ("tree_document_descriptor"),
             newSViv (document_descriptor), 0);
+
+  /* New error registrar for document to be used after parsing, for
+     structuring and tree modifications */
+  registrar_sv = new_texinfo_report ();
+  SvREFCNT_inc (registrar_sv);
+  hv_store (hv, "registrar", strlen ("registrar"), registrar_sv, 0);
 
   if (!document->hv)
     {
@@ -1875,6 +1907,7 @@ build_document (size_t document_descriptor, int no_store)
   HV *hv;
   SV *sv;
   HV *hv_stash;
+  SV *registrar_sv;
 
   dTHX;
 
@@ -1882,10 +1915,31 @@ build_document (size_t document_descriptor, int no_store)
 
   fill_document_hv (hv, document_descriptor, no_store);
 
+  /* New error registrar for document to be used after parsing, for
+     structuring and tree modifications */
+  registrar_sv = new_texinfo_report ();
+  SvREFCNT_inc (registrar_sv);
+  hv_store (hv, "registrar", strlen ("registrar"), registrar_sv, 0);
+
   hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
   sv = newRV_noinc ((SV *) hv);
   sv_bless (sv, hv_stash);
   return sv;
+}
+
+SV *
+get_or_build_document (SV *parser_sv, size_t document_descriptor, int no_store)
+{
+  dTHX;
+
+  /* get hold of errors before calling build_document, as if no_store is set
+     they will be destroyed. */
+  pass_document_parser_errors_to_registrar (document_descriptor, parser_sv);
+
+  if (!no_store)
+    return get_document (document_descriptor);
+  else
+    return build_document (document_descriptor, 1);
 }
 
 /* Currently unused, but could be */
@@ -3124,7 +3178,7 @@ pass_generic_converter_to_converter_sv (SV *converter_sv,
 
 
 
-/* API to access output file names associated with output units */ 
+/* API to access output file names associated with output units */
 
 static SV *
 build_filenames (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)

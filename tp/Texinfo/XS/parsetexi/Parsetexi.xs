@@ -83,7 +83,7 @@ register_parser_conf (SV *parser)
                 newSViv ((IV) parser_conf->descriptor), 0);
 
 # file path, can be in any encoding
-size_t
+SV *
 parse_file (SV *parser, input_file_path)
         char *input_file_path = (char *)SvPVbyte_nolen ($arg);
     PREINIT:
@@ -92,46 +92,63 @@ parse_file (SV *parser, input_file_path)
       CODE:
         apply_sv_parser_conf (parser);
         document_descriptor = parse_file (input_file_path, &status);
+        pass_document_parser_errors_to_registrar (document_descriptor,
+                                                  parser);
         if (status)
           /* if the input file could not be opened */
           {
-            pass_document_parser_errors_to_registrar (document_descriptor,
-                                                      parser);
             remove_document_descriptor (document_descriptor);
-            RETVAL = 0;
+            RETVAL = newSV (0);
           }
         else
-          RETVAL = document_descriptor;
+          {
+            RETVAL = get_document (document_descriptor);
+          }
       OUTPUT:
         RETVAL
 
-size_t
-parse_piece (SV *parser, string, line_nr)
+# note that giving optional arguments, like: int no_store=0
+# would have been nice, but in that case an undef value cannot be passed
+# and leads to a perl warning
+SV *
+parse_piece (SV *parser, string, int line_nr, ...)
         char *string = (char *)SvPVutf8_nolen ($arg);
-        int line_nr
+    PREINIT:
+        size_t document_descriptor = 0;
+        int no_store = 0;
       CODE:
+        if (items > 3 && SvOK(ST(3)))
+          no_store = SvIV (ST(3));
         apply_sv_parser_conf (parser);
-        RETVAL = parse_piece (string, line_nr);
+        document_descriptor = parse_piece (string, line_nr);
+        RETVAL = get_or_build_document (parser, document_descriptor, no_store);
       OUTPUT:
         RETVAL
 
-size_t
-parse_string (SV *parser, string, line_nr)
+SV *
+parse_string (SV *parser, string, int line_nr, ...)
         char *string = (char *)SvPVutf8_nolen ($arg);
-        int line_nr
+    PREINIT:
+        size_t document_descriptor = 0;
+        int no_store = 0;
       CODE:
+        if (items > 3 && SvOK(ST(3)))
+          no_store = SvIV (ST(3));
         apply_sv_parser_conf (parser);
-        RETVAL = parse_string (string, line_nr);
+        document_descriptor = parse_string (string, line_nr);
+        RETVAL = get_or_build_document (parser, document_descriptor, no_store);
       OUTPUT:
         RETVAL
 
-size_t
-parse_text (SV *parser, string, line_nr)
+SV *
+parse_text (SV *parser, string, int line_nr)
         char *string = (char *)SvPVutf8_nolen ($arg);
-        int line_nr
+    PREINIT:
+        size_t document_descriptor = 0;
       CODE:
         apply_sv_parser_conf (parser);
-        RETVAL = parse_text (string, line_nr);
+        document_descriptor = parse_text (string, line_nr);
+        RETVAL = get_or_build_document (parser, document_descriptor, 0);
       OUTPUT:
         RETVAL
 
@@ -145,9 +162,8 @@ build_document (size_t document_descriptor, ...)
       PREINIT:
         int no_store = 0;
       CODE:
-        if (items > 1)
-          if (SvOK(ST(1)))
-            no_store = SvIV (ST(1));
+        if (items > 1 && SvOK(ST(1)))
+          no_store = SvIV (ST(1));
         RETVAL = build_document (document_descriptor, no_store);
       OUTPUT:
         RETVAL
