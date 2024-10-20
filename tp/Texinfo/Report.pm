@@ -50,7 +50,7 @@ sub __p($$) {
 sub new()
 {
   my $self = {'errors_warnings' => [],
-               'errors_nrs' => 0,};
+               'error_nrs' => 0,};
   bless $self;
   return $self;
 }
@@ -66,7 +66,7 @@ sub clear($)
 {
   my $self = shift;
   $self->{'errors_warnings'} = [];
-  $self->{'errors_nrs'} = 0;
+  $self->{'error_nrs'} = 0;
 }
 
 # add an already formatted/setup message
