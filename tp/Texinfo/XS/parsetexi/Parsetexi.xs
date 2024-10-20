@@ -61,10 +61,10 @@ PROTOTYPES: ENABLE
 int
 init (int texinfo_uninstalled, SV *converterdatadir, SV *tp_builddir, SV *top_srcdir)
     CODE:
-      messages_and_encodings_setup ();
-      RETVAL = 1;
+        messages_and_encodings_setup ();
+        RETVAL = 1;
     OUTPUT:
-      RETVAL
+        RETVAL
 
 void
 reset_parser (int debug_output)
@@ -72,15 +72,15 @@ reset_parser (int debug_output)
 void
 register_parser_conf (SV *parser)
     PREINIT:
-      HV *hv_in;
-      const char *key = "parser_conf_descriptor";
-      const PARSER_CONF *parser_conf;
+        HV *hv_in;
+        const char *key = "parser_conf_descriptor";
+        const PARSER_CONF *parser_conf;
     CODE:
-      hv_in = (HV *)SvRV (parser);
-      parser_conf = register_conf ();
-      /* NOTE unlikely IV overflow if PERL_QUAD_MAX < SIZE_MAX */
-      hv_store (hv_in, key, strlen (key),
-                newSViv ((IV) parser_conf->descriptor), 0);
+        hv_in = (HV *)SvRV (parser);
+        parser_conf = register_conf ();
+        /* NOTE unlikely IV overflow if PERL_QUAD_MAX < SIZE_MAX */
+        hv_store (hv_in, key, strlen (key),
+                  newSViv ((IV) parser_conf->descriptor), 0);
 
 # the file is already a byte string, taken as is from the command line.
 # The encoding was detected as COMMAND_LINE_ENCODING.
@@ -278,19 +278,19 @@ parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
 
 void
 parser_conf_set_INPUT_FILE_NAME_ENCODING (value)
-     char *value = (char *)SvPVutf8_nolen ($arg);
+        char *value = (char *)SvPVutf8_nolen ($arg);
 
 void
 parser_conf_set_LOCALE_ENCODING (value)
-     char *value = (char *)SvPVutf8_nolen ($arg);
+        char *value = (char *)SvPVutf8_nolen ($arg);
 
 void
 parser_conf_set_COMMAND_LINE_ENCODING (value)
-     char *value = (char *)SvPVutf8_nolen ($arg);
+        char *value = (char *)SvPVutf8_nolen ($arg);
 
 void
 parser_conf_set_documentlanguage (value)
-     char *value = (char *)SvPVutf8_nolen ($arg);
+        char *value = (char *)SvPVutf8_nolen ($arg);
 
 int
 parser_conf_set_DEBUG (int i)

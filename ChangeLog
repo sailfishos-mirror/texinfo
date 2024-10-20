@@ -1,5 +1,9 @@
 2024-10-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.xs: reindent.
+
+2024-10-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.xs: rename parser variable as
 	parser_sv.
 
