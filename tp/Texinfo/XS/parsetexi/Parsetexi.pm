@@ -40,12 +40,7 @@ use warnings;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
-use Storable qw(dclone); # standard in 5.007003
-use Encode qw(decode);
-
-use Texinfo::Common;
 use Texinfo::Report;
-use Texinfo::Document;
 
 # Initialize the parser
 # The last argument, optional, is a hash provided by the user to change
@@ -139,58 +134,11 @@ sub parser (;$)
   return $parser;
 }
 
-sub parse_texi_file ($$)
-{
-  my $self = shift;
-  my $input_file_path = shift;
-
-  return undef if (!defined($self));
-
-  # the file is already a byte string, taken as is from the command
-  # line.  The encoding was detected as COMMAND_LINE_ENCODING.
-  my $document = parse_file($self, $input_file_path);
-  return $document;
-}
-
-
-# Used in tests under tp/t.
-sub parse_texi_piece($$;$$)
-{
-  my ($self, $text, $line_nr, $no_store) = @_;
-
-  return undef if (!defined($text) or !defined($self));
-
-  $line_nr = 1 if (not defined($line_nr));
-
-  my $document = parse_piece($self, $text, $line_nr, $no_store);
-
-  return $document;
-}
-
-# Used in tests under tp/t.
-sub parse_texi_text($$;$)
-{
-  my ($self, $text, $line_nr) = @_;
-
-  return undef if (!defined($text) or !defined($self));
-
-  $line_nr = 1 if (not defined($line_nr));
-
-  my $document = parse_text($self, $text, $line_nr);
-
-  return $document;
-}
-
 sub parse_texi_line($$;$$)
 {
   my ($self, $text, $line_nr, $no_store) = @_;
-
-  return undef if (!defined($text) or !defined($self));
-
-  $line_nr = 1 if (not defined($line_nr));
-
   my $document = parse_string($self, $text, $line_nr, $no_store);
-
+  return undef if (!defined($document));
   return $document->tree();
 }
 

@@ -268,6 +268,7 @@ get_sv_output_units (const DOCUMENT *document,
   return output_units;
 }
 
+/* retrieve C stored configuration from parser and set it */
 void
 apply_sv_parser_conf (SV *parser_sv)
 {
