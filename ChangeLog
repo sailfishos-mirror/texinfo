@@ -1,8 +1,3 @@
-2024-10-20  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* README-hacking: suggest running autopoint instead of gettextize
-	and using --dry-run option
-
 2024-10-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/Parsetexi.xs (parse_texi_piece): remove the
@@ -37,6 +32,11 @@
 2024-10-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Report.pm (new, clear): fix key names.
+
+2024-10-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* README-hacking: suggest running autopoint instead of gettextize
+	and using --dry-run option
 
 2024-10-20  Patrice Dumas  <pertusus@free.fr>
 
