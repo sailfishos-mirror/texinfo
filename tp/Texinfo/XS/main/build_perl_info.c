@@ -799,6 +799,54 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
 #undef store_flag
 
+  /* process string_info array */
+
+  if (e->e.c->cmd)
+    {
+      if (e->e.c->string_info[sit_alias_of])
+        store_info_string (e, e->e.c->string_info[sit_alias_of],
+                          "alias_of", &info_hv);
+
+      /* string_info array */
+      if (e->type == ET_index_entry_command)
+        {
+          if (e->e.c->string_info[sit_command_name])
+            store_info_string (e,
+                  e->e.c->string_info[sit_command_name],
+                  "command_name", &info_hv);
+        }
+      if (e->type == ET_lineraw_command)
+        {
+          if (e->e.c->string_info[sit_arg_line])
+             store_info_string (e, e->e.c->string_info[sit_arg_line],
+                      "arg_line", &info_hv);
+        }
+      if (e->type == ET_definfoenclose_command)
+        {
+          if (e->e.c->string_info[sit_command_name])
+            store_info_string (e,
+                  e->e.c->string_info[sit_command_name],
+                  "command_name", &info_hv);
+        }
+      if (e->e.c->cmd == CM_verb && e->e.c->args.number > 0)
+        {
+          store_info_string (e, e->e.c->string_info[sit_delimiter],
+                             "delimiter", &info_hv);
+        }
+    }
+  else if (type_data[e->type].flags & TF_macro_call)
+    {
+      if (e->e.c->string_info[sit_alias_of])
+        store_info_string (e, e->e.c->string_info[sit_alias_of],
+                      "alias_of", &info_hv);
+
+      if (e->e.c->string_info[sit_command_name])
+        store_info_string (e, e->e.c->string_info[sit_command_name],
+                      "command_name", &info_hv);
+    }
+
+  /* process elt_info array */
+
   if (e->e.c->cmd)
     {
       enum command_id data_cmd;
@@ -808,10 +856,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
          elsewhere by passing an appropriate second argument. */
       sv = newSVpv (element_command_name (e), 0);
       hv_store (e->hv, "cmdname", strlen ("cmdname"), sv, HSH_cmdname);
-
-      if (e->e.c->string_info[sit_alias_of])
-        store_info_string (e, e->e.c->string_info[sit_alias_of],
-                          "alias_of", &info_hv);
 
       data_cmd = element_builtin_data_cmd (e);
       flags = builtin_command_data[data_cmd].flags;
@@ -823,19 +867,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
               store_info_element (e, e->elt_info[eit_spaces_before_argument],
                               "spaces_before_argument",
                               avoid_recursion, &info_hv);
-              if (e->type == ET_index_entry_command)
-                {
-                  if (e->e.c->string_info[sit_command_name])
-                    store_info_string (e,
-                          e->e.c->string_info[sit_command_name],
-                          "command_name", &info_hv);
-                }
-            }
-          else
-            {
-              if (e->e.c->string_info[sit_arg_line])
-                 store_info_string (e, e->e.c->string_info[sit_arg_line],
-                          "arg_line", &info_hv);
             }
         }
       else if (flags & CF_block)
@@ -845,11 +876,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
               store_info_element (e, e->elt_info[eit_spaces_before_argument],
                                   "spaces_before_argument",
                                   avoid_recursion, &info_hv);
-            } else {
-              /* @*macro */
-              if (e->e.c->string_info[sit_arg_line])
-                 store_info_string (e, e->e.c->string_info[sit_arg_line],
-                          "arg_line", &info_hv);
             }
         }
       else if (e->type != ET_nobrace_command
@@ -864,21 +890,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
                   e->elt_info[eit_brace_content_spaces_before_argument],
                   "spaces_before_argument",
                   avoid_recursion, &info_hv);
-            }
-          else
-            {
-              if (e->type == ET_definfoenclose_command)
-                {
-                  if (e->e.c->string_info[sit_command_name])
-                    store_info_string (e,
-                          e->e.c->string_info[sit_command_name],
-                          "command_name", &info_hv);
-                }
-              if (e->e.c->cmd == CM_verb && e->e.c->args.number > 0)
-                {
-                  store_info_string (e, e->e.c->string_info[sit_delimiter],
-                                     "delimiter", &info_hv);
-                }
             }
         }
     }
@@ -905,13 +916,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
         }
       else if (type_data[e->type].flags & TF_macro_call)
         {
-          if (e->e.c->string_info[sit_alias_of])
-            store_info_string (e, e->e.c->string_info[sit_alias_of],
-                          "alias_of", &info_hv);
-
-          if (e->e.c->string_info[sit_command_name])
-            store_info_string (e, e->e.c->string_info[sit_command_name],
-                          "command_name", &info_hv);
           if (type_data[e->type].flags & TF_braces)
             {
               store_info_element (e,
