@@ -151,11 +151,4 @@ int call_stage_handler (CONVERTER *self, void *stage_handler_sv,
 char *call_latex_convert_to_latex_math (CONVERTER *self,
                                         const ELEMENT *element);
 
-/* Interface with Perl hash map for registered ids */
-void init_registered_ids_hv (CONVERTER *self);
-int is_hv_registered_id (CONVERTER *self, const char *string);
-void hv_register_id (CONVERTER *self, const char *string);
-void clear_registered_ids_hv (CONVERTER *self);
-void free_registered_ids_hv (CONVERTER *self);
-
 #endif

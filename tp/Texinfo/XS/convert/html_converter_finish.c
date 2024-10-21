@@ -29,7 +29,6 @@
 #include "convert_utils.h"
 #include "converter.h"
 #include "api_to_perl.h"
-#include "call_html_perl_function.h"
 #include "hashmap.h"
 /* html_reset_translated_special_unit_info_tree
    html_clear_direction_string_type */
@@ -159,12 +158,7 @@ html_reset_converter (CONVERTER *self)
   /* targets */
   reset_html_targets (self, self->html_targets);
 
-  if (self->ids_data_type == IDT_perl_hashmap)
-    clear_registered_ids_hv (self);
-  else if (self->ids_data_type == IDT_hashmap)
-    clear_registered_ids_c_hashmap (self);
-  else if (self->registered_ids)
-    clear_strings_list (self->registered_ids);
+  clear_registered_ids_c_hashmap (self);
 
   for (i = 0; i < ST_footnote_location+1; i++)
     {
@@ -338,16 +332,7 @@ html_free_converter (CONVERTER *self)
 
   free (self->html_target_cmds.stack);
 
-  if (self->ids_data_type == IDT_perl_hashmap)
-    free_registered_ids_hv (self);
-  else if (self->ids_data_type == IDT_hashmap)
-    free_registered_ids_c_hashmap (self);
-  else
-    {
-      if (self->registered_ids)
-        destroy_strings_list (self->registered_ids);
-      self->registered_ids = 0;
-    }
+  free_registered_ids_c_hashmap (self);
 
   if (self->pl_info_hv)
     {

@@ -47,8 +47,7 @@ CONVERTER *txi_converter_setup (const char *converter_format,
                      const char *locale_encoding,
                      const char *program_file,
                      const STRING_LIST *texinfo_language_config_dirs,
-                     OPTIONS_LIST *customizations,
-                     unsigned long converter_flags);
+                     OPTIONS_LIST *customizations);
 
 char *txi_converter_output (CONVERTER *converter, DOCUMENT *document);
 char *txi_converter_convert (CONVERTER *converter, DOCUMENT *document);

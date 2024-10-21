@@ -3757,23 +3757,13 @@ html_prepare_conversion_units (CONVERTER *self)
 int
 html_id_is_registered (CONVERTER *self, const char *string)
 {
-  if (self->ids_data_type == IDT_perl_hashmap)
-    return is_hv_registered_id (self, string);
-  else if (self->ids_data_type == IDT_hashmap)
-    return is_c_hashmap_registered_id (self, string);
-  else
-    return find_string (self->registered_ids, string);
+  return is_c_hashmap_registered_id (self, string);
 }
 
 void
 html_register_id (CONVERTER *self, const char *string)
 {
-  if (self->ids_data_type == IDT_perl_hashmap)
-    hv_register_id (self, string);
-  else if (self->ids_data_type == IDT_hashmap)
-    c_hashmap_register_id (self, string);
-  else
-    add_string (string, self->registered_ids);
+  c_hashmap_register_id (self, string);
 }
 
 /* used for diverse elements: tree units, indices, footnotes, special
@@ -4566,15 +4556,8 @@ void
 html_prepare_conversion_units_targets (CONVERTER *self,
                                        const char *document_name)
 {
-  if (self->ids_data_type == IDT_perl_hashmap)
-    init_registered_ids_hv (self);
-  else if (self->ids_data_type == IDT_hashmap)
-    {
-      size_t predicted_values = ids_hashmap_predicted_values (self);
-      init_registered_ids_c_hashmap (self, predicted_values);
-    }
-  else
-    self->registered_ids = new_string_list ();
+  size_t predicted_values = ids_hashmap_predicted_values (self);
+  init_registered_ids_c_hashmap (self, predicted_values);
 
   /*
    Do that before the other elements, to be sure that special page ids

@@ -249,10 +249,8 @@ init_generic_converter (CONVERTER *self)
 }
 
 /* descriptor starts at 1, 0 is not found or an error */
-/* flags set low-level implementation choices, currently hash map
-   implementation */
 size_t
-new_converter (enum converter_format format, unsigned long flags)
+new_converter (enum converter_format format)
 {
   size_t converter_index;
   int slot_found = 0;
@@ -283,14 +281,6 @@ new_converter (enum converter_format format, unsigned long flags)
   memset (converter, 0, sizeof (CONVERTER));
 
   converter->format = format;
-
-  /* set low level data representations options */
-  if (flags & CONVF_string_list)
-    converter->ids_data_type = IDT_string_list;
-  else if (flags & CONVF_perl_hashmap)
-    converter->ids_data_type = IDT_perl_hashmap;
-  else /* default */
-    converter->ids_data_type = IDT_hashmap;
 
   init_generic_converter (converter);
 
@@ -456,22 +446,12 @@ converter_initialize (CONVERTER *converter)
 /* only called from C, not from Perl */
 CONVERTER *
 converter_converter (enum converter_format format,
-                     const CONVERTER_INITIALIZATION_INFO *input_user_conf,
-                     unsigned long converter_flags)
+                     const CONVERTER_INITIALIZATION_INFO *input_user_conf)
 {
   CONVERTER_INITIALIZATION_INFO *format_defaults;
   unsigned long flags;
 
-  if (!converter_flags)
-    flags = CONVF_hashmap;
-   /*
-   To use a string list.  Slower.
-    flags = CONVF_string_list;
-    */
-  else
-    flags = converter_flags;
-
-  size_t converter_descriptor = new_converter (format, flags);
+  size_t converter_descriptor = new_converter (format);
   CONVERTER *converter = retrieve_converter (converter_descriptor);
 
   CONVERTER_INITIALIZATION_INFO *user_conf

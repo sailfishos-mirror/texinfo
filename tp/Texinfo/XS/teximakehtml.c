@@ -323,11 +323,7 @@ main (int argc, char *argv[])
   converter = txi_converter_setup ("html", "html", locale_encoding,
                                    program_file,
                                    &converter_texinfo_language_config_dirs,
-                                   &convert_options,
-                                   CONVF_hashmap);
-   /* to test linear search
-                                   CONVF_string_list);
-    */
+                                   &convert_options);
 
   free_strings_list (&converter_texinfo_language_config_dirs);
   free_strings_list (&texinfo_language_config_dirs);

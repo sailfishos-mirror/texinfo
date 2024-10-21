@@ -1,5 +1,28 @@
 2024-10-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove Perl and string list implementations for "registered ids"
+
+	* tp/Texinfo/XS/main/converter_types.h (CONVERTER): remove
+	fields ids_data_type, registered_ids, registered_ids_hv.
+	(enum ids_data_type): Remove.
+
+	* tp/Texinfo/XS/convert/converter.c (new_converter)
+	(converter_converter): Flags argument removed.  Callers updated.
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c,
+	* tp/Texinfo/XS/convert/replace_perl_call_html_function.c
+	(init_registered_ids_hv, is_hv_registered_id, hv_register_id)
+	(clear_registered_ids_hv, free_registered_ids_hv): Remove.
+
+	* tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_prepare_conversion_units_targets, html_register_id)
+	(html_id_is_registered),
+	* tp/Texinfo/XS/convert/html_converter_finish.c
+	(html_reset_converter, html_free_converter):
+	Unconditionally use C hashmap implementation.
+
+2024-10-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/main/converter_types.h (CONVERTER) [HAVE_CXX_HASHMAP]:
 	Remove registered_ids_hashmap.
 

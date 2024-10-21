@@ -345,8 +345,7 @@ txi_converter_setup (const char *format_str,
                      const char *locale_encoding,
                      const char *program_file,
                      const STRING_LIST *texinfo_language_config_dirs,
-                     OPTIONS_LIST *customizations,
-                     unsigned long converter_flags)
+                     OPTIONS_LIST *customizations)
 {
   enum converter_format converter_format
     = find_format_name_converter_format (format_str);
@@ -412,7 +411,7 @@ txi_converter_setup (const char *format_str,
       copy_options_list (&conf->conf, customizations);
     }
 
-  self = converter_converter (converter_format, conf, converter_flags);
+  self = converter_converter (converter_format, conf);
 
   destroy_converter_initialization_info (conf);
   return self;
