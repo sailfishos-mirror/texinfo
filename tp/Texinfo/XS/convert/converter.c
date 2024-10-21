@@ -449,7 +449,6 @@ converter_converter (enum converter_format format,
                      const CONVERTER_INITIALIZATION_INFO *input_user_conf)
 {
   CONVERTER_INITIALIZATION_INFO *format_defaults;
-  unsigned long flags;
 
   size_t converter_descriptor = new_converter (format);
   CONVERTER *converter = retrieve_converter (converter_descriptor);
