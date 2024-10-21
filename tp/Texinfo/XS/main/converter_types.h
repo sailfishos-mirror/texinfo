@@ -887,10 +887,6 @@ typedef struct CONVERTER {
     /* actually HV * but we do not want to drag in Perl headers */
     void *registered_ids_hv;
     void *registered_ids_c_hashmap;
-#ifdef HAVE_CXX_HASHMAP
-    /* a pointer on C++ data */
-    void *registered_ids_hashmap;
-#endif
     /* potentially one target list per command (only for some actually) */
     HTML_TARGET_LIST html_targets[BUILTIN_CMD_NUMBER];
     HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];
