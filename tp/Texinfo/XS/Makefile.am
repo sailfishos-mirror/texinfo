@@ -227,8 +227,6 @@ XS_libtexinfo_sources = \
 
 EXTRA_DIST += main/accent_tables_8bit_codepoints.c
 EXTRA_DIST += main/command_data.c
-EXTRA_DIST += main/html_conversion_data.c
-EXTRA_DIST += main/html_conversion_data.h
 EXTRA_DIST += main/cmd_normalization.c
 EXTRA_DIST += main/cmd_unicode.c
 EXTRA_DIST += main/cmd_text.c
@@ -270,11 +268,8 @@ BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
                 main/options_types.h
 
 # Need to be distributed
-EXTRA_DIST+=main/element_types.txt main/element_types.awk \
-	   main/command_data.awk
-EXTRA_DIST += convert/cmd_converter.c
-EXTRA_DIST += convert/converters_options.c
-EXTRA_DIST += convert/converters_options.h
+EXTRA_DIST += main/element_types.txt main/element_types.awk \
+	       main/command_data.awk
 
 $(srcdir)/main/element_types.c $(srcdir)/main/element_types.h: main/element_types.txt main/element_types.awk
 	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/element_types.awk \
@@ -389,9 +384,6 @@ if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfo-convert.la
 endif
 
-# call_html_perl_function.c functions are called in other
-# parts of the code and need to be linked against Perl.
-# build_html_perl_state.c functions are called from call_html_perl_function.c.
 C_libtexinfo_convert_sources = \
                        convert/converter.c \
                        convert/converter.h \
@@ -419,6 +411,9 @@ C_libtexinfo_convert_sources = \
                        convert/texinfo.c \
                        convert/texinfo.h
 
+# call_html_perl_function.c functions are called in other
+# parts of the code and need to be linked against Perl.
+# build_html_perl_state.c functions are called from call_html_perl_function.c.
 XS_libtexinfo_convert_sources = \
                        convert/build_html_perl_state.h \
                        convert/build_html_perl_state.c \
