@@ -1,3 +1,15 @@
+2024-10-21  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Hardcode "info" string in hash creation
+
+	* tp/Texinfo/XS/main/build_perl_info.c
+	(setup_info_hv): Remove 'type_key' argument and always make this
+	"info".  Use HSH_info for last argument of hv_store.   Callers
+	updated throughout.
+	(store_extra_flag): New function to replace the single usage of
+	setup_info_hv (via store_info_integer) with 'type_key' set to
+	"extra".
+
 2024-10-21  Patrice Dumas  <pertusus@free.fr>
 
 	* po_document/POTFILES.in: rename Texinfo/Data.pm as

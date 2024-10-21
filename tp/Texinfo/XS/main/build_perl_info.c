@@ -595,57 +595,6 @@ store_source_mark_list (const ELEMENT *e)
     }
 }
 
-static void
-setup_info_hv (ELEMENT *e, const char *type_key, HV **info_hv)
-{
-  dTHX;
-
-  if (*info_hv == 0)
-    {
-      *info_hv = (HV *) newHV ();
-      hv_store (e->hv, type_key, strlen (type_key),
-                newRV_inc ((SV *)*info_hv), 0);
-    }
-}
-
-static void
-store_info_element (ELEMENT *e, ELEMENT *info_element, const char *type_key,
-                    const char *key, int avoid_recursion, HV **info_hv)
-{
-  dTHX;
-
-  if (!info_element)
-    return;
-
-  if (!info_element->hv || !avoid_recursion)
-    element_to_perl_hash (info_element, avoid_recursion);
-
-  setup_info_hv (e, type_key, info_hv);
-  hv_store (*info_hv, key, strlen (key),
-            newRV_inc ((SV *)info_element->hv), 0);
-}
-
-static void
-store_info_string (ELEMENT *e, const char *string, const char *type_key,
-                   const char *key, HV **info_hv)
-{
-  dTHX;
-
-  setup_info_hv (e, type_key, info_hv);
-  hv_store (*info_hv, key, strlen (key),
-            newSVpv_utf8 (string, strlen (string)), 0);
-}
-
-static void
-store_info_integer (ELEMENT *e, int value, const char *type_key,
-                     const char *key, HV **info_hv)
-{
-  dTHX;
-
-  setup_info_hv (e, type_key, info_hv);
-  hv_store (*info_hv, key, strlen (key), newSViv (value), 0);
-}
-
 static int hashes_ready = 0;
 static U32 HSH_parent = 0;
 static U32 HSH_type = 0;
@@ -659,6 +608,74 @@ static U32 HSH_source_info = 0;
 static U32 HSH_file_name = 0;
 static U32 HSH_line_nr = 0;
 static U32 HSH_macro = 0;
+
+
+static void
+setup_info_hv (ELEMENT *e, HV **info_hv)
+{
+  dTHX;
+
+  if (*info_hv == 0)
+    {
+      *info_hv = (HV *) newHV ();
+      hv_store (e->hv, "info", strlen ("info"),
+                newRV_inc ((SV *)*info_hv), HSH_info);
+    }
+}
+
+static void
+store_info_element (ELEMENT *e, ELEMENT *info_element,
+                    const char *key, int avoid_recursion, HV **info_hv)
+{
+  dTHX;
+
+  if (!info_element)
+    return;
+
+  if (!info_element->hv || !avoid_recursion)
+    element_to_perl_hash (info_element, avoid_recursion);
+
+  setup_info_hv (e, info_hv);
+  hv_store (*info_hv, key, strlen (key),
+            newRV_inc ((SV *)info_element->hv), 0);
+}
+
+static void
+store_info_string (ELEMENT *e, const char *string,
+                   const char *key, HV **info_hv)
+{
+  dTHX;
+
+  setup_info_hv (e, info_hv);
+  hv_store (*info_hv, key, strlen (key),
+            newSVpv_utf8 (string, strlen (string)), 0);
+}
+
+static void
+store_info_integer (ELEMENT *e, int value,
+                     const char *key, HV **info_hv)
+{
+  dTHX;
+
+  setup_info_hv (e, info_hv);
+  hv_store (*info_hv, key, strlen (key), newSViv (value), 0);
+}
+
+
+static void
+store_extra_flag (ELEMENT *e, const char *key, HV **extra_hv)
+{
+  dTHX;
+
+  if (*extra_hv == 0)
+    {
+      *extra_hv = (HV *) newHV ();
+      hv_store (e->hv, "extra", strlen ("extra"),
+                newRV_inc ((SV *)*extra_hv), HSH_extra);
+    }
+  hv_store (*extra_hv, key, strlen (key), newSViv (1), 0);
+}
+
 
 /* Set E->hv and 'hv' on E's descendants.  e->parent->hv is assumed
    to already exist. */
@@ -726,7 +743,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
   store_source_mark_list (e);
 
   if (e->flags & EF_inserted)
-    store_info_integer (e, 1, "info", "inserted", &info_hv);
+    store_info_integer (e, 1, "inserted", &info_hv);
 
   if (type_data[e->type].flags & TF_text)
     {
@@ -754,7 +771,8 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
 #define store_flag(flag) \
   if (e->flags & EF_##flag) \
-    store_info_integer (e, 1, "extra", #flag, &extra_hv);
+    store_extra_flag (e, #flag, &extra_hv); \
+
   if (e->e.c->cmd)
     {
       enum command_id data_cmd;
@@ -767,7 +785,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
       if (e->e.c->string_info[sit_alias_of])
         store_info_string (e, e->e.c->string_info[sit_alias_of],
-                          "info", "alias_of", &info_hv);
+                          "alias_of", &info_hv);
 
       data_cmd = element_builtin_data_cmd (e);
       flags = builtin_command_data[data_cmd].flags;
@@ -777,14 +795,14 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
           if (e->type != ET_lineraw_command)
             {
               store_info_element (e, e->elt_info[eit_spaces_before_argument],
-                              "info", "spaces_before_argument",
+                              "spaces_before_argument",
                               avoid_recursion, &info_hv);
               if (e->type == ET_index_entry_command)
                 {
                   if (e->e.c->string_info[sit_command_name])
                     store_info_string (e,
                           e->e.c->string_info[sit_command_name],
-                          "info", "command_name", &info_hv);
+                          "command_name", &info_hv);
                 }
               else
                 {
@@ -802,7 +820,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
             {
               if (e->e.c->string_info[sit_arg_line])
                  store_info_string (e, e->e.c->string_info[sit_arg_line],
-                          "info", "arg_line", &info_hv);
+                          "arg_line", &info_hv);
             }
         }
       else if (flags & CF_block)
@@ -810,7 +828,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
           if (e->type != ET_lineraw_command)
             {
               store_info_element (e, e->elt_info[eit_spaces_before_argument],
-                                  "info", "spaces_before_argument",
+                                  "spaces_before_argument",
                                   avoid_recursion, &info_hv);
               /* (node, anchor) float */
               store_flag(is_target)
@@ -820,7 +838,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
               /* @*macro */
               if (e->e.c->string_info[sit_arg_line])
                  store_info_string (e, e->e.c->string_info[sit_arg_line],
-                          "info", "arg_line", &info_hv);
+                          "arg_line", &info_hv);
               store_flag(invalid_syntax)
             }
         }
@@ -828,13 +846,13 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
                && e->type != ET_container_command)
         { /* brace commands */
           store_info_element (e, e->elt_info[eit_spaces_after_cmd_before_arg],
-                              "info", "spaces_after_cmd_before_arg",
+                              "spaces_after_cmd_before_arg",
                               avoid_recursion, &info_hv);
           if (e->type == ET_context_brace_command)
             {
               store_info_element (e,
                   e->elt_info[eit_brace_content_spaces_before_argument],
-                  "info", "spaces_before_argument",
+                  "spaces_before_argument",
                   avoid_recursion, &info_hv);
             }
           else
@@ -844,12 +862,12 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
                   if (e->e.c->string_info[sit_command_name])
                     store_info_string (e,
                           e->e.c->string_info[sit_command_name],
-                          "info", "command_name", &info_hv);
+                          "command_name", &info_hv);
                 }
               if (e->e.c->cmd == CM_verb && e->e.c->args.number > 0)
                 {
                   store_info_string (e, e->e.c->string_info[sit_delimiter],
-                                     "info", "delimiter", &info_hv);
+                                     "delimiter", &info_hv);
                 }
               /* (node,) anchor, (float) */
               store_flag(is_target)
@@ -863,7 +881,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       if (type_data[e->type].flags & TF_spaces_before)
         {
           store_info_element (e, e->elt_info[eit_spaces_before_argument],
-                              "info", "spaces_before_argument",
+                              "spaces_before_argument",
                               avoid_recursion, &info_hv);
           if (e->type == ET_def_line)
             {
@@ -875,12 +893,12 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       if (type_data[e->type].flags & TF_spaces_after)
         {
           store_info_element (e, e->elt_info[eit_spaces_after_argument],
-                              "info", "spaces_after_argument",
+                              "spaces_after_argument",
                               avoid_recursion, &info_hv);
           if (e->type == ET_block_line_arg || e->type == ET_line_arg)
             {
               store_info_element (e, e->elt_info[eit_comment_at_end],
-                                  "info", "comment_at_end",
+                                  "comment_at_end",
                                   avoid_recursion, &info_hv);
             }
         }
@@ -895,16 +913,16 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
         {
           if (e->e.c->string_info[sit_alias_of])
             store_info_string (e, e->e.c->string_info[sit_alias_of],
-                          "info", "alias_of", &info_hv);
+                          "alias_of", &info_hv);
 
           if (e->e.c->string_info[sit_command_name])
             store_info_string (e, e->e.c->string_info[sit_command_name],
-                          "info", "command_name", &info_hv);
+                          "command_name", &info_hv);
           if (type_data[e->type].flags & TF_braces)
             {
               store_info_element (e,
                          e->elt_info[eit_spaces_after_cmd_before_arg],
-                         "info", "spaces_after_cmd_before_arg",
+                         "spaces_after_cmd_before_arg",
                          avoid_recursion, &info_hv);
             }
         }
