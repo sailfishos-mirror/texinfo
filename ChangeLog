@@ -1,3 +1,8 @@
+2024-10-21  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash):
+	Place all calls of store_flag macro together.
+
 2024-10-22  Patrice Dumas  <pertusus@free.fr>
 
 	Rename tp/Texinfo/XS/main/options_types.h as options_data.h

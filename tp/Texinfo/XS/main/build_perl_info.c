@@ -773,6 +773,32 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
   if (e->flags & EF_##flag) \
     store_extra_flag (e, #flag, &extra_hv); \
 
+  /* node */
+  store_flag(isindex)
+  /* node (anchor, float) */
+  store_flag(is_target)
+  /* def_line for block/line for @def*x */
+  store_flag(omit_def_name_space)
+  /* @def*x */
+  store_flag(not_after_command)
+  /* (node, anchor) float */
+  store_flag(is_target)
+  /* @*table */
+  store_flag(command_as_argument_kbd_code)
+  store_flag(invalid_syntax)
+  /* (node,) anchor, (float) */
+  store_flag(is_target)
+  /* kbd */
+  store_flag(code)
+  /* def_line for block/line for @def*x */
+  store_flag(omit_def_name_space)
+  /* ET_paragraph */
+  store_flag(indent)
+  /* ET_paragraph */
+  store_flag(noindent)
+
+#undef store_flag
+
   if (e->e.c->cmd)
     {
       enum command_id data_cmd;
@@ -804,17 +830,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
                           e->e.c->string_info[sit_command_name],
                           "command_name", &info_hv);
                 }
-              else
-                {
-                  /* node */
-                  store_flag(isindex)
-                  /* node (anchor, float) */
-                  store_flag(is_target)
-                  /* def_line for block/line for @def*x */
-                  store_flag(omit_def_name_space)
-                  /* @def*x */
-                  store_flag(not_after_command)
-                }
             }
           else
             {
@@ -830,16 +845,11 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
               store_info_element (e, e->elt_info[eit_spaces_before_argument],
                                   "spaces_before_argument",
                                   avoid_recursion, &info_hv);
-              /* (node, anchor) float */
-              store_flag(is_target)
-              /* @*table */
-              store_flag(command_as_argument_kbd_code)
             } else {
               /* @*macro */
               if (e->e.c->string_info[sit_arg_line])
                  store_info_string (e, e->e.c->string_info[sit_arg_line],
                           "arg_line", &info_hv);
-              store_flag(invalid_syntax)
             }
         }
       else if (e->type != ET_nobrace_command
@@ -869,10 +879,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
                   store_info_string (e, e->e.c->string_info[sit_delimiter],
                                      "delimiter", &info_hv);
                 }
-              /* (node,) anchor, (float) */
-              store_flag(is_target)
-              /* kbd */
-              store_flag(code)
             }
         }
     }
@@ -883,11 +889,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
           store_info_element (e, e->elt_info[eit_spaces_before_argument],
                               "spaces_before_argument",
                               avoid_recursion, &info_hv);
-          if (e->type == ET_def_line)
-            {
-               /* def_line for block/line for @def*x */
-               store_flag(omit_def_name_space)
-            }
         }
 
       if (type_data[e->type].flags & TF_spaces_after)
@@ -901,13 +902,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
                                   "comment_at_end",
                                   avoid_recursion, &info_hv);
             }
-        }
-      else if (e->type == ET_paragraph)
-        {
-          /* ET_paragraph */
-          store_flag(indent)
-          /* ET_paragraph */
-          store_flag(noindent)
         }
       else if (type_data[e->type].flags & TF_macro_call)
         {
@@ -928,7 +922,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
         }
     }
 
-#undef store_flag
 
   if (e->e.c->contents.number > 0)
     {
