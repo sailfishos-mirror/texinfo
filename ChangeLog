@@ -1,5 +1,11 @@
 2024-10-21  Patrice Dumas  <pertusus@free.fr>
 
+	* po_document/POTFILES.in: rename Texinfo/Data.pm as
+	Texinfo/HTMLData.pm and main/conversion_data.c as
+	main/html_conversion_data.c.
+
+2024-10-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (converter_converter): remove
 	unused variable.
 
