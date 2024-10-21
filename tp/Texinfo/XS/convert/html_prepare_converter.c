@@ -28,7 +28,7 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "converter_types.h"
-#include "conversion_data.h"
+#include "html_conversion_data.h"
 /* new_element */
 #include "tree.h"
 #include "errors.h"

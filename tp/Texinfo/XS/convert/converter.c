@@ -30,7 +30,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-#include "conversion_data.h"
+#include "html_conversion_data.h"
 #include "text.h"
 #include "command_ids.h"
 #include "element_types.h"

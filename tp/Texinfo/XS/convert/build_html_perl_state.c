@@ -29,7 +29,7 @@
 
 #undef context
 
-#include "conversion_data.h"
+#include "html_conversion_data.h"
 #include "tree_types.h"
 #include "converter_types.h"
 /* for builtin_command_name */

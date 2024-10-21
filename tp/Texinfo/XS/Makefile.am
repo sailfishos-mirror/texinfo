@@ -142,8 +142,8 @@ C_libtexinfo_sources = \
 		      main/convert_utils.h \
 		      main/customization_options.c \
 		      main/customization_options.h \
-		      main/conversion_data.c \
-		      main/conversion_data.h \
+		      main/html_conversion_data.c \
+		      main/html_conversion_data.h \
 		      main/floats.c \
 		      main/floats.h \
 		      main/manipulate_tree.c \
@@ -227,8 +227,8 @@ XS_libtexinfo_sources = \
 
 EXTRA_DIST += main/accent_tables_8bit_codepoints.c
 EXTRA_DIST += main/command_data.c
-EXTRA_DIST += main/conversion_data.c
-EXTRA_DIST += main/conversion_data.h
+EXTRA_DIST += main/html_conversion_data.c
+EXTRA_DIST += main/html_conversion_data.h
 EXTRA_DIST += main/cmd_normalization.c
 EXTRA_DIST += main/cmd_unicode.c
 EXTRA_DIST += main/cmd_text.c
@@ -256,8 +256,8 @@ BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
                 main/cmd_unicode.c \
                 main/command_data.c \
                 main/command_ids.h \
-                main/conversion_data.c \
-                main/conversion_data.h \
+                main/html_conversion_data.c \
+                main/html_conversion_data.h \
                 main/element_types.c \
                 main/element_types.h \
                 main/global_commands_types.h \
@@ -343,17 +343,17 @@ MAINTAINERCLEANFILES += main/options_init_free.c main/options_types.h \
                         convert/converters_options.h \
                         main/options_get_perl.c
 
-$(srcdir)/main/conversion_data.c $(srcdir)/main/conversion_data.h: main/command_data.c $(srcdir)/../Data/default_css_element_class_styles.csv $(srcdir)/../Data/default_direction_strings.csv $(srcdir)/../Data/default_special_unit_info.csv $(srcdir)/../Data/html_style_commands_element.csv $(srcdir)/../../maintain/generate_code_convert_data.pl
+$(srcdir)/main/html_conversion_data.c $(srcdir)/main/html_conversion_data.h: main/command_data.c $(srcdir)/../Data/default_css_element_class_styles.csv $(srcdir)/../Data/default_direction_strings.csv $(srcdir)/../Data/default_special_unit_info.csv $(srcdir)/../Data/html_style_commands_element.csv $(srcdir)/../../maintain/generate_code_convert_data.pl
 	$(PERL) $(srcdir)/../../maintain/generate_code_convert_data.pl \
 	        < $(srcdir)/main/command_data.c \
 	            $(srcdir)/../Data/default_css_element_class_styles.csv \
 	            $(srcdir)/../Data/default_direction_strings.csv \
 	            $(srcdir)/../Data/default_special_unit_info.csv \
 	            $(srcdir)/../Data/html_style_commands_element.csv \
-	            C $(srcdir)/main/conversion_data.c \
-	            $(srcdir)/main/conversion_data.h
+	            C $(srcdir)/main/html_conversion_data.c \
+	            $(srcdir)/main/html_conversion_data.h
 
-MAINTAINERCLEANFILES += main/conversion_data.c main/conversion_data.h
+MAINTAINERCLEANFILES += main/html_conversion_data.c main/html_conversion_data.h
 
 
 ########################## shared perl XS library for texinfo XS codes

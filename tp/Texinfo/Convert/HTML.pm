@@ -66,7 +66,7 @@ use Texinfo::XSLoader;
 use Texinfo::Commands;
 use Texinfo::Options;
 use Texinfo::Common;
-use Texinfo::Data;
+use Texinfo::HTMLData;
 use Texinfo::Config;
 use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Texinfo;
@@ -2561,13 +2561,13 @@ foreach my $buttons ('CHAPTER_FOOTER_BUTTONS', 'TOP_FOOTER_BUTTONS') {
 
 
 my %default_special_unit_info
-  = %{ Texinfo::Data::get_default_special_unit_info() };
+  = %{ Texinfo::HTMLData::get_default_special_unit_info() };
 
 # TODO translation context should be consistent with special_unit_info()
 %default_translated_special_unit_info
-  = %{ Texinfo::Data::get_default_translated_special_unit_info() };
+  = %{ Texinfo::HTMLData::get_default_translated_special_unit_info() };
 
-my $direction_orders = Texinfo::Data::get_directions_order();
+my $direction_orders = Texinfo::HTMLData::get_directions_order();
 # 'global', 'relative', 'file'
 # include space direction
 my @global_directions_order = @{$direction_orders->[0]};
@@ -2580,14 +2580,14 @@ foreach my $direction_order (@$direction_orders) {
 
 # for rel, see http://www.w3.org/TR/REC-html40/types.html#type-links
 my %default_converted_directions_strings
-  = %{ Texinfo::Data::get_default_converted_directions_strings() };
+  = %{ Texinfo::HTMLData::get_default_converted_directions_strings() };
 
 # translation contexts should be consistent with
 # %direction_type_translation_context.  If the direction is not used
 # as is, it should also be taken into account in direction_string().
 # For now 'This' becomes 'This (current section)'.
 my %default_translated_directions_strings
-   = %{ Texinfo::Data::get_default_translated_directions_strings() };
+   = %{ Texinfo::HTMLData::get_default_translated_directions_strings() };
 
 my @style_commands_contexts = ('normal', 'preformatted');
 my @no_args_commands_contexts
@@ -2735,7 +2735,7 @@ sub converter_defaults($$)
 }
 
 my %default_css_element_class_styles
-  = %{ Texinfo::Data::get_base_default_css_info() };
+  = %{ Texinfo::HTMLData::get_base_default_css_info() };
 
 $default_css_element_class_styles{'pre.format-preformatted'}
   = $default_css_element_class_styles{'pre.display-preformatted'};
@@ -3107,7 +3107,7 @@ foreach my $quoted_command ('samp') {
 my %default_upper_case_commands = ( 'sc' => 1 );
 
 my %style_commands_element
-   = %{ Texinfo::Data::get_html_style_commands_element() };
+   = %{ Texinfo::HTMLData::get_html_style_commands_element() };
 
 my %default_style_commands_formatting;
 

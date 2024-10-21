@@ -41,7 +41,7 @@ use Texinfo::XSLoader;
 
 use Texinfo::Commands;
 use Texinfo::Common;
-use Texinfo::Data;
+use Texinfo::HTMLData;
 use Texinfo::ManipulateTree;
 
 require Exporter;
@@ -652,7 +652,7 @@ sub output_unit_texi($)
                                                           $unit_command);
 }
 
-my $direction_orders = Texinfo::Data::get_directions_order();
+my $direction_orders = Texinfo::HTMLData::get_directions_order();
 # 'global', 'relative', 'file'
 my @relative_directions_order = @{$direction_orders->[1]};
 my @file_directions_order = @{$direction_orders->[2]};

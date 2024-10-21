@@ -36,7 +36,7 @@
 #include <libintl.h>
 #endif
 
-#include "conversion_data.h"
+#include "html_conversion_data.h"
 /* also for xvasprintf */
 #include "text.h"
 #include "command_ids.h"

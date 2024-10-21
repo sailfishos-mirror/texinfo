@@ -1352,7 +1352,7 @@ pass_document_parser_errors_to_registrar (size_t document_descriptor,
     return;
    */
 
-  /* Add error registrar to Parser */
+  /* Add error registrar to Parser if needed */
   parser_registrar_sv = hv_fetch (parser_hv, "registrar",
                                   strlen ("registrar"), 0);
   if (parser_registrar_sv)

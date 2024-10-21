@@ -94,7 +94,7 @@ if ($perl_format) {
 
   print OUT "# Automatically generated from $program_name\n\n";
 
-  print OUT "package Texinfo::Data;\n\n";
+  print OUT "package Texinfo::HTMLData;\n\n";
 
   print OUT "use Texinfo::Common;\n\n";
 
@@ -115,7 +115,7 @@ if ($perl_format) {
   print OUT "/* Automatically generated from $program_name */\n\n";
 
   print OUT "#include <config.h>\n\n";
-  print OUT "#include \"conversion_data.h\"\n";
+  print OUT "#include \"html_conversion_data.h\"\n";
   print OUT "#include \"tree_types.h\"\n";
   print OUT "#include \"converter_types.h\"\n\n";
 

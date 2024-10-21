@@ -19,7 +19,7 @@
 
 #include <stddef.h>
 
-#include "conversion_data.h"
+#include "html_conversion_data.h"
 #include "tree_types.h"
 
 enum global_option_type {

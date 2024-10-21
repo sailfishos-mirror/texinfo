@@ -22,7 +22,7 @@
 
 #include "copy-file.h"
 
-#include "conversion_data.h"
+#include "html_conversion_data.h"
 #include "text.h"
 #include "element_types.h"
 #include "tree_types.h"

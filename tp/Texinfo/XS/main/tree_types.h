@@ -19,7 +19,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "conversion_data.h"
+#include "html_conversion_data.h"
 #include "command_ids.h"
 #include "element_types.h"
 #include "text.h"

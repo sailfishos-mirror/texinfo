@@ -22,7 +22,7 @@
 #include <stdio.h>
 
 /* for enum special_unit_info_type SPECIAL_UNIT_INFO_TYPE_NR ... */
-#include "conversion_data.h"
+#include "html_conversion_data.h"
 #include "element_types.h"
 #include "command_ids.h"
 #include "tree_types.h"

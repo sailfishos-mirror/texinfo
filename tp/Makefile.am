@@ -74,7 +74,7 @@ dist_modules_DATA = \
  Texinfo/Common.pm \
  Texinfo/Commands.pod \
  Texinfo/Commands.pm \
- Texinfo/Data.pm \
+ Texinfo/HTMLData.pm \
  Texinfo/DebugTree.pm \
  Texinfo/Document.pm \
  Texinfo/DocumentXS.pm \
@@ -396,7 +396,7 @@ $(srcdir)/Texinfo/Options.pm: Texinfo/Convert/converters_defaults.txt Texinfo/op
 	    $(srcdir)/Texinfo/Options.pm \
 	       < $(srcdir)/Texinfo/options_data.txt
 
-$(srcdir)/Texinfo/Data.pm: Texinfo/Data/default_css_element_class_styles.csv Texinfo/Data/default_direction_strings.csv Texinfo/Data/default_special_unit_info.csv Texinfo/Data/html_style_commands_element.csv $(srcdir)/maintain/generate_code_convert_data.pl
+$(srcdir)/Texinfo/HTMLData.pm: Texinfo/Data/default_css_element_class_styles.csv Texinfo/Data/default_direction_strings.csv Texinfo/Data/default_special_unit_info.csv Texinfo/Data/html_style_commands_element.csv $(srcdir)/maintain/generate_code_convert_data.pl
 	$(srcdir)/maintain/generate_code_convert_data.pl \
 	      $(srcdir)/Texinfo/Data/default_css_element_class_styles.csv \
 	      $(srcdir)/Texinfo/Data/default_direction_strings.csv \
@@ -449,4 +449,5 @@ distclean-local:
 
 CLEANFILES = texi2any makeinfo Texinfo/ModulePath.pm
 DISTCLEANFILES = maintain/catalog.xml
-MAINTAINERCLEANFILES = Texinfo/Commands.pm Texinfo/Options.pm Texinfo/Data.pm
+MAINTAINERCLEANFILES = Texinfo/Commands.pm Texinfo/Options.pm \
+      Texinfo/HTMLData.pm

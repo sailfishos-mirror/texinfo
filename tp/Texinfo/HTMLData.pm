@@ -1,6 +1,6 @@
 # Automatically generated from generate_code_convert_data.pl
 
-package Texinfo::Data;
+package Texinfo::HTMLData;
 
 use Texinfo::Common;
 

@@ -1,3 +1,13 @@
+2024-10-21  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/maintain/generate_code_convert_data.pl, tp/Makefile.am
+	(dist_modules_DATA, Texinfo/HTMLData.pm, MAINTAINERCLEANFILES),
+	tp/Texinfo/XS/Makefile.am (C_libtexinfo_sources, EXTRA_DIST)
+	(BUILT_SOURCES, main/html_conversion_data.c, MAINTAINERCLEANFILES):
+	rename Texinfo/Data.pm as Texinfo/HTMLData.pm and
+	main/conversion_data.c as main/html_conversion_data.c.  Report from
+	Gavin.
+
 2024-10-21  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Remove Perl and string list implementations for "registered ids"
