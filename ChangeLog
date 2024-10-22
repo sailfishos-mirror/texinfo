@@ -1,5 +1,13 @@
 2024-10-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Move enum html_text_type
+
+	* tp/Texinfo/XS/main/tree_types.h,
+	* tp/Texinfo/XS/main/option_types.h (enum html_text_type):
+	Move to option_types.h.
+
+2024-10-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Move enum relative_unit_direction_type definition
 
 	* tp/Texinfo/XS/main/tree_types.h, tp/Texinfo/XS/main/document_types.h

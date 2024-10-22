@@ -60,6 +60,17 @@ enum direction_unit_direction {
 
 #define NON_SPECIAL_DIRECTIONS_NR (FIRSTINFILE_MAX_IDX +1)
 
+enum html_text_type {
+   HTT_text,
+   HTT_text_nonumber,
+   HTT_string,
+   HTT_string_nonumber, /* not sure that it is set/used */
+   /* not only used for element text, also for direction text */
+   HTT_href,
+   HTT_node,
+   HTT_section,
+};
+
 enum button_specification_type {
    BST_direction,
    BST_function,
