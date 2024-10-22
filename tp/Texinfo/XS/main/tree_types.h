@@ -155,8 +155,7 @@ enum html_text_type {
   ai_key(associated_index_entry) \
 
 
-extern const char *ai_key_names[];
-
+/* Keys used in ASSOCIATED_INFO structure. */
 enum ai_key_name {
    AI_key_none,
   #define ai_key(name) AI_key_ ## name,

@@ -4,6 +4,9 @@
 
 #include "tree_types.h"
 
+/* Array of "associated info" key names. */
+extern const char *ai_key_names[];
+
 void reset_obstacks (void);
 
 ASSOCIATED_INFO *new_associated_info (void);

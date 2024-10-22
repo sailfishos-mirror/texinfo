@@ -26,6 +26,7 @@
 #include "types_data.h"
 #include "extra.h"
 #include "builtin_commands.h"
+#include "tree.h"
 /* for directions_length and direction_names */
 #include "utils.h"
 #include "debug.h"

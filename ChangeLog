@@ -1,5 +1,16 @@
 2024-10-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Move variable declaration
+
+	* tp/Texinfo/XS/main/tree_types.h,
+	* tp/Texinfo/XS/main/tree.h (ai_key_names): Move to tree.h as
+	this will mean that tree_types.h again does not have any
+	variable declarations in it.
+	* tp/Texinfo/XS/main/tree_types.h: add a comment explaining
+	purpose of enum ai_key_name.
+
+2024-10-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Move OUTPUT_UNIT definition
 
 	* tp/Texinfo/XS/main/tree_types.h,
