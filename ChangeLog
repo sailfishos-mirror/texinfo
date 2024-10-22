@@ -1,5 +1,14 @@
 2024-10-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Move enum relative_unit_direction_type definition
+
+	* tp/Texinfo/XS/main/tree_types.h, tp/Texinfo/XS/main/document_types.h
+	(enum relative_unit_direction_type): Move to document_types.h as
+	one of the enum constants is used in OUTPUT_UNIT which is in this
+	header.  Include "html_conversion_data.h" in document_types.h.
+
+2024-10-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/main/tree_types.h (enum directions): add comment
 
 2024-10-22  Gavin Smith <gavinsmith0123@gmail.com>

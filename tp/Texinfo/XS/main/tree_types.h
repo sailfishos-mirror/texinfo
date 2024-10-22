@@ -180,16 +180,6 @@ enum global_unit_direction {
    D_Space,
 };
 
-enum relative_unit_direction_type {
-  #define rud_type(name) RUD_type_## name,
-   RUD_DIRECTIONS_TYPES_LIST
-   RUD_FILE_DIRECTIONS_TYPES
-  #undef rud_type
-  #define rud_type(name) RUD_type_FirstInFile## name,
-   RUD_DIRECTIONS_TYPES_LIST
-  #undef rud_type
-};
-
 typedef struct ELEMENT_LIST {
     struct ELEMENT **list;
     size_t number;

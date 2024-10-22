@@ -22,6 +22,7 @@
 #include "tree_types.h"
 #include "option_types.h"
 #include "global_commands_types.h"
+#include "html_conversion_data.h"
 /*
 #include "options_types.h"
 #include "convert_to_text.h"
@@ -188,6 +189,16 @@ typedef struct COLLATIONS_INDICES_SORTED_BY_LETTER {
     size_t space;
     COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices;
 } COLLATIONS_INDICES_SORTED_BY_LETTER;
+
+enum relative_unit_direction_type {
+  #define rud_type(name) RUD_type_## name,
+   RUD_DIRECTIONS_TYPES_LIST
+   RUD_FILE_DIRECTIONS_TYPES
+  #undef rud_type
+  #define rud_type(name) RUD_type_FirstInFile## name,
+   RUD_DIRECTIONS_TYPES_LIST
+  #undef rud_type
+};
 
 enum output_unit_type {
    OU_unit,
