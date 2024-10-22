@@ -1,5 +1,9 @@
 2024-10-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/main/tree_types.h (enum directions): add comment
+
+2024-10-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Move variable declaration
 
 	* tp/Texinfo/XS/main/tree_types.h,

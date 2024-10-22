@@ -64,6 +64,7 @@ enum source_mark_status {
    SM_status_end,
 };
 
+/* Indices into array returned by new_directions in main/tree.c. */
 /* need to be in the same order as explicit nodes directions */
 enum directions {
    D_next,
