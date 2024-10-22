@@ -3,7 +3,7 @@
 #include <config.h>
 
 #include "option_types.h"
-#include "options_types.h"
+#include "options_data.h"
 #include "converters_options.h"
 
 /* for html_fill_button_directions_specification_list */

@@ -162,7 +162,7 @@ C_libtexinfo_sources = \
 		      main/options_defaults.c \
 		      main/options_defaults.h \
 		      main/option_types.h \
-		      main/options_types.h \
+		      main/options_data.h \
 		      main/global_commands_types.h \
 		      main/utils.c \
 		      main/utils.h \
@@ -265,7 +265,7 @@ BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
                 main/options_defaults.c \
                 main/options_defaults.h \
                 main/options_get_perl.c \
-                main/options_types.h
+                main/options_data.h
 
 # Need to be distributed
 EXTRA_DIST += main/element_types.txt main/element_types.awk \
@@ -319,20 +319,20 @@ $(srcdir)/main/accent_tables_8bit_codepoints.c: $(srcdir)/../../maintain/setup_a
 
 MAINTAINERCLEANFILES += main/accent_tables_8bit_codepoints.c
 
-$(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main/options_defaults.c $(srcdir)/main/options_defaults.h $(srcdir)/convert/converters_options.c $(srcdir)/convert/converters_options.h $(srcdir)/main/options_get_perl.c: ../options_data.txt ../Convert/converters_defaults.txt main/command_data.c $(srcdir)/../../maintain/regenerate_C_options_info.pl
+$(srcdir)/main/options_init_free.c $(srcdir)/main/options_data.h $(srcdir)/main/options_defaults.c $(srcdir)/main/options_defaults.h $(srcdir)/convert/converters_options.c $(srcdir)/convert/converters_options.h $(srcdir)/main/options_get_perl.c: ../options_data.txt ../Convert/converters_defaults.txt main/command_data.c $(srcdir)/../../maintain/regenerate_C_options_info.pl
 	$(PERL) $(srcdir)/../../maintain/regenerate_C_options_info.pl \
 	        < $(srcdir)/../options_data.txt \
 	              $(srcdir)/main/command_data.c \
 	              $(srcdir)/../Convert/converters_defaults.txt \
 	              $(srcdir)/main/options_init_free.c \
-	              $(srcdir)/main/options_types.h \
+	              $(srcdir)/main/options_data.h \
 	              $(srcdir)/main/options_defaults.c \
 	              $(srcdir)/main/options_defaults.h \
 	              $(srcdir)/convert/converters_options.c \
 	              $(srcdir)/convert/converters_options.h \
 	              $(srcdir)/main/options_get_perl.c
 
-MAINTAINERCLEANFILES += main/options_init_free.c main/options_types.h \
+MAINTAINERCLEANFILES += main/options_init_free.c main/options_data.h \
                         main/options_defaults.c main/options_defaults.h \
                         convert/converters_options.c \
                         convert/converters_options.h \

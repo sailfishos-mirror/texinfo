@@ -6,7 +6,7 @@
 #include <stdarg.h>
 
 #include "tree_types.h"
-#include "options_types.h"
+#include "options_data.h"
 #include "document_types.h"
 
 void wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages);

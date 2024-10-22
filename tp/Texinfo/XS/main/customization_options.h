@@ -18,7 +18,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include "option_types.h"
-#include "options_types.h"
+#include "options_data.h"
 /* for enum command_location */
 #include "document_types.h"
 #include "converter_types.h"

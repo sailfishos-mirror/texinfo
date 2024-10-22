@@ -4,7 +4,7 @@
 /* Automatically generated from regenerate_C_options_info.pl */
 
 #include "main/option_types.h"
-#include "main/options_types.h"
+#include "main/options_data.h"
 
 /* Undefine values set from autoconf as we use these as
    customization variable names.  The original values are

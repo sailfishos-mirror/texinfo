@@ -3,7 +3,7 @@
 #include <config.h>
 
 #include "option_types.h"
-#include "options_types.h"
+#include "options_data.h"
 #include "customization_options.h"
 #include "options_defaults.h"
 

@@ -158,7 +158,7 @@ open(HEADER, '>', $header_file)
       or die "Open $header_file: $!\n";
 print HEADER "/* Automatically generated from $program_name */\n\n";
 
-print HEADER "#ifndef OPTIONS_TYPES_H\n#define OPTIONS_TYPES_H\n\n";
+print HEADER "#ifndef OPTIONS_DATA_H\n#define OPTIONS_DATA_H\n\n";
 
 print HEADER "#include \"option_types.h\"\n\n";
 
@@ -199,7 +199,7 @@ print CODE '#include <stdlib.h>'."\n";
 print CODE '#include <string.h>'."\n\n";
 
 print CODE '#include "option_types.h"'."\n";
-print CODE '#include "options_types.h"'."\n";
+print CODE '#include "options_data.h"'."\n";
 print CODE '#include "converter_types.h"'."\n";
 print CODE '/* for COMMAND_OPTION_DEFAULT */'."\n";
 print CODE '#include "utils.h"'."\n";
@@ -350,7 +350,7 @@ print ODCF "/* Automatically generated from $program_name */\n\n";
 print ODCF '#include <config.h>'."\n\n";
 
 print ODCF '#include "option_types.h"'."\n";
-print ODCF '#include "options_types.h"'."\n";
+print ODCF '#include "options_data.h"'."\n";
 print ODCF '#include "customization_options.h"'."\n";
 print ODCF '#include "options_defaults.h"'."\n\n";
 
@@ -362,7 +362,7 @@ print ODHF "#ifndef OPTIONS_DEFAULTS_H\n#define OPTIONS_DEFAULTS_H\n\n";
 print ODHF "/* Automatically generated from $program_name */\n\n";
 
 print ODHF "#include \"main/option_types.h\"\n";
-print ODHF "#include \"main/options_types.h\"\n\n";
+print ODHF "#include \"main/options_data.h\"\n\n";
 
 print ODHF "/* Undefine values set from autoconf as we use these as\n";
 print ODHF "   customization variable names.  The original values are\n";
@@ -444,7 +444,7 @@ print CDCF "/* Automatically generated from $program_name */\n\n";
 print CDCF '#include <config.h>'."\n\n";
 
 print CDCF '#include "option_types.h"'."\n";
-print CDCF '#include "options_types.h"'."\n";
+print CDCF '#include "options_data.h"'."\n";
 print CDCF '#include "converters_options.h"'."\n\n";
 print CDCF '/* for html_fill_button_directions_specification_list */'."\n";
 print CDCF '#include "utils.h"'."\n";
@@ -460,7 +460,7 @@ print CDHF "#ifndef CONVERTERS_DEFAULTS_H\n#define CONVERTERS_DEFAULTS_H\n\n";
 print CDHF "/* Automatically generated from $program_name */\n\n";
 
 print CDHF "#include \"main/option_types.h\"\n";
-print CDHF "#include \"main/options_types.h\"\n\n";
+print CDHF "#include \"main/options_data.h\"\n\n";
 
 print CDHF "/* Undefine values set from autoconf as we use these as\n";
 print CDHF "   customization variable names.  The original values are\n";
@@ -530,7 +530,7 @@ close(CDHF);
 open(GET, ">$get_file") or die "Open $get_file: $!\n";
 print GET "/* Automatically generated from $program_name */\n\n";
 
-print GET '#include "options_types.h"'."\n";
+print GET '#include "options_data.h"'."\n";
 print GET '#include "converter_types.h"'."\n";
 print GET '#include "get_perl_info.h"'."\n\n";
 

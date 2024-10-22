@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 #include "command_ids.h"
-#include "options_types.h"
+#include "options_data.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"

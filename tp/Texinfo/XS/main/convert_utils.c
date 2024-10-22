@@ -27,7 +27,7 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
-#include "options_types.h"
+#include "options_data.h"
 #include "types_data.h"
 #include "builtin_commands.h"
 #include "tree.h"

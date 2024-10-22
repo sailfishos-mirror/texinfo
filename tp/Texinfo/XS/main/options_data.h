@@ -1,7 +1,7 @@
 /* Automatically generated from regenerate_C_options_info.pl */
 
-#ifndef OPTIONS_TYPES_H
-#define OPTIONS_TYPES_H
+#ifndef OPTIONS_DATA_H
+#define OPTIONS_DATA_H
 
 #include "option_types.h"
 

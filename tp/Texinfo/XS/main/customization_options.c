@@ -19,7 +19,7 @@
 #include <string.h>
 
 #include "option_types.h"
-#include "options_types.h"
+#include "options_data.h"
 #include "converter_types.h"
 #include "options_defaults.h"
 #include "api_to_perl.h"

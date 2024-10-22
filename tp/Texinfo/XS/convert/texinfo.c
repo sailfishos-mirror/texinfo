@@ -29,7 +29,7 @@
 
 #include "document_types.h"
 /* txi_base_sorted_options */
-#include "options_types.h"
+#include "options_data.h"
 #include "api.h"
 #include "conf.h"
 #include "errors.h"
