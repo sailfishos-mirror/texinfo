@@ -99,4 +99,22 @@ extern COMMAND_ID_LIST style_formatted_cmd;
 extern COMMAND_ID_LIST accent_cmd;
 extern COMMAND_ID_LIST format_raw_cmd;
 
+/* see Texinfo::HTML _prepare_output_units_global_targets
+
+   NOTE the special output units direction names
+   are obtained dynamically from the perl input and stored in
+   special_unit_info and put later on in
+   special_units_direction_name
+ */
+
+#include "html_conversion_data.h"
+
+enum global_unit_direction {
+  #define hgdt_name(name) D_ ## name,
+   HTML_GLOBAL_DIRECTIONS_LIST
+  #undef hgdt_name
+   D_Space,
+};
+
+
 #endif

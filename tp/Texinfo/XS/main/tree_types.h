@@ -19,7 +19,6 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "html_conversion_data.h"
 #include "command_ids.h"
 #include "element_types.h"
 #include "text.h"
@@ -150,22 +149,6 @@ enum ai_key_name {
   #define ai_key(name) AI_key_ ## name,
    AI_KEYS_LIST
   #undef ai_key
-};
-
-
-/* see Texinfo::HTML _prepare_output_units_global_targets
-
-   NOTE the special output units direction names
-   are obtained dynamically from the perl input and stored in
-   special_unit_info and put later on in
-   special_units_direction_name
- */
-
-enum global_unit_direction {
-  #define hgdt_name(name) D_ ## name,
-   HTML_GLOBAL_DIRECTIONS_LIST
-  #undef hgdt_name
-   D_Space,
 };
 
 typedef struct ELEMENT_LIST {

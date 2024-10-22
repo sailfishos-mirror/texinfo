@@ -1,5 +1,15 @@
 2024-10-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Move enum global_unit_direction
+
+	* tp/Texinfo/XS/main/tree_types.h,
+	* tp/Texinfo/XS/convert/html_converter_types.h
+	(enum global_unit_direction): Move to html_converter_types.h.
+	Include "html_conversion_data.h" in html_converter_types.h and
+	not in tree_types.h.
+
+2024-10-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Move enum html_text_type
 
 	* tp/Texinfo/XS/main/tree_types.h,
