@@ -71,12 +71,6 @@ enum directions {
    D_up,
 };
 
-enum output_unit_type {
-   OU_unit,
-   OU_external_node_unit,
-   OU_special_unit,
-};
-
 /* here because it is used both in option_types.h and ConvertXS.xs */
 enum html_text_type {
    HTT_text,
@@ -268,43 +262,8 @@ typedef struct SOURCE_MARK_LIST {
     size_t space;
 } SOURCE_MARK_LIST;
 
-/* structure used after splitting output units.  Could have been defined
-   in another file as it is not related to element trees.  However, it
-   is used in ELEMENT, so it is defined here */
-typedef struct OUTPUT_UNIT {
-    /* Used when building Perl tree only. This should be HV *hv,
-       but we don't want to include the Perl headers everywhere; */
-    void *hv;
-
-    enum output_unit_type unit_type;
-    size_t index;
-    union {
-      const struct ELEMENT *unit_command;
-      /* for special units, not in the tree */
-      struct ELEMENT *special_unit_command;
-    } uc;
-    char *unit_filename;
-    ELEMENT_LIST unit_contents;
-    struct OUTPUT_UNIT *tree_unit_directions[2];
-
-    struct OUTPUT_UNIT *first_in_page;
-    const struct OUTPUT_UNIT *directions[RUD_type_FirstInFileNodeBack+1];
-
-    /* for special output units only */
-    /* could be an enum as for now new special types cannot be customized
-       but lets keep it an option */
-    char *special_unit_variety;
-    /* for special units associated to a document output unit */
-    const struct OUTPUT_UNIT *associated_document_unit;
-} OUTPUT_UNIT;
-
-/* Could be elsewhere, but it is practical to have it here as it is used
-   in build_perl_info.c, for example */
-typedef struct OUTPUT_UNIT_LIST {
-    struct OUTPUT_UNIT **list;
-    size_t number;
-    size_t space;
-} OUTPUT_UNIT_LIST;
+/* Defined fully in main/document_types.h */
+struct OUTPUT_UNIT;
 
 typedef struct CONTAINER {
     ELEMENT_LIST args;
@@ -312,7 +271,7 @@ typedef struct CONTAINER {
     SOURCE_INFO source_info;
 
     ASSOCIATED_INFO extra_info;
-    OUTPUT_UNIT *associated_unit;
+    struct OUTPUT_UNIT *associated_unit;
     /* depends on the element */
     char **string_info;
     enum command_id cmd;

@@ -1,3 +1,13 @@
+2024-10-22  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Move OUTPUT_UNIT definition
+
+	* tp/Texinfo/XS/main/tree_types.h,
+	* tp/Texinfo/XS/main/document_types.h (enum output_unit_type)
+	(OUTPUT_UNIT, OUTPUT_UNIT_LIST): Move to document_types.h as
+	all source codes needing the fields of OUTPUT_UNIT also include
+	this header.  Replace with forward declaration.
+
 2024-10-21  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Hardcode "info" string in hash creation

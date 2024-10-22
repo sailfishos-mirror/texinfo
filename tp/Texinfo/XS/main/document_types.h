@@ -189,6 +189,46 @@ typedef struct COLLATIONS_INDICES_SORTED_BY_LETTER {
     COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices;
 } COLLATIONS_INDICES_SORTED_BY_LETTER;
 
+enum output_unit_type {
+   OU_unit,
+   OU_external_node_unit,
+   OU_special_unit,
+};
+
+/* structure used after splitting output units. */
+typedef struct OUTPUT_UNIT {
+    /* Used when building Perl tree only. This should be HV *hv,
+       but we don't want to include the Perl headers everywhere; */
+    void *hv;
+
+    enum output_unit_type unit_type;
+    size_t index;
+    union {
+      const struct ELEMENT *unit_command;
+      /* for special units, not in the tree */
+      struct ELEMENT *special_unit_command;
+    } uc;
+    char *unit_filename;
+    ELEMENT_LIST unit_contents;
+    struct OUTPUT_UNIT *tree_unit_directions[2];
+
+    struct OUTPUT_UNIT *first_in_page;
+    const struct OUTPUT_UNIT *directions[RUD_type_FirstInFileNodeBack+1];
+
+    /* for special output units only */
+    /* could be an enum as for now new special types cannot be customized
+       but lets keep it an option */
+    char *special_unit_variety;
+    /* for special units associated to a document output unit */
+    const struct OUTPUT_UNIT *associated_document_unit;
+} OUTPUT_UNIT;
+
+typedef struct OUTPUT_UNIT_LIST {
+    struct OUTPUT_UNIT **list;
+    size_t number;
+    size_t space;
+} OUTPUT_UNIT_LIST;
+
 typedef struct OUTPUT_UNIT_LISTS {
     OUTPUT_UNIT_LIST *output_units_lists;
     size_t number;
