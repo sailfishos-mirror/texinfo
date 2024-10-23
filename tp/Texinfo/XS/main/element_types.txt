@@ -24,10 +24,10 @@
 # The following flags correspond to elements holding information on the tree
 # associated to the type.  The association is set in the parsing
 # code based on the command/container, not using these flags.  Therefore
-# the flags should be determined by looking at the parser code.  The main
-# use of these flags is to determine the number of slots needed by those
-# elements in the elt_info array in generated code.  These flags are not
-# direclty used in the C code.
+# the type flags should be determined by looking at the parser code.  The
+# main use of these flags is to determine the number of slots needed in
+# the elt_info array in generated code.  These flags are not used in the
+# C code.
 #  spaces_before: element containing the spaces appearing before the
 #                 argument
 #  braces: element containing the spaces appearing between the @-command name
@@ -47,7 +47,7 @@
 index_entry_command                    spaces_before
 definfoenclose_command                 braces
 
-# only in C.  These types should not be used in code except to set the
+# only in C.  These types should only be used in code to set the
 # type at the element creation, except maybe to help with the handling
 # of C specific data (case of ET_lineraw_command to check/select string_info)
 nobrace_command                        c_only
