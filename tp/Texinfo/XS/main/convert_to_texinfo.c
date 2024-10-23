@@ -56,14 +56,15 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
       ADD("@");  ADD(cmdname);
     }
 
-  if (type_data[e->type].flags & TF_braces)
+  if (type_data[e->type].elt_info_number > eit_spaces_after_cmd_before_arg)
     {
       elt = e->elt_info[eit_spaces_after_cmd_before_arg];
       if (elt)
         ADD((char *)elt->e.text->text);
     }
 
-  if (type_data[e->type].flags & TF_spaces_before)
+  if (type_data[e->type].elt_info_number > eit_spaces_before_argument
+      && e->elt_info[eit_spaces_before_argument])
     {
       spc_before_arg = e->elt_info[eit_spaces_before_argument];
     }
@@ -164,7 +165,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
           if (e->type == ET_bracketed_arg
               || e->type == ET_bracketed_linemacro_arg)
             ADD("{");
-          if (type_data[e->type].flags & TF_spaces_before)
+          if (type_data[e->type].elt_info_number > eit_spaces_before_argument)
             {
               elt = e->elt_info[eit_spaces_before_argument];
               if (elt)
@@ -178,7 +179,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
             convert_to_texinfo_internal (e->e.c->contents.list[i], result);
         }
 
-      if (type_data[e->type].flags & TF_spaces_after)
+      if (type_data[e->type].elt_info_number > eit_spaces_after_argument)
         {
           elt = e->elt_info[eit_spaces_after_argument];
           if (elt)
