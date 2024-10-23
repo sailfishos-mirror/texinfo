@@ -629,6 +629,9 @@ store_info_string (ELEMENT *e, const char *string,
 {
   dTHX;
 
+  if (!string)
+    return;
+
   setup_info_hv (e, info_hv);
   hv_store (*info_hv, key, strlen (key),
             newSVpv_utf8 (string, strlen (string)), 0);
@@ -782,8 +785,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
 #undef store_flag
 
-  /* process string_info array */
-
+  /* process cmd and info_string array */
   if (e->e.c->cmd)
     {
       /* Note we could optimize the call to newSVpv here and
@@ -791,48 +793,34 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       sv = newSVpv (element_command_name (e), 0);
       hv_store (e->hv, "cmdname", strlen ("cmdname"), sv, HSH_cmdname);
 
-      if (e->e.c->string_info[sit_alias_of])
-        store_info_string (e, e->e.c->string_info[sit_alias_of],
-                          "alias_of", &info_hv);
+      store_info_string (e, e->e.c->string_info[sit_alias_of],
+                         "alias_of", &info_hv);
 
-      /* string_info array */
-      if (e->type == ET_index_entry_command)
+      if (e->type == ET_index_entry_command
+          || e->type == ET_definfoenclose_command)
         {
-          if (e->e.c->string_info[sit_command_name])
-            store_info_string (e,
-                  e->e.c->string_info[sit_command_name],
-                  "command_name", &info_hv);
+          store_info_string (e, e->e.c->string_info[sit_command_name],
+                            "command_name", &info_hv);
         }
-      if (e->type == ET_lineraw_command)
+      else if (e->type == ET_lineraw_command)
         {
-          if (e->e.c->string_info[sit_arg_line])
-             store_info_string (e, e->e.c->string_info[sit_arg_line],
-                      "arg_line", &info_hv);
-        }
-      if (e->type == ET_definfoenclose_command)
-        {
-          if (e->e.c->string_info[sit_command_name])
-            store_info_string (e,
-                  e->e.c->string_info[sit_command_name],
-                  "command_name", &info_hv);
-        }
-      if (e->e.c->cmd == CM_verb && e->e.c->args.number > 0)
-        {
-          store_info_string (e, e->e.c->string_info[sit_delimiter],
-                             "delimiter", &info_hv);
-        }
+          store_info_string (e, e->e.c->string_info[sit_arg_line],
+                            "arg_line", &info_hv);
+        } /* verb is a brace command type and so cannot be confused
+             with the preceding types */
+      else if (e->e.c->cmd == CM_verb && e->e.c->args.number > 0)
+        store_info_string (e, e->e.c->string_info[sit_delimiter],
+                           "delimiter", &info_hv);
     }
   else if (type_data[e->type].flags & TF_macro_call)
     {
-      if (e->e.c->string_info[sit_alias_of])
-        store_info_string (e, e->e.c->string_info[sit_alias_of],
-                      "alias_of", &info_hv);
-
-      if (e->e.c->string_info[sit_command_name])
-        store_info_string (e, e->e.c->string_info[sit_command_name],
-                      "command_name", &info_hv);
+      store_info_string (e, e->e.c->string_info[sit_alias_of],
+                         "alias_of", &info_hv);
+      store_info_string (e, e->e.c->string_info[sit_command_name],
+                         "command_name", &info_hv);
     }
 
+  /* process elt_info array */
   if (type_data[e->type].elt_info_number > 0)
     {
       int i;
