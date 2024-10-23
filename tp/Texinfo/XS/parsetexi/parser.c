@@ -600,7 +600,8 @@ begin_paragraph (ELEMENT *current)
           if (child->type == ET_empty_line
               || child->type == ET_paragraph)
             break;
-          if (type_data[child->type].flags & TF_at_command
+          if (!(type_data[child->type].flags & TF_text)
+              && child->e.c->cmd
               && command_data(child->e.c->cmd).flags & CF_close_paragraph)
             break;
           /* after an indent there are ignorable_spaces_after_command

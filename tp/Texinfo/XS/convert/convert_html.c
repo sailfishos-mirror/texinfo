@@ -1219,7 +1219,11 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
   if ((element->type
        && (self->current_types_conversion_function[element->type].status
                                                      == FRS_status_ignored
-         /* type unknown in Perl */
+         /* type unknown in Perl
+            FIXME in which situation is that possible?  The type has to
+            be known in Perl for the formatting function to be set to
+            be ignored?
+          */
            || (type_data[element->type].flags & TF_at_command
                && element->type != ET_index_entry_command
                && element->type != ET_definfoenclose_command)))

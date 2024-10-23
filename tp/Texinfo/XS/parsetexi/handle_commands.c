@@ -91,7 +91,7 @@ check_no_text (const ELEMENT *current)
                    && g->e.text->text[strspn 
                                        (g->e.text->text, whitespace_chars)])
                   /* empty_line text is possible */
-                  || (type_data[g->type].flags & TF_at_command
+                  || (!(type_data[g->type].flags & TF_text)
                       && g->e.c->cmd != CM_c
                       && g->e.c->cmd != CM_comment
                       && g->type != ET_index_entry_command))

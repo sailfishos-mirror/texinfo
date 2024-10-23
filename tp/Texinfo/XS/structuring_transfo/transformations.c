@@ -435,7 +435,7 @@ relate_index_entries_to_table_items_internal (const char *type,
                                               ELEMENT *current,
                                               void *argument)
 {
-  if (type_data[current->type].flags & TF_at_command
+  if (!(type_data[current->type].flags & TF_text)
       && current->e.c->cmd == CM_table)
     {
       INDEX_LIST *indices_info = (INDEX_LIST *)argument;
@@ -542,7 +542,7 @@ move_index_entries_after_items_internal (const char *type,
                                          ELEMENT *current,
                                          void *argument)
 {
-  if (type_data[current->type].flags & TF_at_command
+  if (!(type_data[current->type].flags & TF_text)
       && (current->e.c->cmd == CM_enumerate
           || current->e.c->cmd == CM_itemize))
     {
@@ -703,7 +703,7 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
   ELEMENT *added_node = new_previous->list[0];
   ELEMENT *previous_node = new_previous->list[1];
 
-  if (type_data[current->type].flags & TF_at_command
+  if (!(type_data[current->type].flags & TF_text)
       && current->e.c->cmd == CM_menu)
     {
       CONST_ELEMENT_LIST *added_node_menus;
@@ -867,7 +867,7 @@ reference_to_arg_internal (const char *type,
                            ELEMENT *e,
                            void *argument)
 {
-  if (type_data[e->type].flags & TF_at_command
+  if (!(type_data[e->type].flags & TF_text) && e->e.c->cmd
       && builtin_command_data[e->e.c->cmd].flags & CF_ref)
     {
       DOCUMENT *document = (DOCUMENT *) argument;
@@ -1507,7 +1507,7 @@ protect_first_parenthesis_in_targets_internal (const char *type,
                                                void *argument)
 {
   ELEMENT *element_label;
-  if (!(type_data[current->type].flags & TF_at_command))
+  if (type_data[current->type].flags & TF_text)
     return 0;
 
   element_label = get_label_element (current);
