@@ -239,6 +239,7 @@ typedef struct CONTAINER {
 } CONTAINER;
 
 /* indices in ELEMENT elt_info */
+/* to be kept in sync with elt_info_names in main/tree.c */
 enum elt_info_type {
    eit_spaces_before_argument, /* diverse types.  Only context_brace_command
                                   also with braces */
