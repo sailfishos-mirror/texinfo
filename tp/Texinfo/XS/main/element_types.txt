@@ -47,7 +47,9 @@
 index_entry_command                    spaces_before
 definfoenclose_command                 braces
 
-# only in C
+# only in C.  These types should not be used in code except to set the
+# type at the element creation, except maybe to help with the handling
+# of C specific data (case of ET_lineraw_command to check/select string_info)
 nobrace_command                        c_only
 brace_noarg_command                    braces,c_only
 # @item, @tab

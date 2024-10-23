@@ -20,6 +20,7 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "text.h"
+#include "types_data.h"
 #include "tree.h"
 #include "extra.h"
 /* for whitespace_chars */
@@ -304,8 +305,8 @@ end_line_menu_entry (ELEMENT *current)
       ELEMENT *last = last_contents_child (current);
 
       if (last
-         /* last can be a text element */
-          && last->type == ET_lineraw_command
+         /* last could be a text element */
+          && !(type_data[last->type].flags & TF_text)
           && (last->e.c->cmd == CM_c || last->e.c->cmd == CM_comment))
         {
           end_comment = pop_element_from_contents (current);

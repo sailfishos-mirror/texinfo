@@ -1,5 +1,21 @@
 2024-10-23  Patrice Dumas  <pertusus@free.fr>
 
+	Avoid using C specific types in code
+
+	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal): use
+	CF_block instead of ET_block_command and CF_line instead of
+	ET_line_command and ET_lineraw_command.
+
+	* tp/Texinfo/XS/main/convert_utils.c (find_innermost_accent_contents),
+	tp/Texinfo/XS/parsetexi/close.c (close_command_cleanup),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/menus.c (end_line_menu_entry),
+	tp/Texinfo/XS/parsetexi/multitable.c (gather_previous_item),
+	tp/Texinfo/XS/parsetexi/parser.c (isolate_last_space): use TF_text to
+	determine if the cmd element can be accessed instead of C only types.
+
+2024-10-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/element_types.txt,
 	tp/Texinfo/XS/convert/convert_html.c (html_convert_tree_append),
 	tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash): change

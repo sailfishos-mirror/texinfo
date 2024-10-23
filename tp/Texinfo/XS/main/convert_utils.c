@@ -133,7 +133,7 @@ find_innermost_accent_contents (const ELEMENT *element)
       enum command_id data_cmd;
       unsigned long flags;
 
-      if (current->type != ET_brace_command)
+      if (type_data[current->type].flags & TF_text)
         return accent_stack;
 
       data_cmd = element_builtin_data_cmd (current);

@@ -601,21 +601,19 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
 
      /* hyphenation anchor errormsg sortas caption shortcaption */
   if (builtin_command_data[data_cmd].other_flags & CF_non_formatted_brace
-      || (element->type == ET_block_command
+      || (builtin_command_data[data_cmd].flags & CF_block
           && (/* ignored_block_commands */
               /* titlepage copying documentdescription */
               builtin_command_data[data_cmd].data == BLOCK_region
-              /* ignore nodedescriptionblock (would also have ignored @*macro
-                 if their type was ET_block_command */
+              /* ignore nodedescriptionblock, @*macro */
               || builtin_command_data[data_cmd].other_flags
                                             & CF_non_formatted_block
               || (/* html tex xml docbook latex */
                   builtin_command_data[data_cmd].data == BLOCK_format_raw
                   && !format_expanded_p (text_options->expanded_formats,
                                     builtin_command_name (data_cmd)))))
-       /* here ignore most of the line commands, and also @*macro */
-      || ((element->type == ET_line_command
-           || element->type == ET_lineraw_command
+       /* here ignore most of the line commands */
+      || ((builtin_command_data[data_cmd].flags & CF_line
            || element->type == ET_index_entry_command)
           && !(builtin_command_data[data_cmd].other_flags
                                              & CF_formatted_line)

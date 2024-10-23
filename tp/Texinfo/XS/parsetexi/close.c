@@ -328,7 +328,7 @@ close_command_cleanup (ELEMENT *current)
                 {
                   ELEMENT *content = before_item->e.c->contents.list[i];
                 /* content can be spaces text element such as empty_line */
-                  if (!(content->type == ET_lineraw_command
+                  if (!(!(type_data[content->type].flags & TF_text)
                         && (content->e.c->cmd == CM_c
                             || content->e.c->cmd == CM_comment)))
                     {

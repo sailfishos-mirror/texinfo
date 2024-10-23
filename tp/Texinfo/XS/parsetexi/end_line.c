@@ -997,7 +997,7 @@ end_line_starting_block (ELEMENT *current)
                                  + strspn (f->e.text->text, whitespace_chars)))
                         not_command_as_arg = 1;
                     }
-                  else if (!(f->type == ET_lineraw_command
+                  else if (!(!(type_data[f->type].flags & TF_text)
                              && (f->e.c->cmd == CM_c
                                  || f->e.c->cmd == CM_comment)))
                     not_command_as_arg = 1;

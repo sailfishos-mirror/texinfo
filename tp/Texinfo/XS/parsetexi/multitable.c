@@ -19,6 +19,7 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
+#include "types_data.h"
 #include "tree.h"
 #include "errors_parser.h"
 #include "commands.h"
@@ -85,7 +86,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
     {
       e = contents_child_by_index (current, position -1);
       /* e can be a text element with spaces, mainly empty_line */
-      if (e->type == ET_line_command
+      if (!(type_data[e->type].flags & TF_text)
           && (e->e.c->cmd == CM_item || e->e.c->cmd == CM_itemx))
         {
           begin_idx = position;
@@ -172,7 +173,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
               ELEMENT* last_elt = last_contents_child (before_item);
            /* last_elt can be a spaces text element, such as empty_line */
               if (last_elt->type == ET_index_entry_command
-                  || (last_elt->type == ET_lineraw_command
+                  || (!(type_data[last_elt->type].flags & TF_text)
                       && (last_elt->e.c->cmd == CM_c
                           || last_elt->e.c->cmd == CM_comment)))
                 {

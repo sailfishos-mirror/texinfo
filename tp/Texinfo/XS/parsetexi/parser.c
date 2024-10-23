@@ -1038,7 +1038,7 @@ isolate_last_space (ELEMENT *current)
       && current->type != ET_brace_arg)
     {
       last_elt = last_contents_child (current);
-      if (last_elt->type == ET_lineraw_command
+      if (!(type_data[last_elt->type].flags & TF_text)
           && (last_elt->e.c->cmd == CM_c
               || last_elt->e.c->cmd == CM_comment))
         {
