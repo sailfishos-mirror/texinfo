@@ -151,7 +151,8 @@ remove_empty_content (ELEMENT *current)
   if (current->e.c->contents.number == 1)
     {
       ELEMENT *child_element = last_contents_child (current);
-      if (!(type_data[child_element->type].flags & TF_at_command)
+      if (!(!(type_data[child_element->type].flags & TF_text)
+            && child_element->e.c->cmd)
           && is_container_empty (child_element))
         {
           transfer_source_marks (child_element, current, 0);
