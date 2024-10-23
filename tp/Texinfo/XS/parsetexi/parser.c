@@ -728,10 +728,7 @@ move_last_space_to_element (ELEMENT *current)
   ELEMENT *e = pop_element_from_contents (current);
   e->type = ET_other_text;
   e->parent = 0;
-  if (owning_element->type != ET_context_brace_command)
-    owning_element->elt_info[eit_spaces_before_argument] = e;
-  else
-    owning_element->elt_info[eit_brace_content_spaces_before_argument] = e;
+  owning_element->elt_info[eit_spaces_before_argument] = e;
   internal_space_holder = 0;
 }
 

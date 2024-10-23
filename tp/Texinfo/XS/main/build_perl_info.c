@@ -887,7 +887,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
           if (e->type == ET_context_brace_command)
             {
               store_info_element (e,
-                  e->elt_info[eit_brace_content_spaces_before_argument],
+                  e->elt_info[eit_spaces_before_argument],
                   "spaces_before_argument",
                   avoid_recursion, &info_hv);
             }

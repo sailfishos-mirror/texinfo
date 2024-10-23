@@ -65,10 +65,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
 
   if (type_data[e->type].flags & TF_spaces_before)
     {
-      if (e->type != ET_context_brace_command)
-        spc_before_arg = e->elt_info[eit_spaces_before_argument];
-      else
-        spc_before_arg = e->elt_info[eit_brace_content_spaces_before_argument];
+      spc_before_arg = e->elt_info[eit_spaces_before_argument];
     }
 
   /* if there is no arg_line, the end of line is in rawline_arg in args

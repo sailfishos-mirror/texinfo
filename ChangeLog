@@ -1,3 +1,15 @@
+2024-10-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/tree_types.h (CONTAINER),
+	tp/Texinfo/XS/main/element_types.awk,
+	tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi),
+	tp/Texinfo/XS/parsetexi/parser.c (move_last_space_to_element): remove
+	eit_brace_content_spaces_before_argument from enum elt_info_type, use
+	eit_spaces_before_argument instead.  Do not overload enum
+	elt_info_type indices, instead allow an unused slot for some elements
+	in elt_info.
+
 2024-10-21  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash):

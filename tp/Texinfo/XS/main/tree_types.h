@@ -240,12 +240,11 @@ typedef struct CONTAINER {
 
 /* indices in ELEMENT elt_info */
 enum elt_info_type {
+   eit_spaces_before_argument, /* diverse types.  Only context_brace_command
+                                  also with braces */
    eit_spaces_after_cmd_before_arg, /* types with braces flag */
    eit_spaces_after_argument,
    eit_comment_at_end, /* block_line_arg line_arg */
-   eit_spaces_before_argument = 0, /* diverse types.  Only context_brace_command
-                                     also with braces */
-   eit_brace_content_spaces_before_argument = 1, /* not 0, also brace commands */
 };
 
 /* indices in ELEMENT string_info */
