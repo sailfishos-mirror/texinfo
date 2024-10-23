@@ -7,6 +7,9 @@
 /* Array of "associated info" key names. */
 extern const char *ai_key_names[];
 
+/* Array of elt_info key names. */
+extern const char *elt_info_names[];
+
 void reset_obstacks (void);
 
 ASSOCIATED_INFO *new_associated_info (void);

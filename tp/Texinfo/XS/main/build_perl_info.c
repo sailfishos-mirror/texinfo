@@ -803,6 +803,11 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   if (e->e.c->cmd)
     {
+      /* Note we could optimize the call to newSVpv here and
+         elsewhere by passing an appropriate second argument. */
+      sv = newSVpv (element_command_name (e), 0);
+      hv_store (e->hv, "cmdname", strlen ("cmdname"), sv, HSH_cmdname);
+
       if (e->e.c->string_info[sit_alias_of])
         store_info_string (e, e->e.c->string_info[sit_alias_of],
                           "alias_of", &info_hv);
@@ -845,87 +850,13 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
                       "command_name", &info_hv);
     }
 
-  /* process elt_info array */
-
-  if (e->e.c->cmd)
+  if (type_data[e->type].elt_info_number > 0)
     {
-      enum command_id data_cmd;
-      unsigned long flags;
-
-      /* Note we could optimize the call to newSVpv here and
-         elsewhere by passing an appropriate second argument. */
-      sv = newSVpv (element_command_name (e), 0);
-      hv_store (e->hv, "cmdname", strlen ("cmdname"), sv, HSH_cmdname);
-
-      data_cmd = element_builtin_data_cmd (e);
-      flags = builtin_command_data[data_cmd].flags;
-
-      if (flags & CF_line)
-        {
-          if (e->type != ET_lineraw_command)
-            {
-              store_info_element (e, e->elt_info[eit_spaces_before_argument],
-                              "spaces_before_argument",
-                              avoid_recursion, &info_hv);
-            }
-        }
-      else if (flags & CF_block)
-        {
-          if (e->type != ET_lineraw_command)
-            {
-              store_info_element (e, e->elt_info[eit_spaces_before_argument],
-                                  "spaces_before_argument",
-                                  avoid_recursion, &info_hv);
-            }
-        }
-      else if (e->type != ET_nobrace_command
-               && e->type != ET_container_command)
-        { /* brace commands */
-          store_info_element (e, e->elt_info[eit_spaces_after_cmd_before_arg],
-                              "spaces_after_cmd_before_arg",
-                              avoid_recursion, &info_hv);
-          if (e->type == ET_context_brace_command)
-            {
-              store_info_element (e,
-                  e->elt_info[eit_spaces_before_argument],
-                  "spaces_before_argument",
-                  avoid_recursion, &info_hv);
-            }
-        }
+      size_t i;
+      for (i = 0; i < type_data[e->type].elt_info_number; i++)
+        store_info_element (e, e->elt_info[i], elt_info_names[i],
+                            avoid_recursion, &info_hv);
     }
-  else /* types / containers */
-    {
-      if (type_data[e->type].flags & TF_spaces_before)
-        {
-          store_info_element (e, e->elt_info[eit_spaces_before_argument],
-                              "spaces_before_argument",
-                              avoid_recursion, &info_hv);
-        }
-
-      if (type_data[e->type].flags & TF_spaces_after)
-        {
-          store_info_element (e, e->elt_info[eit_spaces_after_argument],
-                              "spaces_after_argument",
-                              avoid_recursion, &info_hv);
-          if (e->type == ET_block_line_arg || e->type == ET_line_arg)
-            {
-              store_info_element (e, e->elt_info[eit_comment_at_end],
-                                  "comment_at_end",
-                                  avoid_recursion, &info_hv);
-            }
-        }
-      else if (type_data[e->type].flags & TF_macro_call)
-        {
-          if (type_data[e->type].flags & TF_braces)
-            {
-              store_info_element (e,
-                         e->elt_info[eit_spaces_after_cmd_before_arg],
-                         "spaces_after_cmd_before_arg",
-                         avoid_recursion, &info_hv);
-            }
-        }
-    }
-
 
   if (e->e.c->contents.number > 0)
     {

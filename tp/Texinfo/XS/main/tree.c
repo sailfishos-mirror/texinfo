@@ -51,6 +51,15 @@ static int *obs_element_first = 0;
 #include "api_to_perl.h"
 #include "tree.h"
 
+/* to be kept in sync with enum elt_info_type */
+const char *elt_info_names[] = {
+  "spaces_before_argument",
+  "spaces_after_cmd_before_arg",
+  "spaces_after_argument",
+  "comment_at_end",
+};
+
+
 const char *ai_key_names[] = {
   0,
   #define ai_key(name) #name,
