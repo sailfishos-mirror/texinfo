@@ -1224,9 +1224,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
             be known in Perl for the formatting function to be set to
             be ignored?
           */
-           || (type_data[element->type].flags & TF_at_command
-               && element->type != ET_index_entry_command
-               && element->type != ET_definfoenclose_command)))
+           || type_data[element->type].flags & TF_c_only))
        && (!cmd
            || self->current_commands_conversion_function[cmd].status
                                                      == FRS_status_ignored))

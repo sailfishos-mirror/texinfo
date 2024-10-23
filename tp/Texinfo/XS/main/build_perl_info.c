@@ -746,9 +746,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
   /* non-text elements */
 
   if (e->type
-      && (!(type_data[e->type].flags & TF_at_command)
-          || e->type == ET_index_entry_command
-          || e->type == ET_definfoenclose_command))
+      && !(type_data[e->type].flags & TF_c_only))
     {
       sv = newSVpv (type_data[e->type].name, 0);
       hv_store (e->hv, "type", strlen ("type"), sv, HSH_type);

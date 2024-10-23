@@ -34,7 +34,7 @@ extern TYPE_DATA type_data[];
 #define TF_spaces_after       0x0008
  */
 #define TF_macro_call         0x0010
-#define TF_at_command         0x0020
+#define TF_c_only             0x0020
 #define TF_leading_space      0x0040
 
 #endif

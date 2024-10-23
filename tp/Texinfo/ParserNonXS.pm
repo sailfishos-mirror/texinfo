@@ -385,6 +385,7 @@ foreach my $type ('brace_arg', 'brace_container') {
   $type_without_paragraph{$type} = 1;
 };
 
+# To keep in sync with XS main/element_types.txt leading_space flag
 my %leading_space_types;
 foreach my $type ('empty_line', 'ignorable_spaces_after_command',
         'internal_spaces_after_command', 'internal_spaces_before_argument',

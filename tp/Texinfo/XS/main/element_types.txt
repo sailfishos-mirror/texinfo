@@ -15,25 +15,51 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# The first column holds type names, second column contains flags for types
+# The first column holds type names, second column contains flags.
+# Flags for text elements:
+#  text: distinguishes text from other elements
+#  leading_space: text elements with spaces appearing before actual text.
+#                 to keep in sync with Perl parser %leading_space_types.
+#
+# The following flags correspond to elements holding information on the tree
+# associated to the type.  The association is set in the parsing
+# code based on the command/container, not using these flags.  Therefore
+# the flags should be determined by looking at the parser code.  The main
+# use of these flags is to determine the number of slots needed by those
+# elements in the elt_info array in generated code.  These flags are not
+# direclty used in the C code.
+#  spaces_before: element containing the spaces appearing before the
+#                 argument
+#  braces: element containing the spaces appearing between the @-command name
+#          and the opening brace
+#  spaces_after: element containing the spaces appearing after the argument
+#
+# Other flags:
+#  macro_call: @-command like user-defined macros call that require some
+#              information not needed by other containers.  Mainly used in C
+#              specific code for memory management, passing to Perl.
+#  c_only: element type associated to @-commands appearing only in C, needed
+#          because each correspond to a different need for associated info
+#          element or strings.  Flag only used to avoid passing to Perl.
+
 
 # Types for @-commands
-index_entry_command                    spaces_before,at_command
-definfoenclose_command                 braces,at_command
+index_entry_command                    spaces_before
+definfoenclose_command                 braces
 
 # only in C
-nobrace_command                        at_command
-brace_noarg_command                    braces,at_command
+nobrace_command                        c_only
+brace_noarg_command                    braces,c_only
 # @item, @tab
-container_command                      at_command
-lineraw_command                        at_command
-line_command                           spaces_before,at_command
-block_command                          spaces_before,at_command
-brace_command                          braces,at_command
+container_command                      c_only
+lineraw_command                        c_only
+line_command                           spaces_before,c_only
+block_command                          spaces_before,c_only
+brace_command                          braces,c_only
 # BRACE_arguments and BRACE_inline commands
-brace_args_command                     braces,at_command
+brace_args_command                     braces,c_only
 # BRACE_context commands
-context_brace_command                  braces,spaces_before,at_command
+context_brace_command                  braces,spaces_before,c_only
 
 # For text elements
 empty_line                                text,leading_space
