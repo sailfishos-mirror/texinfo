@@ -308,7 +308,7 @@
    ...
 }
 {
-   fixed-in-valgrind/Error/ld.so/strncmp/1
+   fixed-in-valgrind/Error/ld.so/strncmp/2
    Memcheck:Addr8
    fun:strncmp
    fun:is_dst
