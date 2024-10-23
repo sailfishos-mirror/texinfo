@@ -296,3 +296,22 @@
    fun:translate_string
    ...
 }
+
+# Fixed in valgrind sources 2022-05-13
+# See https://sourceware.org/git/gitweb.cgi?p=valgrind.git;h=947388eb043ea1c44b37df94046e1eee790ad776
+{
+   fixed-in-valgrind/Error/ld.so/strncmp/1
+   Memcheck:Addr8
+   fun:strncmp
+   fun:is_dst
+   fun:_dl_dst_count
+   ...
+}
+{
+   fixed-in-valgrind/Error/ld.so/strncmp/1
+   Memcheck:Addr8
+   fun:strncmp
+   fun:is_dst
+   fun:_dl_dst_substitute
+   ...
+}
