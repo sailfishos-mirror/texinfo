@@ -624,23 +624,6 @@ setup_info_hv (ELEMENT *e, HV **info_hv)
 }
 
 static void
-store_info_element (ELEMENT *e, ELEMENT *info_element,
-                    const char *key, int avoid_recursion, HV **info_hv)
-{
-  dTHX;
-
-  if (!info_element)
-    return;
-
-  if (!info_element->hv || !avoid_recursion)
-    element_to_perl_hash (info_element, avoid_recursion);
-
-  setup_info_hv (e, info_hv);
-  hv_store (*info_hv, key, strlen (key),
-            newRV_inc ((SV *)info_element->hv), 0);
-}
-
-static void
 store_info_string (ELEMENT *e, const char *string,
                    const char *key, HV **info_hv)
 {
@@ -852,10 +835,22 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   if (type_data[e->type].elt_info_number > 0)
     {
-      size_t i;
+      int i;
       for (i = 0; i < type_data[e->type].elt_info_number; i++)
-        store_info_element (e, e->elt_info[i], elt_info_names[i],
-                            avoid_recursion, &info_hv);
+        {
+          ELEMENT *info_element = e->elt_info[i];
+          if (info_element)
+            {
+              if (!info_element->hv || !avoid_recursion)
+                element_to_perl_hash (info_element, avoid_recursion);
+
+              setup_info_hv (e, &info_hv);
+
+              hv_store (info_hv, elt_info_names[i],
+                        strlen (elt_info_names[i]),
+                        newRV_inc ((SV *)info_element->hv), 0);
+           }
+       }
     }
 
   if (e->e.c->contents.number > 0)
