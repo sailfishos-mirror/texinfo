@@ -27,9 +27,12 @@ typedef struct types_struct {
 extern TYPE_DATA type_data[];
 
 #define TF_text               0x0001
+/* Used to determine elt_info_number in generated TYPE_DATA generated,
+   but not directly used in code
 #define TF_braces             0x0002
 #define TF_spaces_before      0x0004
 #define TF_spaces_after       0x0008
+ */
 #define TF_macro_call         0x0010
 #define TF_at_command         0x0020
 #define TF_leading_space      0x0040

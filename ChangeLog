@@ -1,5 +1,11 @@
 2024-10-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/element_types.awk: do not set flags that are
+	not directly used in C code, but are used to determine the size of the
+	lements info array.
+
+2024-10-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi)
 	(convert_to_texinfo_internal): use elt_info_number and elt_info
 	content being set to determine if the elt_info element should be
