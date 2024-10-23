@@ -608,11 +608,11 @@ sub move_index_entries_after_items($)
         my $content = $previous_ending_container->{'contents'}->[$i];
         if ($content->{'type'} and $content->{'type'} eq 'index_entry_command') {
           $last_entry_idx = $i;
-        } elsif (not $content->{'cmdname'}
-                 or ($content->{'cmdname'} ne 'c'
-                     and $content->{'cmdname'} ne 'comment'
+        } elsif (not ($content->{'cmdname'}
+                      and ($content->{'cmdname'} eq 'c'
+                           or $content->{'cmdname'} eq 'comment'
                      # subentry is not within the index entry in the tree
-                     and $content->{'cmdname'} ne 'subentry')) {
+                           or $content->{'cmdname'} eq 'subentry'))) {
           last;
         }
       }
