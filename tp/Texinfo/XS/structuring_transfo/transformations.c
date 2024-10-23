@@ -1076,13 +1076,13 @@ complete_node_menu (ELEMENT *node, int use_sections)
             }
           else
             {
-              int offset_at_end = -1;
+              int offset_at_end = 0;
               const ELEMENT *last_menu_content
                 = last_contents_child (current_menu);
 
-              if (!(type_data[last_menu_content->type].flags & TF_at_command)
-                  || last_menu_content->e.c->cmd != CM_end)
-                offset_at_end = 0;
+              if (!(type_data[last_menu_content->type].flags & TF_text)
+                  && last_menu_content->e.c->cmd == CM_end)
+                offset_at_end = -1;
               insert_list_slice_into_contents (current_menu,
                                 current_menu->e.c->contents.number + offset_at_end,
                                         pending, 0, pending->number);

@@ -1,5 +1,14 @@
 2024-10-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(complete_node_menu): inverse the condition for offset_at_end for a
+	more readable condition (also like Perl).  Use TF_text to make sure
+	that the element is a container element now that it is clear that the
+	main objective of that part of the condition is to be able to access
+	CONTAINER fields.
+
+2024-10-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ManipulateTree.pm (move_index_entries_after_items),
 	tp/Texinfo/XS/structuring_transfo/transformations.c
 	(move_index_entries_after_items): change the logic of the condition
