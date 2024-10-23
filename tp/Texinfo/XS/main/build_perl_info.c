@@ -2891,15 +2891,16 @@ html_build_button (const CONVERTER *converter, BUTTON_SPECIFICATION *button,
                                       button_spec->bi.button_function.type];
               if (sub_name)
                 {
-                  char *cv_name;
+                  char *sub_full_name;
                   CV *button_function_cv;
 
-                  xasprintf (&cv_name, "Texinfo::Convert::HTML%s", sub_name);
-                  button_function_cv = get_cv (cv_name, 0);
+                  xasprintf (&sub_full_name, "Texinfo::Convert::HTML%s",
+                             sub_name);
+                  button_function_cv = get_cv (sub_full_name, 0);
                   if (!button_function_cv)
-                    fprintf (stderr, "BUG: %s: not found\n", cv_name);
+                    fprintf (stderr, "BUG: %s: not found\n", sub_full_name);
 
-                  free (cv_name);
+                  free (sub_full_name);
 
                   button_spec_info_av = newAV ();
                   av_push (button_spec_info_av,
