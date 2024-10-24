@@ -1,3 +1,9 @@
+2024-10-24  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/refcard/Makefile.am (CHECKS_ENV, ccheck, vcheck): set srcdir and
+	top_builddir in the checking commands environment for out of source
+	builds.
+
 2024-10-23  Patrice Dumas  <pertusus@free.fr>
 
 	* README-hacking: update ppport.h call.

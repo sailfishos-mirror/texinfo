@@ -30,11 +30,14 @@ $(doc)-a4.pdf: $(srcdir)/$(doc).tex
 	dvips -t landscape -t a4 $(doc)-a4 -o
 	ps2pdf $(doc)-a4.ps $@
 
+CHECKS_ENV = srcdir="$(srcdir)"; export srcdir; \
+             top_builddir="$(top_builddir)"; export top_builddir;
+
 ccheck:
-	$(srcdir)/txicmdcheck $(txi_check_args)
+	$(CHECKS_ENV) $(srcdir)/txicmdcheck $(txi_check_args)
 
 vcheck:
-	$(srcdir)/txivarcheck $(txi_check_args)
+	$(CHECKS_ENV) $(srcdir)/txivarcheck $(txi_check_args)
 
 spell:
 	aspell list --mode=tex --add-extra-dicts=`pwd`/refcard.spell \
