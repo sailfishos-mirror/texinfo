@@ -1,5 +1,9 @@
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS: mention gettext version
+
+2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS: update to gettext 0.22.5
 
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>

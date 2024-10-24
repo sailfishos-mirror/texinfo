@@ -69,6 +69,9 @@ See the manual for detailed information.
  . check for init file under ~/.config/texinfo/infokey after checking
   ~/.infokey, in accordance with the XDG Base Directory Specification
 
+* Distribution
+  . gettext 0.22.5
+
 
 7.1.1 (7 September 2024)
 This is a bug-fix release with minimal changes.
