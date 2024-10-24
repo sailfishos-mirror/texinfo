@@ -338,11 +338,9 @@ whether script is working as intended.)
 
 check at latest automake/autoconf/gettext/help2man version:
   . to upgrade gettext, run
-      gettextize -f --po-dir=po --po-dir=po_document --dry-run
-      gettextize -f --po-dir=po --po-dir=po_document
+      gettextize --no-changelog -f --po-dir=po --po-dir=po_document --dry-run
+      gettextize --no-changelog -f --po-dir=po --po-dir=po_document
     after installing new version of gettext.
-      .  (note upgrade to gettext 0.22 is stalled - see
-         https://lists.gnu.org/archive/html/bug-gettext/2023-07/msg00008.html)
     if gettextize makes too many changes that need to be reverted, try
       autopoint -f --dry-run
       autopoint -f

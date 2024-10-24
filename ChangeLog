@@ -1,5 +1,12 @@
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Upgrade gettext to 0.22.5 by running gettextize at top level
+
+	* README-hacking: suggest gettextize --no-changelog.  Remove
+	note about gettext 0.22.
+
+2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Run gnulib --add-import at top level and under tp/Texinfo/XS.
 
 2024-10-24  Patrice Dumas  <pertusus@free.fr>
