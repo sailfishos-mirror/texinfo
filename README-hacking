@@ -337,8 +337,9 @@ progress of translations at
 whether script is working as intended.)
 
 check at latest automake/autoconf/gettext/help2man version:
-  . after installing latest version, run autoreconf -f -v -i followed
-    by reverting unwanted changes
+  . after installing latest version, run
+      AUTOPOINT=true autoreconf -f -v -i
+    followed by reverting unwanted changes
   . to upgrade gettext, run
       gettextize --no-changelog -f --po-dir=po --po-dir=po_document --dry-run
       gettextize --no-changelog -f --po-dir=po --po-dir=po_document
