@@ -1,5 +1,12 @@
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/srclist.txt: remove all files under build-aux.
+	We can add these files with "automake --add-missing" when
+	required and do not need to worry about updating them from
+	gnulib.
+
+2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* autogen.sh: Call autoreconf instead of individual tools,
 	with autopoint disabled.  Do not specify --force as this
 	overwrites INSTALL.
