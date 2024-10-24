@@ -1,5 +1,10 @@
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking, configure.ac, tp/Texinfo/XS/configure.ac:
+	Move all instructions for upgrading gettext to README-hacking.
+
+2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* NEWS: mention gettext version
 
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>

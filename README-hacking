@@ -344,10 +344,18 @@ check at latest automake/autoconf/gettext/help2man version:
     if gettextize makes too many changes that need to be reverted, try
       autopoint -f --dry-run
       autopoint -f
-    check that this does not actually downgrade files due to files also
-    being updated from gnulib --add-import.  check for duplicate files
+    run "git status -u" to check for new files.  revert or remove any
+    *.m4 files that downgrade from a newer serial number (from gnulib)
+    to an older serial number (from gettext).  check for duplicate files
     under build-aux/m4 and gnulib/m4.
-  . also upgrade gettext under tp/Texinfo/XS using autopoint and/or gettextize
+
+    see http://gnu.org/s/gnulib/manual/html_node/gettextize-and-autopoint.html
+    for some hints.
+
+  . also upgrade gettext under tp/Texinfo/XS.  run:
+      gettextize -f --po-dir=../../../po --no-changelog
+     and then revert any unwanted changes and remove any unwanted new files.
+
   . After upgrading automake/autoconf/gettext, run ./autogen.sh
     and/or "autoreconf --verbose --force --install" to update ancilliary
     files in build-aux and elsewhere.  Check changes before committing.
