@@ -1,5 +1,9 @@
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS: update to gettext 0.22.5
+
+2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Upgrade gettext to 0.22.5 by running gettextize at top level
 
 	* README-hacking: suggest gettextize --no-changelog.  Remove

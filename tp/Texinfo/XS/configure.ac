@@ -184,7 +184,7 @@ gl_EARLY
 # and then revert any changes of gnulib/m4/*.m4 files that downgrade from a
 # newer serial number (from gnulib) to an older serial number (from gettext).
 # See http://gnu.org/s/gnulib/manual/html_node/gettextize-and-autopoint.html.
-AM_GNU_GETTEXT_VERSION([0.21])
+AM_GNU_GETTEXT_VERSION([0.22.5])
 AM_GNU_GETTEXT([external])
 
 AM_MISSING_PROG([XSUBPP], [xsubpp])
