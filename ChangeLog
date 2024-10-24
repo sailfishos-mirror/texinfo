@@ -1,5 +1,12 @@
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* Makefile.am (po_document-check): Do not check in *.h files
+	as these only contain declarations of translation functions,
+	not their use.
+	* po_document/POTFILES.in: Remove *.h files.
+
+2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* po/POTFILES.in: add new files
 
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>

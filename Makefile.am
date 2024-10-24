@@ -136,7 +136,7 @@ po_document-check:
 	@if test -f po_document/POTFILES.in; then			\
 	  grep -E -v '^(#|$$)' po_document/POTFILES.in | sort > $@-1;	\
 	  files=;							\
-	  for file in `find [a-z]* -name '*.[ch]' \
+	  for file in `find [a-z]* -name '*.c' \
 	                           -o -name '*.p[lm]'`; do 		\
 	    # don't look at sources from some subdirs.			\
 	    case $$file in						\
