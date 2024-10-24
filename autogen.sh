@@ -34,21 +34,13 @@ if test '!' -s doc/tp_api/texi2any_internals.texi ; then
   $chicken eval $cmd || exit 1
 fi
 
-# This overwrites lots of files with older versions.
-#cmd="autoreconf --verbose --force --install --include=m4"
-
-# So instead:
-: ${ACLOCAL=aclocal}
-: ${AUTOHEADER=autoheader}
-: ${AUTOMAKE=automake}
-: ${AUTOCONF=autoconf}
-cmd="$ACLOCAL -I build-aux/m4 -I gnulib/m4 && $AUTOCONF && $AUTOHEADER && $AUTOMAKE -a -c"
+cmd="AUTOPOINT=true autoreconf --verbose --install"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 
 : ${LIBTOOLIZE=libtoolize}
 cmd="(cd tp/Texinfo/XS && ${LIBTOOLIZE} \
- && AUTOPOINT=true autoreconf --force --verbose --install)"
+ && AUTOPOINT=true autoreconf --verbose --install)"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 # We set AUTOPOINT=true to avoid rewriting files with older versions.

@@ -1,5 +1,11 @@
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* autogen.sh: Call autoreconf instead of individual tools,
+	with autopoint disabled.  Do not specify --force as this
+	overwrites INSTALL.
+
+2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* NEWS: automake 1.17
 	* README-hacking: advice on automake upgrade
 
