@@ -1,5 +1,9 @@
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* po/POTFILES.in: add new files
+
+2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* NEWS: state autoconf 2.72.  Edit for style.
 
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>

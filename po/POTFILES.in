@@ -53,6 +53,8 @@ tp/ext/tex4ht.pm
 tp/texi2any.pl
 tp/Texinfo/XS/convert/converter.c
 tp/Texinfo/XS/convert/convert_html.c
+tp/Texinfo/XS/convert/format_html.c
+tp/Texinfo/XS/convert/html_prepare_converter.c
 tp/Texinfo/XS/main/errors.c
 tp/Texinfo/XS/main/errors.h
 tp/Texinfo/XS/main/manipulate_indices.c
