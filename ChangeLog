@@ -1,5 +1,9 @@
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: suggest another distribution build check recipe
+
+2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* po_document/POTFILES.in: add a file
 
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
