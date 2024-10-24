@@ -1,3 +1,15 @@
+2024-10-24  Patrice Dumas  <pertusus@free.fr>
+
+	* Makefile.am (BUILT_SOURCES, tp/Texinfo/HTMLData.pm)
+	(tp/Texinfo/XS/main/html_conversion_data.c), tp/Makefile.am
+	(translated_source_files), tp/Texinfo/XS/Makefile.am
+	(translated_source_files): build early generated source files that
+	contain translated strings and are thus needed when building in po*
+	directories.  To help with that, add translated_source_files targets
+	in Makefile.am of the generated source files directories such that it
+	is easy to rebuild the files coming from any directory, in particular
+	from an out of source build directory.
+
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: suggest another distribution build check recipe

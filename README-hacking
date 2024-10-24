@@ -401,7 +401,7 @@ make distclean
 ./configure
 make dist
 
-# test make after maintainer-clean (doesn't work as of 2024-10-24)
+# test make after maintainer-clean
 ./configure
 make maintainer-clean
 ./configure

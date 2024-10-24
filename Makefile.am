@@ -34,6 +34,16 @@ BUILT_SOURCES = tp/Texinfo/ModulePath.pm
 tp/Texinfo/ModulePath.pm:
 	cd tp && $(MAKE) $(AM_MAKEFLAGS) Texinfo/ModulePath.pm
 
+# Ensure that those files are built early, as they are needed in po*
+# directories.  This allows to run configure and make after make distclean
+BUILT_SOURCES += $(top_srcdir)/tp/Texinfo/HTMLData.pm \
+                 $(top_srcdir)/tp/Texinfo/XS/main/html_conversion_data.c
+$(top_srcdir)/tp/Texinfo/HTMLData.pm:
+	cd tp && $(MAKE) $(AM_MAKEFLAGS) translated_source_files
+
+$(top_srcdir)/tp/Texinfo/XS/main/html_conversion_data.c:
+	cd tp/Texinfo/XS && $(MAKE) $(AM_MAKEFLAGS) translated_source_files
+
 # One special target for installers to use by hand if desired.
 install-tex:
 	cd doc && $(MAKE) TEXMF=$(TEXMF) install-tex

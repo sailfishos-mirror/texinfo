@@ -338,6 +338,11 @@ MAINTAINERCLEANFILES += main/options_init_free.c main/options_data.h \
                         convert/converters_options.h \
                         main/options_get_perl.c
 
+# target that can be built upon cd'ing to the build directory, as needed
+# when building translated source files from the top level directory to
+# avoid make failing in po* directories.
+translated_source_files: $(srcdir)/main/html_conversion_data.c
+
 $(srcdir)/main/html_conversion_data.c $(srcdir)/main/html_conversion_data.h: main/command_data.c $(srcdir)/../Data/default_css_element_class_styles.csv $(srcdir)/../Data/default_direction_strings.csv $(srcdir)/../Data/default_special_unit_info.csv $(srcdir)/../Data/html_style_commands_element.csv $(srcdir)/../../maintain/generate_code_convert_data.pl
 	$(PERL) $(srcdir)/../../maintain/generate_code_convert_data.pl \
 	        < $(srcdir)/main/command_data.c \

@@ -396,6 +396,11 @@ $(srcdir)/Texinfo/Options.pm: Texinfo/Convert/converters_defaults.txt Texinfo/op
 	    $(srcdir)/Texinfo/Options.pm \
 	       < $(srcdir)/Texinfo/options_data.txt
 
+# target that can be built upon cd'ing to the build directory, as needed
+# when building translated source files from the top level directory to
+# avoid make failing in po* directories.
+translated_source_files: $(srcdir)/Texinfo/HTMLData.pm
+
 $(srcdir)/Texinfo/HTMLData.pm: Texinfo/Data/default_css_element_class_styles.csv Texinfo/Data/default_direction_strings.csv Texinfo/Data/default_special_unit_info.csv Texinfo/Data/html_style_commands_element.csv $(srcdir)/maintain/generate_code_convert_data.pl
 	$(srcdir)/maintain/generate_code_convert_data.pl \
 	      $(srcdir)/Texinfo/Data/default_css_element_class_styles.csv \
