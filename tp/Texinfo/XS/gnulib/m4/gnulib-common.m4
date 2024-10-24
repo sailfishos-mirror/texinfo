@@ -1,9 +1,10 @@
 # gnulib-common.m4
-# serial 104
+# serial 105
 dnl Copyright (C) 2007-2024 Free Software Foundation, Inc.
 dnl This file is free software; the Free Software Foundation
 dnl gives unlimited permission to copy and/or distribute it,
 dnl with or without modifications, as long as this notice is preserved.
+dnl This file is offered as-is, without any warranty.
 
 AC_PREREQ([2.62])
 
@@ -1380,6 +1381,7 @@ AC_DEFUN([gl_CC_GNULIB_WARNINGS],
     dnl -Wno-type-limits                      >= 4.3          >= 3.9
     dnl -Wno-undef                            >= 3            >= 3.9
     dnl -Wno-unsuffixed-float-constants       >= 4.5
+    dnl -Wno-unused-const-variable            >= 4.4          >= 3.9
     dnl -Wno-unused-function                  >= 3            >= 3.9
     dnl -Wno-unused-parameter                 >= 3            >= 3.9
     dnl
@@ -1408,6 +1410,9 @@ AC_DEFUN([gl_CC_GNULIB_WARNINGS],
       #if (__GNUC__ + (__GNUC_MINOR__ >= 3) > 4 && !defined __clang__) || (__clang_major__ + (__clang_minor__ >= 9) > 3)
       -Wno-sign-conversion
       -Wno-type-limits
+      #endif
+      #if (__GNUC__ + (__GNUC_MINOR__ >= 4) > 4 && !defined __clang__) || (__clang_major__ + (__clang_minor__ >= 9) > 3)
+      -Wno-unused-const-variable
       #endif
       #if (__GNUC__ + (__GNUC_MINOR__ >= 5) > 4 && !defined __clang__)
       -Wno-unsuffixed-float-constants
