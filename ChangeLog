@@ -1,5 +1,9 @@
 2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* po_document/POTFILES.in: add a file
+
+2024-10-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* Makefile.am (po_document-check): Do not check in *.h files
 	as these only contain declarations of translation functions,
 	not their use.
