@@ -43,7 +43,6 @@ po/*.gmo
 po/POTFILES
 po/remove-potcdate.sed
 po/stamp-po
-po/texinfo.pot
 
 po_document/*.gmo
 po_document/POTFILES
@@ -99,7 +98,6 @@ gnulib/po/*.gmo
 gnulib/po/POTFILES
 gnulib/po/remove-potcdate.sed
 gnulib/po/stamp-po
-gnulib/po/texinfo-gnulib.pot
 
 tp/Texinfo/XS/teximakehtml
 
@@ -135,7 +133,6 @@ tp/Texinfo/XS/gnulib/po/*.gmo
 tp/Texinfo/XS/gnulib/po/POTFILES
 tp/Texinfo/XS/gnulib/po/remove-potcdate.sed
 tp/Texinfo/XS/gnulib/po/stamp-po
-tp/Texinfo/XS/gnulib/po/texinfo_tp-gnulib.pot
 
 doc/*.html
 doc/*_html

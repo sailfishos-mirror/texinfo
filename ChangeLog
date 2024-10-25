@@ -1,3 +1,13 @@
+2024-10-25  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Track *.pot files in git
+
+	* .gitignore: Do not ignore gnulib/po/texinfo-gnulib.pot,
+	po/texinfo.pot or tp/Texinfo/XS/gnulib/po/texinfo_tp-gnulib.pot.
+	(po_document/texinfo_document.pot was already tracked).
+
+	This is intended to stop *.po files constantly regenerating.
+
 2024-10-24  Patrice Dumas  <pertusus@free.fr>
 
 	* Makefile.am (BUILT_SOURCES, tp/Texinfo/HTMLData.pm)
