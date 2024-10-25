@@ -142,8 +142,6 @@ ERROR_LIMIT     program_cmdline 100    integer
 FORCE           program_cmdline undef  integer
 # --no-warn
 NO_WARN         program_cmdline undef  integer
-# --silent.  Not used.  For completeness
-SILENT          program_cmdline undef  char
 # --trace-includes
 TRACE_INCLUDES  program_cmdline 0      integer
 

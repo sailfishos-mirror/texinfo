@@ -216,7 +216,6 @@ our %program_cmdline_options = (
   'ERROR_LIMIT'                      => 100,
   'FORCE'                            => undef,
   'NO_WARN'                          => undef,
-  'SILENT'                           => undef,
   'TRACE_INCLUDES'                   => 0,
   'FORMAT_MENU'                      => 'menu',
 );

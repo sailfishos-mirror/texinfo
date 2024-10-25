@@ -489,7 +489,6 @@ set_program_cmdline_options_defaults (OPTIONS *options)
   option_set_conf (&options->ERROR_LIMIT, 100, 0);
   option_set_conf (&options->FORCE, -1, 0);
   option_set_conf (&options->NO_WARN, -1, 0);
-  option_set_conf (&options->SILENT, -2, 0);
   option_set_conf (&options->TRACE_INCLUDES, 0, 0);
   option_set_conf (&options->FORMAT_MENU, -2, "menu");
 }
@@ -502,7 +501,6 @@ add_program_cmdline_options_defaults (OPTIONS_LIST *options_list)
   add_new_option_value (options_list, GOT_integer, "ERROR_LIMIT", 100, 0);
   add_new_option_value (options_list, GOT_integer, "FORCE", -1, 0);
   add_new_option_value (options_list, GOT_integer, "NO_WARN", -1, 0);
-  add_new_option_value (options_list, GOT_char, "SILENT", -2, 0);
   add_new_option_value (options_list, GOT_integer, "TRACE_INCLUDES", 0, 0);
   add_new_option_value (options_list, GOT_char, "FORMAT_MENU", -2, "menu");
 }

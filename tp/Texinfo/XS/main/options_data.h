@@ -14,7 +14,7 @@
 #undef PACKAGE_URL
 #undef PACKAGE_VERSION
 
-#define TXI_OPTIONS_NR 229
+#define TXI_OPTIONS_NR 228
 
 typedef struct OPTIONS {
     size_t BIT_user_function_number;
@@ -234,7 +234,6 @@ typedef struct OPTIONS {
     OPTION ERROR_LIMIT;
     OPTION FORCE;
     OPTION NO_WARN;
-    OPTION SILENT;
     OPTION TRACE_INCLUDES;
     OPTION FORMAT_MENU;
 

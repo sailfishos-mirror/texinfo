@@ -1,5 +1,12 @@
 2024-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Customization Variables and Options):
+	Remove SILENT as an equivalent for --silent as it does not work.
+	* tp/Texinfo/options_data.txt: Remove SILENT.
+	* NEWS: mention removal
+
+2024-10-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: instructions for help2man upgrade
 
 2024-10-25  Gavin Smith <gavinsmith0123@gmail.com>

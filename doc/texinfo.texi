@@ -15471,9 +15471,6 @@ meaning of the options.
 @vindex paragraphindent
 @option{--paragraph-indent}  @tab @code{paragraphindent}
 @item
-@vindex SILENT
-@option{--silent}            @tab @code{SILENT}
-@item
 @vindex SPLIT
 @option{--split}             @tab @code{SPLIT}
 @item
