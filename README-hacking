@@ -362,6 +362,9 @@ check at latest automake/autoconf/gettext/help2man version:
   . After upgrading automake/autoconf/gettext, run ./autogen.sh
     and/or "autoreconf --verbose --force --install" to update ancilliary
     files in build-aux and elsewhere.  Check changes before committing.
+
+  . help2man upgrade -
+      make -C man maintainer-clean ; ./config.status man/Makefile ; make -C man
   . mention new versions in NEWS
 
 Update gnulib:

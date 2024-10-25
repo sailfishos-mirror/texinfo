@@ -1,5 +1,9 @@
 2024-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: instructions for help2man upgrade
+
+2024-10-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Track *.pot files in git
 
 	* .gitignore: Do not ignore gnulib/po/texinfo-gnulib.pot,
