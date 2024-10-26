@@ -62,6 +62,26 @@ Update search directories in C codes for the XDG Base Directory Specification
 based on what is done in Perl.  Need to wait to be clear on what is done
 in Perl.
 
+
+Gavin on using CSV files and a Perl script to generate code for Perl and C.
+For something like html_style_commands_element.csv, it could potentially
+make the code more impenetrable.  Suppose for example someone wants to
+find which part of the code handles the @sansserif command.  If they
+search HTML.pm for 'sansserif' that string isn't there.  As this file
+is shorter, there is less benefit to avoiding duplicating its contents.
+However, the purpose, structure and meaning of this file is quite clear.
+(Files such as HTML.pm are also not self-contained, accessing information
+in files such as Commands.pm, so having another file to access does not
+really change the situation.)
+
+For shorter files like default_special_unit_info.csv and
+default_direction_strings.csv it is less clear that it offers a net
+benefit.  To be honest, the function of these files is not particularly
+clear to me other than one of them is something to do with node direction
+pointers.  I don't someone looking at these files for the first time
+would have an easy time figuring out what they are for.
+
+
 In the https://github.com/gnu-texinfo/ci-check for cygwin32, unexplained
 failure with missing symbols.  Would need access to the platform.
 See Eli advice on how to debug the issue:
