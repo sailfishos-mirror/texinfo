@@ -46,8 +46,8 @@ use Carp qw(cluck);
 use Pod::Simple::PullParser ();
 
 # use idify from this package to be sure that the target is set by
-# MetaCPAN::Pod::HTML as anchor.  And also take perldoc_url_prefix
-# from this package.
+# MetaCPAN::Pod::HTML as anchor.  Take texinfo_perldoc_url_prefix
+# default from this package.
 use Pod::Simple::XHTML;
 
 # for parselink()
@@ -109,6 +109,7 @@ __PACKAGE__->_accessorize(
   'texinfo_internal_pod_manuals',
   'texinfo_man_url_prefix',
   'texinfo_main_command_sectioning_style',
+  'texinfo_perldoc_url_prefix',
   'texinfo_section_nodes',
   'texinfo_sectioning_base_level',
   'texinfo_sectioning_style',
@@ -137,6 +138,7 @@ sub new
   $new->texinfo_sectioning_style($sectioning_style);
   $new->texinfo_add_upper_sectioning_command(1);
   $new->texinfo_external_pod_as_url(1);
+  $new->texinfo_perldoc_url_prefix($pod_links_html_parser->perldoc_url_prefix);
   return $new;
 }
 
@@ -981,7 +983,7 @@ sub _texinfo_handle_element_end($$$)
               } elsif (defined($texinfo_node) and $texinfo_node ne '') {
                 $node_manual .= ' '.$texinfo_node;
               }
-              my $href = $pod_links_html_parser->perldoc_url_prefix
+              my $href = $self->texinfo_perldoc_url_prefix
                   . $manual_text;
               if (defined($explanation)) {
                 my $target = $pod_links_html_parser->idify($section_text, 1);
@@ -1220,6 +1222,11 @@ which the C<numbered> style is used in the default case.
 
 String used as a prefix for man page urls.  Default
 is C<http://man.he.net/man>.
+
+=item texinfo_perldoc_url_prefix
+
+String used as a prefix for external Pod if texinfo_external_pod_as_url
+is set.  Default is L<Pod::Simple::XHTML/perldoc_url_prefix>.
 
 =item texinfo_section_nodes
 

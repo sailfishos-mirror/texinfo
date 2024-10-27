@@ -1,5 +1,15 @@
 2024-10-27  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_accessorize, new)
+	(_texinfo_handle_element_end): add texinfo_perldoc_url_prefix
+	accessor with default based on Pod::Simple::XHTML perldoc_url_prefix.
+
+	* Pod-Simple-Texinfo/t/Pod-Simple-Texinfo.t (run_test): set
+	texinfo_perldoc_url_prefix to have more reproducible test results
+	as Pod::Simple::XHTML perldoc_url_prefix changed in 2019.
+
+2024-10-27  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm: document
 	texinfo_external_pod_as_url in Pod section.
 

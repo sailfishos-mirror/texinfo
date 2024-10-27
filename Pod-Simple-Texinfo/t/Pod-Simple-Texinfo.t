@@ -50,6 +50,10 @@ sub run_test($$$;$$$)
 
   my $parser = Pod::Simple::Texinfo->new();
 
+  # The default, based on Pod::Simple::XHTML perldoc_url_prefix changed in
+  # 2019.  For reproducible results, set it explicitely to the 2024 value
+  $parser->texinfo_perldoc_url_prefix('https://metacpan.org/pod/');
+
   $parser->set_source(\$in);
   $parser->texinfo_external_pod_as_url($external_pod_as_url)
     if (defined($external_pod_as_url));
