@@ -1,5 +1,9 @@
 2024-10-27  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/Makefile.am (pod2texi.texi): remove temporary file.
+
+2024-10-27  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/Makefile.am (TEST_EXTENSIONS, T_LOG_DRIVER)
 	(T_LOG_COMPILER, AM_T_LOG_FLAGS, test_files, EXTRA_DIST): use the
 	automake tap framework to output the result of each of the tests.

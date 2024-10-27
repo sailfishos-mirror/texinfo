@@ -47,6 +47,7 @@ $(srcdir)/pod2texi.texi: $(pod2texi_pl)
 	$(MAKEINFO_ENVIRONMENT) $(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=subsubsection --no-section-nodes --headings-as-sections --subdir=$(srcdir) $(pod2texi_pl) > /dev/null
 	mv $(srcdir)/pod2texi.texi $(srcdir)/pod2texi_tmp.texi
 	sed 's;https://metacpan.org/pod/Pod::Simple::Texinfo;https://www.gnu.org/software/texinfo/manual/Pod/Simple/Texinfo.html;' $(srcdir)/pod2texi_tmp.texi > $(srcdir)/pod2texi.texi
+	rm -f $(srcdir)/pod2texi_tmp.texi
 endif
 
 TXI_MODULES_ENV = srcdir="$(srcdir)"; export srcdir;
