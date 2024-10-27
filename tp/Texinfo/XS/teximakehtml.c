@@ -115,6 +115,9 @@ main (int argc, char *argv[])
   CONVERTER_INITIALIZATION_INFO *format_defaults;
   char *home_dir;
   const char *curdir = ".";
+  char *top_srcdir;
+  char *top_builddir;
+  char *tp_builddir = 0;
 
   /* there are two modes, depending on test value.
       - if test is set, the output is setup to test specific output
@@ -198,7 +201,25 @@ main (int argc, char *argv[])
    }
   */
 
-  txi_general_setup (LOCALEDIR, 0, 0, 0, 0);
+  top_srcdir = getenv ("top_srcdir");
+  if (top_srcdir)
+    top_srcdir = strdup (top_srcdir);
+  else
+    /* equivalent to setting top_srcdir based on updirs in ModulePath.pm
+       adapted to a program without any in-source version */
+    top_srcdir = strdup ("../../..");
+
+  top_builddir = getenv ("top_builddir");
+  if (top_builddir)
+    xasprintf (&tp_builddir, "%s/tp", top_builddir);
+  else
+    /* this is correct for in-source builds only. */
+    top_builddir = strdup (top_srcdir);
+
+  txi_general_setup (LOCALEDIR, 1, 0, tp_builddir, top_srcdir);
+
+  free (tp_builddir);
+  free (top_srcdir);
 
   txi_converter_output_format_setup ("html");
 
