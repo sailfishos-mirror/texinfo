@@ -188,7 +188,7 @@ only be used in user-defined code with translatable strings already present in
 the domain anyway.  In fact, these functions are documented mainly because they
 are automatically exported.
 
-See @url{https://metacpan.org/pod/libintl-perl, libintl-perl},
+See @url{https://metacpan.org/pod/Locale::Messages, Locale::Messages},
 @url{https://www.gnu.org/software/gettext/manual/html_node/gettext.html, @code{gettext} C interface},
 @url{https://www.gnu.org/software/gettext/manual/html_node/Perl.html, Perl in GNU Gettext}.
 For translation of strings in output, see @ref{Texinfo@asis{::}Translations NAME,, Texinfo::Translations}.

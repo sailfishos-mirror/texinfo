@@ -2166,7 +2166,7 @@ only be used in user-defined code with translatable strings already present in
 the domain anyway.  In fact, these functions are documented mainly because they
 are automatically exported.
 
-See L<libintl-perl>,
+See L<Locale::Messages>,
 L<C<gettext> C interface|https://www.gnu.org/software/gettext/manual/html_node/gettext.html>,
 L<Perl in GNU Gettext|https://www.gnu.org/software/gettext/manual/html_node/Perl.html>.
 For translation of strings in output, see L<Texinfo::Translations>.
