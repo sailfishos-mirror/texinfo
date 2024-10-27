@@ -1,5 +1,14 @@
 2024-10-27  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/Makefile.am (TEST_EXTENSIONS, T_LOG_DRIVER)
+	(T_LOG_COMPILER, AM_T_LOG_FLAGS, test_files, EXTRA_DIST): use the
+	automake tap framework to output the result of each of the tests.
+
+	* Pod-Simple-Texinfo/t/Pod-Simple-Texinfo.t (index in head node):
+	remove the TODO block, as a TODO block should fail.
+
+2024-10-27  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_accessorize, new)
 	(_texinfo_handle_element_end): add texinfo_perldoc_url_prefix
 	accessor with default based on Pod::Simple::XHTML perldoc_url_prefix.

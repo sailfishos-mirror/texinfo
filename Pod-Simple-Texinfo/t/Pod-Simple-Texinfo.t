@@ -85,10 +85,8 @@ X<aaa>
 
 ', 'index in head');
 
-TODO: {
-
 # fixed in 3.24 2013-02-14
-local $TODO = 'Pod::Simple not ignoring correctly X<>';
+# 'Pod::Simple not ignoring correctly X<>';
 
 run_test('=head1 NAME
 X<aaa>
@@ -99,8 +97,6 @@ X<aaa>
 
 ',
 , 'index in head node', undef, 1);
-
-}
 
 run_test('=head1 NAME
 

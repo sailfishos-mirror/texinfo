@@ -13,7 +13,13 @@ AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; top_srcdir="$(top_srcd
 
 nodist_bin_SCRIPTS = pod2texi
 
-test_files = prove.sh \
+TEST_EXTENSIONS = .t
+T_LOG_DRIVER = env AM_TAP_AWK='$(AWK)' $(SHELL) \
+                       $(top_srcdir)/build-aux/tap-driver.sh
+T_LOG_COMPILER = $(PERL)
+AM_T_LOG_FLAGS = -w
+
+test_files = t/Pod-Simple-Texinfo.t \
   test_scripts/manual_sectioning_gap_test.sh \
   test_scripts/test_empty_head2.sh \
   test_scripts/test_ref_to_unknown.sh
@@ -21,9 +27,9 @@ test_files = prove.sh \
 EXTRA_DIST = Changes \
  Makefile.PL \
  MANIFEST \
- t/Pod-Simple-Texinfo.t \
  pod2texi.pl \
  tests \
+ prove.sh \
  $(test_files)
 
 converterdatadir = $(datadir)/$(CONVERTER)
