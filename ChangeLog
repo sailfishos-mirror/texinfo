@@ -1,3 +1,8 @@
+2024-10-27  Patrice Dumas  <pertusus@free.fr>
+
+	* util/htmlxref.cnf (source-highlite): rename src-highlite as
+	source-highlite.
+
 2024-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
 	pretest 7.1.90
