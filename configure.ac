@@ -577,7 +577,7 @@ AC_ARG_ENABLE([pod-simple-texinfo-tests],
     [
      if test "z$PROVE" = 'z' ; then
        pod_simple_texinfo_tests='no'
-     elif $PERL -e "use 5.008_001; use Encode; use Test::More; use Pod::Simple::PullParser;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
+     elif $PERL -e "use 5.008_001; use Encode; use Test::More; use Pod::Simple::PullParser; use Pod::Simple::XHTML;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
      then
        pod_simple_texinfo_tests='yes'
      else
@@ -599,7 +599,7 @@ AC_ARG_ENABLE([perl-api-texi-build],
        build_perl_api_texi='yes'
      fi],
     [
-     if $PERL -e "use 5.008_001; use Encode; use Pod::Simple::PullParser;" > /dev/null 2>&1;
+     if $PERL -e "use 5.008_001; use Encode; use Pod::Simple::PullParser; use Pod::Simple::XHTML;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
      then
        build_perl_api_texi='yes'
      else

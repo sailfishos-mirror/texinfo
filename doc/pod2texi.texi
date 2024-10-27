@@ -155,7 +155,7 @@ Display version information and exit.
 @subsubheading pod2texi SEE ALSO
 @anchor{pod2texi SEE ALSO}
 
-@ref{,,, Pod-Simple-Texinfo}.  @ref{,,, perlpod}.  The Texinfo manual.
+@url{https://metacpan.org/pod/Pod::Simple::Texinfo, Pod::Simple::Texinfo}.  @url{https://metacpan.org/pod/perlpod, perlpod}.  The Texinfo manual.
 Texinfo home page: @url{https://www.gnu.org/software/texinfo/}
 
 @subsubheading pod2texi COPYRIGHT AND LICENSE

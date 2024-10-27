@@ -7,7 +7,7 @@ use Test::More;
 use File::Spec;
 
 BEGIN {
-  plan tests => 23;
+  plan tests => 26;
 
   my $updir = File::Spec->updir();
   # To find Texinfo::ModulePath
@@ -37,18 +37,22 @@ ok(1); # If we made it this far, we're ok.
 # to run a specific test:
 my $arg_test_case = shift @ARGV;
 
-sub run_test($$$;$$)
+sub run_test($$$;$$$)
 {
   my $in = shift;
   my $out = shift;
   my $name = shift;
+  my $external_pod_as_url = shift;
   my $test_nodes = shift;
   my $sectioning_base_level = shift;
 
   return if (defined($arg_test_case) and $name ne $arg_test_case);
 
   my $parser = Pod::Simple::Texinfo->new();
+
   $parser->set_source(\$in);
+  $parser->texinfo_external_pod_as_url($external_pod_as_url)
+    if (defined($external_pod_as_url));
   $parser->texinfo_section_nodes(1)
     if ($test_nodes);
   if (defined($sectioning_base_level)) {
@@ -68,7 +72,7 @@ sub run_test($$$;$$)
   }
 }
 
-run_test ('=head1 T
+run_test('=head1 T
 X<aaa>
 ',
 '@chapter T
@@ -82,7 +86,7 @@ TODO: {
 # fixed in 3.24 2013-02-14
 local $TODO = 'Pod::Simple not ignoring correctly X<>';
 
-run_test ('=head1 NAME
+run_test('=head1 NAME
 X<aaa>
 ',
 '@node NAME
@@ -90,11 +94,11 @@ X<aaa>
 @cindex aaa
 
 ',
-, 'index in head node', 1);
+, 'index in head node', undef, 1);
 
 }
 
-run_test ('=head1 NAME
+run_test('=head1 NAME
 
 T@c
 
@@ -113,9 +117,9 @@ T@@c
 @node T@@c @@@comma{}
 @subsection @@,
 
-', 'protected characters', 1, 2);
+', 'protected characters', undef, 1, 2);
 
-run_test ('=head1 T
+run_test('=head1 T
 
 Para X<bb>
 in para X<cc>  
@@ -228,7 +232,7 @@ run_test('=over
 
 @end table
 
-', 'duplicate anchors ref');
+', 'duplicate anchors ref', 0);
 
 run_test('=head1 a, b', '@chapter a, b
 @anchor{a@comma{} b}
@@ -299,16 +303,27 @@ L</head C<extra>>
 
 ', 'code in reference');
 
-run_test('=head1 head
+my $link_to_external_module_pod = '=head1 head
 
 L<Pod::deC<code>>
 
-', '@chapter head
+';
+
+run_test($link_to_external_module_pod,
+'@chapter head
 @anchor{head}
 
 @ref{,,, Pod-decode}
 
-', 'link to external module');
+', 'link to external module', 0);
+
+run_test($link_to_external_module_pod,
+'@chapter head
+@anchor{head}
+
+@url{https://metacpan.org/pod/Pod::decode, Pod::decode}
+
+', 'link to external module external pod as url');
 
 run_test('=head1 head
 
@@ -387,33 +402,60 @@ run_test('=head1 head
 @end html
 ','cpp lines in formats');
 
-run_test('=head1 ---- -- C<--->
+my $protected_dash_pod = '=head1 ---- -- C<--->
 
 C<--- L<---|--/--->>
 
 L<F<--->|F<-->/C<--->>
 
-','@chapter @asis{}-@asis{}-@asis{}-@asis{}- @asis{}-@asis{}-@asis{} @code{---}
+';
+
+run_test($protected_dash_pod,
+'@chapter @asis{}-@asis{}-@asis{}-@asis{}- @asis{}-@asis{}-@asis{} @code{---}
 @anchor{@asis{}-@asis{}-@asis{}-@asis{}- @asis{}-@asis{}-@asis{} @code{---}}
 
 @code{--- @ref{---,, @asis{}-@asis{}-@asis{}-@asis{}, --}}
 
 @ref{@code{---},, @file{---}, --}
 
-', 'protected -');
+', 'protected -', 0);
 
-run_test('=head1 end of line in L
+run_test($protected_dash_pod,
+'@chapter @asis{}-@asis{}-@asis{}-@asis{}- @asis{}-@asis{}-@asis{} @code{---}
+@anchor{@asis{}-@asis{}-@asis{}-@asis{}- @asis{}-@asis{}-@asis{} @code{---}}
+
+@code{--- @url{https://metacpan.org/pod/@asis{}-@asis{}-@asis{}#pod, @asis{}-@asis{}-@asis{} @asis{}-@asis{}-@asis{}-@asis{}}}
+
+@url{https://metacpan.org/pod/@asis{}-@asis{}-@asis{}#pod, @asis{}-@asis{}-@asis{} @file{---}}
+
+', 'protected - external pod as url');
+
+my $end_of_line_in_L_pod = '=head1 end of line in L
 
 L<< Some::Pod
 ::Manual/with
 end of C<line>
->>','@chapter end of line in L
+>>';
+
+run_test($end_of_line_in_L_pod,
+'@chapter end of line in L
 @anchor{end of line in L}
 
 @ref{with
 end of @code{line},,, Some-Pod-Manual}
 
-', 'end of line in L');
+', 'end of line in L', 0);
+
+run_test($end_of_line_in_L_pod,
+'@chapter end of line in L
+@anchor{end of line in L}
+
+@url{https://metacpan.org/pod/Some::Pod
+::Manual, Some::Pod
+::Manual with
+end of @code{line}}
+
+', 'end of line in L external pod as url');
 
 run_test('=head1 empty head2
 
@@ -432,7 +474,7 @@ run_test('=head1 empty head2
 @node @strong{}
 @section @strong{}
 
-', 'empty head2', 1);
+', 'empty head2', undef, 1);
 
 1;
 

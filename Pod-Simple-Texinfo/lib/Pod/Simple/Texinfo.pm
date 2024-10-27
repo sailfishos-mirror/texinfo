@@ -33,11 +33,6 @@
 #
 # bare_output flag described in Pod::Simple::Subclassing is taken into
 # account.
-#
-#
-# TODO: it could be relevant to convert L<...> referring to external modules to
-# urls to Metacpan, or similar websites, using @url instead of @ref, which
-# is very unlikely to lead to other modules documentation.
 
 
 package Pod::Simple::Texinfo;
@@ -49,6 +44,11 @@ use strict;
 use Carp qw(cluck);
 #use Pod::Simple::Debug (3);
 use Pod::Simple::PullParser ();
+
+# use idify from this package to be sure that the target is set by
+# MetaCPAN::Pod::HTML as anchor.  And also take perldoc_url_prefix
+# from this package.
+use Pod::Simple::XHTML;
 
 # for parselink()
 #use Pod::ParseLink;
@@ -104,6 +104,7 @@ my @raw_formats = ('html', 'HTML', 'docbook', 'DocBook', 'texinfo',
 __PACKAGE__->_accessorize(
   'texinfo_add_upper_sectioning_command',
   'texinfo_debug',
+  'texinfo_external_pod_as_url',
   'texinfo_generate_setfilename', # for standalone manuals
   'texinfo_internal_pod_manuals',
   'texinfo_man_url_prefix',
@@ -119,6 +120,8 @@ my $sectioning_style = 'numbered';
 my $sectioning_base_level = 0;
 my $man_url_prefix = 'http://man.he.net/man';
 
+my $pod_links_html_parser = Pod::Simple::XHTML->new();
+
 sub new
 {
   my $class = shift;
@@ -133,6 +136,7 @@ sub new
   $new->texinfo_man_url_prefix($man_url_prefix);
   $new->texinfo_sectioning_style($sectioning_style);
   $new->texinfo_add_upper_sectioning_command(1);
+  $new->texinfo_external_pod_as_url(1);
   return $new;
 }
 
@@ -649,9 +653,10 @@ sub _texinfo_handle_element_start($$$)
       #print STDERR "  @attrs\n";
       #my $raw_L = $attr_hash->{'raw'}.'';
       #print STDERR " $attr_hash->{'raw'}: $raw_L\n";
-      my ($url_arg, $texinfo_node, $texinfo_manual, $texinfo_section);
+      my ($url_arg, $texinfo_node, $texinfo_manual, $texinfo_section,
+          $manual_text, $section_text);
       if ($linktype eq 'man') {
-        # NOTE: the .'' is here to force the $token->attr to ba a real
+        # NOTE: the .'' is here to force the $token->attr to be a real
         # string and not an object.
         # NOTE 2: It is not clear that setting the url should be done
         # here, maybe this should be in the Texinfo HTML converter.
@@ -706,7 +711,7 @@ sub _texinfo_handle_element_start($$$)
         # same functions as the pull parser implementation.
         my $manual = $attr_hash->{'to'};
         my $section = $attr_hash->{'section'};
-        my ($section_text, $section_texi, $section_out);
+        my ($section_texi, $section_out);
         if (defined($section)) {
           # convert the section presented as tree to Texinfo
           _begin_context($self->{'texinfo_accumulated'}, 'L section');
@@ -717,7 +722,7 @@ sub _texinfo_handle_element_start($$$)
           # coerce to string
           $section_text = $section.'';
         }
-        my ($manual_text, $manual_texi, $manual_out);
+        my ($manual_texi, $manual_out);
         if (defined($manual)) {
           # convert the manual presented as tree to Texinfo
           _begin_context($self->{'texinfo_accumulated'}, 'L manual');
@@ -797,7 +802,8 @@ sub _texinfo_handle_element_start($$$)
         # section.
       }
       push @{$self->{'texinfo_stack'}}, [$linktype, $content_implicit, $url_arg,
-                           $texinfo_manual, $texinfo_node, $texinfo_section];
+                           $texinfo_manual, $texinfo_node, $texinfo_section,
+                           $manual_text, $section_text];
       #print STDERR join('|', @{$self->{'texinfo_stack'}->[-1]}) . "\n";
       #if (defined($to)) {
       #  print STDERR " | $to\n";
@@ -952,7 +958,8 @@ sub _texinfo_handle_element_end($$$)
     } elsif ($tagname eq 'L') {
       my $format = pop @{$self->{'texinfo_stack'}};
       my ($linktype, $content_implicit, $url_arg,
-          $texinfo_manual, $texinfo_node, $texinfo_section) = @$format;
+          $texinfo_manual, $texinfo_node, $texinfo_section,
+          $manual_text, $section_text) = @$format;
       if ($linktype ne 'man') {
         my $explanation;
         if (defined($result) and $result =~ m/\S/ and !$content_implicit) {
@@ -967,9 +974,26 @@ sub _texinfo_handle_element_end($$$)
           }
         } elsif ($linktype eq 'pod') {
           if (defined($texinfo_manual)) {
-            $explanation = '' if (!defined($explanation));
-            _output($fh, $self->{'texinfo_accumulated'},
-                     "\@ref{$texinfo_node,,$explanation, $texinfo_manual}");
+            if ($self->texinfo_external_pod_as_url) {
+              my $node_manual = _protect_comma(protect_text($manual_text));
+              if (defined($explanation)) {
+                $node_manual .= $explanation;
+              } elsif (defined($texinfo_node) and $texinfo_node ne '') {
+                $node_manual .= ' '.$texinfo_node;
+              }
+              my $href = $pod_links_html_parser->perldoc_url_prefix
+                  . $manual_text;
+              if (defined($explanation)) {
+                my $target = $pod_links_html_parser->idify($section_text, 1);
+                $href .= '#'.$target if ($target ne '');
+              }
+              _output($fh, $self->{'texinfo_accumulated'},
+               "\@url{"._protect_comma(protect_text($href)).", $node_manual}");
+            } else {
+              $explanation = '' if (!defined($explanation));
+              _output($fh, $self->{'texinfo_accumulated'},
+                    "\@ref{$texinfo_node,,$explanation, $texinfo_manual}");
+            }
           } elsif (defined($explanation)) {
             _output($fh, $self->{'texinfo_accumulated'},
                    "\@ref{$texinfo_node,,$explanation}");

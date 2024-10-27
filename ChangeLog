@@ -1,5 +1,36 @@
 2024-10-27  Patrice Dumas  <pertusus@free.fr>
 
+	pod2texi: Use an @url to convert L<...> referring to external modules
+
+	* Pod-Simple-Texinfo/Makefile.PL (WriteMakefile),
+	Pod-Simple-Texinfo/README, configure.ac (POD_SIMPLE_TEXINFO_TESTS)
+	(BUILD_PERL_API_TEXI): document/add Pod::Simple::XHTML dependence.
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_accessorize),
+	($pod_links_html_parser, new, _texinfo_handle_element_start)
+	(_texinfo_handle_element_end): add texinfo_external_pod_as_url
+	configuration, set to 1 in the default case.  Pass $manual_text
+	and $section_text to L tag formatting.  If texinfo_external_pod_as_url
+	is set, format L to external Pod as an @url, using idify and
+	perldoc_url_prefix from Pod::Simple::XHTML, mimicking
+	Pod::Simple::XHTML resolve_pod_page_link, but without url protection,
+	as it is already done in Texinfo::Convert::HTML.
+
+	* Pod-Simple-Texinfo/t/Pod-Simple-Texinfo.t (run_test)
+	(index in head node, protected characters, link to external module)
+	(protected -, end of line in L, empty head2): modify run_test to
+	pass $external_pod_as_url as first optional argument, to be able to
+	set texinfo_external_pod_as_url to a different value as the default.
+
+	* Pod-Simple-Texinfo/t/Pod-Simple-Texinfo.t
+	(link to external module external pod as url)
+	(protected - external pod as url)
+	(end of line in L external pod as url): tests using the same Pod as
+	other tests, but with texinfo_external_pod_as_url left to the default
+	value.
+
+2024-10-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl (@texinfo_language_config_dirs): when calling
 	texi2any in source, but not as part of a test, add top_srcdir util
 	directory to @texinfo_language_config_dirs to find the default
