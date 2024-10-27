@@ -24,8 +24,8 @@
 
 /* locales dir for output strings translations */
 void txi_general_setup (const char *localesdir, int texinfo_uninstalled,
-                const char *tp_builddir,
-                const char *converterdatadir, const char *top_srcdir);
+                   const char *converterdatadir, const char *tp_builddir,
+                   const char *top_srcdir);
 
 void txi_converter_output_format_setup (const char *format_str);
 

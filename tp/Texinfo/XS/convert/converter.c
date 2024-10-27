@@ -118,8 +118,9 @@ const char *xml_text_entity_no_arg_commands_formatting[BUILTIN_CMD_NUMBER];
 
 static void
 setup_converter_paths_information (int texinfo_uninstalled,
+                                   const char *converterdatadir,
                                    const char *tp_builddir,
-                         const char *converterdatadir, const char *top_srcdir)
+                                   const char *top_srcdir)
 {
   memset (&conversion_paths_info, 0, sizeof (PATHS_INFORMATION));
   conversion_paths_info.texinfo_uninstalled = texinfo_uninstalled;
@@ -142,8 +143,8 @@ setup_converter_paths_information (int texinfo_uninstalled,
 
 /* called only once */
 void
-converter_setup (int texinfo_uninstalled, const char *tp_builddir,
-                 const char *converterdatadir, const char *top_srcdir)
+converter_setup (int texinfo_uninstalled, const char *converterdatadir,
+                 const char *tp_builddir, const char *top_srcdir)
 {
   int i;
 

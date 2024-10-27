@@ -48,16 +48,16 @@
    to be called once */
 void
 txi_general_setup (const char *localesdir, int texinfo_uninstalled,
-                 const char *tp_builddir,
-                 const char *converterdatadir, const char *top_srcdir)
+                   const char *converterdatadir, const char *tp_builddir,
+                   const char *top_srcdir)
 {
   messages_and_encodings_setup ();
 
   if (localesdir)
     configure_output_strings_translations (localesdir, 0, -1);
 
-  converter_setup (texinfo_uninstalled, tp_builddir,
-                   converterdatadir, top_srcdir);
+  converter_setup (texinfo_uninstalled, converterdatadir, tp_builddir,
+                   top_srcdir);
 }
 
 /* initialization of the library for a specific output format, to be
