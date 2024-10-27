@@ -1,5 +1,12 @@
 2024-10-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl (@texinfo_language_config_dirs): when calling
+	texi2any in source, but not as part of a test, add top_srcdir util
+	directory to @texinfo_language_config_dirs to find the default
+	htmlxref.cnf file there.
+
+2024-10-27  Patrice Dumas  <pertusus@free.fr>
+
 	* util/htmlxref.cnf (source-highlight, src-highlite): use both
 	src-highlite and source-highlight as source-highlight project name.
 

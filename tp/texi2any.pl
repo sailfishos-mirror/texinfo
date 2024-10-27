@@ -1525,6 +1525,11 @@ Texinfo::Transformations->import();
 require Texinfo::Convert::Utils;
 Texinfo::Convert::Utils->import();
 
+if (not get_conf('TEST') and $Texinfo::ModulePath::texinfo_uninstalled) {
+  push @texinfo_language_config_dirs,
+    File::Spec->catdir($Texinfo::ModulePath::top_srcdir, 'util');
+}
+
 if ($Texinfo::ModulePath::texinfo_uninstalled) {
   my $locales_dir = File::Spec->catdir($Texinfo::ModulePath::tp_builddir,
                                        'LocaleData');
