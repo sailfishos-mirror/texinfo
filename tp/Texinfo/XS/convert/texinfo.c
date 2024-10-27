@@ -344,7 +344,7 @@ txi_converter_setup (const char *format_str,
                      const char *output_format,
                      const char *locale_encoding,
                      const char *program_file,
-                     const STRING_LIST *texinfo_language_config_dirs,
+                     const STRING_LIST *texinfo_language_config_dirs_in,
                      OPTIONS_LIST *customizations)
 {
   enum converter_format converter_format
@@ -357,6 +357,7 @@ txi_converter_setup (const char *format_str,
   const char *configured_url = PACKAGE_URL_CONFIG;
   const char *configured_name_version
     = PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG;
+  STRING_LIST *texinfo_language_config_dirs = new_string_list ();
 
   conf = new_converter_initialization_info ();
 
@@ -370,14 +371,11 @@ txi_converter_setup (const char *format_str,
     err_add_option_string_value (&conf->conf, txi_base_sorted_options,
                         "TEXINFO_OUTPUT_FORMAT", 0, format_str);
 
-  if (texinfo_language_config_dirs)
-    {
-      if (! add_option_strlist_value (&conf->conf, txi_base_sorted_options,
-                               "TEXINFO_LANGUAGE_DIRECTORIES",
-                               texinfo_language_config_dirs))
-       fprintf (stderr, "BUG: error setting %s\n",
-                        "TEXINFO_LANGUAGE_DIRECTORIES");
-    }
+
+  if (texinfo_language_config_dirs_in)
+    copy_strings (texinfo_language_config_dirs,
+                  texinfo_language_config_dirs_in);
+
 
   /* similar to options coming from texi2any */
   err_add_option_string_value (&conf->conf, txi_base_sorted_options,
@@ -413,7 +411,25 @@ txi_converter_setup (const char *format_str,
 
   self = converter_converter (converter_format, conf);
 
+  if (!self->conf->TEST.o.integer && conversion_paths_info.texinfo_uninstalled
+      && conversion_paths_info.p.uninstalled.top_srcdir)
+    {
+      char *in_source_util_dir;
+      xasprintf (&in_source_util_dir, "%s/util",
+                conversion_paths_info.p.uninstalled.top_srcdir);
+      add_string (in_source_util_dir, texinfo_language_config_dirs);
+      free (in_source_util_dir);
+    }
+
+  copy_strings (self->conf->TEXINFO_LANGUAGE_DIRECTORIES.o.strlist,
+                texinfo_language_config_dirs);
+
+  destroy_strings_list (texinfo_language_config_dirs);
+
   destroy_converter_initialization_info (conf);
+
+  converter_initialize (self);
+
   return self;
 }
 

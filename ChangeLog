@@ -1,5 +1,15 @@
 2024-10-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (converter_converter),
+	tp/Texinfo/XS/convert/texinfo.c (txi_converter_setup): call
+	converter_initialize in txi_converter_setup, not in
+	converter_converter.
+	Add top_srcdir/util to TEXINFO_LANGUAGE_DIRECTORIES as in texi2any.pl,
+	after the converter_converter call and before calling
+	converter_initialize.
+
+2024-10-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/teximakehtml.c (main): call txi_general_setup with
 	paths setup for an uninstalled program, similarly with how
 	Texinfo::ModulePath.pm can be used to set paths.
