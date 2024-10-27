@@ -1,5 +1,10 @@
 2024-10-27  Patrice Dumas  <pertusus@free.fr>
 
+	* util/htmlxref.cnf (source-highlight, src-highlite): use both
+	src-highlite and source-highlight as source-highlight project name.
+
+2024-10-27  Patrice Dumas  <pertusus@free.fr>
+
 	* util/htmlxref.cnf (source-highlite): rename src-highlite as
 	source-highlite.
 

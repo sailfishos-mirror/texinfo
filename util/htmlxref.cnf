@@ -729,7 +729,9 @@ sourceinstall	node	${GS}/sourceinstall/manual/html_node/
 sqltutor	mono	${GS}/sqltutor/manual/sqltutor.html
 sqltutor	node	${GS}/sqltutor/manual/html_node/
 
-source-highlite	mono	${GS}/src-highlite/source-highlight.html
+# maybe an old name for the project
+src-highlite	mono	${GS}/src-highlite/source-highlight.html
+source-highlight	mono	${GS}/src-highlite/source-highlight.html
 
 swbis		mono	${GS}/swbis/manual.html
 
