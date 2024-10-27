@@ -1149,7 +1149,7 @@ It supports producing a standalone manual per Pod (the default) or
 render the Pod as a chapter, see L</texinfo_sectioning_base_level>.
 
 C<@documentencoding> is not output, which is consistent with outputting
-Texinfo in UTF-8 in the caller.
+Texinfo in UTF-8.
 
 =head1 METHODS
 
@@ -1183,9 +1183,15 @@ output instead.
 =item texinfo_debug
 
 Debug level.  Mainly or only used to turn on Texinfo parsing debugging, when
-Texinfo obtained from POD is parsed as Texinfo code to be normalized or
+Texinfo obtained from Pod is parsed as Texinfo code to be normalized or
 modified and to report associated Texinfo processing errors.  More information
 output with higher levels.  Default 0, no debugging information output.
+
+=item texinfo_external_pod_as_url
+
+If set to 0, generate a C<@ref> with an external manual argument for a
+reference to an external Pod page.  In the default case, an C<@url> linking to
+a website collecting CPAN documentation is output for external Pod pages.
 
 =item texinfo_generate_setfilename
 

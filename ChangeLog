@@ -1,5 +1,10 @@
 2024-10-27  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm: document
+	texinfo_external_pod_as_url in Pod section.
+
+2024-10-27  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/Makefile.am (pod2texi.texi): postprocess pod2texi.texi to
 	substitute the MetaCPAN url that does not exist by the url on the GNU
 	website.
