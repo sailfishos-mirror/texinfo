@@ -1,5 +1,14 @@
 2024-10-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/customization_options.c
+	(copy_options_list_options, copy_options_list)
+	(copy_options_list_set_configured): rename copy_options_list_options
+	as copy_options_list_set_configured.  Readd copy_options_list_options
+	as a static function to only do the copy.  Reorganize code to avoid
+	redundancies.  Remove add_option_copy. 
+
+2024-10-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (set_converter_init_information):
 	copy directly the options list OPTIONS structure as converter
 	format_defaults_conf.

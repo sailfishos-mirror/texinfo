@@ -461,65 +461,65 @@ options_list_add_option_name (OPTIONS_LIST *options_list,
   return option;
 }
 
-static OPTION *
-add_option_copy (OPTIONS_LIST *options_list, const OPTION *option_in)
+/* copy OPTIONS_LIST options to an OPTIONS structure */
+static void
+copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
+                           const OPTIONS_LIST *options_list)
 {
-  options_list_add_option_number (options_list, option_in->number);
-  OPTION *option = options_list->sorted_options[option_in->number -1];
-
-  if (option->type == GOT_buttons)
+  if (options_list)
     {
-      if (option_in->o.buttons)
-        options_list->options->BIT_user_function_number
-            += option_in->o.buttons->BIT_user_function_number;
-      if (option->o.buttons)
-        options_list->options->BIT_user_function_number
-            -= option->o.buttons->BIT_user_function_number;
+      size_t i;
+      for (i = 0; i < options_list->number; i++)
+        {
+          size_t index = options_list->list[i] - 1;
+          OPTION *src_option = options_list->sorted_options[index];
+          OPTION *dst_option = sorted_options[index];
+
+          if (src_option->type == GOT_buttons)
+            {
+              if (src_option->o.buttons)
+                options->BIT_user_function_number
+                   += src_option->o.buttons->BIT_user_function_number;
+              if (dst_option->o.buttons)
+                options->BIT_user_function_number
+                   -= dst_option->o.buttons->BIT_user_function_number;
+            }
+
+          copy_option (dst_option, src_option);
+        }
     }
-
-  copy_option (option, option_in);
-
-  return option;
 }
 
 void
 copy_options_list (OPTIONS_LIST *options_list, const OPTIONS_LIST *options_src)
 {
-  size_t i;
-
+  copy_options_list_options (options_list->options,
+                             options_list->sorted_options,
+                             options_src);
   if (options_src)
     {
+      size_t i;
       for (i = 0; i < options_src->number; i++)
-        {
-          size_t index = options_src->list[i] - 1;
-          OPTION *src_option = options_src->sorted_options[index];
-          add_option_copy (options_list, src_option);
-        }
+        options_list_add_option_number (options_list, options_src->list[i]);
     }
 }
 
 /* copy OPTIONS_LIST options to an OPTIONS structure */
 void
-copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
-                           OPTIONS_LIST *options_list, int set_configured)
+copy_options_list_set_configured (OPTIONS *options, OPTION **sorted_options,
+                                  OPTIONS_LIST *options_list,
+                                  int set_configured)
 {
-  size_t i;
+  copy_options_list_options (options, sorted_options, options_list);
 
-  for (i = 0; i < options_list->number; i++)
+  if (options_list && set_configured)
     {
-      size_t index = options_list->list[i] - 1;
-      OPTION *src_option = options_list->sorted_options[index];
-      OPTION *dst_option = sorted_options[index];
-
-      copy_option (dst_option, src_option);
-
-      if (dst_option->type == GOT_buttons
-          && dst_option->o.buttons && options)
-         options->BIT_user_function_number
-               += dst_option->o.buttons->BIT_user_function_number;
-
-      if (set_configured)
-        dst_option->configured = 1;
+      size_t i;
+      for (i = 0; i < options_list->number; i++)
+        {
+          size_t index = options_list->list[i] - 1;
+          sorted_options[index]->configured = 1;
+        }
     }
 }
 

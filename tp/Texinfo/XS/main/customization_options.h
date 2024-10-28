@@ -62,8 +62,10 @@ void options_list_add_option_number (OPTIONS_LIST *options_list,
                                      size_t number);
 void copy_options_list (OPTIONS_LIST *options_list,
                         const OPTIONS_LIST *options_src);
-void copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
-                                OPTIONS_LIST *options_list, int set_configured);
+void copy_options_list_set_configured (OPTIONS *options,
+                                       OPTION **sorted_options,
+                                       OPTIONS_LIST *options_list,
+                                       int set_configured);
 
 OPTION *add_option_value (OPTIONS_LIST *options_list,
                           const char *name,

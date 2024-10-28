@@ -313,9 +313,9 @@ static void
 apply_converter_info (CONVERTER *converter,
               CONVERTER_INITIALIZATION_INFO *init_info, int set_configured)
 {
-  copy_options_list_options (converter->conf,
-                             converter->sorted_options,
-                             &init_info->conf, set_configured);
+  copy_options_list_set_configured (converter->conf,
+                                    converter->sorted_options,
+                                    &init_info->conf, set_configured);
 
   if (init_info->translated_commands)
     {
