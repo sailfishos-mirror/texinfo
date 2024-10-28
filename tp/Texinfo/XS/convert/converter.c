@@ -313,7 +313,7 @@ static void
 apply_converter_info (CONVERTER *converter,
               CONVERTER_INITIALIZATION_INFO *init_info, int set_configured)
 {
-  copy_numbered_options_list_options (converter->conf,
+  copy_options_list_options (converter->conf,
                              converter->sorted_options,
                              &init_info->conf, set_configured);
 
@@ -341,9 +341,9 @@ set_converter_init_information (CONVERTER *converter,
   converter->format_defaults_conf = new_options ();
   format_defaults_sorted_options
     = new_sorted_options (converter->format_defaults_conf);
-  copy_numbered_options_list_options (converter->format_defaults_conf,
-                                      format_defaults_sorted_options,
-                                      &format_defaults->conf, 0);
+  copy_options_list_options (converter->format_defaults_conf,
+                             format_defaults_sorted_options,
+                             &format_defaults->conf, 0);
   free (format_defaults_sorted_options);
 
   if (user_conf)

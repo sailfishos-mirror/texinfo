@@ -418,12 +418,10 @@ find_option_string (OPTION **sorted_options, const char *name)
 }
 
 /* copy OPTIONS_LIST options to an OPTIONS structure, using the sorted options
-   to find the struct fields.  The source options numbers need to be set
-   already.
+   to find the struct fields.
  */
 void
-copy_numbered_options_list_options (OPTIONS *options,
-                                    OPTION **sorted_options,
+copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
                            OPTIONS_LIST *options_list, int set_configured)
 {
   size_t i;

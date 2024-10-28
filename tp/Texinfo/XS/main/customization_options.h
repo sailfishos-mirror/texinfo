@@ -56,8 +56,7 @@ void copy_option (OPTION *destination, const OPTION *source);
 void setup_sorted_options (OPTION **sorted_options, OPTIONS *options);
 OPTION **new_sorted_options (OPTIONS *options);
 OPTION *find_option_string (OPTION **sorted_options, const char *name);
-void copy_numbered_options_list_options (OPTIONS *options,
-                                OPTION **sorted_options,
+void copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
                                 OPTIONS_LIST *options_list, int set_configured);
 void set_sorted_option_key_configured (OPTION **sorted_options,
                                        const char *key, int configured);
