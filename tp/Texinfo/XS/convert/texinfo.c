@@ -307,10 +307,8 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
 }
 
 static void
-err_add_option_string_value (OPTIONS_LIST *options_list,
-                             OPTION **sorted_options,
-                             const char *option_name, int int_value,
-                             const char *char_value)
+err_add_option_value (OPTIONS_LIST *options_list, const char *option_name,
+                      int int_value, const char *char_value)
 {
   if (!add_option_value (options_list, option_name,
                          int_value, char_value))
@@ -343,11 +341,11 @@ txi_converter_setup (const char *format_str,
 
   /* prepare specific information for the converter */
   if (output_format)
-    err_add_option_string_value (&conf->conf, txi_base_sorted_options,
-                        "TEXINFO_OUTPUT_FORMAT", 0, output_format);
+    err_add_option_value (&conf->conf, "TEXINFO_OUTPUT_FORMAT",
+                          0, output_format);
   else
-    err_add_option_string_value (&conf->conf, txi_base_sorted_options,
-                        "TEXINFO_OUTPUT_FORMAT", 0, format_str);
+    err_add_option_value (&conf->conf, "TEXINFO_OUTPUT_FORMAT",
+                          0, format_str);
 
 
   if (texinfo_language_config_dirs_in)
@@ -356,11 +354,9 @@ txi_converter_setup (const char *format_str,
 
 
   /* similar to options coming from texi2any */
-  err_add_option_string_value (&conf->conf, txi_base_sorted_options,
-                           "PROGRAM", 0, program_file);
+  err_add_option_value (&conf->conf, "PROGRAM", 0, program_file);
 #define set_configured_information(varname,varvalue) \
-  err_add_option_string_value (&conf->conf, txi_base_sorted_options, \
-                             #varname, 0, varvalue);
+    err_add_option_value (&conf->conf, #varname, 0, varvalue);
   set_configured_information(PACKAGE_VERSION, configured_version)
   set_configured_information(PACKAGE, configured_package)
   set_configured_information(PACKAGE_NAME, configured_name)
@@ -368,18 +364,15 @@ txi_converter_setup (const char *format_str,
   set_configured_information(PACKAGE_URL, configured_url)
 #undef set_configured_information
 
-  err_add_option_string_value (&conf->conf, txi_base_sorted_options,
-                        "COMMAND_LINE_ENCODING", 0, locale_encoding);
-  err_add_option_string_value (&conf->conf, txi_base_sorted_options,
-                         "MESSAGE_ENCODING", 0, locale_encoding);
-  err_add_option_string_value (&conf->conf, txi_base_sorted_options,
-                         "LOCALE_ENCODING", 0, locale_encoding);
+  err_add_option_value (&conf->conf, "COMMAND_LINE_ENCODING", 0,
+                        locale_encoding);
+  err_add_option_value (&conf->conf, "MESSAGE_ENCODING", 0, locale_encoding);
+  err_add_option_value (&conf->conf, "LOCALE_ENCODING", 0, locale_encoding);
   /* filled here because it is the best we have in C */
-  err_add_option_string_value (&conf->conf, txi_base_sorted_options,
-                         "XS_STRXFRM_COLLATION_LOCALE", 0, "en_US");
+  err_add_option_value (&conf->conf, "XS_STRXFRM_COLLATION_LOCALE", 0,
+                        "en_US");
   /*
-  err_add_option_string_value (&conf->conf, txi_base_sorted_options,
-                           "DEBUG", 1, 0);
+  err_add_option_value (&conf->conf, "DEBUG", 1, 0);
    */
 
   if (customizations)
