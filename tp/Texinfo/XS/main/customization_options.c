@@ -423,6 +423,7 @@ free_options_list (OPTIONS_LIST *options_list)
   free (options_list->list);
   free (options_list->sorted_options);
   free_options (options_list->options);
+  free (options_list->options);
 }
 
 void

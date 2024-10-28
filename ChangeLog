@@ -1,3 +1,8 @@
+2024-10-28  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/customization_options.c (free_options_list): free
+	the options itself.
+
 2024-10-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Link to section header not just the page
