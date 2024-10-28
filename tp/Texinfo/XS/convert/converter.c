@@ -372,6 +372,8 @@ new_converter_initialization_info (void)
   CONVERTER_INITIALIZATION_INFO *result = (CONVERTER_INITIALIZATION_INFO *)
      malloc (sizeof (CONVERTER_INITIALIZATION_INFO));
   memset (result, 0, sizeof (CONVERTER_INITIALIZATION_INFO));
+
+  initialize_options_list (&result->conf, 0);
   return result;
 }
 
@@ -464,11 +466,8 @@ converter_converter (enum converter_format format,
      = new_converter_initialization_info ();
 
   copy_converter_initialization_info (user_conf, input_user_conf);
-  number_options_list (&user_conf->conf, converter->sorted_options);
 
   format_defaults = converter_defaults (converter->format, user_conf);
-
-  number_options_list (&format_defaults->conf, converter->sorted_options);
 
   set_converter_init_information (converter, format_defaults, user_conf);
 

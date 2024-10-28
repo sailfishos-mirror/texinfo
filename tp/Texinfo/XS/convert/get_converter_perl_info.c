@@ -264,14 +264,23 @@ get_converter_info_from_sv (SV *conf_sv, const char *class_name,
           char *key;
           I32 retlen;
           SV *value = hv_iternextsv (conf_hv, &key, &retlen);
+          /* FIXME could directly set the value in
+              &initialization_info->conf */
           OPTION *option = new_numbered_option_from_sv (value, converter,
                                                sorted_options, key, &status);
 
           if (!status)
             {
+              size_t index = option->number -1;
+              OPTION *dst_option
+                = initialization_info->conf.sorted_options[index];
+
               initialization_info->conf.list[initialization_info->conf.number]
-                = option;
+                = option->number;
               initialization_info->conf.number++;
+
+              copy_option (dst_option, option);
+              free_option (option);
             }
           else
             {

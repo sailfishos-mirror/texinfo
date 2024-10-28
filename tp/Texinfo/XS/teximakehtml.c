@@ -42,39 +42,6 @@
 
 #define LOCALEDIR DATADIR "/locale"
 
-/* these functions are generic, could be added to customization_options.c */
-void
-add_button_option (OPTIONS_LIST *options_list, OPTION **sorted_options,
-                   const char *option_name,
-                   BUTTON_SPECIFICATION_LIST *buttons)
-{
-  OPTION *option;
-
-  const OPTION *ref_option = find_option_string (sorted_options, option_name);
-  if (!ref_option)
-    return;
-
-  option = new_option (ref_option->type, ref_option->name, ref_option->number);
-  option->o.buttons = buttons;
-
-  options_list_add_option (options_list, option);
-}
-
-/* this function or a variation could be added to customization_options.c */
-static OPTION *
-add_new_option_strlist_value (OPTIONS_LIST *options_list,
-                  enum global_option_type type, const char *name,
-                  const STRING_LIST *strlist)
-{
-  OPTION *option = new_option (type, name, 0);
-
-  copy_strings (option->o.strlist, strlist);
-
-  options_list_add_option (options_list, option);
-
-  return option;
-}
-
 static const char *expanded_formats[] = {"html", 0};
 static VALUE values_array[] = {
   {"txicommandconditionals", "1"}
@@ -242,13 +209,13 @@ main (int argc, char *argv[])
    */
   if (test)
     {
-      add_new_option_strlist_value (&parser_options, GOT_char_string_list,
-                        "EXPANDED_FORMATS", &test_parser_EXPANDED_FORMATS);
+      add_option_strlist_value (&parser_options, "EXPANDED_FORMATS",
+                                &test_parser_EXPANDED_FORMATS);
     }
   else
     {
-      add_new_option_strlist_value (&parser_options, GOT_char_string_list,
-                            "EXPANDED_FORMATS", &parser_EXPANDED_FORMATS);
+      add_option_strlist_value (&parser_options, "EXPANDED_FORMATS",
+                                &parser_EXPANDED_FORMATS);
     }
 
 
@@ -303,11 +270,9 @@ main (int argc, char *argv[])
       custom_node_footer_buttons = new_base_links_buttons (0);
       add_new_button_option (&convert_options,
                      "NODE_FOOTER_BUTTONS", custom_node_footer_buttons);
-      add_new_option_value (&convert_options, GOT_integer,
-                           "PROGRAM_NAME_IN_FOOTER", 1, 0);
+      add_option_value (&convert_options, "PROGRAM_NAME_IN_FOOTER", 1, 0);
       /* this is set to help with comparison with previous invokations */
-      add_new_option_value (&convert_options, GOT_integer,
-                            "TEST", 1, 0);
+      add_option_value (&convert_options, "TEST", 1, 0);
     }
   else
     {
@@ -321,14 +286,13 @@ main (int argc, char *argv[])
       free (program_file);
       program_file = strdup ("texi2any");
 
-      add_new_option_value (&convert_options, GOT_char,
-                            "PACKAGE_VERSION", 0, configured_version);
-      add_new_option_value (&convert_options, GOT_char,
-                            "PACKAGE_AND_VERSION", 0, configured_name_version);
+      add_option_value (&convert_options, "PACKAGE_VERSION", 0,
+                        configured_version);
+      add_option_value (&convert_options, "PACKAGE_AND_VERSION", 0,
+                        configured_name_version);
     }
   /*
-  add_new_option_value (&convert_options, GOT_integer,
-                        "CHECK_HTMLXREF", 1, 0);
+  add_option_value (&convert_options, "CHECK_HTMLXREF", 1, 0);
    */
 
   memset (&converter_texinfo_language_config_dirs, 0, sizeof (STRING_LIST));

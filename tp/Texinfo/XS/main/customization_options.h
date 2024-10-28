@@ -65,10 +65,9 @@ void set_sorted_option_key_configured (OPTION **sorted_options,
 
 
 void initialize_options_list (OPTIONS_LIST *options_list, size_t number);
-void options_list_add_option (OPTIONS_LIST *options_list, OPTION *option);
-OPTION *add_new_option_value (OPTIONS_LIST *options_list,
-                  enum global_option_type type, const char *name,
-                  int int_value, const char *char_value);
+OPTION *add_option_value (OPTIONS_LIST *options_list,
+                          const char *name,
+                          int int_value, const char *char_value);
 OPTION *add_new_button_option (OPTIONS_LIST *options_list,
                               const char *option_name,
                               BUTTON_SPECIFICATION_LIST *buttons);
@@ -78,14 +77,10 @@ void free_options_list (OPTIONS_LIST *options_list);
 
 
 
-OPTION *add_option_string_value (OPTIONS_LIST *options_list,
-                         OPTION **sorted_options,
-                         const char *option_name, int int_value,
-                         const char *char_value);
+void options_list_add_option_number (OPTIONS_LIST *options_list,
+                                     size_t number);
 OPTION *add_option_strlist_value (OPTIONS_LIST *options_list,
-                                  OPTION **sorted_options,
                           const char *option_name, const STRING_LIST *strlist);
-void number_options_list (OPTIONS_LIST *options_list, OPTION **sorted_options);
 
 
 

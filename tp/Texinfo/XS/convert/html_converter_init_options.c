@@ -196,22 +196,11 @@ html_converter_defaults (enum converter_format format,
 
   if (conf)
     {
-      size_t i;
-
-      for (i = 0; i < conf->conf.number; i++)
+      if (conf->conf.options->TEXI2HTML.o.integer > 0)
         {
-          OPTION *option = conf->conf.list[i];
-          if (!strcmp (option->name, "TEXI2HTML"))
-            {
-              if (option->o.integer >= 0)
-                {
-                  add_texi2html_regular_options_defaults
-                                               (&format_defaults->conf);
-                  add_texi2html_default_buttons_specifications
+          add_texi2html_regular_options_defaults (&format_defaults->conf);
+          add_texi2html_default_buttons_specifications
                                         (&format_defaults->conf, 0);
-                }
-              break;
-            }
         }
     }
   return format_defaults;

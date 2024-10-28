@@ -26,12 +26,12 @@ set_common_regular_options_defaults (OPTIONS *options)
 void
 add_common_regular_options_defaults (OPTIONS_LIST *options_list)
 {
-  add_new_option_value (options_list, GOT_char, "PACKAGE", -2, "texinfo");
-  add_new_option_value (options_list, GOT_char, "PACKAGE_NAME", -2, "GNU Texinfo");
-  add_new_option_value (options_list, GOT_char, "PACKAGE_AND_VERSION", -2, "texinfo");
-  add_new_option_value (options_list, GOT_char, "PACKAGE_VERSION", -2, "");
-  add_new_option_value (options_list, GOT_char, "PACKAGE_URL", -2, "https://www.gnu.org/software/texinfo/");
-  add_new_option_value (options_list, GOT_char, "PROGRAM", -2, "");
+  add_option_value (options_list, "PACKAGE", -2, "texinfo");
+  add_option_value (options_list, "PACKAGE_NAME", -2, "GNU Texinfo");
+  add_option_value (options_list, "PACKAGE_AND_VERSION", -2, "texinfo");
+  add_option_value (options_list, "PACKAGE_VERSION", -2, "");
+  add_option_value (options_list, "PACKAGE_URL", -2, "https://www.gnu.org/software/texinfo/");
+  add_option_value (options_list, "PROGRAM", -2, "");
 }
 
 void
@@ -43,7 +43,7 @@ set_converter_regular_options_defaults (OPTIONS *options)
 void
 add_converter_regular_options_defaults (OPTIONS_LIST *options_list)
 {
-  add_new_option_value (options_list, GOT_char, "documentlanguage", -2, 0);
+  add_option_value (options_list, "documentlanguage", -2, 0);
 }
 
 void
@@ -107,59 +107,59 @@ set_html_regular_options_defaults (OPTIONS *options)
 void
 add_html_regular_options_defaults (OPTIONS_LIST *options_list)
 {
-  add_new_option_value (options_list, GOT_char, "BIG_RULE", -2, "<hr>");
-  add_new_option_value (options_list, GOT_char, "BODY_ELEMENT_ATTRIBUTES", -2, 0);
-  add_new_option_value (options_list, GOT_integer, "CHAPTER_HEADER_LEVEL", 2, 0);
-  add_new_option_value (options_list, GOT_char, "CLOSE_QUOTE_SYMBOL", -2, 0);
-  add_new_option_value (options_list, GOT_char, "CONTENTS_OUTPUT_LOCATION", -2, "after_top");
-  add_new_option_value (options_list, GOT_integer, "CONVERT_TO_LATEX_IN_MATH", -1, 0);
-  add_new_option_value (options_list, GOT_integer, "INDENTED_BLOCK_COMMANDS_IN_TABLE", 0, 0);
-  add_new_option_value (options_list, GOT_integer, "CHECK_HTMLXREF", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "COPIABLE_LINKS", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "DATE_IN_HEADER", 0, 0);
-  add_new_option_value (options_list, GOT_char, "DEFAULT_RULE", -2, "<hr>");
-  add_new_option_value (options_list, GOT_char, "documentlanguage", -2, "en");
-  add_new_option_value (options_list, GOT_char, "DOCTYPE", -2, "<!DOCTYPE html>");
-  add_new_option_value (options_list, GOT_integer, "DO_ABOUT", 0, 0);
-  add_new_option_value (options_list, GOT_integer, "OUTPUT_CHARACTERS", 0, 0);
-  add_new_option_value (options_list, GOT_char, "EXTENSION", -2, "html");
-  add_new_option_value (options_list, GOT_char, "EXTERNAL_CROSSREF_EXTENSION", -2, 0);
-  add_new_option_value (options_list, GOT_integer, "FOOTNOTE_END_HEADER_LEVEL", 4, 0);
-  add_new_option_value (options_list, GOT_integer, "FOOTNOTE_SEPARATE_HEADER_LEVEL", 4, 0);
-  add_new_option_value (options_list, GOT_char, "FORMAT_MENU", -2, "sectiontoc");
-  add_new_option_value (options_list, GOT_integer, "HEADERS", 1, 0);
-  add_new_option_value (options_list, GOT_char, "INDEX_ENTRY_COLON", -2, "");
-  add_new_option_value (options_list, GOT_integer, "INLINE_CSS_STYLE", 0, 0);
-  add_new_option_value (options_list, GOT_char, "JS_WEBLABELS", -2, "generate");
-  add_new_option_value (options_list, GOT_char, "JS_WEBLABELS_FILE", -2, "js_licenses.html");
-  add_new_option_value (options_list, GOT_integer, "MAX_HEADER_LEVEL", 4, 0);
-  add_new_option_value (options_list, GOT_char, "MENU_ENTRY_COLON", -2, ":");
-  add_new_option_value (options_list, GOT_char, "MENU_SYMBOL", -2, 0);
-  add_new_option_value (options_list, GOT_integer, "MONOLITHIC", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "NO_CUSTOM_HTML_ATTRIBUTE", 0, 0);
-  add_new_option_value (options_list, GOT_integer, "NO_CSS", 0, 0);
-  add_new_option_value (options_list, GOT_char, "NO_NUMBER_FOOTNOTE_SYMBOL", -2, "*");
-  add_new_option_value (options_list, GOT_integer, "NODE_NAME_IN_MENU", 1, 0);
-  add_new_option_value (options_list, GOT_char, "OPEN_QUOTE_SYMBOL", -2, 0);
-  add_new_option_value (options_list, GOT_char, "OUTPUT_ENCODING_NAME", -2, "utf-8");
-  add_new_option_value (options_list, GOT_integer, "SECTION_NAME_IN_TITLE", 0, 0);
-  add_new_option_value (options_list, GOT_integer, "SHORT_TOC_LINK_TO_TOC", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "SHOW_TITLE", -1, 0);
-  add_new_option_value (options_list, GOT_char, "SPLIT", -2, "node");
-  add_new_option_value (options_list, GOT_char, "TOP_FILE", -2, "index.html");
-  add_new_option_value (options_list, GOT_char, "TOP_NODE_FILE_TARGET", -2, "index.html");
-  add_new_option_value (options_list, GOT_integer, "USE_ACCESSKEY", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "USE_NEXT_HEADING_FOR_LONE_NODE", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "USE_ISO", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "USE_LINKS", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "USE_NODES", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "USE_NODE_DIRECTIONS", -1, 0);
-  add_new_option_value (options_list, GOT_integer, "USE_REL_REV", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "USE_TITLEPAGE_FOR_TITLE", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "WORDS_IN_PAGE", 300, 0);
-  add_new_option_value (options_list, GOT_integer, "XREF_USE_NODE_NAME_ARG", -1, 0);
-  add_new_option_value (options_list, GOT_integer, "XREF_USE_FLOAT_LABEL", 0, 0);
-  add_new_option_value (options_list, GOT_char, "xrefautomaticsectiontitle", -2, "on");
+  add_option_value (options_list, "BIG_RULE", -2, "<hr>");
+  add_option_value (options_list, "BODY_ELEMENT_ATTRIBUTES", -2, 0);
+  add_option_value (options_list, "CHAPTER_HEADER_LEVEL", 2, 0);
+  add_option_value (options_list, "CLOSE_QUOTE_SYMBOL", -2, 0);
+  add_option_value (options_list, "CONTENTS_OUTPUT_LOCATION", -2, "after_top");
+  add_option_value (options_list, "CONVERT_TO_LATEX_IN_MATH", -1, 0);
+  add_option_value (options_list, "INDENTED_BLOCK_COMMANDS_IN_TABLE", 0, 0);
+  add_option_value (options_list, "CHECK_HTMLXREF", 1, 0);
+  add_option_value (options_list, "COPIABLE_LINKS", 1, 0);
+  add_option_value (options_list, "DATE_IN_HEADER", 0, 0);
+  add_option_value (options_list, "DEFAULT_RULE", -2, "<hr>");
+  add_option_value (options_list, "documentlanguage", -2, "en");
+  add_option_value (options_list, "DOCTYPE", -2, "<!DOCTYPE html>");
+  add_option_value (options_list, "DO_ABOUT", 0, 0);
+  add_option_value (options_list, "OUTPUT_CHARACTERS", 0, 0);
+  add_option_value (options_list, "EXTENSION", -2, "html");
+  add_option_value (options_list, "EXTERNAL_CROSSREF_EXTENSION", -2, 0);
+  add_option_value (options_list, "FOOTNOTE_END_HEADER_LEVEL", 4, 0);
+  add_option_value (options_list, "FOOTNOTE_SEPARATE_HEADER_LEVEL", 4, 0);
+  add_option_value (options_list, "FORMAT_MENU", -2, "sectiontoc");
+  add_option_value (options_list, "HEADERS", 1, 0);
+  add_option_value (options_list, "INDEX_ENTRY_COLON", -2, "");
+  add_option_value (options_list, "INLINE_CSS_STYLE", 0, 0);
+  add_option_value (options_list, "JS_WEBLABELS", -2, "generate");
+  add_option_value (options_list, "JS_WEBLABELS_FILE", -2, "js_licenses.html");
+  add_option_value (options_list, "MAX_HEADER_LEVEL", 4, 0);
+  add_option_value (options_list, "MENU_ENTRY_COLON", -2, ":");
+  add_option_value (options_list, "MENU_SYMBOL", -2, 0);
+  add_option_value (options_list, "MONOLITHIC", 1, 0);
+  add_option_value (options_list, "NO_CUSTOM_HTML_ATTRIBUTE", 0, 0);
+  add_option_value (options_list, "NO_CSS", 0, 0);
+  add_option_value (options_list, "NO_NUMBER_FOOTNOTE_SYMBOL", -2, "*");
+  add_option_value (options_list, "NODE_NAME_IN_MENU", 1, 0);
+  add_option_value (options_list, "OPEN_QUOTE_SYMBOL", -2, 0);
+  add_option_value (options_list, "OUTPUT_ENCODING_NAME", -2, "utf-8");
+  add_option_value (options_list, "SECTION_NAME_IN_TITLE", 0, 0);
+  add_option_value (options_list, "SHORT_TOC_LINK_TO_TOC", 1, 0);
+  add_option_value (options_list, "SHOW_TITLE", -1, 0);
+  add_option_value (options_list, "SPLIT", -2, "node");
+  add_option_value (options_list, "TOP_FILE", -2, "index.html");
+  add_option_value (options_list, "TOP_NODE_FILE_TARGET", -2, "index.html");
+  add_option_value (options_list, "USE_ACCESSKEY", 1, 0);
+  add_option_value (options_list, "USE_NEXT_HEADING_FOR_LONE_NODE", 1, 0);
+  add_option_value (options_list, "USE_ISO", 1, 0);
+  add_option_value (options_list, "USE_LINKS", 1, 0);
+  add_option_value (options_list, "USE_NODES", 1, 0);
+  add_option_value (options_list, "USE_NODE_DIRECTIONS", -1, 0);
+  add_option_value (options_list, "USE_REL_REV", 1, 0);
+  add_option_value (options_list, "USE_TITLEPAGE_FOR_TITLE", 1, 0);
+  add_option_value (options_list, "WORDS_IN_PAGE", 300, 0);
+  add_option_value (options_list, "XREF_USE_NODE_NAME_ARG", -1, 0);
+  add_option_value (options_list, "XREF_USE_FLOAT_LABEL", 0, 0);
+  add_option_value (options_list, "xrefautomaticsectiontitle", -2, "on");
 }
 
 void
@@ -193,29 +193,29 @@ set_texi2html_regular_options_defaults (OPTIONS *options)
 void
 add_texi2html_regular_options_defaults (OPTIONS_LIST *options_list)
 {
-  add_new_option_value (options_list, GOT_char, "FORMAT_MENU", -2, "menu");
-  add_new_option_value (options_list, GOT_integer, "USE_SETFILENAME_EXTENSION", 0, 0);
-  add_new_option_value (options_list, GOT_char, "footnotestyle", -2, "separate");
-  add_new_option_value (options_list, GOT_char, "CONTENTS_OUTPUT_LOCATION", -2, "separate_element");
-  add_new_option_value (options_list, GOT_integer, "FORCE", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "USE_ACCESSKEY", 0, 0);
-  add_new_option_value (options_list, GOT_integer, "NODE_NAME_IN_MENU", 0, 0);
-  add_new_option_value (options_list, GOT_integer, "SHORT_TOC_LINK_TO_TOC", 0, 0);
-  add_new_option_value (options_list, GOT_integer, "SHOW_TITLE", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "USE_REL_REV", 0, 0);
-  add_new_option_value (options_list, GOT_integer, "USE_LINKS", 0, 0);
-  add_new_option_value (options_list, GOT_integer, "USE_NODES", 0, 0);
-  add_new_option_value (options_list, GOT_char, "SPLIT", -2, "");
-  add_new_option_value (options_list, GOT_integer, "PROGRAM_NAME_IN_FOOTER", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "PROGRAM_NAME_IN_ABOUT", 1, 0);
-  add_new_option_value (options_list, GOT_integer, "HEADER_IN_TABLE", 1, 0);
-  add_new_option_value (options_list, GOT_char, "MENU_ENTRY_COLON", -2, "");
-  add_new_option_value (options_list, GOT_char, "INDEX_ENTRY_COLON", -2, "");
-  add_new_option_value (options_list, GOT_integer, "DO_ABOUT", -1, 0);
-  add_new_option_value (options_list, GOT_integer, "CHAPTER_HEADER_LEVEL", 1, 0);
-  add_new_option_value (options_list, GOT_char, "BIG_RULE", -2, "<hr style=\"height: 6px;\">");
-  add_new_option_value (options_list, GOT_integer, "FOOTNOTE_END_HEADER_LEVEL", 3, 0);
-  add_new_option_value (options_list, GOT_integer, "FOOTNOTE_SEPARATE_HEADER_LEVEL", 1, 0);
+  add_option_value (options_list, "FORMAT_MENU", -2, "menu");
+  add_option_value (options_list, "USE_SETFILENAME_EXTENSION", 0, 0);
+  add_option_value (options_list, "footnotestyle", -2, "separate");
+  add_option_value (options_list, "CONTENTS_OUTPUT_LOCATION", -2, "separate_element");
+  add_option_value (options_list, "FORCE", 1, 0);
+  add_option_value (options_list, "USE_ACCESSKEY", 0, 0);
+  add_option_value (options_list, "NODE_NAME_IN_MENU", 0, 0);
+  add_option_value (options_list, "SHORT_TOC_LINK_TO_TOC", 0, 0);
+  add_option_value (options_list, "SHOW_TITLE", 1, 0);
+  add_option_value (options_list, "USE_REL_REV", 0, 0);
+  add_option_value (options_list, "USE_LINKS", 0, 0);
+  add_option_value (options_list, "USE_NODES", 0, 0);
+  add_option_value (options_list, "SPLIT", -2, "");
+  add_option_value (options_list, "PROGRAM_NAME_IN_FOOTER", 1, 0);
+  add_option_value (options_list, "PROGRAM_NAME_IN_ABOUT", 1, 0);
+  add_option_value (options_list, "HEADER_IN_TABLE", 1, 0);
+  add_option_value (options_list, "MENU_ENTRY_COLON", -2, "");
+  add_option_value (options_list, "INDEX_ENTRY_COLON", -2, "");
+  add_option_value (options_list, "DO_ABOUT", -1, 0);
+  add_option_value (options_list, "CHAPTER_HEADER_LEVEL", 1, 0);
+  add_option_value (options_list, "BIG_RULE", -2, "<hr style=\"height: 6px;\">");
+  add_option_value (options_list, "FOOTNOTE_END_HEADER_LEVEL", 3, 0);
+  add_option_value (options_list, "FOOTNOTE_SEPARATE_HEADER_LEVEL", 1, 0);
 }
 
 void

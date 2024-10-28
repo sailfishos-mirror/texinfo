@@ -430,22 +430,19 @@ copy_numbered_options_list_options (OPTIONS *options,
 
   for (i = 0; i < options_list->number; i++)
     {
-      OPTION *src_option = options_list->list[i];
-      if (src_option->number > 0)
-        {
-          size_t index = src_option->number - 1;
-          OPTION *dst_option = sorted_options[index];
+      size_t index = options_list->list[i] - 1;
+      OPTION *src_option = options_list->sorted_options[index];
+      OPTION *dst_option = sorted_options[index];
 
-          copy_option (dst_option, src_option);
+      copy_option (dst_option, src_option);
 
-          if (dst_option->type == GOT_buttons
-              && dst_option->o.buttons && options)
-            options->BIT_user_function_number
+      if (dst_option->type == GOT_buttons
+          && dst_option->o.buttons && options)
+         options->BIT_user_function_number
                += dst_option->o.buttons->BIT_user_function_number;
 
-          if (set_configured)
-            dst_option->configured = 1;
-        }
+      if (set_configured)
+        dst_option->configured = 1;
     }
 }
 
@@ -463,27 +460,9 @@ set_sorted_option_key_configured (OPTION **sorted_options, const char *key,
     }
 }
 
-static OPTION *
-new_option_string_value (OPTION **sorted_options,
-                         const char *option_name, int int_value,
-                         const char *char_value)
-{
-  OPTION *option;
-  const OPTION *ref_option = find_option_string (sorted_options, option_name);
-  if (!ref_option)
-    return 0;
-
-  option = new_option (ref_option->type, ref_option->name, ref_option->number);
-
-  option_set_conf (option, int_value, char_value);
-
-  return option;
-}
-
 
 
-/* functions to set and use options list.  Functions in this section do
-   not need options to be numbered */
+/* functions to set and use options list */
 
 void
 initialize_options_list (OPTIONS_LIST *options_list, size_t number)
@@ -492,65 +471,89 @@ initialize_options_list (OPTIONS_LIST *options_list, size_t number)
   options_list->space = number;
   if (number > 0)
     {
-      options_list->list = (OPTION **) malloc (sizeof (OPTION *) * number);
-      memset (options_list->list, 0, sizeof (OPTION *) * number);
+      options_list->list = (size_t *) malloc (sizeof (size_t) * number);
+      memset (options_list->list, 0, sizeof (size_t) * number);
     }
   else
     options_list->list = 0;
+
+  options_list->options = new_options ();
+  options_list->sorted_options = new_sorted_options (options_list->options);
 }
 
 void
-options_list_add_option (OPTIONS_LIST *options_list, OPTION *option)
+free_options_list (OPTIONS_LIST *options_list)
+{
+  free (options_list->list);
+  free (options_list->sorted_options);
+  free_options (options_list->options);
+}
+
+void
+options_list_add_option_number (OPTIONS_LIST *options_list,
+                                size_t number)
 {
   size_t i;
 
   for (i = 0; i < options_list->number; i++)
     {
-      OPTION *list_option = options_list->list[i];
-      if (!strcmp (list_option->name, option->name))
-        {
-          free_option (list_option);
-          free (list_option);
-          options_list->list[i] = option;
-          return;
-        }
+      size_t option_nr = options_list->list[i];
+      if (number == option_nr)
+        return;
     }
 
   if (options_list->number >= options_list->space)
     {
       options_list->list = realloc (options_list->list,
-              (options_list->space += 5) * sizeof (OPTION *));
+             (options_list->space += 5) * sizeof (size_t));
     }
-  options_list->list[options_list->number] = option;
+  options_list->list[options_list->number] = number;
   options_list->number++;
 }
 
 static OPTION *
-add_option_copy (OPTIONS_LIST *options_list, const OPTION *src_option)
+options_list_add_option_name (OPTIONS_LIST *options_list,
+                              const char *option_name)
 {
-  OPTION *option
-    = new_option (src_option->type, src_option->name, src_option->number);
+  OPTION *option = find_option_string (options_list->sorted_options,
+                                       option_name);
+  if (!option)
+    return 0;
 
-  copy_option (option, src_option);
-
-  options_list_add_option (options_list, option);
+  options_list_add_option_number (options_list, option->number);
 
   return option;
 }
 
-/* similar with new_option_string_value but in cases where there is no
-   sorted_options, and options are found with their names, for example
-   for parser options */
 OPTION *
-add_new_option_value (OPTIONS_LIST *options_list,
-                  enum global_option_type type, const char *name,
+add_option_copy (OPTIONS_LIST *options_list, const OPTION *option_in)
+{
+  options_list_add_option_number (options_list, option_in->number);
+  OPTION *option = options_list->sorted_options[option_in->number -1];
+
+  if (option->type == GOT_buttons)
+    {
+      if (option_in->o.buttons)
+        options_list->options->BIT_user_function_number
+            += option_in->o.buttons->BIT_user_function_number;
+      if (option->o.buttons)
+        options_list->options->BIT_user_function_number
+            -= option->o.buttons->BIT_user_function_number;
+    }
+
+  copy_option (option, option_in);
+
+  return option;
+}
+
+OPTION *
+add_option_value (OPTIONS_LIST *options_list,
+                  const char *name,
                   int int_value, const char *char_value)
 {
-  OPTION *option = new_option (type, name, 0);
+  OPTION *option = options_list_add_option_name (options_list, name);
 
   option_set_conf (option, int_value, char_value);
-
-  options_list_add_option (options_list, option);
 
   return option;
 }
@@ -559,11 +562,22 @@ OPTION *
 add_new_button_option (OPTIONS_LIST *options_list, const char *option_name,
                        BUTTON_SPECIFICATION_LIST *buttons)
 {
-  OPTION *option = new_option (GOT_buttons, option_name, 0);
+  OPTION *option = find_option_string (options_list->sorted_options,
+                                       option_name);
+  if (!option || option->type != GOT_buttons)
+    return 0;
 
+  options_list_add_option_number (options_list, option->number);
+
+  if (option->o.buttons)
+    options_list->options->BIT_user_function_number
+        -= option->o.buttons->BIT_user_function_number;
+
+  clear_option (option);
   option->o.buttons = buttons;
-
-  options_list_add_option (options_list, option);
+  if (option->o.buttons)
+    options_list->options->BIT_user_function_number
+        += option->o.buttons->BIT_user_function_number;
 
   return option;
 }
@@ -576,84 +590,35 @@ copy_options_list (OPTIONS_LIST *options_list, const OPTIONS_LIST *options_src)
   if (options_src)
     {
       for (i = 0; i < options_src->number; i++)
-        add_option_copy (options_list, options_src->list[i]);
+        {
+          size_t index = options_src->list[i] - 1;
+          OPTION *src_option = options_src->sorted_options[index];
+          add_option_copy (options_list, src_option);
+        }
     }
 }
 
-void
-free_options_list (OPTIONS_LIST *options_list)
-{
-  size_t i;
-
-  for (i = 0; i < options_list->number; i++)
-    {
-      free_option (options_list->list[i]);
-      free (options_list->list[i]);
-    }
-
-  free (options_list->list);
-}
-
-
-
-/* options list functions for numbered options */
-
 OPTION *
-add_option_string_value (OPTIONS_LIST *options_list, OPTION **sorted_options,
-                         const char *option_name, int int_value,
-                         const char *char_value)
-{
-  OPTION *option = new_option_string_value (sorted_options, option_name,
-                                            int_value, char_value);
-
-  if (option)
-    options_list_add_option (options_list, option);
-
-  return option;
-}
-
-OPTION *
-add_option_strlist_value (OPTIONS_LIST *options_list, OPTION **sorted_options,
+add_option_strlist_value (OPTIONS_LIST *options_list,
                           const char *option_name, const STRING_LIST *strlist)
 {
-  OPTION *option;
-  const OPTION *ref_option = find_option_string (sorted_options, option_name);
-  if (!ref_option)
+  OPTION *option = find_option_string (options_list->sorted_options,
+                                      option_name);
+  if (!option)
     return 0;
 
-  if (ref_option->type != GOT_char_string_list
-      && ref_option->type != GOT_bytes_string_list
-      && ref_option->type != GOT_file_string_list)
+  if (option->type != GOT_char_string_list
+      && option->type != GOT_bytes_string_list
+      && option->type != GOT_file_string_list)
     return 0;
 
-  option = new_option (ref_option->type, ref_option->name, ref_option->number);
+  options_list_add_option_number (options_list, option->number);
+
+  clear_option (option);
 
   copy_strings (option->o.strlist, strlist);
 
-  options_list_add_option (options_list, option);
-
   return option;
-}
-
-void
-number_options_list (OPTIONS_LIST *options_list, OPTION **sorted_options)
-{
-  size_t i;
-
-  for (i = 0; i < options_list->number; i++)
-    {
-      OPTION *option = options_list->list[i];
-      if (!option->number)
-        {
-          const OPTION *ref_option
-            = find_option_string (sorted_options, option->name);
-          if (ref_option)
-            option->number = ref_option->number;
-          else
-            fprintf (stderr, "ERROR: could not find option: %s\n",
-                             option->name);
-        }
-    }
 }
 
 

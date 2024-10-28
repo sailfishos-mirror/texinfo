@@ -100,7 +100,6 @@ txi_converter_format_defaults (const char *format_str,
   format_defaults->options = new_options ();
   format_defaults_sorted_options
     = new_sorted_options (format_defaults->options);
-  number_options_list (&format_defaults->conf, format_defaults_sorted_options);
   copy_numbered_options_list_options (format_defaults->options,
                                       format_defaults_sorted_options,
                                       &format_defaults->conf, 0);
@@ -115,7 +114,7 @@ txi_converter_format_defaults (const char *format_str,
 void
 txi_parser (const char *file_path, const char *locale_encoding,
             const char **expanded_formats, const VALUE_LIST *values,
-            OPTIONS_LIST *options)
+            OPTIONS_LIST *options_list)
 {
   char *input_file_name_and_directory[2];
   char *input_directory;
@@ -125,18 +124,10 @@ txi_parser (const char *file_path, const char *locale_encoding,
 
   /* special case, we need to know if debug is set before calling
      reset_parser */
-  if (options)
+  if (options_list)
     {
-      for (i = 0; i < options->number; i++)
-        {
-          OPTION *option = options->list[i];
-          if (!strcmp (option->name, "DEBUG"))
-            {
-              if (option->o.integer >= 0)
-                debug = 1;
-              break;
-            }
-        }
+      if (options_list->options->DEBUG.o.integer >= 0)
+        debug = 1;
     }
 
   reset_parser (debug);
@@ -158,11 +149,12 @@ txi_parser (const char *file_path, const char *locale_encoding,
   for (i = 0; expanded_formats[i]; i++)
     parser_conf_add_expanded_format (expanded_formats[i]);
 
-  if (options)
+  if (options_list)
     {
-      for (i = 0; i < options->number; i++)
+      for (i = 0; i < options_list->number; i++)
         {
-          OPTION *option = options->list[i];
+          size_t index = options_list->list[i] -1;
+          OPTION *option = options_list->sorted_options[index];
           if (!strcmp (option->name, "INCLUDE_DIRECTORIES"))
             {
               includes_set = 1;
@@ -332,8 +324,8 @@ err_add_option_string_value (OPTIONS_LIST *options_list,
                              const char *option_name, int int_value,
                              const char *char_value)
 {
-  if (!add_option_string_value (options_list, sorted_options, option_name,
-                                int_value, char_value))
+  if (!add_option_value (options_list, option_name,
+                         int_value, char_value))
     fprintf (stderr, "BUG: error setting %s\n", option_name);
 }
 

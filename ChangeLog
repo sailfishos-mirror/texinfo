@@ -1,3 +1,41 @@
+2024-10-28  Patrice Dumas  <pertusus@free.fr>
+
+	Always have an OPTIONS structure associated to an options list
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_parser): rename OPTIONS_LIST
+	argument as options_list.
+
+	* tp/Texinfo/XS/convert/converter.c
+	(new_converter_initialization_info): always initialize the options
+	list.
+
+	* tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(get_converter_info_from_sv),
+	tp/maintain/regenerate_C_options_info.pl,
+	tp/Texinfo/XS/convert/texinfo.c (txi_parser),
+	tp/Texinfo/XS/main/build_perl_info.c
+	(build_sv_options_from_options_list),
+	tp/Texinfo/XS/main/customization_options.c
+	(copy_numbered_options_list_options, initialize_options_list)
+	(options_list_add_option_number, options_list_add_option_name)
+	(add_option_value, add_option_copy, add_new_button_option)
+	(free_options_list, add_option_strlist_value),
+	tp/Texinfo/XS/main/option_types.h (OPTIONS_LIST),
+	tp/Texinfo/XS/teximakehtml.c (main): add an OPTIONS and
+	sorted options field to OPTIONS_LIST and initialize them in
+	initialize_options_list.  Set OPTIONS_LIST list to be the list of
+	option numbers instead of the options themselves.  Replace
+	new_option_string_value and add_new_option_value by add_option_value.
+	Replace options_list_add_option by options_list_add_option_number and
+	options_list_add_option_name.  Remove number_options_list as the
+	options list are always numbered now.
+
+	* tp/Texinfo/XS/convert/html_converter_init_options.c
+	(html_converter_defaults), tp/Texinfo/XS/convert/texinfo.c
+	(txi_parser): simplify code by using the OPTIONS to find if a
+	customization variable is set is set.
+
+
 2024-10-27  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/converter.c (converter_converter),

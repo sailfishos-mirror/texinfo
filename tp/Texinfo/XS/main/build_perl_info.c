@@ -3065,7 +3065,8 @@ build_sv_options_from_options_list (const OPTIONS_LIST *options_list,
 
   for (i = 0; i < options_list->number; i++)
     {
-      const OPTION *option = options_list->list[i];
+      size_t index = options_list->list[i] -1;
+      const OPTION *option = options_list->sorted_options[index];
       const char *key = option->name;
       SV *option_sv = build_sv_option (option, converter);
 

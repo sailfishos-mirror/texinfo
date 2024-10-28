@@ -412,11 +412,15 @@ foreach my $category (sort(keys(%option_categories))) {
     my ($option, $value, $type) = @$option_info;
     if ($type eq 'char' or $type eq 'bytes' or $type eq 'integer') {
       my ($int_value, $char_value) = get_value($type, $value);
-      print ODCF "  add_new_option_value (options_list, GOT_$type, "
+      print ODCF "  add_option_value (options_list, "
                    ."\"$option\", $int_value, $char_value);\n";
     } else {
-      print ODCF "  option = new_option (GOT_$type, \"$option\", 0);\n";
-      print ODCF "  options_list_add_option (options_list, option);\n";
+      print ODCF
+        "  option = find_option_string (options_list->sorted_options, "
+                                                 ."\"$option\");\n";
+      print ODCF
+        "  options_list_add_option_number (options_list, option->number);\n";
+      print ODCF "  clear_option (option);\n";
     }
   }
   print ODCF "}\n\n";
@@ -498,7 +502,7 @@ foreach my $format (@sorted_formats) {
     my $option_info = $options{$option};
     my ($option_unused, $main_default, $type) = @$option_info;
     my ($int_value, $char_value) = get_value($type, $value);
-    print CDCF "  add_new_option_value (options_list, GOT_$type, "
+    print CDCF "  add_option_value (options_list, "
                  ."\"$option\", $int_value, $char_value);\n";
   }
   print CDCF "}\n\n";
