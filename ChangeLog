@@ -1,5 +1,11 @@
 2024-10-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(get_converter_info_from_sv): remove unused sorted_options argument.
+	Update callers.
+
+2024-10-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/texinfo.c (err_add_option_value): remove
 	unused sorted_options argument.
 

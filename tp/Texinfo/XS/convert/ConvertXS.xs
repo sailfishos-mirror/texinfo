@@ -140,8 +140,7 @@ converter_defaults (SV *converter_in, SV *conf_sv)
            Do not pass class_name to avoid error messages, there will
            be an error messages in generic_converter_init (as in Perl)
          */
-        conf = get_converter_info_from_sv (conf_sv, 0, 0,
-                                           txi_base_sorted_options);
+        conf = get_converter_info_from_sv (conf_sv, 0, 0);
 
         format_defaults = converter_defaults (converter_format, conf);
 
@@ -166,7 +165,7 @@ converter_defaults (SV *converter_in, SV *conf_sv)
           }
         else
           {
-            /* return format_defaults built to Perl */
+       /* no converter, return format_defaults built to Perl for the class */
             RETVAL
               = build_sv_options_from_options_list (&format_defaults->conf, 0);
             destroy_converter_initialization_info (format_defaults);
@@ -192,7 +191,7 @@ generic_converter_init (SV *converter_in, SV *format_defaults_sv, SV *conf_sv=0)
         self->hv = converter_hv;
 
         format_defaults = get_converter_info_from_sv (format_defaults_sv,
-                                       class_name, self, self->sorted_options);
+                                                      class_name, self);
         /* if format_defaults_sv is undef, it should mean that format_defaults
            has been registered in the C converter */
         if (!format_defaults)
@@ -201,8 +200,7 @@ generic_converter_init (SV *converter_in, SV *format_defaults_sv, SV *conf_sv=0)
             self->format_defaults = 0;
           }
 
-        conf = get_converter_info_from_sv (conf_sv, class_name, self,
-                                           self->sorted_options);
+        conf = get_converter_info_from_sv (conf_sv, class_name, self);
 
         set_converter_init_information (self, format_defaults, conf);
 

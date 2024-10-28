@@ -233,8 +233,7 @@ new_numbered_option_from_sv (SV *option_sv, CONVERTER *converter,
    CONVERTER may be NULL (when called from converter_defaults). */
 CONVERTER_INITIALIZATION_INFO *
 get_converter_info_from_sv (SV *conf_sv, const char *class_name,
-                            CONVERTER *converter,
-                            OPTION **sorted_options)
+                            CONVERTER *converter)
 {
   CONVERTER_INITIALIZATION_INFO *initialization_info = 0;
 

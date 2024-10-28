@@ -14,8 +14,7 @@ CONVERTER *get_sv_converter (SV *sv_in, const char *warn_string);
 CONVERTER *get_or_create_sv_converter (SV *converter_in,
                                        const char *input_class);
 CONVERTER_INITIALIZATION_INFO * get_converter_info_from_sv (SV *conf_sv,
-                                 const char *class, CONVERTER *converter,
-                                 OPTION **sorted_options);
+                                 const char *class, CONVERTER *converter);
 void set_non_customization_sv (HV *converter_hv, SV *init_info_sv,
                                STRING_LIST *non_valid_customization);
 CONVERTER *converter_set_document_from_sv (SV *converter_in, SV *document_in);
