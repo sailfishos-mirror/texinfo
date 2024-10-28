@@ -85,25 +85,13 @@ txi_converter_format_defaults (const char *format_str,
     = find_format_name_converter_format (format_str);
   CONVERTER_INITIALIZATION_INFO *conf = new_converter_initialization_info ();
   CONVERTER_INITIALIZATION_INFO *format_defaults;
-  OPTION **format_defaults_sorted_options;
 
   if (customizations)
-    {
-      copy_options_list (&conf->conf, customizations);
-    }
+    copy_options_list (&conf->conf, customizations);
 
   format_defaults = converter_defaults (converter_format, conf);
 
   destroy_converter_initialization_info (conf);
-
-  /* also set options structure for a direct access */
-  format_defaults->options = new_options ();
-  format_defaults_sorted_options
-    = new_sorted_options (format_defaults->options);
-  copy_numbered_options_list_options (format_defaults->options,
-                                      format_defaults_sorted_options,
-                                      &format_defaults->conf, 0);
-  free (format_defaults_sorted_options);
 
   return format_defaults;
 }

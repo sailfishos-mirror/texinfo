@@ -1,5 +1,14 @@
 2024-10-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c
+	(destroy_converter_initialization_info),
+	tp/Texinfo/XS/convert/texinfo.c (txi_converter_format_defaults),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER_INITIALIZATION_INFO):
+	remove the options field in CONVERTER_INITIALIZATION_INFO as it is now
+	always set in conf.
+
+2024-10-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/customization_options.c
 	(initialize_options_list): remove the possibility to preset the number
 	of elements in list, remove the number argument.  Update callers.

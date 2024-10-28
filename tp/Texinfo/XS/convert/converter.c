@@ -383,12 +383,6 @@ destroy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
   if (init_info->translated_commands)
     destroy_translated_commands (init_info->translated_commands);
 
-  if (init_info->options)
-    {
-      free_options (init_info->options);
-      free (init_info->options);
-    }
-
   free_options_list (&init_info->conf);
 
   free_strings_list (&init_info->non_valid_customization);
