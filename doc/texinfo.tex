@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2024-02-10.22}
+\def\texinfoversion{2024-10-28.18}
 %
 % Copyright 1985, 1986, 1988, 1990-2024 Free Software Foundation, Inc.
 %
@@ -5567,7 +5567,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % \entry typesets a paragraph consisting of the text (#1), dot leaders, and
 % then page number (#2) flushed to the right margin.  It is used for index
 % and table of contents entries.  The paragraph is indented by \leftskip.
-%
+% If \tocnodetarget is set, link text to the referenced node.
 \def\entry{%
   \begingroup
     %
@@ -5608,7 +5608,13 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \global\setbox\boxA=\hbox\bgroup
       \ifpdforxetex
         \iflinkentrytext
-          \pdflinkpage{#1}{\unhbox\boxA}%
+          \ifx\tocnodetarget\empty
+            \unhbox\boxA
+          \else
+            \startxreflink{\tocnodetarget}{}%
+            \unhbox\boxA
+            \endlink
+          \fi
         \else
           \unhbox\boxA
         \fi
@@ -6892,7 +6898,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \vskip 0pt plus 5\baselineskip
   \penalty-300
   \vskip 0pt plus -5\baselineskip
-  \dochapentry{#1}{\numeralbox}{}%
+  \dochapentry{#1}{\numeralbox}{#3}{}%
 }
 %
 % Parts, in the short toc.
@@ -6905,12 +6911,12 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % Chapters, in the main contents.
 \def\numchapentry#1#2#3#4{%
   \retrievesecnowidth\secnowidthchap{#2}%
-  \dochapentry{#1}{#2}{#4}%
+  \dochapentry{#1}{#2}{#3}{#4}%
 }
 
 % Chapters, in the short toc.
 \def\shortchapentry#1#2#3#4{%
-  \tocentry{#1}{\shortchaplabel{#2}}{#4}%
+  \tocentry{#1}{\shortchaplabel{#2}}{#3}{#4}%
 }
 
 % Appendices, in the main contents.
@@ -6923,79 +6929,77 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 %
 \def\appentry#1#2#3#4{%
   \retrievesecnowidth\secnowidthchap{#2}%
-  \dochapentry{\appendixbox{#2}\hskip.7em#1}{}{#4}%
+  \dochapentry{\appendixbox{#2}\hskip.7em#1}{}{#3}{#4}%
 }
 
 % Unnumbered chapters.
-\def\unnchapentry#1#2#3#4{\dochapentry{#1}{}{#4}}
-\def\shortunnchapentry#1#2#3#4{\tocentry{#1}{}{#4}}
+\def\unnchapentry#1#2#3#4{\dochapentry{#1}{}{#3}{#4}}
+\def\shortunnchapentry#1#2#3#4{\tocentry{#1}{}{#3}{#4}}
 
 % Sections.
-\def\numsecentry#1#2#3#4{\dosecentry{#1}{#2}{#4}}
-
 \def\numsecentry#1#2#3#4{%
   \retrievesecnowidth\secnowidthsec{#2}%
-  \dosecentry{#1}{#2}{#4}%
+  \dosecentry{#1}{#2}{#3}{#4}%
 }
 \let\appsecentry=\numsecentry
 \def\unnsecentry#1#2#3#4{%
   \retrievesecnowidth\secnowidthsec{#2}%
-  \dosecentry{#1}{}{#4}%
+  \dosecentry{#1}{}{#3}{#4}%
 }
 
 % Subsections.
 \def\numsubsecentry#1#2#3#4{%
   \retrievesecnowidth\secnowidthssec{#2}%
-  \dosubsecentry{#1}{#2}{#4}%
+  \dosubsecentry{#1}{#2}{#3}{#4}%
 }
 \let\appsubsecentry=\numsubsecentry
 \def\unnsubsecentry#1#2#3#4{%
   \retrievesecnowidth\secnowidthssec{#2}%
-  \dosubsecentry{#1}{}{#4}%
+  \dosubsecentry{#1}{}{#3}{#4}%
 }
 
 % And subsubsections.
-\def\numsubsubsecentry#1#2#3#4{\dosubsubsecentry{#1}{#2}{#4}}
+\def\numsubsubsecentry#1#2#3#4{\dosubsubsecentry{#1}{#2}{#3}{#4}}
 \let\appsubsubsecentry=\numsubsubsecentry
-\def\unnsubsubsecentry#1#2#3#4{\dosubsubsecentry{#1}{}{#4}}
+\def\unnsubsubsecentry#1#2#3#4{\dosubsubsecentry{#1}{}{#3}{#4}}
 
 % This parameter controls the indentation of the various levels.
 % Same as \defaultparindent.
 \newdimen\tocindent \tocindent = 15pt
 
 % Now for the actual typesetting. In all these, #1 is the text, #2 is
-% a section number if present, and #3 is the page number.
+% a section number if present, #3 is the node, and #4 is the page number.
 %
 % If the toc has to be broken over pages, we want it to be at chapters
 % if at all possible; hence the \penalty.
-\def\dochapentry#1#2#3{%
+\def\dochapentry#1#2#3#4{%
    \penalty-300 \vskip1\baselineskip plus.33\baselineskip minus.25\baselineskip
    \begingroup
      % Move the page numbers slightly to the right
      \advance\entryrightmargin by -0.05em
      \chapentryfonts
      \extrasecnoskip=0.4em % separate chapter number more
-     \tocentry{#1}{#2}{#3}%
+     \tocentry{#1}{#2}{#3}{#4}%
    \endgroup
    \nobreak\vskip .25\baselineskip plus.1\baselineskip
 }
 
-\def\dosecentry#1#2#3{\begingroup
+\def\dosecentry#1#2#3#4{\begingroup
   \secnowidth=\secnowidthchap
   \secentryfonts \leftskip=\tocindent
-  \tocentry{#1}{#2}{#3}%
+  \tocentry{#1}{#2}{#3}{#4}%
 \endgroup}
 
-\def\dosubsecentry#1#2#3{\begingroup
+\def\dosubsecentry#1#2#3#4{\begingroup
   \secnowidth=\secnowidthsec
   \subsecentryfonts \leftskip=2\tocindent
-  \tocentry{#1}{#2}{#3}%
+  \tocentry{#1}{#2}{#3}{#4}%
 \endgroup}
 
-\def\dosubsubsecentry#1#2#3{\begingroup
+\def\dosubsubsecentry#1#2#3#4{\begingroup
   \secnowidth=\secnowidthssec
   \subsubsecentryfonts \leftskip=3\tocindent
-  \tocentry{#1}{#2}{#3}%
+  \tocentry{#1}{#2}{#3}{#4}%
 \endgroup}
 
 % Used for the maximum width of a section number so we can align
@@ -7005,12 +7009,15 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \newdimen\extrasecnoskip
 \extrasecnoskip=0pt
 
-% \tocentry{TITLE}{SEC NO}{PAGE}
+\let\tocnodetarget\empty
+
+% \tocentry{TITLE}{SEC NO}{NODE}{PAGE}
 %
-\def\tocentry#1#2#3{%
+\def\tocentry#1#2#3#4{%
+  \def\tocnodetarget{#3}%
   \def\secno{#2}%
   \ifx\empty\secno
-    \entry{#1}{#3}%
+    \entry{#1}{#4}%
   \else
     \ifdim 0pt=\secnowidth
       \setbox0=\hbox{#2\hskip\labelspace\hskip\extrasecnoskip}%
@@ -7021,7 +7028,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
         #2\hskip\labelspace\hskip\extrasecnoskip\hfill}%
     \fi
     \entrycontskip=\wd0
-    \entry{\box0 #1}{#3}%
+    \entry{\box0 #1}{#4}%
   \fi
 }
 \newdimen\labelspace

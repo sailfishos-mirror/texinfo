@@ -1,3 +1,26 @@
+2024-10-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Link to section header not just the page
+
+	* doc/texinfo.tex
+	(\tocentry): Take an extra argument, the name of the node
+	being referenced.  Set \tocnodetarget.
+	(\finishentry) [pdf or xetex]:
+	If \tocnodetarget is set, use it for the target of the link.
+
+	(\numchapentry, \shortchapentry, \appentry, \unnchapentry)
+	(\shortunnchapentry, \unnsecentry, \numsubsecentry, \unnsubsecentry)
+	(\numsubsubsecentry, \unsubsubsecentry):
+	Propagate node from .toc file to lower-level macros.
+
+	(\dochapentry, \dosecentry, \dosubsecentry, \dosubsubsecentry):
+	Propagate note to \tocentry.
+
+	Hyperlinks from entries in the table of contents would go
+	to the top of the page, not the actual section heading, which
+	was especially confusing when there were multiple headings on
+	a page.  Report from Bruno Haible.
+
 2024-10-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/customization_options.c
