@@ -211,20 +211,19 @@ set_translated_commands (SV *translated_commands_sv)
 
 static OPTION *
 new_numbered_option_from_sv (SV *option_sv, CONVERTER *converter,
-                    OPTION **sorted_options, const char *option_name,
+                    OPTIONS_LIST *options_list, const char *option_name,
                     int *status)
 {
-  OPTION *option = 0;
-
-  const OPTION *ref_option = find_option_string (sorted_options, option_name);
-  if (!ref_option)
+  OPTION *option = find_option_string (options_list->sorted_options,
+                                       option_name);
+  if (!option)
     *status = -2;
   else
     {
-      option
-        = new_option (ref_option->type, ref_option->name, ref_option->number);
-
-      *status = get_sv_option (option, option_sv, 0, 0, converter);
+      *status = get_sv_option (option, option_sv, 0, options_list->options,
+                               converter);
+      if (!*status)
+        options_list_add_option_number (options_list, option->number);
     }
 
   return option;
@@ -255,58 +254,37 @@ get_converter_info_from_sv (SV *conf_sv, const char *class_name,
       if (!hv_number)
         return initialization_info;
 
-      initialize_options_list (&initialization_info->conf, hv_number);
-      initialization_info->conf.number = 0;
-
       for (i = 0; i < hv_number; i++)
         {
           int status;
           char *key;
           I32 retlen;
           SV *value = hv_iternextsv (conf_hv, &key, &retlen);
-          /* FIXME could directly set the value in
-              &initialization_info->conf */
           OPTION *option = new_numbered_option_from_sv (value, converter,
-                                               sorted_options, key, &status);
+                                  &initialization_info->conf, key, &status);
 
-          if (!status)
+          if (status == -2)
             {
-              size_t index = option->number -1;
-              OPTION *dst_option
-                = initialization_info->conf.sorted_options[index];
+              add_string (key,
+                &initialization_info->non_valid_customization);
 
-              initialization_info->conf.list[initialization_info->conf.number]
-                = option->number;
-              initialization_info->conf.number++;
-
-              copy_option (dst_option, option);
-              free_option (option);
+              if (!strcmp (key, "translated_commands"))
+                initialization_info->translated_commands
+                  = set_translated_commands (value);
+              /* FIXME get deprecated_config_directories if needed */
+              else if (!strcmp (key, "deprecated_config_directories"))
+                {}
+              else if (class_name)
+                {
+                  fprintf (stderr,
+                           "%s: %s not a possible configuration\n",
+                           class_name, key);
+                }
             }
-          else
+          else if (status)
             {
-              if (status == -2)
-                {
-                  add_string (key,
-                    &initialization_info->non_valid_customization);
-
-                  if (!strcmp (key, "translated_commands"))
-                    initialization_info->translated_commands
-                      = set_translated_commands (value);
-                  /* FIXME get deprecated_config_directories if needed */
-                  else if (!strcmp (key, "deprecated_config_directories"))
-                    {}
-                  else if (class_name)
-                    {
-                      fprintf (stderr,
-                               "%s: %s not a possible configuration\n",
-                               class_name, key);
-                    }
-                }
-              else
-                {
-                  free_option (option);
-                  fprintf (stderr, "ERROR: %s unexpected conf error\n", key);
-                }
+              free_option (option);
+              fprintf (stderr, "ERROR: %s unexpected conf error\n", key);
             }
         }
     }

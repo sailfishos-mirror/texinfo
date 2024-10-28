@@ -465,17 +465,9 @@ set_sorted_option_key_configured (OPTION **sorted_options, const char *key,
 /* functions to set and use options list */
 
 void
-initialize_options_list (OPTIONS_LIST *options_list, size_t number)
+initialize_options_list (OPTIONS_LIST *options_list)
 {
-  options_list->number = 0;
-  options_list->space = number;
-  if (number > 0)
-    {
-      options_list->list = (size_t *) malloc (sizeof (size_t) * number);
-      memset (options_list->list, 0, sizeof (size_t) * number);
-    }
-  else
-    options_list->list = 0;
+  memset (options_list, 0, sizeof (OPTIONS_LIST));
 
   options_list->options = new_options ();
   options_list->sorted_options = new_sorted_options (options_list->options);

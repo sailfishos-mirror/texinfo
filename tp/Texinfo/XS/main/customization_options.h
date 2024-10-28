@@ -64,7 +64,7 @@ void set_sorted_option_key_configured (OPTION **sorted_options,
 
 
 
-void initialize_options_list (OPTIONS_LIST *options_list, size_t number);
+void initialize_options_list (OPTIONS_LIST *options_list);
 OPTION *add_option_value (OPTIONS_LIST *options_list,
                           const char *name,
                           int int_value, const char *char_value);

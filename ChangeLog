@@ -1,5 +1,16 @@
 2024-10-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/customization_options.c
+	(initialize_options_list): remove the possibility to preset the number
+	of elements in list, remove the number argument.  Update callers.
+
+	* tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(new_numbered_option_from_sv, get_converter_info_from_sv): call
+	options_list_add_option_number in new_numbered_option_from_sv and
+	simplify get_converter_info_from_sv.
+
+2024-10-28  Patrice Dumas  <pertusus@free.fr>
+
 	Always have an OPTIONS structure associated to an options list
 
 	* tp/Texinfo/XS/convert/texinfo.c (txi_parser): rename OPTIONS_LIST

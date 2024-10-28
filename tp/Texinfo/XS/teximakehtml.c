@@ -104,7 +104,7 @@ main (int argc, char *argv[])
 
   locale_encoding = nl_langinfo (CODESET);
 
-  initialize_options_list (&cmdline_options, 2);
+  initialize_options_list (&cmdline_options);
   /*
   add_new_option_value (&cmdline_options, GOT_integer,
                            "DEBUG", 1, 0);
@@ -191,8 +191,7 @@ main (int argc, char *argv[])
   txi_converter_output_format_setup ("html");
 
   /*
-  add_new_option_value (&cmdline_options, GOT_integer,
-                        "TEXI2HTML", 1, 0);
+  add_option_value (&cmdline_options, "TEXI2HTML", 1, 0);
    */
 
   /* FORMAT_MENU for parser should be set based on converter_defaults taking into
@@ -202,10 +201,9 @@ main (int argc, char *argv[])
    */
 
   /* TODO add cmdline_options filtering in only parser options */
-  initialize_options_list (&parser_options, 2);
+  initialize_options_list (&parser_options);
   /*
-  add_new_option_value (&parser_options, GOT_integer,
-                           "DEBUG", 1, 0);
+  add_option_value (&parser_options, "DEBUG", 1, 0);
    */
   if (test)
     {
@@ -261,7 +259,7 @@ main (int argc, char *argv[])
   errors_count += errors_nr;
 
   /* conversion initialization */
-  initialize_options_list (&convert_options, 2);
+  initialize_options_list (&convert_options);
 
   if (test)
     {

@@ -353,8 +353,6 @@ txi_converter_setup (const char *format_str,
 
   conf = new_converter_initialization_info ();
 
-  initialize_options_list (&conf->conf, 10);
-
   /* prepare specific information for the converter */
   if (output_format)
     err_add_option_string_value (&conf->conf, txi_base_sorted_options,

@@ -373,7 +373,7 @@ new_converter_initialization_info (void)
      malloc (sizeof (CONVERTER_INITIALIZATION_INFO));
   memset (result, 0, sizeof (CONVERTER_INITIALIZATION_INFO));
 
-  initialize_options_list (&result->conf, 0);
+  initialize_options_list (&result->conf);
   return result;
 }
 
