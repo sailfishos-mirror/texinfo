@@ -390,7 +390,7 @@ copy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *dst_info,
   copy_strings (&dst_info->non_valid_customization,
                 &src_info->non_valid_customization);
 
-  copy_options_list (&dst_info->conf, &src_info->conf);
+  copy_options_list (&dst_info->conf, &src_info->conf, 1);
 }
 
 /* Next five functions are not called from Perl as the Perl equivalent

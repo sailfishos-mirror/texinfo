@@ -26,19 +26,19 @@ add_array_cmdline_options_defaults (OPTIONS_LIST *options_list)
   OPTION *option;
 
   option = find_option_string (options_list->sorted_options, "CSS_FILES");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "CSS_REFS");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "EXPANDED_FORMATS");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "INCLUDE_DIRECTORIES");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "TEXINFO_LANGUAGE_DIRECTORIES");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
 }
 
@@ -397,37 +397,37 @@ add_converter_other_options_defaults (OPTIONS_LIST *options_list)
   OPTION *option;
 
   option = find_option_string (options_list->sorted_options, "LINKS_BUTTONS");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "TOP_BUTTONS");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "TOP_FOOTER_BUTTONS");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "SECTION_BUTTONS");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "CHAPTER_FOOTER_BUTTONS");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "SECTION_FOOTER_BUTTONS");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "NODE_FOOTER_BUTTONS");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "MISC_BUTTONS");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "CHAPTER_BUTTONS");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "ACTIVE_ICONS");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "PASSIVE_ICONS");
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, option->number, 0);
   clear_option (option);
 }
 

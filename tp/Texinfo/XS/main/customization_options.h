@@ -59,9 +59,9 @@ void copy_option (OPTION *destination, const OPTION *source);
 void initialize_options_list (OPTIONS_LIST *options_list);
 void free_options_list (OPTIONS_LIST *options_list);
 void options_list_add_option_number (OPTIONS_LIST *options_list,
-                                     size_t number);
+                                     size_t number, int check_duplicates);
 void copy_options_list (OPTIONS_LIST *options_list,
-                        const OPTIONS_LIST *options_src);
+                        const OPTIONS_LIST *options_src, int check_duplicates);
 void copy_options_list_set_configured (OPTIONS *options,
                                        OPTION **sorted_options,
                                        OPTIONS_LIST *options_list,

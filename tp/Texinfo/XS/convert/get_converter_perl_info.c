@@ -246,12 +246,12 @@ get_converter_info_from_sv (SV *conf_sv, const char *class_name,
               int status = get_sv_option (option, value_sv, 0,
                                       initialization_info->conf.options,
                                       converter);
-              /* TODO since the key cannot be duplicated, there is no need
+              /* Since the key cannot be duplicated, there is no need
                  to check if the option->number is already in the
                  initialization_info->conf list */
               if (!status)
                 options_list_add_option_number (&initialization_info->conf,
-                                                option->number);
+                                                option->number, 0);
               else
                /* can only be an error of bad data value_sv, as the options
                   cannot be set already */
