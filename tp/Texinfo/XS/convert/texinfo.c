@@ -387,9 +387,8 @@ txi_converter_setup (const char *format_str,
       copy_options_list (&conf->conf, customizations);
     }
 
-  self = converter_converter (converter_format, conf);
-
-  if (!self->conf->TEST.o.integer && conversion_paths_info.texinfo_uninstalled
+  if (conf->conf.options->TEST.o.integer <= 0
+      && conversion_paths_info.texinfo_uninstalled
       && conversion_paths_info.p.uninstalled.top_srcdir)
     {
       char *in_source_util_dir;
@@ -399,14 +398,14 @@ txi_converter_setup (const char *format_str,
       free (in_source_util_dir);
     }
 
-  copy_strings (self->conf->TEXINFO_LANGUAGE_DIRECTORIES.o.strlist,
-                texinfo_language_config_dirs);
+  add_option_strlist_value (&conf->conf, "TEXINFO_LANGUAGE_DIRECTORIES",
+                            texinfo_language_config_dirs);
 
   destroy_strings_list (texinfo_language_config_dirs);
 
-  destroy_converter_initialization_info (conf);
+  self = converter_converter (converter_format, conf);
 
-  converter_initialize (self);
+  destroy_converter_initialization_info (conf);
 
   return self;
 }

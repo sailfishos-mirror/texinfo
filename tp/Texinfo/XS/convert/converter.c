@@ -439,13 +439,7 @@ converter_initialize (CONVERTER *converter)
     }
 }
 
-/* Texinfo::Convert::XXXX->converter($conf) in Perl, except for the call
-   to converter_initialize. */
-/* FIXME should it contain converter_initialize?  It does not to be able
-   to set TEXINFO_LANGUAGE_DIRECTORIES after set_converter_init_information
-   call to be able to check if TEST customization option is set.  This seems
-   too different from the logic used in Perl where customisation variables
-   are available very early, in texi2any.pl */
+/* Texinfo::Convert::XXXX->converter($conf) in Perl */
 /* only called from C, not from Perl */
 CONVERTER *
 converter_converter (enum converter_format format,
@@ -468,6 +462,8 @@ converter_converter (enum converter_format format,
   destroy_converter_initialization_info (format_defaults);
 
   destroy_converter_initialization_info (user_conf);
+
+  converter_initialize (converter);
 
   return converter;
 }

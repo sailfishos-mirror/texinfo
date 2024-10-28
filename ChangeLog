@@ -1,5 +1,12 @@
 2024-10-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (converter_converter),
+	tp/Texinfo/XS/convert/texinfo.c (txi_converter_setup): call
+	converter_initialize in converter_converter again.  Adapt
+	txi_converter_setup.
+
+2024-10-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c
 	(destroy_converter_initialization_info),
 	tp/Texinfo/XS/convert/texinfo.c (txi_converter_format_defaults),
