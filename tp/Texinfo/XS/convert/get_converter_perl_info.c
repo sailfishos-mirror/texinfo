@@ -209,26 +209,6 @@ set_translated_commands (SV *translated_commands_sv)
   return translated_commands;
 }
 
-static OPTION *
-new_numbered_option_from_sv (SV *option_sv, CONVERTER *converter,
-                    OPTIONS_LIST *options_list, const char *option_name,
-                    int *status)
-{
-  OPTION *option = find_option_string (options_list->sorted_options,
-                                       option_name);
-  if (!option)
-    *status = -2;
-  else
-    {
-      *status = get_sv_option (option, option_sv, 0, options_list->options,
-                               converter);
-      if (!*status)
-        options_list_add_option_number (options_list, option->number);
-    }
-
-  return option;
-}
-
 /* CLASS_NAME is Perl converter class for warning message.  If NULL, no message.
    CONVERTER may be NULL (when called from converter_defaults). */
 CONVERTER_INITIALIZATION_INFO *
@@ -255,21 +235,36 @@ get_converter_info_from_sv (SV *conf_sv, const char *class_name,
 
       for (i = 0; i < hv_number; i++)
         {
-          int status;
           char *key;
           I32 retlen;
-          SV *value = hv_iternextsv (conf_hv, &key, &retlen);
-          OPTION *option = new_numbered_option_from_sv (value, converter,
-                                  &initialization_info->conf, key, &status);
+          SV *value_sv = hv_iternextsv (conf_hv, &key, &retlen);
 
-          if (status == -2)
+          OPTION *option = find_option_string (
+                       initialization_info->conf.sorted_options, key);
+          if (option)
+            {
+              int status = get_sv_option (option, value_sv, 0,
+                                      initialization_info->conf.options,
+                                      converter);
+              /* TODO since the key cannot be duplicated, there is no need
+                 to check if the option->number is already in the
+                 initialization_info->conf list */
+              if (!status)
+                options_list_add_option_number (&initialization_info->conf,
+                                                option->number);
+              else
+               /* can only be an error of bad data value_sv, as the options
+                  cannot be set already */
+                fprintf (stderr, "ERROR: %s unexpected conf error\n", key);
+            }
+          else
             {
               add_string (key,
                 &initialization_info->non_valid_customization);
 
               if (!strcmp (key, "translated_commands"))
                 initialization_info->translated_commands
-                  = set_translated_commands (value);
+                  = set_translated_commands (value_sv);
               /* FIXME get deprecated_config_directories if needed */
               else if (!strcmp (key, "deprecated_config_directories"))
                 {}
@@ -279,11 +274,6 @@ get_converter_info_from_sv (SV *conf_sv, const char *class_name,
                            "%s: %s not a possible configuration\n",
                            class_name, key);
                 }
-            }
-          else if (status)
-            {
-              free_option (option);
-              fprintf (stderr, "ERROR: %s unexpected conf error\n", key);
             }
         }
     }

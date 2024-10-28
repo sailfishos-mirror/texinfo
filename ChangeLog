@@ -1,6 +1,12 @@
 2024-10-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(get_converter_info_from_sv): inline new_numbered_option_from_sv in
+	get_converter_info_from_sv.
+
+2024-10-28  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/get_converter_perl_info.c
 	(get_converter_info_from_sv): remove unused sorted_options argument.
 	Update callers.
 
