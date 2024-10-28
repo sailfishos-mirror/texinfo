@@ -28,8 +28,7 @@
 #include <stdio.h>
 
 #include "document_types.h"
-/* txi_base_sorted_options */
-#include "options_data.h"
+#include "option_types.h"
 #include "api.h"
 #include "conf.h"
 #include "errors.h"

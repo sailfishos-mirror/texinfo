@@ -35,6 +35,11 @@ void setup_sortable_options (OPTION **to_sort, OPTIONS *options);
 
 
 
+OPTION **new_sorted_options (OPTIONS *options);
+OPTION *find_option_string (OPTION **sorted_options, const char *name);
+
+
+
 void txi_initialise_base_options (void);
 
 
@@ -45,39 +50,27 @@ void clear_option (OPTION *option);
 void free_option (OPTION *option);
 void initialize_option (OPTION *option, enum global_option_type type,
                         const char *name);
-OPTION *new_option (enum global_option_type type, const char *name,
-                    size_t number);
 int option_set_conf (OPTION *option, int int_value, const char *char_value);
 void option_force_conf (OPTION *option, int int_value, const char *char_value);
 void copy_option (OPTION *destination, const OPTION *source);
 
 
 
-void setup_sorted_options (OPTION **sorted_options, OPTIONS *options);
-OPTION **new_sorted_options (OPTIONS *options);
-OPTION *find_option_string (OPTION **sorted_options, const char *name);
+void initialize_options_list (OPTIONS_LIST *options_list);
+void free_options_list (OPTIONS_LIST *options_list);
+void options_list_add_option_number (OPTIONS_LIST *options_list,
+                                     size_t number);
+void copy_options_list (OPTIONS_LIST *options_list,
+                        const OPTIONS_LIST *options_src);
 void copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
                                 OPTIONS_LIST *options_list, int set_configured);
-void set_sorted_option_key_configured (OPTION **sorted_options,
-                                       const char *key, int configured);
 
-
-
-void initialize_options_list (OPTIONS_LIST *options_list);
 OPTION *add_option_value (OPTIONS_LIST *options_list,
                           const char *name,
                           int int_value, const char *char_value);
 OPTION *add_new_button_option (OPTIONS_LIST *options_list,
                               const char *option_name,
                               BUTTON_SPECIFICATION_LIST *buttons);
-void copy_options_list (OPTIONS_LIST *options_list,
-                        const OPTIONS_LIST *options_src);
-void free_options_list (OPTIONS_LIST *options_list);
-
-
-
-void options_list_add_option_number (OPTIONS_LIST *options_list,
-                                     size_t number);
 OPTION *add_option_strlist_value (OPTIONS_LIST *options_list,
                           const char *option_name, const STRING_LIST *strlist);
 

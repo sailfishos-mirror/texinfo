@@ -32,6 +32,60 @@
 OPTIONS txi_base_options;
 OPTION *txi_base_sorted_options[TXI_OPTIONS_NR];
 
+/* functions to setup and use sorted options */
+
+static int
+compare_option_str (const void *a, const void *b)
+{
+  const OPTION **opt_a = (const OPTION **) a;
+  const OPTION **opt_b = (const OPTION **) b;
+
+  return strcmp ((*opt_a)->name, (*opt_b)->name);
+}
+
+/* sort options and set the index in the option structure to the index in
+   the sorted array */
+static void
+setup_sorted_options (OPTION **sorted_options, OPTIONS *options)
+{
+  size_t i;
+  setup_sortable_options (sorted_options, options);
+  qsort (sorted_options, TXI_OPTIONS_NR, sizeof (OPTION *), compare_option_str);
+
+  for (i = 0; i < TXI_OPTIONS_NR; i++)
+    {
+      sorted_options[i]->number = i + 1;
+    }
+}
+
+OPTION **
+new_sorted_options (OPTIONS *options)
+{
+  OPTION **sorted_options
+    = (OPTION **) malloc (sizeof (OPTION *) * TXI_OPTIONS_NR);
+
+  setup_sorted_options (sorted_options, options);
+  return sorted_options;
+}
+
+OPTION *
+find_option_string (OPTION **sorted_options, const char *name)
+{
+  static OPTION option_key;
+  OPTION *option_ref = &option_key;
+  OPTION **result;
+
+  option_key.name = name;
+  result = (OPTION **)bsearch (&option_ref, sorted_options, TXI_OPTIONS_NR,
+                               sizeof (OPTION *), compare_option_str);
+  if (result)
+    return *result;
+  else
+    return 0;
+}
+
+
+
 /* initialization */
 
 void
@@ -160,19 +214,6 @@ initialize_option (OPTION *option, enum global_option_type type,
       default:
         break;
     }
-}
-
-/* note that the value in union o is not initialized */
-OPTION *
-new_option (enum global_option_type type, const char *name, size_t number)
-{
-  OPTION *option = (OPTION *) malloc (sizeof (OPTION));
-
-  initialize_option (option, type, name);
-  option->number = number;
-  option->configured = 0;
-
-  return option;
 }
 
 /* only for strings and integers */
@@ -365,101 +406,6 @@ copy_option (OPTION *destination, const OPTION *source)
 
 
 
-/* functions to setup and use sorted options */
-
-static int
-compare_option_str (const void *a, const void *b)
-{
-  const OPTION **opt_a = (const OPTION **) a;
-  const OPTION **opt_b = (const OPTION **) b;
-
-  return strcmp ((*opt_a)->name, (*opt_b)->name);
-}
-
-/* sort options and set the index in the option structure to the index in
-   the sorted array */
-void
-setup_sorted_options (OPTION **sorted_options, OPTIONS *options)
-{
-  size_t i;
-  setup_sortable_options (sorted_options, options);
-  qsort (sorted_options, TXI_OPTIONS_NR, sizeof (OPTION *), compare_option_str);
-
-  for (i = 0; i < TXI_OPTIONS_NR; i++)
-    {
-      sorted_options[i]->number = i + 1;
-    }
-}
-
-OPTION **
-new_sorted_options (OPTIONS *options)
-{
-  OPTION **sorted_options
-    = (OPTION **) malloc (sizeof (OPTION *) * TXI_OPTIONS_NR);
-
-  setup_sorted_options (sorted_options, options);
-  return sorted_options;
-}
-
-OPTION *
-find_option_string (OPTION **sorted_options, const char *name)
-{
-  static OPTION option_key;
-  OPTION *option_ref = &option_key;
-  OPTION **result;
-
-  option_key.name = name;
-  result = (OPTION **)bsearch (&option_ref, sorted_options, TXI_OPTIONS_NR,
-                               sizeof (OPTION *), compare_option_str);
-  if (result)
-    return *result;
-  else
-    return 0;
-}
-
-/* copy OPTIONS_LIST options to an OPTIONS structure, using the sorted options
-   to find the struct fields.
- */
-void
-copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
-                           OPTIONS_LIST *options_list, int set_configured)
-{
-  size_t i;
-
-  for (i = 0; i < options_list->number; i++)
-    {
-      size_t index = options_list->list[i] - 1;
-      OPTION *src_option = options_list->sorted_options[index];
-      OPTION *dst_option = sorted_options[index];
-
-      copy_option (dst_option, src_option);
-
-      if (dst_option->type == GOT_buttons
-          && dst_option->o.buttons && options)
-         options->BIT_user_function_number
-               += dst_option->o.buttons->BIT_user_function_number;
-
-      if (set_configured)
-        dst_option->configured = 1;
-    }
-}
-
-/* Unused */
-void
-set_sorted_option_key_configured (OPTION **sorted_options, const char *key,
-                                  int configured)
-{
-  if (configured > 0)
-    {
-      OPTION *option = find_option_string (sorted_options, key);
-
-      if (option)
-        option->configured = configured;
-    }
-}
-
-
-
 /* functions to set and use options list */
 
 void
@@ -515,7 +461,7 @@ options_list_add_option_name (OPTIONS_LIST *options_list,
   return option;
 }
 
-OPTION *
+static OPTION *
 add_option_copy (OPTIONS_LIST *options_list, const OPTION *option_in)
 {
   options_list_add_option_number (options_list, option_in->number);
@@ -534,6 +480,47 @@ add_option_copy (OPTIONS_LIST *options_list, const OPTION *option_in)
   copy_option (option, option_in);
 
   return option;
+}
+
+void
+copy_options_list (OPTIONS_LIST *options_list, const OPTIONS_LIST *options_src)
+{
+  size_t i;
+
+  if (options_src)
+    {
+      for (i = 0; i < options_src->number; i++)
+        {
+          size_t index = options_src->list[i] - 1;
+          OPTION *src_option = options_src->sorted_options[index];
+          add_option_copy (options_list, src_option);
+        }
+    }
+}
+
+/* copy OPTIONS_LIST options to an OPTIONS structure */
+void
+copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
+                           OPTIONS_LIST *options_list, int set_configured)
+{
+  size_t i;
+
+  for (i = 0; i < options_list->number; i++)
+    {
+      size_t index = options_list->list[i] - 1;
+      OPTION *src_option = options_list->sorted_options[index];
+      OPTION *dst_option = sorted_options[index];
+
+      copy_option (dst_option, src_option);
+
+      if (dst_option->type == GOT_buttons
+          && dst_option->o.buttons && options)
+         options->BIT_user_function_number
+               += dst_option->o.buttons->BIT_user_function_number;
+
+      if (set_configured)
+        dst_option->configured = 1;
+    }
 }
 
 OPTION *
@@ -570,22 +557,6 @@ add_new_button_option (OPTIONS_LIST *options_list, const char *option_name,
         += option->o.buttons->BIT_user_function_number;
 
   return option;
-}
-
-void
-copy_options_list (OPTIONS_LIST *options_list, const OPTIONS_LIST *options_src)
-{
-  size_t i;
-
-  if (options_src)
-    {
-      for (i = 0; i < options_src->number; i++)
-        {
-          size_t index = options_src->list[i] - 1;
-          OPTION *src_option = options_src->sorted_options[index];
-          add_option_copy (options_list, src_option);
-        }
-    }
 }
 
 OPTION *

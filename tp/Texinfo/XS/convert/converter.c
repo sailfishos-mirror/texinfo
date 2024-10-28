@@ -333,18 +333,12 @@ set_converter_init_information (CONVERTER *converter,
                             CONVERTER_INITIALIZATION_INFO *format_defaults,
                             CONVERTER_INITIALIZATION_INFO *user_conf)
 {
-  OPTION **format_defaults_sorted_options;
-
   apply_converter_info (converter, format_defaults, 0);
 
   /* Also keep format_defaults options as an OPTIONS structure */
   converter->format_defaults_conf = new_options ();
-  format_defaults_sorted_options
-    = new_sorted_options (converter->format_defaults_conf);
-  copy_options_list_options (converter->format_defaults_conf,
-                             format_defaults_sorted_options,
-                             &format_defaults->conf, 0);
-  free (format_defaults_sorted_options);
+  copy_options (converter->format_defaults_conf,
+                format_defaults->conf.options);
 
   if (user_conf)
     apply_converter_info (converter, user_conf, 1);
