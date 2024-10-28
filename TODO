@@ -121,6 +121,8 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
 * Distribution:
   - generate txi-??.tex from .po's to make translators' jobs easier.
     From Akim and Karl E.
+  - use SHELL more to make sure that it is possible to customize the shell
+    used for building and testing.
 
 * Other
   - Info format - Get Emacs to support : in index entries by changing
