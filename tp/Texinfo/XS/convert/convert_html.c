@@ -732,6 +732,8 @@ html_run_stage_handlers (CONVERTER *self,
                                                    self->conf, 0,
                  "handler %d of stage %s priority %s: non-numeric status",
                               (int) i+1, stage_name, stage_handler->priority);
+                  call_status = self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer
+                                 +1;
                 }
 
               if (call_status != 0)

@@ -2396,7 +2396,7 @@ call_stage_handler (CONVERTER *self, void *stage_handler_sv,
   result_sv = POPs;
   if (!SvOK (result_sv) || SvROK (result_sv) || !looks_like_number(result_sv))
     {
-      status = -self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer - 1;
+      status = 1;
       *error_status = 1;
     }
   else

@@ -1,5 +1,13 @@
 2024-10-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_stage_handler), tp/Texinfo/XS/convert/convert_html.c
+	(html_run_stage_handlers): set status to 1 in call_stage_handler if
+	error status is set.  Set the call_status in html_run_stage_handlers,
+	to a positive value.
+
+2024-10-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (test_files), tp/t/init/stage_handler_bad_return.pm,
 	tp/t/init/stage_handler_undef_return.pm, tp/tests/Makefile.onetst
 	(type_base_one_test_files_generated_list),
