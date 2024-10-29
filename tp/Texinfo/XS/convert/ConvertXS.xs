@@ -256,12 +256,21 @@ set_conf (SV *converter_in, option_name, SV *value)
               = find_option_string (self->sorted_options, option_name);
 
             if (!option)
-              croak_nocontext ("BUG: set_conf: unknown option %s\n",
+              message_list_document_error (&self->error_messages,
+                                           self->conf, 0,
+                                  "unknown customization variable: %s",
+                                   option_name);
+              /*
+              croak_nocontext ("XS: BUG: set_conf: unknown option %s\n",
                                option_name);
-
-            get_sv_status = get_sv_option (option, value, 0, self->conf, self);
-            if (get_sv_status == 0)
-              status = 1;
+               */
+            else
+              {
+                get_sv_status = get_sv_option (option, value, 0,
+                                               self->conf, self);
+                if (get_sv_status == 0)
+                  status = 1;
+              }
           }
         RETVAL = status;
     OUTPUT:
@@ -282,13 +291,22 @@ force_conf (SV *converter_in, option_name, SV *value)
               = find_option_string (self->sorted_options, option_name);
 
             if (!option)
-              croak_nocontext ("BUG: force_conf: unknown option %s\n",
+              message_list_document_error (&self->error_messages,
+                                           self->conf, 0,
+                                  "unknown customization variable: %s",
+                                   option_name);
+               /*
+              croak_nocontext ("XS: BUG: force_conf: unknown option %s\n",
                                option_name);
-
-            /* only possible error would be a type error */
-            get_sv_status = get_sv_option (option, value, 1, self->conf, self);
-            if (get_sv_status == 0)
-              status = 1;
+                */
+            else
+              {
+                /* only possible failure would be a type error */
+                get_sv_status = get_sv_option (option, value, 1,
+                                               self->conf, self);
+                if (get_sv_status == 0)
+                  status = 1;
+              }
           }
         RETVAL = status;
     OUTPUT:
@@ -307,10 +325,20 @@ get_conf (SV *converter_in, option_name)
              = find_option_string (self->sorted_options, option_name);
 
             if (!option)
-              /* in Perl confess is called, we do not bother here */
-              croak_nocontext ("CBUG: unknown option %s\n", option_name);
+              {
+                message_list_document_error (&self->error_messages,
+                                           self->conf, 0,
+                                  "unknown customization variable: %s",
+                                   option_name);
+              /* in Perl cluck is called, no equivalent here */
+               /*
+              croak_nocontext ("XS: BUG: get_conf: unknown option %s\n", option_name);
+                */
 
-            RETVAL = build_sv_option (option, self);
+                RETVAL = newSV (0);
+              }
+            else
+              RETVAL = build_sv_option (option, self);
           }
         else
           RETVAL = newSV (0);

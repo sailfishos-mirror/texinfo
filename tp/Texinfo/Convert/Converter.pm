@@ -561,32 +561,47 @@ sub get_converter_errors($)
 # Implementation of the customization API that is used in many
 # Texinfo modules
 
+# Unknown variables can only happen when called from init files.  From
+# command-line checks are done before.
+
 sub get_conf($$)
 {
   my $self = shift;
-  my $conf = shift;
+  my $var_name = shift;
 
-  if (!Texinfo::Common::valid_customization_option($conf)) {
-    confess("CBUG: unknown option $conf\n");
+  if (!Texinfo::Common::valid_customization_option($var_name)) {
+    $self->converter_document_error(sprintf(__(
+                       "unknown customization variable: %s"),
+                                      $var_name));
+    if ($self->{'conf'}->{'TEST'}) {
+      cluck ("BUG: get_conf: unknown customization variable: $var_name");
+    }
+    return undef;
   }
 
-  return $self->{'conf'}->{$conf};
+  return $self->{'conf'}->{$var_name};
 }
 
 sub set_conf($$$)
 {
   my $self = shift;
-  my $conf = shift;
+  my $var_name = shift;
   my $value = shift;
 
-  if (!Texinfo::Common::valid_customization_option($conf)) {
-    die "BUG: set_conf: unknown option $conf\n";
+  if (!Texinfo::Common::valid_customization_option($var_name)) {
+    $self->converter_document_error(sprintf(__(
+                       "unknown customization variable: %s"),
+                                      $var_name));
+    if ($self->{'conf'}->{'TEST'}) {
+      cluck ("BUG: set_conf: unknown customization variable: $var_name");
+    }
+    return 0;
   }
 
-  if ($self->{'configured'}->{$conf}) {
+  if ($self->{'configured'}->{$var_name}) {
     return 0;
   } else {
-    $self->{'conf'}->{$conf} = $value;
+    $self->{'conf'}->{$var_name} = $value;
     return 1;
   }
 }
@@ -594,14 +609,20 @@ sub set_conf($$$)
 sub force_conf($$$)
 {
   my $self = shift;
-  my $conf = shift;
+  my $var_name = shift;
   my $value = shift;
 
-  if (!Texinfo::Common::valid_customization_option($conf)) {
-    die "BUG: force_conf: unknown option $conf\n";
+  if (!Texinfo::Common::valid_customization_option($var_name)) {
+    $self->converter_document_error(sprintf(__(
+                       "unknown customization variable: %s"),
+                                      $var_name));
+    if ($self->{'conf'}->{'TEST'}) {
+      cluck ("BUG: force_conf: unknown customization variable: $var_name");
+    }
+    return 0;
   }
 
-  $self->{'conf'}->{$conf} = $value;
+  $self->{'conf'}->{$var_name} = $value;
   return 1;
 }
 
