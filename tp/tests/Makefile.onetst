@@ -73,6 +73,8 @@ type_base_one_test_files_generated_list =  \
     test_scripts/customization_double_contents_book.sh \
     test_scripts/customization_double_contents_after_title_book.sh \
     test_scripts/customization_double_contents_after_title_book_chapter.sh \
+    test_scripts/customization_simplest_stage_handler_bad_return.sh \
+    test_scripts/customization_simplest_stage_handler_undef_return.sh \
     test_scripts/coverage_formatting_macro_expand.sh \
     test_scripts/coverage_formatting_info.sh \
     test_scripts/coverage_formatting_plaintext.sh \

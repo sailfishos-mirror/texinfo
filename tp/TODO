@@ -10,7 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Tests of run_stage_handlers handler returning undef, a float, a string, an hash
 
 Bugs
 ====

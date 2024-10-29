@@ -1,5 +1,15 @@
 2024-10-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files), tp/t/init/stage_handler_bad_return.pm,
+	tp/t/init/stage_handler_undef_return.pm, tp/tests/Makefile.onetst
+	(type_base_one_test_files_generated_list),
+	tp/tests/customization/list-of-tests
+	(simplest_stage_handler_bad_return)
+	(simplest_stage_handler_undef_return): add tests of invalid stage
+	handlers return values.
+
+2024-10-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (run_stage_handlers),
 	tp/Texinfo/XS/convert/call_html_perl_function.c (call_stage_handler),
 	tp/Texinfo/XS/convert/convert_html.c (html_run_stage_handlers),

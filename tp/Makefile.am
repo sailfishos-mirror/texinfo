@@ -211,6 +211,8 @@ test_files = \
  t/init/special_element_customization.pm \
  t/init/special_unit_direction_customization.pm \
  t/init/special_unit_direction_string_info_customization.pm \
+ t/init/stage_handler_bad_return.pm \
+ t/init/stage_handler_undef_return.pm \
  t/init/t2h_buttons.pm \
  t/init/t2h_singular.init \
  t/init/test_css_info_functions.pm \
