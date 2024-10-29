@@ -1,5 +1,16 @@
 2024-10-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (run_stage_handlers),
+	tp/Texinfo/XS/convert/call_html_perl_function.c (call_stage_handler),
+	tp/Texinfo/XS/convert/convert_html.c (html_run_stage_handlers),
+	tp/Texinfo/XS/convert/replace_perl_call_html_function.c
+	(call_stage_handler): check the stage handler return value and error
+	out if it is not numeric.  Add an error status argument to
+	call_stage_handler to get the specific error in
+	html_run_stage_handlers.
+
+2024-10-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/hashmap.c (clear_registered_ids_c_hashmap):
 	do not access the hashmap if it had never been initialized.
 

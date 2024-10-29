@@ -723,8 +723,17 @@ html_run_stage_handlers (CONVERTER *self,
 
           if (stage_handler->sv)
             {
+              int error_status = 0;
               call_status = call_stage_handler (self, stage_handler->sv,
-                                                stage_name);
+                                                stage_name, &error_status);
+              if (error_status == 1)
+                {
+                  message_list_document_error (&self->error_messages,
+                                                   self->conf, 0,
+                 "handler %d of stage %s priority %s: non-numeric status",
+                              (int) i+1, stage_name, stage_handler->priority);
+                }
+
               if (call_status != 0)
                 {
                   if (call_status < 0)

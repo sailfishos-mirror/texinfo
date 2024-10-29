@@ -12464,8 +12464,12 @@ sub run_stage_handlers($$$$)
       print STDERR "RUN handler $handler_idx: stage $stage, priority $priority\n";
     }
     my $status = &{$handler}($converter, $document, $stage);
-    $status = -$converter->get_conf('HANDLER_FATAL_ERROR_LEVEL') -1
-      if (!defined($status));
+    if (!defined($status) or ref($status) ne '' or $status !~ /^\d+$/) {
+      $converter->converter_document_error(
+       sprintf(__("handler %d of stage %s priority %s: non-numeric status"),
+                      $handler_idx, $stage, $priority));
+      $status = $converter->get_conf('HANDLER_FATAL_ERROR_LEVEL') +1;
+    }
     if ($status != 0) {
       if ($status < 0) {
         $converter->converter_document_error(

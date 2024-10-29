@@ -2345,7 +2345,7 @@ call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
 
 int
 call_stage_handler (CONVERTER *self, void *stage_handler_sv,
-                    const char *stage_name)
+                    const char *stage_name, int *error_status)
 {
   int count;
   SV *document_sv = 0;
@@ -2353,6 +2353,8 @@ call_stage_handler (CONVERTER *self, void *stage_handler_sv,
   int status;
 
   dTHX;
+
+  *error_status = 0;
 
   if (self->document)
     {
@@ -2392,7 +2394,13 @@ call_stage_handler (CONVERTER *self, void *stage_handler_sv,
 
 
   result_sv = POPs;
-  status = (int) SvIV (result_sv);
+  if (!SvOK (result_sv) || SvROK (result_sv) || !looks_like_number(result_sv))
+    {
+      status = -self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer - 1;
+      *error_status = 1;
+    }
+  else
+    status = (int) SvIV (result_sv);
 
   PUTBACK;
 

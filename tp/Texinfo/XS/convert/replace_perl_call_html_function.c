@@ -331,8 +331,9 @@ call_button_direction_function (CONVERTER *self,
 
 int
 call_stage_handler(CONVERTER *self, void *stage_handler_sv,
-                        const char *stage_name)
+                        const char *stage_name, int *error_status)
 {
+  *error_status = 0;
   return 0;
 }
 
