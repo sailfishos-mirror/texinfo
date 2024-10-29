@@ -1,5 +1,17 @@
 2024-10-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl: do not set TEST for converter tests if already
+	already set, such that TEST may be set to 0.
+
+	* tp/Makefile.am (test_files), tp/Makefile.tres,
+	tp/t/init_files_tests.t (unknown_custom_variable),
+	tp/t/init/unknown_custom_variable.pm: test of unknown customization
+	variables set or accessed in init file.
+
+	* tp/t/test_utils.pl: add shebang (for colorization in vim).
+
+2024-10-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (get_conf, set_conf, force_conf),
 	tp/Texinfo/XS/convert/ConvertXS.xs (get_conf, set_conf, force_conf):
 	do not abort if an unknown variable is accessed or set.  In Perl, call

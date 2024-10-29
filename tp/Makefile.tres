@@ -1140,6 +1140,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/init_files_tests/translation_in_parser_in_translation/res_html \
   t/results/init_files_tests/undefined_node_filename.pl \
   t/results/init_files_tests/undefined_node_filename/res_html \
+  t/results/init_files_tests/unknown_custom_variable.pl \
   t/results/invalid_nestings/accents.pl \
   t/results/invalid_nestings/bad_style_nesting.pl \
   t/results/invalid_nestings/bad_tab_nesting.pl \

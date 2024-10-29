@@ -1,3 +1,4 @@
+#! /usr/bin/env perl
 # t/* test support for the Perl modules.
 #
 # Copyright 2010-2024 Free Software Foundation, Inc.
@@ -1303,7 +1304,8 @@ sub test($$)
       } elsif (!defined($format_converter_options->{'OUTFILE'})) {
         $format_converter_options->{'OUTFILE'} = '';
       }
-      $format_converter_options->{'TEST'} = 1;
+      $format_converter_options->{'TEST'} = 1
+        if (!defined($format_converter_options->{'TEST'}));
       $format_converter_options->{'INCLUDE_DIRECTORIES'} = [
                                           $srcdir.'t/include/'];
       my $converter;

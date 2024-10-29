@@ -28,6 +28,17 @@ pt @error{}.
 
 ',{'init_files' => ['translate_txiinternalvalue_macro.init'],
 }],
+# test accessing setting unknown customization variables, which can only
+# be done through init files.  Also requires TEST to be unset to avoid bug
+# messages and traces.
+['unknown_custom_variable',
+'@node Top
+@top top
+
+@node Chap
+@chapter chap
+', {'init_files' => ['unknown_custom_variable.pm']},
+   {'TEST' => 0}],
 );
 
 my $direction_strings_test_text = '@node Top
