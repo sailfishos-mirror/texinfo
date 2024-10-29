@@ -12464,6 +12464,8 @@ sub run_stage_handlers($$$$)
       print STDERR "RUN handler $handler_idx: stage $stage, priority $priority\n";
     }
     my $status = &{$handler}($converter, $document, $stage);
+    $status = -$converter->get_conf('HANDLER_FATAL_ERROR_LEVEL') -1
+      if (!defined($status));
     if ($status != 0) {
       if ($status < 0) {
         $converter->converter_document_error(
@@ -12474,7 +12476,7 @@ sub run_stage_handlers($$$$)
         # already if $status > 0
         if ($converter->get_conf('VERBOSE') or $converter->get_conf('DEBUG')) {
           print STDERR "FAIL handler $handler_idx: stage $stage, "
-                                     ."priority $priority\n";
+                                     ."priority $priority, status $status\n";
         }
       }
       return $status;

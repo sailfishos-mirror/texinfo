@@ -1,5 +1,10 @@
 2024-10-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/hashmap.c (clear_registered_ids_c_hashmap):
+	do not access the hashmap if it had never been initialized.
+
+2024-10-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl: do not set TEST for converter tests if already
 	already set, such that TEST may be set to 0.
 

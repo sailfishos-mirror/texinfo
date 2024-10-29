@@ -141,6 +141,9 @@ clear_registered_ids_c_hashmap (CONVERTER *self)
   C_HASHMAP *H = (C_HASHMAP *)self->registered_ids_c_hashmap;
   int i;
 
+  if (!H)
+    return;
+
   BUCKET_ARENA *arena, *next;
   /* Free chain. */
   next = H->arena;
