@@ -3,10 +3,21 @@
 # ./texi2any.pl --footnote-style=bâd
 # ./texi2any.pl --paragraph-indent=ïndent
 
+# NOTE in the default case, the locale set for the tests corresponds to
+# an ASCII encoding.  In that setup, non-ASCII encoded characters are usually
+# treated as invalid characters.  Perl Encode::encode use a substitution
+# character which seems to be "?", but there is no guarantee.  With XS/C
+# and GNU iconv, there also seems to be a "?" output but there are also
+# "encoding error at byte XXX" errors output.  For XS/C it could probably
+# be possible to have "?" output reproducibly by replacing encode_with_iconv by
+# gnulib striconveh module mem_cd_iconveh with iconv_ilseq_handler set to
+# iconveh_question_mark.
+#
+# Since there is no guarantee on the non-ASCII character representations
+# in error messages with an ASCII encoding, we set MESSAGE_ENCODING=UTF-8
+# for all the tests.
+
 # check non ascii in verbatiminclude file name
-# TODO with XS there are "encoding error at byte XXX" output.
-# Maybe replace encode_with_iconv by gnulib striconveh module
-# mem_cd_iconveh with iconv_ilseq_handler set to iconveh_question_mark?
 #no_command_line_encoding osé_utf8.texi --html
 
 # check non ascii command line arguments and css files
@@ -42,13 +53,9 @@ manual_include_accented_file_name_latin1_use_locale_encoding manual_include_acce
 # The following tests tests how verbatiminclude file name encoding is
 # resolved in raw text in HTML and in raw text converter and how
 # customization options are used.
-# Note that the tests are not perfect, as UTF-8 corresponds to the
-# locale encoding, so the encoding of the file names could be found
-# either from the command line or the locale, depending on the value
-# of DOC_ENCODING_FOR_INPUT_FILE_NAME as seen from the converters.
-verbatiminclude_names_latin1_html verbatiminclude_names_latin1.texi --html
+verbatiminclude_names_latin1_html verbatiminclude_names_latin1.texi --html -c MESSAGE_ENCODING=UTF-8
 
-verbatiminclude_names_latin1_html_explicit_encoding verbatiminclude_names_latin1.texi --html -c INPUT_FILE_NAME_ENCODING=UTF-8
+verbatiminclude_names_latin1_html_explicit_encoding verbatiminclude_names_latin1.texi --html -c INPUT_FILE_NAME_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8
 
 verbatiminclude_names_latin1_rawtext verbatiminclude_names_latin1.texi -c TEXINFO_OUTPUT_FORMAT=rawtext
 

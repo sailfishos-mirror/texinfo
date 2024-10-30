@@ -1,5 +1,13 @@
 2024-10-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/encoded/list-of-tests (verbatiminclude_names_latin1_html)
+	(verbatiminclude_names_latin1_html_explicit_encoding): add -c
+	MESSAGE_ENCODING=UTF-8 to have a reproducible output.  With ASCII
+	output encoding, there is no guarantee on the representation of
+	non-ASCII characters.  Gavin idea.
+
+2024-10-30  Patrice Dumas  <pertusus@free.fr>
+
 	Add contrib/init_examples directory for texi2any initialization files
 
 2024-10-29  Patrice Dumas  <pertusus@free.fr>
