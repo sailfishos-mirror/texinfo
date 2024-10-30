@@ -2,6 +2,13 @@
 # easily tested by calling directly ./texi2any.pl and checking visually:
 # ./texi2any.pl --footnote-style=bâd
 # ./texi2any.pl --paragraph-indent=ïndent
+
+# check non ascii in verbatiminclude file name
+# TODO with XS there are "encoding error at byte XXX" output.
+# Maybe replace encode_with_iconv by gnulib striconveh module
+# mem_cd_iconveh with iconv_ilseq_handler set to iconveh_question_mark?
+#no_command_line_encoding osé_utf8.texi --html
+
 # check non ascii command line arguments and css files
 non_ascii_command_line osé_utf8.texi -D 'needcommandlineunicode Need command-line unicode' --html --no-split -c DO_ABOUT=1 -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --split=Mekanïk --document-language=Destruktïw -c 'Kommandöh vâl' -D TÛT -D 'vùr ké' -U ôndef -c 'FORMAT_MENU mînù' --macro-expand=@OUT_DIR@osé-texinfo.texi --internal-links=@OUT_DIR@intérnal.txt --css-include çss.css --css-include cêss.css --css-ref=rëf --css-ref=öref
 
