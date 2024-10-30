@@ -1,0 +1,11 @@
+contrib/init_examples/README
+
+  Copyright 2024 Free Software Foundation, Inc.
+
+  Copying and distribution of this file, with or without modification,
+  are permitted in any medium without royalty provided the copyright
+  notice and this notice are preserved.
+
+This directory contains initialization files for texi2any/makeinfo
+that are not officially supported, but were correct at the time they were
+added.

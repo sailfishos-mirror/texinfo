@@ -1,3 +1,7 @@
+2024-10-30  Patrice Dumas  <pertusus@free.fr>
+
+	Add contrib/init_examples directory for texi2any initialization files
+
 2024-10-29  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/call_html_perl_function.c
