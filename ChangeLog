@@ -1,5 +1,13 @@
 2024-09-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Plaintext.pm (conversion_initialization)
+	(_convert): set block_math_commands to always be
+	default_preformatted_context_commands and
+	default_format_context_commands.  Do not set dynamically anymore the
+	'preformatted_context_commands' and 'format_context_commands'.
+
+2024-09-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (convert_math_to_images): render math
 	@-commands Texinfo tree elements as images using LaTeX with the
 	preview package and dvipng.

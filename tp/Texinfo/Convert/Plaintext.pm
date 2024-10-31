@@ -185,13 +185,6 @@ foreach my $preformatted_command ('verbatim', keys(%menu_commands)) {
   $default_preformatted_context_commands{$preformatted_command} = 1;
 }
 
-my %block_math_commands;
-foreach my $block_math_command (keys(%math_commands)) {
-  if (exists($block_commands{$block_math_command})) {
-    $block_math_commands{$block_math_command} = 1;
-  }
-}
-
 my %ignored_line_commands;
 foreach my $line_command (keys(%line_commands)) {
   $ignored_line_commands{$line_command} = 1
@@ -237,6 +230,15 @@ foreach my $non_indented('format', 'smallformat') {
 foreach my $format_context_command (keys(%menu_commands), 'verbatim',
  'flushleft', 'flushright', 'multitable', 'float') {
   $default_format_context_commands{$format_context_command} = 1;
+}
+
+my %block_math_commands;
+foreach my $block_math_command (keys(%math_commands)) {
+  if (exists($block_commands{$block_math_command})) {
+    $block_math_commands{$block_math_command} = 1;
+    $default_preformatted_context_commands{$block_math_command} = 1;
+    $default_format_context_commands{$block_math_command} = 1;
+  }
 }
 
 my %flush_commands = (
@@ -430,12 +432,6 @@ sub conversion_initialization($;$)
   # something done (a newline added) if equal to 0.
   $self->{'seenmenus'} = {};
   $self->{'index_entries_line_location'} = {};
-
-  # this is dynamic because raw formats may either be full commands if
-  # isolated, or simple text if in a paragraph
-  %{$self->{'format_context_commands'}} = %default_format_context_commands;
-  %{$self->{'preformatted_context_commands'}}
-     = %default_preformatted_context_commands;
 
   $self->{'footnote_index'} = 0;
   $self->{'pending_footnotes'} = [];
@@ -2615,7 +2611,7 @@ sub _convert($$)
           my $result = _get_form_feeds($element->{'text'});
           _stream_output($self, $result);
         }
-        if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
+        if ($default_preformatted_context_commands{$self->{'context'}->[-1]}) {
           _stream_output($self, add_text($formatter->{'container'}, "\n"),
                          $formatter->{'container'});
         } else {
@@ -3312,7 +3308,8 @@ sub _convert($$)
           and (!$format_menu or $format_menu eq 'nomenu')) {
         return '';
       }
-      if ($self->{'preformatted_context_commands'}->{$cmdname}
+      # includes @verbatim raw block_commands and block_math_commands
+      if ($default_preformatted_context_commands{$cmdname}
           or $cmdname eq 'float') {
         if ($format_raw_commands{$cmdname}) {
           _stream_output($self,
@@ -3322,27 +3319,9 @@ sub _convert($$)
         push @{$self->{'context'}}, $cmdname;
       } elsif ($flush_commands{$cmdname}) {
         push @{$self->{'context'}}, $cmdname;
-      } elsif ($block_commands{$cmdname} eq 'raw' # can only be @verbatim
-               or $block_math_commands{$cmdname}) {
-        if (!$self->{'formatters'}->[-1]->{'_top_formatter'}) {
-          # reuse the current formatter if not in top level
-          _stream_output($self,
-                         add_pending_word($formatter->{'container'}, 1),
-                         $formatter->{'container'});
-          _stream_output($self,
-                         end_line($formatter->{'container'}),
-                         $formatter->{'container'});
-        } else {
-          # if in top level, the raw block command is turned into a
-          # simple preformatted command (alike @verbatim), to have a
-          # formatter container being created.
-          push @{$self->{'context'}}, $cmdname;
-          $self->{'format_context_commands'}->{$cmdname} = 1;
-          $self->{'preformatted_context_commands'}->{$cmdname} = 1;
-        }
       }
 
-      if ($self->{'format_context_commands'}->{$cmdname}) {
+      if ($default_format_context_commands{$cmdname}) {
         push @{$self->{'format_context'}},
              { 'cmdname' => $cmdname,
                'paragraph_count' => 0,
@@ -3355,7 +3334,7 @@ sub _convert($$)
         # preformatted context is not a classical preformatted
         # command (ie if it is menu or verbatim, and not example or
         # similar)
-        if ($self->{'preformatted_context_commands'}->{$cmdname}
+        if ($default_preformatted_context_commands{$cmdname}
             and ! $preformatted_commands{$cmdname}
             and ! $format_raw_commands{$cmdname}) {
           $preformatted = $self->new_formatter('unfilled');
@@ -3558,7 +3537,7 @@ sub _convert($$)
     } elsif ($cmdname eq 'exdent') {
       if ($element->{'args'}
           and $element->{'args'}->[0]->{'contents'}) {
-        if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
+        if ($default_preformatted_context_commands{$self->{'context'}->[-1]}) {
           my $formatter = $self->new_formatter('unfilled',
             {'indent_length' =>
                 ($self->{'format_context'}->[-1]->{'indent_level'} -1)
@@ -4294,23 +4273,19 @@ sub _convert($$)
     }
 
     # close the contexts and register the cells
-    if ($self->{'preformatted_context_commands'}->{$cmdname}
+    if ($default_preformatted_context_commands{$cmdname}
         or $cmdname eq 'float') {
       my $old_context = pop @{$self->{'context'}};
       die "Not a preformatted context: $old_context"
-        if (!$self->{'preformatted_context_commands'}->{$old_context}
+        if (!$default_preformatted_context_commands{$old_context}
             and $old_context ne 'float');
-      delete ($self->{'preformatted_context_commands'}->{$cmdname})
-       unless ($default_preformatted_context_commands{$cmdname});
     } elsif ($flush_commands{$cmdname}) {
       my $old_context = pop @{$self->{'context'}};
       die if (! $flush_commands{$old_context});
     }
 
-    if ($self->{'format_context_commands'}->{$cmdname}) {
+    if ($default_format_context_commands{$cmdname}) {
       pop @{$self->{'format_context'}};
-      delete ($self->{'format_context_commands'}->{$cmdname})
-       unless ($default_format_context_commands{$cmdname});
     } elsif ($cell) {
       my $result = _stream_result($self);
 
