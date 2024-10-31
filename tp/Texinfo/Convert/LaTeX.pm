@@ -4655,8 +4655,9 @@ sub convert_math_to_images($$$;$)
     }
     print $fh "\\end{preview}\n\n";
 
-    my $png_file_name = File::Spec->catfile($math2img_out_dir,
-                                        $math2img_basename.$counter.'.png');
+    #my $png_file_name = File::Spec->catfile($math2img_out_dir,
+    #                                    $math2img_basename.$counter.'.png');
+    my $png_file_name = $math2img_basename.$counter.'.png';
     $result->{$element} = $png_file_name;
   }
   if ($counter > 0) {

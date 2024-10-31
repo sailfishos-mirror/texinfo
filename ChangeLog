@@ -1,3 +1,8 @@
+2024-10-31  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/LaTeX.pm (convert_math_to_images): return png
+	files relative to the directory where the info file is created.
+
 2024-09-03  Patrice Dumas  <pertusus@free.fr>
 
 	Implement INFO_MATH_IMAGES in Info
