@@ -9123,7 +9123,7 @@ The first argument normalized is in I<normalized>.
 
 @-commands that are targets for cross-references have a I<normalized> key for
 the normalized label, built as specified in the Texinfo documentation in the
-I<HTML Xref> node.  There is also a I<node_content> key for an array holding
+I<HTML Xref> node.  There is also a I<node_content> key for an element holding
 the corresponding content.
 
 =item C<@author>
@@ -9267,13 +9267,18 @@ with the element for the @columnfractions command.
 
 =item C<@node>
 
-Explicit directions labels information is in the I<line_arg>
-arguments C<extra> node direction C<@node> arguments.  They consist
-in a hash with the I<node_content> key for an array holding the
-corresponding content, a I<manual_content> key if there is an
-associated external manual name, and a I<normalized> key for the
-normalized label, built as specified in the I<HTML Xref>
-Texinfo documentation node.
+Explicit directions labels information are available in the I<line_arg>
+node directions arguments of C<@node>.  Each I<line_arg> argument element
+C<extra> hash I<node_content> key value is an element holding the
+contents corresponding to the node name.  There is also a I<manual_content> key
+if there is an associated external manual name, and a I<normalized> key for the
+normalized label, built as specified in the I<HTML Xref> Texinfo documentation
+node.
+
+If you called L<Texinfo::Structuring::nodes_tree|Texinfo::Structuring/$nodes_list = nodes_tree($document)>,
+the I<node_directions> hash in the C<@node> element C<extra> associates
+I<up>, I<next> and I<prev> keys to the elements corresponding to the node
+line directions.
 
 An I<associated_section> key holds the tree element of the
 sectioning command that follows the node.  An I<node_preceding_part>
@@ -9307,9 +9312,9 @@ no sectioning command between the C<@part> and the node.
 
 =item C<@inforef>
 
-The node argument I<brace_arg> holds information on the label, like the one
-appearing in the C<@node> I<line_arg> explicit directions arguments C<extra>
-hash labels information.
+The I<brace_arg> corresponding to the node argument holds information on
+the label, with the same information in the C<extra> hash as for the
+C<@node> I<line_arg> explicit directions arguments.
 
 =item C<row>
 
@@ -9322,6 +9327,8 @@ The node preceding the command is in I<associated_node>.
 The part preceding the command is in I<associated_part>.
 If the level of the document was modified by C<@raisections>
 or C<@lowersections>, the differential level is in I<level_modifier>.
+
+Other C<extra> keys are set when you call L<Texinfo::Structuring::sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document)>.
 
 =item C<untranslated_def_line_arg>
 

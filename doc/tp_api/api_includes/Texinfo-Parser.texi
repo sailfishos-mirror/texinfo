@@ -978,7 +978,7 @@ The first argument normalized is in @emph{normalized}.
 
 @@-commands that are targets for cross-references have a @emph{normalized} key for
 the normalized label, built as specified in the Texinfo documentation in the
-@emph{HTML Xref} node.  There is also a @emph{node_content} key for an array holding
+@emph{HTML Xref} node.  There is also a @emph{node_content} key for an element holding
 the corresponding content.
 
 @item @code{@@author}
@@ -1149,13 +1149,18 @@ with the element for the @@columnfractions command.
 @item @code{@@node}
 @anchor{Texinfo@asis{::}Parser @code{@@node}}
 
-Explicit directions labels information is in the @emph{line_arg}
-arguments @code{extra} node direction @code{@@node} arguments.  They consist
-in a hash with the @emph{node_content} key for an array holding the
-corresponding content, a @emph{manual_content} key if there is an
-associated external manual name, and a @emph{normalized} key for the
-normalized label, built as specified in the @emph{HTML Xref}
-Texinfo documentation node.
+Explicit directions labels information are available in the @emph{line_arg}
+node directions arguments of @code{@@node}.  Each @emph{line_arg} argument element
+@code{extra} hash @emph{node_content} key value is an element holding the
+contents corresponding to the node name.  There is also a @emph{manual_content} key
+if there is an associated external manual name, and a @emph{normalized} key for the
+normalized label, built as specified in the @emph{HTML Xref} Texinfo documentation
+node.
+
+If you called @ref{Texinfo@asis{::}Structuring $nodes_list = nodes_tree($document),, Texinfo::Structuring::nodes_tree},
+the @emph{node_directions} hash in the @code{@@node} element @code{extra} associates
+@emph{up}, @emph{next} and @emph{prev} keys to the elements corresponding to the node
+line directions.
 
 An @emph{associated_section} key holds the tree element of the
 sectioning command that follows the node.  An @emph{node_preceding_part}
@@ -1195,9 +1200,9 @@ no sectioning command between the @code{@@part} and the node.
 @item @code{@@inforef}
 @anchor{Texinfo@asis{::}Parser @code{@@inforef}}
 
-The node argument @emph{brace_arg} holds information on the label, like the one
-appearing in the @code{@@node} @emph{line_arg} explicit directions arguments @code{extra}
-hash labels information.
+The @emph{brace_arg} corresponding to the node argument holds information on
+the label, with the same information in the @code{extra} hash as for the
+@code{@@node} @emph{line_arg} explicit directions arguments.
 
 @item @code{row}
 @anchor{Texinfo@asis{::}Parser @code{row} 1}
@@ -1212,6 +1217,8 @@ The node preceding the command is in @emph{associated_node}.
 The part preceding the command is in @emph{associated_part}.
 If the level of the document was modified by @code{@@raisections}
 or @code{@@lowersections}, the differential level is in @emph{level_modifier}.
+
+Other @code{extra} keys are set when you call @ref{Texinfo@asis{::}Structuring $sections_list = sectioning_structure($document),, Texinfo::Structuring::sectioning_structure}.
 
 @item @code{untranslated_def_line_arg}
 @anchor{Texinfo@asis{::}Parser @code{untranslated_def_line_arg} 1}
