@@ -13,10 +13,10 @@ Texinfo::Convert::NodeNameNormalization - Normalize and transliterate Texinfo tr
   use Texinfo::Convert::NodeNameNormalization qw(convert_to_identifier
                                         normalize_transliterate_texinfo);
 
-  my $normalized = convert_to_identifier({'contents' => $node_contents});
+  my $normalized = convert_to_identifier($node_element->{'args'}->[0]);
 
-  my $file_name = normalize_transliterate_texinfo({'contents'
-                                            => $section_contents});
+  my $file_name
+    = normalize_transliterate_texinfo($section_element->{'args'}->[0]);
 @end verbatim
 
 @node Texinfo@asis{::}Convert@asis{::}NodeNameNormalization NOTES
