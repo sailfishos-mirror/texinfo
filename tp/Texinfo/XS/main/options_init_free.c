@@ -105,6 +105,7 @@ initialize_options (OPTIONS *options)
   initialize_option (&options->INFO_JS_DIR, GOT_char, "INFO_JS_DIR", 0);
   initialize_option (&options->INFO_SPECIAL_CHARS_QUOTE, GOT_char, "INFO_SPECIAL_CHARS_QUOTE", 0);
   initialize_option (&options->INFO_SPECIAL_CHARS_WARNING, GOT_integer, "INFO_SPECIAL_CHARS_WARNING", 0);
+  initialize_option (&options->INFO_MATH_IMAGES, GOT_integer, "INFO_MATH_IMAGES", 0);
   initialize_option (&options->IGNORE_REF_TO_TOP_NODE_UP, GOT_integer, "IGNORE_REF_TO_TOP_NODE_UP", 0);
   initialize_option (&options->INLINE_CSS_STYLE, GOT_integer, "INLINE_CSS_STYLE", 0);
   initialize_option (&options->INPUT_FILE_NAME_ENCODING, GOT_char, "INPUT_FILE_NAME_ENCODING", OF_parser_option);
@@ -370,6 +371,7 @@ free_options (OPTIONS *options)
   free_option (&options->INFO_JS_DIR);
   free_option (&options->INFO_SPECIAL_CHARS_QUOTE);
   free_option (&options->INFO_SPECIAL_CHARS_WARNING);
+  free_option (&options->INFO_MATH_IMAGES);
   free_option (&options->IGNORE_REF_TO_TOP_NODE_UP);
   free_option (&options->INLINE_CSS_STYLE);
   free_option (&options->INPUT_FILE_NAME_ENCODING);
@@ -636,6 +638,7 @@ clear_options (OPTIONS *options)
   clear_option (&options->INFO_JS_DIR);
   clear_option (&options->INFO_SPECIAL_CHARS_QUOTE);
   clear_option (&options->INFO_SPECIAL_CHARS_WARNING);
+  clear_option (&options->INFO_MATH_IMAGES);
   clear_option (&options->IGNORE_REF_TO_TOP_NODE_UP);
   clear_option (&options->INLINE_CSS_STYLE);
   clear_option (&options->INPUT_FILE_NAME_ENCODING);
@@ -902,6 +905,7 @@ copy_options (OPTIONS *destination, const OPTIONS *source)
   copy_option (&destination->INFO_JS_DIR, &source->INFO_JS_DIR);
   copy_option (&destination->INFO_SPECIAL_CHARS_QUOTE, &source->INFO_SPECIAL_CHARS_QUOTE);
   copy_option (&destination->INFO_SPECIAL_CHARS_WARNING, &source->INFO_SPECIAL_CHARS_WARNING);
+  copy_option (&destination->INFO_MATH_IMAGES, &source->INFO_MATH_IMAGES);
   copy_option (&destination->IGNORE_REF_TO_TOP_NODE_UP, &source->IGNORE_REF_TO_TOP_NODE_UP);
   copy_option (&destination->INLINE_CSS_STYLE, &source->INLINE_CSS_STYLE);
   copy_option (&destination->INPUT_FILE_NAME_ENCODING, &source->INPUT_FILE_NAME_ENCODING);
@@ -1154,162 +1158,163 @@ setup_sortable_options (OPTION **to_sort, OPTIONS *options)
   to_sort[74] = &options->INDEX_ENTRY_COLON;   /* converter_customization */
   to_sort[75] = &options->INDEX_SPECIAL_CHARS_WARNING;   /* converter_customization */
   to_sort[76] = &options->INFO_JS_DIR;   /* converter_customization */
-  to_sort[77] = &options->INFO_SPECIAL_CHARS_QUOTE;   /* converter_customization */
-  to_sort[78] = &options->INFO_SPECIAL_CHARS_WARNING;   /* converter_customization */
-  to_sort[79] = &options->INLINE_CSS_STYLE;   /* converter_customization */
-  to_sort[80] = &options->INPUT_FILE_NAME_ENCODING;   /* converter_customization */
-  to_sort[81] = &options->INTERNAL_LINKS;   /* program_cmdline */
-  to_sort[82] = &options->JS_WEBLABELS;   /* converter_customization */
-  to_sort[83] = &options->JS_WEBLABELS_FILE;   /* converter_customization */
-  to_sort[84] = &options->L2H_CLEAN;   /* converter_customization */
-  to_sort[85] = &options->L2H_FILE;   /* converter_customization */
-  to_sort[86] = &options->L2H_HTML_VERSION;   /* converter_customization */
-  to_sort[87] = &options->L2H_L2H;   /* converter_customization */
-  to_sort[88] = &options->L2H_SKIP;   /* converter_customization */
-  to_sort[89] = &options->L2H_TMP;   /* converter_customization */
-  to_sort[90] = &options->LATEX_FLOATS_FILE_EXTENSION;   /* converter_customization */
-  to_sort[91] = &options->LINKS_BUTTONS;   /* converter_other */
-  to_sort[92] = &options->LOCALE_ENCODING;   /* converter_customization */
-  to_sort[93] = &options->MACRO_EXPAND;   /* program_cmdline */
-  to_sort[94] = &options->MATHJAX_CONFIGURATION;   /* converter_customization */
-  to_sort[95] = &options->MATHJAX_SCRIPT;   /* converter_customization */
-  to_sort[96] = &options->MATHJAX_SOURCE;   /* converter_customization */
-  to_sort[97] = &options->MAX_HEADER_LEVEL;   /* converter_customization */
-  to_sort[98] = &options->MAX_MACRO_CALL_NESTING;   /* parser */
-  to_sort[99] = &options->MENU_ENTRY_COLON;   /* converter_customization */
-  to_sort[100] = &options->MENU_SYMBOL;   /* converter_customization */
-  to_sort[101] = &options->MESSAGE_ENCODING;   /* converter_customization */
-  to_sort[102] = &options->MISC_BUTTONS;   /* converter_other */
-  to_sort[103] = &options->MONOLITHIC;   /* converter_customization */
-  to_sort[104] = &options->NODE_FILES;   /* converter_cmdline */
-  to_sort[105] = &options->NODE_FOOTER_BUTTONS;   /* converter_other */
-  to_sort[106] = &options->NODE_NAME_IN_INDEX;   /* converter_customization */
-  to_sort[107] = &options->NODE_NAME_IN_MENU;   /* converter_customization */
-  to_sort[108] = &options->NO_CSS;   /* converter_customization */
-  to_sort[109] = &options->NO_CUSTOM_HTML_ATTRIBUTE;   /* converter_customization */
-  to_sort[110] = &options->NO_INDEX;   /* parser */
-  to_sort[111] = &options->NO_NUMBER_FOOTNOTE_SYMBOL;   /* converter_customization */
-  to_sort[112] = &options->NO_TOP_NODE_OUTPUT;   /* converter_customization */
-  to_sort[113] = &options->NO_USER_COMMANDS;   /* parser */
-  to_sort[114] = &options->NO_WARN;   /* program_cmdline */
-  to_sort[115] = &options->NUMBER_FOOTNOTES;   /* converter_cmdline */
-  to_sort[116] = &options->NUMBER_SECTIONS;   /* converter_cmdline */
-  to_sort[117] = &options->OPEN_DOUBLE_QUOTE_SYMBOL;   /* converter_customization */
-  to_sort[118] = &options->OPEN_QUOTE_SYMBOL;   /* converter_customization */
-  to_sort[119] = &options->OUTFILE;   /* converter_cmdline */
-  to_sort[120] = &options->OUTPUT_CHARACTERS;   /* converter_customization */
-  to_sort[121] = &options->OUTPUT_ENCODING_NAME;   /* converter_customization */
-  to_sort[122] = &options->OUTPUT_FILE_NAME_ENCODING;   /* converter_customization */
-  to_sort[123] = &options->OUTPUT_PERL_ENCODING;   /* converter_customization */
-  to_sort[124] = &options->PACKAGE;   /* converter_customization */
-  to_sort[125] = &options->PACKAGE_AND_VERSION;   /* converter_customization */
-  to_sort[126] = &options->PACKAGE_NAME;   /* converter_customization */
-  to_sort[127] = &options->PACKAGE_URL;   /* converter_customization */
-  to_sort[128] = &options->PACKAGE_VERSION;   /* converter_customization */
-  to_sort[129] = &options->PASSIVE_ICONS;   /* converter_other */
-  to_sort[130] = &options->PREFIX;   /* converter_customization */
-  to_sort[131] = &options->PRE_BODY_CLOSE;   /* converter_customization */
-  to_sort[132] = &options->PROGRAM;   /* converter_customization */
-  to_sort[133] = &options->PROGRAM_NAME_IN_ABOUT;   /* converter_customization */
-  to_sort[134] = &options->PROGRAM_NAME_IN_FOOTER;   /* converter_customization */
-  to_sort[135] = &options->SECTION_BUTTONS;   /* converter_other */
-  to_sort[136] = &options->SECTION_FOOTER_BUTTONS;   /* converter_other */
-  to_sort[137] = &options->SECTION_NAME_IN_TITLE;   /* converter_customization */
-  to_sort[138] = &options->SHORT_TOC_LINK_TO_TOC;   /* converter_customization */
-  to_sort[139] = &options->SHOW_BUILTIN_CSS_RULES;   /* program_customization */
-  to_sort[140] = &options->SHOW_TITLE;   /* converter_customization */
-  to_sort[141] = &options->SORT_ELEMENT_COUNT;   /* program_customization */
-  to_sort[142] = &options->SORT_ELEMENT_COUNT_WORDS;   /* program_customization */
-  to_sort[143] = &options->SPLIT;   /* converter_cmdline */
-  to_sort[144] = &options->SPLIT_SIZE;   /* converter_cmdline */
-  to_sort[145] = &options->SUBDIR;   /* converter_cmdline */
-  to_sort[146] = &options->T4H_LATEX_CONVERSION;   /* converter_customization */
-  to_sort[147] = &options->T4H_MATH_CONVERSION;   /* converter_customization */
-  to_sort[148] = &options->T4H_TEX_CONVERSION;   /* converter_customization */
-  to_sort[149] = &options->TEST;   /* converter_customization */
-  to_sort[150] = &options->TEXI2DVI;   /* program_customization */
-  to_sort[151] = &options->TEXI2HTML;   /* converter_customization */
-  to_sort[152] = &options->TEXINFO_DTD_VERSION;   /* converter_customization */
-  to_sort[153] = &options->TEXINFO_LANGUAGE_DIRECTORIES;   /* array_cmdline */
-  to_sort[154] = &options->TEXINFO_OUTPUT_FORMAT;   /* converter_customization */
-  to_sort[155] = &options->TEXTCONTENT_COMMENT;   /* converter_customization */
-  to_sort[156] = &options->TOC_LINKS;   /* converter_customization */
-  to_sort[157] = &options->TOP_BUTTONS;   /* converter_other */
-  to_sort[158] = &options->TOP_FILE;   /* converter_customization */
-  to_sort[159] = &options->TOP_FOOTER_BUTTONS;   /* converter_other */
-  to_sort[160] = &options->TOP_NODE_FILE_TARGET;   /* converter_customization */
-  to_sort[161] = &options->TOP_NODE_UP;   /* converter_customization */
-  to_sort[162] = &options->TOP_NODE_UP_URL;   /* converter_customization */
-  to_sort[163] = &options->TRACE_INCLUDES;   /* program_cmdline */
-  to_sort[164] = &options->TRANSLITERATE_FILE_NAMES;   /* converter_cmdline */
-  to_sort[165] = &options->TREE_TRANSFORMATIONS;   /* program_customization */
-  to_sort[166] = &options->TXI_MARKUP_NO_SECTION_EXTENT;   /* converter_customization */
-  to_sort[167] = &options->USE_ACCESSKEY;   /* converter_customization */
-  to_sort[168] = &options->USE_ISO;   /* converter_customization */
-  to_sort[169] = &options->USE_LINKS;   /* converter_customization */
-  to_sort[170] = &options->USE_NEXT_HEADING_FOR_LONE_NODE;   /* converter_customization */
-  to_sort[171] = &options->USE_NODES;   /* converter_customization */
-  to_sort[172] = &options->USE_NODE_DIRECTIONS;   /* converter_customization */
-  to_sort[173] = &options->USE_NUMERIC_ENTITY;   /* converter_customization */
-  to_sort[174] = &options->USE_REL_REV;   /* converter_customization */
-  to_sort[175] = &options->USE_SETFILENAME_EXTENSION;   /* converter_customization */
-  to_sort[176] = &options->USE_TITLEPAGE_FOR_TITLE;   /* converter_customization */
-  to_sort[177] = &options->USE_UNICODE_COLLATION;   /* converter_customization */
-  to_sort[178] = &options->USE_UNIDECODE;   /* converter_customization */
-  to_sort[179] = &options->USE_XML_SYNTAX;   /* converter_customization */
-  to_sort[180] = &options->VERBOSE;   /* converter_cmdline */
-  to_sort[181] = &options->VERTICAL_HEAD_NAVIGATION;   /* converter_customization */
-  to_sort[182] = &options->WORDS_IN_PAGE;   /* converter_customization */
-  to_sort[183] = &options->XREF_USE_FLOAT_LABEL;   /* converter_customization */
-  to_sort[184] = &options->XREF_USE_NODE_NAME_ARG;   /* converter_customization */
-  to_sort[185] = &options->XS_EXTERNAL_CONVERSION;   /* converter_customization */
-  to_sort[186] = &options->XS_EXTERNAL_FORMATTING;   /* converter_customization */
-  to_sort[187] = &options->XS_STRXFRM_COLLATION_LOCALE;   /* converter_customization */
-  to_sort[188] = &options->_INLINE_STYLE_WIDTH;   /* converter_customization */
-  to_sort[189] = &options->afivepaper;   /* unique_at_command */
-  to_sort[190] = &options->afourlatex;   /* unique_at_command */
-  to_sort[191] = &options->afourpaper;   /* unique_at_command */
-  to_sort[192] = &options->afourwide;   /* unique_at_command */
-  to_sort[193] = &options->allowcodebreaks;   /* multiple_at_command */
-  to_sort[194] = &options->bsixpaper;   /* unique_at_command */
-  to_sort[195] = &options->clickstyle;   /* multiple_at_command */
-  to_sort[196] = &options->codequotebacktick;   /* multiple_at_command */
-  to_sort[197] = &options->codequoteundirected;   /* multiple_at_command */
-  to_sort[198] = &options->contents;   /* multiple_at_command */
-  to_sort[199] = &options->deftypefnnewline;   /* multiple_at_command */
-  to_sort[200] = &options->documentdescription;   /* unique_at_command */
-  to_sort[201] = &options->documentencoding;   /* multiple_at_command */
-  to_sort[202] = &options->documentlanguage;   /* multiple_at_command */
-  to_sort[203] = &options->evenfooting;   /* multiple_at_command */
-  to_sort[204] = &options->evenfootingmarks;   /* unique_at_command */
-  to_sort[205] = &options->evenheading;   /* multiple_at_command */
-  to_sort[206] = &options->evenheadingmarks;   /* unique_at_command */
-  to_sort[207] = &options->everyfooting;   /* multiple_at_command */
-  to_sort[208] = &options->everyfootingmarks;   /* unique_at_command */
-  to_sort[209] = &options->everyheading;   /* multiple_at_command */
-  to_sort[210] = &options->everyheadingmarks;   /* unique_at_command */
-  to_sort[211] = &options->exampleindent;   /* multiple_at_command */
-  to_sort[212] = &options->firstparagraphindent;   /* multiple_at_command */
-  to_sort[213] = &options->fonttextsize;   /* unique_at_command */
-  to_sort[214] = &options->footnotestyle;   /* unique_at_command */
-  to_sort[215] = &options->frenchspacing;   /* multiple_at_command */
-  to_sort[216] = &options->headings;   /* multiple_at_command */
-  to_sort[217] = &options->kbdinputstyle;   /* multiple_at_command */
-  to_sort[218] = &options->microtype;   /* multiple_at_command */
-  to_sort[219] = &options->novalidate;   /* unique_at_command */
-  to_sort[220] = &options->oddfooting;   /* multiple_at_command */
-  to_sort[221] = &options->oddfootingmarks;   /* unique_at_command */
-  to_sort[222] = &options->oddheading;   /* multiple_at_command */
-  to_sort[223] = &options->oddheadingmarks;   /* unique_at_command */
-  to_sort[224] = &options->pagesizes;   /* unique_at_command */
-  to_sort[225] = &options->paragraphindent;   /* multiple_at_command */
-  to_sort[226] = &options->setchapternewpage;   /* unique_at_command */
-  to_sort[227] = &options->setfilename;   /* unique_at_command */
-  to_sort[228] = &options->shortcontents;   /* multiple_at_command */
-  to_sort[229] = &options->smallbook;   /* unique_at_command */
-  to_sort[230] = &options->summarycontents;   /* multiple_at_command */
-  to_sort[231] = &options->urefbreakstyle;   /* multiple_at_command */
-  to_sort[232] = &options->xrefautomaticsectiontitle;   /* multiple_at_command */
+  to_sort[77] = &options->INFO_MATH_IMAGES;   /* converter_customization */
+  to_sort[78] = &options->INFO_SPECIAL_CHARS_QUOTE;   /* converter_customization */
+  to_sort[79] = &options->INFO_SPECIAL_CHARS_WARNING;   /* converter_customization */
+  to_sort[80] = &options->INLINE_CSS_STYLE;   /* converter_customization */
+  to_sort[81] = &options->INPUT_FILE_NAME_ENCODING;   /* converter_customization */
+  to_sort[82] = &options->INTERNAL_LINKS;   /* program_cmdline */
+  to_sort[83] = &options->JS_WEBLABELS;   /* converter_customization */
+  to_sort[84] = &options->JS_WEBLABELS_FILE;   /* converter_customization */
+  to_sort[85] = &options->L2H_CLEAN;   /* converter_customization */
+  to_sort[86] = &options->L2H_FILE;   /* converter_customization */
+  to_sort[87] = &options->L2H_HTML_VERSION;   /* converter_customization */
+  to_sort[88] = &options->L2H_L2H;   /* converter_customization */
+  to_sort[89] = &options->L2H_SKIP;   /* converter_customization */
+  to_sort[90] = &options->L2H_TMP;   /* converter_customization */
+  to_sort[91] = &options->LATEX_FLOATS_FILE_EXTENSION;   /* converter_customization */
+  to_sort[92] = &options->LINKS_BUTTONS;   /* converter_other */
+  to_sort[93] = &options->LOCALE_ENCODING;   /* converter_customization */
+  to_sort[94] = &options->MACRO_EXPAND;   /* program_cmdline */
+  to_sort[95] = &options->MATHJAX_CONFIGURATION;   /* converter_customization */
+  to_sort[96] = &options->MATHJAX_SCRIPT;   /* converter_customization */
+  to_sort[97] = &options->MATHJAX_SOURCE;   /* converter_customization */
+  to_sort[98] = &options->MAX_HEADER_LEVEL;   /* converter_customization */
+  to_sort[99] = &options->MAX_MACRO_CALL_NESTING;   /* parser */
+  to_sort[100] = &options->MENU_ENTRY_COLON;   /* converter_customization */
+  to_sort[101] = &options->MENU_SYMBOL;   /* converter_customization */
+  to_sort[102] = &options->MESSAGE_ENCODING;   /* converter_customization */
+  to_sort[103] = &options->MISC_BUTTONS;   /* converter_other */
+  to_sort[104] = &options->MONOLITHIC;   /* converter_customization */
+  to_sort[105] = &options->NODE_FILES;   /* converter_cmdline */
+  to_sort[106] = &options->NODE_FOOTER_BUTTONS;   /* converter_other */
+  to_sort[107] = &options->NODE_NAME_IN_INDEX;   /* converter_customization */
+  to_sort[108] = &options->NODE_NAME_IN_MENU;   /* converter_customization */
+  to_sort[109] = &options->NO_CSS;   /* converter_customization */
+  to_sort[110] = &options->NO_CUSTOM_HTML_ATTRIBUTE;   /* converter_customization */
+  to_sort[111] = &options->NO_INDEX;   /* parser */
+  to_sort[112] = &options->NO_NUMBER_FOOTNOTE_SYMBOL;   /* converter_customization */
+  to_sort[113] = &options->NO_TOP_NODE_OUTPUT;   /* converter_customization */
+  to_sort[114] = &options->NO_USER_COMMANDS;   /* parser */
+  to_sort[115] = &options->NO_WARN;   /* program_cmdline */
+  to_sort[116] = &options->NUMBER_FOOTNOTES;   /* converter_cmdline */
+  to_sort[117] = &options->NUMBER_SECTIONS;   /* converter_cmdline */
+  to_sort[118] = &options->OPEN_DOUBLE_QUOTE_SYMBOL;   /* converter_customization */
+  to_sort[119] = &options->OPEN_QUOTE_SYMBOL;   /* converter_customization */
+  to_sort[120] = &options->OUTFILE;   /* converter_cmdline */
+  to_sort[121] = &options->OUTPUT_CHARACTERS;   /* converter_customization */
+  to_sort[122] = &options->OUTPUT_ENCODING_NAME;   /* converter_customization */
+  to_sort[123] = &options->OUTPUT_FILE_NAME_ENCODING;   /* converter_customization */
+  to_sort[124] = &options->OUTPUT_PERL_ENCODING;   /* converter_customization */
+  to_sort[125] = &options->PACKAGE;   /* converter_customization */
+  to_sort[126] = &options->PACKAGE_AND_VERSION;   /* converter_customization */
+  to_sort[127] = &options->PACKAGE_NAME;   /* converter_customization */
+  to_sort[128] = &options->PACKAGE_URL;   /* converter_customization */
+  to_sort[129] = &options->PACKAGE_VERSION;   /* converter_customization */
+  to_sort[130] = &options->PASSIVE_ICONS;   /* converter_other */
+  to_sort[131] = &options->PREFIX;   /* converter_customization */
+  to_sort[132] = &options->PRE_BODY_CLOSE;   /* converter_customization */
+  to_sort[133] = &options->PROGRAM;   /* converter_customization */
+  to_sort[134] = &options->PROGRAM_NAME_IN_ABOUT;   /* converter_customization */
+  to_sort[135] = &options->PROGRAM_NAME_IN_FOOTER;   /* converter_customization */
+  to_sort[136] = &options->SECTION_BUTTONS;   /* converter_other */
+  to_sort[137] = &options->SECTION_FOOTER_BUTTONS;   /* converter_other */
+  to_sort[138] = &options->SECTION_NAME_IN_TITLE;   /* converter_customization */
+  to_sort[139] = &options->SHORT_TOC_LINK_TO_TOC;   /* converter_customization */
+  to_sort[140] = &options->SHOW_BUILTIN_CSS_RULES;   /* program_customization */
+  to_sort[141] = &options->SHOW_TITLE;   /* converter_customization */
+  to_sort[142] = &options->SORT_ELEMENT_COUNT;   /* program_customization */
+  to_sort[143] = &options->SORT_ELEMENT_COUNT_WORDS;   /* program_customization */
+  to_sort[144] = &options->SPLIT;   /* converter_cmdline */
+  to_sort[145] = &options->SPLIT_SIZE;   /* converter_cmdline */
+  to_sort[146] = &options->SUBDIR;   /* converter_cmdline */
+  to_sort[147] = &options->T4H_LATEX_CONVERSION;   /* converter_customization */
+  to_sort[148] = &options->T4H_MATH_CONVERSION;   /* converter_customization */
+  to_sort[149] = &options->T4H_TEX_CONVERSION;   /* converter_customization */
+  to_sort[150] = &options->TEST;   /* converter_customization */
+  to_sort[151] = &options->TEXI2DVI;   /* program_customization */
+  to_sort[152] = &options->TEXI2HTML;   /* converter_customization */
+  to_sort[153] = &options->TEXINFO_DTD_VERSION;   /* converter_customization */
+  to_sort[154] = &options->TEXINFO_LANGUAGE_DIRECTORIES;   /* array_cmdline */
+  to_sort[155] = &options->TEXINFO_OUTPUT_FORMAT;   /* converter_customization */
+  to_sort[156] = &options->TEXTCONTENT_COMMENT;   /* converter_customization */
+  to_sort[157] = &options->TOC_LINKS;   /* converter_customization */
+  to_sort[158] = &options->TOP_BUTTONS;   /* converter_other */
+  to_sort[159] = &options->TOP_FILE;   /* converter_customization */
+  to_sort[160] = &options->TOP_FOOTER_BUTTONS;   /* converter_other */
+  to_sort[161] = &options->TOP_NODE_FILE_TARGET;   /* converter_customization */
+  to_sort[162] = &options->TOP_NODE_UP;   /* converter_customization */
+  to_sort[163] = &options->TOP_NODE_UP_URL;   /* converter_customization */
+  to_sort[164] = &options->TRACE_INCLUDES;   /* program_cmdline */
+  to_sort[165] = &options->TRANSLITERATE_FILE_NAMES;   /* converter_cmdline */
+  to_sort[166] = &options->TREE_TRANSFORMATIONS;   /* program_customization */
+  to_sort[167] = &options->TXI_MARKUP_NO_SECTION_EXTENT;   /* converter_customization */
+  to_sort[168] = &options->USE_ACCESSKEY;   /* converter_customization */
+  to_sort[169] = &options->USE_ISO;   /* converter_customization */
+  to_sort[170] = &options->USE_LINKS;   /* converter_customization */
+  to_sort[171] = &options->USE_NEXT_HEADING_FOR_LONE_NODE;   /* converter_customization */
+  to_sort[172] = &options->USE_NODES;   /* converter_customization */
+  to_sort[173] = &options->USE_NODE_DIRECTIONS;   /* converter_customization */
+  to_sort[174] = &options->USE_NUMERIC_ENTITY;   /* converter_customization */
+  to_sort[175] = &options->USE_REL_REV;   /* converter_customization */
+  to_sort[176] = &options->USE_SETFILENAME_EXTENSION;   /* converter_customization */
+  to_sort[177] = &options->USE_TITLEPAGE_FOR_TITLE;   /* converter_customization */
+  to_sort[178] = &options->USE_UNICODE_COLLATION;   /* converter_customization */
+  to_sort[179] = &options->USE_UNIDECODE;   /* converter_customization */
+  to_sort[180] = &options->USE_XML_SYNTAX;   /* converter_customization */
+  to_sort[181] = &options->VERBOSE;   /* converter_cmdline */
+  to_sort[182] = &options->VERTICAL_HEAD_NAVIGATION;   /* converter_customization */
+  to_sort[183] = &options->WORDS_IN_PAGE;   /* converter_customization */
+  to_sort[184] = &options->XREF_USE_FLOAT_LABEL;   /* converter_customization */
+  to_sort[185] = &options->XREF_USE_NODE_NAME_ARG;   /* converter_customization */
+  to_sort[186] = &options->XS_EXTERNAL_CONVERSION;   /* converter_customization */
+  to_sort[187] = &options->XS_EXTERNAL_FORMATTING;   /* converter_customization */
+  to_sort[188] = &options->XS_STRXFRM_COLLATION_LOCALE;   /* converter_customization */
+  to_sort[189] = &options->_INLINE_STYLE_WIDTH;   /* converter_customization */
+  to_sort[190] = &options->afivepaper;   /* unique_at_command */
+  to_sort[191] = &options->afourlatex;   /* unique_at_command */
+  to_sort[192] = &options->afourpaper;   /* unique_at_command */
+  to_sort[193] = &options->afourwide;   /* unique_at_command */
+  to_sort[194] = &options->allowcodebreaks;   /* multiple_at_command */
+  to_sort[195] = &options->bsixpaper;   /* unique_at_command */
+  to_sort[196] = &options->clickstyle;   /* multiple_at_command */
+  to_sort[197] = &options->codequotebacktick;   /* multiple_at_command */
+  to_sort[198] = &options->codequoteundirected;   /* multiple_at_command */
+  to_sort[199] = &options->contents;   /* multiple_at_command */
+  to_sort[200] = &options->deftypefnnewline;   /* multiple_at_command */
+  to_sort[201] = &options->documentdescription;   /* unique_at_command */
+  to_sort[202] = &options->documentencoding;   /* multiple_at_command */
+  to_sort[203] = &options->documentlanguage;   /* multiple_at_command */
+  to_sort[204] = &options->evenfooting;   /* multiple_at_command */
+  to_sort[205] = &options->evenfootingmarks;   /* unique_at_command */
+  to_sort[206] = &options->evenheading;   /* multiple_at_command */
+  to_sort[207] = &options->evenheadingmarks;   /* unique_at_command */
+  to_sort[208] = &options->everyfooting;   /* multiple_at_command */
+  to_sort[209] = &options->everyfootingmarks;   /* unique_at_command */
+  to_sort[210] = &options->everyheading;   /* multiple_at_command */
+  to_sort[211] = &options->everyheadingmarks;   /* unique_at_command */
+  to_sort[212] = &options->exampleindent;   /* multiple_at_command */
+  to_sort[213] = &options->firstparagraphindent;   /* multiple_at_command */
+  to_sort[214] = &options->fonttextsize;   /* unique_at_command */
+  to_sort[215] = &options->footnotestyle;   /* unique_at_command */
+  to_sort[216] = &options->frenchspacing;   /* multiple_at_command */
+  to_sort[217] = &options->headings;   /* multiple_at_command */
+  to_sort[218] = &options->kbdinputstyle;   /* multiple_at_command */
+  to_sort[219] = &options->microtype;   /* multiple_at_command */
+  to_sort[220] = &options->novalidate;   /* unique_at_command */
+  to_sort[221] = &options->oddfooting;   /* multiple_at_command */
+  to_sort[222] = &options->oddfootingmarks;   /* unique_at_command */
+  to_sort[223] = &options->oddheading;   /* multiple_at_command */
+  to_sort[224] = &options->oddheadingmarks;   /* unique_at_command */
+  to_sort[225] = &options->pagesizes;   /* unique_at_command */
+  to_sort[226] = &options->paragraphindent;   /* multiple_at_command */
+  to_sort[227] = &options->setchapternewpage;   /* unique_at_command */
+  to_sort[228] = &options->setfilename;   /* unique_at_command */
+  to_sort[229] = &options->shortcontents;   /* multiple_at_command */
+  to_sort[230] = &options->smallbook;   /* unique_at_command */
+  to_sort[231] = &options->summarycontents;   /* multiple_at_command */
+  to_sort[232] = &options->urefbreakstyle;   /* multiple_at_command */
+  to_sort[233] = &options->xrefautomaticsectiontitle;   /* multiple_at_command */
 }
 
 

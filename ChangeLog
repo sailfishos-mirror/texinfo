@@ -1,3 +1,31 @@
+2024-09-03  Patrice Dumas  <pertusus@free.fr>
+
+	Implement INFO_MATH_IMAGES in Info
+
+	* tp/Texinfo/Convert/LaTeX.pm (_enc_usepackage, _latex_header):
+	separate _enc_usepackage to setup the usepackage related to encoding.
+
+	* tp/Texinfo/Convert/LaTeX.pm (convert_math_to_images): call
+	_enc_usepackage and encode output.
+
+	* tp/Texinfo/Convert/Info.pm (format_image_element),
+	tp/Texinfo/Convert/Plaintext.pm (format_image_element): rename
+	format_image as format_image_element.
+
+	* tp/Texinfo/Convert/Info.pm (format_image, format_image_element),
+	tp/Texinfo/Convert/Plaintext.pm (format_image): add format_image, to
+	do the low level formatting of image only.  Note that the Plaintext
+	format_image is not called.
+
+	* tp/Texinfo/options_data.txt (INFO_MATH_IMAGES): add.
+
+	* TODO, tp/Texinfo/Convert/Plaintext.pm (conversion_initialization)
+	(_insert_image, _convert): implement INFO_MATH_IMAGES.  Push a count
+	for @math and @displaymath with INFO_MATH_IMAGES to capture content.
+	Add _insert_image to output an image in case it is needed outside of
+	@image formatting, and use it for INFO_MATH_IMAGES @math and
+	@displaymath formatting.
+
 2024-09-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Plaintext.pm (conversion_initialization)
@@ -5269,7 +5297,7 @@
 2024-08-17  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/texinfo.c (txi_converter_setup): use
-	add_option_string_value with txi_base_sorted_options instead of 
+	add_option_string_value with txi_base_sorted_options instead of
 	add_new_option_value to get the option type based on the name.
 
 2024-08-17  Patrice Dumas  <pertusus@free.fr>
@@ -6738,7 +6766,7 @@
 	(html_converter_initialize): add html_converter_initialize with
 	code in Perl converter_initialize function that does not need
 	customization information from Perl.  set html_converter_initialize in
-	converter_format_data.  Separate code in Perl converter_initialize 
+	converter_format_data.  Separate code in Perl converter_initialize
 	that is already called in html_converter_initialize and put it in a
 	conditional at the beginning of the function.
 
@@ -8732,7 +8760,7 @@
 	(convert_tree_new_formatting_context, _set_multiple_conversions)
 	(_unset_multiple_conversions), tp/Texinfo/XS/convert/convert_html.c
 	(html_set_multiple_conversions, html_unset_multiple_conversions)
-	(convert_tree_new_formatting_context, html_internal_command_text): 
+	(convert_tree_new_formatting_context, html_internal_command_text):
 	add multiple pass string argument to set_multiple_conversions,
 	push on multiple_pass stack in the function and pop in
 	unset_multiple_conversions.  Add html_set_multiple_conversions and

@@ -266,6 +266,7 @@ INDEX_SPECIAL_CHARS_WARNING        converter_customization undef   integer
 INFO_JS_DIR                        converter_customization undef   char
 INFO_SPECIAL_CHARS_QUOTE           converter_customization undef   char
 INFO_SPECIAL_CHARS_WARNING         converter_customization undef   integer
+INFO_MATH_IMAGES                   converter_customization undef   integer
 IGNORE_REF_TO_TOP_NODE_UP          converter_customization undef   integer
 INLINE_CSS_STYLE                   converter_customization undef   integer
 INPUT_FILE_NAME_ENCODING           converter_customization undef   char

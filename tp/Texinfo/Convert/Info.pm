@@ -124,7 +124,7 @@ sub output($$)
   my $output_units = Texinfo::OutputUnits::split_by_node($document);
 
   my $elements_images;
-  if (0) {
+  if ($self->get_conf('INFO_MATH_IMAGES')) {
     require Texinfo::Convert::LaTeX;
     Texinfo::Convert::LaTeX->import;
     my $math_images_dir;
@@ -134,7 +134,7 @@ sub output($$)
     } else {
       $math_images_dir = $destination_directory;
     }
-    $elements_images
+    $self->{'elements_images'}
      = Texinfo::Convert::LaTeX::convert_math_to_images($self, $document,
                                                     $document_name.'_info',
                                                     $math_images_dir);
@@ -925,8 +925,37 @@ sub format_node($$)
   return;
 }
 
+sub format_image($$$;$)
+{
+  my $self = shift;
+  my $image_file = shift;
+  my $text = shift;
+  my $alt = shift;
+
+  my $result = '';
+  if (defined($image_file)) {
+    $image_file =~ s/\\/\\\\/g;
+    $image_file =~ s/\"/\\\"/g;
+  } else {
+    $image_file = '';
+  }
+  $result = "\x{00}\x{08}[image src=\"$image_file\"";
+
+  if (defined($alt) and $alt ne '') {
+    $alt =~ s/\\/\\\\/g;
+    $alt =~ s/\"/\\\"/g;
+    $result .= " alt=\"$alt\"";
+  }
+  if (defined($text)) {
+    $text =~ s/\\/\\\\/g;
+    $text =~ s/\"/\\\"/g;
+    $result .= " text=\"$text\"";
+  }
+  $result .= "\x{00}\x{08}]";
+}
+
 my @image_files_extensions = ('.png', '.jpg');
-sub format_image($$)
+sub format_image_element($$)
 {
   my $self = shift;
   my $element = shift;
@@ -986,25 +1015,7 @@ sub format_image($$)
     my $result;
 
     if (defined($image_file) or (defined($text) and defined($alt))) {
-      if (defined($image_file)) {
-        $image_file =~ s/\\/\\\\/g;
-        $image_file =~ s/\"/\\\"/g;
-      } else {
-        $image_file = '';
-      }
-      $result = "\x{00}\x{08}[image src=\"$image_file\"";
-
-      if (defined($alt) and $alt ne '') {
-        $alt =~ s/\\/\\\\/g;
-        $alt =~ s/\"/\\\"/g;
-        $result .= " alt=\"$alt\"";
-      }
-      if (defined($text)) {
-        $text =~ s/\\/\\\\/g;
-        $text =~ s/\"/\\\"/g;
-        $result .= " text=\"$text\"";
-      }
-      $result .= "\x{00}\x{08}]";
+      $result = $self->format_image($image_file, $text, $alt);
       if ($self->{'formatters'}->[-1]->{'_top_formatter'}) {
         $result .= "\n";
       }

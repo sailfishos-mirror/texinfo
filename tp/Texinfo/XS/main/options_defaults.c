@@ -149,6 +149,7 @@ set_converter_customization_options_defaults (OPTIONS *options)
   option_set_conf (&options->INFO_JS_DIR, -2, 0);
   option_set_conf (&options->INFO_SPECIAL_CHARS_QUOTE, -2, 0);
   option_set_conf (&options->INFO_SPECIAL_CHARS_WARNING, -1, 0);
+  option_set_conf (&options->INFO_MATH_IMAGES, -1, 0);
   option_set_conf (&options->IGNORE_REF_TO_TOP_NODE_UP, -1, 0);
   option_set_conf (&options->INLINE_CSS_STYLE, -1, 0);
   option_set_conf (&options->INPUT_FILE_NAME_ENCODING, -2, 0);
@@ -294,6 +295,7 @@ add_converter_customization_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "INFO_JS_DIR", -2, 0);
   add_option_value (options_list, "INFO_SPECIAL_CHARS_QUOTE", -2, 0);
   add_option_value (options_list, "INFO_SPECIAL_CHARS_WARNING", -1, 0);
+  add_option_value (options_list, "INFO_MATH_IMAGES", -1, 0);
   add_option_value (options_list, "IGNORE_REF_TO_TOP_NODE_UP", -1, 0);
   add_option_value (options_list, "INLINE_CSS_STYLE", -1, 0);
   add_option_value (options_list, "INPUT_FILE_NAME_ENCODING", -2, 0);

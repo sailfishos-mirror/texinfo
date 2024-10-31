@@ -428,8 +428,6 @@ sub conversion_initialization($;$)
                                      'result' => ''
   };
 
-  # setting to 1 ensures that nothing is done, as there is
-  # something done (a newline added) if equal to 0.
   $self->{'seenmenus'} = {};
   $self->{'index_entries_line_location'} = {};
 
@@ -438,6 +436,9 @@ sub conversion_initialization($;$)
   $self->{'index_entry_node_colon'} = {};
   $self->{'index_entries_no_node'} = {};
   $self->{'seen_node_descriptions'} = {};
+
+  # for INFO_MATH_IMAGES
+  $self->{'elements_images'} = undef;
 
   %{$self->{'style_map'}} = %style_map;
 
@@ -1149,7 +1150,7 @@ sub _decode($$)
   }
 }
 
-# Occassionally, we need to find the width of a string after it has
+# Occasionally, we need to find the width of a string after it has
 # already been encoded.  Use of this should be minimised for performance.
 sub _string_width_encoded($$)
 {
@@ -2222,7 +2223,7 @@ sub image_formatted_text($$$$)
   return $result;
 }
 
-sub format_image($$)
+sub format_image_element($$)
 {
   my ($self, $element) = @_;
 
@@ -2250,6 +2251,72 @@ sub format_image($$)
     return ($result, $lines_count);
   }
   return ('', 0);
+}
+
+# should not be called, only the Info format counterpart should be called
+# since it is not called by Plaintext format_image_element and is only
+# called for INFO_MATH_IMAGES, which should do nothing in Plaintext.
+sub format_image($$$;$)
+{
+  my $self = shift;
+  my $image_file = shift;
+  my $image_text = shift;
+  my $alt_text = shift;
+
+  return $image_text;
+}
+
+# insert an image, but not as part of @image formatting.  It is better
+# to have a different code, as there is no .txt file read, instead the
+# $IMAGE_TEXT argument is used.
+sub _insert_image($$$)
+{
+  my $self = shift;
+  # character strings
+  my $image_file = shift;
+  my $image_text = shift;
+
+  # NOTE no alt info set, not clear to what it could be set?
+
+  chomp($image_text);
+
+  # setup a text handle to separate lines.  Seems convoluted, but it is the
+  # same as what is done in ParserNonXS.
+  # Text handle works with bytes
+  my $image_bytes = Encode::encode('utf-8', $image_text);
+  my $texthandle = do { local *FH };
+  if (!open($texthandle, '<', \$image_bytes)) {
+    my $error_message = $!;
+    # Better die now than later reading on a closed filehandle.
+    die "BUG? open on a reference for image test failed: $error_message\n";
+  }
+
+  my $lines_count = -1;
+  my $width = 0;
+  while (1) {
+    my $next_line = <$texthandle>;
+    if (defined($next_line)) {
+      $next_line = Encode::decode('utf-8', $next_line);
+      $lines_count++;
+      my $line_width = Texinfo::Convert::Unicode::string_width($next_line);
+      $width = $line_width
+        if ($line_width > $width);
+    } else {
+      last;
+    }
+  }
+  close($texthandle);
+
+  my $result = $self->format_image($image_file, $image_text);
+
+  # the last line is part of the image but do not have a new line,
+  # so 1 is added to $lines_count to have the number of lines of
+  # the image
+  $self->add_image(undef, $lines_count+1, $width);
+
+  $lines_count = 0 if ($lines_count < 0);
+
+  return ($result, $lines_count);
 }
 
 my %underline_symbol = (
@@ -2988,8 +3055,8 @@ sub _convert($$)
                        add_pending_word($formatter->{'container'}, 1),
                        $formatter->{'container'});
         # add an empty word so that following spaces aren't lost
-        add_next($formatter->{'container'},'');
-        my ($image, $lines_count) = $self->format_image($element);
+        add_next($formatter->{'container'}, '');
+        my ($image, $lines_count) = $self->format_image_element($element);
         _add_lines_count($self, $lines_count);
         _stream_output($self, $image);
         return;
@@ -3196,18 +3263,49 @@ sub _convert($$)
         return;
         # condition should actually be that the $cmdname is inline
       } elsif ($math_commands{$cmdname}) {
-        push @{$self->{'context'}}, $cmdname;
         if ($element->{'args'}) {
+          push @{$self->{'context'}}, $cmdname;
+          if ($self->{'elements_images'}
+              and $self->{'elements_images'}->{$element}) {
+            # flush before @math, including spaces
+            _stream_output($self,
+                       add_pending_word($formatter->{'container'}, 1),
+                       $formatter->{'container'});
+            # TODO same as @image code.  Does not seems to have any effect,
+            # leading spaces in @math are lost anyway (which is not important).
+            # add an empty word so that following spaces aren't lost
+            add_next($formatter->{'container'}, '');
+            # math rendered as an image, push a count to capture content
+            push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
+                                               'encoding_disabled' => 1,
+                                                   'locations' => []};
+          }
           _convert($self, {'type' => 'frenchspacing',
                'contents' => [{'type' => '_code',
                               'contents' => [$element->{'args'}->[0]]}]});
+          if ($self->{'elements_images'}
+              and $self->{'elements_images'}->{$element}) {
+            # flush @math, including spaces
+            _stream_output($self,
+                       add_pending_word($formatter->{'container'}, 1),
+                       $formatter->{'container'});
+            my $result = _stream_result($self);
+            # TODO add locations in counts to current counts context?
+            # (see _align_environment)
+            my $counts = pop @{$self->{'count_context'}};
+            my ($image, $lines_count)
+               = _insert_image($self, $self->{'elements_images'}->{$element},
+                               $result);
+            _add_lines_count($self, $lines_count);
+            _stream_output($self, $image);
+          }
+          my $old_context = pop @{$self->{'context'}};
+          die if ($old_context ne $cmdname);
         }
-        my $old_context = pop @{$self->{'context'}};
-        die if ($old_context ne $cmdname);
         return;
       } elsif ($cmdname eq 'titlefont') {
         if ($element->{'args'}) {
-          my $result = _text_heading($self, 
+          my $result = _text_heading($self,
                           {'extra' => {'section_level' => 0},
                            'cmdname' => 'titlefont'},
                             $element->{'args'}->[0],
@@ -3339,6 +3437,14 @@ sub _convert($$)
             and ! $format_raw_commands{$cmdname}) {
           $preformatted = $self->new_formatter('unfilled');
           push @{$self->{'formatters'}}, $preformatted;
+          # displaymath rendered as an image, push a count to capture
+          # formatted content
+          if ($self->{'elements_images'}
+              and $self->{'elements_images'}->{$element}) {
+            push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
+                                               'encoding_disabled' => 1,
+                                                   'locations' => []};
+          }
         }
       }
       if ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
@@ -4189,6 +4295,8 @@ sub _convert($$)
     }
     pop @{$self->{'formatters'}};
     delete $self->{'text_element_context'}->[-1]->{'counter'};
+  # may have been opened for a block commands, @menu, raw output
+  # format, @verbatim..., or for (raw)preformatted type
   } elsif ($preformatted) {
     _stream_output($self,
                Texinfo::Convert::Paragraph::end($preformatted->{'container'}),
@@ -4200,6 +4308,19 @@ sub _convert($$)
       $result = _align_environment($self, $result,
                       $self->{'text_element_context'}->[-1]->{'max'}, 'right');
       _stream_output_encoded($self, $result);
+    } elsif ($self->{'context'}->[-1] eq 'displaymath'
+             and $self->{'elements_images'}
+             and $self->{'elements_images'}->{$element}) {
+      my $result = _stream_result($self);
+      my $counts = pop @{$self->{'count_context'}};
+      # TODO add locations in counts to current counts context?
+      # (see _align_environment)
+      my ($image, $lines_count)
+         = _insert_image($self, $self->{'elements_images'}->{$element},
+                         $result);
+      _add_lines_count($self, $lines_count);
+      _stream_output($self, $image);
+      _ensure_end_of_line($self);
     }
     pop @{$self->{'formatters'}};
     # We assume that, upon closing the preformatted we are at the

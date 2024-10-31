@@ -90,6 +90,7 @@ our %converter_customization_options = (
   'INFO_JS_DIR'                      => undef,
   'INFO_SPECIAL_CHARS_QUOTE'         => undef,
   'INFO_SPECIAL_CHARS_WARNING'       => undef,
+  'INFO_MATH_IMAGES'                 => undef,
   'IGNORE_REF_TO_TOP_NODE_UP'        => undef,
   'INLINE_CSS_STYLE'                 => undef,
   'INPUT_FILE_NAME_ENCODING'         => undef,
