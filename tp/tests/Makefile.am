@@ -24,7 +24,7 @@ $(srcdir)/Makefile.onetst: \
 
 base_tests_dirs = formatting encoded nested_formats customization coverage layout
 tex_html_tests_dirs = tex_html
-other_tests_dirs = other
+other_tests_dirs = other info_tex
 
 DIST_SUBDIRS = many_input_files $(base_tests_dirs) $(tex_html_tests_dirs) $(other_tests_dirs)
 SUBDIRS = . many_input_files

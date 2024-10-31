@@ -104,13 +104,32 @@ check_latex2html_and_tex4ht ()
   return 0
 }
 
+check_info_math2img ()
+{
+  use_info_math2img=no
+  maybe_use_info_math2img=no
+  if echo "$remaining" | grep 'INFO_MATH_IMAGES.1' >/dev/null; then
+    maybe_use_info_math2img=yes
+  fi
+  if [ $maybe_use_info_math2img = 'yes' ]; then
+    if [ "$no_dvipng" = 'yes' ]; then
+      echo "S: (no dvipng) $current"
+      return 1
+    fi
+    use_info_math2img=yes
+  fi
+  return 0
+}
+
+
 # process the output so we can get consistent output for the comparisons
 post_process_output ()
 {
   # With latex2html or tex4ht output is stored in raw_outdir, and files
   # are removed or modified from the output directory used for comparisons
   # NB there is similar code in many_input_files/tex_{l2h,t4ht}.sh.
-  if test "$use_latex2html" = 'yes' || test "$use_tex4ht" = 'yes' ; then
+  if test "$use_latex2html" = 'yes' || test "$use_tex4ht" = 'yes' \
+          || test "$use_info_math2img" = 'yes'; then
 
     cp -pr ${outdir}$dir/ "${raw_outdir}"
 
@@ -167,6 +186,10 @@ post_process_output ()
       rm -f ${outdir}$dir/*.aux ${outdir}$dir/*_images.out \
             ${outdir}$dir/*_l2h.css ${outdir}$dir/*_l2h_images.pl
     else
+      if test "$use_info_math2img" = 'yes' ; then
+        rm -f ${outdir}$dir/*info_math2img.aux ${outdir}$dir/*info_math2img.log \
+          ${outdir}$dir/*info_math2img.dvi
+      fi
       sed -e "$sed_cmds" \
           $raw_outdir$dir/$basename.2 > $outdir$dir/$basename.2
     fi
@@ -247,6 +270,11 @@ fi
 no_html2wiki=yes
 if which html2wiki > /dev/null 2>&1; then
   no_html2wiki=no
+fi
+
+no_dvipng=yes
+if which dvipng > /dev/null 2>&1; then
+  no_dvipng=no
 fi
 
 no_recoded_file_names=yes
@@ -421,6 +449,7 @@ while read line; do
     check_need_recoded_file_names || skipped_test=yes
     check_need_non_ascii_file_names || skipped_test=yes
     check_latex2html_and_tex4ht || skipped_test=yes
+    check_info_math2img || skipped_test=yes
     check_unicode_collate_ok || skipped_test=yes
     check_strxfrm_ok || skipped_test=yes
     if [ "$skipped_test" = 'yes' ] ; then

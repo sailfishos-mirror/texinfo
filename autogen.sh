@@ -21,7 +21,7 @@ echo "  $cmd"
 $chicken eval $cmd || exit 1
 
 # Generates tp/tests/Makefile.onetst (included by tp/tests/Makefile.am).
-cmd="(cd tp/tests && ../maintain/regenerate_cmd_tests.sh Makefile.onetst . -base 'formatting encoded nested_formats customization coverage layout' -tex_html 'tex_html' -other 'other')"
+cmd="(cd tp/tests && ../maintain/regenerate_cmd_tests.sh Makefile.onetst . -base 'formatting encoded nested_formats customization coverage layout' -tex_html 'tex_html' -other 'other info_tex')"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 

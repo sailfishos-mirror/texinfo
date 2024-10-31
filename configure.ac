@@ -666,6 +666,7 @@ AC_CONFIG_FILES([\
   tp/tests/layout/Makefile
   tp/tests/tex_html/Makefile
   tp/tests/other/Makefile
+  tp/tests/info_tex/Makefile
   tp/defs
   js/Makefile
   Pod-Simple-Texinfo/Makefile
