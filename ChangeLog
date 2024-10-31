@@ -1,5 +1,21 @@
 2024-10-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Ease index files format conversion
+
+	* doc/texinfo.tex (\doindwritex): Precede \write with \immediate.
+
+	This is to help with transitioning from index files using @ as
+	an escape character instead of \.   If texinfo.tex exits with
+	an error about the old format being used before any entries were
+	written to the index file, then the index file will stay empty.
+	texi2dvi does not recognise an empty file as an index file, so
+	will not call texindex, and so the sorted index file will remain
+	in the old format, and texi2dvi will not complete successfully
+	until the sorted index file is manually deleted.  (This was the
+	case for the "bar" index in texinfo-tex-test.texi.)
+
+2024-10-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\unicodechardefs): Define U+2032 (prime)
 	with \prime in superscript.  From Werner Lemberg.
 
