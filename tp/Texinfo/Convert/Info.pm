@@ -30,6 +30,8 @@ use strict;
 
 use Carp qw(cluck);
 
+use File::Spec;
+
 use Texinfo::Common;
 use Texinfo::OutputUnits;
 use Texinfo::Convert::Text;
@@ -120,6 +122,28 @@ sub output($$)
   my $header_bytes = length($header);
   my $complete_header_bytes = $header_bytes;
   my $output_units = Texinfo::OutputUnits::split_by_node($document);
+
+  my $elements_images;
+  if (0) {
+    require Texinfo::Convert::LaTeX;
+    Texinfo::Convert::LaTeX->import;
+    my $math_images_dir;
+    if (!defined($destination_directory) or $destination_directory =~ /^\s*$/
+        or $destination_directory eq File::Spec->curdir()) {
+      $math_images_dir = $document_name.'_info_images';
+    } else {
+      $math_images_dir = $destination_directory;
+    }
+    $elements_images
+     = Texinfo::Convert::LaTeX::convert_math_to_images($self, $document,
+                                                    $document_name.'_info',
+                                                    $math_images_dir);
+    #if (defined($elements_images)) {
+    #  foreach my $element (%$elements_images) {
+    #    print STDERR "$element $elements_images->{$element}\n";
+    #  }
+    #}
+  }
 
   print STDERR "DOCUMENT\n" if ($self->get_conf('DEBUG'));
 
