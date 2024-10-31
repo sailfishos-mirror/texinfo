@@ -1,3 +1,8 @@
+2024-10-31  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\unicodechardefs): Define U+2032 (prime)
+	with \prime in superscript.  From Werner Lemberg.
+
 2024-10-30  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/tests/encoded/list-of-tests (verbatiminclude_names_latin1_html)
