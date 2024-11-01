@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2024-11-01.20}
+\def\texinfoversion{2024-11-01.22}
 %
 % Copyright 1985, 1986, 1988, 1990-2024 Free Software Foundation, Inc.
 %
@@ -10523,6 +10523,16 @@ directory should work if nowhere else does.}
   \catcode"#1=\other
 }
 
+% Suppress ligature creation from adjacent characters.
+\ifx\luatexversion\thisisundefined
+  \def\nolig{{}}
+\else
+  % Braces do not suppress ligature creation in LuaTeX, e.g. in of{}fice
+  % to suppress the "ff" ligature.  Using a kern appears to be the only
+  % workaround.
+  \def\nolig{\kern0pt}
+\fi
+
 % https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_M
 % U+0000..U+007F = https://en.wikipedia.org/wiki/Basic_Latin_(Unicode_block)
 % U+0080..U+00FF = https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)
@@ -11140,8 +11150,8 @@ directory should work if nowhere else does.}
   % Punctuation
   \DeclareUnicodeCharacter{2013}{--}%
   \DeclareUnicodeCharacter{2014}{---}%
-  \DeclareUnicodeCharacter{2018}{\quoteleft{}}%
-  \DeclareUnicodeCharacter{2019}{\quoteright{}}%
+  \DeclareUnicodeCharacter{2018}{\quoteleft\nolig}%
+  \DeclareUnicodeCharacter{2019}{\quoteright\nolig}%
   \DeclareUnicodeCharacter{201A}{\quotesinglbase{}}%
   \DeclareUnicodeCharacter{201C}{\quotedblleft{}}%
   \DeclareUnicodeCharacter{201D}{\quotedblright{}}%

@@ -1,5 +1,18 @@
 2024-11-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	LuaTeX ligature suppression
+
+	* doc/texinfo.tex (\nolig): New macro to suppress ligature
+	creation in both LuaTeX and TeX.  LuaTeX diverges from the
+	behaviour of TeX in that grouping characters do not suppress
+	ligatures.
+	(\unicodechardefs):
+	Use \nolig for U+2018 and U+2019 (curly single quotes).
+
+	Report from Werner Lemberg.
+
+2024-11-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	@uref line breaking
 
 	* doc/texinfo.tex (\urefallowbreak): Increase stretch for
