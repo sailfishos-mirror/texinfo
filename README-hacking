@@ -322,10 +322,13 @@ Manual testing:
 . process doc/texinfo-tex-test.texi with TeX and check that output is good.
 . process some manuals with INFO_JS_DIR and check the JS interface is
   not broken.
+. if necessary, check if the HTML customization API can be updated for
+  - lilypond Documentation/lilypond.init
+  - ffmpeg doc/t2h.pm
 
 check for C compiler warnings by configuring with
 
-our_CFLAGS='-Wall -Wno-parentheses -Wno-missing-braces'
+our_CFLAGS='-Wall -Wformat-security -Wstrict-prototypes -Wno-parentheses'
 ./configure "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
 unset our_CFLAGS
 
