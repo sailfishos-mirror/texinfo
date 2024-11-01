@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2024-10-31.19}
+\def\texinfoversion{2024-11-01.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2024 Free Software Foundation, Inc.
 %
@@ -3126,11 +3126,12 @@ end
 % at the end of the line, or no break at all here.
 %   Changing the value of the penalty and/or the amount of stretch affects how 
 % preferable one choice is over the other.
+%   Check test cases in doc/texinfo-tex-test.texi before making any changes.
 \def\urefallowbreak{%
   \penalty0\relax
-  \hskip 0pt plus 2 em\relax
+  \hskip 0pt plus 3 em\relax
   \penalty1000\relax
-  \hskip 0pt plus -2 em\relax
+  \hskip 0pt plus -3 em\relax
 }
 
 \urefbreakstyle after

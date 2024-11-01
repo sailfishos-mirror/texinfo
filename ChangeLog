@@ -1,3 +1,13 @@
+2024-11-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	@uref line breaking
+
+	* doc/texinfo.tex (\urefallowbreak): Increase stretch for
+	ragged right output from 2 em to 3 em.
+	* doc/texinfo-tex-test.texi (URL line breaking): add test cases.
+
+	Examples sent by R. Diez.
+
 2024-11-01  Patrice Dumas  <pertusus@free.fr>
 
 	* README-hacking: update C flags.
