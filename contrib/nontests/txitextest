@@ -27,11 +27,11 @@ tsrc=`cd \`dirname $0\` && pwd`/../..
 PATH=$tsrc/util:$PATH
 
 tdoc=$tsrc/doc
-default_manuals="$tdoc/texinfo.texi $tdoc/info.texi $tdoc/info-stnd.texi"
+default_manuals="$tdoc/texinfo.texi $tdoc/texi2any_api.texi $tdoc/info-stnd.texi"
 
-olddir=$tsrc/../gnulib/config
+olddir=$tsrc/../gnulib/build-aux
 newdir=$tdoc
-tempdir=$tsrc/@tests/test
+tempdir=tmpdir_txitextest
 full=false
 manuals=
 
@@ -50,6 +50,7 @@ done
 test -z "$manuals" && manuals=$default_manuals
 initial_dir=`pwd`
 
+mkdir -p $tempdir
 cd $tempdir || exit 1
 rm -f *
 
