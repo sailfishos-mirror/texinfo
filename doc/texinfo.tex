@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2024-11-01.22}
+\def\texinfoversion{2024-11-02.10}
 %
 % Copyright 1985, 1986, 1988, 1990-2024 Free Software Foundation, Inc.
 %
@@ -5632,11 +5632,18 @@ might help (with 'rm \jobname.?? \jobname.??s')%
         %
         \null\nobreak\indexdotfill % Have leaders before the page number.
         %
+        \hskip\skip\thinshrinkable
         \ifpdforxetex
-          \pdfgettoks#1.%
-          \hskip\skip\thinshrinkable\the\toksA
+          \ifx\tocnodetarget\empty
+            \pdfgettoks#1.%
+            \the\toksA
+          \else
+            % Should just be a single page number in toc
+            \startxreflink{\tocnodetarget}{}%
+            #1\endlink
+          \fi
         \else
-          \hskip\skip\thinshrinkable #1%
+          #1%
         \fi
       \fi
     \egroup % end \boxA
