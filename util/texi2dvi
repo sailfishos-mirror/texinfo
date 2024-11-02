@@ -588,7 +588,9 @@ move_to_dest ()
     if mv "$1" "$dest" ; then
        # For --output, report that the file was moved, as TeX has just
        # reported that it wrote output at the original location.
-       test z"$oname" != z && echo "Moved $1 to $dest"
+       if test z"$oname" != z ; then
+         echo "Moved $1 to $dest"
+       fi
     else
        error 1 "Could not move $1 to $dest"
     fi
