@@ -413,6 +413,10 @@ contrib/mass_test/normalized
 contrib/mass_test/perl_HTML_refs
 contrib/mass_test/result_check_perlVSC
 
+contrib/nontests/logs
+contrib/nontests/testSubDir
+contrib/nontests/tmpdir_txitextest
+
 js/build-aux/install-sh
 js/build-aux/missing
 js/examples/hello-html

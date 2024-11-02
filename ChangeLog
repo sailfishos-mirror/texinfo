@@ -1,3 +1,25 @@
+2024-11-02  Patrice Dumas  <pertusus@free.fr>
+
+	* contrib/nontests/defs.in, contrib/nontests/run_test_utils.sh
+	(TEXI2DVI_run), contrib/nontests/*.test: split nontests/defs.in code
+	independent of configure substitutions to the new file
+	nontests/run_test_utils.sh.  Assume that all tex now understands
+	--version.  Update TEXI2DVI path.  Source defs in run_test_utils.sh
+	only if it is present.  Update code to be more Bourne compatible using
+	recent autoconf generated code.  Set TEXINDEX and TEXINDEX_SCRIPT in
+	the TEXI2DVI call in TEXI2DVI_run.  Determine srcdir in each test
+	files and source run_test_utils.sh only.  
+
+	* contrib/nontests/run_test_utils.sh (create_input_texi)
+	(create_input_empty_texi), contrib/nontests/texi2dvi_no_content.test,
+	contrib/nontests/texi2dvi.test (one_run): rename create_input_texi as
+	create_input_empty_texi and readd create_input_texi such that it
+	outputs a minimal manual instead of a manual without content.  Add
+	texi2dvi_no_content.test that calls create_input_empty_texi.  Add
+	an index entry in one_run.
+
+	* contrib/nontests/test_all.sh: run all the *.test tests.
+
 2024-11-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\nolig): Add brace pair after 0pt to avoid

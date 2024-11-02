@@ -30,16 +30,16 @@ fi
 
 set -e
 
-# one_run ARGS -- FILES
+# one_empty_texi_run ARGS -- FILES
 # ---------------------
-# Run texi2dvi with ARGS, expect the FILES to be left.  Remove them.
-one_run ()
+# Run texi2dvi with ARGS on a texi file without content, expect the FILES
+# to be left.  Remove them.
+one_empty_texi_run ()
 {
   # Testing the local build mode.
   # Use @foo to check that -t works properly.
-  echo "@foo" | create_input_texi
+  echo "@foo" | create_input_empty_texi
   TEXI2DVI_pass $(optionset_get 1 "$@") \
-     -t '@cindex entry' \
      -t '@macro foo' \
      -t 'Foo'        \
      -t '@end macro' \
@@ -48,29 +48,31 @@ one_run ()
   assert_and_remove_files $(optionset_get 2 "$@") input.texi
 }
 
-one_run --batch \
+one_empty_texi_run --batch \
    -- \
-   input.aux input.dvi input.log input.cp input.cps input.toc
+   input.dvi input.log
 
 
-one_run --batch -o output.dvi \
+one_empty_texi_run --batch -o output.dvi \
    -- \
-   input.aux input.log output.dvi input.cp input.cps input.toc
+   input.log output.dvi
 
 
+if false ; then
 # Testing the clean build mode.
 for mode in --clean --build=clean
 do
   # There should only be the DVI and the TEXI file.
-  one_run $mode --batch -- input.dvi
+  one_empty_texi_run $mode --batch -- input.dvi
 
   # There should only be the DVI and the TEXI file.
-  one_run $mode --batch -o output.dvi -- output.dvi
+  one_empty_texi_run $mode --batch -o output.dvi -- output.dvi
 done
+fi
 
 
 # Testing the tidy build mode.
-one_run --build=tidy --batch -o output.dvi \
+one_empty_texi_run --build=tidy --batch -o output.dvi \
    -- \
    output.dvi output.t2d
 
@@ -78,7 +80,7 @@ one_run --build=tidy --batch -o output.dvi \
 # mostly-clean should remove auxiliary files, but not the expected
 # output.
 touch output.dvi
-one_run --build=tidy --batch -o output.dvi --mostly-clean \
+one_empty_texi_run --build=tidy --batch -o output.dvi --mostly-clean \
    -- \
    output.dvi
 
@@ -86,6 +88,7 @@ one_run --build=tidy --batch -o output.dvi --mostly-clean \
 # There should only be the DVI and the TEXI file.
 create_input_texi </dev/null
 cp input.texi input2.texi
-one_run --clean --batch input.texi input2.texi \
+one_empty_texi_run --clean --batch input.texi input2.texi \
    -- \
    input2.dvi input2.texi input.dvi
+
