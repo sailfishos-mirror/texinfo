@@ -1,5 +1,10 @@
 2024-11-02  Patrice Dumas  <pertusus@free.fr>
 
+	* contrib/nonbugs/README, contrib/nonbugs/*.texi: add a directory for
+	Texinfo files with some issues, but not bugs.
+
+2024-11-02  Patrice Dumas  <pertusus@free.fr>
+
 	* contrib/nontests/txitextest: use a temporary directory in the
 	current directory and create it in the script.  Update manuals and
 	paths.

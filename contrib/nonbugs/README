@@ -1,0 +1,11 @@
+texinfo/contrib/nonbugs/README
+
+  Copyright 2024 Free Software Foundation, Inc.
+
+  Copying and distribution of this file, with or without modification,
+  are permitted in any medium without royalty provided the copyright
+  notice and this notice are preserved.
+
+The Texinfo files have some issues with either formatting or viewing the
+result.  However, these issues are not considered as bugs for various reasons,
+explained in comments at the beginning of each file.

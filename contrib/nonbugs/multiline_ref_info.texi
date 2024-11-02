@@ -1,0 +1,18 @@
+\input texinfo
+
+@c This manual shows that the standalone Info reade does not find the
+@c anchor, because the @xref is not determined as a cross-reference
+@c since the Info reader only looks for punctuation matching a *Note
+@c on two lines.  This is not a bug, as it prevents from finding bogus
+@c cross-references since cross-references crossing more than two lines
+@c should be very uncommon or even non-existent.
+
+@node Top
+@top top
+
+@anchor{chap @* f nl Something @* After punct}
+
+@node chap
+@chapter Chap
+
+@xref{chap @* f nl Something @* After punct}.

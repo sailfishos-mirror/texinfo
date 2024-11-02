@@ -1,0 +1,14 @@
+\input texinfo.tex
+
+@c formatting with Texinfo TeX triggers a bug.  Fixing this but is not
+@c expected to happen any day, as this construct should be very uncommon.
+
+@node Top
+
+@node node
+
+@inlinefmtifelse{info, something, @math{a \times 2}}.
+
+No inlinefmtifelse @math{a \times 2}.
+
+@bye
