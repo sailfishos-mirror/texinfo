@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2024-11-02.10}
+\def\texinfoversion{2024-11-02.11}
 %
 % Copyright 1985, 1986, 1988, 1990-2024 Free Software Foundation, Inc.
 %
@@ -10537,7 +10537,7 @@ directory should work if nowhere else does.}
   % Braces do not suppress ligature creation in LuaTeX, e.g. in of{}fice
   % to suppress the "ff" ligature.  Using a kern appears to be the only
   % workaround.
-  \def\nolig{\kern0pt}
+  \def\nolig{\kern0pt{}}
 \fi
 
 % https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_M

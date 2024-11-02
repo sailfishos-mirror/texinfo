@@ -1,5 +1,10 @@
 2024-11-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\nolig): Add brace pair after 0pt to avoid
+	swallowing a following space.  Report from Werner.
+
+2024-11-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Link toc page numbers to exact location on page
 
 	* doc/texinfo.tex:  (\finishentry) [pdf or xetex]:
