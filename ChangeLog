@@ -1,3 +1,7 @@
+2024-11-03  Patrice Dumas  <pertusus@free.fr>
+
+	* contrib/nontests/test_all.sh: add copyright notice.
+
 2024-11-03  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: add suggestion to run contrib/nontests tests
