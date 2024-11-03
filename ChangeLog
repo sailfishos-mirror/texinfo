@@ -1,3 +1,9 @@
+2024-11-03  Patrice Dumas  <pertusus@free.fr>
+
+	* contrib/nontests/txitextest, contrib/nontests/*.test,
+	contrib/nontests/defs.in, contrib/nontests/run_test_utils.sh: update
+	copyright years.
+
 2024-11-03  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex: (\doindwritex): Do not use \immediate as we
