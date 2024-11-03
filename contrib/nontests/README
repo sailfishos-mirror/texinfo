@@ -1,6 +1,6 @@
 texinfo/contrib/nontests/README
 
-  Copyright 2015-2019 Free Software Foundation, Inc.
+  Copyright 2015-2024 Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
   are permitted in any medium without royalty provided the copyright
@@ -14,6 +14,6 @@ installations.  And even checking whether it is working or not is not
 simple.
 
 The txitextest script compares old and new results of running manuals
-through texinfo.tex.  The texinfo.tex developer(s) run this from cron
+through texinfo.tex.  The texinfo.tex developer(s) used to run this from cron
 nightly as an imperfect check against errors and/or reversions creeping
 in.

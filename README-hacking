@@ -393,6 +393,8 @@ check indices of Texinfo manuals and check for duplicates (with <1> in Info)
 
 Check "make ccheck" and "make vcheck" work in "doc/refcard".
 
+Consider running tests of texi2dvi under contrib/nontests
+
 - Official releases only:
 make V=1 pdf and fix underfull/overfull boxes.
 
