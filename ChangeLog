@@ -1,3 +1,8 @@
+2024-11-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex: (\doindwritex): Do not use \immediate as we
+	need the page number to be set at the time the page is shipped out.
+
 2024-11-02  Patrice Dumas  <pertusus@free.fr>
 
 	* contrib/nonbugs/README, contrib/nonbugs/*.texi: add a directory for

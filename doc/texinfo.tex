@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2024-11-02.11}
+\def\texinfoversion{2024-11-03.09}
 %
 % Copyright 1985, 1986, 1988, 1990-2024 Free Software Foundation, Inc.
 %
@@ -5278,7 +5278,7 @@ $$%
   % sorted result.
   %
   \edef\temp{%
-    \immediate\write\writeto{%
+    \write\writeto{%
       \string\entry{\fullindexsortkey}%
         {\ifx\pagenumbertext\empty\noexpand\folio\else\pagenumbertext\fi}%
         \bracedtext}%
