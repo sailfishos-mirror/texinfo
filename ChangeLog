@@ -1,3 +1,17 @@
+2024-11-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Ease index files format change
+
+	* doc/texinfo.tex (\printindex): Delay \errmessage until
+	end of document to allow rest of index to be output.  This
+	reduces the chance of a completely empty index file being
+	left which texi2dvi will not process.
+	(\byeerror, \bye): Check and output \byeerror in @bye.
+
+	This is an unlikely case which may not occur in real documents.
+	It would only happen if @printindex was used on the same
+	page as all of the index entries for the index.
+
 2024-11-03  Patrice Dumas  <pertusus@free.fr>
 
 	* contrib/nontests/test_all.sh: add copyright notice.

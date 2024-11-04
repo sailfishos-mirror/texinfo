@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2024-11-03.09}
+\def\texinfoversion{2024-11-04.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2024 Free Software Foundation, Inc.
 %
@@ -951,7 +951,11 @@ where each line of input produces a line of output.}
 \let\setfilename=\comment
 
 % @bye.
-\outer\def\bye{\chappager\pagelabels\tracingstats=1\ptexend}
+\outer\def\bye{%
+  \chappager\pagelabels
+  % possibly set in \printindex
+  \ifx\byeerror\relax\else\errmessage{\byeerror}\fi
+  \tracingstats=1\ptexend}
 
 
 \message{pdf,}
@@ -5439,6 +5443,9 @@ $$%
   \closein 1
 \endgroup}
 
+% Checked in @bye
+\let\byeerror\relax
+
 % If the index file starts with a backslash, forgo reading the index
 % file altogether.  If somebody upgrades texinfo.tex they may still have
 % old index files using \ as the escape character.  Reading this would
@@ -5447,7 +5454,9 @@ $$%
   \ifflagclear{txiindexescapeisbackslash}{%
     \uccode`\~=`\\ \uppercase{\if\noexpand~}\noexpand#1
       \ifflagclear{txiskipindexfileswithbackslash}{%
-\errmessage{%
+        % Delay the error message until the very end to give a chance
+        % for the whole index to be output as input for texindex.
+        \global\def\byeerror{%
 ERROR: A sorted index file in an obsolete format was skipped.  
 To fix this problem, please upgrade your version of 'texi2dvi'
 or 'texi2pdf' to that at <https://ftp.gnu.org/gnu/texinfo>.
