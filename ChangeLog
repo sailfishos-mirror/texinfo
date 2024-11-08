@@ -2,6 +2,13 @@
 
 	HTML Output Customization manual edit
 
+	* doc/texinfo.texi (Specific Customization of HTML Formatting)
+	(HTML Customization of Specific Output): Rename.
+
+2024-11-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	HTML Output Customization manual edit
+
 	* doc/texinfo.texi (HTML Output Customization):  Edit slightly.
 	(Customization of HTML Code Inserted)
 	(Customization of Inserted HTML Code): Rename node.

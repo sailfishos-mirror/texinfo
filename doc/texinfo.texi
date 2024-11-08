@@ -3258,7 +3258,7 @@ same level.  For instance, it is the same for the chapter-level commands
 
 In HTML, the chapter-level commands produce an @code{<h2>}-level
 header by default (controlled by the @code{CHAPTER_HEADER_LEVEL}
-customization variable, @pxref{Specific Customization of HTML Formatting}).
+customization variable, @pxref{HTML Customization of Specific Output}).
 The heading element level is adjusted for the other commands.
 
 In the DocBook output, the appropriate level of element is used.
@@ -18580,8 +18580,8 @@ texinfo_set_from_init_file('OUTPUT_ENCODING_NAME', 'utf-8');
 
 @end ignore
 
-@node Specific Customization of HTML Formatting
-@subsection Specific Customization of HTML Formatting
+@node HTML Customization of Specific Output
+@subsection HTML Customization of Specific Output
 
 The appearance of specific constructs is customizable.
 
