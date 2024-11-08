@@ -18624,11 +18624,11 @@ default false.
 
 @vindex HTML_MATH
 @cindex HTML output @subentry math @subentry customization
-You can select diverse methods to render math in HTML (@pxref{Inserting Math}).
-This is controlled by the @code{HTML_MATH} customization variable
-value.  By default, the customization variable is unset
-and the HTML output is only emphasized.  You may select better options for
-displaying properly formatted mathematics.  For some of those options, if you
+You can select various methods to render math in HTML (@pxref{Inserting Math}).
+This is controlled by the @code{HTML_MATH} customization variable.
+By default, the customization variable is unset and the HTML output
+is only emphasized.  You may select other options in order to display
+properly formatted mathematics.  For some of these options, if you
 set @option{--iftex}, @code{@@tex} sections are converted to HTML, and if you
 set @option{--iflatex} @code{@@latex} sections are converted to HTML.
 
@@ -18639,7 +18639,7 @@ image files for mathematical material.
 
 @command{latex2html} will process @LaTeX{} math in math commands,
 including @TeX{} math compatible with @LaTeX{}.
-@command{latex2html} is used to translates @code{@@tex}
+@command{latex2html} is used to translate @code{@@tex}
 and @code{@@latex} sections to HTML if the corresponding sections
 are not ignored.  Note that @command{latex2html} can only process @LaTeX{},
 including when processing @code{@@tex} sections.
@@ -18656,8 +18656,8 @@ Inserts references in the output files to MathJax scripts to format
 mathematics.  The MathJax option requires JavaScript to be enabled in the
 browser to work.
 
-MathJax handles @LaTeX{} math, including @TeX{}
-math compatible with @LaTeX{} commonly used.  Some specific constructs
+MathJax handles @LaTeX{} math, including commonly used @TeX{}
+math compatible with @LaTeX{}.  Some specific constructs
 (for example some uses of @code{\text}) are not supported, but this should
 not be a practical issue.
 
@@ -18671,7 +18671,7 @@ Use the @command{tex4ht} program to produce HTML for mathematical material.
 
 @command{tex4ht} will process @LaTeX{} math in math commands,
 including @TeX{} math compatible with @LaTeX{}.
-@command{tex4ht} is used to translates @code{@@tex} and @code{@@latex}
+@command{tex4ht} is used to translate @code{@@tex} and @code{@@latex}
 sections to HTML if the sections are not ignored.  The @code{@@tex} sections
 are processed in @TeX{} mode, while the @code{@@latex} sections are
 processed as @LaTeX{}.
