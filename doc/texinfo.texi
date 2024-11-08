@@ -18050,8 +18050,8 @@ cross-references automatically.  You can get the latest version from
 You can use many user-definable customization variables to influence
 the HTML output.  @xref{HTML Customization Variables List} for the full list.
 The possibilities offered by the customization variables, ranging from
-overall document structure or HTML language variant to specific
-constructs formatting should cover most needs not already satisfied
+overall document structure and HTML language variant to formatting of
+specific constructs, should cover most needs not already satisfied
 by CSS customization (@pxref{HTML CSS}).
 
 If you ever need more control, you may be able to achieve this through
@@ -18063,10 +18063,10 @@ Customization}).
 If the @code{TEXI2HTML} customization variable is set, the generated HTML is as
 compatible as possible with @command{texi2html} (@pxref{@command{texi2html}}).
 The effect of this variable is quite unusual, as it does not directly modify
-the output, but sets a lot of other customization variables, some that are
-described next, some that may only be set in initialization files and are
-described in the @command{texi2any} Output Customization separate manual.
-Unset in the default case.
+the output, but sets a lot of other customization variables, including some
+that may only be set in initialization files and are described in the
+separate manual on @command{texi2any} Output Customization.  Unset in
+the default case.
 
 
 @node HTML Output Structure Customization
@@ -18485,8 +18485,11 @@ sign that appears when you hover the mouse pointer over the heading text.
 Unset @code{COPIABLE_LINKS} to prevent copiable links output.
 
 
-@node Customization of HTML Code Inserted
-@subsection Customization of HTML Code Inserted
+@node Customization of Inserted HTML Code
+@subsection Customization of Inserted HTML Code
+
+There are variables to set the HTML code inserted at various points
+in the output.
 
 @vindex CLOSE_QUOTE_SYMBOL @subentry @r{for HTML}
 @vindex OPEN_QUOTE_SYMBOL @subentry @r{for HTML}
@@ -18580,7 +18583,7 @@ texinfo_set_from_init_file('OUTPUT_ENCODING_NAME', 'utf-8');
 @node Specific Customization of HTML Formatting
 @subsection Specific Customization of HTML Formatting
 
-@c The appearance of specific construct is customizable.
+The appearance of specific constructs is customizable.
 
 @c Header levels
 
