@@ -18405,13 +18405,14 @@ using an initialization file (@pxref{Invoking @command{texi2any}}).
 @vindex USE_XML_SYNTAX
 @cindex DOCTYPE customization
 @vindex DOCTYPE @subentry @r{for HTML}
-By default HTML is generated, but you can set
-@code{USE_XML_SYNTAX} in order to generate XML compatible code.  The main
-difference is that @samp{/>} instead of @samp{>} closes elements with an
-opening element, but no closing element, such as @code{<img>} or @code{<link>}
-(also called @dfn{void elements}).
+By default HTML is generated, but you can set @code{USE_XML_SYNTAX}
+in order to generate XML compatible code.  The main difference is
+that @samp{/>} instead of @samp{>} ends tags such as @code{<img>} or
+@code{<link>} that do not have a closing tag (such tags create so-called
+@dfn{void elements}).
+
 To set the @dfn{DOCTYPE}, set the @code{DOCTYPE} customization variable.
-The default is the HTML5 DTD-less simple DOCTYPE.
+The default is the simple DTD-less DOCTYPE used for HTML5.
 
 You can set an XML compatible file beginning instead:
 @example

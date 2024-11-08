@@ -1,5 +1,9 @@
 2024-11-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (HTML Features Customization): edit
+
+2024-11-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Avoid sentence end
 
 	* doc/texinfo.texi (Inserting Math)
