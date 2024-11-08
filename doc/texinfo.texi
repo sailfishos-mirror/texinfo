@@ -18072,69 +18072,82 @@ the default case.
 @node HTML Output Structure Customization
 @subsection HTML Output Structure Customization
 
-@vindex NO_TOP_NODE_OUTPUT @subentry @r{for HTML}
+You can use customization variables to control the output of document
+titles and tables of contents or other similar parts of documents.
+Other variables have an effect on how @command{texi2any} views the
+structure of a document and how output is split into output files.
+
 @vindex SHOW_TITLE
 @vindex USE_TITLEPAGE_FOR_TITLE
-By default the HTML output is tailored for online viewing with
-a direct access to the information at the Top node.  For an output more
-similar to a book, set @code{NO_TOP_NODE_OUTPUT} to remove the Top node.
-If @code{SHOW_TITLE} is @samp{undef}, the default,
-setting @code{NO_TOP_NODE_OUTPUT} also sets @code{SHOW_TITLE} to
-output a title at the beginning of the document.  By default
-the full @code{@@titlepage} is used for the title, unset
+If @code{SHOW_TITLE} is @samp{undef}, the default, no title is
+output at the start of the output.  If you set this variable,
+by default the full @code{@@titlepage} is used for the title; unset
 @code{USE_TITLEPAGE_FOR_TITLE} to get a simple title string.
-If @code{SHOW_TITLE} is set, you can have the table of contents
-output after the title by setting @code{CONTENTS_OUTPUT_LOCATION} to
-@samp{after_title}.
+
+@vindex NO_TOP_NODE_OUTPUT @subentry @r{for HTML}
+By default, the HTML output is tailored for online viewing, with
+the Top node being output as a top-level starting point for the reader.
+You can set @code{NO_TOP_NODE_OUTPUT} to remove the Top node, which
+results in output that may be more similar to the format of a printed
+book.
+By default, setting @code{NO_TOP_NODE_OUTPUT} also
+outputs a title at the beginning of the document, although you
+can override this by setting @code{SHOW_TITLE} to 0.
+
+@vindex FORMAT_MENU @subentry @r{for HTML}
+In each node, by default a list is output of subordinate sections
+for navigation.  This corresponds to the @code{FORMAT_MENU} variable
+being set to @samp{sectiontoc}.  To use menus instead to navigate in
+the document (as in Info format; @pxref{Menus}), set @code{FORMAT_MENU}
+to @samp{menu}.  If you do not want either menus or subordinate sections
+list for navigation to be output, set @code{FORMAT_MENU} to @samp{nomenu}.
 
 @vindex CONTENTS_OUTPUT_LOCATION
-@vindex FORMAT_MENU @subentry @r{for HTML}
-By default, a list of subordinate sections is output in each node
-for navigation, corresponding to @code{FORMAT_MENU} set to @samp{sectiontoc}.
-The table of contents are output at the end of the @code{@@top}
-section, to have the main location for navigation in the whole document
-early on, corresponding to @code{CONTENTS_OUTPUT_LOCATION} set to
-@samp{after_top}.  To use menus instead to navigate in the document
-(@pxref{Menus}), set @code{FORMAT_MENU} to @samp{menu}.
+By default, the table of contents for the entire document is output
+at the end of the @code{@@top} section, to have the main location for
+navigation in the whole document early on.  This corresponds to the
+@code{CONTENTS_OUTPUT_LOCATION} variable set to @samp{after_top}.
 
-If menus are used for navigation, the tables of contents are not
-needed at the end of the @code{@@top} section as
-there should already be a master menu (@pxref{Master Menu Parts}).
+You can have the table of contents output after the title (if
+@code{SHOW_TITLE} is set) by setting @code{CONTENTS_OUTPUT_LOCATION}
+to @samp{after_title}.
 To output the table of contents at the end of the document or to a separate
 file, if output is split, set @code{CONTENTS_OUTPUT_LOCATION}
 to @samp{separate_element}.  You can also set
-@code{CONTENTS_OUTPUT_LOCATION} to @samp{inline}, in that case the
-the tables of content are output where
-the corresponding @@-command, for example @code{@@contents}, is set.
+@code{CONTENTS_OUTPUT_LOCATION} to @samp{inline}: in this case, the
+the tables of contents are output where
+the corresponding @@-command, for example @code{@@contents}, is used.
 
-If you do not desire menus and subordinate sections list for navigation
-to be output, set @code{FORMAT_MENU} to @samp{nomenu}.
+If menus are used for navigation, the table of contents is not
+needed at the end of the @code{@@top} section, as
+there should already be a master menu (@pxref{Master Menu Parts}).
 
 @vindex DO_ABOUT
 @vindex PROGRAM_NAME_IN_ABOUT
 You can add a special @dfn{About} element explaining how to navigate by
 setting @code{DO_ABOUT}, set to 0 in the default case (no About element).
 If @code{PROGRAM_NAME_IN_ABOUT} is also set, output the program name and
-miscellaneous related information in About special element; default false.
+miscellaneous related information in the About special element; default
+false.
 
 @vindex MONOLITHIC
-If non-split, in the default case, the special elements such as the About
-element or the tables of contents are output in the same file as the
-manual nodes and sections.  If you prefer such special elements to be separate,
-set @code{MONOLITHIC} to 0 to output special elements to separate files.  As
-already described, the table of contents location may also be tuned with
+In the case of non-split output, by default only one file is output
+including any tables of contents or About elements.
+If you prefer such special elements to be separate,
+set @code{MONOLITHIC} to 0 to output special elements to separate files.
+As already described, the table of contents location may also be tuned with
 @code{CONTENTS_OUTPUT_LOCATION}.
+@c FIXME only for CONTENTS_OUTPUT_LOCATION=separate_element ??
 
 @vindex USE_NODES @subentry @r{for HTML}
-The elementary units used for output correspond to a node or a sectioning
-command associated content and is called an @dfn{output units}.
-Usually a node is associated
-with a following sectioning command, while a sectioning command is
-associated with a previous node; they both together make up the
-output unit.  Either the node or the sectioning command is considered to
-be the main element component, depending on the values of the
-customization variables @code{USE_NODES}.
+Elementary units called @dfn{output units} are used for output.  Output
+units contain the content associated with a node or a sectioning command.
+In typical Texinfo document sources, a node command is almost always
+associated with an immediately following sectioning command.
 
+The customization variable @code{USE_NODES} determines whether the
+node or the sectioning command is considered to
+be the main command.
 By default, nodes are used as the main component for the separation of
 output units.  You can set @code{USE_NODES} to false to preferentially
 use sectioning to decide where output units are separated.
