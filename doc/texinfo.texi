@@ -18111,8 +18111,11 @@ If you do not desire menus and subordinate sections list for navigation
 to be output, set @code{FORMAT_MENU} to @samp{nomenu}.
 
 @vindex DO_ABOUT
+@vindex PROGRAM_NAME_IN_ABOUT
 You can add a special @dfn{About} element explaining how to navigate by
 setting @code{DO_ABOUT}, set to 0 in the default case (no About element).
+If @code{PROGRAM_NAME_IN_ABOUT} is also set, output the program name and
+miscellaneous related information in About special element; default false.
 
 @vindex MONOLITHIC
 If non-split, in the default case, the special elements such as the About
@@ -18551,7 +18554,7 @@ texinfo_set_from_init_file('OUTPUT_ENCODING_NAME', 'utf-8');
 @node HTML Customization of Specific Output
 @subsection HTML Customization of Specific Output
 
-The appearance of specific constructs is customizable.
+The output of specific constructs is customizable.
 
 @c Header levels
 
@@ -18582,6 +18585,7 @@ default @samp{4}.
 @c Output of other constructs
 
 You may modify the appearance of various constructs by setting:
+
 @vtable @code
 @item DEF_TABLE
 If set, a @code{<table>} construction for @code{@@deffn}
@@ -18611,11 +18615,6 @@ for menu entries formatting; default is undefined and set to
 By default footnotes are numbered.  With @option{--no-number-footnotes} or if
 @code{NUMBER_FOOTNOTES} is set to 0, a @samp{*} is used instead, or the
 @code{NO_NUMBER_FOOTNOTE_SYMBOL} customization variable value, if set.
-
-@item PROGRAM_NAME_IN_ABOUT
-Used when an About element is output.  If set, output the program
-name and miscellaneous related information in About special element;
-default false.
 @end vtable
 
 

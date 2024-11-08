@@ -1,5 +1,13 @@
 2024-11-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	HTML Output Customization manual edit
+
+	* doc/texinfo.texi (HTML Output Structure Customization)
+	(HTML Customization of Specific Output): Move documentation
+	of PROGRAM_NAME_IN_ABOUT.
+
+2024-11-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (HTML Customization for Math): Edit.
 
 2024-11-08  Gavin Smith <gavinsmith0123@gmail.com>
