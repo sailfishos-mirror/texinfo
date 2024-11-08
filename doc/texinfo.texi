@@ -18336,9 +18336,10 @@ a base file name by setting @code{BASEFILENAME_LENGTH}.
 @subsection Customization of Navigation and Headers
 
 @vindex HEADERS @subentry @r{for HTML}
-Headers and footers with a navigation panel are output in the default case.  If
-you use @option{--no-headers}, or if the customization variable @code{HEADERS}
-is unset, the navigation bar is only inserted at the beginning of split files.
+Headers and footers with a navigation panel are output in the default
+case.  If you use @option{--no-headers}, or if the customization variable
+@code{HEADERS} is unset, the navigation panel is only inserted at the
+beginning of split files.
 
 @vindex USE_LINKS
 By default, @code{<link>} elements are generated in the
@@ -18359,7 +18360,7 @@ By default, if an input encoding is set (typically through
 encoding name, otherwise the output encoding is based on the default encoding.
 A @samp{<meta>} tag is output, in the @samp{<head>} section of the HTML, to
 specify the output encoding.  @xref{@code{@@documentencoding}}.  To set
-explicitely the output encoding, set @code{OUTPUT_ENCODING_NAME}.  The
+the output encoding explicitly, set @code{OUTPUT_ENCODING_NAME}.  The
 specified encoding should be a normalized charset name usable in HTML,
 typically one of the preferred IANA encoding names.
 
@@ -18370,7 +18371,7 @@ minimum page length at which a navigation panel is placed at the bottom of a
 page.
 
 The appearance of the navigation panel is affected by the following
-customization variables, false in the default case:
+customization variables, all false in the default case:
 
 @vtable @code
 @item DATE_IN_HEADER
