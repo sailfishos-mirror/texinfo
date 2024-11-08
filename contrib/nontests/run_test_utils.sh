@@ -41,29 +41,13 @@ esac ;;
 esac
 fi
 
-if test -f ./defs ; then
-  . ./defs
-#else
-#  # Ensure we are running from the right directory.
-#  echo "defs: not found in current directory" 1>&2
-#  exit 1
-fi
-
 # Ensure $srcdir is set correctly.
-test -f $srcdir/defs.in || {
-   echo "$srcdir/defs.in not found, check \$srcdir" 1>&2
+test -f $srcdir/run_test_utils.sh || {
+   echo "$srcdir/run_test_utils.sh not found, check \$srcdir" 1>&2
    exit 1
 }
 
 me=`echo "$0" | sed -e 's,.*[\\/],,;s/\.test$//'`
-
-if test z"$EGREP" = z ; then
-  EGREP='grep -e'
-fi
-
-if test z"$FGREP" = z ; then
-  FGREP='grep -f'
-fi
 
 # See how redirections should work.  User can set VERBOSE to see all
 # output.

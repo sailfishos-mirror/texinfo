@@ -1,3 +1,10 @@
+2024-11-08  Patrice Dumas  <pertusus@free.fr>
+
+	* contrib/nontests/run_test_utils.sh (EGREP, FGREP),
+	contrib/nontests/defs.in: remove unused EGREP and FGREP and remove
+	copyright notice from defs.in as it is now trivial (and unused).
+	Do not read nor find defs and defs.in from run_test_utils.sh.
+
 2024-11-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Ease index files format change
