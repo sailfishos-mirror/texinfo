@@ -1,4 +1,0 @@
-# NOTE: this file is not currently listed in configure.ac and therefore
-# not used to generate a defs file.
-SHELL='@SHELL@'
-export SHELL
