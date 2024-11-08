@@ -18826,31 +18826,34 @@ defined.
 
 @vindex INFO_JS_DIR
 @cindex JavaScript browsing interface for HTML
-You can add an experimental JavaScript browsing interface to the manual by
-setting @code{INFO_JS_DIR} value to the directory to place the code for this
-interface as e.g.@: @samp{texi2any --html -c INFO_JS_DIR=js @var{manual}.texi}
-to place files in a @samp{js} directory under the output.  This provides some
-of the functionality of the Info browsers in a web browser, such as keyboard
+
+You can add an experimental JavaScript browsing interface to the HTML
+output by setting @code{INFO_JS_DIR} value to the name of a directory in
+which to place the code for this interface.  For example,
+@samp{texi2any --html -c INFO_JS_DIR=js @var{manual}.texi} places files in
+a @samp{js} directory under the output.  This interface provides some of
+the functionality of the Info browsers in a web browser, such as keyboard
 navigation and index lookup.  This only works with non-split HTML output.
 
 @anchor{JavaScript license web labels}
 @cindex JavaScript license web labels page
 @vindex JS_WEBLABELS
 @vindex JS_WEBLABELS_FILE
-By default, a @dfn{JavaScript license web labels page} is setup
-to give licensing information and source code for any JavaScript used in
-the HTML files for the manual
-(See @uref{https://www.gnu.org/licenses/javascript-labels.html}).  To avoid
+By default, a @dfn{JavaScript license web labels page} is set up
+to give licensing information and source code for any JavaScript used by
+the HTML output
+(see @uref{https://www.gnu.org/licenses/javascript-labels.html}).  To avoid
 generating a JavaScript license web labels page, set @code{JS_WEBLABELS}
 to @samp{omit}.  With @code{JS_WEBLABELS} set to @samp{generate}, the default,
 generate a labels page at @code{JS_WEBLABELS_FILE}, @file{js_licenses.html}
 in the default case, and link to it in the HTML output files.  With
 @code{JS_WEBLABELS} set to @samp{reference}, link to the labels file given by
-@code{JS_WEBLABELS_FILE} in the output, and do not generate a labels file. This
-setting is useful if you separately maintain a single labels file for a larger
-website that includes your manual.
-Labels files are generated for @code{INFO_JS_DIR} and with @code{HTML_MATH}
-set to @samp{mathjax} for @code{MATHJAX_SOURCE} (@pxref{MathJax scripts}).
+@code{JS_WEBLABELS_FILE} in the output, and do not generate a labels file.
+This last setting is useful if you separately maintain a single labels
+file for a larger website that includes your manual.
+
+Labels files can be generated if @code{INFO_JS_DIR} is set, or if
+@code{HTML_MATH} is set to @samp{mathjax} (@pxref{MathJax scripts}).
 
 
 @node HTML Customization Variables List
