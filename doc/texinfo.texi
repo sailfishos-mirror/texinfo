@@ -18464,7 +18464,7 @@ in the output.
 
 @vindex CLOSE_QUOTE_SYMBOL @subentry @r{for HTML}
 @vindex OPEN_QUOTE_SYMBOL @subentry @r{for HTML}
-Opening quote and closing quotes needed, e.g. for @code{@@samp} output
+Opening quote and closing quotes needed, e.g.@: for @code{@@samp} output,
 are set to:
 
 @table @asis
@@ -18486,9 +18486,9 @@ If you set those customization variables.
 @vindex DEFAULT_RULE
 @vindex BIG_RULE
 To change the HTML code for breaks (horizontal rule) inserted in various
-contexts, set @code{DEFAULT_RULE},
+contexts, set @code{DEFAULT_RULE}, which is
 used for most horizontal separators output in the resulting HTML,
-and set @code{BIG_RULE} for the wider separator sometime used.
+and set @code{BIG_RULE} for the wider separator sometimes used.
 
 @c Arguments are HTML content to be inserted at certain points in the output.
 @vindex HTML_ROOT_ELEMENT_ATTRIBUTES
@@ -18514,7 +18514,7 @@ You can define the variable @code{PRE_BODY_CLOSE} to add text just
 before the HTML @code{</body>} element.  Nothing is added by default.
 
 Similarly, the following variables allow for some useful control of the
-formatting of table of contents and short table of contents:
+formatting of the table of contents and the short table of contents:
 
 @vtable @code
 @item BEFORE_TOC_LINES
@@ -18530,8 +18530,9 @@ Inserted before the short table of contents text.
 Inserted after the short table of contents text.
 
 @end vtable
-At the time of writing, these variables default values are set to
-@code{<div>} elements opening and closing for tables of contents.
+At the time of writing, the default values of these variables are set to
+opening and closing tags for a @code{<div>} element enclosing the
+tables of contents.
 
 @ignore
 Could be an example, but would need either to specify as command-line
