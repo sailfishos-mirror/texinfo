@@ -9500,7 +9500,7 @@ e^{-{1\over2}\left({x-\mu\over\sigma}\right)^2}
 In general, the contents of @code{@@math} or @code{@@displaymath}
 should be plain @TeX{} only, with no interspersed Texinfo commands.
 If you do use any Texinfo commands, then you should mark these with
-@samp{@@} as usual, rather than @samp{\} (e.g. @samp{@@var} rather than
+@samp{@@} as usual, rather than @samp{\} (e.g.@: @samp{@@var} rather than
 @samp{\var}), but we do not guarantee which Texinfo commands will work.
 
 Although @code{@@sub} and @code{@@sup} may work inside math mode in
@@ -16058,7 +16058,7 @@ This table gives the customization which apply to multiple formats.
 
 @vtable @code
 @item CLOSE_QUOTE_SYMBOL
-When a closing quote is needed, e.g. for @code{@@samp} output, use
+When a closing quote is needed, e.g.@: for @code{@@samp} output, use
 this character; default @code{&#8217;} in DocBook.
 Undefined in the default case in HTML and set to @code{&rsquo;}
 if @code{USE_NUMERIC_ENTITY} is not set, to @code{&#8217;} if set, and

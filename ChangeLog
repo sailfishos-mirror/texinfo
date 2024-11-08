@@ -1,5 +1,13 @@
 2024-11-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Avoid sentence end
+
+	* doc/texinfo.texi (Inserting Math)
+	(Customization Variables for Multiple Formats):
+	Add @: after e.g.
+
+2024-11-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Customization of Inserted HTML Code): edit
 
 2024-11-08  Gavin Smith <gavinsmith0123@gmail.com>
