@@ -1250,6 +1250,18 @@ sub _place_source_mark
     if (defined($current->{'text'}) and $current->{'text'} ne '') {
       $source_mark->{'position'} = length($current->{'text'});
     }
+  } elsif ($element->{'cmdname'}
+           and defined($self->{'brace_commands'}->{$element->{'cmdname'}})) {
+    # can only be before the opening brace
+    $element->{'info'} = {} if (!$element->{'info'});
+    if (!$element->{'info'}->{'spaces_after_cmd_before_arg'}) {
+      $element->{'info'}->{'spaces_after_cmd_before_arg'} = {'text' => ''};
+      $add_element_string = 'add';
+    } else {
+      $source_mark->{'position'}
+       = length($element->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'});
+    }
+    $mark_element = $element->{'info'}->{'spaces_after_cmd_before_arg'};
   } else {
     # add an empty element only used for source marks
     # 'text' is here to have merge_text work as expected
@@ -2204,9 +2216,6 @@ sub _close_commands($$$;$$)
       and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
     $self->_line_error(sprintf(__("\@%s expected braces"),
                        $current->{'cmdname'}), $source_info);
-    if ($current->{'contents'}) {
-      _gather_spaces_after_cmd_before_arg($self, $current);
-    }
     $current = $current->{'parent'};
   }
 
@@ -4745,9 +4754,6 @@ sub _end_line($$$)
       and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
       $self->_line_error(sprintf(__("\@%s expected braces"),
                          $current->{'cmdname'}), $source_info);
-      if ($current->{'contents'}) {
-        _gather_spaces_after_cmd_before_arg($self, $current);
-      }
       $current = $current->{'parent'};
     }
 
@@ -5168,18 +5174,6 @@ sub _new_value_element($$;$$)
     $value_elt->{'info'}->{'spaces_after_cmd_before_arg'} = $spaces_element;
   }
   return $value_elt;
-}
-
-sub _gather_spaces_after_cmd_before_arg($$)
-{
-  my $self = shift;
-  my $current = shift;
-  # it could be possible to check that there is no other content and that
-  # the type is the expected type.
-  my $spaces_element = _pop_element_from_contents($self, $current);
-  delete $spaces_element->{'type'};
-  $current->{'info'} = {} if (!$current->{'info'});
-  $current->{'info'}->{'spaces_after_cmd_before_arg'} = $spaces_element;
 }
 
 sub _handle_macro($$$$$)
@@ -6232,11 +6226,6 @@ sub _handle_open_brace($$$$)
        and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
     my $command = $current->{'cmdname'};
 
-    # if there is already content it is for spaces_after_cmd_before_arg
-    if ($current->{'contents'}) {
-      _gather_spaces_after_cmd_before_arg($self, $current);
-    }
-
     if (defined($commands_args_number{$command})
         and $commands_args_number{$command} > 1) {
       $current->{'remaining_args'}
@@ -7227,21 +7216,17 @@ sub _process_remaining_on_line($$$$)
   # argument (an opening brace, or a character after spaces for
   # accent commands) was not found and there is already a new command.
   #
-  # NOTE the last element in the current command contents is an element that
-  # is transiently in the tree, and is put in the info hash by
-  # _gather_spaces_after_cmd_before_arg.  It could therefore be possible
-  # to accept an @comment here and put it in this element.  It would not
-  # necessarily be a good idea, as it would mean having an element
-  # in the info hash that holds something more complex than text and source
-  # marks.
+  # NOTE the ->{'info'}->{'spaces_after_cmd_before_arg'} element
+  # in the current command holds the spaces before the opening brace.
+  # It could be possible to accept an @comment here and put it in this
+  # element.  It would not necessarily be a good idea, as it would mean
+  # having an element in info that holds something more complex
+  # than text and source marks.
   if ($command
       and $current->{'cmdname'}
       and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
     $self->_line_error(sprintf(__("\@%s expected braces"),
                        $current->{'cmdname'}), $source_info);
-    if ($current->{'contents'}) {
-      _gather_spaces_after_cmd_before_arg($self, $current);
-    }
     $current = $current->{'parent'};
   }
 
@@ -7295,16 +7280,8 @@ sub _process_remaining_on_line($$$$)
              and defined($self->{'context_command_stack'}->[-1]))
             or $top_context eq 'ct_def') {
           # do not consider the end of line to be possibly between
-          # the @-command and the argument if at the end of a
+          # the @-command and the opening brace if at the end of a
           # line or block @-command.
-          if ($current->{'contents'}) {
-            # this can only happen if the spaces gathered after the command
-            # before the braces were interrupted before the end of line, which
-            # can happen if there is a macro expansion that ends before the end
-            # of line.
-            # Tested in macro line_end_accent_command_macro_call
-            _gather_spaces_after_cmd_before_arg($self, $current);
-          }
           $current = $current->{'parent'};
           $current = _merge_text($self, $current, $added_space);
           _isolate_last_space($self, $current);
@@ -7314,22 +7291,13 @@ sub _process_remaining_on_line($$$$)
         }
         $additional_newline = 1;
       }
-      if (!$current->{'contents'}) {
+      if (!$current->{'info'}
+          or !$current->{'info'}->{'spaces_after_cmd_before_arg'}) {
         $line =~ s/^(\s+)//;
         my $spaces_after_command = $1;
-        # The added element is only transiently present, it is removed
-        # by calls of gather_spaces_after_cmd_before_arg, which transfer
-        # the element to the info hash.  The contents allow to have source
-        # marks easily associated.
-        # The type name is not used anywhere but can be useful for
-        # debugging, in particular to check that the element does not
-        # appear anywhere in the tree.
-        # Note that contents is transiently set for brace commands, which in
-        # general only have args.
-        my $e_spaces_after_cmd_before_arg
-           = {'type' => 'internal_spaces_after_cmd_before_arg',
-              'text' => $spaces_after_command, 'parent' => $current};
-        $current->{'contents'} = [$e_spaces_after_cmd_before_arg];
+        $current->{'info'} = {} if (!$current->{'info'});
+        $current->{'info'}->{'spaces_after_cmd_before_arg'}
+          = {'text' => $spaces_after_command};
         if ($self->{'conf'}->{'DEBUG'}) {
           my $spaces_after_command_str = $spaces_after_command;
           $spaces_after_command_str =~ s/\n/\\n/g;
@@ -7339,18 +7307,19 @@ sub _process_remaining_on_line($$$$)
       } else {
         # contents, at this point can only be for spaces_after_cmd_before_arg
         if ($additional_newline
-            and $current->{'contents'}->[0]->{'text'} =~ /\n/) {
+            and $current->{'info'}
+                  ->{'spaces_after_cmd_before_arg'}->{'text'} =~ /\n/) {
           # only ignore spaces and one newline, two newlines lead to
           # an empty line before the brace or argument which is incorrect.
           print STDERR "BRACE CMD before brace second newline stops spaces\n"
             if $self->{'conf'}->{'DEBUG'};
           $self->_line_error(sprintf(__("\@%s expected braces"),
                              $current->{'cmdname'}), $source_info);
-          _gather_spaces_after_cmd_before_arg($self, $current);
           $current = $current->{'parent'};
         } else {
           $line =~ s/^(\s+)//;
-          $current->{'contents'}->[0]->{'text'} .= $added_space;
+          $current->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'}
+               .= $added_space;
           print STDERR "BRACE CMD before brace add spaces '$added_space'\n"
             if $self->{'conf'}->{'DEBUG'};
         }
@@ -7364,9 +7333,6 @@ sub _process_remaining_on_line($$$$)
       my $arg_char = $1;
       print STDERR "ACCENT \@$current->{'cmdname'} following_arg: $arg_char\n"
         if ($self->{'conf'}->{'DEBUG'});
-      if ($current->{'contents'}) {
-        _gather_spaces_after_cmd_before_arg($self, $current);
-      }
       my $following_arg = {'type' => 'following_arg',
                            'parent' => $current};
       $current->{'args'} = [ $following_arg ];
@@ -7384,9 +7350,6 @@ sub _process_remaining_on_line($$$$)
     } else {
       $self->_line_error(sprintf(__("\@%s expected braces"),
                          $current->{'cmdname'}), $source_info);
-      if ($current->{'contents'}) {
-        _gather_spaces_after_cmd_before_arg($self, $current);
-      }
       $current = $current->{'parent'};
     }
   } elsif (_handle_menu_entry_separators($self, \@current_array_for_ref,

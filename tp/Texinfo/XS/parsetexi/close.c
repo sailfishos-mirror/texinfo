@@ -505,8 +505,6 @@ close_commands (ELEMENT *current, enum command_id closed_block_cmd,
     {
       line_error ("@%s expected braces",
                   command_name(current->e.c->cmd));
-      if (current->e.c->contents.number > 0)
-        gather_spaces_after_cmd_before_arg (current);
       current = current->parent;
     }
 

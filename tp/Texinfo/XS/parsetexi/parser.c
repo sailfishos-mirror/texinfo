@@ -1175,15 +1175,6 @@ register_command_as_argument (ELEMENT *cmd_as_arg)
   }
 }
 
-void
-gather_spaces_after_cmd_before_arg (ELEMENT *current)
-{
-  ELEMENT *spaces_element = pop_element_from_contents (current);
-  spaces_element->type = ET_other_text;
-  current->elt_info[eit_spaces_after_cmd_before_arg]
-    = spaces_element;
-}
-
 static ELEMENT *
 new_value_element (enum command_id cmd, const char *flag,
                    int flag_len, ELEMENT *spaces_element)
@@ -2060,19 +2051,18 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
      argument (an opening brace, or a character after spaces for
      accent commands) was not found and there is already a new command.
 
-     NOTE the last element in the current command contents is an element that
-     is transiently in the tree, and is put in the info hash by
-     gather_spaces_after_cmd_before_arg.  It could therefore be possible
-     to accept an @comment here and put it in this element, but we do
-     not want to complicate the tree.
+     NOTE the ->{'info'}->{'spaces_after_cmd_before_arg'} element
+     in the current command holds the spaces before the opening brace.
+     It could be possible to accept an @comment here and put it in this
+     element.  It would not necessarily be a good idea, as it would mean
+     having an element in info that holds something more complex
+     than text and source marks.
    */
 
   if (command_flags(current) & CF_brace && (cmd || command))
     {
       line_error ("@%s expected braces",
                   command_name(current->e.c->cmd));
-      if (current->e.c->contents.number > 0)
-        gather_spaces_after_cmd_before_arg (current);
       current = current->parent;
     }
 
@@ -2146,10 +2136,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                            && top_context_command () != CM_NONE))
                      {
                     /* do not consider the end of line to be possibly between
-                       the @-command and the argument if at the end of a
+                       the @-command and the opening brace if at the end of a
                        line or block @-command. */
-                       if (current->e.c->contents.number > 0)
-                         gather_spaces_after_cmd_before_arg (current);
                        current = current->parent;
                        current = merge_text (current, line, whitespaces_len, 0);
                        line += whitespaces_len;
@@ -2163,23 +2151,14 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                  }
              }
 
-           /* The added element is only transiently present, it is removed
-              by calls of gather_spaces_after_cmd_before_arg, which transfer
-              the element to the info hash.  The contents allow to have source
-              marks easily associated.
-              The type name is not used anywhere but can be useful for
-              debugging, in particular to check that the element does not
-              appear anywhere in the tree.
-              Note that contents is transiently set for brace commands, which in
-              general only have args. */
-
-           if (current->e.c->contents.number == 0)
+           if (!current->elt_info[eit_spaces_after_cmd_before_arg])
              {
                ELEMENT *e_spaces_after_cmd_before_arg
-                 = new_text_element (ET_internal_spaces_after_cmd_before_arg);
+                 = new_text_element (ET_other_text);
                text_append_n (e_spaces_after_cmd_before_arg->e.text,
                               line, whitespaces_len);
-               add_to_element_contents (current, e_spaces_after_cmd_before_arg);
+               current->elt_info[eit_spaces_after_cmd_before_arg]
+                  = e_spaces_after_cmd_before_arg;
 
                debug_nonl ("BRACE CMD before brace init spaces '");
                debug_print_protected_string
@@ -2194,22 +2173,23 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
             /* only ignore spaces and one newline, two newlines lead to
                an empty line before the brace or argument which is incorrect. */
                char *previous_value
-                  = current->e.c->contents.list[0]->e.text->text;
+                  = current->elt_info[eit_spaces_after_cmd_before_arg]
+                                                             ->e.text->text;
                if (additional_newline && strchr ("\n", *previous_value))
                  {
                    debug ("BRACE CMD before brace second newline stops spaces");
                    line_error ("@%s expected braces",
                                command_name(current->e.c->cmd));
-                   gather_spaces_after_cmd_before_arg (current);
                    current = current->parent;
                  }
                else
                  {
-                   text_append_n (current->e.c->contents.list[0]->e.text,
+                   text_append_n (current
+                        ->elt_info[eit_spaces_after_cmd_before_arg]->e.text,
                                   line, whitespaces_len);
                    debug ("BRACE CMD before brace add spaces '%s'",
-                          current->e.c->contents.list[0]->e.text->text
-                       + strlen (current->e.c->contents.list[0]->e.text->text)
+               current->elt_info[eit_spaces_after_cmd_before_arg]->e.text->text
+   + strlen (current->elt_info[eit_spaces_after_cmd_before_arg]->e.text->text)
                                                          - whitespaces_len);
                    line += whitespaces_len;
                  }
@@ -2223,8 +2203,6 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           ELEMENT *e, *e2;
           int char_len;
 
-          if (current->e.c->contents.number > 0)
-            gather_spaces_after_cmd_before_arg (current);
           e = new_element (ET_following_arg);
           add_to_element_args (current, e);
 
@@ -2252,8 +2230,6 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         {
           line_error ("@%s expected braces",
                       command_name(current->e.c->cmd));
-          if (current->e.c->contents.number > 0)
-            gather_spaces_after_cmd_before_arg (current);
           current = current->parent;
         }
     }

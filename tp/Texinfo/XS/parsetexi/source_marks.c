@@ -22,6 +22,8 @@
 #include "tree.h"
 /* for count_multibyte and other */
 #include "utils.h"
+#include "builtin_commands.h"
+#include "commands.h"
 /* for add_source_mark */
 #include "manipulate_tree.h"
 #include "debug_parser.h"
@@ -67,6 +69,21 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
       if (type_data[last_child->type].flags & TF_text
           && last_child->e.text->end > 0)
         source_mark->position = count_multibyte (last_child->e.text->text);
+    }
+  else if (!(type_data[e->type].flags & TF_text)
+           && command_flags(e) & CF_brace)
+    {
+      /* can only be before the opening brace */
+      if (!e->elt_info[eit_spaces_after_cmd_before_arg])
+        {
+          e->elt_info[eit_spaces_after_cmd_before_arg]
+            = new_text_element (ET_other_text);
+          add_element_string = "add";
+        }
+      else
+        source_mark->position = count_multibyte (
+                e->elt_info[eit_spaces_after_cmd_before_arg]->e.text->text);
+      mark_element = e->elt_info[eit_spaces_after_cmd_before_arg];
     }
   else
     {

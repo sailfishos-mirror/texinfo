@@ -58,11 +58,6 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       enum command_id cmd = current->e.c->cmd;
       ELEMENT *arg;
 
-
-      /* if there is already content it is for spaces_after_cmd_before_arg */
-      if (current->e.c->contents.number > 0)
-        gather_spaces_after_cmd_before_arg (current);
-
       if (command_data(cmd).flags & CF_contain_basic_inline)
         push_command (&nesting_context.basic_inline_stack, cmd);
 

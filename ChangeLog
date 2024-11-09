@@ -1,3 +1,15 @@
+2024-11-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_place_source_mark)
+	(_process_remaining_on_line), tp/Texinfo/XS/parsetexi/close.c,
+	tp/Texinfo/XS/parsetexi/end_line.c, tp/Texinfo/XS/parsetexi/parser.c
+	(process_remaining_on_line), tp/Texinfo/XS/parsetexi/separator.c,
+	tp/Texinfo/XS/parsetexi/source_marks.c (place_source_mark): put text
+	element for spaces appearing after a brace @-command name before the
+	opening brace directly in info spaces_after_cmd_before_arg instead of
+	using the brace command contents.  There is no need for
+	_gather_spaces_after_cmd_before_arg annymore, remove, update callers.
+
 2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/LaTeX.pm (convert_math_to_images): always use
