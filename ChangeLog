@@ -3,6 +3,13 @@
 	HTML Output Customization manual edit
 
 	* doc/texinfo.texi (HTML Output Structure Customization):
+	Mention SPLIT.
+
+2024-11-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	HTML Output Customization manual edit
+
+	* doc/texinfo.texi (HTML Output Structure Customization):
 	Attempt to distentangle explanations of different customization
 	variables.  Try to present information in a logical manner with
 	later information building on earlier information.

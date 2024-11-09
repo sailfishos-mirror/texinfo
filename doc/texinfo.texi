@@ -18122,6 +18122,11 @@ If menus are used for navigation, the table of contents is not
 needed at the end of the @code{@@top} section, as
 there should already be a master menu (@pxref{Master Menu Parts}).
 
+@vindex SPLIT @subentry @r{for HTML}
+By default, each node is output in a separate file.  You can change this
+with the @option{--split} command-line option, which is equivalent to
+setting the @code{SPLIT} variable.  @xref{Splitting Output}.
+
 @vindex DO_ABOUT
 @vindex PROGRAM_NAME_IN_ABOUT
 You can add a special @dfn{About} element explaining how to navigate by
@@ -18140,10 +18145,12 @@ As already described, the table of contents location may also be tuned with
 @c FIXME only for CONTENTS_OUTPUT_LOCATION=separate_element ??
 
 @vindex USE_NODES @subentry @r{for HTML}
-Elementary units called @dfn{output units} are used for output.  Output
-units contain the content associated with a node or a sectioning command.
-In typical Texinfo document sources, a node command is almost always
-associated with an immediately following sectioning command.
+Elementary units called @dfn{output units} are used for output, with each
+output file containing the content for one or more output units, depending
+on the value of @code{SPLIT}.  Output units contain the content associated
+with a node or a sectioning command. In typical Texinfo document sources,
+a node command is almost always associated with an immediately following
+sectioning command.
 
 The customization variable @code{USE_NODES} determines whether the
 node or the sectioning command is considered to
