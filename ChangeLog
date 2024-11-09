@@ -1,5 +1,9 @@
 2024-11-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (HTML Output Structure Customization): edit
+
+2024-11-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	HTML Output Customization manual edit
 
 	* doc/texinfo.texi (HTML Output Structure Customization):
