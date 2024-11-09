@@ -1,6 +1,14 @@
 2024-11-09  Gavin Smith <gavinsmith0123@gmail.com>
 
-	* doc/texinfo.texi (HTML Output Structure Customization): edit
+	* doc/texinfo.texi (HTML Output Structure Customization): Clarify
+	purpose of CONTENTS_OUTPUT_LOCATION in relation to FORMAT_MENU.
+	SPLIT is an empty string for non-split output.  Be clearer about
+	interaction between CONTENTS_OUTPUT_LOCATION and MONOLITHIC.
+	Information from Patrice.
+
+2024-11-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (File Names and Links Customization for HTML): edit
 
 2024-11-09  Gavin Smith <gavinsmith0123@gmail.com>
 

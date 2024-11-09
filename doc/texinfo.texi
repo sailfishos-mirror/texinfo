@@ -18090,8 +18090,7 @@ By default, the HTML output is tailored for online viewing, with
 the Top node being output as a top-level starting point for the reader.
 You can set @code{NO_TOP_NODE_OUTPUT} to remove the Top node, which
 results in output that may be more similar to the format of a printed
-book.
-By default, setting @code{NO_TOP_NODE_OUTPUT} also
+book.  By default, setting @code{NO_TOP_NODE_OUTPUT} also
 outputs a title at the beginning of the document, although you
 can override this by setting @code{SHOW_TITLE} to 0.
 
@@ -18119,14 +18118,18 @@ to @samp{separate_element}.  You can also set
 the tables of contents are output where
 the corresponding @@-command, for example @code{@@contents}, is used.
 
-If menus are used for navigation, the table of contents is not
-needed at the end of the @code{@@top} section, as
-there should already be a master menu (@pxref{Master Menu Parts}).
+You may find it useful to set @code{CONTENTS_OUTPUT_LOCATION} when
+@code{FORMAT_MENU} is set to @samp{menu} in order to use menus for
+navigation.  In this case, there should already be a master menu in the
+@code{@@top} section (@pxref{Master Menu Parts}), and so the reader of
+your manual may not need a table of contents at the same location.
 
 @vindex SPLIT @subentry @r{for HTML}
 By default, each node is output in a separate file.  You can change this
 with the @option{--split} command-line option, which is equivalent to
-setting the @code{SPLIT} variable.  @xref{Splitting Output}.
+setting the @code{SPLIT} variable.  @code{SPLIT} can take the values
+@samp{chapter}, @samp{section}, or @samp{node}, or be set to an empty
+string to indicate non-split output.  @xref{Splitting Output}.
 
 @vindex USE_NODES @subentry @r{for HTML}
 Elementary units called @dfn{output units} are used for output, with each
@@ -18159,12 +18162,11 @@ false.
 
 @vindex MONOLITHIC
 In the case of non-split output, by default only one file is output
-including any tables of contents or About elements.
-If you prefer such special elements to be separate,
-set @code{MONOLITHIC} to 0 to output special elements to separate files.
-As already described, the table of contents location may also be tuned with
-@code{CONTENTS_OUTPUT_LOCATION}.
-@c FIXME only for CONTENTS_OUTPUT_LOCATION=separate_element ??
+which contains any About elements (with @code{DO_ABOUT}) and tables of
+contents elements (with @code{CONTENTS_OUTPUT_LOCATION} set to
+@samp{separate_element}).  If you prefer such special elements to be
+separate, set @code{MONOLITHIC} to 0 to output special elements to
+separate files.
 
 @vindex USE_NEXT_HEADING_FOR_LONE_NODE
 In Texinfo code, a @code{@@node} command is usually followed by a
