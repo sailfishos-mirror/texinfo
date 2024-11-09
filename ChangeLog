@@ -1,3 +1,11 @@
+2024-11-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	HTML Output Customization manual edit
+
+	* doc/texinfo.texi (HTML Output Structure Customization):
+	Move discussion of USE_NODES immediately after discussion of
+	SPLIT.
+
 2024-11-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	HTML Output Customization manual edit

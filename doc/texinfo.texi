@@ -18127,6 +18127,27 @@ By default, each node is output in a separate file.  You can change this
 with the @option{--split} command-line option, which is equivalent to
 setting the @code{SPLIT} variable.  @xref{Splitting Output}.
 
+@vindex USE_NODES @subentry @r{for HTML}
+Elementary units called @dfn{output units} are used for output, with each
+output file containing the content for one or more output units, depending
+on the value of @code{SPLIT}.  Output units contain the content associated
+with a node or a sectioning command.  In typical Texinfo document sources,
+a node command is almost always associated with an immediately following
+sectioning command.
+
+The customization variable @code{USE_NODES} determines whether the
+node or the sectioning command is considered to be the main command.
+By default, nodes are used as the main component for the separation of
+output units.  You can set @code{USE_NODES} to false to preferentially
+use sectioning to decide where output units are separated.
+When sections are the main components of output units, ``isolated'' nodes
+not directly associated with a sectioning command are associated with
+the following sectioning command, while sectioning commands without
+nodes constitute output units.  Conversely, when nodes are the main
+components of output units, isolated sections not associated with nodes
+are associated with the previous node, and isolated nodes are
+output units.
+
 @vindex DO_ABOUT
 @vindex PROGRAM_NAME_IN_ABOUT
 You can add a special @dfn{About} element explaining how to navigate by
@@ -18143,28 +18164,6 @@ set @code{MONOLITHIC} to 0 to output special elements to separate files.
 As already described, the table of contents location may also be tuned with
 @code{CONTENTS_OUTPUT_LOCATION}.
 @c FIXME only for CONTENTS_OUTPUT_LOCATION=separate_element ??
-
-@vindex USE_NODES @subentry @r{for HTML}
-Elementary units called @dfn{output units} are used for output, with each
-output file containing the content for one or more output units, depending
-on the value of @code{SPLIT}.  Output units contain the content associated
-with a node or a sectioning command. In typical Texinfo document sources,
-a node command is almost always associated with an immediately following
-sectioning command.
-
-The customization variable @code{USE_NODES} determines whether the
-node or the sectioning command is considered to
-be the main command.
-By default, nodes are used as the main component for the separation of
-output units.  You can set @code{USE_NODES} to false to preferentially
-use sectioning to decide where output units are separated.
-When sections are the main components of output units, ``isolated'' nodes
-not directly associated with a sectioning command are associated with
-the following sectioning command, while sectioning commands without
-nodes constitute output units.  Conversely, when nodes are the main
-components of output units, isolated sections not associated with nodes
-are associated with the previous node, and isolated nodes are
-output units.
 
 @vindex USE_NEXT_HEADING_FOR_LONE_NODE
 In Texinfo code, a @code{@@node} command is usually followed by a
