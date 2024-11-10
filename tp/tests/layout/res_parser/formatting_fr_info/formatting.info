@@ -3041,7 +3041,7 @@ aaa" ]
 * a--asis:                               chapter.            (line  525)
 * a--asis <1>:                           chapter.            (line 1222)
 * a--asis <2>:                           chapter.            (line 2055)
-  aaa, See bbb.
+  aaa, voir : bbb.
 * b:                                     chapter.            (line  526)
 * b <1>:                                 chapter.            (line 1223)
 * b <2>:                                 chapter.            (line 2056)
@@ -3090,8 +3090,8 @@ aaa" ]
 * d--efvr_name:                          chapter.            (line  342)
 * d--efvr_name <1>:                      chapter.            (line 1039)
 * d--efvr_name <2>:                      chapter.            (line 1872)
-  ddd:                                   See also ccc.
-  ddd:                                   See also ccc.
+  ddd:                                   Voir aussi ccc.
+  ddd:                                   Voir aussi ccc.
 * g--gg, h--hh jjj, k--kk, l--ll:        chapter.            (line 2281)
 * index entry between item and itemx:    chapter.            (line  530)
 * index entry between item and itemx <1>: chapter.           (line  660)
@@ -3244,10 +3244,10 @@ aaa" ]
 * deffnx <4>:                            chapter.            (line 1859)
 * deffnx <5>:                            chapter.            (line 1865)
 * f---aa:                                chapter.            (line 2281)
-  f---aaa, See f---bbb.
+  f---aaa, voir : f---bbb.
 * f---bb, f---cc:                        chapter.            (line 2281)
-  f---ddd:                               See also f---ccc.
-  f---ddd:                               See also f---ccc.
+  f---ddd:                               Voir aussi f---ccc.
+  f---ddd:                               Voir aussi f---ccc.
 * f---ddd, f---eee, ffff:                chapter.            (line 2281)
 * f---ggg, f---hhh fjjj, f---kkk, f---lll: chapter.          (line 2281)
 * followed:                              chapter.            (line  328)
@@ -3425,7 +3425,7 @@ chapter 2
 * a--asis:                               chapter.            (line  525)
 * a--asis <1>:                           chapter.            (line 1222)
 * a--asis <2>:                           chapter.            (line 2055)
-  aaa, See bbb.
+  aaa, voir : bbb.
 * b:                                     chapter.            (line  526)
 * b <1>:                                 chapter.            (line 1223)
 * b <2>:                                 chapter.            (line 2056)
@@ -3474,8 +3474,8 @@ chapter 2
 * d--efvr_name:                          chapter.            (line  342)
 * d--efvr_name <1>:                      chapter.            (line 1039)
 * d--efvr_name <2>:                      chapter.            (line 1872)
-  ddd:                                   See also ccc.
-  ddd:                                   See also ccc.
+  ddd:                                   Voir aussi ccc.
+  ddd:                                   Voir aussi ccc.
 * g--gg, h--hh jjj, k--kk, l--ll:        chapter.            (line 2281)
 * index entry between item and itemx:    chapter.            (line  530)
 * index entry between item and itemx <1>: chapter.           (line  660)
@@ -3626,10 +3626,10 @@ chapter 2
 * deffnx <4>:                            chapter.            (line 1859)
 * deffnx <5>:                            chapter.            (line 1865)
 * f---aa:                                chapter.            (line 2281)
-  f---aaa, See f---bbb.
+  f---aaa, voir : f---bbb.
 * f---bb, f---cc:                        chapter.            (line 2281)
-  f---ddd:                               See also f---ccc.
-  f---ddd:                               See also f---ccc.
+  f---ddd:                               Voir aussi f---ccc.
+  f---ddd:                               Voir aussi f---ccc.
 * f---ddd, f---eee, ffff:                chapter.            (line 2281)
 * f---ggg, f---hhh fjjj, f---kkk, f---lll: chapter.          (line 2281)
 * followed:                              chapter.            (line  328)
@@ -3703,20 +3703,20 @@ chapter 2
 Tag Table:
 Node: Top20203
 Node: chapter20388
-Ref: chapter-Footnote-1103130
-Ref: chapter-Footnote-2103150
-Ref: chapter-Footnote-3103171
-Ref: chapter-Footnote-4103191
-Ref: chapter-Footnote-5103212
-Ref: chapter-Footnote-6103232
-Ref: chapter-Footnote-7103253
-Ref: chapter-Footnote-8103291
-Node: s--ect,ion103311
-Node: subsection103514
-Ref: anchor103695
-Node: subsubsection ``simple-double--103695
-Node: subsubsection three---four----''103895
-Node: chapter2104067
+Ref: chapter-Footnote-1103144
+Ref: chapter-Footnote-2103164
+Ref: chapter-Footnote-3103185
+Ref: chapter-Footnote-4103205
+Ref: chapter-Footnote-5103226
+Ref: chapter-Footnote-6103246
+Ref: chapter-Footnote-7103267
+Ref: chapter-Footnote-8103305
+Node: s--ect,ion103325
+Node: subsection103528
+Ref: anchor103709
+Node: subsubsection ``simple-double--103709
+Node: subsubsection three---four----''103909
+Node: chapter2104081
 
 End Tag Table
 
