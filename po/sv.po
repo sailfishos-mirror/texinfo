@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the texinfo package.
 # Christian Rose <menthos@menthos.com>, 2001, 2002, 2003, 2004, 2008.
 # Sebastian Rasmussen <sebras@gmail.com> , 2017, 2018, 2019.
-# Luna Jernberg <droidbittin@gmail.com>, 2022, 2023.
+# Luna Jernberg <droidbittin@gmail.com>, 2022, 2023, 2024.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 7.0.92\n"
+"Project-Id-Version: texinfo 7.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-10-24 17:07+0100\n"
-"PO-Revision-Date: 2023-11-06 14:36+0100\n"
+"POT-Creation-Date: 2024-11-10 13:51+0000\n"
+"PO-Revision-Date: 2024-10-30 06:52+0100\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 
 #: info/echo-area.c:290 info/session.c:1384
@@ -491,19 +491,13 @@ msgstr "  info -f ./foo.info           visa fil ./foo.info, söker inte katalog"
 
 #: info/info.c:1165 install-info/install-info.c:578
 #: Pod-Simple-Texinfo/pod2texi.pl:173 tp/texi2any.pl:1130
-#, fuzzy
-#| msgid ""
-#| "Email bug reports to bug-texinfo@gnu.org,\n"
-#| "general questions and discussion to help-texinfo@gnu.org.\n"
-#| "Texinfo home page: http://www.gnu.org/software/texinfo/"
 msgid ""
 "Email bug reports to bug-texinfo@gnu.org,\n"
 "general questions and discussion to help-texinfo@gnu.org.\n"
 "Texinfo home page: https://www.gnu.org/software/texinfo/"
 msgstr ""
 "Skicka felrapporter till bug-texinfo@gnu.org,\n"
-"allmänna frågor och diskussion till help-texinfo@gnu.org\n"
-"och synpunkter på översättningen till tp-sv@listor.tp-sv.se.\n"
+"Allmänna frågor och diskussion till help-texinfo@gnu.org\n"
 "Hemsida för texinfo: http://www.gnu.org/software/texinfo/"
 
 #: info/info.c:1200
@@ -817,7 +811,7 @@ msgstr "NUL-tecknet (\\000) är inte tillåtet"
 #: info/infokey.c:392
 #, c-format
 msgid "invalid octal sequence for byte value (\\%o)"
-msgstr ""
+msgstr "ogiltig oktal sekvens för bytevärde (\\%o)"
 
 #: info/infokey.c:424
 #, c-format
@@ -2032,6 +2026,8 @@ msgid ""
 "    --generate-setfilename  generate @setfilename for standalone\n"
 "                            manuals"
 msgstr ""
+"    --generate-setfilename  generera @setfilnamn för fristående\n"
+"                            manualer"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:155
 msgid "    --headings-as-sections  no structuring command for sections"
@@ -2055,18 +2051,13 @@ msgid "    --menus                 generate node menus"
 msgstr "    --menus                 generera nod-menyer"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:160
-#, fuzzy
-#| msgid ""
-#| "    --output=NAME           output to NAME for the first or main manual\n"
-#| "                            instead of standard output"
 msgid ""
 "    --outdir=NAME           output included files in NAME.\n"
 "                                                    Defaults to --subdir"
 msgstr ""
-"    --output=NAME           utdata till NAMN för den första eller "
-"huvudmanualen\n"
-"\n"
-"                            istället för standard utdata"
+"    --outdir=NAMN           UTDATA inkluderar filer i NAMN.\n"
+"                                                    Standardinställningen är "
+"--subdir"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:162
 msgid ""
@@ -2091,12 +2082,8 @@ msgid "    --setfilename           @setfilename for the main manual"
 msgstr "    --setfilename           @setfilename för huvudmanualen"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:167
-#, fuzzy
-#| msgid ""
-#| "    --subdir=NAME           put files included in the main manual in NAME"
 msgid "    --subdir=NAME           include files from NAME in the main manual"
-msgstr ""
-"    --subdir=NAME           lägg filer som ingår i huvudmanualen i NAMN"
+msgstr "    --subdir=NAMN           inkluderar filer från NAMN i huvudmanualen"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:168
 msgid "    --top                   top for the main manual"
@@ -2125,25 +2112,23 @@ msgstr "%s: kunde inte skapa katalog %s: %s"
 msgid "%s: missing file argument\n"
 msgstr "%s: filargument saknas\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:254 tp/texi2any.pl:1668
+#: Pod-Simple-Texinfo/pod2texi.pl:254 tp/texi2any.pl:1673
 #, perl-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Prova ”%s --help” för mer information.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:281
-#, fuzzy, perl-format
-#| msgid "%s: ignoring %s without content\n"
+#, perl-format
 msgid "%s: warning: %s without content\n"
-msgstr "%s: ignorerar %s utan innehåll\n"
+msgstr "%s: varning: %s utan innehåll\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:296
-#, fuzzy, perl-format
-#| msgid "@%s entry node name `%s' different from %s name `%s'"
+#, perl-format
 msgid "%s: same manual name `%s' for different files: %s and %s"
-msgstr "@%s postnodsnamn ”%s” skiljer sig från %s namn ”%s”"
+msgstr "%s: samma manualnamn `%s' för olika filer: %s och %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:503 Pod-Simple-Texinfo/pod2texi.pl:610
-#: tp/texi2any.pl:2080 tp/texi2any.pl:2158
+#: tp/texi2any.pl:2085 tp/texi2any.pl:2163
 #, perl-format
 msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: kunde inte öppna %s för skrivning: %s\n"
@@ -2154,7 +2139,7 @@ msgid "%s: could not open %s: %s\n"
 msgstr "%s: kunde inte öppna %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:562 Pod-Simple-Texinfo/pod2texi.pl:659
-#: tp/texi2any.pl:2041 tp/texi2any.pl:2188
+#: tp/texi2any.pl:2046 tp/texi2any.pl:2193
 #, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr "%s: fel vid stängning %s: %s\n"
@@ -2202,7 +2187,7 @@ msgstr "%s: %s"
 msgid "error parsing %s: %s"
 msgstr "fel vid inläsning %s: %s"
 
-#: tp/Texinfo/Config.pm:174 tp/Texinfo/XS/convert/convert_html.c:2473
+#: tp/Texinfo/Config.pm:174 tp/Texinfo/XS/convert/convert_html.c:2484
 #, c-format, perl-format
 msgid "error reading %s: %s"
 msgstr "fel vid inläsning %s: %s"
@@ -2258,41 +2243,48 @@ msgid "here is the previous definition as @%s"
 msgstr "här är den tidigare definitionen av @%s"
 
 #: tp/Texinfo/Convert/Converter.pm:401 tp/Texinfo/Convert/HTML.pm:11831
-#: tp/Texinfo/Convert/HTML.pm:12813 tp/Texinfo/Convert/HTML.pm:13011
+#: tp/Texinfo/Convert/HTML.pm:12819 tp/Texinfo/Convert/HTML.pm:13017
 #: tp/Texinfo/Convert/IXIN.pm:356 tp/Texinfo/Convert/Info.pm:395
 #: tp/Texinfo/Convert/LaTeX.pm:1100 tp/Texinfo/Convert/Plaintext.pm:744
 #: tp/Texinfo/Convert/Plaintext.pm:791 tp/Texinfo/Convert/Text.pm:1022
-#: tp/Texinfo/XS/convert/convert_html.c:1894
-#: tp/Texinfo/XS/convert/convert_html.c:2251
+#: tp/Texinfo/XS/convert/convert_html.c:1905
+#: tp/Texinfo/XS/convert/convert_html.c:2262
 #, c-format, perl-format
 msgid "could not open %s for writing: %s"
 msgstr "kunde inte öppna %s för skrivning: %s"
 
 #: tp/Texinfo/Convert/Converter.pm:424 tp/Texinfo/Convert/HTML.pm:11826
-#: tp/Texinfo/Convert/HTML.pm:12833 tp/Texinfo/Convert/IXIN.pm:1024
+#: tp/Texinfo/Convert/HTML.pm:12839 tp/Texinfo/Convert/IXIN.pm:1024
 #: tp/Texinfo/Convert/Info.pm:204 tp/Texinfo/Convert/Info.pm:233
 #: tp/Texinfo/Convert/Info.pm:288 tp/Texinfo/Convert/Info.pm:365
 #: tp/Texinfo/Convert/LaTeX.pm:1169 tp/Texinfo/Convert/Plaintext.pm:765
 #: tp/Texinfo/Convert/Plaintext.pm:810 tp/Texinfo/ParserNonXS.pm:2607
-#: tp/Texinfo/XS/convert/convert_html.c:1956
-#: tp/Texinfo/XS/convert/convert_html.c:2290
+#: tp/Texinfo/XS/convert/convert_html.c:1967
+#: tp/Texinfo/XS/convert/convert_html.c:2301
 #: tp/Texinfo/XS/parsetexi/input.c:382
 #, c-format, perl-format
 msgid "error on closing %s: %s"
 msgstr "fel vid stängning av %s: %s"
 
-#: tp/Texinfo/Convert/Converter.pm:994 tp/Texinfo/Convert/Text.pm:984
-#: tp/Texinfo/Convert/Text.pm:1003 tp/Texinfo/XS/convert/converter.c:854
+#: tp/Texinfo/Convert/Converter.pm:574 tp/Texinfo/Convert/Converter.pm:593
+#: tp/Texinfo/Convert/Converter.pm:617
+#, fuzzy, perl-format
+#| msgid "%s: unknown variable %s"
+msgid "unknown customization variable: %s"
+msgstr "%s: okänd variabel %s"
+
+#: tp/Texinfo/Convert/Converter.pm:1015 tp/Texinfo/Convert/Text.pm:984
+#: tp/Texinfo/Convert/Text.pm:1003 tp/Texinfo/XS/convert/converter.c:842
 #, c-format, perl-format
 msgid "could not create directory `%s': %s"
 msgstr "kunde inte skapa katalogen ”%s”: %s"
 
-#: tp/Texinfo/Convert/Converter.pm:1372
+#: tp/Texinfo/Convert/Converter.pm:1393
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "fel vid stängning av bildtextfil %s: %s"
 
-#: tp/Texinfo/Convert/Converter.pm:1381
+#: tp/Texinfo/Convert/Converter.pm:1402
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image-filen ”%s” är oläslig: %s"
@@ -2354,10 +2346,9 @@ msgid "could not find html refs config file %s"
 msgstr "kunde inte hitta konfigurationsfil för html-refs %s"
 
 #: tp/Texinfo/Convert/HTML.pm:8571 tp/texi2any.pl:604
-#, fuzzy, perl-format
-#| msgid "@allow-recursion is deprecated; please use @rmacro instead"
+#, perl-format
 msgid "%s directory is deprecated. Use %s instead"
-msgstr "@allow-recursion är föråldrat; använd @rmacro istället"
+msgstr "%s katalogen är föråldrad. Använd %s istället"
 
 #: tp/Texinfo/Convert/HTML.pm:8967
 #, perl-format
@@ -2418,22 +2409,20 @@ msgstr "återställer %s filsökväg %s till %s"
 
 #: tp/Texinfo/Convert/HTML.pm:9947
 #: tp/Texinfo/XS/convert/html_prepare_converter.c:5132
-#, fuzzy, c-format, perl-format
-#| msgid "resetting %s file path %s to %s"
+#, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
-msgstr "återställer %s filsökväg %s till %s"
+msgstr "återställer %s filsökväg från en relativ sökväg till %s"
 
 #: tp/Texinfo/Convert/HTML.pm:9951
 #: tp/Texinfo/XS/convert/html_prepare_converter.c:5141
-#, fuzzy, c-format, perl-format
-#| msgid "resetting %s file path %s to %s"
+#, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
-msgstr "återställer %s filsökväg %s till %s"
+msgstr "återställer %s filsökväg från %s till en relativ sökväg"
 
 #: tp/Texinfo/Convert/HTML.pm:10693 tp/Texinfo/XS/convert/format_html.c:799
 #, c-format, perl-format
 msgid "do not set %s suffix in reference for manual `%s'"
-msgstr ""
+msgstr "ställ inte in %s suffix som referens för manual `%s'"
 
 #: tp/Texinfo/Convert/HTML.pm:10726 tp/Texinfo/Convert/HTML.pm:10732
 #: tp/Texinfo/XS/convert/format_html.c:845
@@ -2447,7 +2436,7 @@ msgstr "ingen htmlxref.cnf-post hittad för ”%s”"
 msgid "%s not meaningful for non-split output"
 msgstr "%s inte meningsfullt för icke-delad utdata"
 
-#: tp/Texinfo/Convert/HTML.pm:11772 tp/Texinfo/XS/convert/convert_html.c:2335
+#: tp/Texinfo/Convert/HTML.pm:11772 tp/Texinfo/XS/convert/convert_html.c:2346
 #, c-format, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
@@ -2456,91 +2445,97 @@ msgstr ""
 "kan inte använda absolut sökväg eller URL `%s' för JS_WEBLABELS_FIL vid "
 "generering av webbetikettsfil"
 
-#: tp/Texinfo/Convert/HTML.pm:11817 tp/Texinfo/XS/convert/convert_html.c:2358
+#: tp/Texinfo/Convert/HTML.pm:11817 tp/Texinfo/XS/convert/convert_html.c:2369
 #, c-format, perl-format
 msgid "overwritting output file with js licences: %s"
-msgstr ""
+msgstr "skriver över utdatafil med js-licens: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:12470 tp/Texinfo/XS/convert/convert_html.c:734
+#: tp/Texinfo/Convert/HTML.pm:12469 tp/Texinfo/XS/convert/convert_html.c:733
+#, fuzzy, c-format, perl-format
+#| msgid "handler %d of stage %s priority %s failed"
+msgid "handler %d of stage %s priority %s: non-numeric status"
+msgstr "hanterare %d av steg %s prioritet %s misslyckades"
+
+#: tp/Texinfo/Convert/HTML.pm:12476 tp/Texinfo/XS/convert/convert_html.c:745
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr "hanterare %d av steg %s prioritet %s misslyckades"
 
-#: tp/Texinfo/Convert/HTML.pm:12520
+#: tp/Texinfo/Convert/HTML.pm:12526
 #, perl-format
 msgid "error on copying %s into %s"
 msgstr "fel vid kopiering av %s till %s"
 
-#: tp/Texinfo/Convert/HTML.pm:12529 tp/Texinfo/XS/convert/convert_html.c:2536
+#: tp/Texinfo/Convert/HTML.pm:12535 tp/Texinfo/XS/convert/convert_html.c:2547
 #, c-format, perl-format
 msgid "error on creating empty %s: %s"
 msgstr "fel vid skapande av tom %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:12534 tp/Texinfo/XS/convert/convert_html.c:2548
+#: tp/Texinfo/Convert/HTML.pm:12540 tp/Texinfo/XS/convert/convert_html.c:2559
 #, c-format, perl-format
 msgid "error on closing empty %s: %s"
 msgstr "fel vid stängning av tom %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:12644 tp/Texinfo/Convert/HTML.pm:12648
-#: tp/Texinfo/XS/convert/convert_html.c:948
-#: tp/Texinfo/XS/convert/convert_html.c:953
+#: tp/Texinfo/Convert/HTML.pm:12650 tp/Texinfo/Convert/HTML.pm:12654
+#: tp/Texinfo/XS/convert/convert_html.c:959
+#: tp/Texinfo/XS/convert/convert_html.c:964
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr "måste ange en titel med ett titelkommando eller @top"
 
-#: tp/Texinfo/Convert/HTML.pm:12910 tp/Texinfo/XS/convert/convert_html.c:2723
+#: tp/Texinfo/Convert/HTML.pm:12916 tp/Texinfo/XS/convert/convert_html.c:2734
 #, c-format, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr "@%s `%s' fil %s för omdirigering finns"
 
-#: tp/Texinfo/Convert/HTML.pm:12927 tp/Texinfo/XS/convert/convert_html.c:2738
+#: tp/Texinfo/Convert/HTML.pm:12933 tp/Texinfo/XS/convert/convert_html.c:2749
 #, c-format, perl-format
 msgid "conflict with whole document file"
 msgstr "konflikt med hela dokumentfilen"
 
-#: tp/Texinfo/Convert/HTML.pm:12930 tp/Texinfo/XS/convert/convert_html.c:2741
+#: tp/Texinfo/Convert/HTML.pm:12936 tp/Texinfo/XS/convert/convert_html.c:2752
 #, c-format, perl-format
 msgid "conflict with Top file"
 msgstr "konflikt med Top-fil"
 
-#: tp/Texinfo/Convert/HTML.pm:12933 tp/Texinfo/XS/convert/convert_html.c:2744
+#: tp/Texinfo/Convert/HTML.pm:12939 tp/Texinfo/XS/convert/convert_html.c:2755
 #, c-format, perl-format
 msgid "conflict with user-defined file"
 msgstr "konflikt med användardefinierad fil"
 
-#: tp/Texinfo/Convert/HTML.pm:12936 tp/Texinfo/XS/convert/convert_html.c:2747
+#: tp/Texinfo/Convert/HTML.pm:12942 tp/Texinfo/XS/convert/convert_html.c:2758
 #, c-format, perl-format
 msgid "conflict with unknown node file"
 msgstr "konflikt med okänd nodfil"
 
-#: tp/Texinfo/Convert/HTML.pm:12939 tp/Texinfo/XS/convert/convert_html.c:2751
+#: tp/Texinfo/Convert/HTML.pm:12945 tp/Texinfo/XS/convert/convert_html.c:2762
 #, c-format, perl-format
 msgid "conflict with file without known source"
 msgstr "konflikt med fil utan känd källa"
 
-#: tp/Texinfo/Convert/HTML.pm:12945 tp/Texinfo/XS/convert/convert_html.c:2763
+#: tp/Texinfo/Convert/HTML.pm:12951 tp/Texinfo/XS/convert/convert_html.c:2774
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr "konflikt med @%s `%s'-fil"
 
-#: tp/Texinfo/Convert/HTML.pm:12956 tp/Texinfo/XS/convert/convert_html.c:2777
+#: tp/Texinfo/Convert/HTML.pm:12962 tp/Texinfo/XS/convert/convert_html.c:2788
 #, c-format, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr "konflikt med @%s `%s' omdirigeringsfil"
 
-#: tp/Texinfo/Convert/HTML.pm:12966 tp/Texinfo/XS/convert/convert_html.c:2792
+#: tp/Texinfo/Convert/HTML.pm:12972 tp/Texinfo/XS/convert/convert_html.c:2803
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr "konflikt med @%s `%s'-fil"
 
-#: tp/Texinfo/Convert/HTML.pm:12978 tp/Texinfo/XS/convert/convert_html.c:2805
+#: tp/Texinfo/Convert/HTML.pm:12984 tp/Texinfo/XS/convert/convert_html.c:2816
 #, c-format, perl-format
 msgid "conflict with %s special element"
 msgstr "konflikt med %s specialelement"
 
-#: tp/Texinfo/Convert/HTML.pm:13019
+#: tp/Texinfo/Convert/HTML.pm:13025
 #, perl-format
 msgid "error on closing redirection node file %s: %s"
 msgstr "fel vid stängning av omdirigeringsnodsfil %s: %s"
@@ -3329,10 +3324,9 @@ msgid "recursive alias definition of %s through %s ignored"
 msgstr "rekursiv aliasdefinition av %s till %s ignoreras"
 
 #: tp/Texinfo/ParserNonXS.pm:8009 tp/Texinfo/XS/parsetexi/end_line.c:261
-#, fuzzy, c-format, perl-format
-#| msgid "bad argument to @definfoenclose"
+#, c-format, perl-format
 msgid "cannot redefine with @definfoenclose: %s"
-msgstr "felaktigt argument till @definfoenclose"
+msgstr "kan inte omdefiniera med @definfoenclose: %s"
 
 #: tp/Texinfo/ParserNonXS.pm:8032 tp/Texinfo/XS/parsetexi/end_line.c:284
 #, c-format, perl-format
@@ -3455,20 +3449,16 @@ msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "@%s argument måste vara ”top” eller ”bottom”, inte ”%s”"
 
 #: tp/Texinfo/Report.pm:102 tp/Texinfo/XS/main/errors.c:89
-#, fuzzy, c-format, perl-format
-#| msgctxt "Texinfo source file warning"
-#| msgid "warning: %s (possibly involving @%s)"
+#, c-format, perl-format
 msgctxt "Texinfo source file warning in macro"
 msgid "warning: %s (possibly involving @%s)"
 msgstr "varning: %s (möjligen involverar @%s)"
 
 #: tp/Texinfo/Report.pm:106 tp/Texinfo/XS/main/errors.c:96
-#, fuzzy, c-format, perl-format
-#| msgctxt "Texinfo source file warning"
-#| msgid "warning: %s (possibly involving @%s)"
+#, c-format, perl-format
 msgctxt "Texinfo source file error in macro"
 msgid "%s (possibly involving @%s)"
-msgstr "varning: %s (möjligen involverar @%s)"
+msgstr "%s (möjligen involverar @%s)"
 
 #: tp/Texinfo/Report.pm:112 tp/Texinfo/XS/main/errors.c:121
 #, c-format, perl-format
@@ -3535,7 +3525,7 @@ msgstr "@%s postnodsnamn ”%s” skiljer sig från %s namn ”%s”"
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:789
 #, c-format, perl-format
 msgid "node `%s' unreferenced"
-msgstr "noden `%s' saknar referens"
+msgstr "nod `%s' saknar referens"
 
 #: tp/Texinfo/Structuring.pm:786
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1108
@@ -3583,7 +3573,7 @@ msgstr "@%s till ”%s”, skiljer sig från %s namn ”%s”"
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:2050
 #, c-format, perl-format
 msgid "node `%s' appears in its own menus"
-msgstr ""
+msgstr "nod `%s' visas i sina egna menyer"
 
 #: tp/Texinfo/Transformations.pm:875
 #: tp/Texinfo/XS/structuring_transfo/transformations.c:1378
@@ -3679,7 +3669,7 @@ msgid "epub3.pm: error writing archive %s"
 msgstr "epub3.pm: fel vid skrivning av arkiv %s"
 
 #: tp/ext/highlight_syntax.pm:120 tp/ext/highlight_syntax.pm:360
-#: tp/Texinfo/XS/convert/convert_html.c:2494
+#: tp/Texinfo/XS/convert/convert_html.c:2505
 #, c-format, perl-format
 msgid "%s: %s"
 msgstr "%s: %s"
@@ -3952,76 +3942,71 @@ msgstr ""
 "\n"
 
 #: tp/texi2any.pl:984
-#, fuzzy
-#| msgid "General output options:"
 msgid "General options:"
-msgstr "Allmänna utdataalternativ:"
+msgstr "Allmänna alternativ:"
 
 #: tp/texi2any.pl:985
 msgid ""
 "      --document-language=STR locale to use in translating Texinfo keywords\n"
 "                                for the output document (default C)."
 msgstr ""
+"      --document-language=STR-språk som ska användas vid översättning av "
+"Texinfo-sökord\n"
+"                                för utdatadokumentet (standard C)."
 
 #: tp/texi2any.pl:987
-#, fuzzy, perl-format
-#| msgid ""
-#| "      --split-size=NUM        split Info files at size NUM (default %d)."
+#, perl-format
 msgid "      --error-limit=NUM       quit after NUM errors (default %d)."
-msgstr ""
-"      --split-size=NUM        dela upp informationsfiler vid storlek NUM "
-"(standard %d)."
+msgstr "      --error-limit=NUM       avsluta efter NUM fel (standard %d)."
 
 #: tp/texi2any.pl:989
-#, fuzzy
-#| msgid "      --xml                   output Texinfo XML."
 msgid "      --force                 preserve output even if errors."
-msgstr "      --xml               utdata Texinfo XML."
+msgstr ""
+"      --force                 preservera utdata även om det uppstår fel."
 
 #: tp/texi2any.pl:990
-#, fuzzy
-#| msgid "    --help                  display this help and exit"
 msgid "      --help                  display this help and exit."
-msgstr "    --help                  visa denna hjälptext och avsluta"
+msgstr "    --help                  visa denna hjälptext och avsluta."
 
 #: tp/texi2any.pl:991
 msgid "      --no-validate           suppress node cross-reference validation."
-msgstr ""
+msgstr "      --no-validate          dämpa validering av nodkorsreferens."
 
 #: tp/texi2any.pl:992
 msgid "      --no-warn               suppress warnings (but not errors)."
-msgstr ""
+msgstr "      --no-warn               dämpa varningar (men inte fel)."
 
 #: tp/texi2any.pl:993
 msgid ""
 "      --conf-dir=DIR          search also for initialization files in DIR."
 msgstr ""
+"      --conf-dir=KAT          sök också efter initialiseringsfiler i KAT."
 
 #: tp/texi2any.pl:994
 msgid "      --init-file=FILE        load FILE to modify the default behavior."
 msgstr ""
+"      --init-file=FIL        ladda FIL för att modifiera standardbeteendet."
 
 #: tp/texi2any.pl:995
 msgid ""
 "  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n"
 "                                to value VAL."
 msgstr ""
+"  -c, --set-customization-variable VAR=VAL  ställ in anpassningsvariabel "
+"VAR\n"
+"                                till värde VAL."
 
 #: tp/texi2any.pl:997
 msgid "      --trace-includes        print names of included files."
-msgstr ""
+msgstr "      --trace-includes        skriv ut namnen på inkluderade filer."
 
 #: tp/texi2any.pl:998
-#, fuzzy
-#| msgid "    --version               display version information and exit"
 msgid "  -v, --verbose               explain what is being done."
-msgstr "    --version               visa versionsinformation och avsluta"
+msgstr "  -v, --verbose               förklara vad som görs."
 
 #: tp/texi2any.pl:999
-#, fuzzy
-#| msgid "    --version               display version information and exit"
 msgid "      --version               display version information and exit."
-msgstr "    --version               visa versionsinformation och avsluta"
+msgstr "    --version               visa versionsinformation och avsluta."
 
 #: tp/texi2any.pl:1001
 msgid "Output format selection (default is to produce Info):"
@@ -4410,141 +4395,129 @@ msgid "--Xopt option without printed output"
 msgstr "--Xopt flagga utan utskrift"
 
 #: tp/texi2any.pl:1503
-#, fuzzy, perl-format
-#| msgid "error writing to %s: %s"
+#, perl-format
 msgid "overwritting file: %s"
-msgstr "fel vid skrivning till %s: %s"
+msgstr "skriver över fil: %s"
 
-#: tp/texi2any.pl:1548
+#: tp/texi2any.pl:1553
 #, perl-format
 msgid "unknown tree transformation %s"
 msgstr "okänd trädtransformation %s"
 
-#: tp/texi2any.pl:1568
+#: tp/texi2any.pl:1573
 #, perl-format
 msgid "ignoring splitting for converted format %s (for %s)"
 msgstr "ignorerar delning för konverterat format %s (för %s)"
 
-#: tp/texi2any.pl:1571
+#: tp/texi2any.pl:1576
 #, perl-format
 msgid "ignoring splitting for format %s"
 msgstr "hoppar över uppdelning för format %s"
 
-#: tp/texi2any.pl:1589
+#: tp/texi2any.pl:1594
 #, perl-format
 msgid "error loading %s: %s"
 msgstr "fel vid inläsning %s: %s"
 
-#: tp/texi2any.pl:1667
+#: tp/texi2any.pl:1672
 #, perl-format
 msgid "%s: missing file argument.\n"
 msgstr "%s: filargument saknas.\n"
 
-#: tp/texi2any.pl:1698
+#: tp/texi2any.pl:1703
 #, perl-format
 msgid "input file %s; did you mean %s?"
 msgstr "inmatningsfil %s; menade du %s?"
 
-#: tp/texi2any.pl:1844
+#: tp/texi2any.pl:1849
 #, perl-format
 msgid "error on closing macro expand file %s: %s\n"
 msgstr "fel vid stängning av makroexpansionsfil %s: %s\n"
 
-#: tp/texi2any.pl:1849
+#: tp/texi2any.pl:1854
 #, perl-format
 msgid "could not open %s for writing: %s\n"
 msgstr "kunde inte öppna %s för skrivning: %s\n"
 
-#: tp/texi2any.pl:2072
+#: tp/texi2any.pl:2077
 #, perl-format
 msgid "%s: error on closing internal links file %s: %s\n"
 msgstr "%s: fel vid stängning av intern länkfil %s: %s\n"
 
-#: tp/texi2any.pl:2150
-#, fuzzy, perl-format
-#| msgid "%s: error on closing internal links file %s: %s\n"
+#: tp/texi2any.pl:2155
+#, perl-format
 msgid "%s: error on closing elements size file %s: %s\n"
-msgstr "%s: fel vid stängning av intern länkfil %s: %s\n"
+msgstr "%s: fel vid stängning av elementstorlek fil %s: %s\n"
 
-#: tp/Texinfo/XS/convert/convert_html.c:2153
+#: tp/Texinfo/XS/convert/convert_html.c:2164
 #, c-format
 msgid "%s: %zu registered opened sections not closed"
-msgstr ""
+msgstr "%s: %zu registrerade öppnade sektioner inte stängda"
 
-#: tp/Texinfo/XS/convert/convert_html.c:2163
-#, fuzzy, c-format
-#| msgid "reserved index name %s"
+#: tp/Texinfo/XS/convert/convert_html.c:2174
+#, c-format
 msgid "%zu registered inline contents: %s"
-msgstr "reserverat indexnamn %s"
+msgstr "%zu registrerat inlineinnehåll: %s"
 
-#: tp/Texinfo/XS/convert/convert_html.c:2180
-#, fuzzy, c-format
-#| msgid "no sectioning command associated with @%s"
+#: tp/Texinfo/XS/convert/convert_html.c:2191
+#, c-format
 msgid "left inline content associated to %s: '%s'"
-msgstr "inget avsnittskommando associerat med @%s"
+msgstr "vänster inline innehåll kopplat till %s: '%s'"
 
-#: tp/Texinfo/XS/convert/convert_html.c:2187
+#: tp/Texinfo/XS/convert/convert_html.c:2198
 #, c-format
 msgid "left inline content of %p: '%s'"
-msgstr ""
+msgstr "vänster inline innehåll av %p: '%s'"
 
-#: tp/Texinfo/XS/convert/convert_html.c:2192
-#, fuzzy, c-format
-#| msgid "no sectioning command associated with @%s"
+#: tp/Texinfo/XS/convert/convert_html.c:2203
+#, c-format
 msgid "left inline content associated: '%s'"
-msgstr "inget avsnittskommando associerat med @%s"
+msgstr "vänster inline innehåll associerat med '%s'"
 
-#: tp/Texinfo/XS/convert/convert_html.c:2459
-#, fuzzy, c-format
-#| msgid "could not open %s for writing: %s"
+#: tp/Texinfo/XS/convert/convert_html.c:2470
+#, c-format
 msgid "error while opening %s for reading: %s"
-msgstr "kunde inte öppna %s för skrivning: %s"
+msgstr "fel vid öppning av %s för läsning: %s"
 
-#: tp/Texinfo/XS/convert/convert_html.c:2466
-#, fuzzy, c-format
-#| msgid "could not open %s for writing: %s"
+#: tp/Texinfo/XS/convert/convert_html.c:2477
+#, c-format
 msgid "cannot open %s for writing: %s"
-msgstr "kunde inte öppna %s för skrivning: %s"
+msgstr "kan inte öppna %s för skrivning: %s"
 
-#: tp/Texinfo/XS/convert/convert_html.c:2480
-#, fuzzy, c-format
-#| msgid "error writing to %s: %s"
+#: tp/Texinfo/XS/convert/convert_html.c:2491
+#, c-format
 msgid "error writing %s: %s"
 msgstr "fel vid skrivning till %s: %s"
 
-#: tp/Texinfo/XS/convert/convert_html.c:2487
-#, fuzzy, c-format
-#| msgid "error reading %s: %s"
+#: tp/Texinfo/XS/convert/convert_html.c:2498
+#, c-format
 msgid "error after reading %s: %s"
-msgstr "fel vid inläsning %s: %s"
+msgstr "fel vid läsning %s: %s"
 
-#: tp/Texinfo/XS/convert/convert_html.c:2501
+#: tp/Texinfo/XS/convert/convert_html.c:2512
 #, c-format
 msgid "preserving permissions for %s: %s"
-msgstr ""
+msgstr "bevarar behörigheter för %s: %s"
 
-#: tp/Texinfo/XS/convert/convert_html.c:2508
-#, fuzzy, c-format
-#| msgid "error on copying %s into %s"
+#: tp/Texinfo/XS/convert/convert_html.c:2519
+#, c-format
 msgid "unexpected error on copying %s into %s"
-msgstr "fel vid kopiering av %s till %s"
+msgstr "oväntat fel vid kopiering av %s till %s"
 
 #: tp/Texinfo/XS/convert/html_prepare_converter.c:3269
-#, fuzzy, c-format
-#| msgid "error on closing CSS file %s: %s"
+#, c-format
 msgid "error on closing CSS file  %s: %s"
-msgstr "fel vid stängning av CSS-fil %s: %s"
+msgstr "fel vid stängning av CSS-fil   %s: %s"
 
 #: tp/Texinfo/XS/main/manipulate_indices.c:522
-#, fuzzy, c-format
-#| msgid "empty index sub entry %d key in @%s"
+#, c-format
 msgid "empty index sub entry %zu key in @%s"
-msgstr "tom indexunderpost %d nyckel i @%s"
+msgstr "tom indexunderpost för %zu nyckel i @%s"
 
 #: tp/Texinfo/XS/main/manipulate_indices.c:615
 #, c-format
 msgid "collation locale not found: %s"
-msgstr ""
+msgstr "Det gick inte att hitta en samlingslokal: %s"
 
 #: tp/Texinfo/XS/parsetexi/close.c:540
 #, c-format
@@ -4624,7 +4597,7 @@ msgstr "@\\ borde endast förekomma i matematikkontext"
 #: tp/Texinfo/XS/parsetexi/handle_commands.c:385
 #, c-format
 msgid "@ should not occur at end of argument to line command"
-msgstr ""
+msgstr "@ bör inte förekomma i slutet av argument för rad kommando"
 
 #: tp/Texinfo/XS/parsetexi/handle_commands.c:803
 #, c-format

@@ -6,10 +6,10 @@
 # Božidar Putanec <bozidarp@yahoo.com>, 2016, 2017, 2019, 2021, 2022, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU texinfo_document 7.1.0.90\n"
+"Project-Id-Version: GNU texinfo_document 7.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-10-24 17:09+0100\n"
-"PO-Revision-Date: 2024-06-16 18:03-0700\n"
+"POT-Creation-Date: 2024-11-10 13:51+0000\n"
+"PO-Revision-Date: 2024-10-26 21:51-0700\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -19,8 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 3.2\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: vim 9.1\n"
 
 #: tp/ext/epub3.pm:712
 msgid "Table of contents"
@@ -412,12 +411,12 @@ msgstr "O programu"
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1899
 #, perl-brace-format
 msgid "Part: {part_title}"
-msgstr ""
+msgstr "Part: {part_title}"
 
 #: tp/Texinfo/Structuring.pm:1396
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:1916
 msgid "Appendices"
-msgstr ""
+msgstr "Prilozi"
 
 #: tp/Texinfo/Structuring.pm:1453
 #: tp/Texinfo/XS/structuring_transfo/structuring.c:2149
@@ -440,45 +439,45 @@ msgid "{name} of {class}"
 msgstr "{name} od {class}"
 
 #. TRANSLATORS: expansion of @error{} as Texinfo code
-#: tp/Texinfo/Convert/Converter.pm:170 tp/Texinfo/XS/convert/converter.c:175
+#: tp/Texinfo/Convert/Converter.pm:170 tp/Texinfo/XS/convert/converter.c:176
 msgid "error@arrow{}"
 msgstr "greška@arrow{}"
 
-#: tp/Texinfo/Convert/Converter.pm:1402 tp/Texinfo/Convert/Converter.pm:1457
-#: tp/Texinfo/XS/convert/converter.c:1071
-#: tp/Texinfo/XS/convert/converter.c:1132
+#: tp/Texinfo/Convert/Converter.pm:1423 tp/Texinfo/Convert/Converter.pm:1478
+#: tp/Texinfo/XS/convert/converter.c:1059
+#: tp/Texinfo/XS/convert/converter.c:1120
 #, perl-brace-format
 msgid "{float_type} {float_number}"
 msgstr "{float_type} {float_number}"
 
-#: tp/Texinfo/Convert/Converter.pm:1406 tp/Texinfo/Convert/Converter.pm:1459
-#: tp/Texinfo/XS/convert/converter.c:1074
-#: tp/Texinfo/XS/convert/converter.c:1135
+#: tp/Texinfo/Convert/Converter.pm:1427 tp/Texinfo/Convert/Converter.pm:1480
+#: tp/Texinfo/XS/convert/converter.c:1062
+#: tp/Texinfo/XS/convert/converter.c:1123
 #, perl-brace-format
 msgid "{float_type}"
 msgstr "{float_type}"
 
-#: tp/Texinfo/Convert/Converter.pm:1410 tp/Texinfo/Convert/Converter.pm:1467
-#: tp/Texinfo/XS/convert/converter.c:1077
-#: tp/Texinfo/XS/convert/converter.c:1146
+#: tp/Texinfo/Convert/Converter.pm:1431 tp/Texinfo/Convert/Converter.pm:1488
+#: tp/Texinfo/XS/convert/converter.c:1065
+#: tp/Texinfo/XS/convert/converter.c:1134
 #, perl-brace-format
 msgid "{float_number}"
 msgstr "{float_number}"
 
 #. TRANSLATORS: added before caption
-#: tp/Texinfo/Convert/Converter.pm:1450 tp/Texinfo/XS/convert/converter.c:1122
+#: tp/Texinfo/Convert/Converter.pm:1471 tp/Texinfo/XS/convert/converter.c:1110
 #, perl-brace-format
 msgid "{float_type} {float_number}: "
 msgstr "{float_type} {float_number}: "
 
 #. TRANSLATORS: added before caption, no float label
-#: tp/Texinfo/Convert/Converter.pm:1453 tp/Texinfo/XS/convert/converter.c:1126
+#: tp/Texinfo/Convert/Converter.pm:1474 tp/Texinfo/XS/convert/converter.c:1114
 #, perl-brace-format
 msgid "{float_type}: "
 msgstr "{float_type}: "
 
 #. TRANSLATORS: added before caption, no float type
-#: tp/Texinfo/Convert/Converter.pm:1465 tp/Texinfo/XS/convert/converter.c:1143
+#: tp/Texinfo/Convert/Converter.pm:1486 tp/Texinfo/XS/convert/converter.c:1131
 #, perl-brace-format
 msgid "{float_number}: "
 msgstr "{float_number}: "
@@ -491,12 +490,12 @@ msgstr "odlomak „{section_name}“ u @cite{{book}}"
 #: tp/Texinfo/Convert/DocBook.pm:1234
 #, perl-brace-format
 msgid "See section ``{section_name}'' in @cite{{book}}"
-msgstr "Pogledajte odlomak „{section_name}“ u @cite{{book}}"
+msgstr "Vidi odlomak „{section_name}“ u @cite{{book}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1238
 #, perl-brace-format
 msgid "see section ``{section_name}'' in @cite{{book}}"
-msgstr "pogledajte odlomak „{section_name}“ u @cite{{book}}"
+msgstr "vidi odlomak „{section_name}“ u @cite{{book}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1249
 #, perl-brace-format
@@ -506,12 +505,12 @@ msgstr "``{node_name}'' u @cite{{book}}"
 #: tp/Texinfo/Convert/DocBook.pm:1253
 #, perl-brace-format
 msgid "See ``{node_name}'' in @cite{{book}}"
-msgstr "Pogledajte ``{node_name}'' u @cite{{book}}"
+msgstr "Vidi ``{node_name}'' u @cite{{book}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1257
 #, perl-brace-format
 msgid "see ``{node_name}'' in @cite{{book}}"
-msgstr "pogledajte ``{node_name}'' u @cite{{book}}"
+msgstr "vidi ``{node_name}'' u @cite{{book}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1263 tp/Texinfo/Convert/Plaintext.pm:2153
 #: tp/Texinfo/Convert/HTML.pm:6031 tp/Texinfo/XS/convert/format_html.c:7931
@@ -523,13 +522,13 @@ msgstr "@cite{{book}}"
 #: tp/Texinfo/Convert/HTML.pm:6029 tp/Texinfo/XS/convert/format_html.c:7926
 #, perl-brace-format
 msgid "See @cite{{book}}"
-msgstr "Pogledajte @cite{{book}}"
+msgstr "Vidi @cite{{book}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1271 tp/Texinfo/Convert/Plaintext.pm:2151
 #: tp/Texinfo/Convert/HTML.pm:6027 tp/Texinfo/XS/convert/format_html.c:7921
 #, perl-brace-format
 msgid "see @cite{{book}}"
-msgstr "pogledajte @cite{{book}}"
+msgstr "vidi @cite{{book}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1284
 #, perl-brace-format
@@ -539,12 +538,12 @@ msgstr "odlomak ``{section_name}'' u @file{{manual}}"
 #: tp/Texinfo/Convert/DocBook.pm:1288
 #, perl-brace-format
 msgid "See section ``{section_name}'' in @file{{manual}}"
-msgstr "Pogledajte odlomak ``{section_name}'' u @file{{manual}}"
+msgstr "Vidi odlomak ``{section_name}'' u @file{{manual}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1292
 #, perl-brace-format
 msgid "see section ``{section_name}'' in @file{{manual}}"
-msgstr "pogledajte odlomak ``{section_name}'' u @file{{manual}}"
+msgstr "vidi odlomak ``{section_name}'' u @file{{manual}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1303
 #, perl-brace-format
@@ -554,12 +553,12 @@ msgstr "``{node_name}'' u @file{{manual}}"
 #: tp/Texinfo/Convert/DocBook.pm:1307
 #, perl-brace-format
 msgid "See ``{node_name}'' in @file{{manual}}"
-msgstr "Pogledajte ``{node_name}'' u @file{{manual}}"
+msgstr "Vidi ``{node_name}'' u @file{{manual}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1311
 #, perl-brace-format
 msgid "see ``{node_name}'' in @file{{manual}}"
-msgstr "pogledajte ``{node_name}'' u @file{{manual}}"
+msgstr "vidi ``{node_name}'' u @file{{manual}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1317
 #, perl-brace-format
@@ -569,12 +568,12 @@ msgstr "@file{{manual}}"
 #: tp/Texinfo/Convert/DocBook.pm:1321
 #, perl-brace-format
 msgid "See @file{{manual}}"
-msgstr "Pogledajte @file{{manual}}"
+msgstr "Vidi @file{{manual}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1325
 #, perl-brace-format
 msgid "see @file{{manual}}"
-msgstr "pogledajte @file{{manual}}"
+msgstr "vidi @file{{manual}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1345
 #, perl-brace-format
@@ -584,12 +583,12 @@ msgstr "{title_ref}"
 #: tp/Texinfo/Convert/DocBook.pm:1350
 #, perl-brace-format
 msgid "See {title_ref}"
-msgstr "Pogledajte {title_ref}"
+msgstr "Vidi {title_ref}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1355
 #, perl-brace-format
 msgid "see {title_ref}"
-msgstr "pogledajte {title_ref}"
+msgstr "vidi {title_ref}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1523 tp/Texinfo/Convert/LaTeX.pm:3638
 #: tp/Texinfo/Convert/Plaintext.pm:3162
@@ -640,22 +639,19 @@ msgid "{number} {section_title}"
 msgstr "{number} {section_title}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1819
-#, fuzzy, perl-brace-format
-#| msgid "{main_index_entry}, @emph{See@:} {seenentry}"
+#, perl-brace-format
 msgid "{main_index_entry}{subentries}, See@: {seeentry}"
-msgstr "{main_index_entry}, @emph{See@:} {seenentry}"
+msgstr "{main_index_entry}{subentries}, See@: {seeentry}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1825
-#, fuzzy, perl-brace-format
-#| msgid "{main_index_entry}, @emph{See@:} {seenentry}"
+#, perl-brace-format
 msgid "{main_index_entry}, See@: {seeentry}"
-msgstr "{main_index_entry}, @emph{See@:} {seenentry}"
+msgstr "{main_index_entry}, See@: {seeentry}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1838
-#, fuzzy, perl-brace-format
-#| msgid "@emph{See also} {see_also_entry}"
+#, perl-brace-format
 msgid "See also {see_also_entry}"
-msgstr "@emph{Vidi također} {see_also_entry}"
+msgstr "Vidi i {see_also_entry}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1888
 msgid "(outside of any node)"
@@ -664,172 +660,152 @@ msgstr "(izvan svakog čvora)"
 #: tp/Texinfo/Convert/Plaintext.pm:2056
 #, perl-brace-format
 msgid "See {name}: ({file}){node}"
-msgstr ""
+msgstr "Vidi {name}: ({file}){node}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2058
 #, perl-brace-format
 msgid "see {name}: ({file}){node}"
-msgstr ""
+msgstr "vidi {name}: ({file}){node}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2060
 #, perl-brace-format
 msgid "{name}: ({file}){node}"
-msgstr ""
+msgstr "{name}: ({file}){node}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2065
-#, fuzzy, perl-brace-format
-#| msgid "See {title_ref}"
+#, perl-brace-format
 msgid "See ({file}){node}"
-msgstr "Pogledajte {title_ref}"
+msgstr "Vidi ({file}){node}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2067
-#, fuzzy, perl-brace-format
-#| msgid "see {title_ref}"
+#, perl-brace-format
 msgid "see ({file}){node}"
-msgstr "pogledajte {title_ref}"
+msgstr "vidi ({file}){node}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2069
 #, perl-brace-format
 msgid "({file}){node}"
-msgstr ""
+msgstr "({file}){node}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2077
-#, fuzzy, perl-brace-format
-#| msgid "See {reference} in @cite{{book}}"
+#, perl-brace-format
 msgid "See {name}: {node} in @cite{{book}}"
-msgstr "Pogledajte {reference} u @cite{{book}}"
+msgstr "Vidi {name}: {node} u @cite{{book}}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2079
-#, fuzzy, perl-brace-format
-#| msgid "see {reference} in @cite{{book}}"
+#, perl-brace-format
 msgid "see {name}: {node} in @cite{{book}}"
-msgstr "pogledajte {reference} u @cite{{book}}"
+msgstr "vidi {name}: {node} u @cite{{book}}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2081
-#, fuzzy, perl-brace-format
-#| msgid "See ``{node_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "{name}: {node} in @cite{{book}}"
-msgstr "Pogledajte ``{node_name}'' u @cite{{book}}"
+msgstr "{name}: {node} u @cite{{book}}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2086
-#, fuzzy, perl-brace-format
-#| msgid "See ``{node_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "See {node} in @cite{{book}}"
-msgstr "Pogledajte ``{node_name}'' u @cite{{book}}"
+msgstr "Vidi {node} u @cite{{book}}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2088
-#, fuzzy, perl-brace-format
-#| msgid "see ``{node_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "see {node} in @cite{{book}}"
-msgstr "pogledajte ``{node_name}'' u @cite{{book}}"
+msgstr "vidi {node} u @cite{{book}}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2090
-#, fuzzy, perl-brace-format
-#| msgid "``{node_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "{node} in @cite{{book}}"
-msgstr "``{node_name}'' u @cite{{book}}"
+msgstr "{node} u @cite{{book}}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2098
-#, fuzzy, perl-brace-format
-#| msgid "See node @samp{{mynode}}"
+#, perl-brace-format
 msgid "See {name}: {node}"
-msgstr "Pogledajte čvor @samp{{mynode}}"
+msgstr "Vidi {name}: {node}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2100
 #, perl-brace-format
 msgid "see {name}: {node}"
-msgstr ""
+msgstr "vidi {name}: {node}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2102
 #, perl-brace-format
 msgid "{name}: {node}"
-msgstr ""
+msgstr "{name}: {node}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2107 tp/Texinfo/Convert/Plaintext.pm:2170
-#, fuzzy, perl-brace-format
-#| msgid "See {reference}"
+#, perl-brace-format
 msgid "See {node}"
-msgstr "Pogledajte {reference}"
+msgstr "Vidi {node}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2109 tp/Texinfo/Convert/Plaintext.pm:2172
-#, fuzzy, perl-brace-format
-#| msgid "see {reference}"
+#, perl-brace-format
 msgid "see {node}"
-msgstr "pogledajte {reference}"
+msgstr "vidi {node}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2111 tp/Texinfo/Convert/Plaintext.pm:2174
-#, fuzzy, perl-brace-format
-#| msgctxt "NodeUp direction description"
-#| msgid "Up node"
+#, perl-brace-format
 msgid "{node}"
-msgstr "Čvor nàgore"
+msgstr "{node}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2120
 #, perl-brace-format
 msgid "See {name}({file})"
-msgstr ""
+msgstr "Vidi {name}({file})"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2122
 #, perl-brace-format
 msgid "see {name}({file})"
-msgstr ""
+msgstr "vidi {name}({file})"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2124
 #, perl-brace-format
 msgid "{name}({file})"
-msgstr ""
+msgstr "{name}({file})"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2129
-#, fuzzy, perl-brace-format
-#| msgid "See {title_ref}"
+#, perl-brace-format
 msgid "See ({file})"
-msgstr "Pogledajte {title_ref}"
+msgstr "Vidi ({file})"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2131
-#, fuzzy, perl-brace-format
-#| msgid "see {title_ref}"
+#, perl-brace-format
 msgid "see ({file})"
-msgstr "pogledajte {title_ref}"
+msgstr "vidi ({file})"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2133
 #, perl-brace-format
 msgid "({file})"
-msgstr ""
+msgstr "({file})"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2140
-#, fuzzy, perl-brace-format
-#| msgid "See ``{node_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "See {name} in @cite{{book}}"
-msgstr "Pogledajte ``{node_name}'' u @cite{{book}}"
+msgstr "Vidi {name} u @cite{{book}}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2142
-#, fuzzy, perl-brace-format
-#| msgid "see ``{node_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "see {name} in @cite{{book}}"
-msgstr "pogledajte ``{node_name}'' u @cite{{book}}"
+msgstr "vidi {name} u @cite{{book}}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2144
-#, fuzzy, perl-brace-format
-#| msgid "``{node_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "{name} in @cite{{book}}"
-msgstr "``{node_name}'' u @cite{{book}}"
+msgstr "{name} u @cite{{book}}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2160
-#, fuzzy, perl-brace-format
-#| msgid "See {reference_name}"
+#, perl-brace-format
 msgid "See {name}"
-msgstr "Pogledajte {reference_name}"
+msgstr "Vidi {name}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2162
-#, fuzzy, perl-brace-format
-#| msgid "see {reference_name}"
+#, perl-brace-format
 msgid "see {name}"
-msgstr "pogledajte {reference_name}"
+msgstr "vidi {name}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2164
 #, perl-brace-format
 msgid "{name}"
-msgstr ""
+msgstr "{name}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2378
 #, perl-brace-format
@@ -974,12 +950,12 @@ msgstr "@center @b{{cartouche_arg}}"
 #: tp/Texinfo/Convert/HTML.pm:5900 tp/Texinfo/XS/convert/format_html.c:7682
 #, perl-brace-format
 msgid "see {reference_name}"
-msgstr "pogledajte {reference_name}"
+msgstr "vidi {reference_name}"
 
 #: tp/Texinfo/Convert/HTML.pm:5902 tp/Texinfo/XS/convert/format_html.c:7687
 #, perl-brace-format
 msgid "See {reference_name}"
-msgstr "Pogledajte {reference_name}"
+msgstr "Vidi {reference_name}"
 
 #: tp/Texinfo/Convert/HTML.pm:5904 tp/Texinfo/XS/convert/format_html.c:7692
 #, perl-brace-format
@@ -989,12 +965,12 @@ msgstr "{reference_name}"
 #: tp/Texinfo/Convert/HTML.pm:5997 tp/Texinfo/XS/convert/format_html.c:7848
 #, perl-brace-format
 msgid "see {reference} in @cite{{book}}"
-msgstr "pogledajte {reference} u @cite{{book}}"
+msgstr "vidi {reference} u @cite{{book}}"
 
 #: tp/Texinfo/Convert/HTML.pm:5999 tp/Texinfo/XS/convert/format_html.c:7853
 #, perl-brace-format
 msgid "See {reference} in @cite{{book}}"
-msgstr "Pogledajte {reference} u @cite{{book}}"
+msgstr "Vidi {reference} u @cite{{book}}"
 
 #: tp/Texinfo/Convert/HTML.pm:6001 tp/Texinfo/XS/convert/format_html.c:7858
 #, perl-brace-format
@@ -1004,12 +980,12 @@ msgstr "{reference} u @cite{{book}}"
 #: tp/Texinfo/Convert/HTML.pm:6007 tp/Texinfo/XS/convert/format_html.c:7871
 #, perl-brace-format
 msgid "see @cite{{book_reference}}"
-msgstr "pogledajte @cite{{book_reference}}"
+msgstr "vidi @cite{{book_reference}}"
 
 #: tp/Texinfo/Convert/HTML.pm:6009 tp/Texinfo/XS/convert/format_html.c:7876
 #, perl-brace-format
 msgid "See @cite{{book_reference}}"
-msgstr "Pogledajte @cite{{book_reference}}"
+msgstr "Vidi @cite{{book_reference}}"
 
 #: tp/Texinfo/Convert/HTML.pm:6011 tp/Texinfo/XS/convert/format_html.c:7881
 #, perl-brace-format
@@ -1019,12 +995,12 @@ msgstr "@cite{{book_reference}}"
 #: tp/Texinfo/Convert/HTML.pm:6018 tp/Texinfo/XS/convert/format_html.c:7898
 #, perl-brace-format
 msgid "see `{section}' in @cite{{book}}"
-msgstr "pogledajte „{section}“ u @cite{{book}}"
+msgstr "vidi „{section}“ u @cite{{book}}"
 
 #: tp/Texinfo/Convert/HTML.pm:6020 tp/Texinfo/XS/convert/format_html.c:7903
 #, perl-brace-format
 msgid "See `{section}' in @cite{{book}}"
-msgstr "Pogledajte „{section}“ u @cite{{book}}"
+msgstr "Vidi „{section}“ u @cite{{book}}"
 
 #: tp/Texinfo/Convert/HTML.pm:6022 tp/Texinfo/XS/convert/format_html.c:7908
 #, perl-brace-format
@@ -1034,12 +1010,12 @@ msgstr "„{section}“ u @cite{{book}}"
 #: tp/Texinfo/Convert/HTML.pm:6037 tp/Texinfo/XS/convert/format_html.c:7944
 #, perl-brace-format
 msgid "see {reference}"
-msgstr "pogledajte {reference}"
+msgstr "vidi {reference}"
 
 #: tp/Texinfo/Convert/HTML.pm:6039 tp/Texinfo/XS/convert/format_html.c:7949
 #, perl-brace-format
 msgid "See {reference}"
-msgstr "Pogledajte {reference}"
+msgstr "Vidi {reference}"
 
 #: tp/Texinfo/Convert/HTML.pm:6041 tp/Texinfo/XS/convert/format_html.c:7954
 #, perl-brace-format
@@ -1049,12 +1025,12 @@ msgstr "{reference}"
 #: tp/Texinfo/Convert/HTML.pm:6047 tp/Texinfo/XS/convert/format_html.c:7967
 #, perl-brace-format
 msgid "see `{section}'"
-msgstr "pogledajte „{section}“"
+msgstr "vidi „{section}“"
 
 #: tp/Texinfo/Convert/HTML.pm:6049 tp/Texinfo/XS/convert/format_html.c:7972
 #, perl-brace-format
 msgid "See `{section}'"
-msgstr "Pogledajte „{section}“"
+msgstr "Vidi „{section}“"
 
 #: tp/Texinfo/Convert/HTML.pm:6051 tp/Texinfo/XS/convert/format_html.c:7977
 #, perl-brace-format
@@ -1064,24 +1040,22 @@ msgstr "„{section}“"
 #. TRANSLATORS: redirect to another index entry
 #. TRANSLATORS: @: is discardable and is used to avoid a msgfmt error
 #: tp/Texinfo/Convert/HTML.pm:6328 tp/Texinfo/XS/convert/format_html.c:10071
-#, fuzzy, perl-brace-format
-#| msgid "@code{{main_index_entry}}, @emph{See@:} @code{{seenentry}}"
+#, perl-brace-format
 msgid "@code{{main_index_entry}}, @emph{See@:} @code{{seeentry}}"
-msgstr "@code{{main_index_entry}}, @emph{See@:} @code{{seenentry}}"
+msgstr "@code{{main_index_entry}}, @emph{See@:} @code{{seeentry}}"
 
 #. TRANSLATORS: redirect to another index entry
 #. TRANSLATORS: @: is discardable and used to avoid a msgfmt error
 #: tp/Texinfo/Convert/HTML.pm:6335 tp/Texinfo/XS/convert/format_html.c:10079
-#, fuzzy, perl-brace-format
-#| msgid "{main_index_entry}, @emph{See@:} {seenentry}"
+#, perl-brace-format
 msgid "{main_index_entry}, @emph{See@:} {seeentry}"
-msgstr "{main_index_entry}, @emph{See@:} {seenentry}"
+msgstr "{main_index_entry}, @emph{See@:} {seeentry}"
 
 #. TRANSLATORS: refer to another index entry
 #: tp/Texinfo/Convert/HTML.pm:6353 tp/Texinfo/XS/convert/format_html.c:10114
 #, perl-brace-format
 msgid "@emph{See also} {see_also_entry}"
-msgstr "@emph{Vidi također} {see_also_entry}"
+msgstr "@emph{Vidi i} {see_also_entry}"
 
 #. TRANSLATORS: before list of letters and symbols grouping index entries
 #: tp/Texinfo/Convert/HTML.pm:6597 tp/Texinfo/Convert/HTML.pm:6626
@@ -1153,7 +1127,7 @@ msgstr "Čvor koji tražite nalazi se pri {href}."
 
 #: tp/Texinfo/Convert/HTML.pm:11553
 msgid "There are no buttons for this document."
-msgstr ""
+msgstr "Nema gumbi za ovaj dockument."
 
 #: tp/Texinfo/Convert/HTML.pm:11559
 msgid "  The buttons in the navigation panels have the following meaning:"
@@ -1235,7 +1209,7 @@ msgstr "Pododlomak jedan-tri"
 msgid "Subsection One-Four"
 msgstr "Pododlomak jedan-četri"
 
-#: tp/Texinfo/Convert/HTML.pm:12626 tp/Texinfo/XS/convert/convert_html.c:926
+#: tp/Texinfo/Convert/HTML.pm:12632 tp/Texinfo/XS/convert/convert_html.c:937
 msgid "Untitled Document"
 msgstr "Dokument bez naslova"
 
@@ -1324,7 +1298,7 @@ msgstr "{category} od @code{{class}}"
 #~ msgstr "@center --- @emph{{author}}\n"
 
 #~ msgid "See Info file @file{{myfile}}, node @samp{{mynode}}"
-#~ msgstr "Pogledajte Info-datoteku @file{{myfile}}, čvor @samp{{mynode}}"
+#~ msgstr "Vidi Info-datoteku @file{{myfile}}, čvor @samp{{mynode}}"
 
 #~ msgid "@tie{}-- {category} of {class}:@*{type}@*{name} {arguments}"
 #~ msgstr "@tie{}--- {category} od {class}:@*{type}@*{name} {arguments}"
@@ -1396,10 +1370,10 @@ msgstr "{category} od @code{{class}}"
 #~ msgstr "{category} od {class}: @emph{{type}} @strong{{name}}"
 
 #~ msgid "see section {reference_name}"
-#~ msgstr "pogledajte odlomak {reference_name}"
+#~ msgstr "vidi odlomak {reference_name}"
 
 #~ msgid "See section {reference_name}"
-#~ msgstr "Pogledajte odlomak {reference_name}"
+#~ msgstr "Vidi odlomak {reference_name}"
 
 #~ msgid "{category}:@* @emph{{type}}@* @strong{{name}}"
 #~ msgstr "{category}:@* @emph{{type}}@* @strong{{name}}"

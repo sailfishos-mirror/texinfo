@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 6.4.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-10-24 17:09+0100\n"
+"POT-Creation-Date: 2024-11-10 13:51+0000\n"
 "PO-Revision-Date: 2018-01-20 14:27+0100\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -438,45 +438,45 @@ msgid "{name} of {class}"
 msgstr "{name} típusa: {class}"
 
 #. TRANSLATORS: expansion of @error{} as Texinfo code
-#: tp/Texinfo/Convert/Converter.pm:170 tp/Texinfo/XS/convert/converter.c:175
+#: tp/Texinfo/Convert/Converter.pm:170 tp/Texinfo/XS/convert/converter.c:176
 msgid "error@arrow{}"
 msgstr "error@arrow{}"
 
-#: tp/Texinfo/Convert/Converter.pm:1402 tp/Texinfo/Convert/Converter.pm:1457
-#: tp/Texinfo/XS/convert/converter.c:1071
-#: tp/Texinfo/XS/convert/converter.c:1132
+#: tp/Texinfo/Convert/Converter.pm:1423 tp/Texinfo/Convert/Converter.pm:1478
+#: tp/Texinfo/XS/convert/converter.c:1059
+#: tp/Texinfo/XS/convert/converter.c:1120
 #, perl-brace-format
 msgid "{float_type} {float_number}"
 msgstr "{float_type} {float_number}"
 
-#: tp/Texinfo/Convert/Converter.pm:1406 tp/Texinfo/Convert/Converter.pm:1459
-#: tp/Texinfo/XS/convert/converter.c:1074
-#: tp/Texinfo/XS/convert/converter.c:1135
+#: tp/Texinfo/Convert/Converter.pm:1427 tp/Texinfo/Convert/Converter.pm:1480
+#: tp/Texinfo/XS/convert/converter.c:1062
+#: tp/Texinfo/XS/convert/converter.c:1123
 #, perl-brace-format
 msgid "{float_type}"
 msgstr "{float_type}"
 
-#: tp/Texinfo/Convert/Converter.pm:1410 tp/Texinfo/Convert/Converter.pm:1467
-#: tp/Texinfo/XS/convert/converter.c:1077
-#: tp/Texinfo/XS/convert/converter.c:1146
+#: tp/Texinfo/Convert/Converter.pm:1431 tp/Texinfo/Convert/Converter.pm:1488
+#: tp/Texinfo/XS/convert/converter.c:1065
+#: tp/Texinfo/XS/convert/converter.c:1134
 #, perl-brace-format
 msgid "{float_number}"
 msgstr "{float_number}"
 
 #. TRANSLATORS: added before caption
-#: tp/Texinfo/Convert/Converter.pm:1450 tp/Texinfo/XS/convert/converter.c:1122
+#: tp/Texinfo/Convert/Converter.pm:1471 tp/Texinfo/XS/convert/converter.c:1110
 #, perl-brace-format
 msgid "{float_type} {float_number}: "
 msgstr "{float_type} {float_number}: "
 
 #. TRANSLATORS: added before caption, no float label
-#: tp/Texinfo/Convert/Converter.pm:1453 tp/Texinfo/XS/convert/converter.c:1126
+#: tp/Texinfo/Convert/Converter.pm:1474 tp/Texinfo/XS/convert/converter.c:1114
 #, perl-brace-format
 msgid "{float_type}: "
 msgstr "{float_type}: "
 
 #. TRANSLATORS: added before caption, no float type
-#: tp/Texinfo/Convert/Converter.pm:1465 tp/Texinfo/XS/convert/converter.c:1143
+#: tp/Texinfo/Convert/Converter.pm:1486 tp/Texinfo/XS/convert/converter.c:1131
 #, perl-brace-format
 msgid "{float_number}: "
 msgstr "{float_number}: "
@@ -1244,7 +1244,7 @@ msgstr "1.3. alszakasz"
 msgid "Subsection One-Four"
 msgstr "1.4. alszakasz"
 
-#: tp/Texinfo/Convert/HTML.pm:12626 tp/Texinfo/XS/convert/convert_html.c:926
+#: tp/Texinfo/Convert/HTML.pm:12632 tp/Texinfo/XS/convert/convert_html.c:937
 msgid "Untitled Document"
 msgstr "Névtelen dokumentum"
 
