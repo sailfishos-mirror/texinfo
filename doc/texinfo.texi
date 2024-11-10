@@ -6638,9 +6638,14 @@ a fixed-width font, and everything else uses the regular font.
 They also have the same behavior in other respects---whether filling
 is done and whether margins are narrowed.
 
+@vindex dispenvsize
 As a general rule, it's better to just use the regular
 commands (such as @code{@@example} instead of @code{@@smallexample}),
-unless you have a good reason for it.
+unless you have a good reason for it.  When processing with
+@file{texinfo.tex} only, you can obtain a similar effect with
+@samp{@@set dispenvsize small}, which uses a smaller font for
+@code{@@example} and other environments.  In HTML output, you can
+use CSS to change the font size of enviroments if needed; @pxref{HTML CSS}.
 
 
 @node Lists and Tables
