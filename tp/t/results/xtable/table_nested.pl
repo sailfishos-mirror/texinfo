@@ -195,7 +195,7 @@ $result_trees{'table_nested'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -764,7 +764,7 @@ $result_trees{'table_nested'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -1347,7 +1347,7 @@ $result_trees{'table_nested'} = {
                     {
                       'counter' => 3,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }

@@ -91,7 +91,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -189,7 +189,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -291,7 +291,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

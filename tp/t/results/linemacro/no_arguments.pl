@@ -74,7 +74,7 @@ $result_trees{'no_arguments'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -117,7 +117,7 @@ $result_trees{'no_arguments'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -163,7 +163,7 @@ $result_trees{'no_arguments'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

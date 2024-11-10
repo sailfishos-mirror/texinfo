@@ -82,7 +82,7 @@ $result_trees{'expand_two_same'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -198,7 +198,7 @@ arg}
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

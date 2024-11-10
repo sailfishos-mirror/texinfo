@@ -67,7 +67,7 @@ $result_trees{'macro_for_ignored_line_command'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }

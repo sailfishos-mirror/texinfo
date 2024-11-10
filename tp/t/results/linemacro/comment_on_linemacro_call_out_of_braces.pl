@@ -96,7 +96,7 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -175,7 +175,7 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -237,7 +237,7 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

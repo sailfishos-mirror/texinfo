@@ -93,7 +93,7 @@ $result_trees{'protect_comma_macro_line'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

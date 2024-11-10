@@ -215,7 +215,7 @@ $result_trees{'complex_argument'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -306,7 +306,7 @@ macroseven defined
                         {
                           'counter' => 2,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }
@@ -373,7 +373,7 @@ macroseven defined
                         {
                           'counter' => 3,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }
@@ -741,7 +741,7 @@ macroseven defined
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -815,7 +815,7 @@ macroseven defined
                 {
                   'counter' => 5,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

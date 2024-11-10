@@ -71,7 +71,7 @@ $result_trees{'redefine_texinfo_macro'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {

@@ -86,7 +86,7 @@ $result_trees{'macro_in_menu_comment_closed_by_detailmenu'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }

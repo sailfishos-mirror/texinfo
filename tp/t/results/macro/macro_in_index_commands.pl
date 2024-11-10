@@ -188,7 +188,7 @@ $result_trees{'macro_in_index_commands'} = {
                     {
                       'counter' => 2,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }
@@ -234,7 +234,7 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -259,7 +259,7 @@ $result_trees{'macro_in_index_commands'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -421,7 +421,7 @@ $result_trees{'macro_in_index_commands'} = {
                     {
                       'counter' => 4,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }
@@ -608,7 +608,7 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 5,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -751,7 +751,7 @@ $result_trees{'macro_in_index_commands'} = {
             {
               'counter' => 6,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -929,7 +929,7 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 7,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -997,7 +997,7 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 8,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -1029,7 +1029,7 @@ $result_trees{'macro_in_index_commands'} = {
                     {
                       'counter' => 9,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }
@@ -1132,7 +1132,7 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 10,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -1205,7 +1205,7 @@ $result_trees{'macro_in_index_commands'} = {
                 {
                   'counter' => 11,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }

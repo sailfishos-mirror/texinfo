@@ -140,7 +140,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }
@@ -179,7 +179,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                         {
                           'counter' => 2,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }
@@ -237,7 +237,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                         {
                           'counter' => 3,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }
@@ -276,7 +276,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                         {
                           'counter' => 4,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -341,7 +341,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                         {
                           'counter' => 5,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'contents' => [
                                   {

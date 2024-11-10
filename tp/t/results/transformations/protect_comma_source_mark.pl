@@ -96,7 +96,7 @@ $result_trees{'protect_comma_source_mark'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }

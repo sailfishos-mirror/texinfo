@@ -77,7 +77,7 @@ $result_trees{'leading_spaces_no_ignore'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }

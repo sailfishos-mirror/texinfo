@@ -133,7 +133,7 @@ $result_trees{'empty_last_argument'} = {
                     {
                       'counter' => 1,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -297,7 +297,7 @@ $result_trees{'empty_last_argument'} = {
                     {
                       'counter' => 2,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -450,7 +450,7 @@ $result_trees{'empty_last_argument'} = {
                     {
                       'counter' => 3,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'contents' => [
                               {

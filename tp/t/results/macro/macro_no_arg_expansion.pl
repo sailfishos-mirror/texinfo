@@ -74,7 +74,7 @@ $result_trees{'macro_no_arg_expansion'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }

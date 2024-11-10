@@ -241,7 +241,7 @@ $result_trees{'test_allowcodebreaks'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -562,7 +562,7 @@ $result_trees{'test_allowcodebreaks'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -713,7 +713,7 @@ $result_trees{'test_allowcodebreaks'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -1034,7 +1034,7 @@ $result_trees{'test_allowcodebreaks'} = {
             {
               'counter' => 4,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1157,7 +1157,7 @@ $result_trees{'test_allowcodebreaks'} = {
                         {
                           'counter' => 5,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -1626,7 +1626,7 @@ $result_trees{'test_allowcodebreaks'} = {
                 {
                   'counter' => 6,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -1947,7 +1947,7 @@ $result_trees{'test_allowcodebreaks'} = {
             {
               'counter' => 7,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }

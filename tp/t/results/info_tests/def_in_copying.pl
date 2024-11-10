@@ -162,7 +162,7 @@ $result_trees{'def_in_copying'} = {
                     {
                       'counter' => 1,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }
@@ -480,7 +480,7 @@ $result_trees{'def_in_copying'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }

@@ -67,7 +67,7 @@ $result_trees{'line_end_accent_command_macro_call'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -210,7 +210,7 @@ $result_trees{'line_end_accent_command_macro_call'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }

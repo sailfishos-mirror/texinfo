@@ -127,7 +127,7 @@ $result_trees{'macro_definition_in_include'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }

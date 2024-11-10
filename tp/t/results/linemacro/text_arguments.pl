@@ -86,7 +86,7 @@ $result_trees{'text_arguments'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

@@ -116,7 +116,7 @@ $result_trees{'macro_in_end_argument'} = {
                     {
                       'counter' => 1,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }

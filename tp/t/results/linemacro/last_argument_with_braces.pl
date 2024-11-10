@@ -101,7 +101,7 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'counter' => 1,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -435,7 +435,7 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'counter' => 2,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -720,7 +720,7 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'counter' => 3,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'contents' => [
                               {

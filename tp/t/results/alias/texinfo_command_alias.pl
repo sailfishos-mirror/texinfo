@@ -116,7 +116,7 @@ $result_trees{'texinfo_command_alias'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

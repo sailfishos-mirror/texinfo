@@ -1,3 +1,11 @@
+2024-11-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_expand_macro_arguments)
+	(_expand_linemacro_arguments, _handle_macro),
+	tp/Texinfo/XS/parsetexi/macro.c (expand_macro_arguments)
+	(expand_linemacro_arguments, expand_macro_body, handle_macro): use
+	contents instead of args for macro call elements.
+
 2024-11-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_place_source_mark)

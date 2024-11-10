@@ -145,7 +145,7 @@ $result_trees{'macro_in_accent'} = {
                     {
                       'counter' => 1,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }
@@ -196,7 +196,7 @@ $result_trees{'macro_in_accent'} = {
                     {
                       'counter' => 2,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }
@@ -246,7 +246,7 @@ $result_trees{'macro_in_accent'} = {
                     {
                       'counter' => 3,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }
@@ -287,7 +287,7 @@ $result_trees{'macro_in_accent'} = {
                         {
                           'counter' => 4,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }
@@ -350,7 +350,7 @@ $result_trees{'macro_in_accent'} = {
                     {
                       'counter' => 5,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }
@@ -372,7 +372,7 @@ $result_trees{'macro_in_accent'} = {
                     {
                       'counter' => 6,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }

@@ -136,7 +136,7 @@ $result_trees{'macro_name_with_digit'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -160,7 +160,7 @@ $result_trees{'macro_name_with_digit'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }

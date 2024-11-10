@@ -76,7 +76,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }
@@ -147,7 +147,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
                         {
                           'counter' => 2,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }

@@ -96,7 +96,7 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }

@@ -78,7 +78,7 @@ $result_trees{'protect_colon_source_mark'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

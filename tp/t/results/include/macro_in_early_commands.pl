@@ -139,7 +139,7 @@ $result_trees{'macro_in_early_commands'} = {
                     {
                       'counter' => 2,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -187,7 +187,7 @@ $result_trees{'macro_in_early_commands'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -385,7 +385,7 @@ $result_trees{'macro_in_early_commands'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -756,7 +756,7 @@ $result_trees{'macro_in_early_commands'} = {
                 {
                   'counter' => 6,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -810,7 +810,7 @@ $result_trees{'macro_in_early_commands'} = {
                 {
                   'counter' => 7,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

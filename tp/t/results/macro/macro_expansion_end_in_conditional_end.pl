@@ -99,7 +99,7 @@ $result_trees{'macro_expansion_end_in_conditional_end'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }

@@ -521,7 +521,7 @@ $result_trees{'glossary'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -837,7 +837,7 @@ $result_trees{'glossary'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -960,7 +960,7 @@ $result_trees{'glossary'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -1277,7 +1277,7 @@ $result_trees{'glossary'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -1475,7 +1475,7 @@ $result_trees{'glossary'} = {
             {
               'counter' => 5,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }

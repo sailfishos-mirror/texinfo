@@ -143,7 +143,7 @@ $result_trees{'double_recursive_macro_call'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -159,7 +159,7 @@ $result_trees{'double_recursive_macro_call'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }

@@ -100,7 +100,7 @@ $result_trees{'braces_after_text'} = {
                     {
                       'counter' => 1,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'contents' => [
                               {

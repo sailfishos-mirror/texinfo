@@ -87,7 +87,7 @@ $result_trees{'arobase_brace_in_macro_call'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -153,7 +153,7 @@ $result_trees{'arobase_brace_in_macro_call'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

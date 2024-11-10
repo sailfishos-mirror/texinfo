@@ -77,7 +77,7 @@ $result_trees{'macro_expansion_end_in_ignored_nested_different_conditional'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }

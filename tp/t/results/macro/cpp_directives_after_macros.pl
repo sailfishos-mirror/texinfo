@@ -151,7 +151,7 @@ $result_trees{'cpp_directives_after_macros'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -208,7 +208,7 @@ $result_trees{'cpp_directives_after_macros'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }

@@ -87,7 +87,7 @@ $result_trees{'too_much_args'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

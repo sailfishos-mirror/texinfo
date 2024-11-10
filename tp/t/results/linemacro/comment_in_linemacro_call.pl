@@ -87,7 +87,7 @@ $result_trees{'comment_in_linemacro_call'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

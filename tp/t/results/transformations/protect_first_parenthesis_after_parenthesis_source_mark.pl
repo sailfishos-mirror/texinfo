@@ -80,7 +80,7 @@ $result_trees{'protect_first_parenthesis_after_parenthesis_source_mark'} = {
                             {
                               'counter' => 1,
                               'element' => {
-                                'args' => [
+                                'contents' => [
                                   {
                                     'type' => 'brace_arg'
                                   }

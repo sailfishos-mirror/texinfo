@@ -176,7 +176,7 @@ $result_trees{'kbdinputstyle'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -662,7 +662,7 @@ $result_trees{'kbdinputstyle'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1139,7 +1139,7 @@ $result_trees{'kbdinputstyle'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }

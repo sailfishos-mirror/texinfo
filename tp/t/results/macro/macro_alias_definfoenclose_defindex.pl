@@ -196,7 +196,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -579,7 +579,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -755,7 +755,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -1135,7 +1135,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

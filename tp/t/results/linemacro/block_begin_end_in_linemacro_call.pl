@@ -78,7 +78,7 @@ $result_trees{'block_begin_end_in_linemacro_call'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -222,7 +222,7 @@ in quotation
                     {
                       'counter' => 2,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -333,7 +333,7 @@ in quotation
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -466,7 +466,7 @@ in quotation
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -581,7 +581,7 @@ ignored ',
                 {
                   'counter' => 5,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -726,7 +726,7 @@ args \\e\\|\\f\\|
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -885,7 +885,7 @@ args \\e\\|\\f\\|
                     {
                       'counter' => 6,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'contents' => [
                               {

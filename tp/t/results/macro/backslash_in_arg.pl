@@ -127,7 +127,7 @@ $result_trees{'backslash_in_arg'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -201,7 +201,7 @@ $result_trees{'backslash_in_arg'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -269,7 +269,7 @@ $result_trees{'backslash_in_arg'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -340,7 +340,7 @@ $result_trees{'backslash_in_arg'} = {
             {
               'counter' => 4,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {

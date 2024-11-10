@@ -116,7 +116,7 @@ $result_trees{'alias_macro_target_removed'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

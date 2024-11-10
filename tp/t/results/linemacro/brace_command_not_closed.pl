@@ -79,7 +79,7 @@ $result_trees{'brace_command_not_closed'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {

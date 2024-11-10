@@ -98,7 +98,7 @@ $result_trees{'test_image'} = {
                     {
                       'counter' => 1,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }
@@ -640,7 +640,7 @@ $result_trees{'test_image'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1136,7 +1136,7 @@ $result_trees{'test_image'} = {
                     {
                       'counter' => 3,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }
@@ -1648,7 +1648,7 @@ $result_trees{'test_image'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -2101,7 +2101,7 @@ $result_trees{'test_image'} = {
                         {
                           'counter' => 5,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }

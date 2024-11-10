@@ -183,7 +183,7 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -216,7 +216,7 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -251,7 +251,7 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -292,7 +292,7 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 4,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -326,7 +326,7 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 5,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -361,7 +361,7 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'counter' => 6,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }

@@ -82,7 +82,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -111,7 +111,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -145,7 +145,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -179,7 +179,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -213,7 +213,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                 {
                   'counter' => 5,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -247,7 +247,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                 {
                   'counter' => 6,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

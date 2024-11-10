@@ -2694,7 +2694,7 @@ sub _expand_macro_arguments($$$$$)
   my $argument = {'type' => 'brace_arg',
                   'contents' => [],
                   'parent' => $current};
-  push @{$current->{'args'}}, $argument;
+  push @{$current->{'contents'}}, $argument;
   my $argument_content = {'text' => '',
                           'parent' => $argument};
   push @{$argument->{'contents'}}, $argument_content;
@@ -2733,13 +2733,13 @@ sub _expand_macro_arguments($$$$$)
         if ($braces_level > 1) {
           $argument_content->{'text'} .= $separator;
         } else {
-          if (scalar(@{$current->{'args'}}) < $args_total) {
+          if (scalar(@{$current->{'contents'}}) < $args_total) {
             _remove_empty_content($self, $argument);
 
             $argument = {'type' => 'brace_arg',
                          'contents' => [],
                          'parent' => $current};
-            push @{$current->{'args'}}, $argument;
+            push @{$current->{'contents'}}, $argument;
             $argument_content = {'text' => '',
                                  'parent' => $argument};
             push @{$argument->{'contents'}}, $argument_content;
@@ -2784,8 +2784,8 @@ sub _expand_macro_arguments($$$$$)
     }
   }
   if ($args_total == 0
-      and (scalar(@{$current->{'args'}} > 1)
-           or $current->{'args'}->[0]->{'contents'})) {
+      and (scalar(@{$current->{'contents'}} > 1)
+           or $current->{'contents'}->[0]->{'contents'})) {
     $self->_line_error(sprintf(__(
                "macro `%s' declared without argument called with an argument"),
                                 $name), $source_info);
@@ -2802,7 +2802,7 @@ sub _expand_linemacro_arguments($$$$$)
   my $argument = {'type' => 'line_arg',
                   'contents' => [],
                   'parent' => $current};
-  push @{$current->{'args'}}, $argument;
+  push @{$current->{'contents'}}, $argument;
   my $argument_content = {'text' => '',
                           'parent' => $argument};
   push @{$argument->{'contents'}}, $argument_content;
@@ -2855,13 +2855,13 @@ sub _expand_linemacro_arguments($$$$$)
       # spaces
       } else {
         if ($braces_level > 0
-            or scalar(@{$current->{'args'}}) >= $args_total) {
+            or scalar(@{$current->{'contents'}}) >= $args_total) {
           $argument_content->{'text'} .= $separator;
         } else {
           $argument = {'type' => 'line_arg',
                        'contents' => [],
                        'parent' => $current};
-          push @{$current->{'args'}}, $argument;
+          push @{$current->{'contents'}}, $argument;
           $argument_content = {'text' => '',
                                'parent' => $argument};
           push @{$argument->{'contents'}}, $argument_content;
@@ -2904,7 +2904,7 @@ sub _expand_linemacro_arguments($$$$$)
     }
   }
   my $arg_idx = 0;
-  foreach my $argument (@{$current->{'args'}}) {
+  foreach my $argument (@{$current->{'contents'}}) {
     my $argument_content = $argument->{'contents'}->[0];
     if ($argument_content->{'extra'}
         and defined($argument_content->{'extra'}->{'toplevel_braces_nr'})) {
@@ -5221,7 +5221,7 @@ sub _handle_macro($$$$$)
 
   my $macro_call_element = {'type' => $expanded_macro->{'cmdname'}.'_call',
                             'info' => {'command_name' => $command},
-                            'args' => []};
+                            'contents' => []};
 
 
   if ($expanded_macro->{'cmdname'} eq 'linemacro') {
@@ -5251,7 +5251,7 @@ sub _handle_macro($$$$$)
       $macro_call_element->{'type'} = $expanded_macro->{'cmdname'}.'_call_line';
       my $arg_elt = {'type' => 'line_arg',
                      'parent' => $macro_call_element};
-      push @{$macro_call_element->{'args'}}, $arg_elt;
+      push @{$macro_call_element->{'contents'}}, $arg_elt;
       while (1) {
         if ($line eq '') {
           ($line, $source_info) = _new_line($self, $arg_elt);
@@ -5296,10 +5296,10 @@ sub _handle_macro($$$$$)
 
   my $expanded = _expand_macro_body($self,
                             $self->{'macros'}->{$command},
-                            $macro_call_element->{'args'}, $source_info);
+                            $macro_call_element->{'contents'}, $source_info);
 
-  delete $macro_call_element->{'args'}
-     if (scalar(@{$macro_call_element->{'args'}}) == 0);
+  delete $macro_call_element->{'contents'}
+     if (scalar(@{$macro_call_element->{'contents'}}) == 0);
 
   my $expanded_macro_text;
   if (defined($expanded)) {

@@ -113,7 +113,7 @@ $result_trees{'end_conditional_in_linemacro'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

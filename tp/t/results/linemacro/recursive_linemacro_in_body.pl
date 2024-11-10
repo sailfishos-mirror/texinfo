@@ -80,7 +80,7 @@ $result_trees{'recursive_linemacro_in_body'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {

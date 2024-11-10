@@ -89,7 +89,7 @@ $result_trees{'spaces_after_unknown_command_in_call'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {

@@ -89,7 +89,7 @@ $result_trees{'spaces_in_args'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {

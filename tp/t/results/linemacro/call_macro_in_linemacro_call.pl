@@ -156,7 +156,7 @@ $result_trees{'call_macro_in_linemacro_call'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -223,7 +223,7 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

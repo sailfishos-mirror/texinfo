@@ -85,7 +85,7 @@ $result_trees{'protected_spaces_on_line'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -356,7 +356,7 @@ $result_trees{'protected_spaces_on_line'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -657,7 +657,7 @@ $result_trees{'protected_spaces_on_line'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {

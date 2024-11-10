@@ -2454,7 +2454,7 @@ $result_trees{'bib_example'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -2566,7 +2566,7 @@ $result_trees{'bib_example'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -2769,7 +2769,7 @@ $result_trees{'bib_example'} = {
                         {
                           'counter' => 3,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }
@@ -2988,7 +2988,7 @@ $result_trees{'bib_example'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -3134,7 +3134,7 @@ $result_trees{'bib_example'} = {
                 {
                   'counter' => 5,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -3177,7 +3177,7 @@ $result_trees{'bib_example'} = {
                         {
                           'counter' => 6,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }
@@ -3384,7 +3384,7 @@ $result_trees{'bib_example'} = {
             {
               'counter' => 7,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -3486,7 +3486,7 @@ $result_trees{'bib_example'} = {
                     {
                       'counter' => 8,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'contents' => [
                               {

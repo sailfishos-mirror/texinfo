@@ -106,7 +106,7 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }
@@ -129,7 +129,7 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
                         {
                           'counter' => 2,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }

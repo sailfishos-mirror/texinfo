@@ -170,7 +170,7 @@ $result_trees{'macro_in_ifset'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }

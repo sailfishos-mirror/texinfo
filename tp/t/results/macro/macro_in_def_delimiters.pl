@@ -134,7 +134,7 @@ $result_trees{'macro_in_def_delimiters'} = {
                                 {
                                   'counter' => 1,
                                   'element' => {
-                                    'args' => [
+                                    'contents' => [
                                       {
                                         'type' => 'brace_arg'
                                       }
@@ -229,7 +229,7 @@ $result_trees{'macro_in_def_delimiters'} = {
                         {
                           'counter' => 2,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }
@@ -319,7 +319,7 @@ $result_trees{'macro_in_def_delimiters'} = {
                                 {
                                   'counter' => 3,
                                   'element' => {
-                                    'args' => [
+                                    'contents' => [
                                       {
                                         'type' => 'brace_arg'
                                       }
@@ -393,7 +393,7 @@ $result_trees{'macro_in_def_delimiters'} = {
                         {
                           'counter' => 4,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }

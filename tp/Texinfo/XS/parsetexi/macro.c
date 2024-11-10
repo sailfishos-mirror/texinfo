@@ -314,7 +314,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
   ELEMENT *argument = new_element (ET_brace_arg);
   ELEMENT *argument_content = new_text_element (ET_other_text);
 
-  add_to_element_args (current, argument);
+  add_to_element_contents (current, argument);
   add_to_element_contents (argument, argument_content);
   arg = argument_content->e.text;
 
@@ -393,7 +393,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
             text_append_n (arg, sep, 1);
           else
             {
-              if (current->e.c->args.number < args_total)
+              if (current->e.c->contents.number < args_total)
                 {
                   const char *p = pline;
 
@@ -402,7 +402,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
                   /* new argument */
                   argument = new_element (ET_brace_arg);
                   argument_content = new_text_element (ET_other_text);
-                  add_to_element_args (current, argument);
+                  add_to_element_contents (current, argument);
                   add_to_element_contents (argument, argument_content);
                   arg = argument_content->e.text;
                   pline += strspn (pline, whitespace_chars);
@@ -431,8 +431,8 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
   line = pline;
 
   if (args_total == 0
-      && (current->e.c->args.number > 1
-          || current->e.c->args.list[0]->e.c->contents.number > 0))
+      && (current->e.c->contents.number > 1
+          || current->e.c->contents.list[0]->e.c->contents.number > 0))
     {
       line_error
         ("macro `%s' declared without argument called with an argument",
@@ -458,7 +458,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   ELEMENT *argument = new_element (ET_line_arg);
   ELEMENT *argument_content = new_text_element (ET_other_text);
 
-  add_to_element_args (current, argument);
+  add_to_element_contents (current, argument);
   add_to_element_contents (argument, argument_content);
   arg = argument_content->e.text;
 
@@ -581,7 +581,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
           whitespaces_len = strspn (pline, whitespace_chars_except_newline);
 
           if (braces_level > 0
-              || current->e.c->args.number >= args_total)
+              || current->e.c->contents.number >= args_total)
             {
               text_append_n (arg, pline, whitespaces_len);
             }
@@ -593,7 +593,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
               argument_content = new_text_element (ET_other_text);
               counter_push (&argument_brace_groups, argument_content, 0);
 
-              add_to_element_args (current, argument);
+              add_to_element_contents (current, argument);
               add_to_element_contents (argument, argument_content);
               arg = argument_content->e.text;
 
@@ -608,10 +608,10 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
     }
 
  funexit:
-  for (i = 0; i < current->e.c->args.number; i++)
+  for (i = 0; i < current->e.c->contents.number; i++)
     {
       ELEMENT *argument_content
-        = current->e.c->args.list[i]->e.c->contents.list[0];
+        = current->e.c->contents.list[i]->e.c->contents.list[0];
       int brace_groups_nr = counter_element_value (&argument_brace_groups,
                                                    argument_content);
       if (brace_groups_nr == 1)
@@ -698,14 +698,14 @@ expand_macro_body (const MACRO *macro_record, const ELEMENT *arguments,
           else
             {
               size_t index = pos -1;
-              if (arguments && index < arguments->e.c->args.number)
+              if (arguments && index < arguments->e.c->contents.number)
                 {
                   const ELEMENT *argument
-                    = args_child_by_index (arguments, index);
+                    = contents_child_by_index (arguments, index);
                   if (argument->e.c->contents.number > 0)
                     text_append (expanded,
                       last_contents_child (
-                        args_child_by_index (arguments, index))->e.text->text);
+                  contents_child_by_index (arguments, index))->e.text->text);
                 }
             }
           free (name);
@@ -862,7 +862,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
             macro_call_element = new_element (ET_macro_call_line);
           else /* macro->e.c->cmd == CM_rmacro */
             macro_call_element = new_element (ET_rmacro_call_line);
-          add_to_element_args (macro_call_element, arg_elt);
+          add_to_element_contents (macro_call_element, arg_elt);
 
           while (1)
             {

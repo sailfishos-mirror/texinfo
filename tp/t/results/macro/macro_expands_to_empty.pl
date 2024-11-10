@@ -76,7 +76,7 @@ $result_trees{'macro_expands_to_empty'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -106,7 +106,7 @@ $result_trees{'macro_expands_to_empty'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

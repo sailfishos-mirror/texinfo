@@ -129,7 +129,7 @@ $result_trees{'star_at_command_formatting'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -394,7 +394,7 @@ $result_trees{'star_at_command_formatting'} = {
                     {
                       'counter' => 2,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }
@@ -689,7 +689,7 @@ $result_trees{'star_at_command_formatting'} = {
                     {
                       'counter' => 3,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'type' => 'brace_arg'
                           }

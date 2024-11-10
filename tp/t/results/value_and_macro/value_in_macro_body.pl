@@ -100,7 +100,7 @@ $result_trees{'value_in_macro_body'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

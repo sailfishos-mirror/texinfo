@@ -87,7 +87,7 @@ $result_trees{'verb_with_arobase_in_macro_call'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

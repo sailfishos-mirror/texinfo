@@ -95,7 +95,7 @@ $result_trees{'cpp_directives_in_macro'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

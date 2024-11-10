@@ -78,7 +78,7 @@ $result_trees{'recursive_call_in_argument'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

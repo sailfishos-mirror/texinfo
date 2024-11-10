@@ -117,7 +117,7 @@ $result_trees{'definfoenclose_replaced_by_macro'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

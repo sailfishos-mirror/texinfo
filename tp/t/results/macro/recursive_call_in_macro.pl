@@ -76,7 +76,7 @@ $result_trees{'recursive_call_in_macro'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }

@@ -182,7 +182,7 @@ $result_trees{'two_macros_on_a_line'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -204,7 +204,7 @@ $result_trees{'two_macros_on_a_line'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -282,7 +282,7 @@ $result_trees{'two_macros_on_a_line'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -343,7 +343,7 @@ $result_trees{'two_macros_on_a_line'} = {
                 {
                   'counter' => 5,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -403,7 +403,7 @@ $result_trees{'two_macros_on_a_line'} = {
                 {
                   'counter' => 7,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -464,7 +464,7 @@ in macro'
                 {
                   'counter' => 8,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }

@@ -104,7 +104,7 @@ $result_trees{'comma_value_in_macro_arg'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

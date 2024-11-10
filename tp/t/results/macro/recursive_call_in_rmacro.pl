@@ -77,7 +77,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -93,7 +93,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -109,7 +109,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -125,7 +125,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 4,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -141,7 +141,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 5,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -157,7 +157,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 6,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -173,7 +173,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 7,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -189,7 +189,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 8,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -205,7 +205,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 9,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -221,7 +221,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 10,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -237,7 +237,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 11,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -253,7 +253,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 12,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -269,7 +269,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 13,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -285,7 +285,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 14,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -301,7 +301,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 15,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -317,7 +317,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 16,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -333,7 +333,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 17,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -349,7 +349,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 18,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -365,7 +365,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 19,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -381,7 +381,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 20,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -397,7 +397,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 21,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -413,7 +413,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 22,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -429,7 +429,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 23,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -445,7 +445,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 24,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -461,7 +461,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 25,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -477,7 +477,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 26,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -493,7 +493,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 27,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -509,7 +509,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 28,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -525,7 +525,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 29,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -541,7 +541,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 30,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -557,7 +557,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 31,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -573,7 +573,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 32,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -589,7 +589,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 33,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -605,7 +605,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 34,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -621,7 +621,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 35,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -637,7 +637,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 36,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -653,7 +653,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 37,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -669,7 +669,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 38,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -685,7 +685,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 39,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -701,7 +701,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 40,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -717,7 +717,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 41,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -733,7 +733,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 42,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -749,7 +749,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 43,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -765,7 +765,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 44,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -781,7 +781,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 45,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -797,7 +797,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 46,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -813,7 +813,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 47,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -829,7 +829,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 48,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -845,7 +845,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 49,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -861,7 +861,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 50,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -877,7 +877,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 51,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -893,7 +893,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 52,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -909,7 +909,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 53,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -925,7 +925,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 54,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -941,7 +941,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 55,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -957,7 +957,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 56,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -973,7 +973,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 57,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -989,7 +989,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 58,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1005,7 +1005,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 59,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1021,7 +1021,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 60,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1037,7 +1037,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 61,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1053,7 +1053,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 62,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1069,7 +1069,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 63,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1085,7 +1085,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 64,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1101,7 +1101,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 65,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1117,7 +1117,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 66,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1133,7 +1133,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 67,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1149,7 +1149,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 68,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1165,7 +1165,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 69,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1181,7 +1181,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 70,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1197,7 +1197,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 71,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1213,7 +1213,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 72,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1229,7 +1229,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 73,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1245,7 +1245,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 74,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1261,7 +1261,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 75,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1277,7 +1277,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 76,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1293,7 +1293,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 77,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1309,7 +1309,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 78,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1325,7 +1325,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 79,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1341,7 +1341,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 80,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1357,7 +1357,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 81,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1373,7 +1373,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 82,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1389,7 +1389,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 83,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1405,7 +1405,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 84,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1421,7 +1421,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 85,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1437,7 +1437,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 86,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1453,7 +1453,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 87,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1469,7 +1469,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 88,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1485,7 +1485,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 89,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1501,7 +1501,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 90,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1517,7 +1517,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 91,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1533,7 +1533,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 92,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1549,7 +1549,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 93,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1565,7 +1565,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 94,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1581,7 +1581,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 95,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1597,7 +1597,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 96,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1613,7 +1613,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 97,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1629,7 +1629,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 98,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1645,7 +1645,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 99,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -1661,7 +1661,7 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'counter' => 100,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }

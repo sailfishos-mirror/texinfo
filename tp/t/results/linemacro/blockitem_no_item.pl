@@ -114,7 +114,7 @@ $result_trees{'blockitem_no_item'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'contents' => [
                                   {

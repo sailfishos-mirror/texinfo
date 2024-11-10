@@ -102,7 +102,7 @@ $result_trees{'macro_expansion'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -220,7 +220,7 @@ $result_trees{'macro_expansion'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -434,7 +434,7 @@ $result_trees{'macro_expansion'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -549,7 +549,7 @@ $result_trees{'macro_expansion'} = {
                 {
                   'counter' => 5,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -664,7 +664,7 @@ $result_trees{'macro_expansion'} = {
                 {
                   'counter' => 6,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

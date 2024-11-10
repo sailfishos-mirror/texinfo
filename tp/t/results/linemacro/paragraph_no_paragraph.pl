@@ -87,7 +87,7 @@ $result_trees{'paragraph_no_paragraph'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -207,7 +207,7 @@ $result_trees{'paragraph_no_paragraph'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

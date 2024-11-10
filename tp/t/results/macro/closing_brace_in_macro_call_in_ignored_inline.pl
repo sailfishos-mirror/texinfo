@@ -86,7 +86,7 @@ $result_trees{'closing_brace_in_macro_call_in_ignored_inline'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }

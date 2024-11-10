@@ -105,7 +105,7 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                     {
                       'counter' => 1,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'contents' => [
                               {

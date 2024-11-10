@@ -121,7 +121,7 @@ $result_trees{'verb_in_linemacro_call'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'contents' => [
                                   {

@@ -71,7 +71,7 @@ $result_trees{'protection_of_end_of_line_by_command'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {

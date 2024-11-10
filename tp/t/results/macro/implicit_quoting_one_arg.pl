@@ -76,7 +76,7 @@ $result_trees{'implicit_quoting_one_arg'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {

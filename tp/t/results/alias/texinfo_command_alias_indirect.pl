@@ -154,7 +154,7 @@ $result_trees{'texinfo_command_alias_indirect'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

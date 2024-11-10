@@ -116,7 +116,7 @@ $result_trees{'alias_of_macro'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

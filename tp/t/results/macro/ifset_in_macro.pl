@@ -81,7 +81,7 @@ $result_trees{'ifset_in_macro'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {

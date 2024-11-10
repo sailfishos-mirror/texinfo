@@ -136,7 +136,7 @@ $result_trees{'macro_in_menu_description'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }

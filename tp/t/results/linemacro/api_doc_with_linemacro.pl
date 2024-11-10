@@ -517,7 +517,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                             {
                               'counter' => 1,
                               'element' => {
-                                'args' => [
+                                'contents' => [
                                   {
                                     'contents' => [
                                       {
@@ -708,7 +708,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                             {
                               'counter' => 2,
                               'element' => {
-                                'args' => [
+                                'contents' => [
                                   {
                                     'contents' => [
                                       {
@@ -925,7 +925,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                             {
                               'counter' => 3,
                               'element' => {
-                                'args' => [
+                                'contents' => [
                                   {
                                     'contents' => [
                                       {
@@ -1119,7 +1119,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                             {
                               'counter' => 4,
                               'element' => {
-                                'args' => [
+                                'contents' => [
                                   {
                                     'contents' => [
                                       {
@@ -1317,7 +1317,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                             {
                               'counter' => 5,
                               'element' => {
-                                'args' => [
+                                'contents' => [
                                   {
                                     'contents' => [
                                       {

@@ -111,7 +111,7 @@ $result_trees{'macro_in_empty_multitable_empty_before_item'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }

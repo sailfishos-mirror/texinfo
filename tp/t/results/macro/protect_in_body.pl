@@ -82,7 +82,7 @@ $result_trees{'protect_in_body'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

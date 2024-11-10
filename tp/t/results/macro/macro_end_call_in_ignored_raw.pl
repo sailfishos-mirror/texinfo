@@ -72,7 +72,7 @@ $result_trees{'macro_end_call_in_ignored_raw'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }

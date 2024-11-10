@@ -990,7 +990,7 @@ $result_trees{'at_commands_in_raw'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }

@@ -171,7 +171,7 @@ $result_trees{'nested_linemacro_calls'} = {
                     {
                       'counter' => 1,
                       'element' => {
-                        'args' => [
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -256,7 +256,7 @@ $result_trees{'nested_linemacro_calls'} = {
                                 {
                                   'counter' => 2,
                                   'element' => {
-                                    'args' => [
+                                    'contents' => [
                                       {
                                         'contents' => [
                                           {
@@ -462,7 +462,7 @@ $result_trees{'nested_linemacro_calls'} = {
                         {
                           'counter' => 3,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'contents' => [
                                   {

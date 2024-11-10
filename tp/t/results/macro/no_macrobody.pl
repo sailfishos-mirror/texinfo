@@ -71,7 +71,7 @@ $result_trees{'no_macrobody'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -114,7 +114,7 @@ $result_trees{'no_macrobody'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

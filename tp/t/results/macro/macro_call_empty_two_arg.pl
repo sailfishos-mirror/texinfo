@@ -87,7 +87,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -131,7 +131,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'info' => {
                           'spaces_before_argument' => {
@@ -180,7 +180,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       },
@@ -232,7 +232,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'info' => {
                           'spaces_before_argument' => {
@@ -284,7 +284,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                 {
                   'counter' => 5,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'info' => {
                           'spaces_before_argument' => {
@@ -341,7 +341,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                 {
                   'counter' => 6,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -398,7 +398,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                 {
                   'counter' => 7,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -450,7 +450,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                 {
                   'counter' => 8,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       },
@@ -507,7 +507,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                 {
                   'counter' => 9,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'info' => {
                           'spaces_before_argument' => {
@@ -569,7 +569,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                 {
                   'counter' => 10,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       },
@@ -621,7 +621,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                 {
                   'counter' => 11,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'info' => {
                           'spaces_before_argument' => {

@@ -144,7 +144,7 @@ $result_trees{'nested_ifset_ifclear'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -427,7 +427,7 @@ $result_trees{'nested_ifset_ifclear'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -709,7 +709,7 @@ $result_trees{'nested_ifset_ifclear'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }
@@ -861,7 +861,7 @@ $result_trees{'nested_ifset_ifclear'} = {
             {
               'counter' => 4,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'type' => 'brace_arg'
                   }

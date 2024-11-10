@@ -154,7 +154,7 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -184,7 +184,7 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

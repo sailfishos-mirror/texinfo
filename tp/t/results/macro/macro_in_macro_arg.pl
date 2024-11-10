@@ -212,7 +212,7 @@ $result_trees{'macro_in_macro_arg'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -233,7 +233,7 @@ $result_trees{'macro_in_macro_arg'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'type' => 'brace_arg'
                       }
@@ -249,7 +249,7 @@ $result_trees{'macro_in_macro_arg'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

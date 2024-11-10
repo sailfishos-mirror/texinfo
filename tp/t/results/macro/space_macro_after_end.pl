@@ -104,7 +104,7 @@ $result_trees{'space_macro_after_end'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'contents' => [
                               {
                                 'type' => 'brace_arg'
                               }

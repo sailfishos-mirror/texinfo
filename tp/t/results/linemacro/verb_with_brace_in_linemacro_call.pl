@@ -79,7 +79,7 @@ $result_trees{'verb_with_brace_in_linemacro_call'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {

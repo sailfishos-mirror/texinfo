@@ -82,7 +82,7 @@ $result_trees{'macro_name_with_hyphen'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

@@ -78,7 +78,7 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -198,7 +198,7 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'contents' => [
                       {
                         'contents' => [
                           {

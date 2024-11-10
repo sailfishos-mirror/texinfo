@@ -217,7 +217,7 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -315,7 +315,7 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                                 {
                                   'counter' => 1,
                                   'element' => {
-                                    'args' => [
+                                    'contents' => [
                                       {
                                         'contents' => [
                                           {
@@ -477,7 +477,7 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -575,7 +575,7 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                                 {
                                   'counter' => 3,
                                   'element' => {
-                                    'args' => [
+                                    'contents' => [
                                       {
                                         'contents' => [
                                           {

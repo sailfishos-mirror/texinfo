@@ -71,7 +71,7 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'contents' => [
                   {
                     'contents' => [
                       {
