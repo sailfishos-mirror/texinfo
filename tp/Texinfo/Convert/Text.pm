@@ -53,7 +53,7 @@ our @EXPORT_OK = qw(
   text_accents
 );
 
-our $VERSION = '7.1.90';
+our $VERSION = '7.1.91';
 
 my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 

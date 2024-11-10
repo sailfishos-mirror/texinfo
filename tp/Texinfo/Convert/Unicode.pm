@@ -62,7 +62,7 @@ our @EXPORT_OK = qw(
   string_width
 );
 
-our $VERSION = '7.1.90';
+our $VERSION = '7.1.91';
 
 
 our %unicode_diacritics = (

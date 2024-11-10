@@ -44,7 +44,7 @@ use Carp qw(cluck);
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
-our $VERSION = '7.1.90';
+our $VERSION = '7.1.91';
 
 my %brace_commands = %Texinfo::Commands::brace_commands;
 
