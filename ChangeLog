@@ -1,5 +1,9 @@
 2024-11-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	pretest 7.1.91
+
+2024-11-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* configure.ac,
 	* js/info.js,
 	* util/texi2dvi,
