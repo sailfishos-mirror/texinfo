@@ -19,7 +19,7 @@
 # Flags for text elements:
 #  text: distinguishes text from other elements
 #  leading_space: text elements with spaces appearing before actual text.
-#                 to keep in sync with Perl parser %leading_space_types.
+#                 To keep in sync with Perl parser %leading_space_types.
 #
 # The following flags correspond to elements holding information on the tree
 # associated to the type.  The association is set in the parsing
@@ -37,7 +37,7 @@
 # Other flags:
 #  macro_call: @-command like user-defined macros call that require some
 #              information not needed by other containers.  Mainly used in C
-#              specific code for memory management, passing to Perl.
+#              specific code for memory management and when passing to Perl.
 #  c_only: element type associated to @-commands appearing only in C, needed
 #          because each correspond to a different need for associated info
 #          element or strings.  Flag only used to avoid passing to Perl.
@@ -121,7 +121,6 @@ internal_spaces_before_argument            text,leading_space
 internal_spaces_before_context_argument    text,leading_space
 # on @*index commands line before brace specific @-command
 internal_spaces_before_brace_in_index      text
-internal_spaces_after_cmd_before_arg       text
 
 macro_name                                 text
 macro_arg                                  text

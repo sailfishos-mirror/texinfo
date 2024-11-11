@@ -57,7 +57,6 @@ TYPE_DATA type_data[] = {
 {"internal_spaces_before_argument", TF_text | TF_leading_space, 0},
 {"internal_spaces_before_context_argument", TF_text | TF_leading_space, 0},
 {"internal_spaces_before_brace_in_index", TF_text, 0},
-{"internal_spaces_after_cmd_before_arg", TF_text, 0},
 {"macro_name", TF_text, 0},
 {"macro_arg", TF_text, 0},
 {"before_item", 0, 0},
