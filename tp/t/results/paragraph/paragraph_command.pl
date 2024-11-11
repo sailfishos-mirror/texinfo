@@ -29,7 +29,8 @@ $result_trees{'paragraph_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'b',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -39,7 +40,6 @@ $result_trees{'paragraph_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'b',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -59,7 +59,8 @@ $result_trees{'paragraph_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'dotless',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -69,7 +70,6 @@ $result_trees{'paragraph_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'dotless',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -89,7 +89,8 @@ $result_trees{'paragraph_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'U',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -99,7 +100,6 @@ $result_trees{'paragraph_command'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'U',
               'source_info' => {
                 'line_nr' => 7
               }
@@ -119,7 +119,8 @@ $result_trees{'paragraph_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -129,7 +130,6 @@ $result_trees{'paragraph_command'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -183,7 +183,8 @@ $result_trees{'paragraph_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'foo',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -196,7 +197,6 @@ $result_trees{'paragraph_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'foo',
               'extra' => {
                 'begin' => '\\',
                 'end' => '//'
@@ -224,7 +224,8 @@ $result_trees{'paragraph_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -239,7 +240,6 @@ $result_trees{'paragraph_command'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 14

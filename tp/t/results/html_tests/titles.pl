@@ -25,7 +25,8 @@ $result_trees{'titles'} = {
                   'text' => 'title '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'sc',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -35,7 +36,6 @@ $result_trees{'titles'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'sc',
                   'source_info' => {
                     'line_nr' => 2
                   }
@@ -44,7 +44,8 @@ $result_trees{'titles'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -54,7 +55,6 @@ $result_trees{'titles'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 2
                   }
@@ -132,7 +132,8 @@ $result_trees{'titles'} = {
               'text' => 'title '
             },
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -142,7 +143,6 @@ $result_trees{'titles'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -151,7 +151,8 @@ $result_trees{'titles'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -161,7 +162,6 @@ $result_trees{'titles'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 5
               }

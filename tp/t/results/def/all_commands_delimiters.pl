@@ -38,7 +38,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -48,7 +49,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -68,7 +68,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -78,7 +79,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -225,7 +225,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -235,7 +236,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 2
                               }
@@ -259,7 +259,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'b',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -269,7 +270,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'b',
                               'source_info' => {
                                 'line_nr' => 2
                               }
@@ -322,7 +322,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -332,7 +333,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 2
                               }
@@ -402,7 +402,8 @@ $result_trees{'all_commands_delimiters'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -411,8 +412,7 @@ $result_trees{'all_commands_delimiters'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'var'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -649,7 +649,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -659,7 +660,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 6
                               }
@@ -683,7 +683,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'b',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -693,7 +694,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'b',
                               'source_info' => {
                                 'line_nr' => 6
                               }
@@ -746,7 +746,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -756,7 +757,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 6
                               }
@@ -977,7 +977,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -987,7 +988,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 9
                               }
@@ -1028,7 +1028,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1038,7 +1039,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 9
                               }
@@ -1221,7 +1221,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1231,7 +1232,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 12
                               }
@@ -1272,7 +1272,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1282,7 +1283,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 12
                               }
@@ -1392,7 +1392,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1402,7 +1403,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 13
                               }
@@ -1426,7 +1426,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'b',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1436,7 +1437,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'b',
                               'source_info' => {
                                 'line_nr' => 13
                               }
@@ -1489,7 +1489,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1499,7 +1500,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 13
                               }
@@ -1901,7 +1901,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1911,7 +1912,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 19
                               }
@@ -1985,7 +1985,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1995,7 +1996,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 20
                               }
@@ -2359,7 +2359,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -2369,7 +2370,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 24
                               }
@@ -2393,7 +2393,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'b',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -2403,7 +2404,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'b',
                               'source_info' => {
                                 'line_nr' => 24
                               }
@@ -2456,7 +2456,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -2466,7 +2467,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 24
                               }
@@ -2770,7 +2770,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -2780,7 +2781,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 28
                               }
@@ -2804,7 +2804,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'b',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -2814,7 +2815,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'b',
                               'source_info' => {
                                 'line_nr' => 28
                               }
@@ -2867,7 +2867,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -2877,7 +2878,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 28
                               }
@@ -3164,7 +3164,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -3174,7 +3175,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 32
                               }
@@ -3198,7 +3198,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'b',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -3208,7 +3209,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'b',
                               'source_info' => {
                                 'line_nr' => 32
                               }
@@ -3261,7 +3261,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -3271,7 +3272,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 32
                               }
@@ -3454,7 +3454,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -3464,7 +3465,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 35
                               }
@@ -3588,7 +3588,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -3598,7 +3599,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 36
                               }
@@ -3622,7 +3622,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'b',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -3632,7 +3633,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'b',
                               'source_info' => {
                                 'line_nr' => 36
                               }
@@ -3685,7 +3685,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -3695,7 +3696,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 36
                               }
@@ -4032,7 +4032,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -4042,7 +4043,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 40
                               }
@@ -4066,7 +4066,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'b',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -4076,7 +4077,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'b',
                               'source_info' => {
                                 'line_nr' => 40
                               }
@@ -4129,7 +4129,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -4139,7 +4140,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 40
                               }
@@ -4372,7 +4372,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -4382,7 +4383,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 43
                               }
@@ -4506,7 +4506,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -4516,7 +4517,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 44
                               }
@@ -4540,7 +4540,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'b',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -4550,7 +4551,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'b',
                               'source_info' => {
                                 'line_nr' => 44
                               }
@@ -4603,7 +4603,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -4613,7 +4614,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 44
                               }
@@ -4846,7 +4846,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -4856,7 +4857,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 47
                               }
@@ -5101,7 +5101,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -5111,7 +5112,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 50
                               }
@@ -5359,7 +5359,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -5369,7 +5370,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 53
                               }
@@ -5614,7 +5614,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -5624,7 +5625,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 56
                               }
@@ -5866,7 +5866,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -5876,7 +5877,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 59
                               }
@@ -6121,7 +6121,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -6131,7 +6132,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 62
                               }
@@ -6379,7 +6379,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -6389,7 +6390,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -6634,7 +6634,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -6644,7 +6645,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 68
                               }
@@ -6886,7 +6886,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -6896,7 +6897,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 71
                               }
@@ -7141,7 +7141,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -7151,7 +7152,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 74
                               }
@@ -7399,7 +7399,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -7409,7 +7410,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 77
                               }
@@ -7654,7 +7654,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -7664,7 +7665,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 80
                               }
@@ -7906,7 +7906,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -7916,7 +7917,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 83
                               }
@@ -8127,7 +8127,8 @@ $result_trees{'all_commands_delimiters'} = {
                               'text' => 'Command'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8137,7 +8138,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 86
                               }
@@ -8160,7 +8160,8 @@ $result_trees{'all_commands_delimiters'} = {
                               'text' => 'Window'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8170,7 +8171,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 86
                               }
@@ -8196,7 +8196,8 @@ $result_trees{'all_commands_delimiters'} = {
                               'text' => 'expose'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8206,7 +8207,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 86
                               }
@@ -8272,7 +8272,8 @@ $result_trees{'all_commands_delimiters'} = {
                               'text' => 'Window'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8281,8 +8282,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'code'
+                              ]
                             }
                           ],
                           'type' => 'bracketed_arg'
@@ -8318,7 +8318,8 @@ $result_trees{'all_commands_delimiters'} = {
                               'text' => 'Window'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8327,8 +8328,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'code'
+                              ]
                             }
                           ],
                           'type' => 'bracketed_arg'
@@ -8581,7 +8581,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8591,7 +8592,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 92
                               }
@@ -8611,7 +8611,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8621,7 +8622,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 92
                               }
@@ -8641,7 +8641,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8651,7 +8652,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 92
                               }
@@ -8671,7 +8671,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8681,7 +8682,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 92
                               }
@@ -8709,7 +8709,8 @@ $result_trees{'all_commands_delimiters'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -8718,8 +8719,7 @@ $result_trees{'all_commands_delimiters'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'var'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -8795,7 +8795,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8805,7 +8806,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 95
                               }
@@ -8825,7 +8825,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8835,7 +8836,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 95
                               }
@@ -8855,7 +8855,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8865,7 +8866,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 95
                               }
@@ -8885,7 +8885,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8895,7 +8896,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 95
                               }
@@ -8923,7 +8923,8 @@ $result_trees{'all_commands_delimiters'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -8932,8 +8933,7 @@ $result_trees{'all_commands_delimiters'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'code'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -9009,7 +9009,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9019,7 +9020,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 98
                               }
@@ -9039,7 +9039,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9049,7 +9050,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 98
                               }
@@ -9069,7 +9069,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9079,7 +9080,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 98
                               }
@@ -9099,7 +9099,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9109,7 +9110,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 98
                               }
@@ -9137,7 +9137,8 @@ $result_trees{'all_commands_delimiters'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -9146,8 +9147,7 @@ $result_trees{'all_commands_delimiters'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'var'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -9223,7 +9223,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9233,7 +9234,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 101
                               }
@@ -9253,7 +9253,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9263,7 +9264,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 101
                               }
@@ -9283,7 +9283,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9293,7 +9294,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 101
                               }
@@ -9313,7 +9313,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9323,7 +9324,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 101
                               }
@@ -9351,7 +9351,8 @@ $result_trees{'all_commands_delimiters'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -9360,8 +9361,7 @@ $result_trees{'all_commands_delimiters'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'code'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -9437,7 +9437,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9447,7 +9448,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 104
                               }
@@ -9467,7 +9467,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9477,7 +9478,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 104
                               }
@@ -9497,7 +9497,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9507,7 +9508,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 104
                               }
@@ -9527,7 +9527,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9537,7 +9538,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 104
                               }
@@ -9557,7 +9557,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9567,7 +9568,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 104
                               }
@@ -9595,7 +9595,8 @@ $result_trees{'all_commands_delimiters'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -9604,8 +9605,7 @@ $result_trees{'all_commands_delimiters'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'var'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -9681,7 +9681,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9691,7 +9692,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 107
                               }
@@ -9711,7 +9711,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9721,7 +9722,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 107
                               }
@@ -9741,7 +9741,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9751,7 +9752,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 107
                               }
@@ -9771,7 +9771,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9781,7 +9782,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 107
                               }
@@ -9801,7 +9801,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9811,7 +9812,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 107
                               }
@@ -9839,7 +9839,8 @@ $result_trees{'all_commands_delimiters'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -9848,8 +9849,7 @@ $result_trees{'all_commands_delimiters'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'code'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -9925,7 +9925,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9935,7 +9936,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 110
                               }
@@ -9955,7 +9955,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9965,7 +9966,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 110
                               }
@@ -9985,7 +9985,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9995,7 +9996,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 110
                               }
@@ -10015,7 +10015,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10025,7 +10026,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 110
                               }
@@ -10045,7 +10045,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10055,7 +10056,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 110
                               }
@@ -10083,7 +10083,8 @@ $result_trees{'all_commands_delimiters'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -10092,8 +10093,7 @@ $result_trees{'all_commands_delimiters'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'var'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -10169,7 +10169,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10179,7 +10180,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 113
                               }
@@ -10199,7 +10199,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10209,7 +10210,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 113
                               }
@@ -10229,7 +10229,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10239,7 +10240,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 113
                               }
@@ -10259,7 +10259,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10269,7 +10270,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 113
                               }
@@ -10289,7 +10289,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10299,7 +10300,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 113
                               }
@@ -10327,7 +10327,8 @@ $result_trees{'all_commands_delimiters'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -10336,8 +10337,7 @@ $result_trees{'all_commands_delimiters'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'code'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -10413,7 +10413,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10423,7 +10424,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 116
                               }
@@ -10443,7 +10443,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10453,7 +10454,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 116
                               }
@@ -10473,7 +10473,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10483,7 +10484,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 116
                               }
@@ -10503,7 +10503,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10513,7 +10514,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 116
                               }
@@ -10541,7 +10541,8 @@ $result_trees{'all_commands_delimiters'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -10550,8 +10551,7 @@ $result_trees{'all_commands_delimiters'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'var'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -10627,7 +10627,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10637,7 +10638,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 119
                               }
@@ -10657,7 +10657,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10667,7 +10668,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 119
                               }
@@ -10687,7 +10687,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10697,7 +10698,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 119
                               }
@@ -10717,7 +10717,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10727,7 +10728,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 119
                               }
@@ -10755,7 +10755,8 @@ $result_trees{'all_commands_delimiters'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -10764,8 +10765,7 @@ $result_trees{'all_commands_delimiters'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'code'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -10841,7 +10841,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10851,7 +10852,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 122
                               }
@@ -10871,7 +10871,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10881,7 +10882,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 122
                               }
@@ -10901,7 +10901,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10911,7 +10912,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 122
                               }
@@ -10931,7 +10931,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10941,7 +10942,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 122
                               }
@@ -10961,7 +10961,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10971,7 +10972,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 122
                               }
@@ -10999,7 +10999,8 @@ $result_trees{'all_commands_delimiters'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -11008,8 +11009,7 @@ $result_trees{'all_commands_delimiters'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'var'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -11085,7 +11085,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11095,7 +11096,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 125
                               }
@@ -11115,7 +11115,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11125,7 +11126,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 125
                               }
@@ -11145,7 +11145,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11155,7 +11156,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 125
                               }
@@ -11175,7 +11175,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11185,7 +11186,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 125
                               }
@@ -11205,7 +11205,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11215,7 +11216,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 125
                               }
@@ -11243,7 +11243,8 @@ $result_trees{'all_commands_delimiters'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -11252,8 +11253,7 @@ $result_trees{'all_commands_delimiters'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'code'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -11329,7 +11329,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11339,7 +11340,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 128
                               }
@@ -11359,7 +11359,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11369,7 +11370,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 128
                               }
@@ -11389,7 +11389,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11399,7 +11400,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 128
                               }
@@ -11419,7 +11419,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11429,7 +11430,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 128
                               }
@@ -11449,7 +11449,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11459,7 +11460,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 128
                               }
@@ -11479,7 +11479,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11489,7 +11490,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 128
                               }
@@ -11519,7 +11519,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11528,8 +11529,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'var'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -11545,7 +11545,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11554,8 +11555,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'var'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -11572,7 +11572,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11581,8 +11582,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'var'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -11598,7 +11598,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11607,8 +11608,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'var'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -11686,7 +11686,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11696,7 +11697,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 131
                               }
@@ -11716,7 +11716,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11726,7 +11727,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 131
                               }
@@ -11746,7 +11746,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'option',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11756,7 +11757,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'option',
                               'source_info' => {
                                 'line_nr' => 131
                               }
@@ -11776,7 +11776,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11786,7 +11787,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 131
                               }
@@ -11806,7 +11806,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11816,7 +11817,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 131
                               }
@@ -11836,7 +11836,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11846,7 +11847,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 131
                               }
@@ -11876,7 +11876,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11885,8 +11886,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'code'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -11902,7 +11902,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11911,8 +11912,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'code'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -11929,7 +11929,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11938,8 +11939,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'code'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -11955,7 +11955,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11964,8 +11965,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'code'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -12043,7 +12043,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12053,7 +12054,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 134
                               }
@@ -12073,7 +12073,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12083,7 +12084,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 134
                               }
@@ -12103,7 +12103,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12113,7 +12114,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 134
                               }
@@ -12133,7 +12133,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12143,7 +12144,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 134
                               }
@@ -12163,7 +12163,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12173,7 +12174,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 134
                               }
@@ -12203,7 +12203,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12212,8 +12213,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'var'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -12229,7 +12229,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12238,8 +12239,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'var'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -12256,7 +12256,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12265,8 +12266,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'var'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -12282,7 +12282,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12291,8 +12292,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'var'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -12370,7 +12370,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12380,7 +12381,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 137
                               }
@@ -12400,7 +12400,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12410,7 +12411,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 137
                               }
@@ -12430,7 +12430,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12440,7 +12441,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 137
                               }
@@ -12460,7 +12460,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12470,7 +12471,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 137
                               }
@@ -12490,7 +12490,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12500,7 +12501,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 137
                               }
@@ -12530,7 +12530,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12539,8 +12540,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'code'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -12556,7 +12556,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12565,8 +12566,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'code'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -12583,7 +12583,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12592,8 +12593,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'code'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -12609,7 +12609,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12618,8 +12619,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'code'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -12697,7 +12697,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12707,7 +12708,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 140
                               }
@@ -12727,7 +12727,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12737,7 +12738,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 140
                               }
@@ -12757,7 +12757,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12767,7 +12768,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 140
                               }
@@ -12787,7 +12787,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12797,7 +12798,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 140
                               }
@@ -12817,7 +12817,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12827,7 +12828,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 140
                               }
@@ -12847,7 +12847,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12857,7 +12858,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 140
                               }
@@ -12887,7 +12887,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12896,8 +12897,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'var'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -12913,7 +12913,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12922,8 +12923,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'var'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -12940,7 +12940,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12949,8 +12950,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'var'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -12966,7 +12966,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12975,8 +12976,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'var'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -13054,7 +13054,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13064,7 +13065,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 143
                               }
@@ -13084,7 +13084,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13094,7 +13095,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 143
                               }
@@ -13114,7 +13114,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13124,7 +13125,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 143
                               }
@@ -13144,7 +13144,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13154,7 +13155,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 143
                               }
@@ -13174,7 +13174,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13184,7 +13185,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 143
                               }
@@ -13204,7 +13204,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13214,7 +13215,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 143
                               }
@@ -13244,7 +13244,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13253,8 +13254,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'code'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -13270,7 +13270,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13279,8 +13280,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'code'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -13297,7 +13297,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13306,8 +13307,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'code'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -13323,7 +13323,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13332,8 +13333,7 @@ $result_trees{'all_commands_delimiters'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'code'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'
@@ -13471,7 +13471,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13481,7 +13482,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 146
                               }
@@ -13501,7 +13501,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13511,7 +13512,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 146
                               }
@@ -13531,7 +13531,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13541,7 +13542,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 146
                               }
@@ -13561,7 +13561,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13571,7 +13572,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 146
                               }
@@ -13735,7 +13735,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13745,7 +13746,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 149
                               }
@@ -13765,7 +13765,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13775,7 +13776,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 149
                               }
@@ -13795,7 +13795,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13805,7 +13806,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 149
                               }
@@ -13825,7 +13825,8 @@ $result_trees{'all_commands_delimiters'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13835,7 +13836,6 @@ $result_trees{'all_commands_delimiters'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 149
                               }

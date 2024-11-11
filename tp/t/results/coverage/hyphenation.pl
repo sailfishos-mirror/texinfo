@@ -15,7 +15,8 @@ $result_trees{'hyphenation'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'hyphenation',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -30,7 +31,6 @@ $result_trees{'hyphenation'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'hyphenation',
           'extra' => {},
           'source_info' => {
             'line_nr' => 2

@@ -135,7 +135,8 @@ $result_trees{'nodedescription'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'emph',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -145,7 +146,6 @@ $result_trees{'nodedescription'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 9
                   }

@@ -15,7 +15,8 @@ $result_trees{'verb_and_char_end_of_line_not_closed'} = {
               'text' => 'verb, not  closed '
             },
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -37,7 +38,6 @@ $result_trees{'verb_and_char_end_of_line_not_closed'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => '*'
               },

@@ -75,7 +75,8 @@ $result_trees{'seealso_duplicate'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'command',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -85,7 +86,6 @@ $result_trees{'seealso_duplicate'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'command',
                   'source_info' => {
                     'line_nr' => 4
                   }
@@ -155,7 +155,8 @@ $result_trees{'seealso_duplicate'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'command',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -165,7 +166,6 @@ $result_trees{'seealso_duplicate'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'command',
                   'source_info' => {
                     'line_nr' => 5
                   }
@@ -187,14 +187,16 @@ $result_trees{'seealso_duplicate'} = {
               2
             ],
             'seealso' => {
-              'args' => [
+              'cmdname' => 'seealso',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'POSIX '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'command',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -204,7 +206,6 @@ $result_trees{'seealso_duplicate'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'command',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -213,7 +214,6 @@ $result_trees{'seealso_duplicate'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'seealso',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -305,7 +305,8 @@ $result_trees{'seealso_duplicate'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'command',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -315,7 +316,6 @@ $result_trees{'seealso_duplicate'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'command',
                   'source_info' => {
                     'line_nr' => 11
                   }
@@ -337,7 +337,8 @@ $result_trees{'seealso_duplicate'} = {
               3
             ],
             'seeentry' => {
-              'args' => [
+              'cmdname' => 'seeentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -347,7 +348,6 @@ $result_trees{'seealso_duplicate'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'seeentry',
               'source_info' => {
                 'line_nr' => 11
               }

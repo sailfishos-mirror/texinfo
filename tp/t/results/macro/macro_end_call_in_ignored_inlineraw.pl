@@ -91,7 +91,8 @@ $result_trees{'macro_end_call_in_ignored_inlineraw'} = {
               'text' => 'Para '
             },
             {
-              'args' => [
+              'cmdname' => 'inlineraw',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -119,7 +120,6 @@ still ignored',
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlineraw',
               'extra' => {
                 'format' => 'tex'
               },

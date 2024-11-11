@@ -51,11 +51,13 @@ $result_trees{'definfoenclose_nestings'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'phoo',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -65,7 +67,6 @@ $result_trees{'definfoenclose_nestings'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'phoo',
                       'extra' => {
                         'begin' => '//',
                         'end' => '\\'
@@ -82,7 +83,6 @@ $result_trees{'definfoenclose_nestings'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -102,11 +102,13 @@ $result_trees{'definfoenclose_nestings'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'phoo',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -116,7 +118,6 @@ $result_trees{'definfoenclose_nestings'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -125,7 +126,6 @@ $result_trees{'definfoenclose_nestings'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'phoo',
               'extra' => {
                 'begin' => '//',
                 'end' => '\\'
@@ -153,7 +153,8 @@ $result_trees{'definfoenclose_nestings'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'phoo',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -164,7 +165,6 @@ $result_trees{'definfoenclose_nestings'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'phoo',
               'extra' => {
                 'begin' => '//',
                 'end' => '\\'

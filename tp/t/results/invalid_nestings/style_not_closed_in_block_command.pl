@@ -29,7 +29,8 @@ $result_trees{'style_not_closed_in_block_command'} = {
                   'text' => 'cartouche '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -40,7 +41,6 @@ $result_trees{'style_not_closed_in_block_command'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 2
                   }

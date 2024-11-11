@@ -12,14 +12,16 @@ $result_trees{'nested'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'b',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'in b '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'verb',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -30,7 +32,6 @@ $result_trees{'nested'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'verb',
                       'info' => {
                         'delimiter' => '/'
                       },
@@ -45,7 +46,6 @@ $result_trees{'nested'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'b',
               'source_info' => {
                 'line_nr' => 1
               }

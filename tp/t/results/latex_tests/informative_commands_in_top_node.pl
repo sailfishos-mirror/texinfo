@@ -142,7 +142,8 @@ $result_trees{'informative_commands_in_top_node'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -152,7 +153,6 @@ $result_trees{'informative_commands_in_top_node'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 6
                   }

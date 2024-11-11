@@ -15,14 +15,16 @@ $result_trees{'nested'} = {
               'text' => 'type the characters '
             },
             {
-              'args' => [
+              'cmdname' => 'kbd',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'l o g o u t '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'key',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -32,7 +34,6 @@ $result_trees{'nested'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'key',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -41,7 +42,6 @@ $result_trees{'nested'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'kbd',
               'source_info' => {
                 'line_nr' => 1
               }

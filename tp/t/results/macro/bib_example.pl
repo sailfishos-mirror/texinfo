@@ -2785,7 +2785,8 @@ $result_trees{'bib_example'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'value',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -2794,8 +2795,7 @@ $result_trees{'bib_example'} = {
                                 ],
                                 'type' => 'brace_container'
                               }
-                            ],
-                            'cmdname' => 'value'
+                            ]
                           },
                           'line' => 'References',
                           'sourcemark_type' => 'value_expansion',
@@ -3169,7 +3169,8 @@ $result_trees{'bib_example'} = {
               'text' => '(See item [LaTeX2e] in '
             },
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3193,7 +3194,8 @@ $result_trees{'bib_example'} = {
                         {
                           'counter' => 2,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'value',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -3202,8 +3204,7 @@ $result_trees{'bib_example'} = {
                                 ],
                                 'type' => 'brace_container'
                               }
-                            ],
-                            'cmdname' => 'value'
+                            ]
                           },
                           'line' => 'References',
                           'sourcemark_type' => 'value_expansion',
@@ -3249,7 +3250,6 @@ $result_trees{'bib_example'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'bib-example.texi',
                 'line_nr' => 43,
@@ -3401,7 +3401,8 @@ $result_trees{'bib_example'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -3410,8 +3411,7 @@ $result_trees{'bib_example'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => 'References',
               'position' => 1,
@@ -3456,12 +3456,12 @@ $result_trees{'bib_example'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'w',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'w',
                   'source_info' => {
                     'file_name' => 'bib-example.texi',
                     'line_nr' => 49
@@ -3640,7 +3640,8 @@ $result_trees{'bib_example'} = {
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'anchor',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -3650,7 +3651,6 @@ $result_trees{'bib_example'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'anchor',
                   'extra' => {
                     'is_target' => 1,
                     'normalized' => 'LaTeX2e'
@@ -3915,7 +3915,7 @@ $result_trees{'bib_example'} = {
 };
 $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[0];
 $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'bib_example'} = '\\input texinfo   @c -*-texinfo-*-

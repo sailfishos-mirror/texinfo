@@ -73,7 +73,8 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse_else'} = {
               'text' => 'Toto '
             },
             {
-              'args' => [
+              'cmdname' => 'inlinefmtifelse',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -132,7 +133,6 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse_else'} = {
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlinefmtifelse',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'html'

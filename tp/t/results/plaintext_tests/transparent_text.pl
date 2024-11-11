@@ -15,7 +15,8 @@ $result_trees{'transparent_text'} = {
               'text' => 'AA'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -30,7 +31,6 @@ $result_trees{'transparent_text'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 1
@@ -40,7 +40,8 @@ $result_trees{'transparent_text'} = {
               'text' => '). B ('
             },
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -50,7 +51,6 @@ $result_trees{'transparent_text'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'line_nr' => 1
               }

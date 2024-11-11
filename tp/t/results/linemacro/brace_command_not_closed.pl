@@ -111,7 +111,8 @@ $result_trees{'brace_command_not_closed'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -127,7 +128,6 @@ $result_trees{'brace_command_not_closed'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 6,
                 'macro' => 'mycommand'

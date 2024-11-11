@@ -149,7 +149,8 @@ $result_trees{'same_seealso_seeentry'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seealso',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -159,7 +160,6 @@ $result_trees{'same_seealso_seeentry'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seealso',
                   'source_info' => {
                     'line_nr' => 7
                   }
@@ -206,7 +206,8 @@ $result_trees{'same_seealso_seeentry'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seealso',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -216,7 +217,6 @@ $result_trees{'same_seealso_seeentry'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seealso',
                   'source_info' => {
                     'line_nr' => 8
                   }
@@ -268,7 +268,8 @@ $result_trees{'same_seealso_seeentry'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seeentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -278,7 +279,6 @@ $result_trees{'same_seealso_seeentry'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seeentry',
                   'source_info' => {
                     'line_nr' => 10
                   }
@@ -325,7 +325,8 @@ $result_trees{'same_seealso_seeentry'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seeentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -335,7 +336,6 @@ $result_trees{'same_seealso_seeentry'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seeentry',
                   'source_info' => {
                     'line_nr' => 11
                   }
@@ -387,7 +387,8 @@ $result_trees{'same_seealso_seeentry'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seealso',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -397,7 +398,6 @@ $result_trees{'same_seealso_seeentry'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seealso',
                   'source_info' => {
                     'line_nr' => 13
                   }
@@ -444,7 +444,8 @@ $result_trees{'same_seealso_seeentry'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seeentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -454,7 +455,6 @@ $result_trees{'same_seealso_seeentry'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seeentry',
                   'source_info' => {
                     'line_nr' => 14
                   }

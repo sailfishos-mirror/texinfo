@@ -32,11 +32,13 @@ $result_trees{'ref_in_ref'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'ref',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -54,7 +56,6 @@ $result_trees{'ref_in_ref'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'ref',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -71,7 +72,6 @@ $result_trees{'ref_in_ref'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -96,8 +96,8 @@ $result_trees{'ref_in_ref'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ref_in_ref'}{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_ref'}{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_ref'}{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_ref'}{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_ref'}{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_ref'}{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_ref'}{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_ref'}{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'ref_in_ref'} = '@node first
 @ref{@ref{first}}';

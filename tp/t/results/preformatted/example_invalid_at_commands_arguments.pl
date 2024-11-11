@@ -14,7 +14,8 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'ref',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -55,7 +56,6 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'ref',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -69,7 +69,8 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'anchor',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -79,7 +80,6 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'anchor',
                   'extra' => {
                     'is_target' => 1,
                     'normalized' => 'an-anchor'
@@ -189,7 +189,7 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'example_invalid_at_commands_arguments'} = '@example @ref{a,b,c,d} fa, @anchor{an anchor} on example line, @center in center
 @end example

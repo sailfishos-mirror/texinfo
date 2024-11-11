@@ -48,14 +48,16 @@ $result_trees{'accents_in_var_enable_encoding'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'var',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'AA'
                     },
                     {
-                      'args' => [
+                      'cmdname' => ',',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -65,7 +67,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => ',',
                       'source_info' => {
                         'line_nr' => 3
                       }
@@ -74,7 +75,8 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'u',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -84,7 +86,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'u',
                       'source_info' => {
                         'line_nr' => 3
                       }
@@ -93,7 +94,8 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => '`',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -103,7 +105,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '`',
                       'source_info' => {
                         'line_nr' => 3
                       }
@@ -112,7 +113,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'var',
               'source_info' => {
                 'line_nr' => 3
               }

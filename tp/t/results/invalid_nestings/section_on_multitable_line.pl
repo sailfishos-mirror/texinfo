@@ -60,7 +60,8 @@ $result_trees{'section_on_multitable_line'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -70,7 +71,6 @@ $result_trees{'section_on_multitable_line'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 3
                   }

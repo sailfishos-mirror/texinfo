@@ -12,7 +12,8 @@ $result_trees{'code_not_closed'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'code_not_closed'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 1
               }

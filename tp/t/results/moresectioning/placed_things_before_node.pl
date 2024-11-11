@@ -13,7 +13,8 @@ $result_trees{'placed_things_before_node'} = {
           'type' => 'preamble_before_content'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -23,7 +24,6 @@ $result_trees{'placed_things_before_node'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'An-anchor'
@@ -49,7 +49,8 @@ $result_trees{'placed_things_before_node'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -67,7 +68,6 @@ $result_trees{'placed_things_before_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -91,7 +91,8 @@ $result_trees{'placed_things_before_node'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -109,7 +110,6 @@ $result_trees{'placed_things_before_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 7
               }
@@ -129,7 +129,8 @@ $result_trees{'placed_things_before_node'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -147,7 +148,8 @@ $result_trees{'placed_things_before_node'} = {
                       'type' => 'empty_line'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'anchor',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -157,7 +159,6 @@ $result_trees{'placed_things_before_node'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'anchor',
                       'extra' => {
                         'is_target' => 1,
                         'normalized' => 'Anchor-in-footnote'
@@ -183,7 +184,8 @@ $result_trees{'placed_things_before_node'} = {
 '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'ref',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -201,7 +203,6 @@ $result_trees{'placed_things_before_node'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'ref',
                           'source_info' => {
                             'line_nr' => 14
                           }
@@ -217,7 +218,6 @@ $result_trees{'placed_things_before_node'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 9
@@ -326,7 +326,8 @@ $result_trees{'placed_things_before_node'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -344,7 +345,6 @@ $result_trees{'placed_things_before_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 22
               }
@@ -632,7 +632,8 @@ $result_trees{'placed_things_before_node'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -650,7 +651,6 @@ $result_trees{'placed_things_before_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 37
               }
@@ -674,7 +674,8 @@ $result_trees{'placed_things_before_node'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -692,7 +693,6 @@ $result_trees{'placed_things_before_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 40
               }
@@ -720,13 +720,13 @@ $result_trees{'placed_things_before_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[14]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[0]{'contents'}[14]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'placed_things_before_node'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'placed_things_before_node'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'placed_things_before_node'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'placed_things_before_node'} = '@anchor{An anchor}
 

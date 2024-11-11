@@ -14,12 +14,12 @@ $result_trees{'w_argument'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'w',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'w',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -46,7 +46,8 @@ $result_trees{'w_argument'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'option',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -56,7 +57,6 @@ $result_trees{'w_argument'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'option',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -86,7 +86,8 @@ $result_trees{'w_argument'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'option',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -96,7 +97,6 @@ $result_trees{'w_argument'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'option',
                       'source_info' => {
                         'line_nr' => 3
                       }

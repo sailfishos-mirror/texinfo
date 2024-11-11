@@ -190,7 +190,8 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                               'text' => 'a'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -200,7 +201,6 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 9,
                                 'macro' => 'mylinecommand'
@@ -347,7 +347,8 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                           'text' => 'a'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -356,8 +357,7 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'code'
+                          ]
                         },
                         {
                           'text' => 'd'

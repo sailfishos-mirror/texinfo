@@ -29,7 +29,8 @@ $result_trees{'documentdescription'} = {
                   'text' => 'in '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -39,7 +40,6 @@ $result_trees{'documentdescription'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 2
                   }
@@ -48,26 +48,12 @@ $result_trees{'documentdescription'} = {
                   'text' => ' --- '
                 },
                 {
-                  'args' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
                   'cmdname' => 'bullet',
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'args' => [
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'enddots',
                   'source_info' => {
                     'line_nr' => 2
                   }
@@ -76,7 +62,22 @@ $result_trees{'documentdescription'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'enddots',
+                  'contents' => [
+                    {
+                      'type' => 'brace_container'
+                    }
+                  ],
+                  'source_info' => {
+                    'line_nr' => 2
+                  }
+                },
+                {
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => 'verb',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -87,7 +88,6 @@ $result_trees{'documentdescription'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'verb',
                   'info' => {
                     'delimiter' => ':'
                   },
@@ -99,12 +99,12 @@ $result_trees{'documentdescription'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'aa',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'aa',
                   'source_info' => {
                     'line_nr' => 2
                   }
@@ -113,11 +113,13 @@ $result_trees{'documentdescription'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'dotless',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -127,7 +129,6 @@ $result_trees{'documentdescription'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'dotless',
                           'source_info' => {
                             'line_nr' => 2
                           }
@@ -136,7 +137,6 @@ $result_trees{'documentdescription'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'line_nr' => 2
                   }
@@ -145,11 +145,13 @@ $result_trees{'documentdescription'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'email',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -159,7 +161,6 @@ $result_trees{'documentdescription'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'code',
                           'source_info' => {
                             'line_nr' => 2
                           }
@@ -171,7 +172,6 @@ $result_trees{'documentdescription'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'email',
                   'source_info' => {
                     'line_nr' => 2
                   }

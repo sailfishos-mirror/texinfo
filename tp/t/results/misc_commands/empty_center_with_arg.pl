@@ -14,12 +14,12 @@ $result_trees{'empty_center_with_arg'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'w',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'w',
                   'source_info' => {
                     'line_nr' => 1
                   }

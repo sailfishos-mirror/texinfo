@@ -110,7 +110,8 @@ $result_trees{'two_footnotes_in_nodes_separate_no_header'} = {
               'text' => 'A'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -139,7 +140,6 @@ $result_trees{'two_footnotes_in_nodes_separate_no_header'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 5
@@ -163,7 +163,8 @@ $result_trees{'two_footnotes_in_nodes_separate_no_header'} = {
               'text' => 'B'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -192,7 +193,6 @@ $result_trees{'two_footnotes_in_nodes_separate_no_header'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 9
@@ -382,7 +382,8 @@ $result_trees{'two_footnotes_in_nodes_separate_no_header'} = {
               'text' => 'C'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -411,7 +412,6 @@ $result_trees{'two_footnotes_in_nodes_separate_no_header'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 20
@@ -435,7 +435,8 @@ $result_trees{'two_footnotes_in_nodes_separate_no_header'} = {
               'text' => 'D'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -464,7 +465,6 @@ $result_trees{'two_footnotes_in_nodes_separate_no_header'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 24

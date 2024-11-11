@@ -139,7 +139,8 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'sortas',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -149,7 +150,6 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'sortas',
                   'source_info' => {
                     'line_nr' => 7
                   }
@@ -171,7 +171,8 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'sortas',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -181,7 +182,6 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'sortas',
                       'source_info' => {
                         'line_nr' => 7
                       }
@@ -255,7 +255,8 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'sortas',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -265,7 +266,6 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'sortas',
                       'source_info' => {
                         'line_nr' => 8
                       }
@@ -347,7 +347,8 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                           'text' => 'ccc'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'sortas',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -357,7 +358,6 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'sortas',
                           'source_info' => {
                             'line_nr' => 9
                           }

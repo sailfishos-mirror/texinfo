@@ -12,12 +12,12 @@ $result_trees{'modified_translation'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -75,12 +75,12 @@ $result_trees{'modified_translation'} = {
               'text' => 'fr '
             },
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -138,12 +138,12 @@ $result_trees{'modified_translation'} = {
               'text' => 'pt '
             },
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 9
               }

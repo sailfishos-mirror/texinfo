@@ -138,7 +138,8 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'sortas',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -148,7 +149,6 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'sortas',
                   'source_info' => {
                     'line_nr' => 7
                   }
@@ -164,7 +164,8 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seeentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -174,7 +175,6 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seeentry',
                   'source_info' => {
                     'line_nr' => 7
                   }
@@ -191,7 +191,8 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seealso',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -201,7 +202,6 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seealso',
                   'source_info' => {
                     'line_nr' => 7
                   }
@@ -249,7 +249,8 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'sortas',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -259,7 +260,6 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'sortas',
                   'source_info' => {
                     'line_nr' => 8
                   }
@@ -312,7 +312,8 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seeentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -322,7 +323,6 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seeentry',
                   'source_info' => {
                     'line_nr' => 9
                   }

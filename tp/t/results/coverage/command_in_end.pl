@@ -34,7 +34,8 @@ $result_trees{'command_in_end'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -44,7 +45,6 @@ $result_trees{'command_in_end'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'code',
                           'source_info' => {
                             'line_nr' => 3
                           }
@@ -105,7 +105,8 @@ $result_trees{'command_in_end'} = {
                               'text' => 'q'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -115,7 +116,6 @@ $result_trees{'command_in_end'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 7
                               }
@@ -179,7 +179,8 @@ $result_trees{'command_in_end'} = {
                                   'text' => 'qu'
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'code',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -189,7 +190,6 @@ $result_trees{'command_in_end'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => 'code',
                                   'source_info' => {
                                     'line_nr' => 11
                                   }
@@ -253,7 +253,8 @@ $result_trees{'command_in_end'} = {
                                       'text' => 'quot'
                                     },
                                     {
-                                      'args' => [
+                                      'cmdname' => 'asis',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -263,7 +264,6 @@ $result_trees{'command_in_end'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'asis',
                                       'source_info' => {
                                         'line_nr' => 15
                                       }
@@ -333,12 +333,12 @@ $result_trees{'command_in_end'} = {
                                       'text' => 'q'
                                     },
                                     {
-                                      'args' => [
+                                      'cmdname' => 'asis',
+                                      'contents' => [
                                         {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'asis',
                                       'source_info' => {
                                         'line_nr' => 19
                                       }
@@ -410,12 +410,12 @@ $result_trees{'command_in_end'} = {
                                       'text' => 'qu'
                                     },
                                     {
-                                      'args' => [
+                                      'cmdname' => 'asis',
+                                      'contents' => [
                                         {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'asis',
                                       'source_info' => {
                                         'line_nr' => 23
                                       }
@@ -487,12 +487,12 @@ $result_trees{'command_in_end'} = {
                                       'text' => 'quot'
                                     },
                                     {
-                                      'args' => [
+                                      'cmdname' => 'asis',
+                                      'contents' => [
                                         {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'asis',
                                       'source_info' => {
                                         'line_nr' => 27
                                       }

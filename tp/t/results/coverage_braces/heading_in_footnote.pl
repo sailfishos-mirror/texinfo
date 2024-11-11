@@ -15,7 +15,8 @@ $result_trees{'heading_in_footnote'} = {
               'text' => 'T'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -103,7 +104,6 @@ $result_trees{'heading_in_footnote'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {

@@ -125,7 +125,8 @@ $result_trees{'empty_line_in_command_in_expanded_not_expanded'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'anchor',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -144,7 +145,6 @@ $result_trees{'empty_line_in_command_in_expanded_not_expanded'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'anchor',
                   'extra' => {
                     'is_target' => 1,
                     'normalized' => 'ha-hb'
@@ -163,7 +163,8 @@ $result_trees{'empty_line_in_command_in_expanded_not_expanded'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -182,7 +183,6 @@ $result_trees{'empty_line_in_command_in_expanded_not_expanded'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 17
                   }

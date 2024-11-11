@@ -12,7 +12,8 @@ $result_trees{'test_w'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -26,7 +27,6 @@ $result_trees{'test_w'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -49,7 +49,8 @@ $result_trees{'test_w'} = {
               'text' => 'a a a a a a a a a a a a a a a a a a a a a a a a a a a a  '
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -59,7 +60,6 @@ $result_trees{'test_w'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -84,12 +84,12 @@ $result_trees{'test_w'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 7
               }
@@ -109,7 +109,8 @@ $result_trees{'test_w'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -123,7 +124,6 @@ $result_trees{'test_w'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -146,12 +146,12 @@ $result_trees{'test_w'} = {
               'text' => 'AA'
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 12
               }
@@ -174,7 +174,8 @@ $result_trees{'test_w'} = {
               'text' => 'FF'
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -184,7 +185,6 @@ $result_trees{'test_w'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 14
               }
@@ -207,7 +207,8 @@ $result_trees{'test_w'} = {
               'text' => 'aa'
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -217,7 +218,6 @@ $result_trees{'test_w'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 16
               }
@@ -240,7 +240,8 @@ $result_trees{'test_w'} = {
               'text' => 'aa2'
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -250,7 +251,6 @@ $result_trees{'test_w'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 18
               }
@@ -278,7 +278,8 @@ $result_trees{'test_w'} = {
               'text' => 'aa3 '
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -288,7 +289,6 @@ $result_trees{'test_w'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 21
               }
@@ -316,7 +316,8 @@ $result_trees{'test_w'} = {
               'text' => 'aa4 '
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -326,7 +327,6 @@ $result_trees{'test_w'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 24
               }
@@ -349,12 +349,12 @@ $result_trees{'test_w'} = {
               'text' => 'aa5 '
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 26
               }
@@ -377,12 +377,12 @@ $result_trees{'test_w'} = {
               'text' => 'aa6 '
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 28
               }
@@ -405,12 +405,12 @@ $result_trees{'test_w'} = {
               'text' => 'aa6'
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 30
               }
@@ -433,7 +433,8 @@ $result_trees{'test_w'} = {
               'text' => 'aaf '
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -443,7 +444,6 @@ $result_trees{'test_w'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 32
               }
@@ -466,23 +466,25 @@ $result_trees{'test_w'} = {
               'text' => 'begin and end quotations: '
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 't',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '`'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'w',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'w',
                               'source_info' => {
                                 'line_nr' => 34
                               }
@@ -491,12 +493,12 @@ $result_trees{'test_w'} = {
                               'text' => '`'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'dots',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'dots',
                               'source_info' => {
                                 'line_nr' => 34
                               }
@@ -505,12 +507,12 @@ $result_trees{'test_w'} = {
                               'text' => '\''
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'w',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'w',
                               'source_info' => {
                                 'line_nr' => 34
                               }
@@ -522,7 +524,6 @@ $result_trees{'test_w'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 't',
                       'source_info' => {
                         'line_nr' => 34
                       }
@@ -531,7 +532,6 @@ $result_trees{'test_w'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 34
               }

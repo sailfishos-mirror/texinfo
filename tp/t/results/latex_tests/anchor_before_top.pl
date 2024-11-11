@@ -23,7 +23,8 @@ $result_trees{'anchor_before_top'} = {
           'type' => 'preamble_before_content'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -33,7 +34,6 @@ $result_trees{'anchor_before_top'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'a-before-Top'
@@ -179,7 +179,8 @@ $result_trees{'anchor_before_top'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'pxref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -197,7 +198,6 @@ $result_trees{'anchor_before_top'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'pxref',
               'source_info' => {
                 'line_nr' => 10
               }
@@ -225,7 +225,7 @@ $result_trees{'anchor_before_top'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'anchor_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'anchor_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'anchor_before_top'} = '
 @anchor{a before Top}

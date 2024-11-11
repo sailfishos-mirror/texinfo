@@ -114,7 +114,8 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
               'text' => 'There is some text '
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -128,7 +129,8 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'value',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -137,8 +139,7 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
                                 ],
                                 'type' => 'brace_container'
                               }
-                            ],
-                            'cmdname' => 'value'
+                            ]
                           },
                           'line' => ',.',
                           'position' => 3,
@@ -157,14 +158,14 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
                   ],
                   'type' => 'brace_container'
                 }
-              ],
-              'cmdname' => 'asis'
+              ]
             },
             {
               'text' => ' and after'
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -173,8 +174,7 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
                   ],
                   'type' => 'brace_container'
                 }
-              ],
-              'cmdname' => 'asis'
+              ]
             },
             {
               'text' => '

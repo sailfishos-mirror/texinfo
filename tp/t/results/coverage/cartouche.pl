@@ -77,7 +77,8 @@ $result_trees{'cartouche'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'emph',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -87,7 +88,6 @@ $result_trees{'cartouche'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 5
                   }

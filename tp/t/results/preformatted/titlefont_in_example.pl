@@ -24,7 +24,8 @@ $result_trees{'titlefont_in_example'} = {
           'cmdname' => 'example',
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'titlefont',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -34,7 +35,6 @@ $result_trees{'titlefont_in_example'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'titlefont',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 2

@@ -12,7 +12,8 @@ $result_trees{'code_commands_and_punctuation'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'code_commands_and_punctuation'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -31,7 +31,8 @@ $result_trees{'code_commands_and_punctuation'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -41,7 +42,6 @@ $result_trees{'code_commands_and_punctuation'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'source_info' => {
                 'line_nr' => 1
               }

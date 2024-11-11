@@ -42,7 +42,8 @@ $result_trees{'heading_in_quotation'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'emph',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -52,7 +53,6 @@ $result_trees{'heading_in_quotation'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'emph',
                       'source_info' => {
                         'line_nr' => 3
                       }

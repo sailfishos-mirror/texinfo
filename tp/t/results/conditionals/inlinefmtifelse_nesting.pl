@@ -12,7 +12,8 @@ $result_trees{'inlinefmtifelse_nesting'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmtifelse',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -33,7 +34,8 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'emph',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -43,7 +45,6 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'emph',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -57,7 +58,6 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlinefmtifelse',
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'info'

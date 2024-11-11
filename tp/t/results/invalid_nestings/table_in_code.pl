@@ -12,7 +12,8 @@ $result_trees{'table_in_code'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -27,7 +28,6 @@ $result_trees{'table_in_code'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 1
               }

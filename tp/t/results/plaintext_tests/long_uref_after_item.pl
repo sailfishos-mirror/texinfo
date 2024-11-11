@@ -42,7 +42,8 @@ $result_trees{'long_uref_after_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'uref',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -52,7 +53,6 @@ $result_trees{'long_uref_after_item'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'uref',
                       'source_info' => {
                         'line_nr' => 3
                       }

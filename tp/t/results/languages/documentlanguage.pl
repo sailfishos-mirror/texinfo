@@ -381,7 +381,8 @@ $result_trees{'documentlanguage'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -399,7 +400,6 @@ $result_trees{'documentlanguage'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'file_name' => 'documentlanguage.texi',
                 'line_nr' => 30
@@ -734,7 +734,7 @@ $result_trees{'documentlanguage'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'documentlanguage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'documentlanguage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'documentlanguage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'documentlanguage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'documentlanguage'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'documentlanguage'}{'contents'}[3];
 
 $result_texis{'documentlanguage'} = '\\input texinfo @c -*-texinfo-*-

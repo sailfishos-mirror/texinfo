@@ -15,14 +15,16 @@ $result_trees{'footnote_in_command_not_closed'} = {
               'text' => 'aaa'
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'in code'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'footnote',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -37,7 +39,6 @@ $result_trees{'footnote_in_command_not_closed'} = {
                           'type' => 'brace_command_context'
                         }
                       ],
-                      'cmdname' => 'footnote',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -46,7 +47,6 @@ $result_trees{'footnote_in_command_not_closed'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 1
               }

@@ -126,7 +126,8 @@ $result_trees{'recursive_alias'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -136,7 +137,6 @@ $result_trees{'recursive_alias'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'info' => {
                 'alias_of' => 'other'
               },

@@ -134,7 +134,8 @@ $result_trees{'dotless_argument_non_ascii'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'dotless',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -144,7 +145,6 @@ $result_trees{'dotless_argument_non_ascii'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'dotless',
               'source_info' => {
                 'line_nr' => 6
               }
@@ -154,7 +154,8 @@ $result_trees{'dotless_argument_non_ascii'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'dotless',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -164,7 +165,6 @@ $result_trees{'dotless_argument_non_ascii'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => 'dotless',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => ' '

@@ -12,12 +12,12 @@ $result_trees{'test_today'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'today',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'today',
               'source_info' => {
                 'line_nr' => 1
               }

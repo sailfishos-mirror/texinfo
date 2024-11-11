@@ -10,7 +10,8 @@ $result_trees{'space_command_in_image'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -34,7 +35,6 @@ $result_trees{'space_command_in_image'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -46,7 +46,8 @@ $result_trees{'space_command_in_image'} = {
           'text' => ' '
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -70,7 +71,6 @@ $result_trees{'space_command_in_image'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },

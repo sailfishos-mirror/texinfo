@@ -54,7 +54,8 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '~',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -64,7 +65,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '~',
                       'source_info' => {
                         'line_nr' => 4
                       }
@@ -159,7 +159,8 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '^',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -169,7 +170,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '^',
                       'source_info' => {
                         'line_nr' => 6
                       }
@@ -282,7 +282,8 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '~',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -292,7 +293,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '~',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -328,7 +328,8 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
           {
             'contents' => [
               {
-                'args' => [
+                'cmdname' => '~',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -338,7 +339,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                     'type' => 'following_arg'
                   }
                 ],
-                'cmdname' => '~',
                 'source_info' => {
                   'line_nr' => 10
                 }
@@ -424,7 +424,8 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -434,7 +435,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 14
               }

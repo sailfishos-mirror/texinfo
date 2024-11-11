@@ -19,7 +19,8 @@ $result_trees{'titlefont_in_center'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'titlefont',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -29,7 +30,6 @@ $result_trees{'titlefont_in_center'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'titlefont',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 2

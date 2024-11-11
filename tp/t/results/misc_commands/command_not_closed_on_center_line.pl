@@ -17,7 +17,8 @@ $result_trees{'command_not_closed_on_center_line'} = {
                   'text' => 'c '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'strong',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -28,7 +29,6 @@ $result_trees{'command_not_closed_on_center_line'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'strong',
                   'source_info' => {
                     'line_nr' => 1
                   }

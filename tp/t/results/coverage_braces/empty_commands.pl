@@ -10,12 +10,12 @@ $result_trees{'empty_commands'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'titlefont',
+          'contents' => [
             {
               'type' => 'brace_container'
             }
           ],
-          'cmdname' => 'titlefont',
           'extra' => {},
           'source_info' => {
             'line_nr' => 1
@@ -33,12 +33,12 @@ $result_trees{'empty_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
-                {
-                  'type' => 'brace_arg'
-                }
-              ],
               'cmdname' => 'uref',
+              'contents' => [
+                {
+                  'type' => 'brace_arg'
+                }
+              ],
               'source_info' => {
                 'line_nr' => 3
               }
@@ -47,26 +47,12 @@ $result_trees{'empty_commands'} = {
               'text' => ' '
             },
             {
-              'args' => [
-                {
-                  'type' => 'brace_arg'
-                }
-              ],
               'cmdname' => 'abbr',
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'args' => [
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -75,23 +61,37 @@ $result_trees{'empty_commands'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
+                {
+                  'type' => 'brace_arg'
+                }
+              ],
+              'source_info' => {
+                'line_nr' => 3
+              }
+            },
+            {
+              'text' => ' '
+            },
+            {
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 3
               }
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 3
@@ -101,12 +101,12 @@ $result_trees{'empty_commands'} = {
               'text' => ' '
             },
             {
-              'args' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
               'cmdname' => '~',
+              'contents' => [
+                {
+                  'type' => 'brace_container'
+                }
+              ],
               'source_info' => {
                 'line_nr' => 3
               }
@@ -115,12 +115,12 @@ $result_trees{'empty_commands'} = {
               'text' => ' '
             },
             {
-              'args' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
               'cmdname' => 'dotless',
+              'contents' => [
+                {
+                  'type' => 'brace_container'
+                }
+              ],
               'source_info' => {
                 'line_nr' => 3
               }
@@ -129,12 +129,12 @@ $result_trees{'empty_commands'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => ';'
               },

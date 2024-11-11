@@ -37,7 +37,8 @@ $result_trees{'end_bad_end_argument_and_superfluous_arg'} = {
                           'text' => ': '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -47,7 +48,6 @@ $result_trees{'end_bad_end_argument_and_superfluous_arg'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'code',
                           'source_info' => {
                             'line_nr' => 3
                           }

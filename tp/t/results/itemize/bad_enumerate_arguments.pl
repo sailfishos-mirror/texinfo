@@ -148,7 +148,8 @@ $result_trees{'bad_enumerate_arguments'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -158,7 +159,6 @@ $result_trees{'bad_enumerate_arguments'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 7
                   }

@@ -68,7 +68,8 @@ $result_trees{'test_index'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -86,7 +87,6 @@ $result_trees{'test_index'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -186,12 +186,12 @@ $result_trees{'test_index'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'exclamdown',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'exclamdown',
                       'source_info' => {
                         'line_nr' => 9
                       }
@@ -298,7 +298,8 @@ $result_trees{'test_index'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -308,7 +309,6 @@ $result_trees{'test_index'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 12
                               }
@@ -370,7 +370,8 @@ $result_trees{'test_index'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -379,8 +380,7 @@ $result_trees{'test_index'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'var'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -2841,7 +2841,8 @@ $result_trees{'test_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2851,7 +2852,6 @@ $result_trees{'test_index'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'a-counting-anchor'
@@ -2896,7 +2896,7 @@ $result_trees{'test_index'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
 $result_trees{'test_index'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];

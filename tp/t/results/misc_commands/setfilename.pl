@@ -124,7 +124,8 @@ $result_trees{'setfilename'} = {
                       'cmdname' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'verb',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -135,7 +136,6 @@ $result_trees{'setfilename'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'verb',
                       'info' => {
                         'delimiter' => ':'
                       },

@@ -453,7 +453,8 @@ $result_trees{'def'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -463,7 +464,6 @@ $result_trees{'def'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 11
                               }
@@ -525,7 +525,8 @@ $result_trees{'def'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -534,8 +535,7 @@ $result_trees{'def'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'var'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -972,7 +972,8 @@ $result_trees{'def'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'b',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -982,7 +983,6 @@ $result_trees{'def'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'b',
                               'source_info' => {
                                 'line_nr' => 16
                               }
@@ -1028,7 +1028,8 @@ $result_trees{'def'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'b',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1037,8 +1038,7 @@ $result_trees{'def'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'b'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -1087,14 +1087,16 @@ $result_trees{'def'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'b',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
                                       'text' => 'id '
                                     },
                                     {
-                                      'args' => [
+                                      'cmdname' => 'samp',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -1104,7 +1106,6 @@ $result_trees{'def'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'samp',
                                       'source_info' => {
                                         'line_nr' => 17
                                       }
@@ -1116,7 +1117,6 @@ $result_trees{'def'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'b',
                               'source_info' => {
                                 'line_nr' => 17
                               }
@@ -1162,14 +1162,16 @@ $result_trees{'def'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'b',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
                                   'text' => 'id '
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'samp',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -1178,8 +1180,7 @@ $result_trees{'def'} = {
                                       ],
                                       'type' => 'brace_container'
                                     }
-                                  ],
-                                  'cmdname' => 'samp'
+                                  ]
                                 },
                                 {
                                   'text' => ' ule'
@@ -1187,8 +1188,7 @@ $result_trees{'def'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'b'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'

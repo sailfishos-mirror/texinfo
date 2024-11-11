@@ -20,7 +20,8 @@ $result_trees{'section_in_footnote'} = {
               'text' => 'Text'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -32,7 +33,6 @@ $result_trees{'section_in_footnote'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => '

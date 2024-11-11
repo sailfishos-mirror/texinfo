@@ -54,7 +54,8 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -64,7 +65,6 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -237,7 +237,8 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -247,7 +248,6 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'spot'

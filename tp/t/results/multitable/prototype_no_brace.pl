@@ -17,7 +17,8 @@ $result_trees{'prototype_no_brace'} = {
                   'text' => 'aa'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'var',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -27,7 +28,6 @@ $result_trees{'prototype_no_brace'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'var',
                   'source_info' => {
                     'line_nr' => 1
                   }

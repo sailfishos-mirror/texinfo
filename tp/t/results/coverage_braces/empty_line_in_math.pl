@@ -12,7 +12,8 @@ $result_trees{'empty_line_in_math'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -31,7 +32,6 @@ $result_trees{'empty_line_in_math'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'source_info' => {
                 'line_nr' => 1
               }

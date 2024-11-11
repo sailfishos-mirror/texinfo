@@ -17,12 +17,12 @@ $result_trees{'empty_arguments'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -32,7 +32,8 @@ $result_trees{'empty_arguments'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'uref',
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 },
@@ -40,7 +41,6 @@ $result_trees{'empty_arguments'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'uref',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -50,7 +50,8 @@ $result_trees{'empty_arguments'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'abbr',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -63,7 +64,6 @@ $result_trees{'empty_arguments'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'abbr',
               'source_info' => {
                 'line_nr' => 4
               }

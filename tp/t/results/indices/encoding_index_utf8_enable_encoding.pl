@@ -198,7 +198,8 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => '"',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -208,7 +209,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '"',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 10
@@ -218,7 +218,8 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '"',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -228,14 +229,14 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '"',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 10
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => '"',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -245,14 +246,14 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '"',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 10
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => '"',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -262,7 +263,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '"',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 10
@@ -303,7 +303,8 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -313,7 +314,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 11
@@ -323,7 +323,8 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -333,14 +334,14 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 11
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -350,14 +351,14 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 11
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -367,14 +368,14 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 11
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -384,7 +385,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 11
@@ -1461,12 +1461,12 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'l',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'l',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 40
@@ -1507,12 +1507,12 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'L',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'L',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 41
@@ -1553,7 +1553,8 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'dotless',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1563,7 +1564,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'dotless',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 42
@@ -1573,7 +1573,8 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'dotless',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1583,7 +1584,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'dotless',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 42
@@ -1627,11 +1627,13 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'dotless',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1641,7 +1643,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'dotless',
                           'source_info' => {
                             'file_name' => 'encoding_index_utf8.texi',
                             'line_nr' => 43
@@ -1651,7 +1652,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 43
@@ -1661,11 +1661,13 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'dotless',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1675,7 +1677,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'dotless',
                           'source_info' => {
                             'file_name' => 'encoding_index_utf8.texi',
                             'line_nr' => 43
@@ -1685,7 +1686,6 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 43
@@ -1729,12 +1729,12 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'ss',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'ss',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 44
@@ -1775,12 +1775,12 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'euro',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'euro',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 45
@@ -1821,12 +1821,12 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'AE',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'AE',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 46
@@ -1867,12 +1867,12 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'exclamdown',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'exclamdown',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 47
@@ -1913,12 +1913,12 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'TH',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'TH',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 48
@@ -1959,12 +1959,12 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'DH',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'DH',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 49
@@ -2005,12 +2005,12 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'textdegree',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'textdegree',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 50
@@ -2125,12 +2125,12 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'quotedblleft',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'quotedblleft',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 53
@@ -2171,12 +2171,12 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'geq',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'geq',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 54
@@ -2217,12 +2217,12 @@ $result_trees{'encoding_index_utf8_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'comma',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'comma',
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
                     'line_nr' => 55

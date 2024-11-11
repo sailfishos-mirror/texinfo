@@ -202,7 +202,8 @@ $result_trees{'acronym_in_node_and_section'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -225,7 +226,6 @@ $result_trees{'acronym_in_node_and_section'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 10
               }
@@ -263,7 +263,8 @@ $result_trees{'acronym_in_node_and_section'} = {
               'text' => 'sec here is '
             },
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -273,7 +274,6 @@ $result_trees{'acronym_in_node_and_section'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 12
               }
@@ -310,7 +310,8 @@ $result_trees{'acronym_in_node_and_section'} = {
               'text' => 'here is '
             },
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -320,7 +321,6 @@ $result_trees{'acronym_in_node_and_section'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 13
               }
@@ -348,7 +348,8 @@ $result_trees{'acronym_in_node_and_section'} = {
               'text' => 'In text '
             },
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -358,7 +359,6 @@ $result_trees{'acronym_in_node_and_section'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 15
               }

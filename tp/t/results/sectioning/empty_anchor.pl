@@ -10,12 +10,12 @@ $result_trees{'empty_anchor'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'source_info' => {
             'line_nr' => 1
           }
@@ -27,7 +27,8 @@ $result_trees{'empty_anchor'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'anchor',
+              'contents' => [
                 {
                   'info' => {
                     'spaces_before_argument' => {
@@ -37,7 +38,6 @@ $result_trees{'empty_anchor'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'anchor',
               'source_info' => {
                 'line_nr' => 2
               }

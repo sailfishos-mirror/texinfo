@@ -168,7 +168,8 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                               'text' => 'machin '
                                             },
                                             {
-                                              'args' => [
+                                              'cmdname' => 'anchor',
+                                              'contents' => [
                                                 {
                                                   'contents' => [
                                                     {
@@ -178,7 +179,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                                   'type' => 'brace_arg'
                                                 }
                                               ],
-                                              'cmdname' => 'anchor',
                                               'extra' => {
                                                 'is_target' => 1,
                                                 'normalized' => 'mark-inside'
@@ -371,7 +371,8 @@ $result_trees{'nested_multitable_anchor_index'} = {
                               'text' => 'in tab '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'anchor',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -381,7 +382,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                   'type' => 'brace_arg'
                                 }
                               ],
-                              'cmdname' => 'anchor',
                               'extra' => {
                                 'is_target' => 1,
                                 'normalized' => 'mark'
@@ -539,7 +539,8 @@ $result_trees{'nested_multitable_anchor_index'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -557,7 +558,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 16
               }
@@ -567,7 +567,8 @@ $result_trees{'nested_multitable_anchor_index'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -585,7 +586,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 17
               }
@@ -617,8 +617,8 @@ $result_trees{'nested_multitable_anchor_index'} = {
 };
 $result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1];
 $result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1];
-$result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[2]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'nested_multitable_anchor_index'} = '@node Top
 

@@ -73,7 +73,8 @@ $result_trees{'base_for_css_info_in_init_test'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'sansserif',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -83,7 +84,6 @@ $result_trees{'base_for_css_info_in_init_test'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sansserif',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -103,11 +103,13 @@ $result_trees{'base_for_css_info_in_init_test'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'r',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -117,7 +119,6 @@ $result_trees{'base_for_css_info_in_init_test'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'r',
                       'source_info' => {
                         'line_nr' => 6
                       }
@@ -126,7 +127,6 @@ $result_trees{'base_for_css_info_in_init_test'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 6
               }
@@ -144,7 +144,8 @@ $result_trees{'base_for_css_info_in_init_test'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'titlefont',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -154,7 +155,6 @@ $result_trees{'base_for_css_info_in_init_test'} = {
               'type' => 'brace_container'
             }
           ],
-          'cmdname' => 'titlefont',
           'extra' => {},
           'source_info' => {
             'line_nr' => 8

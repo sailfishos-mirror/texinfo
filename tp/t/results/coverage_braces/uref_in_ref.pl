@@ -12,7 +12,8 @@ $result_trees{'uref_in_ref'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,8 @@ $result_trees{'uref_in_ref'} = {
                       'text' => 'cross ref with uref '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'uref',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -66,7 +68,6 @@ $result_trees{'uref_in_ref'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'uref',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -85,7 +86,8 @@ $result_trees{'uref_in_ref'} = {
                       'text' => 'title with uref2 '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'uref',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -103,7 +105,6 @@ $result_trees{'uref_in_ref'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'uref',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -122,7 +123,8 @@ $result_trees{'uref_in_ref'} = {
                       'text' => 'info file with uref3 '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'uref',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -140,7 +142,6 @@ $result_trees{'uref_in_ref'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'uref',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -159,7 +160,8 @@ $result_trees{'uref_in_ref'} = {
                       'text' => 'printed manual with uref4 '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'uref',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -177,7 +179,6 @@ $result_trees{'uref_in_ref'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'uref',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -191,7 +192,6 @@ $result_trees{'uref_in_ref'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -209,8 +209,8 @@ $result_trees{'uref_in_ref'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3];
+$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3];
 
 $result_texis{'uref_in_ref'} = '@ref{(file)node, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}, info file with uref3 @uref{href://http/myhost.com/index3.html,uref3}, printed manual with uref4 @uref{href://http/myhost.com/index4.html,uref4}}
 ';

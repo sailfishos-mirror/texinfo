@@ -12,7 +12,8 @@ $result_trees{'spaces_after_braced_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'spaces_after_braced_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => ' '
@@ -47,7 +47,8 @@ $result_trees{'spaces_after_braced_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -57,7 +58,6 @@ $result_trees{'spaces_after_braced_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => '
@@ -83,12 +83,12 @@ $result_trees{'spaces_after_braced_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'AA',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'AA',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => '
@@ -114,7 +114,8 @@ $result_trees{'spaces_after_braced_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -141,7 +142,6 @@ $result_trees{'spaces_after_braced_command'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => '

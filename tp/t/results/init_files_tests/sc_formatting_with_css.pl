@@ -19,7 +19,8 @@ $result_trees{'sc_formatting_with_css'} = {
                       'text' => 'In title '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'sc',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -29,7 +30,6 @@ $result_trees{'sc_formatting_with_css'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'sc',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -63,7 +63,8 @@ $result_trees{'sc_formatting_with_css'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -73,7 +74,6 @@ $result_trees{'sc_formatting_with_css'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -107,7 +107,8 @@ $result_trees{'sc_formatting_with_css'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'sc',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -117,7 +118,6 @@ $result_trees{'sc_formatting_with_css'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'sc',
                   'source_info' => {
                     'line_nr' => 6
                   }

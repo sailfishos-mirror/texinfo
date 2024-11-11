@@ -176,7 +176,8 @@ $result_trees{'indices'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => '"',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -186,7 +187,6 @@ $result_trees{'indices'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '"',
                   'source_info' => {
                     'line_nr' => 10
                   }
@@ -195,7 +195,8 @@ $result_trees{'indices'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '"',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -205,7 +206,6 @@ $result_trees{'indices'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '"',
                   'source_info' => {
                     'line_nr' => 10
                   }
@@ -393,7 +393,8 @@ $result_trees{'indices'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -403,7 +404,6 @@ $result_trees{'indices'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'line_nr' => 15
                   }
@@ -448,7 +448,8 @@ $result_trees{'indices'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'math',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -464,7 +465,6 @@ $result_trees{'indices'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'math',
                   'source_info' => {
                     'line_nr' => 17
                   }
@@ -479,7 +479,8 @@ $result_trees{'indices'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '"',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -489,7 +490,6 @@ $result_trees{'indices'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '"',
                   'source_info' => {
                     'line_nr' => 17
                   }
@@ -498,7 +498,8 @@ $result_trees{'indices'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '"',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -508,7 +509,6 @@ $result_trees{'indices'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '"',
                   'source_info' => {
                     'line_nr' => 17
                   }
@@ -531,11 +531,13 @@ $result_trees{'indices'} = {
             ],
             'index_ignore_chars' => '\\',
             'seealso' => {
-              'args' => [
+              'cmdname' => 'seealso',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'math',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -551,7 +553,6 @@ $result_trees{'indices'} = {
                           'type' => 'brace_command_context'
                         }
                       ],
-                      'cmdname' => 'math',
                       'source_info' => {
                         'line_nr' => 17
                       }
@@ -566,7 +567,8 @@ $result_trees{'indices'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => '"',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -576,7 +578,6 @@ $result_trees{'indices'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '"',
                       'source_info' => {
                         'line_nr' => 17
                       }
@@ -585,7 +586,8 @@ $result_trees{'indices'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => '"',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -595,7 +597,6 @@ $result_trees{'indices'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => '"',
                       'source_info' => {
                         'line_nr' => 17
                       }
@@ -604,7 +605,6 @@ $result_trees{'indices'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'seealso',
               'source_info' => {
                 'line_nr' => 17
               }
@@ -614,7 +614,8 @@ $result_trees{'indices'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'sortas',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -630,7 +631,6 @@ $result_trees{'indices'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'sortas',
                       'source_info' => {
                         'line_nr' => 17
                       }
@@ -643,7 +643,8 @@ $result_trees{'indices'} = {
                       'text' => 'sub'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'math',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -659,7 +660,6 @@ $result_trees{'indices'} = {
                           'type' => 'brace_command_context'
                         }
                       ],
-                      'cmdname' => 'math',
                       'source_info' => {
                         'line_nr' => 17
                       }
@@ -674,7 +674,8 @@ $result_trees{'indices'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => '"',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -684,7 +685,6 @@ $result_trees{'indices'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '"',
                       'source_info' => {
                         'line_nr' => 17
                       }
@@ -693,7 +693,8 @@ $result_trees{'indices'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => '"',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -703,7 +704,6 @@ $result_trees{'indices'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => '"',
                       'source_info' => {
                         'line_nr' => 17
                       }
@@ -800,7 +800,8 @@ $result_trees{'indices'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'sortas',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -810,7 +811,6 @@ $result_trees{'indices'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'sortas',
                   'source_info' => {
                     'line_nr' => 19
                   }
@@ -877,7 +877,8 @@ $result_trees{'indices'} = {
                   'text' => '\\some\\command for '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'file',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -887,7 +888,6 @@ $result_trees{'indices'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'file',
                   'source_info' => {
                     'line_nr' => 23
                   }
@@ -943,7 +943,8 @@ $result_trees{'indices'} = {
                   'text' => 'the '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'r',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -953,7 +954,6 @@ $result_trees{'indices'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'r',
                   'source_info' => {
                     'line_nr' => 25
                   }
@@ -962,7 +962,8 @@ $result_trees{'indices'} = {
                   'text' => ' index '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'file',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -972,7 +973,6 @@ $result_trees{'indices'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'file',
                   'source_info' => {
                     'line_nr' => 25
                   }

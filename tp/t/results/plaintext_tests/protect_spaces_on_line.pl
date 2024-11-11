@@ -20,7 +20,8 @@ $result_trees{'protect_spaces_on_line'} = {
               'text' => 'Before samp. '
             },
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -30,7 +31,6 @@ $result_trees{'protect_spaces_on_line'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -39,7 +39,8 @@ $result_trees{'protect_spaces_on_line'} = {
               'text' => '. after samp, w '
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -49,7 +50,6 @@ $result_trees{'protect_spaces_on_line'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -88,7 +88,8 @@ $result_trees{'protect_spaces_on_line'} = {
                       'text' => 'before samp. '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'samp',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -98,7 +99,6 @@ $result_trees{'protect_spaces_on_line'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'samp',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -107,7 +107,8 @@ $result_trees{'protect_spaces_on_line'} = {
                       'text' => '. after samp, w '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'w',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -117,7 +118,6 @@ $result_trees{'protect_spaces_on_line'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'w',
                       'source_info' => {
                         'line_nr' => 5
                       }

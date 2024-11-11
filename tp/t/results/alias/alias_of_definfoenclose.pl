@@ -89,7 +89,8 @@ $result_trees{'alias_of_definfoenclose'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'phoo',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -99,7 +100,6 @@ $result_trees{'alias_of_definfoenclose'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'phoo',
               'extra' => {
                 'begin' => ';',
                 'end' => ':'

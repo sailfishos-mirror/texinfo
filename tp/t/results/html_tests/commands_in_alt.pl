@@ -10,7 +10,8 @@ $result_trees{'commands_in_alt'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -31,7 +32,8 @@ $result_trees{'commands_in_alt'} = {
                   'text' => 'alt -- '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'b',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -41,7 +43,6 @@ $result_trees{'commands_in_alt'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'b',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -50,7 +51,6 @@ $result_trees{'commands_in_alt'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -84,7 +84,8 @@ $result_trees{'commands_in_alt'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -105,7 +106,8 @@ $result_trees{'commands_in_alt'} = {
                           'text' => 'alt -- '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'b',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -115,7 +117,6 @@ $result_trees{'commands_in_alt'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'b',
                           'source_info' => {
                             'line_nr' => 4
                           }
@@ -124,7 +125,6 @@ $result_trees{'commands_in_alt'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },

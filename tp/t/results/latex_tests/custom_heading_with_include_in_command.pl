@@ -54,7 +54,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'emph',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -64,7 +65,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'emph',
                       'source_info' => {
                         'line_nr' => 2
                       }

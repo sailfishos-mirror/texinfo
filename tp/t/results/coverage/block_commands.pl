@@ -200,7 +200,8 @@ $result_trees{'block_commands'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -229,7 +230,6 @@ $result_trees{'block_commands'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },

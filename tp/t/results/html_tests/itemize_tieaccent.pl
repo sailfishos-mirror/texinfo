@@ -17,7 +17,8 @@ $result_trees{'itemize_tieaccent'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'tieaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -27,7 +28,6 @@ $result_trees{'itemize_tieaccent'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'tieaccent',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -57,7 +57,8 @@ $result_trees{'itemize_tieaccent'} = {
                       'text' => 'item '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'tieaccent',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -67,7 +68,6 @@ $result_trees{'itemize_tieaccent'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'tieaccent',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -137,22 +137,24 @@ $result_trees{'itemize_tieaccent'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'tieaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'aa',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'aa',
                           'source_info' => {
                             'line_nr' => 5
                           }
                         },
                         {
-                          'args' => [
+                          'cmdname' => '^',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -162,7 +164,6 @@ $result_trees{'itemize_tieaccent'} = {
                               'type' => 'following_arg'
                             }
                           ],
-                          'cmdname' => '^',
                           'source_info' => {
                             'line_nr' => 5
                           }
@@ -171,7 +172,6 @@ $result_trees{'itemize_tieaccent'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'tieaccent',
                   'source_info' => {
                     'line_nr' => 5
                   }
@@ -201,22 +201,24 @@ $result_trees{'itemize_tieaccent'} = {
                       'text' => 'item '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'tieaccent',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'aa',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'aa',
                               'source_info' => {
                                 'line_nr' => 6
                               }
                             },
                             {
-                              'args' => [
+                              'cmdname' => '^',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -226,7 +228,6 @@ $result_trees{'itemize_tieaccent'} = {
                                   'type' => 'following_arg'
                                 }
                               ],
-                              'cmdname' => '^',
                               'source_info' => {
                                 'line_nr' => 6
                               }
@@ -235,7 +236,6 @@ $result_trees{'itemize_tieaccent'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'tieaccent',
                       'source_info' => {
                         'line_nr' => 6
                       }
@@ -305,16 +305,17 @@ $result_trees{'itemize_tieaccent'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'tieaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'aa',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'aa',
                           'source_info' => {
                             'line_nr' => 9
                           }
@@ -326,7 +327,6 @@ $result_trees{'itemize_tieaccent'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'tieaccent',
                   'source_info' => {
                     'line_nr' => 9
                   }
@@ -356,16 +356,17 @@ $result_trees{'itemize_tieaccent'} = {
                       'text' => 'item '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'tieaccent',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'aa',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'aa',
                               'source_info' => {
                                 'line_nr' => 10
                               }
@@ -377,7 +378,6 @@ $result_trees{'itemize_tieaccent'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'tieaccent',
                       'source_info' => {
                         'line_nr' => 10
                       }
@@ -447,14 +447,16 @@ $result_trees{'itemize_tieaccent'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'tieaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => 'x'
                         },
                         {
-                          'args' => [
+                          'cmdname' => '^',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -464,7 +466,6 @@ $result_trees{'itemize_tieaccent'} = {
                               'type' => 'following_arg'
                             }
                           ],
-                          'cmdname' => '^',
                           'source_info' => {
                             'line_nr' => 13
                           }
@@ -473,7 +474,6 @@ $result_trees{'itemize_tieaccent'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'tieaccent',
                   'source_info' => {
                     'line_nr' => 13
                   }
@@ -503,14 +503,16 @@ $result_trees{'itemize_tieaccent'} = {
                       'text' => 'item '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'tieaccent',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => 'x'
                             },
                             {
-                              'args' => [
+                              'cmdname' => '^',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -520,7 +522,6 @@ $result_trees{'itemize_tieaccent'} = {
                                   'type' => 'following_arg'
                                 }
                               ],
-                              'cmdname' => '^',
                               'source_info' => {
                                 'line_nr' => 14
                               }
@@ -529,7 +530,6 @@ $result_trees{'itemize_tieaccent'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'tieaccent',
                       'source_info' => {
                         'line_nr' => 14
                       }
@@ -599,7 +599,8 @@ $result_trees{'itemize_tieaccent'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'tieaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -609,7 +610,6 @@ $result_trees{'itemize_tieaccent'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'tieaccent',
                   'source_info' => {
                     'line_nr' => 17
                   }
@@ -639,7 +639,8 @@ $result_trees{'itemize_tieaccent'} = {
                       'text' => 'item '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'tieaccent',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -649,7 +650,6 @@ $result_trees{'itemize_tieaccent'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'tieaccent',
                       'source_info' => {
                         'line_nr' => 18
                       }
@@ -719,11 +719,13 @@ $result_trees{'itemize_tieaccent'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'tieaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => '^',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -733,7 +735,6 @@ $result_trees{'itemize_tieaccent'} = {
                               'type' => 'following_arg'
                             }
                           ],
-                          'cmdname' => '^',
                           'source_info' => {
                             'line_nr' => 21
                           }
@@ -742,7 +743,6 @@ $result_trees{'itemize_tieaccent'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'tieaccent',
                   'source_info' => {
                     'line_nr' => 21
                   }
@@ -772,11 +772,13 @@ $result_trees{'itemize_tieaccent'} = {
                       'text' => 'item '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'tieaccent',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => '^',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -786,7 +788,6 @@ $result_trees{'itemize_tieaccent'} = {
                                   'type' => 'following_arg'
                                 }
                               ],
-                              'cmdname' => '^',
                               'source_info' => {
                                 'line_nr' => 22
                               }
@@ -795,7 +796,6 @@ $result_trees{'itemize_tieaccent'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'tieaccent',
                       'source_info' => {
                         'line_nr' => 22
                       }

@@ -30,6 +30,7 @@
 #include "document_types.h"
 /* fatal */
 #include "base_utils.h"
+#include "types_data.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
@@ -697,11 +698,15 @@ check_nodes_are_referenced (DOCUMENT *document)
       for (i = 0; i < refs->number; i++)
         {
           ELEMENT *ref = refs->list[i];
-          if (ref->e.c->args.number > 0)
+          if (ref->e.c->contents.number > 0)
             {
-              ELEMENT *label_arg = ref->e.c->args.list[0];
-              char *ref_normalized = lookup_extra_string (label_arg,
-                                                          AI_key_normalized);
+              ELEMENT *label_arg = ref->e.c->contents.list[0];
+              char *ref_normalized;
+              if (type_data[label_arg->type].flags & TF_text)
+                continue;
+
+              ref_normalized = lookup_extra_string (label_arg,
+                                                    AI_key_normalized);
               if (ref_normalized)
                 {
                   ELEMENT *target = find_identifier_target (identifiers_target,
@@ -1520,7 +1525,7 @@ associate_internal_references (DOCUMENT *document)
       if (ref->type == ET_menu_entry_node)
         label_element = ref;
       else
-        label_element = ref->e.c->args.list[0];
+        label_element = ref->e.c->contents.list[0];
 
       label_node_content
         = lookup_extra_container (label_element, AI_key_node_content);

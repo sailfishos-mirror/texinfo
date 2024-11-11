@@ -41,7 +41,8 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -53,7 +54,8 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'acronym',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -63,7 +65,6 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'acronym',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -80,7 +81,6 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -108,7 +108,8 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -120,7 +121,8 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'acronym',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -130,7 +132,6 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'acronym',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -147,7 +148,6 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -377,7 +377,8 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -389,7 +390,8 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'acronym',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -399,7 +401,6 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'acronym',
                       'source_info' => {
                         'line_nr' => 8
                       }
@@ -416,7 +417,6 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 8
               }

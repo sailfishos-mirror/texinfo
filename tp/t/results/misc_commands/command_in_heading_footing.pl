@@ -82,7 +82,8 @@ $result_trees{'command_in_heading_footing'} = {
               'text' => 'In code '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -92,7 +93,6 @@ $result_trees{'command_in_heading_footing'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 5
               }

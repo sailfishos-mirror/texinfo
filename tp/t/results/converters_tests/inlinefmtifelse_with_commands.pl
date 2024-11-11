@@ -12,7 +12,8 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmtifelse',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -36,7 +37,8 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                       'text' => 'else '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -46,7 +48,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -55,7 +56,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlinefmtifelse',
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'html'
@@ -79,7 +79,8 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmtifelse',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -103,7 +104,8 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                       'text' => 'else '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'emph',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -113,7 +115,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'emph',
                       'source_info' => {
                         'line_nr' => 3
                       }
@@ -122,7 +123,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlinefmtifelse',
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'plaintext'
@@ -146,7 +146,8 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmtifelse',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -170,7 +171,8 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                       'text' => 'xml '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'env',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -180,7 +182,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'env',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -194,7 +195,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlinefmtifelse',
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'xml'
@@ -218,7 +218,8 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmtifelse',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -250,7 +251,8 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                       'text' => 'else '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'strong',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -260,7 +262,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'strong',
                       'source_info' => {
                         'line_nr' => 7
                       }
@@ -277,7 +278,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlinefmtifelse',
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'docbook'
@@ -301,7 +301,8 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmtifelse',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -322,7 +323,8 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -332,7 +334,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 9
                       }
@@ -344,7 +345,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlinefmtifelse',
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'tex'
@@ -368,7 +368,8 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmtifelse',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -389,7 +390,8 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'sc',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -399,7 +401,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'sc',
                       'source_info' => {
                         'line_nr' => 11
                       }
@@ -411,7 +412,6 @@ $result_trees{'inlinefmtifelse_with_commands'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlinefmtifelse',
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'latex'

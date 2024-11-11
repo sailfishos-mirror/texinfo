@@ -12,12 +12,12 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'TeX',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'TeX',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -26,12 +26,12 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
               'text' => '. And '
             },
             {
-              'args' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
               'cmdname' => 'LaTeX',
+              'contents' => [
+                {
+                  'type' => 'brace_container'
+                }
+              ],
               'source_info' => {
                 'line_nr' => 1
               }
@@ -40,12 +40,12 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
               'text' => '. '
             },
             {
-              'args' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
               'cmdname' => 'copyright',
+              'contents' => [
+                {
+                  'type' => 'brace_container'
+                }
+              ],
               'source_info' => {
                 'line_nr' => 1
               }
@@ -54,12 +54,12 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'registeredsymbol',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'registeredsymbol',
               'source_info' => {
                 'line_nr' => 1
               }

@@ -12,7 +12,8 @@ $result_trees{'inline_missing_first_arg'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmt',
+              'contents' => [
                 {
                   'info' => {
                     'spaces_before_argument' => {
@@ -31,7 +32,6 @@ $result_trees{'inline_missing_first_arg'} = {
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlinefmt',
               'extra' => {
                 'format' => undef
               },
@@ -43,7 +43,8 @@ $result_trees{'inline_missing_first_arg'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'inlineraw',
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 },
@@ -57,7 +58,6 @@ $result_trees{'inline_missing_first_arg'} = {
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlineraw',
               'extra' => {
                 'format' => undef
               },

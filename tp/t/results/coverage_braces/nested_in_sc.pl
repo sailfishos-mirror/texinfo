@@ -12,18 +12,21 @@ $result_trees{'nested_in_sc'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'sc',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => 'aaa '
                             },
                             {
-                              'args' => [
+                              'cmdname' => '~',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -33,7 +36,6 @@ $result_trees{'nested_in_sc'} = {
                                   'type' => 'following_arg'
                                 }
                               ],
-                              'cmdname' => '~',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -42,26 +44,12 @@ $result_trees{'nested_in_sc'} = {
                               'text' => ' '
                             },
                             {
-                              'args' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
                               'cmdname' => 'aa',
-                              'source_info' => {
-                                'line_nr' => 1
-                              }
-                            },
-                            {
-                              'text' => ' '
-                            },
-                            {
-                              'args' => [
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'TeX',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -70,16 +58,31 @@ $result_trees{'nested_in_sc'} = {
                               'text' => ' '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'TeX',
+                              'contents' => [
+                                {
+                                  'type' => 'brace_container'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 1
+                              }
+                            },
+                            {
+                              'text' => ' '
+                            },
+                            {
+                              'cmdname' => '~',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'aa',
+                                      'contents' => [
                                         {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'aa',
                                       'source_info' => {
                                         'line_nr' => 1
                                       }
@@ -88,7 +91,6 @@ $result_trees{'nested_in_sc'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => '~',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -97,7 +99,8 @@ $result_trees{'nested_in_sc'} = {
                               'text' => ' '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'footnote',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -112,7 +115,6 @@ $result_trees{'nested_in_sc'} = {
                                   'type' => 'brace_command_context'
                                 }
                               ],
-                              'cmdname' => 'footnote',
                               'extra' => {},
                               'source_info' => {
                                 'line_nr' => 1
@@ -122,7 +124,8 @@ $result_trees{'nested_in_sc'} = {
                               'text' => ', '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'abbr',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -145,7 +148,6 @@ $result_trees{'nested_in_sc'} = {
                                   'type' => 'brace_arg'
                                 }
                               ],
-                              'cmdname' => 'abbr',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -155,7 +157,8 @@ $result_trees{'nested_in_sc'} = {
 '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'verb',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -166,7 +169,6 @@ $result_trees{'nested_in_sc'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'verb',
                               'info' => {
                                 'delimiter' => ':'
                               },
@@ -178,7 +180,6 @@ $result_trees{'nested_in_sc'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'sc',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -187,7 +188,6 @@ $result_trees{'nested_in_sc'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 1
               }

@@ -62,7 +62,8 @@ $result_trees{'caption_in_example'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'caption',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -77,7 +78,6 @@ $result_trees{'caption_in_example'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'caption',
                   'extra' => {
                     'float' => {}
                   },

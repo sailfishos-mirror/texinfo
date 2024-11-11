@@ -43,7 +43,8 @@ $result_trees{'equivalent_nodes_novalidate'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -53,7 +54,6 @@ $result_trees{'equivalent_nodes_novalidate'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -109,7 +109,8 @@ $result_trees{'equivalent_nodes_novalidate'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'strong',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -119,7 +120,6 @@ $result_trees{'equivalent_nodes_novalidate'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'strong',
                       'source_info' => {
                         'line_nr' => 6
                       }
@@ -218,7 +218,8 @@ $result_trees{'equivalent_nodes_novalidate'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -228,7 +229,6 @@ $result_trees{'equivalent_nodes_novalidate'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -253,7 +253,8 @@ $result_trees{'equivalent_nodes_novalidate'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -271,7 +272,6 @@ $result_trees{'equivalent_nodes_novalidate'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 11
               }
@@ -302,7 +302,7 @@ $result_trees{'equivalent_nodes_novalidate'} = {
 };
 $result_trees{'equivalent_nodes_novalidate'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_nodes_novalidate'}{'contents'}[1]{'args'}[1]{'contents'}[0];
 $result_trees{'equivalent_nodes_novalidate'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_nodes_novalidate'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'equivalent_nodes_novalidate'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_nodes_novalidate'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'equivalent_nodes_novalidate'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_nodes_novalidate'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'equivalent_nodes_novalidate'} = '@novalidate
 

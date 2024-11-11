@@ -84,7 +84,8 @@ $result_trees{'float_copying'} = {
                       'type' => 'empty_line'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'caption',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -93,7 +94,8 @@ $result_trees{'float_copying'} = {
                                   'text' => 'The Public Domain notice'
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'footnote',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -103,7 +105,8 @@ $result_trees{'float_copying'} = {
 '
                                             },
                                             {
-                                              'args' => [
+                                              'cmdname' => 'anchor',
+                                              'contents' => [
                                                 {
                                                   'contents' => [
                                                     {
@@ -116,7 +119,6 @@ $result_trees{'float_copying'} = {
                                                   'type' => 'brace_arg'
                                                 }
                                               ],
-                                              'cmdname' => 'anchor',
                                               'extra' => {
                                                 'is_target' => 1,
                                                 'normalized' => 'caption-copying-footnote-anchor'
@@ -221,7 +223,8 @@ $result_trees{'float_copying'} = {
                                               'text' => 'see '
                                             },
                                             {
-                                              'args' => [
+                                              'cmdname' => 'ref',
+                                              'contents' => [
                                                 {
                                                   'contents' => [
                                                     {
@@ -239,7 +242,6 @@ $result_trees{'float_copying'} = {
                                                   'type' => 'brace_arg'
                                                 }
                                               ],
-                                              'cmdname' => 'ref',
                                               'source_info' => {
                                                 'line_nr' => 15
                                               }
@@ -260,7 +262,6 @@ $result_trees{'float_copying'} = {
                                       'type' => 'brace_command_context'
                                     }
                                   ],
-                                  'cmdname' => 'footnote',
                                   'extra' => {},
                                   'info' => {
                                     'spaces_before_argument' => {
@@ -285,7 +286,8 @@ $result_trees{'float_copying'} = {
                               'type' => 'empty_line'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'anchor',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -298,7 +300,6 @@ $result_trees{'float_copying'} = {
                                   'type' => 'brace_arg'
                                 }
                               ],
-                              'cmdname' => 'anchor',
                               'extra' => {
                                 'is_target' => 1,
                                 'normalized' => 'public-domain-anchor'
@@ -388,7 +389,6 @@ $result_trees{'float_copying'} = {
                           'type' => 'brace_command_context'
                         }
                       ],
-                      'cmdname' => 'caption',
                       'extra' => {
                         'float' => {}
                       },
@@ -882,7 +882,7 @@ $result_trees{'float_copying'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'extra'}{'float'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];

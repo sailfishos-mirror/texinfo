@@ -117,7 +117,8 @@ $result_trees{'test_image'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -151,7 +152,8 @@ $result_trees{'test_image'} = {
                           'cmdname' => '@'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -162,7 +164,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => ':'
                           },
@@ -221,7 +222,8 @@ $result_trees{'test_image'} = {
                           'cmdname' => '@'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -232,7 +234,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => ':'
                           },
@@ -245,7 +246,6 @@ $result_trees{'test_image'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -272,7 +272,8 @@ $result_trees{'test_image'} = {
                   'text' => 'In text '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -306,7 +307,8 @@ $result_trees{'test_image'} = {
                           'cmdname' => '@'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -317,7 +319,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => ':'
                           },
@@ -361,15 +362,18 @@ $result_trees{'test_image'} = {
                           'text' => 'alt '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'b',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => '^',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
-                                          'args' => [
+                                          'cmdname' => 'dotless',
+                                          'contents' => [
                                             {
                                               'contents' => [
                                                 {
@@ -379,7 +383,6 @@ $result_trees{'test_image'} = {
                                               'type' => 'brace_container'
                                             }
                                           ],
-                                          'cmdname' => 'dotless',
                                           'source_info' => {
                                             'line_nr' => 9,
                                             'macro' => 'files-char'
@@ -389,7 +392,6 @@ $result_trees{'test_image'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => '^',
                                   'source_info' => {
                                     'line_nr' => 9,
                                     'macro' => 'files-char'
@@ -411,7 +413,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'b',
                           'source_info' => {
                             'line_nr' => 9,
                             'macro' => 'files-char'
@@ -430,7 +431,8 @@ $result_trees{'test_image'} = {
                           'cmdname' => '@'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -441,7 +443,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => ':'
                           },
@@ -494,7 +495,8 @@ $result_trees{'test_image'} = {
                           'cmdname' => '@'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -505,7 +507,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => ':'
                           },
@@ -518,7 +519,6 @@ $result_trees{'test_image'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -660,7 +660,8 @@ $result_trees{'test_image'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -694,7 +695,8 @@ $result_trees{'test_image'} = {
                   'cmdname' => '@'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'verb',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -705,7 +707,6 @@ $result_trees{'test_image'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'verb',
                   'info' => {
                     'delimiter' => ':'
                   },
@@ -764,7 +765,8 @@ $result_trees{'test_image'} = {
                   'cmdname' => '@'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'verb',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -775,7 +777,6 @@ $result_trees{'test_image'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'verb',
                   'info' => {
                     'delimiter' => ':'
                   },
@@ -788,7 +789,6 @@ $result_trees{'test_image'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -812,7 +812,8 @@ $result_trees{'test_image'} = {
               'text' => 'In text '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -846,7 +847,8 @@ $result_trees{'test_image'} = {
                       'cmdname' => '@'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'verb',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -857,7 +859,6 @@ $result_trees{'test_image'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'verb',
                       'info' => {
                         'delimiter' => ':'
                       },
@@ -901,15 +902,18 @@ $result_trees{'test_image'} = {
                       'text' => 'alt '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'b',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => '^',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'dotless',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -919,7 +923,6 @@ $result_trees{'test_image'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'dotless',
                                       'source_info' => {
                                         'line_nr' => 15,
                                         'macro' => 'files-char'
@@ -929,7 +932,6 @@ $result_trees{'test_image'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => '^',
                               'source_info' => {
                                 'line_nr' => 15,
                                 'macro' => 'files-char'
@@ -951,7 +953,6 @@ $result_trees{'test_image'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'b',
                       'source_info' => {
                         'line_nr' => 15,
                         'macro' => 'files-char'
@@ -970,7 +971,8 @@ $result_trees{'test_image'} = {
                       'cmdname' => '@'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'verb',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -981,7 +983,6 @@ $result_trees{'test_image'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'verb',
                       'info' => {
                         'delimiter' => ':'
                       },
@@ -1034,7 +1035,8 @@ $result_trees{'test_image'} = {
                       'cmdname' => '@'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'verb',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1045,7 +1047,6 @@ $result_trees{'test_image'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'verb',
                       'info' => {
                         'delimiter' => ':'
                       },
@@ -1058,7 +1059,6 @@ $result_trees{'test_image'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -1153,7 +1153,8 @@ $result_trees{'test_image'} = {
                   'text' => ''
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1187,7 +1188,8 @@ $result_trees{'test_image'} = {
                           'cmdname' => '@'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1198,7 +1200,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => ':'
                           },
@@ -1257,7 +1258,8 @@ $result_trees{'test_image'} = {
                           'cmdname' => '@'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1268,7 +1270,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => ':'
                           },
@@ -1281,7 +1282,6 @@ $result_trees{'test_image'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -1303,7 +1303,8 @@ $result_trees{'test_image'} = {
                   'text' => 'In text '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1337,7 +1338,8 @@ $result_trees{'test_image'} = {
                           'cmdname' => '@'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1348,7 +1350,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => ':'
                           },
@@ -1392,15 +1393,18 @@ $result_trees{'test_image'} = {
                           'text' => 'alt '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'b',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => '^',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
-                                          'args' => [
+                                          'cmdname' => 'dotless',
+                                          'contents' => [
                                             {
                                               'contents' => [
                                                 {
@@ -1410,7 +1414,6 @@ $result_trees{'test_image'} = {
                                               'type' => 'brace_container'
                                             }
                                           ],
-                                          'cmdname' => 'dotless',
                                           'source_info' => {
                                             'line_nr' => 21,
                                             'macro' => 'files-char'
@@ -1420,7 +1423,6 @@ $result_trees{'test_image'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => '^',
                                   'source_info' => {
                                     'line_nr' => 21,
                                     'macro' => 'files-char'
@@ -1442,7 +1444,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'b',
                           'source_info' => {
                             'line_nr' => 21,
                             'macro' => 'files-char'
@@ -1461,7 +1462,8 @@ $result_trees{'test_image'} = {
                           'cmdname' => '@'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1472,7 +1474,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => ':'
                           },
@@ -1525,7 +1526,8 @@ $result_trees{'test_image'} = {
                           'cmdname' => '@'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1536,7 +1538,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => ':'
                           },
@@ -1549,7 +1550,6 @@ $result_trees{'test_image'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -1665,7 +1665,8 @@ $result_trees{'test_image'} = {
               'text' => ''
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1699,7 +1700,8 @@ $result_trees{'test_image'} = {
                       'cmdname' => '@'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'verb',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1710,7 +1712,6 @@ $result_trees{'test_image'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'verb',
                       'info' => {
                         'delimiter' => ':'
                       },
@@ -1769,7 +1770,8 @@ $result_trees{'test_image'} = {
                       'cmdname' => '@'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'verb',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1780,7 +1782,6 @@ $result_trees{'test_image'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'verb',
                       'info' => {
                         'delimiter' => ':'
                       },
@@ -1793,7 +1794,6 @@ $result_trees{'test_image'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -1817,7 +1817,8 @@ $result_trees{'test_image'} = {
                   'text' => 'In text '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1851,7 +1852,8 @@ $result_trees{'test_image'} = {
                           'cmdname' => '@'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1862,7 +1864,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => ':'
                           },
@@ -1906,15 +1907,18 @@ $result_trees{'test_image'} = {
                           'text' => 'alt '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'b',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => '^',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
-                                          'args' => [
+                                          'cmdname' => 'dotless',
+                                          'contents' => [
                                             {
                                               'contents' => [
                                                 {
@@ -1924,7 +1928,6 @@ $result_trees{'test_image'} = {
                                               'type' => 'brace_container'
                                             }
                                           ],
-                                          'cmdname' => 'dotless',
                                           'source_info' => {
                                             'line_nr' => 25,
                                             'macro' => 'files-char'
@@ -1934,7 +1937,6 @@ $result_trees{'test_image'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => '^',
                                   'source_info' => {
                                     'line_nr' => 25,
                                     'macro' => 'files-char'
@@ -1956,7 +1958,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'b',
                           'source_info' => {
                             'line_nr' => 25,
                             'macro' => 'files-char'
@@ -1975,7 +1976,8 @@ $result_trees{'test_image'} = {
                           'cmdname' => '@'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1986,7 +1988,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => ':'
                           },
@@ -2039,7 +2040,8 @@ $result_trees{'test_image'} = {
                           'cmdname' => '@'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -2050,7 +2052,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => ':'
                           },
@@ -2063,7 +2064,6 @@ $result_trees{'test_image'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -2093,7 +2093,8 @@ $result_trees{'test_image'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2118,7 +2119,8 @@ $result_trees{'test_image'} = {
                       'text' => ''
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'image',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -2152,7 +2154,8 @@ $result_trees{'test_image'} = {
                               'cmdname' => '@'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'verb',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -2163,7 +2166,6 @@ $result_trees{'test_image'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'verb',
                               'info' => {
                                 'delimiter' => ':'
                               },
@@ -2222,7 +2224,8 @@ $result_trees{'test_image'} = {
                               'cmdname' => '@'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'verb',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -2233,7 +2236,6 @@ $result_trees{'test_image'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'verb',
                               'info' => {
                                 'delimiter' => ':'
                               },
@@ -2246,7 +2248,6 @@ $result_trees{'test_image'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'image',
                       'extra' => {
                         'input_encoding_name' => 'utf-8'
                       },
@@ -2270,7 +2271,8 @@ $result_trees{'test_image'} = {
                           'text' => 'In text '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'image',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -2304,7 +2306,8 @@ $result_trees{'test_image'} = {
                                   'cmdname' => '@'
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'verb',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -2315,7 +2318,6 @@ $result_trees{'test_image'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => 'verb',
                                   'info' => {
                                     'delimiter' => ':'
                                   },
@@ -2359,15 +2361,18 @@ $result_trees{'test_image'} = {
                                   'text' => 'alt '
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'b',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
-                                          'args' => [
+                                          'cmdname' => '^',
+                                          'contents' => [
                                             {
                                               'contents' => [
                                                 {
-                                                  'args' => [
+                                                  'cmdname' => 'dotless',
+                                                  'contents' => [
                                                     {
                                                       'contents' => [
                                                         {
@@ -2377,7 +2382,6 @@ $result_trees{'test_image'} = {
                                                       'type' => 'brace_container'
                                                     }
                                                   ],
-                                                  'cmdname' => 'dotless',
                                                   'source_info' => {
                                                     'line_nr' => 27,
                                                     'macro' => 'files-char'
@@ -2387,7 +2391,6 @@ $result_trees{'test_image'} = {
                                               'type' => 'brace_container'
                                             }
                                           ],
-                                          'cmdname' => '^',
                                           'source_info' => {
                                             'line_nr' => 27,
                                             'macro' => 'files-char'
@@ -2409,7 +2412,6 @@ $result_trees{'test_image'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => 'b',
                                   'source_info' => {
                                     'line_nr' => 27,
                                     'macro' => 'files-char'
@@ -2428,7 +2430,8 @@ $result_trees{'test_image'} = {
                                   'cmdname' => '@'
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'verb',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -2439,7 +2442,6 @@ $result_trees{'test_image'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => 'verb',
                                   'info' => {
                                     'delimiter' => ':'
                                   },
@@ -2492,7 +2494,8 @@ $result_trees{'test_image'} = {
                                   'cmdname' => '@'
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'verb',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -2503,7 +2506,6 @@ $result_trees{'test_image'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => 'verb',
                                   'info' => {
                                     'delimiter' => ':'
                                   },
@@ -2516,7 +2518,6 @@ $result_trees{'test_image'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'image',
                           'extra' => {
                             'input_encoding_name' => 'utf-8'
                           },
@@ -2543,7 +2544,6 @@ $result_trees{'test_image'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },

@@ -12,12 +12,12 @@ $result_trees{'empty_w'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -26,7 +26,8 @@ $result_trees{'empty_w'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -36,7 +37,6 @@ $result_trees{'empty_w'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 1
               }

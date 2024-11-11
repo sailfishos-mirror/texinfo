@@ -149,7 +149,8 @@ $result_trees{'double_seeentry_seealso'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seeentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -159,7 +160,6 @@ $result_trees{'double_seeentry_seealso'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seeentry',
                   'source_info' => {
                     'line_nr' => 7
                   }
@@ -169,7 +169,8 @@ $result_trees{'double_seeentry_seealso'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seeentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -179,7 +180,6 @@ $result_trees{'double_seeentry_seealso'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seeentry',
                   'source_info' => {
                     'line_nr' => 7
                   }
@@ -219,7 +219,8 @@ $result_trees{'double_seeentry_seealso'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'seealso',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -229,7 +230,6 @@ $result_trees{'double_seeentry_seealso'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seealso',
                   'source_info' => {
                     'line_nr' => 8
                   }
@@ -246,7 +246,8 @@ $result_trees{'double_seeentry_seealso'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seealso',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -256,7 +257,6 @@ $result_trees{'double_seeentry_seealso'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seealso',
                   'source_info' => {
                     'line_nr' => 8
                   }
@@ -303,7 +303,8 @@ $result_trees{'double_seeentry_seealso'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seeentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -313,7 +314,6 @@ $result_trees{'double_seeentry_seealso'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seeentry',
                   'source_info' => {
                     'line_nr' => 9
                   }
@@ -323,7 +323,8 @@ $result_trees{'double_seeentry_seealso'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seealso',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -333,7 +334,6 @@ $result_trees{'double_seeentry_seealso'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seealso',
                   'source_info' => {
                     'line_nr' => 9
                   }
@@ -374,7 +374,8 @@ $result_trees{'double_seeentry_seealso'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'seealso',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -384,7 +385,6 @@ $result_trees{'double_seeentry_seealso'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seealso',
                   'source_info' => {
                     'line_nr' => 10
                   }
@@ -407,7 +407,8 @@ $result_trees{'double_seeentry_seealso'} = {
             ],
             'seealso' => {},
             'seeentry' => {
-              'args' => [
+              'cmdname' => 'seeentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -417,7 +418,6 @@ $result_trees{'double_seeentry_seealso'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'seeentry',
               'source_info' => {
                 'line_nr' => 10
               }

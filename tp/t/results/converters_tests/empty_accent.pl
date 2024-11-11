@@ -12,12 +12,12 @@ $result_trees{'empty_accent'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '`',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '`',
               'source_info' => {
                 'line_nr' => 1
               }

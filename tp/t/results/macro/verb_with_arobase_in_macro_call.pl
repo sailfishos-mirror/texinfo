@@ -122,7 +122,8 @@ $result_trees{'verb_with_arobase_in_macro_call'} = {
               'text' => 'first: '
             },
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -133,7 +134,6 @@ $result_trees{'verb_with_arobase_in_macro_call'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => ','
               },
@@ -150,7 +150,8 @@ $result_trees{'verb_with_arobase_in_macro_call'} = {
               'text' => 'second: '
             },
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -161,7 +162,6 @@ $result_trees{'verb_with_arobase_in_macro_call'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => '@'
               },

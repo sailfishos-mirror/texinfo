@@ -14,7 +14,8 @@ $result_trees{'accent_argument'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => '~',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -24,7 +25,6 @@ $result_trees{'accent_argument'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '~',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -115,7 +115,8 @@ $result_trees{'accent_argument'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => '~',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -125,7 +126,6 @@ $result_trees{'accent_argument'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '~',
                   'source_info' => {
                     'line_nr' => 5
                   }
@@ -216,7 +216,8 @@ $result_trees{'accent_argument'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'ringaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -226,7 +227,6 @@ $result_trees{'accent_argument'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => 'ringaccent',
                   'info' => {
                     'spaces_after_cmd_before_arg' => {
                       'text' => ' '

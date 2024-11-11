@@ -12,7 +12,8 @@ $result_trees{'no_brace_space_end_line'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'no_brace_space_end_line'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => ' '

@@ -95,7 +95,8 @@ $result_trees{'protected_node_parentheses'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'asis',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -105,7 +106,6 @@ $result_trees{'protected_node_parentheses'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 6
                       }
@@ -205,7 +205,8 @@ $result_trees{'protected_node_parentheses'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -215,7 +216,6 @@ $result_trees{'protected_node_parentheses'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -241,11 +241,13 @@ $result_trees{'protected_node_parentheses'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -255,7 +257,6 @@ $result_trees{'protected_node_parentheses'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 11
                   }
@@ -267,7 +268,6 @@ $result_trees{'protected_node_parentheses'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => '_0028manual2_0029-name2'
@@ -289,11 +289,13 @@ $result_trees{'protected_node_parentheses'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'asis',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -303,7 +305,6 @@ $result_trees{'protected_node_parentheses'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 13
                       }
@@ -324,7 +325,6 @@ $result_trees{'protected_node_parentheses'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 13
               }
@@ -355,8 +355,8 @@ $result_trees{'protected_node_parentheses'} = {
 };
 $result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[1];
+$result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 
 $result_texis{'protected_node_parentheses'} = '
 @node first

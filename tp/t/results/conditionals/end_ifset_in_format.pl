@@ -346,7 +346,8 @@ $result_trees{'end_ifset_in_format'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -363,7 +364,6 @@ $result_trees{'end_ifset_in_format'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => '%'
               },

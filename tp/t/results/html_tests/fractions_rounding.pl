@@ -169,7 +169,8 @@ $result_trees{'fractions_rounding'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -182,7 +183,6 @@ $result_trees{'fractions_rounding'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 3
                               }
@@ -211,7 +211,8 @@ $result_trees{'fractions_rounding'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -224,7 +225,6 @@ $result_trees{'fractions_rounding'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 3
                               }
@@ -253,7 +253,8 @@ $result_trees{'fractions_rounding'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -266,7 +267,6 @@ $result_trees{'fractions_rounding'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 3
                               }
@@ -295,7 +295,8 @@ $result_trees{'fractions_rounding'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -308,7 +309,6 @@ $result_trees{'fractions_rounding'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 3
                               }

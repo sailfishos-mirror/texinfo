@@ -43,7 +43,8 @@ $result_trees{'bad_beginning'} = {
                       'text' => '*'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -53,7 +54,6 @@ $result_trees{'bad_beginning'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 5
                       }

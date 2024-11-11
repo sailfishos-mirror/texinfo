@@ -38,7 +38,8 @@ $result_trees{'empty_def_arguments'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -48,7 +49,6 @@ $result_trees{'empty_def_arguments'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -110,7 +110,8 @@ $result_trees{'empty_def_arguments'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -119,8 +120,7 @@ $result_trees{'empty_def_arguments'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'var'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -148,14 +148,16 @@ $result_trees{'empty_def_arguments'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'b',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
                                       'text' => 'id '
                                     },
                                     {
-                                      'args' => [
+                                      'cmdname' => 'samp',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -165,7 +167,6 @@ $result_trees{'empty_def_arguments'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'samp',
                                       'source_info' => {
                                         'line_nr' => 2
                                       }
@@ -177,7 +178,6 @@ $result_trees{'empty_def_arguments'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'b',
                               'source_info' => {
                                 'line_nr' => 2
                               }

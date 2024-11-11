@@ -18,7 +18,8 @@ $result_trees{'close_paragraph_command'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'titlefont',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -28,7 +29,6 @@ $result_trees{'close_paragraph_command'} = {
               'type' => 'brace_container'
             }
           ],
-          'cmdname' => 'titlefont',
           'extra' => {},
           'source_info' => {
             'line_nr' => 1

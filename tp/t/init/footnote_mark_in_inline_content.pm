@@ -13,7 +13,7 @@ sub _texi2any_test_format_single_footnote_in_inline_content($$$$$$)
   $self->register_pending_formatted_inline_content($category, $leading_content);
 
   my $footnote_text
-      = $self->convert_tree_new_formatting_context($command->{'args'}->[0],
+      = $self->convert_tree_new_formatting_context($command->{'contents'}->[0],
                             "$command->{'cmdname'} $number_in_doc $id");
   chomp ($footnote_text);
   $footnote_text .= "\n";

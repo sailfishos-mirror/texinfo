@@ -119,7 +119,8 @@ $result_trees{'verb_in_menu_description'} = {
 '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -136,7 +137,6 @@ $result_trees{'verb_in_menu_description'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => ':'
                           },

@@ -103,7 +103,8 @@ $result_trees{'comment_in_one_argument_linemacro_call'} = {
               'text' => 'c '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -131,7 +132,6 @@ $result_trees{'comment_in_one_argument_linemacro_call'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 5,
                 'macro' => 'lm'

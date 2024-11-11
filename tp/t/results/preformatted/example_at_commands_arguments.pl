@@ -17,7 +17,8 @@ $result_trees{'example_at_commands_arguments'} = {
                   'text' => 'some  thing '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -27,7 +28,6 @@ $result_trees{'example_at_commands_arguments'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -36,26 +36,12 @@ $result_trees{'example_at_commands_arguments'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
                   'cmdname' => 'TeX',
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'args' => [
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'exclamdown',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -64,7 +50,22 @@ $result_trees{'example_at_commands_arguments'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'exclamdown',
+                  'contents' => [
+                    {
+                      'type' => 'brace_container'
+                    }
+                  ],
+                  'source_info' => {
+                    'line_nr' => 1
+                  }
+                },
+                {
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -74,7 +75,6 @@ $result_trees{'example_at_commands_arguments'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -83,12 +83,12 @@ $result_trees{'example_at_commands_arguments'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'enddots',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'enddots',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -100,12 +100,12 @@ $result_trees{'example_at_commands_arguments'} = {
                   'cmdname' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'comma',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'comma',
                   'source_info' => {
                     'line_nr' => 1
                   }

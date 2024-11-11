@@ -10,12 +10,12 @@ $result_trees{'empty_images'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -33,7 +33,8 @@ $result_trees{'empty_images'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'info' => {
                 'spaces_before_argument' => {
@@ -80,7 +81,6 @@ $result_trees{'empty_images'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -98,7 +98,8 @@ $result_trees{'empty_images'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'type' => 'brace_arg'
             },
@@ -117,7 +118,6 @@ $result_trees{'empty_images'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -130,7 +130,8 @@ $result_trees{'empty_images'} = {
 '
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'type' => 'brace_arg'
             },
@@ -149,7 +150,6 @@ $result_trees{'empty_images'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },

@@ -17,7 +17,8 @@ $result_trees{'ref_empty_node'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 },
@@ -36,7 +37,6 @@ $result_trees{'ref_empty_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -45,7 +45,8 @@ $result_trees{'ref_empty_node'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 },
@@ -77,7 +78,6 @@ $result_trees{'ref_empty_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -86,7 +86,8 @@ $result_trees{'ref_empty_node'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'inforef',
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 },
@@ -102,7 +103,6 @@ $result_trees{'ref_empty_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inforef',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -112,7 +112,8 @@ $result_trees{'ref_empty_node'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'info' => {
                     'spaces_before_argument' => {
@@ -174,7 +175,6 @@ $result_trees{'ref_empty_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 3
               }

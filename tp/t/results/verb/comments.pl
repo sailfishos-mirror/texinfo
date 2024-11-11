@@ -12,7 +12,8 @@ $result_trees{'comments'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'comments'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => 'a'
               },
@@ -60,7 +60,8 @@ $result_trees{'comments'} = {
               'text' => 'something '
             },
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -71,7 +72,6 @@ $result_trees{'comments'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => ','
               },

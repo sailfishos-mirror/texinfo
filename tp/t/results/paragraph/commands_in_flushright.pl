@@ -714,7 +714,8 @@ $result_trees{'commands_in_flushright'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'caption',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -729,7 +730,6 @@ $result_trees{'commands_in_flushright'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'caption',
                   'extra' => {
                     'float' => {}
                   },

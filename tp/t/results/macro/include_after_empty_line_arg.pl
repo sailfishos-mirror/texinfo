@@ -98,12 +98,12 @@ $result_trees{'include_after_empty_line_arg'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 5,
                 'macro' => 'mymacro'

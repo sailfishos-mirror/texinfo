@@ -1298,7 +1298,8 @@ $result_trees{'macro_in_misc_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'phoo',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1308,7 +1309,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'phoo',
               'extra' => {
                 'begin' => '//',
                 'end' => '\\\\'
@@ -1455,7 +1455,8 @@ $result_trees{'macro_in_misc_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'phi',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1465,7 +1466,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'phi',
               'extra' => {
                 'begin' => ':',
                 'end' => ':'
@@ -1623,7 +1623,8 @@ $result_trees{'macro_in_misc_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1633,7 +1634,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
@@ -1774,7 +1774,8 @@ $result_trees{'macro_in_misc_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1784,7 +1785,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'extra' => {
                 'begin' => '(strong:',
                 'end' => ':)'
@@ -1823,7 +1823,8 @@ $result_trees{'macro_in_misc_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'kbd',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1833,7 +1834,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'kbd',
               'source_info' => {
                 'line_nr' => 82
               }
@@ -1970,7 +1970,8 @@ $result_trees{'macro_in_misc_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'kbd',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1980,7 +1981,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'kbd',
               'extra' => {
                 'code' => 1
               },
@@ -2017,7 +2017,8 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'kbd',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -2027,7 +2028,6 @@ $result_trees{'macro_in_misc_commands'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'kbd',
                   'extra' => {
                     'code' => 1
                   },

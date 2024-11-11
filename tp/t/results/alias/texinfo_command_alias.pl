@@ -195,7 +195,8 @@ $result_trees{'texinfo_command_alias'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'mystrong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -205,7 +206,6 @@ $result_trees{'texinfo_command_alias'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'mystrong',
               'extra' => {
                 'begin' => ';',
                 'end' => ':'

@@ -249,7 +249,8 @@ $result_trees{'headings_after_lone_nodes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -259,7 +260,6 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'toto'

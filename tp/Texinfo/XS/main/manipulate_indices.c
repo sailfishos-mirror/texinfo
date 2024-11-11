@@ -1333,10 +1333,10 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
                     }
                   else if (brace_command_type != BRACE_inline)
                     {
-                      if (content->e.c->args.number > 0)
+                      if (content->e.c->contents.number > 0)
                         {
                           return idx_leading_text_or_command (
-                                                   content->e.c->args.list[0],
+                                               content->e.c->contents.list[0],
                                                               ignore_chars);
                         }
                     }

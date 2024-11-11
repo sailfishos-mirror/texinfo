@@ -26,7 +26,8 @@ $result_trees{'documentation_examples'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'email',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -55,7 +56,6 @@ $result_trees{'documentation_examples'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'email',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -64,7 +64,8 @@ $result_trees{'documentation_examples'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'sansserif',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -74,7 +75,6 @@ $result_trees{'documentation_examples'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'sansserif',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -83,12 +83,12 @@ $result_trees{'documentation_examples'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
                       'cmdname' => 'error',
+                      'contents' => [
+                        {
+                          'type' => 'brace_container'
+                        }
+                      ],
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -97,12 +97,12 @@ $result_trees{'documentation_examples'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'equiv',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'equiv',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -281,7 +281,8 @@ $result_trees{'documentation_examples'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'sansserif',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -291,7 +292,6 @@ $result_trees{'documentation_examples'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sansserif',
               'source_info' => {
                 'line_nr' => 12
               }
@@ -306,12 +306,12 @@ $result_trees{'documentation_examples'} = {
               'text' => ' p--n. '
             },
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 12
               }
@@ -320,12 +320,12 @@ $result_trees{'documentation_examples'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'equiv',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'equiv',
               'source_info' => {
                 'line_nr' => 12
               }
@@ -335,7 +335,8 @@ $result_trees{'documentation_examples'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -353,13 +354,13 @@ $result_trees{'documentation_examples'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 13
               }
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -374,7 +375,6 @@ $result_trees{'documentation_examples'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 13
@@ -388,7 +388,8 @@ $result_trees{'documentation_examples'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'titlefont',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -398,7 +399,6 @@ $result_trees{'documentation_examples'} = {
               'type' => 'brace_container'
             }
           ],
-          'cmdname' => 'titlefont',
           'extra' => {},
           'source_info' => {
             'line_nr' => 14
@@ -411,7 +411,8 @@ $result_trees{'documentation_examples'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -440,7 +441,6 @@ $result_trees{'documentation_examples'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'line_nr' => 15
               }
@@ -450,7 +450,8 @@ $result_trees{'documentation_examples'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -460,7 +461,6 @@ $result_trees{'documentation_examples'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 16
               }
@@ -470,7 +470,8 @@ $result_trees{'documentation_examples'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'var',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -480,7 +481,6 @@ $result_trees{'documentation_examples'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'var',
               'source_info' => {
                 'line_nr' => 17
               }
@@ -500,11 +500,13 @@ $result_trees{'documentation_examples'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'sansserif',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -514,7 +516,6 @@ $result_trees{'documentation_examples'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'sansserif',
                       'source_info' => {
                         'line_nr' => 19
                       }
@@ -529,12 +530,12 @@ $result_trees{'documentation_examples'} = {
                       'text' => ' a=b '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'error',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'error',
                       'source_info' => {
                         'line_nr' => 19
                       }
@@ -543,12 +544,12 @@ $result_trees{'documentation_examples'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'equiv',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'equiv',
                       'source_info' => {
                         'line_nr' => 19
                       }
@@ -557,7 +558,6 @@ $result_trees{'documentation_examples'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'source_info' => {
                 'line_nr' => 19
               }
@@ -605,7 +605,8 @@ $result_trees{'documentation_examples'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'sansserif',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -615,7 +616,6 @@ $result_trees{'documentation_examples'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'sansserif',
                       'source_info' => {
                         'line_nr' => 23
                       }
@@ -630,12 +630,12 @@ $result_trees{'documentation_examples'} = {
                       'text' => ' c. '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'error',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'error',
                       'source_info' => {
                         'line_nr' => 23
                       }
@@ -644,12 +644,12 @@ $result_trees{'documentation_examples'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'equiv',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'equiv',
                       'source_info' => {
                         'line_nr' => 23
                       }
@@ -659,7 +659,8 @@ $result_trees{'documentation_examples'} = {
 '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'email',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -675,7 +676,6 @@ $result_trees{'documentation_examples'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'email',
                       'source_info' => {
                         'line_nr' => 24
                       }
@@ -779,7 +779,8 @@ $result_trees{'documentation_examples'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'email',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -795,7 +796,6 @@ $result_trees{'documentation_examples'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'email',
                   'source_info' => {
                     'line_nr' => 29
                   }
@@ -881,7 +881,8 @@ $result_trees{'documentation_examples'} = {
                   'text' => '{j'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'sup',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -891,7 +892,6 @@ $result_trees{'documentation_examples'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'sup',
                   'source_info' => {
                     'line_nr' => 33
                   }
@@ -979,7 +979,8 @@ $result_trees{'documentation_examples'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'file',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -989,7 +990,6 @@ $result_trees{'documentation_examples'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'file',
                   'source_info' => {
                     'line_nr' => 36
                   }
@@ -1128,12 +1128,12 @@ $result_trees{'documentation_examples'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 43
               }
@@ -1153,12 +1153,12 @@ $result_trees{'documentation_examples'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'equiv',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'equiv',
               'source_info' => {
                 'line_nr' => 45
               }
@@ -1300,12 +1300,12 @@ $result_trees{'documentation_examples'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 54
               }
@@ -1325,12 +1325,12 @@ $result_trees{'documentation_examples'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'equiv',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'equiv',
               'source_info' => {
                 'line_nr' => 56
               }
@@ -1469,7 +1469,7 @@ $result_trees{'documentation_examples'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'args'}[0]{'contents'}[0];
+$result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[1]{'contents'}[8]{'contents'}[0]{'contents'}[0];
 $result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[14]{'extra'}{'element_node'} = $result_trees{'documentation_examples'}{'contents'}[3];
 $result_trees{'documentation_examples'}{'contents'}[4]{'contents'}[15]{'extra'}{'element_node'} = $result_trees{'documentation_examples'}{'contents'}[3];
 

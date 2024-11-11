@@ -18,7 +18,8 @@ $result_trees{'unclosed_verb_on_section_line'} = {
               'text' => 'in section '
             },
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -40,7 +41,6 @@ $result_trees{'unclosed_verb_on_section_line'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => 'T'
               },

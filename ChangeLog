@@ -1,3 +1,89 @@
+2024-11-11  Patrice Dumas  <pertusus@free.fr>
+
+	Use contents instead of args for brace commands in Texinfo tree
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_comma): rename $brace_command as
+	$command_element.
+
+	* tp/Texinfo/Common.pm (get_label_element), tp/Texinfo/ParserNonXS.pm
+	(_end_line_starting_block, _new_value_element, _handle_open_brace)
+	(_handle_close_brace, _handle_comma, _process_remaining_on_line),
+	tp/Texinfo/Translations.pm (_substitute_element_array),
+	tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash),
+	tp/Texinfo/XS/main/translations.c (substitute_element_array),
+	tp/Texinfo/XS/main/utils.c (get_label_element),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/parser.c (new_value_element)
+	(process_remaining_on_line), tp/Texinfo/XS/parsetexi/separator.c
+	(handle_open_brace, handle_close_brace, handle_comma): use contents
+	instead of args for brace command arguments in Texinfo tree.
+
+	* tp/Texinfo/Structuring.pm (check_nodes_are_referenced),
+	tp/Texinfo/Transformations.pm (fill_gaps_in_sectioning)
+	(_reference_to_arg, _protect_hashchar_at_line_beginning),
+	tp/Texinfo/ManipulateTree.pm (_new_asis_command_with_text)
+	(_protect_text, protect_first_parenthesis),
+	tp/Texinfo/XS/main/manipulate_tree.c (new_asis_command_with_text)
+	(protect_text), tp/Texinfo/XS/structuring_transfo/structuring.c
+	(check_nodes_are_referenced, associate_internal_references),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(protect_first_parenthesis, fill_gaps_in_sectioning)
+	(reference_to_arg_internal)
+	(protect_hashchar_at_line_beginning_internal): update structuring and
+	transformations for change of args to contents for brace commands.
+
+	* tp/Texinfo/Convert/Converter.pm (table_item_content_tree),
+	tp/Texinfo/Convert/DocBook.pm (conversion_output_begin, _index_entry)
+	(_convert), tp/Texinfo/Convert/HTML.pm (_internal_command_tree)
+	(_convert_explained_command, _convert_listoffloats_command)
+	(_convert_float_command, _convert_xref_commands)
+	(_convert_printindex_command, _default_format_single_footnote)
+	(_prepare_converted_output_info, _convert), tp/Texinfo/Convert/Info.pm
+	(format_ref, format_image), tp/Texinfo/Convert/LaTeX.pm (_title)
+	(_begin_document, _index_entry, _convert),
+	tp/Texinfo/Convert/NodeNameNormalization.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (%ignored_commands, process_footnotes)
+	(process_printindex, format_ref, image_formatted_text, format_image)
+	(_convert), tp/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo)
+	(_expand_cmd_args_to_texi), tp/Texinfo/Convert/TexinfoMarkup.pm
+	(_convert), tp/Texinfo/Convert/Text.pm (_convert),
+	tp/Texinfo/Convert/Utils.pm (definition_category_tree)
+	(find_innermost_accent_contents), tp/Texinfo/Indices.pm
+	(_idx_leading_text_or_command), tp/Texinfo/ManipulateTree.pm
+	(_new_asis_command_with_text, _protect_text)
+	(protect_first_parenthesis), tp/Texinfo/XS/convert/convert_html.c
+	(html_prepare_converted_output_info, html_convert_tree_append)
+	(html_node_redirections), tp/Texinfo/XS/convert/converter.c
+	(table_item_content_tree), tp/Texinfo/XS/convert/format_html.c
+	(html_internal_command_tree, html_default_format_single_footnote)
+	(html_convert_explained_command, html_convert_xref_command)
+	(html_convert_float_command, html_convert_listoffloats_command)
+	(html_convert_printindex_command),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi)
+	(convert_to_texinfo_internal), tp/Texinfo/XS/main/convert_to_text.c
+	(convert_to_text_internal), tp/Texinfo/XS/main/convert_utils.c
+	(find_innermost_accent_contents),
+	tp/Texinfo/XS/main/manipulate_indices.c (idx_leading_text_or_command),
+	tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_to_normalized_internal), tp/ext/latex2html.pm (l2h_process),
+	tp/ext/tex4ht.pm (tex4ht_prepare): update conversion for change of
+	args to contents for brace commands.  call get_label_element more.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert),
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal),
+	tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_to_normalized_internal): return right after formatting brace
+	commands.
+
+	* tp/init/documentation_examples.pm
+	(my_test_documentation_convert_xref_commands), tp/t/01use.t,
+	tp/t/init/footnote_mark_in_inline_content.pm
+	(_texi2any_test_format_single_footnote_in_inline_content): update 
+	tests init files and manually written tree.
+
+	* tp/t/09indices.t: change code order.
+
 2024-11-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_expand_macro_arguments)

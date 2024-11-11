@@ -210,7 +210,8 @@ $result_trees{'at_commands_in_raw'} = {
                   'text' => '<b>in b'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'footnote',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -225,7 +226,6 @@ $result_trees{'at_commands_in_raw'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'footnote',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 12
@@ -236,7 +236,8 @@ $result_trees{'at_commands_in_raw'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'anchor',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -246,7 +247,6 @@ $result_trees{'at_commands_in_raw'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'anchor',
                   'extra' => {
                     'is_target' => 1,
                     'normalized' => 'anchor-in-html'
@@ -301,7 +301,8 @@ $result_trees{'at_commands_in_raw'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'kbd',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -311,13 +312,13 @@ $result_trees{'at_commands_in_raw'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'kbd',
               'source_info' => {
                 'line_nr' => 15
               }
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -332,7 +333,6 @@ $result_trees{'at_commands_in_raw'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 15
@@ -635,7 +635,8 @@ $result_trees{'at_commands_in_raw'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'value',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -644,8 +645,7 @@ $result_trees{'at_commands_in_raw'} = {
               ],
               'type' => 'brace_container'
             }
-          ],
-          'cmdname' => 'value'
+          ]
         },
         {
           'contents' => [
@@ -664,7 +664,8 @@ $result_trees{'at_commands_in_raw'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'kbd',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -674,7 +675,6 @@ $result_trees{'at_commands_in_raw'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'kbd',
               'source_info' => {
                 'line_nr' => 67
               }
@@ -694,7 +694,8 @@ $result_trees{'at_commands_in_raw'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -712,7 +713,6 @@ $result_trees{'at_commands_in_raw'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 69
               }
@@ -732,7 +732,8 @@ $result_trees{'at_commands_in_raw'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -750,7 +751,6 @@ $result_trees{'at_commands_in_raw'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 71
               }
@@ -928,7 +928,8 @@ $result_trees{'at_commands_in_raw'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -938,7 +939,6 @@ $result_trees{'at_commands_in_raw'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 81
               }
@@ -1052,8 +1052,8 @@ $result_trees{'at_commands_in_raw'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[15]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'at_commands_in_raw'}{'contents'}[3];
 
 $result_texis{'at_commands_in_raw'} = '@node Top

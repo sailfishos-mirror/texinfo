@@ -147,7 +147,8 @@ $result_trees{'footnotestyle_separate_late'} = [
           {
             'contents' => [
               {
-                'args' => [
+                'cmdname' => 'footnote',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -162,7 +163,6 @@ $result_trees{'footnotestyle_separate_late'} = [
                     'type' => 'brace_command_context'
                   }
                 ],
-                'cmdname' => 'footnote',
                 'extra' => {},
                 'source_info' => {
                   'line_nr' => 7
@@ -257,7 +257,8 @@ $result_trees{'footnotestyle_separate_late'} = [
           {
             'contents' => [
               {
-                'args' => [
+                'cmdname' => 'footnote',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -272,7 +273,6 @@ $result_trees{'footnotestyle_separate_late'} = [
                     'type' => 'brace_command_context'
                   }
                 ],
-                'cmdname' => 'footnote',
                 'extra' => {},
                 'source_info' => {
                   'line_nr' => 12

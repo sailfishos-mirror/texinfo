@@ -103,7 +103,8 @@ $result_trees{'implicit_quoting_one_arg'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -113,7 +114,6 @@ $result_trees{'implicit_quoting_one_arg'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'source_info' => {
                 'line_nr' => 6,
                 'macro' => 'FIXAME'

@@ -100,7 +100,8 @@ $result_trees{'simple'} = {
               'text' => 'Should be code: '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -110,7 +111,6 @@ $result_trees{'simple'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'info' => {
                 'alias_of' => 'myalias'
               },
@@ -136,7 +136,8 @@ $result_trees{'simple'} = {
               'text' => 'Should be verb: '
             },
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -147,7 +148,6 @@ $result_trees{'simple'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'alias_of' => 'o-theralias',
                 'delimiter' => '!'

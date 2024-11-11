@@ -320,7 +320,8 @@ $result_trees{'redirection_same_labels'} = [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '"',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -330,7 +331,6 @@ $result_trees{'redirection_same_labels'} = [
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '"',
                       'source_info' => {
                         'line_nr' => 16
                       }
@@ -379,11 +379,13 @@ $result_trees{'redirection_same_labels'} = [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '~',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'dotless',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -393,7 +395,6 @@ $result_trees{'redirection_same_labels'} = [
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'dotless',
                               'source_info' => {
                                 'line_nr' => 17
                               }
@@ -402,7 +403,6 @@ $result_trees{'redirection_same_labels'} = [
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => '~',
                       'source_info' => {
                         'line_nr' => 17
                       }
@@ -533,7 +533,8 @@ $result_trees{'redirection_same_labels'} = [
           {
             'contents' => [
               {
-                'args' => [
+                'cmdname' => '"',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -543,7 +544,6 @@ $result_trees{'redirection_same_labels'} = [
                     'type' => 'following_arg'
                   }
                 ],
-                'cmdname' => '"',
                 'source_info' => {
                   'line_nr' => 20
                 }
@@ -584,11 +584,13 @@ $result_trees{'redirection_same_labels'} = [
           {
             'contents' => [
               {
-                'args' => [
+                'cmdname' => '~',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'args' => [
+                        'cmdname' => 'dotless',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -598,7 +600,6 @@ $result_trees{'redirection_same_labels'} = [
                             'type' => 'brace_container'
                           }
                         ],
-                        'cmdname' => 'dotless',
                         'source_info' => {
                           'line_nr' => 22
                         }
@@ -607,7 +608,6 @@ $result_trees{'redirection_same_labels'} = [
                     'type' => 'brace_container'
                   }
                 ],
-                'cmdname' => '~',
                 'source_info' => {
                   'line_nr' => 22
                 }
@@ -694,7 +694,8 @@ $result_trees{'redirection_same_labels'} = [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '^',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -704,7 +705,6 @@ $result_trees{'redirection_same_labels'} = [
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '^',
                       'source_info' => {
                         'line_nr' => 28
                       }
@@ -835,7 +835,8 @@ $result_trees{'redirection_same_labels'} = [
           {
             'contents' => [
               {
-                'args' => [
+                'cmdname' => '^',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -845,7 +846,6 @@ $result_trees{'redirection_same_labels'} = [
                     'type' => 'following_arg'
                   }
                 ],
-                'cmdname' => '^',
                 'source_info' => {
                   'line_nr' => 31
                 }

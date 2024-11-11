@@ -904,9 +904,10 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
 
   if (!fulltitle_tree
       && self->document->global_commands.titlefont.number > 0
-      && self->document->global_commands.titlefont.list[0]->e.c->args.number > 0
-      && self->document->global_commands.titlefont.list[0]->e.c->args.list[0]
-                                    ->e.c->contents.number > 0)
+      && self->document->global_commands.titlefont.list[0]
+                                           ->e.c->contents.number > 0
+      && self->document->global_commands.titlefont.list[0]
+                  ->e.c->contents.list[0]->e.c->contents.number > 0)
     {
       fulltitle_tree = self->document->global_commands.titlefont.list[0];
     }
@@ -1277,12 +1278,12 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
           text_init (&content_formatted);
           text_append (&content_formatted, "");
 
-          if (element->e.c->contents.number > 0)
+          if (element->e.c->contents.number > 0
+              && !(builtin_command_data[data_cmd].flags & CF_brace))
             {
 
-              if (convert_to_latex
-                  && !(builtin_command_data[data_cmd].flags & CF_brace))
-                {
+              if (convert_to_latex)
+                { /* displaymath */
                   ELEMENT *tmp = new_element (ET_NONE);
                   char *latex_content;
 
@@ -1329,26 +1330,39 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
               || cmd == CM_float
               || cmd == CM_cartouche)
             {
-              if (element->e.c->args.number > 0)
+              const ELEMENT_LIST *arguments_list = 0;
+
+              if (builtin_command_data[data_cmd].flags & CF_brace)
                 {
-                  TEXT formatted_arg;
+                  if (element->e.c->contents.number > 0)
+                    arguments_list = &element->e.c->contents;
+                }
+              else
+                {
+                  if (element->e.c->args.number > 0)
+                    arguments_list = &element->e.c->args;
+                }
+
+              if (arguments_list)
+                {
                   size_t arg_idx;
+                  TEXT formatted_arg;
 
                   text_init (&formatted_arg);
 
                   args_formatted = (HTML_ARGS_FORMATTED *)
                     malloc (sizeof (HTML_ARGS_FORMATTED));
-                  args_formatted->number = element->e.c->args.number;
+                  args_formatted->number = arguments_list->number;
                   args_formatted->args = (HTML_ARG_FORMATTED *)
                  malloc (args_formatted->number * sizeof (HTML_ARG_FORMATTED));
                   memset (args_formatted->args, 0,
                         args_formatted->number * sizeof (HTML_ARG_FORMATTED));
 
-                  for (arg_idx = 0; arg_idx < element->e.c->args.number; arg_idx++)
+                  for (arg_idx = 0; arg_idx < arguments_list->number; arg_idx++)
                     {
                       char *explanation;
                       unsigned long arg_flags = 0;
-                      const ELEMENT *arg = element->e.c->args.list[arg_idx];
+                      const ELEMENT *arg = arguments_list->list[arg_idx];
                       HTML_ARG_FORMATTED *arg_formatted
                          = &args_formatted->args[arg_idx];
 
@@ -1583,9 +1597,9 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
 
       if (type == ET_definfoenclose_command)
         {
-          if (element->e.c->args.number > 0)
+          if (element->e.c->contents.number > 0)
             {
-              html_convert_tree_append (self, element->e.c->args.list[0],
+              html_convert_tree_append (self, element->e.c->contents.list[0],
                                         &content_formatted,
                                         "DEFINFOENCLOSE_ARG");
             }
@@ -2802,9 +2816,10 @@ html_node_redirections (CONVERTER *self,
                     {
                       const ELEMENT *conflicting_node
                         = file_source_info->element;
+                      const ELEMENT *label_element
+                        = get_label_element (conflicting_node);
                       char *node_texi
-                        = convert_contents_to_texinfo
-                                        (conflicting_node->e.c->args.list[0]);
+                        = convert_contents_to_texinfo (label_element);
                       pmessage_list_command_warn (&self->error_messages,
                                         self->conf, conflicting_node, 1,
                 "conflict of redirection file with file based on node name",
@@ -2817,9 +2832,10 @@ html_node_redirections (CONVERTER *self,
                     {
                       const ELEMENT *conflicting_node
                         = file_source_info->element;
+                      const ELEMENT *label_element
+                        = get_label_element (conflicting_node);
                       char *node_texi
-                        = convert_contents_to_texinfo
-                                        (conflicting_node->e.c->args.list[0]);
+                        = convert_contents_to_texinfo (label_element);
                       message_list_command_warn (&self->error_messages,
                                         self->conf, conflicting_node, 1,
                              "conflict with @%s `%s' redirection file",

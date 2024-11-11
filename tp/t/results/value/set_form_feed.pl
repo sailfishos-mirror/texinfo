@@ -68,7 +68,8 @@ $result_trees{'set_form_feed'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -76,7 +77,8 @@ $result_trees{'set_form_feed'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'value',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -85,8 +87,7 @@ $result_trees{'set_form_feed'} = {
                                 ],
                                 'type' => 'brace_container'
                               }
-                            ],
-                            'cmdname' => 'value'
+                            ]
                           },
                           'line' => 'a\\a\\f\\\\',
                           'sourcemark_type' => 'value_expansion',
@@ -101,7 +102,8 @@ $result_trees{'set_form_feed'} = {
                         {
                           'counter' => 2,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'value',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -110,8 +112,7 @@ $result_trees{'set_form_feed'} = {
                                 ],
                                 'type' => 'brace_container'
                               }
-                            ],
-                            'cmdname' => 'value'
+                            ]
                           },
                           'line' => '',
                           'position' => 9,
@@ -127,7 +128,8 @@ $result_trees{'set_form_feed'} = {
                         {
                           'counter' => 3,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'value',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -136,8 +138,7 @@ $result_trees{'set_form_feed'} = {
                                 ],
                                 'type' => 'brace_container'
                               }
-                            ],
-                            'cmdname' => 'value'
+                            ]
                           },
                           'line' => '',
                           'position' => 11,
@@ -157,7 +158,6 @@ $result_trees{'set_form_feed'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 5
               }

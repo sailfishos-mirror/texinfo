@@ -12,7 +12,8 @@ $result_trees{'accent_no_closed_paragraph'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '~',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'accent_no_closed_paragraph'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '~',
               'source_info' => {
                 'line_nr' => 1
               }

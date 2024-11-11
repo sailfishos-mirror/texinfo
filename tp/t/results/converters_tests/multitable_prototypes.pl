@@ -52,7 +52,8 @@ $result_trees{'multitable_prototypes'} = {
                       'text' => 'j '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -62,7 +63,6 @@ $result_trees{'multitable_prototypes'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -80,7 +80,8 @@ $result_trees{'multitable_prototypes'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'var',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -90,7 +91,6 @@ $result_trees{'multitable_prototypes'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'var',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -175,7 +175,8 @@ $result_trees{'multitable_prototypes'} = {
                               'text' => 'k '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'samp',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -185,7 +186,6 @@ $result_trees{'multitable_prototypes'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'samp',
                               'source_info' => {
                                 'line_nr' => 4
                               }

@@ -239,7 +239,8 @@ $result_trees{'transliterated_names_conflicts'} = [
             'type' => 'empty_line'
           },
           {
-            'args' => [
+            'cmdname' => 'anchor',
+            'contents' => [
               {
                 'contents' => [
                   {
@@ -249,7 +250,6 @@ $result_trees{'transliterated_names_conflicts'} = [
                 'type' => 'brace_arg'
               }
             ],
-            'cmdname' => 'anchor',
             'extra' => {
               'is_target' => 1,
               'normalized' => 'Pr_00eas'

@@ -139,7 +139,8 @@ $result_trees{'paragraph_no_paragraph'} = {
           'text' => ' '
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -149,7 +150,6 @@ $result_trees{'paragraph_no_paragraph'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'aa'
@@ -165,7 +165,8 @@ $result_trees{'paragraph_no_paragraph'} = {
               'text' => ', definite and '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -175,7 +176,6 @@ $result_trees{'paragraph_no_paragraph'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 5,
                 'macro' => 'mycommand'
@@ -266,7 +266,8 @@ $result_trees{'paragraph_no_paragraph'} = {
               'text' => '  protected, in '
             },
             {
-              'args' => [
+              'cmdname' => 'var',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -280,7 +281,6 @@ $result_trees{'paragraph_no_paragraph'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'var',
               'source_info' => {
                 'line_nr' => 9,
                 'macro' => 'mycommand'

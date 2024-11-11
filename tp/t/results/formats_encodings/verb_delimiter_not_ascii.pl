@@ -134,7 +134,8 @@ $result_trees{'verb_delimiter_not_ascii'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -145,7 +146,6 @@ $result_trees{'verb_delimiter_not_ascii'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => "\x{ea}"
               },

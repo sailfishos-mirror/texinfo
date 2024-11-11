@@ -114,20 +114,20 @@ $result_trees{'protect_comma_source_mark'} = {
               'text' => 'There is some text '
             },
             {
-              'args' => [
+              'cmdname' => 'comma',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
-              ],
-              'cmdname' => 'comma'
+              ]
             },
             {
-              'args' => [
+              'cmdname' => 'comma',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'comma',
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -137,17 +137,18 @@ $result_trees{'protect_comma_source_mark'} = {
               ]
             },
             {
-              'args' => [
+              'cmdname' => 'comma',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'comma',
               'source_marks' => [
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -156,8 +157,7 @@ $result_trees{'protect_comma_source_mark'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => ',,',
                   'sourcemark_type' => 'value_expansion',
@@ -166,20 +166,20 @@ $result_trees{'protect_comma_source_mark'} = {
               ]
             },
             {
-              'args' => [
+              'cmdname' => 'comma',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
-              ],
-              'cmdname' => 'comma'
+              ]
             },
             {
-              'args' => [
+              'cmdname' => 'comma',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'comma',
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -189,12 +189,12 @@ $result_trees{'protect_comma_source_mark'} = {
               ]
             },
             {
-              'args' => [
+              'cmdname' => 'comma',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
-              ],
-              'cmdname' => 'comma'
+              ]
             },
             {
               'text' => ' and after.

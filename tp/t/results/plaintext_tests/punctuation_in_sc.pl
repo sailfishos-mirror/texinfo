@@ -15,7 +15,8 @@ $result_trees{'punctuation_in_sc'} = {
               'text' => 'one '
             },
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -25,7 +26,6 @@ $result_trees{'punctuation_in_sc'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -34,7 +34,8 @@ $result_trees{'punctuation_in_sc'} = {
               'text' => ' three '
             },
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -44,7 +45,6 @@ $result_trees{'punctuation_in_sc'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 1
               }

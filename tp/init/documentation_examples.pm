@@ -404,7 +404,7 @@ sub my_test_documentation_convert_xref_commands($$$$)
   my $xref_tree_element = $command;
   my $prepended = '';
 
-  my $arg_node = $xref_tree_element->{'args'}->[0];
+  my $arg_node = $xref_tree_element->{'contents'}->[0];
   if ($arg_node and $arg_node->{'extra'}
       and defined($arg_node->{'extra'}->{'normalized'})) {
     my $target_node

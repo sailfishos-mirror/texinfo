@@ -43,7 +43,8 @@ $result_trees{'sc_with_utf8_enable_encoding'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -53,7 +54,6 @@ $result_trees{'sc_with_utf8_enable_encoding'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 2
               }

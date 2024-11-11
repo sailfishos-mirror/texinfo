@@ -16,14 +16,16 @@ $result_trees{'test_errormsg'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'errormsg',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'Text '
                     },
                     {
-                      'args' => [
+                      'cmdname' => '~',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -33,7 +35,6 @@ $result_trees{'test_errormsg'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '~',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -42,7 +43,8 @@ $result_trees{'test_errormsg'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -52,7 +54,6 @@ $result_trees{'test_errormsg'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -61,7 +62,6 @@ $result_trees{'test_errormsg'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'errormsg',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -71,7 +71,8 @@ $result_trees{'test_errormsg'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'errormsg',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -89,7 +90,6 @@ $result_trees{'test_errormsg'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'errormsg',
               'source_info' => {
                 'line_nr' => 3
               }

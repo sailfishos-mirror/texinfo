@@ -14,11 +14,6 @@ $result_trees{'command_not_closed_in_documentencoding'} = {
             {
               'contents' => [
                 {
-                  'args' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
                   'cmdname' => 'strong',
                   'source_info' => {
                     'line_nr' => 1
@@ -46,7 +41,7 @@ $result_trees{'command_not_closed_in_documentencoding'} = {
   'type' => 'document_root'
 };
 
-$result_texis{'command_not_closed_in_documentencoding'} = '@documentencoding @strong{}';
+$result_texis{'command_not_closed_in_documentencoding'} = '@documentencoding @strong';
 
 
 $result_texts{'command_not_closed_in_documentencoding'} = '';
@@ -67,10 +62,10 @@ $result_errors{'command_not_closed_in_documentencoding'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'bad argument to @documentencoding: @strong{}
+    'error_line' => 'bad argument to @documentencoding: @strong
 ',
     'line_nr' => 1,
-    'text' => 'bad argument to @documentencoding: @strong{}',
+    'text' => 'bad argument to @documentencoding: @strong',
     'type' => 'error'
   }
 ];

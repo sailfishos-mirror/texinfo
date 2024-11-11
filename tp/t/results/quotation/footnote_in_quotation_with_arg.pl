@@ -34,7 +34,8 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
                   'text' => 'A'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'footnote',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -49,7 +50,6 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'footnote',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 2

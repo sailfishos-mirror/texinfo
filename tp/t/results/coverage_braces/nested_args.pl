@@ -12,7 +12,8 @@ $result_trees{'nested_args'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,8 @@ $result_trees{'nested_args'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'samp',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -32,7 +34,6 @@ $result_trees{'nested_args'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'samp',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -55,7 +56,8 @@ $result_trees{'nested_args'} = {
                       'text' => 'descr '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'b',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -65,7 +67,6 @@ $result_trees{'nested_args'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'b',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -84,7 +85,8 @@ $result_trees{'nested_args'} = {
                       'text' => 'S'
                     },
                     {
-                      'args' => [
+                      'cmdname' => '~',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -94,7 +96,6 @@ $result_trees{'nested_args'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => '~',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -113,7 +114,8 @@ $result_trees{'nested_args'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'cite',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -123,7 +125,6 @@ $result_trees{'nested_args'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'cite',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -138,7 +139,6 @@ $result_trees{'nested_args'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -155,9 +155,9 @@ $result_trees{'nested_args'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[2] = $result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[2] = $result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2];
 
 $result_texis{'nested_args'} = '@xref{@@ @samp{in samp}, descr @b{in b}, S@~{e}ction, 
 @cite{manual}}.';

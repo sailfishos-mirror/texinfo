@@ -72,7 +72,8 @@ $result_trees{'quotation_author'} = {
                           'text' => 'S'
                         },
                         {
-                          'args' => [
+                          'cmdname' => '~',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -82,7 +83,6 @@ $result_trees{'quotation_author'} = {
                               'type' => 'following_arg'
                             }
                           ],
-                          'cmdname' => '~',
                           'source_info' => {
                             'line_nr' => 5
                           }

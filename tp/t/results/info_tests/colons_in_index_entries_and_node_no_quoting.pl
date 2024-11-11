@@ -65,7 +65,8 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
                       'text' => 'One'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'asis',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -75,7 +76,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 4
                       }
@@ -84,12 +84,12 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
                       'text' => 'node'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'comma',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'comma',
                       'source_info' => {
                         'line_nr' => 4
                       }
@@ -244,7 +244,8 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'text' => 'One'
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -254,7 +255,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 8
               }
@@ -263,12 +263,12 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'text' => 'node'
             },
             {
-              'args' => [
+              'cmdname' => 'comma',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'comma',
               'source_info' => {
                 'line_nr' => 8
               }

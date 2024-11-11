@@ -137,7 +137,8 @@ $result_trees{'U_in_index'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'U',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -147,7 +148,6 @@ $result_trees{'U_in_index'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'U',
                   'source_info' => {
                     'line_nr' => 7
                   }
@@ -194,7 +194,8 @@ $result_trees{'U_in_index'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'U',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -204,7 +205,6 @@ $result_trees{'U_in_index'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'U',
                   'source_info' => {
                     'line_nr' => 9
                   }
@@ -251,7 +251,8 @@ $result_trees{'U_in_index'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'U',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -261,7 +262,6 @@ $result_trees{'U_in_index'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'U',
                   'source_info' => {
                     'line_nr' => 11
                   }

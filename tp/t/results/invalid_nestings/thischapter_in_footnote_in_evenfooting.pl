@@ -22,14 +22,16 @@ $result_trees{'thischapter_in_footnote_in_evenfooting'} = {
                   'text' => 'aa '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'strong',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => 'GG'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'footnote',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -47,7 +49,6 @@ $result_trees{'thischapter_in_footnote_in_evenfooting'} = {
                               'type' => 'brace_command_context'
                             }
                           ],
-                          'cmdname' => 'footnote',
                           'extra' => {},
                           'source_info' => {
                             'line_nr' => 2
@@ -57,7 +58,6 @@ $result_trees{'thischapter_in_footnote_in_evenfooting'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'strong',
                   'source_info' => {
                     'line_nr' => 2
                   }
@@ -72,7 +72,8 @@ $result_trees{'thischapter_in_footnote_in_evenfooting'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'footnote',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -90,7 +91,6 @@ $result_trees{'thischapter_in_footnote_in_evenfooting'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'footnote',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 2

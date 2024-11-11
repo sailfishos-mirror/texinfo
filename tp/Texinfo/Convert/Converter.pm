@@ -1547,7 +1547,7 @@ sub table_item_content_tree($$)
               'contents' => [$element->{'args'}->[0]],
               'parent' => $command,};
     }
-    $command->{'args'} = [$arg];
+    $command->{'contents'} = [$arg];
     return $command;
   }
   return undef;

@@ -117,7 +117,8 @@ $result_trees{'center_flush'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'anchor',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -127,7 +128,6 @@ $result_trees{'center_flush'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'anchor',
                   'extra' => {
                     'is_target' => 1,
                     'normalized' => 'anchor-in-flushleft'
@@ -264,7 +264,8 @@ $result_trees{'center_flush'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'anchor',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -274,7 +275,6 @@ $result_trees{'center_flush'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'anchor',
                   'extra' => {
                     'is_target' => 1,
                     'normalized' => 'anchor-in-flushright'
@@ -296,7 +296,8 @@ $result_trees{'center_flush'} = {
                   'text' => 'Second anchor in text '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'anchor',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -306,7 +307,6 @@ $result_trees{'center_flush'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'anchor',
                   'extra' => {
                     'is_target' => 1,
                     'normalized' => 'second-anchor-in-flushright'

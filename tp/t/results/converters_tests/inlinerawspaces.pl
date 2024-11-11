@@ -15,7 +15,8 @@ $result_trees{'inlinerawspaces'} = {
               'text' => 'A '
             },
             {
-              'args' => [
+              'cmdname' => 'inlineraw',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -38,12 +39,12 @@ $result_trees{'inlinerawspaces'} = {
                       'text' => 'plaintext `` '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'lbracechar',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'lbracechar',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -60,7 +61,6 @@ $result_trees{'inlinerawspaces'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlineraw',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'plaintext'
@@ -74,7 +74,8 @@ $result_trees{'inlinerawspaces'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'inlineraw',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -97,7 +98,8 @@ $result_trees{'inlinerawspaces'} = {
                       'text' => 'in <i>'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'acronym',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -107,7 +109,6 @@ $result_trees{'inlinerawspaces'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'acronym',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -124,7 +125,6 @@ $result_trees{'inlinerawspaces'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlineraw',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'html'

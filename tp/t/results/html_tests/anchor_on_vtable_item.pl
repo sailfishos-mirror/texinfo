@@ -172,7 +172,8 @@ $result_trees{'anchor_on_vtable_item'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'anchor',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -182,7 +183,6 @@ $result_trees{'anchor_on_vtable_item'} = {
                                   'type' => 'brace_arg'
                                 }
                               ],
-                              'cmdname' => 'anchor',
                               'extra' => {
                                 'is_target' => 1,
                                 'normalized' => 'label1'
@@ -255,7 +255,8 @@ $result_trees{'anchor_on_vtable_item'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'anchor',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -265,7 +266,6 @@ $result_trees{'anchor_on_vtable_item'} = {
                                   'type' => 'brace_arg'
                                 }
                               ],
-                              'cmdname' => 'anchor',
                               'extra' => {
                                 'is_target' => 1,
                                 'normalized' => 'label2'
@@ -544,7 +544,8 @@ $result_trees{'anchor_on_vtable_item'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -562,7 +563,6 @@ $result_trees{'anchor_on_vtable_item'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 24
               }
@@ -594,7 +594,7 @@ $result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'contents'}
 $result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[3];
 $result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[3];
 $result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'anchor_on_vtable_item'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_on_vtable_item'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'anchor_on_vtable_item'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_on_vtable_item'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'anchor_on_vtable_item'} = '@node Top
 @top top

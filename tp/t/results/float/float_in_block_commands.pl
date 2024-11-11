@@ -57,7 +57,8 @@ $result_trees{'float_in_block_commands'} = {
               'cmdname' => 'float',
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'caption',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -72,7 +73,6 @@ $result_trees{'float_in_block_commands'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'caption',
                   'extra' => {
                     'float' => {}
                   },
@@ -224,7 +224,8 @@ $result_trees{'float_in_block_commands'} = {
               'cmdname' => 'float',
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'caption',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -239,7 +240,6 @@ $result_trees{'float_in_block_commands'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'caption',
                   'extra' => {
                     'float' => {}
                   },
@@ -383,7 +383,8 @@ $result_trees{'float_in_block_commands'} = {
               'cmdname' => 'float',
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'caption',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -398,7 +399,6 @@ $result_trees{'float_in_block_commands'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'caption',
                   'extra' => {
                     'float' => {}
                   },

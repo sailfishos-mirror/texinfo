@@ -27,12 +27,12 @@ $result_trees{'commands_and_punctuation'} = {
               'text' => ' Now dots '
             },
             {
-              'args' => [
+              'cmdname' => 'dots',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'dots',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -41,12 +41,12 @@ $result_trees{'commands_and_punctuation'} = {
               'text' => ' and enddots '
             },
             {
-              'args' => [
+              'cmdname' => 'enddots',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'enddots',
               'source_info' => {
                 'line_nr' => 1
               }

@@ -110,7 +110,8 @@ $result_trees{'deftypeline'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -120,7 +121,6 @@ $result_trees{'deftypeline'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 2
                               }
@@ -161,7 +161,8 @@ $result_trees{'deftypeline'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -171,7 +172,6 @@ $result_trees{'deftypeline'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 2
                               }
@@ -228,12 +228,12 @@ $result_trees{'deftypeline'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'dots',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'dots',
                       'source_info' => {
                         'line_nr' => 3
                       }

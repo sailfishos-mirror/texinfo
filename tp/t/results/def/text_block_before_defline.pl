@@ -158,7 +158,8 @@ $result_trees{'text_block_before_defline'} = {
                       'text' => 'Some text'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'footnote',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -173,7 +174,6 @@ $result_trees{'text_block_before_defline'} = {
                           'type' => 'brace_command_context'
                         }
                       ],
-                      'cmdname' => 'footnote',
                       'extra' => {},
                       'source_info' => {
                         'line_nr' => 8

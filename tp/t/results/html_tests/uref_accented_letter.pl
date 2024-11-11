@@ -12,14 +12,16 @@ $result_trees{'uref_accented_letter'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'uref',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'http://example.com/acc_'
                     },
                     {
-                      'args' => [
+                      'cmdname' => '"',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -29,13 +31,13 @@ $result_trees{'uref_accented_letter'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '"',
                       'source_info' => {
                         'line_nr' => 1
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'ogonek',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -45,7 +47,6 @@ $result_trees{'uref_accented_letter'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'ogonek',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -54,7 +55,6 @@ $result_trees{'uref_accented_letter'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'uref',
               'source_info' => {
                 'line_nr' => 1
               }

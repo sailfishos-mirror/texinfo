@@ -128,7 +128,8 @@ $result_trees{'macro_in_accent'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ringaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -138,7 +139,6 @@ $result_trees{'macro_in_accent'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => 'ringaccent',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
@@ -179,7 +179,8 @@ $result_trees{'macro_in_accent'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'ringaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -189,7 +190,6 @@ $result_trees{'macro_in_accent'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => 'ringaccent',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
@@ -229,7 +229,8 @@ $result_trees{'macro_in_accent'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => '~',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -239,7 +240,6 @@ $result_trees{'macro_in_accent'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '~',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
@@ -279,7 +279,8 @@ $result_trees{'macro_in_accent'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => '~',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -313,7 +314,6 @@ $result_trees{'macro_in_accent'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '~',
               'source_info' => {
                 'line_nr' => 12
               }
@@ -333,7 +333,8 @@ $result_trees{'macro_in_accent'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ringaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -343,7 +344,6 @@ $result_trees{'macro_in_accent'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => 'ringaccent',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'source_marks' => [

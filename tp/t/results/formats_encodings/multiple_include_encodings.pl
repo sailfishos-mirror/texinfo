@@ -961,7 +961,8 @@ $result_trees{'multiple_include_encodings'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -979,7 +980,6 @@ $result_trees{'multiple_include_encodings'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'file_name' => 'chapter_char_latin2_latin2_in_refs.texi',
                 'line_nr' => 6
@@ -1979,7 +1979,7 @@ $result_trees{'multiple_include_encodings'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'multiple_include_encodings'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_include_encodings'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'multiple_include_encodings'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_include_encodings'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'multiple_include_encodings'}{'contents'}[10]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_include_encodings'}{'contents'}[10]{'contents'}[6]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'multiple_include_encodings'}{'contents'}[12]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'multiple_include_encodings'}{'contents'}[11];
 

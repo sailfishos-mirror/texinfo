@@ -30,7 +30,8 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
               'text' => 'a'
             },
             {
-              'args' => [
+              'cmdname' => 'sup',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -53,12 +54,12 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                           'text' => '{phi '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'copyright',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'copyright',
                           'source_info' => {
                             'line_nr' => 2
                           }
@@ -76,7 +77,6 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sup',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -85,7 +85,8 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'dotless',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -95,7 +96,6 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'dotless',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -150,19 +150,20 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
               'text' => 'Some '
             },
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'a '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'minus',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'minus',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -171,26 +172,12 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                       'text' => ' b '
                     },
                     {
-                      'args' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
                       'cmdname' => 'geq',
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'args' => [
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'AA',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -199,7 +186,22 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'AA',
+                      'contents' => [
+                        {
+                          'type' => 'brace_container'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 5
+                      }
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'cmdname' => '^',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -209,7 +211,6 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '^',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -218,7 +219,6 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'source_info' => {
                 'line_nr' => 5
               }

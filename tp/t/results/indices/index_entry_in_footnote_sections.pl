@@ -76,7 +76,8 @@ $result_trees{'index_entry_in_footnote_sections'} = {
               'text' => 'Top node'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -142,7 +143,6 @@ $result_trees{'index_entry_in_footnote_sections'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 4
@@ -275,7 +275,7 @@ $result_trees{'index_entry_in_footnote_sections'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'index_entry_in_footnote_sections'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entry_in_footnote_sections'}{'contents'}[1];
+$result_trees{'index_entry_in_footnote_sections'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entry_in_footnote_sections'}{'contents'}[1];
 
 $result_texis{'index_entry_in_footnote_sections'} = '@node Top
 @top index_entry_in_footnote

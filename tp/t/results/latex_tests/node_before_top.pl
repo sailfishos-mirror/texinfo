@@ -177,7 +177,8 @@ $result_trees{'node_before_top'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'pxref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -195,7 +196,6 @@ $result_trees{'node_before_top'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'pxref',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -223,7 +223,7 @@ $result_trees{'node_before_top'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'node_before_top'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_before_top'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'node_before_top'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_before_top'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'node_before_top'} = '@node before Top
 

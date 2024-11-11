@@ -145,7 +145,8 @@ $result_trees{'anchor_in_caption'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -154,7 +155,8 @@ $result_trees{'anchor_in_caption'} = {
                           'text' => 'in caption'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'anchor',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -164,7 +166,6 @@ $result_trees{'anchor_in_caption'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'anchor',
                           'extra' => {
                             'is_target' => 1,
                             'normalized' => 'in-anchor'
@@ -180,7 +181,6 @@ $result_trees{'anchor_in_caption'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },

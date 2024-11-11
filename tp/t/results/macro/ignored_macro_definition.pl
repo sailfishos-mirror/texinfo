@@ -75,7 +75,8 @@ $result_trees{'ignored_macro_definition'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmt',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -99,7 +100,6 @@ in inlinefmt tex
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlinefmt',
               'extra' => {
                 'format' => 'tex'
               },

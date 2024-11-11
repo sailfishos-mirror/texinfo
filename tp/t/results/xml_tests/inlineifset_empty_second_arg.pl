@@ -15,7 +15,8 @@ $result_trees{'inlineifset_empty_second_arg'} = {
               'text' => 'Toto '
             },
             {
-              'args' => [
+              'cmdname' => 'inlineifset',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -34,7 +35,6 @@ $result_trees{'inlineifset_empty_second_arg'} = {
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlineifset',
               'extra' => {
                 'format' => 'flag'
               },
@@ -60,7 +60,8 @@ $result_trees{'inlineifset_empty_second_arg'} = {
               'text' => 'Again with space '
             },
             {
-              'args' => [
+              'cmdname' => 'inlineifset',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -79,7 +80,6 @@ $result_trees{'inlineifset_empty_second_arg'} = {
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlineifset',
               'extra' => {
                 'format' => 'flag'
               },

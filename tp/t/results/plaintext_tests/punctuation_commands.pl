@@ -70,12 +70,12 @@ $result_trees{'punctuation_commands'} = {
               'text' => 'Enddots'
             },
             {
-              'args' => [
+              'cmdname' => 'enddots',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'enddots',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -84,12 +84,12 @@ $result_trees{'punctuation_commands'} = {
               'text' => ' Enddots'
             },
             {
-              'args' => [
+              'cmdname' => 'enddots',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'enddots',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -142,12 +142,12 @@ $result_trees{'punctuation_commands'} = {
               'text' => 'Enddots'
             },
             {
-              'args' => [
+              'cmdname' => 'enddots',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'enddots',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -208,12 +208,12 @@ $result_trees{'punctuation_commands'} = {
               'text' => 'Enddots'
             },
             {
-              'args' => [
+              'cmdname' => 'enddots',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'enddots',
               'source_info' => {
                 'line_nr' => 16
               }

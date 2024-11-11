@@ -15,12 +15,12 @@ $result_trees{'empty_titlefont'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'titlefont',
+          'contents' => [
             {
               'type' => 'brace_container'
             }
           ],
-          'cmdname' => 'titlefont',
           'extra' => {},
           'source_info' => {
             'line_nr' => 2

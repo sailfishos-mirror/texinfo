@@ -17,7 +17,8 @@ $result_trees{'no_paragraph_commands'} = {
 '
         },
         {
-          'args' => [
+          'cmdname' => 'titlefont',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -27,7 +28,6 @@ $result_trees{'no_paragraph_commands'} = {
               'type' => 'brace_container'
             }
           ],
-          'cmdname' => 'titlefont',
           'extra' => {},
           'source_info' => {
             'line_nr' => 2
@@ -38,7 +38,8 @@ $result_trees{'no_paragraph_commands'} = {
 '
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -80,7 +81,6 @@ $result_trees{'no_paragraph_commands'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },

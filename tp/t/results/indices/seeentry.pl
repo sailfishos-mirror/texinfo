@@ -139,7 +139,8 @@ $result_trees{'seeentry'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seeentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -149,7 +150,6 @@ $result_trees{'seeentry'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seeentry',
                   'source_info' => {
                     'line_nr' => 7
                   }
@@ -189,7 +189,8 @@ $result_trees{'seeentry'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'seealso',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -199,7 +200,6 @@ $result_trees{'seeentry'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seealso',
                   'source_info' => {
                     'line_nr' => 8
                   }
@@ -258,7 +258,8 @@ $result_trees{'seeentry'} = {
                   'type' => 'spaces_at_end'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'seeentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -268,7 +269,6 @@ $result_trees{'seeentry'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seeentry',
                   'source_info' => {
                     'line_nr' => 10
                   }
@@ -308,7 +308,8 @@ $result_trees{'seeentry'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'seealso',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -318,7 +319,6 @@ $result_trees{'seeentry'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'seealso',
                   'source_info' => {
                     'line_nr' => 11
                   }

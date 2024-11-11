@@ -10,7 +10,8 @@ $result_trees{'anchor_not_closed'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'anchor_not_closed'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'source_info' => {
             'line_nr' => 1
           }

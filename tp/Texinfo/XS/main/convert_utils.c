@@ -145,9 +145,9 @@ find_innermost_accent_contents (const ELEMENT *element)
 
       push_stack_element (&accent_stack->stack, current);
       /* A bogus accent, that may happen */
-      if (current->e.c->args.number <= 0)
+      if (current->e.c->contents.number <= 0)
         return accent_stack;
-      arg = current->e.c->args.list[0];
+      arg = current->e.c->contents.list[0];
       if (arg->e.c->contents.number <= 0)
         return accent_stack;
       for (i = 0; i < arg->e.c->contents.number; i++)
@@ -565,7 +565,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
       ELEMENT *brace_container = new_element (ET_brace_container);
       arg_class_code = new_command_element (ET_brace_command, CM_code);
       add_to_element_contents (brace_container, class_copy);
-      add_to_element_args (arg_class_code, brace_container);
+      add_to_element_contents (arg_class_code, brace_container);
     }
    */
 

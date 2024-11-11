@@ -163,7 +163,8 @@ $result_trees{'one_node_counted_elements'} = {
               'text' => 'anchor ref '
             },
             {
-              'args' => [
+              'cmdname' => 'anchor',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -173,7 +174,6 @@ $result_trees{'one_node_counted_elements'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'anchor',
               'extra' => {
                 'is_target' => 1,
                 'normalized' => 'ref'
@@ -310,7 +310,8 @@ $result_trees{'one_node_counted_elements'} = {
               'text' => 'ref to ref '
             },
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -328,7 +329,6 @@ $result_trees{'one_node_counted_elements'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 15
               }
@@ -412,7 +412,7 @@ $result_trees{'one_node_counted_elements'} = {
 $result_trees{'one_node_counted_elements'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'args'}[3]{'contents'}[1];
 $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'one_node_counted_elements'}{'contents'}[1];
 $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'one_node_counted_elements'} = 'Garbage
 @cindex before nodes

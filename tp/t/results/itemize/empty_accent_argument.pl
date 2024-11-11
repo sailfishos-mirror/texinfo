@@ -202,12 +202,12 @@ $result_trees{'empty_accent_argument'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => '~',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '~',
                   'source_info' => {
                     'line_nr' => 9
                   }

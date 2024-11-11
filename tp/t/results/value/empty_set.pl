@@ -38,7 +38,8 @@ $result_trees{'empty_set'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -47,8 +48,7 @@ $result_trees{'empty_set'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => '',
                   'position' => 2,

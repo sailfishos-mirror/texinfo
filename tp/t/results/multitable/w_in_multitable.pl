@@ -64,7 +64,8 @@ $result_trees{'w_in_multitable'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'w',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -78,7 +79,6 @@ $result_trees{'w_in_multitable'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'w',
                               'source_info' => {
                                 'line_nr' => 2
                               }

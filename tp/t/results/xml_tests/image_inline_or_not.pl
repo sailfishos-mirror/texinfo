@@ -10,7 +10,8 @@ $result_trees{'image_inline_or_not'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -20,7 +21,6 @@ $result_trees{'image_inline_or_not'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -43,7 +43,8 @@ $result_trees{'image_inline_or_not'} = {
               'text' => 'Para '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -53,7 +54,6 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -132,7 +132,8 @@ $result_trees{'image_inline_or_not'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -142,7 +143,6 @@ $result_trees{'image_inline_or_not'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -165,7 +165,8 @@ $result_trees{'image_inline_or_not'} = {
               'text' => 'Para '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -175,7 +176,6 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -217,7 +217,8 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -227,7 +228,6 @@ $result_trees{'image_inline_or_not'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -249,7 +249,8 @@ $result_trees{'image_inline_or_not'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -259,7 +260,6 @@ $result_trees{'image_inline_or_not'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -319,7 +319,8 @@ $result_trees{'image_inline_or_not'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -329,7 +330,6 @@ $result_trees{'image_inline_or_not'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -350,7 +350,8 @@ $result_trees{'image_inline_or_not'} = {
           'cmdname' => 'quotation',
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -360,7 +361,6 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -448,7 +448,8 @@ $result_trees{'image_inline_or_not'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'image',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -458,7 +459,6 @@ $result_trees{'image_inline_or_not'} = {
                                   'type' => 'brace_arg'
                                 }
                               ],
-                              'cmdname' => 'image',
                               'extra' => {
                                 'input_encoding_name' => 'utf-8'
                               },
@@ -497,7 +497,8 @@ $result_trees{'image_inline_or_not'} = {
                       'type' => 'empty_line'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'image',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -507,7 +508,6 @@ $result_trees{'image_inline_or_not'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'image',
                       'extra' => {
                         'input_encoding_name' => 'utf-8'
                       },
@@ -530,7 +530,8 @@ $result_trees{'image_inline_or_not'} = {
                           'text' => 'AA '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'image',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -540,7 +541,6 @@ $result_trees{'image_inline_or_not'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'image',
                           'extra' => {
                             'input_encoding_name' => 'utf-8'
                           },
@@ -561,7 +561,8 @@ $result_trees{'image_inline_or_not'} = {
                       'type' => 'empty_line'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'image',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -571,7 +572,6 @@ $result_trees{'image_inline_or_not'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'image',
                       'extra' => {
                         'input_encoding_name' => 'utf-8'
                       },
@@ -660,7 +660,8 @@ $result_trees{'image_inline_or_not'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'image',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -670,7 +671,6 @@ $result_trees{'image_inline_or_not'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'image',
                       'extra' => {
                         'input_encoding_name' => 'utf-8'
                       },
@@ -698,7 +698,8 @@ $result_trees{'image_inline_or_not'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'image',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -708,7 +709,6 @@ $result_trees{'image_inline_or_not'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'image',
                           'extra' => {
                             'input_encoding_name' => 'utf-8'
                           },
@@ -741,7 +741,8 @@ $result_trees{'image_inline_or_not'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'image',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -751,7 +752,6 @@ $result_trees{'image_inline_or_not'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'image',
                       'extra' => {
                         'input_encoding_name' => 'utf-8'
                       },
@@ -778,7 +778,8 @@ $result_trees{'image_inline_or_not'} = {
                       'text' => ')'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'image',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -788,7 +789,6 @@ $result_trees{'image_inline_or_not'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'image',
                       'extra' => {
                         'input_encoding_name' => 'utf-8'
                       },
@@ -846,7 +846,8 @@ $result_trees{'image_inline_or_not'} = {
                       'type' => 'after_menu_description_line'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'image',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -856,7 +857,6 @@ $result_trees{'image_inline_or_not'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'image',
                       'extra' => {
                         'input_encoding_name' => 'utf-8'
                       },
@@ -930,7 +930,8 @@ $result_trees{'image_inline_or_not'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -940,7 +941,6 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -977,7 +977,8 @@ $result_trees{'image_inline_or_not'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -987,7 +988,6 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -1023,11 +1023,13 @@ $result_trees{'image_inline_or_not'} = {
               'text' => 'T'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'image',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1037,7 +1039,6 @@ $result_trees{'image_inline_or_not'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'image',
                       'extra' => {
                         'input_encoding_name' => 'utf-8'
                       },
@@ -1053,7 +1054,6 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -1083,7 +1083,8 @@ $result_trees{'image_inline_or_not'} = {
               'text' => 'U'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1093,7 +1094,8 @@ $result_trees{'image_inline_or_not'} = {
 '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'image',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1103,7 +1105,6 @@ $result_trees{'image_inline_or_not'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'image',
                           'extra' => {
                             'input_encoding_name' => 'utf-8'
                           },
@@ -1127,7 +1128,6 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -1184,7 +1184,8 @@ $result_trees{'image_inline_or_not'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1194,7 +1195,6 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -1212,11 +1212,13 @@ $result_trees{'image_inline_or_not'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'image',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1226,7 +1228,6 @@ $result_trees{'image_inline_or_not'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'image',
                       'extra' => {
                         'input_encoding_name' => 'utf-8'
                       },
@@ -1240,7 +1241,8 @@ $result_trees{'image_inline_or_not'} = {
                           'text' => ' PAra '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'image',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1250,7 +1252,6 @@ $result_trees{'image_inline_or_not'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'image',
                           'extra' => {
                             'input_encoding_name' => 'utf-8'
                           },
@@ -1265,7 +1266,6 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },

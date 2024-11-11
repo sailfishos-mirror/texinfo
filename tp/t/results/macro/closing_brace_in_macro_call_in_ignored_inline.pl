@@ -70,7 +70,8 @@ $result_trees{'closing_brace_in_macro_call_in_ignored_inline'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmt',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -113,7 +114,6 @@ $result_trees{'closing_brace_in_macro_call_in_ignored_inline'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlinefmt',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'html'
@@ -148,7 +148,8 @@ $result_trees{'closing_brace_in_macro_call_in_ignored_inline'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmt',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -170,7 +171,6 @@ after
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlinefmt',
               'extra' => {
                 'format' => 'tex'
               },

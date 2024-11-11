@@ -150,7 +150,8 @@ $result_trees{'texinfo_command_alias_indirect_before'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -160,7 +161,6 @@ $result_trees{'texinfo_command_alias_indirect_before'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'info' => {
                 'alias_of' => 'new'
               },

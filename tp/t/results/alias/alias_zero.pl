@@ -45,7 +45,8 @@ $result_trees{'alias_zero'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -55,7 +56,6 @@ $result_trees{'alias_zero'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'info' => {
                 'alias_of' => '0'
               },

@@ -12,7 +12,8 @@ $result_trees{'math_bracketed_not_closed_next_line'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -42,7 +43,6 @@ $result_trees{'math_bracketed_not_closed_next_line'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'source_info' => {
                 'line_nr' => 1
               }

@@ -68,12 +68,12 @@ $result_trees{'bad_tab_nesting'} = {
 '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 3
                               }

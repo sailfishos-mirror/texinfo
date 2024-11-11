@@ -340,12 +340,12 @@ $result_trees{'kbdinputstyle_in_table'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'kbd',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'kbd',
                   'extra' => {
                     'code' => 1
                   },
@@ -593,12 +593,12 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'kbd',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'kbd',
                       'extra' => {
                         'code' => 1
                       },
@@ -946,12 +946,12 @@ $result_trees{'kbdinputstyle_in_table'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'kbd',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'kbd',
                   'extra' => {
                     'code' => 1
                   },
@@ -1195,12 +1195,12 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'kbd',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'kbd',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'codekbdmacro'
@@ -1540,12 +1540,12 @@ $result_trees{'kbdinputstyle_in_table'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'kbd',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'kbd',
                   'source_info' => {
                     'line_nr' => 37,
                     'macro' => 'codekbdmacro'
@@ -1785,12 +1785,12 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'kbd',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'kbd',
                       'source_info' => {
                         'line_nr' => 37,
                         'macro' => 'codekbdmacro'

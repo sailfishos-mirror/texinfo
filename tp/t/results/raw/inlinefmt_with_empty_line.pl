@@ -15,7 +15,8 @@ $result_trees{'inlinefmt_with_empty_line'} = {
               'text' => 'A '
             },
             {
-              'args' => [
+              'cmdname' => 'inlinefmt',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -44,7 +45,6 @@ $result_trees{'inlinefmt_with_empty_line'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlinefmt',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'plaintext'
@@ -59,12 +59,12 @@ $result_trees{'inlinefmt_with_empty_line'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'lbracechar',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'lbracechar',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -74,7 +74,8 @@ $result_trees{'inlinefmt_with_empty_line'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'inlinefmt',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -103,7 +104,6 @@ $result_trees{'inlinefmt_with_empty_line'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlinefmt',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'html'
@@ -121,7 +121,8 @@ $result_trees{'inlinefmt_with_empty_line'} = {
               'text' => '<i>'
             },
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -131,7 +132,6 @@ $result_trees{'inlinefmt_with_empty_line'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 6
               }

@@ -12,11 +12,13 @@ $result_trees{'command_in_U'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'U',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -26,7 +28,6 @@ $result_trees{'command_in_U'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -35,7 +36,6 @@ $result_trees{'command_in_U'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'U',
               'source_info' => {
                 'line_nr' => 1
               }

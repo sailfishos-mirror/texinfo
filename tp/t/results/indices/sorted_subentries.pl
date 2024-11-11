@@ -1097,7 +1097,8 @@ $result_trees{'sorted_subentries'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'samp',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1107,7 +1108,6 @@ $result_trees{'sorted_subentries'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 24
                   }
@@ -1177,7 +1177,8 @@ $result_trees{'sorted_subentries'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'kbd',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1187,7 +1188,6 @@ $result_trees{'sorted_subentries'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'kbd',
                   'source_info' => {
                     'line_nr' => 25
                   }
@@ -1213,7 +1213,8 @@ $result_trees{'sorted_subentries'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'sc',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1223,7 +1224,6 @@ $result_trees{'sorted_subentries'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'sc',
                       'source_info' => {
                         'line_nr' => 25
                       }
@@ -1244,7 +1244,8 @@ $result_trees{'sorted_subentries'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'email',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1262,7 +1263,6 @@ $result_trees{'sorted_subentries'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'email',
                           'source_info' => {
                             'line_nr' => 25
                           }
@@ -1422,7 +1422,8 @@ $result_trees{'sorted_subentries'} = {
                           'type' => 'spaces_at_end'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'sortas',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1432,7 +1433,6 @@ $result_trees{'sorted_subentries'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'sortas',
                           'source_info' => {
                             'line_nr' => 27
                           }

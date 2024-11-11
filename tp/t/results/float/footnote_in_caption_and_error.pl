@@ -145,7 +145,8 @@ $result_trees{'footnote_in_caption_and_error'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -154,7 +155,8 @@ $result_trees{'footnote_in_caption_and_error'} = {
                           'text' => 'in caption'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'footnote',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -175,7 +177,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
                               'type' => 'brace_command_context'
                             }
                           ],
-                          'cmdname' => 'footnote',
                           'extra' => {},
                           'source_info' => {
                             'line_nr' => 8
@@ -188,7 +189,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },

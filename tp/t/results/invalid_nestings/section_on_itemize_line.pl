@@ -14,12 +14,12 @@ $result_trees{'section_on_itemize_line'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'minus',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'minus',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -78,12 +78,12 @@ $result_trees{'section_on_itemize_line'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'minus',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'minus',
                   'source_info' => {
                     'line_nr' => 3
                   }

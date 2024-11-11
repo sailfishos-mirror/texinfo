@@ -15,7 +15,8 @@ $result_trees{'on_node_line'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -71,7 +72,6 @@ $result_trees{'on_node_line'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -85,7 +85,8 @@ $result_trees{'on_node_line'} = {
               'text' => '('
             },
             {
-              'args' => [
+              'cmdname' => 'pxref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -116,7 +117,6 @@ $result_trees{'on_node_line'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'pxref',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -128,7 +128,8 @@ $result_trees{'on_node_line'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'anchor',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -138,7 +139,6 @@ $result_trees{'on_node_line'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'anchor',
               'extra' => {
                 'is_target' => 1,
                 'normalized' => 'in-anchor'
@@ -148,7 +148,8 @@ $result_trees{'on_node_line'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -163,7 +164,6 @@ $result_trees{'on_node_line'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 1
@@ -241,9 +241,9 @@ $result_trees{'on_node_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'on_node_line'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'on_node_line'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'on_node_line'}{'contents'}[1]{'args'}[1]{'contents'}[1]{'args'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'on_node_line'}{'contents'}[1]{'args'}[1]{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'on_node_line'}{'contents'}[1]{'args'}[1]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'on_node_line'}{'contents'}[1]{'args'}[1]{'contents'}[1]{'args'}[0]{'contents'}[3];
+$result_trees{'on_node_line'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'on_node_line'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'on_node_line'}{'contents'}[1]{'args'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'on_node_line'}{'contents'}[1]{'args'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1];
+$result_trees{'on_node_line'}{'contents'}[1]{'args'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'on_node_line'}{'contents'}[1]{'args'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3];
 $result_trees{'on_node_line'}{'contents'}[1]{'args'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'on_node_line'}{'contents'}[1]{'args'}[1]{'contents'}[1];
 $result_trees{'on_node_line'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'on_node_line'}{'contents'}[1]{'args'}[1]{'contents'}[4];
 $result_trees{'on_node_line'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'on_node_line'}{'contents'}[1]{'args'}[1]{'contents'}[5];

@@ -23,7 +23,8 @@ $result_trees{'equivalent_nodes'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -33,7 +34,6 @@ $result_trees{'equivalent_nodes'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -89,7 +89,8 @@ $result_trees{'equivalent_nodes'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'strong',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -99,7 +100,6 @@ $result_trees{'equivalent_nodes'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'strong',
                       'source_info' => {
                         'line_nr' => 4
                       }
@@ -198,7 +198,8 @@ $result_trees{'equivalent_nodes'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -208,7 +209,6 @@ $result_trees{'equivalent_nodes'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'source_info' => {
                 'line_nr' => 7
               }
@@ -233,7 +233,8 @@ $result_trees{'equivalent_nodes'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -251,7 +252,6 @@ $result_trees{'equivalent_nodes'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -282,7 +282,7 @@ $result_trees{'equivalent_nodes'} = {
 };
 $result_trees{'equivalent_nodes'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_nodes'}{'contents'}[1]{'args'}[1]{'contents'}[0];
 $result_trees{'equivalent_nodes'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_nodes'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'equivalent_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'equivalent_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'equivalent_nodes'} = '@node first, @emph{node}
 

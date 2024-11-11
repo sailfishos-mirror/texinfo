@@ -124,7 +124,8 @@ $result_trees{'transparent_sort_chars'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -134,7 +135,6 @@ $result_trees{'transparent_sort_chars'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 8
                   }
@@ -143,7 +143,8 @@ $result_trees{'transparent_sort_chars'} = {
                   'text' => ', for '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'command',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -153,7 +154,6 @@ $result_trees{'transparent_sort_chars'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'command',
                   'source_info' => {
                     'line_nr' => 8
                   }

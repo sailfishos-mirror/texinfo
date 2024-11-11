@@ -51,7 +51,8 @@ $result_trees{'utf8_use_numeric_entity'} = {
               'text' => 'AA '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -61,7 +62,6 @@ $result_trees{'utf8_use_numeric_entity'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 3
               }

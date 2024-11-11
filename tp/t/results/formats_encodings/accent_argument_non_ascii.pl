@@ -134,7 +134,8 @@ $result_trees{'accent_argument_non_ascii'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '\'',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -144,7 +145,6 @@ $result_trees{'accent_argument_non_ascii'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '\'',
               'source_info' => {
                 'line_nr' => 6
               }
@@ -154,7 +154,8 @@ $result_trees{'accent_argument_non_ascii'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => '\'',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -164,7 +165,6 @@ $result_trees{'accent_argument_non_ascii'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '\'',
               'source_info' => {
                 'line_nr' => 7
               }

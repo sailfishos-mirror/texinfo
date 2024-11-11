@@ -48,14 +48,16 @@ $result_trees{'uref_accented_letter_latin1'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'uref',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'http://example.com/acc_'
                     },
                     {
-                      'args' => [
+                      'cmdname' => '"',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -65,13 +67,13 @@ $result_trees{'uref_accented_letter_latin1'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '"',
                       'source_info' => {
                         'line_nr' => 3
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'ogonek',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -81,7 +83,6 @@ $result_trees{'uref_accented_letter_latin1'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'ogonek',
                       'source_info' => {
                         'line_nr' => 3
                       }
@@ -90,7 +91,6 @@ $result_trees{'uref_accented_letter_latin1'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'uref',
               'source_info' => {
                 'line_nr' => 3
               }

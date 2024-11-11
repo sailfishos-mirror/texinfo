@@ -29,7 +29,8 @@ $result_trees{'second_level_lone_braces_in_html'} = {
                   'text' => '{a'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -51,7 +52,6 @@ $result_trees{'second_level_lone_braces_in_html'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 2
                   }
@@ -123,7 +123,8 @@ $result_trees{'second_level_lone_braces_in_html'} = {
                   'text' => '{b'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -149,7 +150,6 @@ $result_trees{'second_level_lone_braces_in_html'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 7
                   }

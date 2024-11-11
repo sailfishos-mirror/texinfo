@@ -80,7 +80,8 @@ $result_trees{'menu_pointing_to_anchor'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -90,7 +91,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'An-anchor'

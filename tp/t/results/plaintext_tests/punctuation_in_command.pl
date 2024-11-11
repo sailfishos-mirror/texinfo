@@ -20,7 +20,8 @@ $result_trees{'punctuation_in_command'} = {
               'text' => 'Text. Email '
             },
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -38,7 +39,6 @@ $result_trees{'punctuation_in_command'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -47,7 +47,8 @@ $result_trees{'punctuation_in_command'} = {
               'text' => ' dmn '
             },
             {
-              'args' => [
+              'cmdname' => 'dmn',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -57,7 +58,6 @@ $result_trees{'punctuation_in_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'dmn',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -66,7 +66,8 @@ $result_trees{'punctuation_in_command'} = {
               'text' => ' and text. indicateurl '
             },
             {
-              'args' => [
+              'cmdname' => 'indicateurl',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -76,7 +77,6 @@ $result_trees{'punctuation_in_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'indicateurl',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -85,7 +85,8 @@ $result_trees{'punctuation_in_command'} = {
               'text' => ' and then kbd '
             },
             {
-              'args' => [
+              'cmdname' => 'kbd',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -95,7 +96,6 @@ $result_trees{'punctuation_in_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'kbd',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -104,7 +104,8 @@ $result_trees{'punctuation_in_command'} = {
               'text' => ' and math '
             },
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -114,7 +115,6 @@ $result_trees{'punctuation_in_command'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -123,7 +123,8 @@ $result_trees{'punctuation_in_command'} = {
               'text' => ' and cite '
             },
             {
-              'args' => [
+              'cmdname' => 'cite',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -133,7 +134,6 @@ $result_trees{'punctuation_in_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'cite',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -142,7 +142,8 @@ $result_trees{'punctuation_in_command'} = {
               'text' => ' and emph '
             },
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -152,7 +153,6 @@ $result_trees{'punctuation_in_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -165,11 +165,13 @@ $result_trees{'punctuation_in_command'} = {
               'text' => 'asis in code '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'asis',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -179,7 +181,6 @@ $result_trees{'punctuation_in_command'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 3
                       }
@@ -188,7 +189,6 @@ $result_trees{'punctuation_in_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 3
               }

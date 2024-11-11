@@ -668,7 +668,8 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'text' => 'In japanese. '
             },
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -686,7 +687,6 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 27
               }
@@ -1020,7 +1020,8 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'text' => 'In english. '
             },
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1038,7 +1039,6 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 35
               }
@@ -1786,7 +1786,8 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'text' => 'In brazilian. '
             },
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1804,7 +1805,6 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 54
               }
@@ -1837,12 +1837,12 @@ $result_trees{'multiple_lang_chapters_latex'}{'contents'}[2]{'contents'}[1]{'con
 $result_trees{'multiple_lang_chapters_latex'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_latex'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'multiple_lang_chapters_latex'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_latex'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
 $result_trees{'multiple_lang_chapters_latex'}{'contents'}[2]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_latex'}{'contents'}[2]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'multiple_lang_chapters_latex'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_latex'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'multiple_lang_chapters_latex'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_latex'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'multiple_lang_chapters_latex'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'multiple_lang_chapters_latex'}{'contents'}[3];
-$result_trees{'multiple_lang_chapters_latex'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_latex'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'multiple_lang_chapters_latex'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_latex'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'multiple_lang_chapters_latex'}{'contents'}[6]{'contents'}[2]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'multiple_lang_chapters_latex'}{'contents'}[5];
 $result_trees{'multiple_lang_chapters_latex'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'multiple_lang_chapters_latex'}{'contents'}[7];
-$result_trees{'multiple_lang_chapters_latex'}{'contents'}[12]{'contents'}[1]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_latex'}{'contents'}[12]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'multiple_lang_chapters_latex'}{'contents'}[12]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_latex'}{'contents'}[12]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'multiple_lang_chapters_latex'} = '
 @documentencoding utf-8

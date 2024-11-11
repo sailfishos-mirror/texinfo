@@ -18,7 +18,8 @@ $result_trees{'wrong_command'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'b',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -28,7 +29,6 @@ $result_trees{'wrong_command'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'b',
                           'source_info' => {
                             'line_nr' => 1
                           }

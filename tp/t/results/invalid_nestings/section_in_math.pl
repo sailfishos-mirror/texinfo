@@ -20,7 +20,8 @@ $result_trees{'section_in_math'} = {
               'text' => 'Some '
             },
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -50,7 +51,6 @@ $result_trees{'section_in_math'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -91,7 +91,8 @@ $result_trees{'section_in_math'} = {
               'text' => 'More '
             },
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -107,7 +108,6 @@ $result_trees{'section_in_math'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '

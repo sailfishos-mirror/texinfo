@@ -79,7 +79,8 @@ $result_trees{'value_on_ifset'} = {
                       {
                         'counter' => 1,
                         'element' => {
-                          'args' => [
+                          'cmdname' => 'value',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -88,8 +89,7 @@ $result_trees{'value_on_ifset'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'value'
+                          ]
                         },
                         'line' => 'x',
                         'position' => 1,

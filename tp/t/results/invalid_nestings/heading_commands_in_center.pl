@@ -14,7 +14,8 @@ $result_trees{'heading_commands_in_center'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -27,7 +28,6 @@ $result_trees{'heading_commands_in_center'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 1
                   }

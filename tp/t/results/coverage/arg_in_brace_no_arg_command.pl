@@ -12,7 +12,8 @@ $result_trees{'arg_in_brace_no_arg_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'TeX',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'arg_in_brace_no_arg_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'TeX',
               'source_info' => {
                 'line_nr' => 1
               }

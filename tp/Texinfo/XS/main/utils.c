@@ -654,9 +654,10 @@ item_line_parent (ELEMENT *current)
 ELEMENT *
 get_label_element (const ELEMENT *e)
 {
-  if ((e->e.c->cmd == CM_node || e->e.c->cmd == CM_anchor)
-      && e->e.c->args.number > 0)
+  if (e->e.c->cmd == CM_node && e->e.c->args.number > 0)
     return e->e.c->args.list[0];
+  else if (e->e.c->cmd == CM_anchor && e->e.c->contents.number > 0)
+    return e->e.c->contents.list[0];
   else if (e->e.c->cmd == CM_float && e->e.c->args.number >= 2)
     return e->e.c->args.list[1];
   return 0;

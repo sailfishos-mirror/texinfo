@@ -66,7 +66,8 @@ $result_trees{'invalid_info_menu_entry'} = {
                       'text' => ')'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'asis',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -76,7 +77,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 4
                       }
@@ -130,7 +130,8 @@ $result_trees{'invalid_info_menu_entry'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'asis',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -140,7 +141,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -236,7 +236,8 @@ $result_trees{'invalid_info_menu_entry'} = {
                       'text' => ')'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'asis',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -246,7 +247,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 6
                       }
@@ -321,7 +321,8 @@ $result_trees{'invalid_info_menu_entry'} = {
                       'text' => ')'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'asis',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -331,7 +332,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 7
                       }
@@ -406,7 +406,8 @@ $result_trees{'invalid_info_menu_entry'} = {
                       'text' => ')'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'asis',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -416,7 +417,6 @@ $result_trees{'invalid_info_menu_entry'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 8
                       }

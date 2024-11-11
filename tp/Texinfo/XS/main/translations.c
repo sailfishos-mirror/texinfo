@@ -452,7 +452,7 @@ substitute_element_array (ELEMENT_LIST *list,
         {
           if (e->e.c->cmd == CM_txiinternalvalue)
             {
-              char *name = e->e.c->args.list[0]->e.c->contents.list[0]
+              char *name = e->e.c->contents.list[0]->e.c->contents.list[0]
                                                             ->e.text->text;
               size_t i;
               for (i = 0; i < replaced_substrings->number; i++)

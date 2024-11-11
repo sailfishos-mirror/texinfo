@@ -911,7 +911,7 @@ new_asis_command_with_text (const char *text, ELEMENT *parent,
   ELEMENT *brace_container = new_element (ET_brace_container);
   ELEMENT *text_elt = new_text_element (type);
   new_command->parent = parent;
-  add_to_element_args (new_command, brace_container);
+  add_to_element_contents (new_command, brace_container);
   text_append (text_elt->e.text, text);
   add_to_element_contents (brace_container, text_elt);
   return new_command;
@@ -988,7 +988,7 @@ protect_text (ELEMENT *current, const char *to_protect)
                       ELEMENT *brace_container
                            = new_element (ET_brace_container);
                       comma->parent = current->parent;
-                      add_to_element_args (comma, brace_container);
+                      add_to_element_contents (comma, brace_container);
                       add_to_element_list (container, comma);
                       if (u8_text)
                         {
@@ -1018,7 +1018,7 @@ protect_text (ELEMENT *current, const char *to_protect)
 
                       current_position
                        = relocate_source_marks (current->source_mark_list,
-                           new_command->e.c->args.list[0]->e.c->contents.list[0],
+                    new_command->e.c->contents.list[0]->e.c->contents.list[0],
                                               current_position, u8_len);
                     }
                   p += to_protect_nr;

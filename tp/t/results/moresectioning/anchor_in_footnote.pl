@@ -71,7 +71,8 @@ $result_trees{'anchor_in_footnote'} = {
               'text' => 'In top node'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -81,7 +82,8 @@ $result_trees{'anchor_in_footnote'} = {
 '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'anchor',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -91,7 +93,6 @@ $result_trees{'anchor_in_footnote'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'anchor',
                           'extra' => {
                             'is_target' => 1,
                             'normalized' => 'Anchor-in-footnote'
@@ -111,7 +112,6 @@ $result_trees{'anchor_in_footnote'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 4
@@ -298,7 +298,8 @@ $result_trees{'anchor_in_footnote'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -316,7 +317,6 @@ $result_trees{'anchor_in_footnote'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 15
               }
@@ -345,7 +345,7 @@ $result_trees{'anchor_in_footnote'} = {
   'type' => 'document_root'
 };
 $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'anchor_in_footnote'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_footnote'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'anchor_in_footnote'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_footnote'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'anchor_in_footnote'} = '@node Top
 @top Top

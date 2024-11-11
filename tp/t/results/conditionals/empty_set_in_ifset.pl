@@ -73,7 +73,8 @@ $result_trees{'empty_set_in_ifset'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -82,8 +83,7 @@ $result_trees{'empty_set_in_ifset'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => '',
                   'position' => 13,

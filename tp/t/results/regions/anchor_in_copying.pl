@@ -47,7 +47,8 @@ $result_trees{'anchor_in_copying'} = {
 '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'anchor',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -60,7 +61,6 @@ $result_trees{'anchor_in_copying'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'anchor',
                       'extra' => {
                         'is_target' => 1,
                         'normalized' => 'Copying-information'
@@ -231,7 +231,8 @@ $result_trees{'anchor_in_copying'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -249,7 +250,6 @@ $result_trees{'anchor_in_copying'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 17
               }
@@ -283,7 +283,7 @@ $result_trees{'anchor_in_copying'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'anchor_in_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'anchor_in_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'anchor_in_copying'} = '
 @copying

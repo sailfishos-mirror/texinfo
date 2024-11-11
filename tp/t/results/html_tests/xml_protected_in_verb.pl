@@ -71,7 +71,8 @@ $result_trees{'xml_protected_in_verb'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -82,7 +83,6 @@ $result_trees{'xml_protected_in_verb'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => '.'
               },

@@ -134,7 +134,8 @@ $result_trees{'comma_value_in_macro_arg'} = {
               'text' => 'result: '
             },
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -142,7 +143,8 @@ $result_trees{'comma_value_in_macro_arg'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'value',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -151,8 +153,7 @@ $result_trees{'comma_value_in_macro_arg'} = {
                                 ],
                                 'type' => 'brace_container'
                               }
-                            ],
-                            'cmdname' => 'value'
+                            ]
                           },
                           'line' => ',',
                           'position' => 5,
@@ -172,7 +173,6 @@ $result_trees{'comma_value_in_macro_arg'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'line_nr' => 7,
                 'macro' => 'macro1'
@@ -182,12 +182,12 @@ $result_trees{'comma_value_in_macro_arg'} = {
               'text' => ' protected \\ -> \\arg1\\ '
             },
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'line_nr' => 7,
                 'macro' => 'macro1'

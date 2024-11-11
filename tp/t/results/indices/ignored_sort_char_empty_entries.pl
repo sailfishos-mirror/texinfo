@@ -235,7 +235,8 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'sortas',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -245,7 +246,6 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'sortas',
                   'source_info' => {
                     'line_nr' => 11
                   }

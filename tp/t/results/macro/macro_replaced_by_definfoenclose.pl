@@ -113,7 +113,8 @@ $result_trees{'macro_replaced_by_definfoenclose'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'phoo',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -123,7 +124,6 @@ $result_trees{'macro_replaced_by_definfoenclose'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'phoo',
               'extra' => {
                 'begin' => ';',
                 'end' => ':'

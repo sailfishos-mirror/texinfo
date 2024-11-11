@@ -137,7 +137,8 @@ $result_trees{'explicit_sort_key'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'sortas',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -147,7 +148,6 @@ $result_trees{'explicit_sort_key'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'sortas',
                   'source_info' => {
                     'line_nr' => 8
                   }
@@ -194,7 +194,8 @@ $result_trees{'explicit_sort_key'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'sortas',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -204,7 +205,6 @@ $result_trees{'explicit_sort_key'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'sortas',
                   'source_info' => {
                     'line_nr' => 9
                   }
@@ -251,7 +251,8 @@ $result_trees{'explicit_sort_key'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'sortas',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -261,7 +262,6 @@ $result_trees{'explicit_sort_key'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'sortas',
                   'source_info' => {
                     'line_nr' => 10
                   }
@@ -308,14 +308,16 @@ $result_trees{'explicit_sort_key'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'b',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => 'aaa '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'sortas',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -325,7 +327,6 @@ $result_trees{'explicit_sort_key'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'sortas',
                           'source_info' => {
                             'line_nr' => 11
                           }
@@ -334,7 +335,6 @@ $result_trees{'explicit_sort_key'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'b',
                   'source_info' => {
                     'line_nr' => 11
                   }
@@ -379,7 +379,8 @@ $result_trees{'explicit_sort_key'} = {
               'text' => 'in a reuglar para '
             },
             {
-              'args' => [
+              'cmdname' => 'sortas',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -389,7 +390,6 @@ $result_trees{'explicit_sort_key'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'sortas',
               'source_info' => {
                 'line_nr' => 13
               }
@@ -398,14 +398,16 @@ $result_trees{'explicit_sort_key'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'inside another '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'sortas',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -415,7 +417,6 @@ $result_trees{'explicit_sort_key'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'sortas',
                       'source_info' => {
                         'line_nr' => 13
                       }
@@ -424,7 +425,6 @@ $result_trees{'explicit_sort_key'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 13
               }
@@ -444,14 +444,16 @@ $result_trees{'explicit_sort_key'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'sortas',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'and cmd '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'b',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -461,7 +463,6 @@ $result_trees{'explicit_sort_key'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'b',
                       'source_info' => {
                         'line_nr' => 15
                       }
@@ -470,7 +471,6 @@ $result_trees{'explicit_sort_key'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'sortas',
               'source_info' => {
                 'line_nr' => 15
               }
@@ -480,14 +480,16 @@ $result_trees{'explicit_sort_key'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'url',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'and cmd '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'sortas',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -497,7 +499,6 @@ $result_trees{'explicit_sort_key'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'sortas',
                       'source_info' => {
                         'line_nr' => 16
                       }
@@ -506,7 +507,6 @@ $result_trees{'explicit_sort_key'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'url',
               'source_info' => {
                 'line_nr' => 16
               }

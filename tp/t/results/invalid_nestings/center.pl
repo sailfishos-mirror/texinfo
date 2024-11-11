@@ -24,7 +24,8 @@ $result_trees{'center'} = {
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'titlefont',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -34,7 +35,6 @@ $result_trees{'center'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'titlefont',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 1
@@ -44,7 +44,8 @@ $result_trees{'center'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'anchor',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -54,7 +55,6 @@ $result_trees{'center'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'anchor',
                   'extra' => {
                     'is_target' => 1,
                     'normalized' => 'in-anchor'
@@ -64,7 +64,8 @@ $result_trees{'center'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'footnote',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -79,7 +80,6 @@ $result_trees{'center'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'footnote',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 1
@@ -278,7 +278,8 @@ $result_trees{'center'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -289,7 +290,6 @@ $result_trees{'center'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 11
                   }
@@ -328,7 +328,8 @@ $result_trees{'center'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -338,7 +339,6 @@ $result_trees{'center'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 15
                   }
@@ -402,12 +402,12 @@ $result_trees{'center'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 19
               }
@@ -756,7 +756,8 @@ $result_trees{'center'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'samp',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -766,7 +767,6 @@ $result_trees{'center'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 33
                   }
@@ -825,12 +825,12 @@ $result_trees{'center'} = {
                   'text' => 'after first center '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'samp',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 35
                   }

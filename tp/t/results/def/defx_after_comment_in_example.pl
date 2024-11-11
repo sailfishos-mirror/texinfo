@@ -52,7 +52,8 @@ $result_trees{'defx_after_comment_in_example'} = {
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'var',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -62,7 +63,6 @@ $result_trees{'defx_after_comment_in_example'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => 'var',
                                   'source_info' => {
                                     'line_nr' => 2
                                   }
@@ -124,7 +124,8 @@ $result_trees{'defx_after_comment_in_example'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -133,8 +134,7 @@ $result_trees{'defx_after_comment_in_example'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'var'
+                              ]
                             }
                           ],
                           'type' => 'def_line_arg'

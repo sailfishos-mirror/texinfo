@@ -97,13 +97,14 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
         }
       else if (builtin_command_data[e->e.c->cmd].flags & CF_accent)
         {
-          if (e->e.c->args.number > 0)
+          if (e->e.c->contents.number > 0)
             {
               TEXT accent_text;
               char *accented_char;
 
               text_init (&accent_text);
-              convert_to_normalized_internal (e->e.c->args.list[0], &accent_text);
+              convert_to_normalized_internal (e->e.c->contents.list[0],
+                                              &accent_text);
               accented_char = unicode_accent (accent_text.text, e);
               if (accented_char)
                 {
@@ -116,6 +117,7 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
                 ADD(accent_text.text);
               free (accent_text.text);
             }
+          return;
         }
       else if (builtin_command_data[e->e.c->cmd].flags & CF_ref)
         {
@@ -127,13 +129,13 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
             {
               /* no risk with that casting as idx < 5 */
               size_t idx = (size_t) arguments_order[order_index];
-              if (e->e.c->args.number > idx)
+              if (e->e.c->contents.number > idx)
                 {
                   TEXT arg_text;
 
                   text_init (&arg_text);
                   convert_to_normalized_internal (
-                    e->e.c->args.list[idx], &arg_text);
+                    e->e.c->contents.list[idx], &arg_text);
                   if (arg_text.end > 0)
                     {
                       char *non_space_char = arg_text.text
@@ -148,13 +150,14 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
                 }
               order_index++;
             }
+          return;
         }
-      else if (e->e.c->args.number > 0
-               && (e->e.c->args.list[0]->type == ET_brace_container
-                   || e->e.c->args.list[0]->type == ET_brace_arg
+      else if (e->e.c->contents.number > 0
+               && (e->e.c->contents.list[0]->type == ET_brace_container
+                   || e->e.c->contents.list[0]->type == ET_brace_arg
                    || e->e.c->cmd == CM_math))
         {
-          convert_to_normalized_internal (e->e.c->args.list[0], result);
+          convert_to_normalized_internal (e->e.c->contents.list[0], result);
           return;
         }
     }

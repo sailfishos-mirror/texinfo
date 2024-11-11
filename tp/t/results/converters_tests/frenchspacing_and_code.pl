@@ -192,7 +192,8 @@ $result_trees{'frenchspacing_and_code'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -202,7 +203,6 @@ $result_trees{'frenchspacing_and_code'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 12
               }
@@ -425,7 +425,8 @@ $result_trees{'frenchspacing_and_code'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -435,7 +436,6 @@ $result_trees{'frenchspacing_and_code'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 18
                               }
@@ -455,7 +455,8 @@ $result_trees{'frenchspacing_and_code'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -465,7 +466,6 @@ $result_trees{'frenchspacing_and_code'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 18
                               }
@@ -748,7 +748,8 @@ $result_trees{'frenchspacing_and_code'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -758,7 +759,6 @@ $result_trees{'frenchspacing_and_code'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 22
                               }
@@ -778,7 +778,8 @@ $result_trees{'frenchspacing_and_code'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -788,7 +789,6 @@ $result_trees{'frenchspacing_and_code'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 22
                               }
@@ -1065,7 +1065,8 @@ $result_trees{'frenchspacing_and_code'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1075,7 +1076,6 @@ $result_trees{'frenchspacing_and_code'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 32
               }
@@ -1298,7 +1298,8 @@ $result_trees{'frenchspacing_and_code'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1308,7 +1309,6 @@ $result_trees{'frenchspacing_and_code'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 38
                               }
@@ -1328,7 +1328,8 @@ $result_trees{'frenchspacing_and_code'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1338,7 +1339,6 @@ $result_trees{'frenchspacing_and_code'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 38
                               }
@@ -1621,7 +1621,8 @@ $result_trees{'frenchspacing_and_code'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1631,7 +1632,6 @@ $result_trees{'frenchspacing_and_code'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 42
                               }
@@ -1651,7 +1651,8 @@ $result_trees{'frenchspacing_and_code'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1661,7 +1662,6 @@ $result_trees{'frenchspacing_and_code'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 42
                               }

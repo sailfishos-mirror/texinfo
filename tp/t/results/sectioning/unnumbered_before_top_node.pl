@@ -81,7 +81,8 @@ $result_trees{'unnumbered_before_top_node'} = [
             'type' => 'empty_line'
           },
           {
-            'args' => [
+            'cmdname' => 'titlefont',
+            'contents' => [
               {
                 'contents' => [
                   {
@@ -91,7 +92,6 @@ $result_trees{'unnumbered_before_top_node'} = [
                 'type' => 'brace_container'
               }
             ],
-            'cmdname' => 'titlefont',
             'extra' => {},
             'source_info' => {
               'line_nr' => 6

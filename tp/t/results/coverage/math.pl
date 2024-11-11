@@ -16,7 +16,8 @@ $result_trees{'math'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -51,7 +52,6 @@ $result_trees{'math'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -81,11 +81,13 @@ $result_trees{'math'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -95,7 +97,6 @@ $result_trees{'math'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -104,7 +105,8 @@ $result_trees{'math'} = {
                       'text' => ' a < b \\sum'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'sub',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -114,7 +116,6 @@ $result_trees{'math'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'sub',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -123,7 +124,8 @@ $result_trees{'math'} = {
                       'text' => ' q'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'sup',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -133,7 +135,6 @@ $result_trees{'math'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'sup',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -142,7 +143,6 @@ $result_trees{'math'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -166,7 +166,8 @@ $result_trees{'math'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -178,7 +179,8 @@ $result_trees{'math'} = {
                           'text' => '{'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -199,7 +201,6 @@ $result_trees{'math'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'code',
                           'source_info' => {
                             'line_nr' => 8
                           }
@@ -262,7 +263,6 @@ $result_trees{'math'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -314,7 +314,8 @@ $result_trees{'math'} = {
               'text' => 'The 3'
             },
             {
-              'args' => [
+              'cmdname' => 'sup',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -324,7 +325,6 @@ $result_trees{'math'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sup',
               'source_info' => {
                 'line_nr' => 13
               }
@@ -333,7 +333,8 @@ $result_trees{'math'} = {
               'text' => 'is the I'
             },
             {
-              'args' => [
+              'cmdname' => 'sub',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -343,7 +344,6 @@ $result_trees{'math'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sub',
               'source_info' => {
                 'line_nr' => 13
               }

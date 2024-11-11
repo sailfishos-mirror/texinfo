@@ -74,7 +74,8 @@ $result_trees{'nested_footnotes_separate'} = {
               'text' => 'F'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -97,7 +98,8 @@ $result_trees{'nested_footnotes_separate'} = {
                           'text' => 'V'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'footnote',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -112,7 +114,6 @@ $result_trees{'nested_footnotes_separate'} = {
                               'type' => 'brace_command_context'
                             }
                           ],
-                          'cmdname' => 'footnote',
                           'extra' => {},
                           'source_info' => {
                             'line_nr' => 6
@@ -129,7 +130,6 @@ $result_trees{'nested_footnotes_separate'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 4

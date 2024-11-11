@@ -255,12 +255,12 @@ now second arg: gg '
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 14,
                     'macro' => 'mymacro'
@@ -283,7 +283,8 @@ now second arg: gg '
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -293,7 +294,6 @@ now second arg: gg '
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 14,
                         'macro' => 'mymacro'

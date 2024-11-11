@@ -15,7 +15,8 @@ $result_trees{'end_of_line_in_uref'} = {
               'text' => 'See the '
             },
             {
-              'args' => [
+              'cmdname' => 'uref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -42,7 +43,6 @@ $result_trees{'end_of_line_in_uref'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'uref',
               'source_info' => {
                 'line_nr' => 1
               }

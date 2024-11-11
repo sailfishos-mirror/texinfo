@@ -233,7 +233,8 @@ $result_trees{'manual_simple_latin1_with_error'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'value',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -242,8 +243,7 @@ $result_trees{'manual_simple_latin1_with_error'} = {
               ],
               'type' => 'brace_container'
             }
-          ],
-          'cmdname' => 'value'
+          ]
         },
         {
           'text' => '

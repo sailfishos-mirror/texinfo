@@ -14,14 +14,16 @@ $result_trees{'commands_in_settitle_with_title'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'sc',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => 'sc '
                         },
                         {
-                          'args' => [
+                          'cmdname' => '~',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -31,7 +33,6 @@ $result_trees{'commands_in_settitle_with_title'} = {
                               'type' => 'following_arg'
                             }
                           ],
-                          'cmdname' => '~',
                           'source_info' => {
                             'line_nr' => 1
                           }
@@ -40,12 +41,12 @@ $result_trees{'commands_in_settitle_with_title'} = {
                           'text' => ' '
                         },
                         {
-                          'args' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
                           'cmdname' => 'aa',
+                          'contents' => [
+                            {
+                              'type' => 'brace_container'
+                            }
+                          ],
                           'source_info' => {
                             'line_nr' => 1
                           }
@@ -54,12 +55,12 @@ $result_trees{'commands_in_settitle_with_title'} = {
                           'text' => ' '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'TeX',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'TeX',
                           'source_info' => {
                             'line_nr' => 1
                           }
@@ -68,7 +69,6 @@ $result_trees{'commands_in_settitle_with_title'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'sc',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -77,7 +77,8 @@ $result_trees{'commands_in_settitle_with_title'} = {
                   'text' => ' node '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '"',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -87,7 +88,6 @@ $result_trees{'commands_in_settitle_with_title'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '"',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -96,11 +96,13 @@ $result_trees{'commands_in_settitle_with_title'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '"',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'dotless',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -110,7 +112,6 @@ $result_trees{'commands_in_settitle_with_title'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'dotless',
                           'source_info' => {
                             'line_nr' => 1
                           }
@@ -119,7 +120,6 @@ $result_trees{'commands_in_settitle_with_title'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '"',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -128,11 +128,13 @@ $result_trees{'commands_in_settitle_with_title'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '`',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => '=',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -142,7 +144,6 @@ $result_trees{'commands_in_settitle_with_title'} = {
                               'type' => 'following_arg'
                             }
                           ],
-                          'cmdname' => '=',
                           'source_info' => {
                             'line_nr' => 1
                           }
@@ -151,7 +152,6 @@ $result_trees{'commands_in_settitle_with_title'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '`',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -160,12 +160,12 @@ $result_trees{'commands_in_settitle_with_title'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'l',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'l',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -174,11 +174,13 @@ $result_trees{'commands_in_settitle_with_title'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => ',',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => '\'',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -188,7 +190,6 @@ $result_trees{'commands_in_settitle_with_title'} = {
                               'type' => 'following_arg'
                             }
                           ],
-                          'cmdname' => '\'',
                           'source_info' => {
                             'line_nr' => 1
                           }
@@ -197,7 +198,6 @@ $result_trees{'commands_in_settitle_with_title'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => ',',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -206,12 +206,12 @@ $result_trees{'commands_in_settitle_with_title'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'exclamdown',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'exclamdown',
                   'source_info' => {
                     'line_nr' => 1
                   }

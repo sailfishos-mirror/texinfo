@@ -12,7 +12,8 @@ $result_trees{'inlineiffmtifelse_not_closed_two_arg'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmtifelse',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -32,7 +33,6 @@ $result_trees{'inlineiffmtifelse_not_closed_two_arg'} = {
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlinefmtifelse',
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'html'

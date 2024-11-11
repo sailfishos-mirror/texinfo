@@ -110,7 +110,8 @@ $result_trees{'verb_with_arobase_in_linemacro_call'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -121,7 +122,6 @@ $result_trees{'verb_with_arobase_in_linemacro_call'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => '@'
               },

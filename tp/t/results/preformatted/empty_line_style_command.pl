@@ -29,7 +29,8 @@ $result_trees{'empty_line_style_command'} = {
                   'text' => 'example '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'samp',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -48,7 +49,6 @@ $result_trees{'empty_line_style_command'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 2
                   }

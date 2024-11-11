@@ -101,7 +101,8 @@ $result_trees{'protect_colon_source_mark'} = {
               'text' => 'There is some text '
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -110,8 +111,7 @@ $result_trees{'protect_colon_source_mark'} = {
                   ],
                   'type' => 'brace_container'
                 }
-              ],
-              'cmdname' => 'asis'
+              ]
             },
             {
               'source_marks' => [

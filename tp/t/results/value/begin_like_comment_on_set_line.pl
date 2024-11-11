@@ -44,7 +44,8 @@ $result_trees{'begin_like_comment_on_set_line'} = {
               'text' => '!'
             },
             {
-              'args' => [
+              'cmdname' => 'value',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -53,15 +54,15 @@ $result_trees{'begin_like_comment_on_set_line'} = {
                   ],
                   'type' => 'brace_container'
                 }
-              ],
-              'cmdname' => 'value'
+              ]
             },
             {
               'source_marks' => [
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -70,8 +71,7 @@ $result_trees{'begin_like_comment_on_set_line'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'some thing @commentary is it',
                   'position' => 3,

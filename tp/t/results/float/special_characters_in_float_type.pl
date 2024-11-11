@@ -150,7 +150,8 @@ $result_trees{'special_characters_in_float_type'} = {
                   'text' => ' --- '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'var',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -160,7 +161,6 @@ $result_trees{'special_characters_in_float_type'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'var',
                   'source_info' => {
                     'line_nr' => 7
                   }
@@ -180,7 +180,8 @@ $result_trees{'special_characters_in_float_type'} = {
                   'text' => ' --- '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'var',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -190,7 +191,6 @@ $result_trees{'special_characters_in_float_type'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'var',
                   'source_info' => {
                     'line_nr' => 7
                   }
@@ -220,7 +220,8 @@ $result_trees{'special_characters_in_float_type'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -235,7 +236,8 @@ $result_trees{'special_characters_in_float_type'} = {
                           'text' => ' --- '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -245,7 +247,6 @@ $result_trees{'special_characters_in_float_type'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'var',
                           'source_info' => {
                             'line_nr' => 9
                           }
@@ -257,7 +258,6 @@ $result_trees{'special_characters_in_float_type'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },
@@ -336,7 +336,8 @@ $result_trees{'special_characters_in_float_type'} = {
                   'text' => ' --- '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'var',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -346,7 +347,6 @@ $result_trees{'special_characters_in_float_type'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'var',
                   'source_info' => {
                     'line_nr' => 12
                   }

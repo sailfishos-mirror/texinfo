@@ -38,7 +38,8 @@ $result_trees{'inter_item_commands_in_def'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -48,7 +49,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -110,7 +110,8 @@ $result_trees{'inter_item_commands_in_def'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -119,8 +120,7 @@ $result_trees{'inter_item_commands_in_def'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'var'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -328,14 +328,16 @@ $result_trees{'inter_item_commands_in_def'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'b',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
                                       'text' => 'id '
                                     },
                                     {
-                                      'args' => [
+                                      'cmdname' => 'samp',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -345,7 +347,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'samp',
                                       'source_info' => {
                                         'line_nr' => 6
                                       }
@@ -357,7 +358,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'b',
                               'source_info' => {
                                 'line_nr' => 6
                               }
@@ -403,14 +403,16 @@ $result_trees{'inter_item_commands_in_def'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'b',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
                                   'text' => 'id '
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'samp',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -419,8 +421,7 @@ $result_trees{'inter_item_commands_in_def'} = {
                                       ],
                                       'type' => 'brace_container'
                                     }
-                                  ],
-                                  'cmdname' => 'samp'
+                                  ]
                                 },
                                 {
                                   'text' => ' ule'
@@ -428,8 +429,7 @@ $result_trees{'inter_item_commands_in_def'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'b'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'

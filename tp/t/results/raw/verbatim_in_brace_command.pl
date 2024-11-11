@@ -12,7 +12,8 @@ $result_trees{'verbatim_in_brace_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -23,7 +24,6 @@ $result_trees{'verbatim_in_brace_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'source_info' => {
                 'line_nr' => 1
               }

@@ -88,7 +88,8 @@ $result_trees{'comment_on_cartouche_line'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'emph',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -98,7 +99,6 @@ $result_trees{'comment_on_cartouche_line'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 5
                   }

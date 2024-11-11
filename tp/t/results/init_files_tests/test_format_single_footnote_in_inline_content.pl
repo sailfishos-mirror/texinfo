@@ -142,7 +142,8 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
               'text' => 'a'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -157,7 +158,6 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 7
@@ -181,7 +181,8 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
               'text' => 'b'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -261,7 +262,6 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 9
@@ -285,7 +285,8 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
               'text' => 'c'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -299,7 +300,6 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -329,7 +329,8 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
               'text' => 'd'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -439,7 +440,6 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -474,8 +474,8 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'quotation'} = $result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0]{'extra'}{'authors'}[0] = $result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'quotation'} = $result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'authors'}[0] = $result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'test_format_single_footnote_in_inline_content'} = '@node Top
 @top top

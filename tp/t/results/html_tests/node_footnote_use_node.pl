@@ -94,7 +94,8 @@ $result_trees{'node_footnote_use_node'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '\'',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -104,7 +105,6 @@ $result_trees{'node_footnote_use_node'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '\'',
                       'source_info' => {
                         'file_name' => 'node_footnote.texi',
                         'line_nr' => 8
@@ -155,7 +155,8 @@ $result_trees{'node_footnote_use_node'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '^',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -165,7 +166,6 @@ $result_trees{'node_footnote_use_node'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '^',
                       'source_info' => {
                         'file_name' => 'node_footnote.texi',
                         'line_nr' => 9
@@ -263,7 +263,8 @@ $result_trees{'node_footnote_use_node'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '`',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -273,7 +274,6 @@ $result_trees{'node_footnote_use_node'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '`',
                       'source_info' => {
                         'file_name' => 'node_footnote.texi',
                         'line_nr' => 11
@@ -377,7 +377,8 @@ $result_trees{'node_footnote_use_node'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '\'',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -387,7 +388,6 @@ $result_trees{'node_footnote_use_node'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '\'',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
                 'line_nr' => 14
@@ -416,7 +416,8 @@ $result_trees{'node_footnote_use_node'} = {
               'text' => 'node '
             },
             {
-              'args' => [
+              'cmdname' => '\'',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -426,7 +427,6 @@ $result_trees{'node_footnote_use_node'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '\'',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
                 'line_nr' => 16
@@ -440,7 +440,8 @@ $result_trees{'node_footnote_use_node'} = {
               'text' => 'Footnote 1'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -449,7 +450,8 @@ $result_trees{'node_footnote_use_node'} = {
                           'text' => 'foot 1 '
                         },
                         {
-                          'args' => [
+                          'cmdname' => '\'',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -459,7 +461,6 @@ $result_trees{'node_footnote_use_node'} = {
                               'type' => 'following_arg'
                             }
                           ],
-                          'cmdname' => '\'',
                           'source_info' => {
                             'file_name' => 'node_footnote.texi',
                             'line_nr' => 17
@@ -472,7 +473,6 @@ $result_trees{'node_footnote_use_node'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
@@ -511,7 +511,8 @@ $result_trees{'node_footnote_use_node'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -521,7 +522,6 @@ $result_trees{'node_footnote_use_node'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
                 'line_nr' => 19
@@ -550,7 +550,8 @@ $result_trees{'node_footnote_use_node'} = {
               'text' => 'node '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -560,7 +561,6 @@ $result_trees{'node_footnote_use_node'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
                 'line_nr' => 21
@@ -574,7 +574,8 @@ $result_trees{'node_footnote_use_node'} = {
               'text' => 'Footnote 2'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -583,7 +584,8 @@ $result_trees{'node_footnote_use_node'} = {
                           'text' => 'foot 2 '
                         },
                         {
-                          'args' => [
+                          'cmdname' => '^',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -593,7 +595,6 @@ $result_trees{'node_footnote_use_node'} = {
                               'type' => 'following_arg'
                             }
                           ],
-                          'cmdname' => '^',
                           'source_info' => {
                             'file_name' => 'node_footnote.texi',
                             'line_nr' => 22
@@ -606,7 +607,6 @@ $result_trees{'node_footnote_use_node'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
@@ -719,7 +719,8 @@ $result_trees{'node_footnote_use_node'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '`',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -729,7 +730,6 @@ $result_trees{'node_footnote_use_node'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '`',
                       'source_info' => {
                         'file_name' => 'node_footnote.texi',
                         'line_nr' => 28
@@ -832,7 +832,8 @@ $result_trees{'node_footnote_use_node'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '`',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -842,7 +843,6 @@ $result_trees{'node_footnote_use_node'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '`',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
                 'line_nr' => 31
@@ -871,7 +871,8 @@ $result_trees{'node_footnote_use_node'} = {
               'text' => 'node '
             },
             {
-              'args' => [
+              'cmdname' => '`',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -881,7 +882,6 @@ $result_trees{'node_footnote_use_node'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '`',
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
                 'line_nr' => 33
@@ -895,7 +895,8 @@ $result_trees{'node_footnote_use_node'} = {
               'text' => 'Footnote 3'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -904,7 +905,8 @@ $result_trees{'node_footnote_use_node'} = {
                           'text' => 'foot 3 '
                         },
                         {
-                          'args' => [
+                          'cmdname' => '`',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -914,7 +916,6 @@ $result_trees{'node_footnote_use_node'} = {
                               'type' => 'following_arg'
                             }
                           ],
-                          'cmdname' => '`',
                           'source_info' => {
                             'file_name' => 'node_footnote.texi',
                             'line_nr' => 34
@@ -927,7 +928,6 @@ $result_trees{'node_footnote_use_node'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'file_name' => 'node_footnote.texi',

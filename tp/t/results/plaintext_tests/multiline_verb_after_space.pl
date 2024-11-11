@@ -15,7 +15,8 @@ $result_trees{'multiline_verb_after_space'} = {
               'text' => 'AA '
             },
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -31,7 +32,6 @@ $result_trees{'multiline_verb_after_space'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => '*'
               },

@@ -73,7 +73,8 @@ $result_trees{'css_in_node_redirection_page'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'sansserif',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -83,7 +84,6 @@ $result_trees{'css_in_node_redirection_page'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sansserif',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -93,7 +93,8 @@ $result_trees{'css_in_node_redirection_page'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'anchor',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -103,7 +104,6 @@ $result_trees{'css_in_node_redirection_page'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'anchor',
               'extra' => {
                 'is_target' => 1,
                 'normalized' => 'spot'

@@ -29,14 +29,16 @@ $result_trees{'normal_font_in_monospace'} = {
                   'text' => 'in example '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'r',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => 'in r---now '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -46,7 +48,6 @@ $result_trees{'normal_font_in_monospace'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'code',
                           'source_info' => {
                             'line_nr' => 2
                           }
@@ -55,7 +56,6 @@ $result_trees{'normal_font_in_monospace'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'r',
                   'source_info' => {
                     'line_nr' => 2
                   }
@@ -110,21 +110,24 @@ $result_trees{'normal_font_in_monospace'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'command',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'in command---c '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'r',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => 'in r---r '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'file',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -134,7 +137,6 @@ $result_trees{'normal_font_in_monospace'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'file',
                               'source_info' => {
                                 'line_nr' => 5
                               }
@@ -143,7 +145,6 @@ $result_trees{'normal_font_in_monospace'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'r',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -152,7 +153,6 @@ $result_trees{'normal_font_in_monospace'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'command',
               'source_info' => {
                 'line_nr' => 5
               }

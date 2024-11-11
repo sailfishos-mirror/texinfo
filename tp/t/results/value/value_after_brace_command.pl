@@ -51,7 +51,8 @@ $result_trees{'value_after_brace_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ringaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -61,14 +62,14 @@ $result_trees{'value_after_brace_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'ringaccent',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 1,
                       'element' => {
-                        'args' => [
+                        'cmdname' => 'value',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -77,8 +78,7 @@ $result_trees{'value_after_brace_command'} = {
                             ],
                             'type' => 'brace_container'
                           }
-                        ],
-                        'cmdname' => 'value'
+                        ]
                       },
                       'line' => '{a}',
                       'position' => 1,
@@ -112,7 +112,8 @@ $result_trees{'value_after_brace_command'} = {
                     {
                       'counter' => 2,
                       'element' => {
-                        'args' => [
+                        'cmdname' => 'value',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -121,8 +122,7 @@ $result_trees{'value_after_brace_command'} = {
                             ],
                             'type' => 'brace_container'
                           }
-                        ],
-                        'cmdname' => 'value'
+                        ]
                       },
                       'line' => '@unknown',
                       'position' => 1,
@@ -149,7 +149,8 @@ $result_trees{'value_after_brace_command'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -159,14 +160,14 @@ $result_trees{'value_after_brace_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '^',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 3,
                       'element' => {
-                        'args' => [
+                        'cmdname' => 'value',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -175,8 +176,7 @@ $result_trees{'value_after_brace_command'} = {
                             ],
                             'type' => 'brace_container'
                           }
-                        ],
-                        'cmdname' => 'value'
+                        ]
                       },
                       'line' => '{a}',
                       'position' => 1,
@@ -210,7 +210,8 @@ $result_trees{'value_after_brace_command'} = {
                     {
                       'counter' => 4,
                       'element' => {
-                        'args' => [
+                        'cmdname' => 'value',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -219,8 +220,7 @@ $result_trees{'value_after_brace_command'} = {
                             ],
                             'type' => 'brace_container'
                           }
-                        ],
-                        'cmdname' => 'value'
+                        ]
                       },
                       'line' => '@unknown',
                       'position' => 1,
@@ -247,7 +247,8 @@ $result_trees{'value_after_brace_command'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -257,14 +258,14 @@ $result_trees{'value_after_brace_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 5,
                       'element' => {
-                        'args' => [
+                        'cmdname' => 'value',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -273,8 +274,7 @@ $result_trees{'value_after_brace_command'} = {
                             ],
                             'type' => 'brace_container'
                           }
-                        ],
-                        'cmdname' => 'value'
+                        ]
                       },
                       'line' => '{a}',
                       'position' => 1,
@@ -308,7 +308,8 @@ $result_trees{'value_after_brace_command'} = {
                     {
                       'counter' => 6,
                       'element' => {
-                        'args' => [
+                        'cmdname' => 'value',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -317,8 +318,7 @@ $result_trees{'value_after_brace_command'} = {
                             ],
                             'type' => 'brace_container'
                           }
-                        ],
-                        'cmdname' => 'value'
+                        ]
                       },
                       'line' => '@unknown',
                       'position' => 1,

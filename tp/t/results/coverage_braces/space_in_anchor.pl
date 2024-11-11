@@ -10,7 +10,8 @@ $result_trees{'space_in_anchor'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -28,7 +29,6 @@ $result_trees{'space_in_anchor'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'anchor-name'

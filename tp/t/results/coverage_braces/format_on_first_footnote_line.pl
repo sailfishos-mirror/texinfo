@@ -15,7 +15,8 @@ $result_trees{'format_on_first_footnote_line'} = {
               'text' => 'Texte'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -80,7 +81,6 @@ $result_trees{'format_on_first_footnote_line'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 1
@@ -104,7 +104,8 @@ $result_trees{'format_on_first_footnote_line'} = {
               'text' => 'Last text '
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -174,7 +175,6 @@ $result_trees{'format_on_first_footnote_line'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 6

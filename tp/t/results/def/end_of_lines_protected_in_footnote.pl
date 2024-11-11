@@ -12,7 +12,8 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -325,7 +326,6 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {

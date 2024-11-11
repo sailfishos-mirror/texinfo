@@ -126,11 +126,13 @@ $result_trees{'protect_in_body'} = {
               'text' => 'the result: '
             },
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'samp',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -140,7 +142,6 @@ $result_trees{'protect_in_body'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'samp',
                       'source_info' => {
                         'line_nr' => 5,
                         'macro' => 'macroone'
@@ -150,7 +151,6 @@ $result_trees{'protect_in_body'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'line_nr' => 5,
                 'macro' => 'macroone'
@@ -160,7 +160,8 @@ $result_trees{'protect_in_body'} = {
               'text' => ' protected \\ -> \\arg1\\ '
             },
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -170,7 +171,6 @@ $result_trees{'protect_in_body'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'line_nr' => 5,
                 'macro' => 'macroone'

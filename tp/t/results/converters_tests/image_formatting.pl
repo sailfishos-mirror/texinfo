@@ -134,7 +134,8 @@ $result_trees{'image_formatting'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -156,7 +157,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 7
               }
@@ -165,7 +165,8 @@ $result_trees{'image_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -175,7 +176,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -188,7 +188,8 @@ $result_trees{'image_formatting'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -210,7 +211,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 8
               }
@@ -219,7 +219,8 @@ $result_trees{'image_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -237,7 +238,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -250,7 +250,8 @@ $result_trees{'image_formatting'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -272,7 +273,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -281,7 +281,8 @@ $result_trees{'image_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -302,7 +303,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -315,7 +315,8 @@ $result_trees{'image_formatting'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -337,7 +338,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 10
               }
@@ -346,7 +346,8 @@ $result_trees{'image_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -370,7 +371,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -383,7 +383,8 @@ $result_trees{'image_formatting'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -405,7 +406,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 11
               }
@@ -414,7 +414,8 @@ $result_trees{'image_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -441,7 +442,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -454,7 +454,8 @@ $result_trees{'image_formatting'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -476,7 +477,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 12
               }
@@ -485,7 +485,8 @@ $result_trees{'image_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -527,7 +528,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -540,7 +540,8 @@ $result_trees{'image_formatting'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -559,7 +560,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 13
               }
@@ -568,7 +568,8 @@ $result_trees{'image_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -605,7 +606,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -618,7 +618,8 @@ $result_trees{'image_formatting'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -640,7 +641,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 14
               }
@@ -649,7 +649,8 @@ $result_trees{'image_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -678,7 +679,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -691,7 +691,8 @@ $result_trees{'image_formatting'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -758,7 +759,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 15
               }
@@ -767,11 +767,13 @@ $result_trees{'image_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'file',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -781,7 +783,6 @@ $result_trees{'image_formatting'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'file',
                       'source_info' => {
                         'line_nr' => 15
                       }
@@ -822,7 +823,8 @@ $result_trees{'image_formatting'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'file',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -832,7 +834,6 @@ $result_trees{'image_formatting'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'file',
                       'source_info' => {
                         'line_nr' => 15
                       }
@@ -847,7 +848,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -860,7 +860,8 @@ $result_trees{'image_formatting'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -870,7 +871,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -882,7 +882,8 @@ $result_trees{'image_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -892,7 +893,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -929,7 +929,8 @@ $result_trees{'image_formatting'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -951,7 +952,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 19
                   }
@@ -960,7 +960,8 @@ $result_trees{'image_formatting'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -970,7 +971,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -983,7 +983,8 @@ $result_trees{'image_formatting'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1005,7 +1006,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 20
                   }
@@ -1014,7 +1014,8 @@ $result_trees{'image_formatting'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1032,7 +1033,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -1045,7 +1045,8 @@ $result_trees{'image_formatting'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1067,7 +1068,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 21
                   }
@@ -1076,7 +1076,8 @@ $result_trees{'image_formatting'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1097,7 +1098,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -1110,7 +1110,8 @@ $result_trees{'image_formatting'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1132,7 +1133,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 22
                   }
@@ -1141,7 +1141,8 @@ $result_trees{'image_formatting'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1165,7 +1166,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -1178,7 +1178,8 @@ $result_trees{'image_formatting'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1200,7 +1201,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 23
                   }
@@ -1209,7 +1209,8 @@ $result_trees{'image_formatting'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1236,7 +1237,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -1249,7 +1249,8 @@ $result_trees{'image_formatting'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1271,7 +1272,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 24
                   }
@@ -1280,7 +1280,8 @@ $result_trees{'image_formatting'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1322,7 +1323,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -1335,7 +1335,8 @@ $result_trees{'image_formatting'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1357,7 +1358,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 25
                   }
@@ -1366,7 +1366,8 @@ $result_trees{'image_formatting'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1395,7 +1396,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -1408,7 +1408,8 @@ $result_trees{'image_formatting'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1475,7 +1476,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 26
                   }
@@ -1484,11 +1484,13 @@ $result_trees{'image_formatting'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'file',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1498,7 +1500,6 @@ $result_trees{'image_formatting'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'file',
                           'source_info' => {
                             'line_nr' => 26
                           }
@@ -1539,7 +1540,8 @@ $result_trees{'image_formatting'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'file',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1549,7 +1551,6 @@ $result_trees{'image_formatting'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'file',
                           'source_info' => {
                             'line_nr' => 26
                           }
@@ -1564,7 +1565,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -1577,7 +1577,8 @@ $result_trees{'image_formatting'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1587,7 +1588,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -1599,7 +1599,8 @@ $result_trees{'image_formatting'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1609,7 +1610,6 @@ $result_trees{'image_formatting'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -1665,7 +1665,8 @@ $result_trees{'image_formatting'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1689,7 +1690,6 @@ $result_trees{'image_formatting'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -1713,7 +1713,8 @@ $result_trees{'image_formatting'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1737,7 +1738,6 @@ $result_trees{'image_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },

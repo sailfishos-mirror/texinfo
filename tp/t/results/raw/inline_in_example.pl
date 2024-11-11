@@ -29,7 +29,8 @@ $result_trees{'inline_in_example'} = {
                   'text' => 'A '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'inlineraw',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -53,12 +54,12 @@ $result_trees{'inline_in_example'} = {
                           'text' => '`` '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'lbracechar',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'lbracechar',
                           'source_info' => {
                             'line_nr' => 4
                           }
@@ -75,7 +76,6 @@ $result_trees{'inline_in_example'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'inlineraw',
                   'extra' => {
                     'expand_index' => 1,
                     'format' => 'plaintext'
@@ -89,7 +89,8 @@ $result_trees{'inline_in_example'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'inlinefmt',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -112,7 +113,6 @@ $result_trees{'inline_in_example'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'inlinefmt',
                   'extra' => {
                     'expand_index' => 1,
                     'format' => 'plaintext'
@@ -135,7 +135,8 @@ $result_trees{'inline_in_example'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'inlineraw',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -155,7 +156,8 @@ $result_trees{'inline_in_example'} = {
                           'text' => 'in <i>'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'acronym',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -165,7 +167,6 @@ $result_trees{'inline_in_example'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'acronym',
                           'source_info' => {
                             'line_nr' => 10
                           }
@@ -183,7 +184,6 @@ $result_trees{'inline_in_example'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'inlineraw',
                   'extra' => {
                     'expand_index' => 1,
                     'format' => 'html'

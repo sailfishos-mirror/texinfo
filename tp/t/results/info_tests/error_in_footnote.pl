@@ -91,7 +91,8 @@ $result_trees{'error_in_footnote'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -113,7 +114,8 @@ $result_trees{'error_in_footnote'} = {
                           'text' => 'In caption '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'strong',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -123,7 +125,6 @@ $result_trees{'error_in_footnote'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'strong',
                           'source_info' => {
                             'line_nr' => 9
                           }
@@ -136,7 +137,8 @@ $result_trees{'error_in_footnote'} = {
                           'text' => 'Now footnote'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'footnote',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -155,7 +157,8 @@ $result_trees{'error_in_footnote'} = {
                                       'text' => 'and strong '
                                     },
                                     {
-                                      'args' => [
+                                      'cmdname' => 'strong',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -165,7 +168,6 @@ $result_trees{'error_in_footnote'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'strong',
                                       'source_info' => {
                                         'line_nr' => 11
                                       }
@@ -180,7 +182,6 @@ $result_trees{'error_in_footnote'} = {
                               'type' => 'brace_command_context'
                             }
                           ],
-                          'cmdname' => 'footnote',
                           'extra' => {},
                           'source_info' => {
                             'line_nr' => 10
@@ -193,7 +194,6 @@ $result_trees{'error_in_footnote'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },

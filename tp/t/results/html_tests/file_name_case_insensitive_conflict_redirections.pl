@@ -174,7 +174,8 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'anchor',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -184,7 +185,6 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'anchor',
                       'extra' => {
                         'is_target' => 1,
                         'normalized' => 'foo'
@@ -204,7 +204,8 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                           'text' => 'Some text about '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'samp',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -214,7 +215,6 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'samp',
                           'source_info' => {
                             'line_nr' => 10
                           }
@@ -274,7 +274,8 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'anchor',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -284,7 +285,6 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'anchor',
                       'extra' => {
                         'is_target' => 1,
                         'normalized' => 'Foo'
@@ -304,7 +304,8 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                           'text' => 'Some text about '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'samp',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -314,7 +315,6 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'samp',
                           'source_info' => {
                             'line_nr' => 14
                           }
@@ -388,7 +388,8 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -406,7 +407,6 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 18
               }
@@ -426,7 +426,8 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -444,7 +445,6 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 20
               }
@@ -473,8 +473,8 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
   'type' => 'document_root'
 };
 $result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[5]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'file_name_case_insensitive_conflict_redirections'} = '@node Top
 @top top section

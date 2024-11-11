@@ -183,7 +183,8 @@ $result_trees{'in_table'} = {
                               'type' => 'ignorable_spaces_after_command'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'titlefont',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -193,7 +194,6 @@ $result_trees{'in_table'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'titlefont',
                               'extra' => {},
                               'source_info' => {
                                 'line_nr' => 9
@@ -203,7 +203,8 @@ $result_trees{'in_table'} = {
                               'text' => ' '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'anchor',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -213,7 +214,6 @@ $result_trees{'in_table'} = {
                                   'type' => 'brace_arg'
                                 }
                               ],
-                              'cmdname' => 'anchor',
                               'extra' => {
                                 'is_target' => 1,
                                 'normalized' => 'in-anchor'
@@ -223,7 +223,8 @@ $result_trees{'in_table'} = {
                               }
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'footnote',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -238,7 +239,6 @@ $result_trees{'in_table'} = {
                                   'type' => 'brace_command_context'
                                 }
                               ],
-                              'cmdname' => 'footnote',
                               'extra' => {},
                               'source_info' => {
                                 'line_nr' => 9
@@ -299,7 +299,8 @@ $result_trees{'in_table'} = {
                           'text' => 'in item'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'footnote',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -314,7 +315,6 @@ $result_trees{'in_table'} = {
                               'type' => 'brace_command_context'
                             }
                           ],
-                          'cmdname' => 'footnote',
                           'extra' => {},
                           'source_info' => {
                             'line_nr' => 10
@@ -342,7 +342,8 @@ $result_trees{'in_table'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'ref',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -369,7 +370,6 @@ $result_trees{'in_table'} = {
                                   'type' => 'brace_arg'
                                 }
                               ],
-                              'cmdname' => 'ref',
                               'source_info' => {
                                 'line_nr' => 11
                               }
@@ -670,7 +670,8 @@ $result_trees{'in_table'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'option',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -680,7 +681,6 @@ $result_trees{'in_table'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'option',
                           'source_info' => {
                             'line_nr' => 19
                           }
@@ -775,7 +775,8 @@ $result_trees{'in_table'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'option',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -785,7 +786,6 @@ $result_trees{'in_table'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'option',
                           'source_info' => {
                             'line_nr' => 22
                           }

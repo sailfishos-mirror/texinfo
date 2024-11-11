@@ -217,7 +217,8 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                       'text' => 'k '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'emph',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -227,7 +228,6 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'emph',
                       'source_info' => {
                         'line_nr' => 9
                       }
@@ -299,7 +299,8 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                       'text' => 'g c'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -309,7 +310,6 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 9,
                         'macro' => 'endbrace'

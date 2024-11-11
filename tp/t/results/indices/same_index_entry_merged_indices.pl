@@ -227,7 +227,8 @@ $result_trees{'same_index_entry_merged_indices'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -237,7 +238,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 11
                               }

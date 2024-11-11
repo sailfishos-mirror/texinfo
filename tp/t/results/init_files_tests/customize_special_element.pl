@@ -285,7 +285,8 @@ $result_trees{'customize_special_element'} = {
               'text' => 'Text'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -300,7 +301,6 @@ $result_trees{'customize_special_element'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 15

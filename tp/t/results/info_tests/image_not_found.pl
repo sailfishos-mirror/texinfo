@@ -30,7 +30,8 @@ $result_trees{'image_not_found'} = {
       'cmdname' => 'node',
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -40,7 +41,6 @@ $result_trees{'image_not_found'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },

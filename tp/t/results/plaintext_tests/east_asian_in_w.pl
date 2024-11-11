@@ -61,7 +61,8 @@ $result_trees{'east_asian_in_w'} = {
               'text' => '('
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -71,7 +72,6 @@ $result_trees{'east_asian_in_w'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'file_name' => 'east_asian_in_w.texi',
                 'line_nr' => 4

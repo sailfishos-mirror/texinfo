@@ -804,7 +804,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
                             "arg_line", &info_hv);
         } /* verb is a brace command type and so cannot be confused
              with the preceding types */
-      else if (e->e.c->cmd == CM_verb && e->e.c->args.number > 0)
+      else if (e->e.c->cmd == CM_verb && e->e.c->contents.number > 0)
         store_info_string (e, e->e.c->string_info[sit_delimiter],
                            "delimiter", &info_hv);
     }

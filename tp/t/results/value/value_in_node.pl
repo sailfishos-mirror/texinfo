@@ -192,7 +192,8 @@ $result_trees{'value_in_node'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'value',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -201,8 +202,7 @@ $result_trees{'value_in_node'} = {
                                 ],
                                 'type' => 'brace_container'
                               }
-                            ],
-                            'cmdname' => 'value'
+                            ]
                           },
                           'line' => 'Node 1',
                           'sourcemark_type' => 'value_expansion',
@@ -387,7 +387,8 @@ $result_trees{'value_in_node'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -396,8 +397,7 @@ $result_trees{'value_in_node'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => 'Node 1',
               'position' => 1,
@@ -485,7 +485,8 @@ $result_trees{'value_in_node'} = {
                         {
                           'counter' => 3,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'value',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -494,8 +495,7 @@ $result_trees{'value_in_node'} = {
                                 ],
                                 'type' => 'brace_container'
                               }
-                            ],
-                            'cmdname' => 'value'
+                            ]
                           },
                           'line' => 'Section 1.1',
                           'sourcemark_type' => 'value_expansion',
@@ -673,7 +673,8 @@ $result_trees{'value_in_node'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -681,7 +682,8 @@ $result_trees{'value_in_node'} = {
                         {
                           'counter' => 4,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'value',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -690,8 +692,7 @@ $result_trees{'value_in_node'} = {
                                 ],
                                 'type' => 'brace_container'
                               }
-                            ],
-                            'cmdname' => 'value'
+                            ]
                           },
                           'line' => 'Node 1',
                           'sourcemark_type' => 'value_expansion',
@@ -718,7 +719,6 @@ $result_trees{'value_in_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 21
               }
@@ -757,7 +757,7 @@ $result_trees{'value_in_node'}{'contents'}[3]{'args'}[3]{'extra'}{'node_content'
 $result_trees{'value_in_node'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'value_in_node'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'value_in_node'}{'contents'}[5]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'value_in_node'}{'contents'}[5]{'args'}[2]{'contents'}[0];
 $result_trees{'value_in_node'}{'contents'}[5]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'value_in_node'}{'contents'}[5]{'args'}[3]{'contents'}[0];
-$result_trees{'value_in_node'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'value_in_node'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'value_in_node'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'value_in_node'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'value_in_node'} = '@set node1 Node 1
 

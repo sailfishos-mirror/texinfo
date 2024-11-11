@@ -21,7 +21,8 @@ $result_trees{'brace_opened_no_command'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'anchor',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -31,7 +32,6 @@ $result_trees{'brace_opened_no_command'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'anchor',
               'extra' => {
                 'is_target' => 1,
                 'normalized' => 'truc'

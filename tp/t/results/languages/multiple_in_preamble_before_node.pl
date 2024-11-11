@@ -238,12 +238,12 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'error',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'error',
                               'source_info' => {
                                 'line_nr' => 5
                               }
@@ -727,12 +727,12 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'error',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'error',
                       'source_info' => {
                         'line_nr' => 22
                       }

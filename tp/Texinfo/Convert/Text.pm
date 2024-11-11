@@ -77,8 +77,10 @@ sub import {
 }
 
 
-# this is in fact not needed for 'footnote', 'shortcaption', 'caption'
+# this may not be needed for 'footnote', 'shortcaption', 'caption'
 # as they have no brace_container, see below.
+# FIXME check that the above sentence is still true now that the brace
+# commands have contents and not args
 my %ignored_brace_commands;
 foreach my $ignored_brace_command (#'xref','ref','pxref','inforef',
    'anchor', 'sortas', 'seealso', 'seeentry',
@@ -587,38 +589,38 @@ sub _convert($$)
                                 $options->{'set_case'});
       return $result;
     } elsif ($cmdname eq 'image') {
-      if ($element->{'args'}) {
+      if ($element->{'contents'}) {
         $options->{'_code_state'}++;
-        my $text = _convert($options, $element->{'args'}->[0]);
+        my $text = _convert($options, $element->{'contents'}->[0]);
         $options->{'_code_state'}--;
         return $text;
       } else {
         return '';
       }
     } elsif ($cmdname eq 'email') {
-      if ($element->{'args'}) {
+      if ($element->{'contents'}) {
         my $text;
-        $text = _convert($options, $element->{'args'}->[1])
-           if (defined($element->{'args'}->[1]));
+        $text = _convert($options, $element->{'contents'}->[1])
+           if (defined($element->{'contents'}->[1]));
         return $text if (defined($text) and ($text ne ''));
         $options->{'_code_state'}++;
-        my $mail = _convert($options, $element->{'args'}->[0]);
+        my $mail = _convert($options, $element->{'contents'}->[0]);
         $options->{'_code_state'}--;
         return $mail;
       } else {
         return '';
       }
     } elsif ($cmdname eq 'uref' or $cmdname eq 'url') {
-      if ($element->{'args'}) {
+      if ($element->{'contents'}) {
         my $replacement;
-        $replacement = _convert($options, $element->{'args'}->[2])
-          if (defined($element->{'args'}->[2]));
+        $replacement = _convert($options, $element->{'contents'}->[2])
+          if (defined($element->{'contents'}->[2]));
         return $replacement if (defined($replacement) and $replacement ne '');
         my $text;
-        $text = _convert($options, $element->{'args'}->[1])
-          if (defined($element->{'args'}->[1]));
+        $text = _convert($options, $element->{'contents'}->[1])
+          if (defined($element->{'contents'}->[1]));
         $options->{'_code_state'}++;
-        my $url = _convert($options, $element->{'args'}->[0]);
+        my $url = _convert($options, $element->{'contents'}->[0]);
         $options->{'_code_state'}--;
         if (defined($text) and $text ne '') {
           return "$url ($text)";
@@ -631,12 +633,14 @@ sub _convert($$)
     # if there is only one argument, it is processed below with the other
     # brace commands
     } elsif ($Texinfo::Commands::explained_commands{$cmdname}
-             and $element->{'args'} and scalar(@{$element->{'args'}}) >= 2) {
-      my $explanation = _convert($options, $element->{'args'}->[1]);
+             and $element->{'contents'}
+             and scalar(@{$element->{'contents'}}) >= 2) {
+      my $explanation = _convert($options, $element->{'contents'}->[1]);
       if ($explanation ne '') {
-        return _convert($options, $element->{'args'}->[0]) ." ($explanation)";
+        return _convert($options, $element->{'contents'}->[0])
+                                             ." ($explanation)";
       } else {
-        return _convert($options, $element->{'args'}->[0]);
+        return _convert($options, $element->{'contents'}->[0]);
       }
     } elsif ($Texinfo::Commands::brace_commands{$cmdname}
              and $Texinfo::Commands::brace_commands{$cmdname} eq 'inline') {
@@ -653,17 +657,17 @@ sub _convert($$)
         $arg_index = 2;
       }
       my $result = '';
-      if (scalar(@{$element->{'args'}}) > $arg_index) {
-        $result = _convert($options, $element->{'args'}->[$arg_index]);
+      if (scalar(@{$element->{'contents'}}) > $arg_index) {
+        $result = _convert($options, $element->{'contents'}->[$arg_index]);
       }
       if ($cmdname eq 'inlineraw') {
         $options->{'_raw_state'}--;
       }
       return $result;
-    } elsif ($element->{'args'}
-           and (($element->{'args'}->[0]->{'type'}
-                and ($element->{'args'}->[0]->{'type'} eq 'brace_container'
-                     or $element->{'args'}->[0]->{'type'} eq 'brace_arg'))
+    } elsif ($element->{'contents'}
+           and (($element->{'contents'}->[0]->{'type'}
+                and ($element->{'contents'}->[0]->{'type'} eq 'brace_container'
+                     or $element->{'contents'}->[0]->{'type'} eq 'brace_arg'))
                 or ($Texinfo::Commands::math_commands{$cmdname}
                     and $Texinfo::Commands::brace_commands{$cmdname}))) {
       my $result;
@@ -674,7 +678,7 @@ sub _convert($$)
         $in_code = 1;
       }
       $options->{'_code_state'}++ if ($in_code);
-      $result = _convert($options, $element->{'args'}->[0]);
+      $result = _convert($options, $element->{'contents'}->[0]);
       $options->{'_code_state'}-- if ($in_code);
       $options->{'set_case'}-- if ($cmdname eq 'sc');
       return $result;

@@ -12,7 +12,8 @@ $result_trees{'spaces_in_line_break_in_verb_w'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -26,7 +27,6 @@ $result_trees{'spaces_in_line_break_in_verb_w'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -46,7 +46,8 @@ $result_trees{'spaces_in_line_break_in_verb_w'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -62,7 +63,6 @@ $result_trees{'spaces_in_line_break_in_verb_w'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => '|'
               },

@@ -22,7 +22,8 @@ $result_trees{'center'} = {
                   'text' => 'in center '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -32,7 +33,6 @@ $result_trees{'center'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 2
                   }

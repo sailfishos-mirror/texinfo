@@ -31,7 +31,8 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'anchor',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -44,7 +45,6 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'anchor',
                   'extra' => {
                     'is_target' => 1,
                     'normalized' => 'in-titlepage'
@@ -227,7 +227,8 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -245,7 +246,6 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 12
               }
@@ -274,7 +274,7 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'anchor_in_titlepage_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_titlepage_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'anchor_in_titlepage_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_titlepage_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'anchor_in_titlepage_titlepage'} = '@titlepage
 

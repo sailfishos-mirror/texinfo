@@ -83,20 +83,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
   else if (e->e.c->args.number > 0)
     {
       size_t i, arg_nr;
-      int braces;
       int with_commas = 0;
-
-      braces = (e->e.c->args.list[0]->type == ET_brace_container
-                || e->e.c->args.list[0]->type == ET_brace_arg
-                || e->e.c->args.list[0]->type == ET_brace_command_context);
-      if (braces)
-        ADD("{");
-
-      if (cmd == CM_verb)
-        {
-          const char *delimiter = e->e.c->string_info[sit_delimiter];
-          ADD(delimiter);
-        }
 
       if (spc_before_arg)
         ADD((char *)spc_before_arg->e.text->text);
@@ -104,9 +91,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
       if ((builtin_command_data[cmd].flags & CF_block
            && ! (builtin_command_data[cmd].flags & CF_def
                  || cmd == CM_multitable))
-          || cmd == CM_node
-          || (builtin_command_data[cmd].flags & CF_brace)
-          || (builtin_command_data[cmd].flags & CF_INFOENCLOSE))
+          || cmd == CM_node)
         with_commas = 1;
 
       arg_nr = 0;
@@ -122,6 +107,41 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
                 ADD(",");
               arg_nr++;
             }
+          convert_to_texinfo_internal (arg, result);
+        }
+    }
+  else if (e->e.c->contents.number > 0
+           && (builtin_command_data[cmd].flags & CF_brace
+               || builtin_command_data[cmd].flags & CF_INFOENCLOSE))
+    {
+      size_t i, arg_nr;
+      int braces;
+
+      braces = (e->e.c->contents.list[0]->type == ET_brace_container
+                || e->e.c->contents.list[0]->type == ET_brace_arg
+                || e->e.c->contents.list[0]->type == ET_brace_command_context);
+      if (braces)
+        ADD("{");
+
+      if (cmd == CM_verb)
+        {
+          const char *delimiter = e->e.c->string_info[sit_delimiter];
+          ADD(delimiter);
+        }
+
+      if (spc_before_arg)
+        ADD((char *)spc_before_arg->e.text->text);
+
+      arg_nr = 0;
+      for (i = 0; i < e->e.c->contents.number; i++)
+        {
+          ELEMENT *arg = e->e.c->contents.list[i];
+          if (arg->flags & EF_inserted)
+            continue;
+
+          if (arg_nr)
+            ADD(",");
+          arg_nr++;
           convert_to_texinfo_internal (arg, result);
         }
 
@@ -158,7 +178,11 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
       if (e->e.c->cmd
           || e->type == ET_def_line)
         {
+          enum command_id cmd = element_builtin_cmd (e);
           expand_cmd_args_to_texi (e, result);
+          if (builtin_command_data[cmd].flags & CF_brace
+              || builtin_command_data[cmd].flags & CF_INFOENCLOSE)
+            return;
         }
       else
         {

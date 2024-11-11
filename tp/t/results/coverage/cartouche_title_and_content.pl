@@ -17,7 +17,8 @@ $result_trees{'cartouche_title_and_content'} = {
                   'text' => 'Box title on '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'emph',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -27,7 +28,6 @@ $result_trees{'cartouche_title_and_content'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 1
                   }

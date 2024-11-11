@@ -16,7 +16,8 @@ $result_trees{'on_block_command_line'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'anchor',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -26,7 +27,6 @@ $result_trees{'on_block_command_line'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'anchor',
                       'extra' => {
                         'is_target' => 1,
                         'normalized' => 'in-anchor'
@@ -45,7 +45,8 @@ $result_trees{'on_block_command_line'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'titlefont',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -55,7 +56,6 @@ $result_trees{'on_block_command_line'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'titlefont',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 1
@@ -85,7 +85,8 @@ $result_trees{'on_block_command_line'} = {
                           'type' => 'ignorable_spaces_after_command'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'titlefont',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -95,7 +96,6 @@ $result_trees{'on_block_command_line'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'titlefont',
                           'extra' => {},
                           'source_info' => {
                             'line_nr' => 2
@@ -185,7 +185,8 @@ $result_trees{'on_block_command_line'} = {
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'titlefont',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -195,7 +196,6 @@ $result_trees{'on_block_command_line'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'titlefont',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 5
@@ -205,7 +205,8 @@ $result_trees{'on_block_command_line'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'anchor',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -215,7 +216,6 @@ $result_trees{'on_block_command_line'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'anchor',
                   'extra' => {
                     'is_target' => 1,
                     'normalized' => 'in-quotation-anchor'
@@ -225,7 +225,8 @@ $result_trees{'on_block_command_line'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'footnote',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -240,7 +241,6 @@ $result_trees{'on_block_command_line'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'footnote',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 5

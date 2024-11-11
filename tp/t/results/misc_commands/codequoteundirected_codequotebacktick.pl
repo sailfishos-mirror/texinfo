@@ -286,12 +286,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -311,19 +311,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'code: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -333,7 +334,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -353,19 +353,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'asis: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'asis',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -375,7 +376,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -395,19 +395,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'strong: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'strong',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -417,7 +418,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'strong',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -437,19 +437,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'kbd: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'kbd',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -459,7 +460,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'kbd',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -479,19 +479,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'samp: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'samp',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -501,7 +502,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'samp',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -664,12 +664,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -689,19 +689,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'code: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -711,7 +712,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -731,19 +731,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'asis: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'asis',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -753,7 +754,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -773,19 +773,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'strong: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'strong',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -795,7 +796,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'strong',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -815,19 +815,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'kbd: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'kbd',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -837,7 +838,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'kbd',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -857,19 +857,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'samp: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'samp',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -879,7 +880,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'samp',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -1070,12 +1070,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -1095,19 +1095,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'code: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -1117,7 +1118,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -1137,19 +1137,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'asis: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'asis',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -1159,7 +1160,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -1179,19 +1179,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'strong: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'strong',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -1201,7 +1202,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'strong',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -1221,19 +1221,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'kbd: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'kbd',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -1243,7 +1244,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'kbd',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -1263,19 +1263,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'text' => 'samp: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'samp',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'quotedblleft',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'quotedblleft',
                               'source_info' => {
                                 'line_nr' => 31,
                                 'macro' => 'quotes'
@@ -1285,7 +1286,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'samp',
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'quotes'
@@ -1600,12 +1600,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
             },
             {
-              'args' => [
+              'cmdname' => 'quotedblleft',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'quotedblleft',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -1625,19 +1625,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'code: '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -1647,7 +1648,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -1667,19 +1667,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'asis: '
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -1689,7 +1690,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -1709,19 +1709,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'strong: '
             },
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -1731,7 +1732,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -1751,19 +1751,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'kbd: '
             },
             {
-              'args' => [
+              'cmdname' => 'kbd',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -1773,7 +1774,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'kbd',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -1793,19 +1793,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'samp: '
             },
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -1815,7 +1816,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -1978,12 +1978,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
             },
             {
-              'args' => [
+              'cmdname' => 'quotedblleft',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'quotedblleft',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -2003,19 +2003,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'code: '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -2025,7 +2026,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -2045,19 +2045,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'asis: '
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -2067,7 +2068,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -2087,19 +2087,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'strong: '
             },
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -2109,7 +2110,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -2129,19 +2129,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'kbd: '
             },
             {
-              'args' => [
+              'cmdname' => 'kbd',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -2151,7 +2152,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'kbd',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -2171,19 +2171,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'samp: '
             },
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -2193,7 +2194,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -2384,12 +2384,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
             },
             {
-              'args' => [
+              'cmdname' => 'quotedblleft',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'quotedblleft',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -2409,19 +2409,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'code: '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -2431,7 +2432,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -2451,19 +2451,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'asis: '
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -2473,7 +2474,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -2493,19 +2493,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'strong: '
             },
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -2515,7 +2516,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -2535,19 +2535,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'kbd: '
             },
             {
-              'args' => [
+              'cmdname' => 'kbd',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -2557,7 +2558,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'kbd',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -2577,19 +2577,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'text' => 'samp: '
             },
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'quotedblleft',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'quotedblleft',
                       'source_info' => {
                         'line_nr' => 45,
                         'macro' => 'quotes'
@@ -2599,7 +2600,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'source_info' => {
                 'line_nr' => 45,
                 'macro' => 'quotes'
@@ -2689,12 +2689,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'quotedblleft',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'quotedblleft',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -2714,19 +2714,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'code: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -2736,7 +2737,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -2756,19 +2756,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'asis: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -2778,7 +2779,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -2798,19 +2798,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'strong: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'strong',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -2820,7 +2821,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'strong',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -2840,19 +2840,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'kbd: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'kbd',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -2862,7 +2863,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'kbd',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -2882,19 +2882,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'samp: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'samp',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -2904,7 +2905,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -3067,12 +3067,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'quotedblleft',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'quotedblleft',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -3092,19 +3092,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'code: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -3114,7 +3115,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -3134,19 +3134,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'asis: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -3156,7 +3157,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -3176,19 +3176,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'strong: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'strong',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -3198,7 +3199,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'strong',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -3218,19 +3218,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'kbd: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'kbd',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -3240,7 +3241,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'kbd',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -3260,19 +3260,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'samp: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'samp',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -3282,7 +3283,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -3473,12 +3473,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'quotedblleft',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'quotedblleft',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -3498,19 +3498,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'code: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -3520,7 +3521,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -3540,19 +3540,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'asis: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -3562,7 +3563,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -3582,19 +3582,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'strong: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'strong',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -3604,7 +3605,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'strong',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -3624,19 +3624,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'kbd: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'kbd',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -3646,7 +3647,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'kbd',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'
@@ -3666,19 +3666,20 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'text' => 'samp: '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'samp',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'quotedblleft',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'quotedblleft',
                           'source_info' => {
                             'line_nr' => 48,
                             'macro' => 'quotes'
@@ -3688,7 +3689,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 48,
                     'macro' => 'quotes'

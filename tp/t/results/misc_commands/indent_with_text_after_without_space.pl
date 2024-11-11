@@ -44,7 +44,8 @@ $result_trees{'indent_with_text_after_without_space'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -53,8 +54,7 @@ $result_trees{'indent_with_text_after_without_space'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'a',
                   'sourcemark_type' => 'value_expansion',

@@ -380,7 +380,8 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                   'text' => 'now second arg: jj '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'var',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -390,7 +391,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'var',
                   'source_info' => {
                     'line_nr' => 14,
                     'macro' => 'lm'

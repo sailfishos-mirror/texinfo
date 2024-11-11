@@ -34,7 +34,8 @@ $result_trees{'ignored_value_definition'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmt',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -55,7 +56,6 @@ $result_trees{'ignored_value_definition'} = {
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlinefmt',
               'extra' => {
                 'format' => 'tex'
               },
@@ -82,7 +82,8 @@ $result_trees{'ignored_value_definition'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -91,8 +92,7 @@ $result_trees{'ignored_value_definition'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'outside',
                   'sourcemark_type' => 'value_expansion',

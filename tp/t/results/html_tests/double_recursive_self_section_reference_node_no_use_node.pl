@@ -51,7 +51,8 @@ $result_trees{'double_recursive_self_section_reference_node_no_use_node'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -69,7 +70,6 @@ $result_trees{'double_recursive_self_section_reference_node_no_use_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -140,7 +140,8 @@ $result_trees{'double_recursive_self_section_reference_node_no_use_node'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -158,7 +159,6 @@ $result_trees{'double_recursive_self_section_reference_node_no_use_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -189,8 +189,8 @@ $result_trees{'double_recursive_self_section_reference_node_no_use_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'double_recursive_self_section_reference_node_no_use_node'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_recursive_self_section_reference_node_no_use_node'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'double_recursive_self_section_reference_node_no_use_node'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_recursive_self_section_reference_node_no_use_node'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'double_recursive_self_section_reference_node_no_use_node'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_recursive_self_section_reference_node_no_use_node'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'double_recursive_self_section_reference_node_no_use_node'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_recursive_self_section_reference_node_no_use_node'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'double_recursive_self_section_reference_node_no_use_node'} = '@node n1
 @chapter @ref{n2}

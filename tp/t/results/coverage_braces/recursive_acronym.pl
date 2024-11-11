@@ -12,7 +12,8 @@ $result_trees{'recursive_acronym'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -24,7 +25,8 @@ $result_trees{'recursive_acronym'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'acronym',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -34,7 +36,6 @@ $result_trees{'recursive_acronym'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'acronym',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -51,7 +52,6 @@ $result_trees{'recursive_acronym'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 1
               }

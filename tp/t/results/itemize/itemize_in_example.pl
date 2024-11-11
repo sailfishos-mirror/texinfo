@@ -421,12 +421,12 @@ $result_trees{'itemize_in_example'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'bullet',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'bullet',
                       'source_info' => {
                         'line_nr' => 20
                       }

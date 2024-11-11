@@ -10,7 +10,8 @@ $result_trees{'verb_in_xref'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -20,7 +21,6 @@ $result_trees{'verb_in_xref'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'point'
@@ -42,7 +42,8 @@ $result_trees{'verb_in_xref'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -62,7 +63,8 @@ $result_trees{'verb_in_xref'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'verb',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -88,7 +90,6 @@ $result_trees{'verb_in_xref'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'verb',
                       'info' => {
                         'delimiter' => '*'
                       },
@@ -105,7 +106,6 @@ $result_trees{'verb_in_xref'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -123,7 +123,7 @@ $result_trees{'verb_in_xref'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'verb_in_xref'} = '@anchor{point}
 

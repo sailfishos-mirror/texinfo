@@ -12,7 +12,8 @@ $result_trees{'accent_and_dash'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'accent_and_dash'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 1
               }

@@ -12,11 +12,13 @@ $result_trees{'command_in_dotless'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'dotless',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -26,7 +28,6 @@ $result_trees{'command_in_dotless'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -35,7 +36,6 @@ $result_trees{'command_in_dotless'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'dotless',
               'source_info' => {
                 'line_nr' => 1
               }

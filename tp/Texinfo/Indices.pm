@@ -542,8 +542,9 @@ sub _idx_leading_text_or_command($$)
               or $cmdname eq 'U') {
             return (undef, $content);
           } elsif ($brace_command_type ne 'inline') {
-            if ($content->{'args'} and scalar(@{$content->{'args'}})) {
-              return _idx_leading_text_or_command($content->{'args'}->[0],
+            if ($content->{'contents'}
+                and scalar(@{$content->{'contents'}})) {
+              return _idx_leading_text_or_command($content->{'contents'}->[0],
                                                   $ignore_chars);
             }
           } else {

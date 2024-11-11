@@ -40,7 +40,8 @@ $result_trees{'incorrect_allowcodebreaks_argument'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -50,7 +51,6 @@ $result_trees{'incorrect_allowcodebreaks_argument'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 2
               }

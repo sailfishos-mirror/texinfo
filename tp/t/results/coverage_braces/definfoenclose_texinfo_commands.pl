@@ -153,7 +153,8 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -164,7 +165,6 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => '*'
               },
@@ -187,12 +187,12 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'TeX',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'TeX',
               'source_info' => {
                 'line_nr' => 8
               }
@@ -201,7 +201,8 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -211,7 +212,6 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'extra' => {
                 'begin' => '(',
                 'end' => ')'

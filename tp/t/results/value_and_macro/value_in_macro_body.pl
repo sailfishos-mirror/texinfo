@@ -122,7 +122,8 @@ $result_trees{'value_in_macro_body'} = {
               'text' => 'result: '
             },
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -130,7 +131,8 @@ $result_trees{'value_in_macro_body'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'value',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -139,8 +141,7 @@ $result_trees{'value_in_macro_body'} = {
                                 ],
                                 'type' => 'brace_container'
                               }
-                            ],
-                            'cmdname' => 'value'
+                            ]
                           },
                           'line' => '\\arg\\',
                           'position' => 1,
@@ -160,7 +161,6 @@ $result_trees{'value_in_macro_body'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'line_nr' => 7,
                 'macro' => 'testvaluebody'

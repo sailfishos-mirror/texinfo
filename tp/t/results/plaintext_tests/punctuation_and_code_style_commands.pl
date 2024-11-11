@@ -12,7 +12,8 @@ $result_trees{'punctuation_and_code_style_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'command',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'punctuation_and_code_style_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'command',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -31,11 +31,13 @@ $result_trees{'punctuation_and_code_style_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '~',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -45,7 +47,6 @@ $result_trees{'punctuation_and_code_style_commands'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '~',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -54,7 +55,6 @@ $result_trees{'punctuation_and_code_style_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -63,16 +63,17 @@ $result_trees{'punctuation_and_code_style_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'aa',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'aa',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -81,7 +82,6 @@ $result_trees{'punctuation_and_code_style_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -91,7 +91,8 @@ $result_trees{'punctuation_and_code_style_commands'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'command',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -101,7 +102,6 @@ $result_trees{'punctuation_and_code_style_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'command',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -110,11 +110,13 @@ $result_trees{'punctuation_and_code_style_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '~',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -124,7 +126,6 @@ $result_trees{'punctuation_and_code_style_commands'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '~',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -133,7 +134,6 @@ $result_trees{'punctuation_and_code_style_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -142,16 +142,17 @@ $result_trees{'punctuation_and_code_style_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'AA',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'AA',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -160,7 +161,6 @@ $result_trees{'punctuation_and_code_style_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -170,7 +170,8 @@ $result_trees{'punctuation_and_code_style_commands'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'command',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -180,7 +181,6 @@ $result_trees{'punctuation_and_code_style_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'command',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -189,14 +189,16 @@ $result_trees{'punctuation_and_code_style_commands'} = {
               'text' => '.  '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'double '
                     },
                     {
-                      'args' => [
+                      'cmdname' => '~',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -206,7 +208,6 @@ $result_trees{'punctuation_and_code_style_commands'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '~',
                       'source_info' => {
                         'line_nr' => 3
                       }
@@ -215,7 +216,6 @@ $result_trees{'punctuation_and_code_style_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -224,19 +224,20 @@ $result_trees{'punctuation_and_code_style_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'double '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'AA',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'AA',
                       'source_info' => {
                         'line_nr' => 3
                       }
@@ -245,7 +246,6 @@ $result_trees{'punctuation_and_code_style_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'source_info' => {
                 'line_nr' => 3
               }

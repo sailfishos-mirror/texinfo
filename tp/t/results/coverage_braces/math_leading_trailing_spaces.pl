@@ -12,7 +12,8 @@ $result_trees{'math_leading_trailing_spaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'math_leading_trailing_spaces'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '

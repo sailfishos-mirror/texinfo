@@ -91,7 +91,8 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse'} = {
               'text' => 'Toto '
             },
             {
-              'args' => [
+              'cmdname' => 'inlinefmtifelse',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -131,7 +132,6 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlinefmtifelse',
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'tex'

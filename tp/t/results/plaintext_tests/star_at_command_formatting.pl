@@ -246,12 +246,12 @@ $result_trees{'star_at_command_formatting'} = {
               'text' => 'Followed by empty asis and a space '
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 16,
                 'macro' => 'mymacro'
@@ -265,7 +265,8 @@ $result_trees{'star_at_command_formatting'} = {
               'text' => 'Followed by asis with space and a space '
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -275,7 +276,6 @@ $result_trees{'star_at_command_formatting'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 16,
                 'macro' => 'mymacro'
@@ -298,12 +298,12 @@ $result_trees{'star_at_command_formatting'} = {
               'cmdname' => '*'
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 16,
                 'macro' => 'mymacro'
@@ -329,7 +329,8 @@ $result_trees{'star_at_command_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -339,7 +340,6 @@ $result_trees{'star_at_command_formatting'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 16,
                 'macro' => 'mymacro'
@@ -506,12 +506,12 @@ $result_trees{'star_at_command_formatting'} = {
                   'text' => 'Followed by empty asis and a space '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 20,
                     'macro' => 'mymacro'
@@ -525,7 +525,8 @@ $result_trees{'star_at_command_formatting'} = {
                   'text' => 'Followed by asis with space and a space '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -535,7 +536,6 @@ $result_trees{'star_at_command_formatting'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 20,
                     'macro' => 'mymacro'
@@ -558,12 +558,12 @@ $result_trees{'star_at_command_formatting'} = {
                   'cmdname' => '*'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 20,
                     'macro' => 'mymacro'
@@ -589,7 +589,8 @@ $result_trees{'star_at_command_formatting'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -599,7 +600,6 @@ $result_trees{'star_at_command_formatting'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 20,
                     'macro' => 'mymacro'
@@ -806,12 +806,12 @@ $result_trees{'star_at_command_formatting'} = {
                   'text' => 'Followed by empty asis and a space '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 25,
                     'macro' => 'mymacro'
@@ -825,7 +825,8 @@ $result_trees{'star_at_command_formatting'} = {
                   'text' => 'Followed by asis with space and a space '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -835,7 +836,6 @@ $result_trees{'star_at_command_formatting'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 25,
                     'macro' => 'mymacro'
@@ -858,12 +858,12 @@ $result_trees{'star_at_command_formatting'} = {
                   'cmdname' => '*'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 25,
                     'macro' => 'mymacro'
@@ -889,7 +889,8 @@ $result_trees{'star_at_command_formatting'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -899,7 +900,6 @@ $result_trees{'star_at_command_formatting'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 25,
                     'macro' => 'mymacro'

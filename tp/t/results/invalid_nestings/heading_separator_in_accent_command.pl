@@ -12,7 +12,8 @@ $result_trees{'heading_separator_in_accent_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => ',',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'heading_separator_in_accent_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => ',',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -53,7 +53,8 @@ $result_trees{'heading_separator_in_accent_command'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -63,7 +64,6 @@ $result_trees{'heading_separator_in_accent_command'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'line_nr' => 3
                   }

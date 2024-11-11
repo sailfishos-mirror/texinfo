@@ -170,12 +170,12 @@ $result_trees{'customize_translations'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 10
               }
@@ -293,12 +293,12 @@ $result_trees{'customize_translations'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 16
               }
@@ -484,12 +484,12 @@ $result_trees{'customize_translations'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 25
               }

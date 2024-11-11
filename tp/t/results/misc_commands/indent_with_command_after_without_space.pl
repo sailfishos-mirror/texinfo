@@ -18,12 +18,12 @@ $result_trees{'indent_with_command_after_without_space'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'AA',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'AA',
               'source_info' => {
                 'line_nr' => 1
               }

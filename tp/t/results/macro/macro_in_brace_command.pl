@@ -157,7 +157,8 @@ $result_trees{'macro_in_brace_command'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'email',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -223,7 +224,6 @@ $result_trees{'macro_in_brace_command'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'email',
                       'source_info' => {
                         'line_nr' => 10
                       }

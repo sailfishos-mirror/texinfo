@@ -19,7 +19,8 @@ $result_trees{'thischapter_in_math_in_evenfooting'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'math',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -32,7 +33,6 @@ $result_trees{'thischapter_in_math_in_evenfooting'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'math',
                   'source_info' => {
                     'line_nr' => 2
                   }

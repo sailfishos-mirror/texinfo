@@ -51,7 +51,8 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
               'text' => '-- --- \'\' `` ` \' '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -61,7 +62,6 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -70,7 +70,8 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => '~',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -80,7 +81,6 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '~',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -117,7 +117,8 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                   'text' => '-- --- \'\' `` ` \' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -127,7 +128,6 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 6
                   }
@@ -136,7 +136,8 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                   'text' => '. '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '~',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -146,7 +147,6 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '~',
                   'source_info' => {
                     'line_nr' => 6
                   }

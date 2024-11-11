@@ -14,7 +14,8 @@ $result_trees{'unknown_value_after_spaces'} = {
           'type' => 'spaces_before_paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'value',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -23,8 +24,7 @@ $result_trees{'unknown_value_after_spaces'} = {
               ],
               'type' => 'brace_container'
             }
-          ],
-          'cmdname' => 'value'
+          ]
         },
         {
           'text' => '  '

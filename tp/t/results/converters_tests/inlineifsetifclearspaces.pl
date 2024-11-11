@@ -12,7 +12,8 @@ $result_trees{'inlineifsetifclearspaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlineifclear',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'inlineifsetifclearspaces'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlineifclear',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'aaa'
@@ -73,7 +73,8 @@ $result_trees{'inlineifsetifclearspaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlineifset',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -100,7 +101,6 @@ $result_trees{'inlineifsetifclearspaces'} = {
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlineifset',
               'extra' => {
                 'format' => 'aaa'
               },
@@ -151,7 +151,8 @@ $result_trees{'inlineifsetifclearspaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlineifclear',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -178,7 +179,6 @@ $result_trees{'inlineifsetifclearspaces'} = {
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlineifclear',
               'extra' => {
                 'format' => 'aaa'
               },
@@ -206,7 +206,8 @@ $result_trees{'inlineifsetifclearspaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlineifset',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -237,7 +238,6 @@ $result_trees{'inlineifsetifclearspaces'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlineifset',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'aaa'

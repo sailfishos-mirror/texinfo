@@ -17,12 +17,12 @@ $result_trees{'empty_ref'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ref',
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'ref',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -31,7 +31,8 @@ $result_trees{'empty_ref'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 },
@@ -47,7 +48,6 @@ $result_trees{'empty_ref'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -56,7 +56,8 @@ $result_trees{'empty_ref'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'inforef',
+              'contents' => [
                 {
                   'info' => {
                     'spaces_before_argument' => {
@@ -66,7 +67,6 @@ $result_trees{'empty_ref'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inforef',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -79,7 +79,8 @@ $result_trees{'empty_ref'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'inforef',
+              'contents' => [
                 {
                   'info' => {
                     'spaces_before_argument' => {
@@ -102,7 +103,6 @@ $result_trees{'empty_ref'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inforef',
               'source_info' => {
                 'line_nr' => 3
               }

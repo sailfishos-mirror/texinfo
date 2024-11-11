@@ -1726,9 +1726,12 @@ sub get_label_element($)
 {
   my $current = shift;
   return undef if (!defined($current->{'cmdname'}));
-  if (($current->{'cmdname'} eq 'node' or $current->{'cmdname'} eq 'anchor')
+  if ($current->{'cmdname'} eq 'node'
       and $current->{'args'} and scalar(@{$current->{'args'}})) {
     return $current->{'args'}->[0];
+  } elsif ($current->{'cmdname'} eq 'anchor'
+           and $current->{'contents'} and scalar(@{$current->{'contents'}})) {
+    return $current->{'contents'}->[0];
   } elsif ($current->{'cmdname'} eq 'float'
       and $current->{'args'} and scalar(@{$current->{'args'}}) >= 2) {
     return $current->{'args'}->[1];

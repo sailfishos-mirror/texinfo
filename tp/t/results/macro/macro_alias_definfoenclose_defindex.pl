@@ -269,7 +269,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'phooindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -279,7 +280,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'phooindex',
               'extra' => {
                 'begin' => ';',
                 'end' => ':'
@@ -340,7 +340,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -350,7 +351,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'info' => {
                 'alias_of' => 'phooindex'
               },
@@ -480,7 +480,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'phooindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -490,7 +491,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'phooindex',
               'extra' => {
                 'begin' => ';',
                 'end' => ':'
@@ -830,7 +830,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -840,7 +841,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'info' => {
                 'alias_of' => 'phooindex'
               },
@@ -897,7 +897,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'phoo',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -907,7 +908,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'phoo',
               'extra' => {
                 'begin' => ';',
                 'end' => ':'
@@ -1041,7 +1041,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1051,7 +1052,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'info' => {
                 'alias_of' => 'phooindex'
               },

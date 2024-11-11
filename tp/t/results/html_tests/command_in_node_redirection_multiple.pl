@@ -54,7 +54,8 @@ $result_trees{'command_in_node_redirection_multiple'} = {
               'text' => 't '
             },
             {
-              'args' => [
+              'cmdname' => 'r',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -64,7 +65,6 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'r',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -87,7 +87,8 @@ $result_trees{'command_in_node_redirection_multiple'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -97,7 +98,6 @@ $result_trees{'command_in_node_redirection_multiple'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'yyyy'
@@ -117,11 +117,13 @@ $result_trees{'command_in_node_redirection_multiple'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'sansserif',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -131,7 +133,6 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'sansserif',
                   'source_info' => {
                     'line_nr' => 6
                   }
@@ -140,7 +141,6 @@ $result_trees{'command_in_node_redirection_multiple'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'gg'
@@ -160,11 +160,13 @@ $result_trees{'command_in_node_redirection_multiple'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'r',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -174,7 +176,6 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'r',
                   'source_info' => {
                     'line_nr' => 8
                   }
@@ -183,7 +184,6 @@ $result_trees{'command_in_node_redirection_multiple'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'ancher'
@@ -203,11 +203,13 @@ $result_trees{'command_in_node_redirection_multiple'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'sansserif',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -217,7 +219,6 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'sansserif',
                   'source_info' => {
                     'line_nr' => 10
                   }
@@ -226,7 +227,8 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'r',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -236,7 +238,6 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'r',
                   'source_info' => {
                     'line_nr' => 10
                   }
@@ -245,7 +246,6 @@ $result_trees{'command_in_node_redirection_multiple'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'll-jj'

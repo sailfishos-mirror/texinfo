@@ -91,12 +91,12 @@ $result_trees{'command_translated'} = {
               'text' => 'top '
             },
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -121,12 +121,12 @@ $result_trees{'command_translated'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 6
               }
@@ -162,12 +162,12 @@ $result_trees{'command_translated'} = {
               'text' => 'chapter '
             },
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 8
               }

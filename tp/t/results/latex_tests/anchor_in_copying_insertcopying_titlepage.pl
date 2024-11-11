@@ -31,7 +31,8 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                       'text' => 'Cop. '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'anchor',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -44,7 +45,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'anchor',
                       'extra' => {
                         'is_target' => 1,
                         'normalized' => 'a-in-copying'
@@ -157,7 +157,8 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                   'cmdname' => 'page'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'anchor',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -170,7 +171,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'anchor',
                   'extra' => {
                     'is_target' => 1,
                     'normalized' => 'a-in-titlepage'
@@ -368,7 +368,8 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'pxref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -386,7 +387,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'pxref',
               'source_info' => {
                 'line_nr' => 19
               }
@@ -396,7 +396,8 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'pxref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -414,7 +415,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'pxref',
               'source_info' => {
                 'line_nr' => 20
               }
@@ -442,8 +442,8 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'anchor_in_copying_insertcopying_titlepage'} = '@copying
 Cop. @anchor{a in copying}. Ying.

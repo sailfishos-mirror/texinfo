@@ -68,7 +68,8 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
               'text' => 'Toto '
             },
             {
-              'args' => [
+              'cmdname' => 'inlineifclear',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -112,7 +113,6 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlineifclear',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'flag'
@@ -139,7 +139,8 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
               'text' => 'Again with space '
             },
             {
-              'args' => [
+              'cmdname' => 'inlineifclear',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -183,7 +184,6 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlineifclear',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'flag'

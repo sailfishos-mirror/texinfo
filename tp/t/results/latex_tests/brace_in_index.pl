@@ -32,7 +32,8 @@ $result_trees{'brace_in_index'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -42,7 +43,6 @@ $result_trees{'brace_in_index'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -165,7 +165,8 @@ $result_trees{'brace_in_index'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'math',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -175,7 +176,6 @@ $result_trees{'brace_in_index'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'math',
                   'source_info' => {
                     'line_nr' => 11
                   }
@@ -218,7 +218,8 @@ $result_trees{'brace_in_index'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'samp',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -228,7 +229,6 @@ $result_trees{'brace_in_index'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 13
                   }

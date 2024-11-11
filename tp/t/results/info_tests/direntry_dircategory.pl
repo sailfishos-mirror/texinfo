@@ -75,7 +75,8 @@ $result_trees{'direntry_dircategory'} = {
                       'text' => '``category---'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -85,7 +86,6 @@ $result_trees{'direntry_dircategory'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'file_name' => 'direntry_dircategory.texi',
                         'line_nr' => 5
@@ -180,7 +180,8 @@ $result_trees{'direntry_dircategory'} = {
                               'text' => '``hello---'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -190,7 +191,6 @@ $result_trees{'direntry_dircategory'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'file_name' => 'direntry_dircategory.texi',
                                 'line_nr' => 7

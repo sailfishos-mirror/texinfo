@@ -61,7 +61,8 @@ $result_trees{'value_in_invalid_documentencoding'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -70,8 +71,7 @@ $result_trees{'value_in_invalid_documentencoding'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'bad',
                   'position' => 1,

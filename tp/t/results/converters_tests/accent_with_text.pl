@@ -12,7 +12,8 @@ $result_trees{'accent_with_text'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'u',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'accent_with_text'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'u',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -31,7 +31,8 @@ $result_trees{'accent_with_text'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'dotless',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -41,7 +42,6 @@ $result_trees{'accent_with_text'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'dotless',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -50,14 +50,16 @@ $result_trees{'accent_with_text'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '--'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'dotless',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -67,7 +69,6 @@ $result_trees{'accent_with_text'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'dotless',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -76,7 +77,6 @@ $result_trees{'accent_with_text'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -85,14 +85,16 @@ $result_trees{'accent_with_text'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => '--'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'dotless',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -102,7 +104,6 @@ $result_trees{'accent_with_text'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'dotless',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -111,7 +112,6 @@ $result_trees{'accent_with_text'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -120,7 +120,8 @@ $result_trees{'accent_with_text'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -130,7 +131,6 @@ $result_trees{'accent_with_text'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 1
               }

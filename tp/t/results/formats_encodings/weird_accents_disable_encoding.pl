@@ -177,15 +177,18 @@ $result_trees{'weird_accents_disable_encoding'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '=',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '~',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'dotless',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -195,7 +198,6 @@ $result_trees{'weird_accents_disable_encoding'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'dotless',
                               'source_info' => {
                                 'line_nr' => 9
                               }
@@ -204,7 +206,6 @@ $result_trees{'weird_accents_disable_encoding'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => '~',
                       'source_info' => {
                         'line_nr' => 9
                       }
@@ -213,7 +214,6 @@ $result_trees{'weird_accents_disable_encoding'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '=',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -233,15 +233,18 @@ $result_trees{'weird_accents_disable_encoding'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '=',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => ',',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => '~',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -251,7 +254,6 @@ $result_trees{'weird_accents_disable_encoding'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => '~',
                               'source_info' => {
                                 'line_nr' => 11
                               }
@@ -260,7 +262,6 @@ $result_trees{'weird_accents_disable_encoding'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => ',',
                       'source_info' => {
                         'line_nr' => 11
                       }
@@ -269,7 +270,6 @@ $result_trees{'weird_accents_disable_encoding'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '=',
               'source_info' => {
                 'line_nr' => 11
               }
@@ -289,11 +289,13 @@ $result_trees{'weird_accents_disable_encoding'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '=',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'ubaraccent',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -303,7 +305,6 @@ $result_trees{'weird_accents_disable_encoding'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'ubaraccent',
                       'source_info' => {
                         'line_nr' => 13
                       }
@@ -312,7 +313,6 @@ $result_trees{'weird_accents_disable_encoding'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '=',
               'source_info' => {
                 'line_nr' => 13
               }
@@ -332,15 +332,18 @@ $result_trees{'weird_accents_disable_encoding'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'udotaccent',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => '`',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -350,7 +353,6 @@ $result_trees{'weird_accents_disable_encoding'} = {
                                   'type' => 'following_arg'
                                 }
                               ],
-                              'cmdname' => '`',
                               'source_info' => {
                                 'line_nr' => 15
                               }
@@ -359,7 +361,6 @@ $result_trees{'weird_accents_disable_encoding'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'udotaccent',
                       'source_info' => {
                         'line_nr' => 15
                       }
@@ -368,7 +369,6 @@ $result_trees{'weird_accents_disable_encoding'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 15
               }
@@ -388,15 +388,18 @@ $result_trees{'weird_accents_disable_encoding'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '=',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '\'',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => '`',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -406,7 +409,6 @@ $result_trees{'weird_accents_disable_encoding'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => '`',
                               'source_info' => {
                                 'line_nr' => 17
                               }
@@ -415,7 +417,6 @@ $result_trees{'weird_accents_disable_encoding'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => '\'',
                       'source_info' => {
                         'line_nr' => 17
                       }
@@ -424,7 +425,6 @@ $result_trees{'weird_accents_disable_encoding'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '=',
               'source_info' => {
                 'line_nr' => 17
               }

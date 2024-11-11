@@ -61,7 +61,8 @@ $result_trees{'anchor_and_spaces'} = {
       'cmdname' => 'top',
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -71,7 +72,6 @@ $result_trees{'anchor_and_spaces'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'anchor-0'
@@ -96,7 +96,8 @@ $result_trees{'anchor_and_spaces'} = {
               'text' => 'Now '
             },
             {
-              'args' => [
+              'cmdname' => 'anchor',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -106,7 +107,6 @@ $result_trees{'anchor_and_spaces'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'anchor',
               'extra' => {
                 'is_target' => 1,
                 'normalized' => 'anchor1'
@@ -133,7 +133,8 @@ $result_trees{'anchor_and_spaces'} = {
               'text' => 'No space'
             },
             {
-              'args' => [
+              'cmdname' => 'anchor',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -143,7 +144,6 @@ $result_trees{'anchor_and_spaces'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'anchor',
               'extra' => {
                 'is_target' => 1,
                 'normalized' => 'anchor2'

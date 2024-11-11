@@ -191,7 +191,8 @@ $result_trees{'verb_in_linemacro_call'} = {
                       'text' => 'second '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'verb',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -202,7 +203,6 @@ $result_trees{'verb_in_linemacro_call'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'verb',
                       'info' => {
                         'delimiter' => ':'
                       },
@@ -219,7 +219,8 @@ $result_trees{'verb_in_linemacro_call'} = {
                       'text' => 'third A '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'verb',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -230,7 +231,6 @@ $result_trees{'verb_in_linemacro_call'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'verb',
                       'info' => {
                         'delimiter' => '|'
                       },

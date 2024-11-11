@@ -25,6 +25,9 @@ package Texinfo::Convert::TexinfoXML;
 use 5.006;
 use strict;
 
+# check that autovivification do not happen incorrectly.
+#no autovivification qw(fetch delete exists store strict);
+
 use Carp qw(cluck);
 
 use Texinfo::Convert::TexinfoMarkup;

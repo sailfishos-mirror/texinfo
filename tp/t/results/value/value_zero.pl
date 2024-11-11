@@ -37,7 +37,8 @@ $result_trees{'value_zero'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -46,8 +47,7 @@ $result_trees{'value_zero'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => '0',
                   'sourcemark_type' => 'value_expansion',

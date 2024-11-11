@@ -12,11 +12,13 @@ $result_trees{'double_style_paragraph'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'strong',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -36,7 +38,6 @@ $result_trees{'double_style_paragraph'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'strong',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -45,7 +46,6 @@ $result_trees{'double_style_paragraph'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'line_nr' => 1
               }

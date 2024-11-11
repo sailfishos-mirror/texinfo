@@ -43,7 +43,8 @@ $result_trees{'U_with_utf8_enable_encoding'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'U',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -53,7 +54,6 @@ $result_trees{'U_with_utf8_enable_encoding'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'U',
               'source_info' => {
                 'line_nr' => 2
               }

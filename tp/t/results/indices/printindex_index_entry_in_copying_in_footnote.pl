@@ -36,7 +36,8 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                       'text' => 'Copying'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'footnote',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -93,7 +94,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                           'type' => 'brace_command_context'
                         }
                       ],
-                      'cmdname' => 'footnote',
                       'extra' => {},
                       'info' => {
                         'spaces_before_argument' => {

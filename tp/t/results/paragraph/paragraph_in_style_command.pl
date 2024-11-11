@@ -15,7 +15,8 @@ $result_trees{'paragraph_in_style_command'} = {
               'text' => 'a 2 paragraphs sample '
             },
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -31,7 +32,6 @@ $result_trees{'paragraph_in_style_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -59,7 +59,8 @@ $result_trees{'paragraph_in_style_command'} = {
               'text' => 'a 3 paragraphs sample '
             },
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -75,7 +76,6 @@ $result_trees{'paragraph_in_style_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'source_info' => {
                 'line_nr' => 5
               }

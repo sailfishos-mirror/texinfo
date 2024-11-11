@@ -20,7 +20,8 @@ $result_trees{'float_with_at_commands'} = {
                   'text' => 'entr'
                 },
                 {
-                  'args' => [
+                  'cmdname' => '\'',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -30,7 +31,6 @@ $result_trees{'float_with_at_commands'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '\'',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -47,7 +47,8 @@ $result_trees{'float_with_at_commands'} = {
                   'text' => 'premi'
                 },
                 {
-                  'args' => [
+                  'cmdname' => '`',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -57,7 +58,6 @@ $result_trees{'float_with_at_commands'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '`',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -66,7 +66,8 @@ $result_trees{'float_with_at_commands'} = {
                   'text' => 're entr'
                 },
                 {
-                  'args' => [
+                  'cmdname' => '\'',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -76,7 +77,6 @@ $result_trees{'float_with_at_commands'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '\'',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -110,7 +110,8 @@ $result_trees{'float_with_at_commands'} = {
                   'text' => 'Ceci est notre premi'
                 },
                 {
-                  'args' => [
+                  'cmdname' => '`',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -120,7 +121,6 @@ $result_trees{'float_with_at_commands'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '`',
                   'source_info' => {
                     'line_nr' => 3
                   }
@@ -129,7 +129,8 @@ $result_trees{'float_with_at_commands'} = {
                   'text' => 're entr'
                 },
                 {
-                  'args' => [
+                  'cmdname' => '\'',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -139,7 +140,6 @@ $result_trees{'float_with_at_commands'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '\'',
                   'source_info' => {
                     'line_nr' => 3
                   }
@@ -152,7 +152,8 @@ $result_trees{'float_with_at_commands'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -161,7 +162,8 @@ $result_trees{'float_with_at_commands'} = {
                           'text' => 'La premi'
                         },
                         {
-                          'args' => [
+                          'cmdname' => '`',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -171,7 +173,6 @@ $result_trees{'float_with_at_commands'} = {
                               'type' => 'following_arg'
                             }
                           ],
-                          'cmdname' => '`',
                           'source_info' => {
                             'line_nr' => 4
                           }
@@ -180,7 +181,8 @@ $result_trees{'float_with_at_commands'} = {
                           'text' => 're entr'
                         },
                         {
-                          'args' => [
+                          'cmdname' => '\'',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -190,7 +192,6 @@ $result_trees{'float_with_at_commands'} = {
                               'type' => 'following_arg'
                             }
                           ],
-                          'cmdname' => '\'',
                           'source_info' => {
                             'line_nr' => 4
                           }
@@ -205,7 +206,6 @@ $result_trees{'float_with_at_commands'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },
@@ -287,7 +287,8 @@ $result_trees{'float_with_at_commands'} = {
                   'text' => 'entr'
                 },
                 {
-                  'args' => [
+                  'cmdname' => '\'',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -297,7 +298,6 @@ $result_trees{'float_with_at_commands'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '\'',
                   'source_info' => {
                     'line_nr' => 9
                   }

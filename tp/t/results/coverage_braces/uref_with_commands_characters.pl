@@ -12,14 +12,16 @@ $result_trees{'uref_with_commands_characters'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'uref',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'http://my-host.com/~'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'strong',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -29,7 +31,6 @@ $result_trees{'uref_with_commands_characters'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'strong',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -64,16 +65,17 @@ $result_trees{'uref_with_commands_characters'} = {
                       'text' => 'see that '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'strong',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'LaTeX',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'LaTeX',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -82,7 +84,6 @@ $result_trees{'uref_with_commands_characters'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'strong',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -96,7 +97,6 @@ $result_trees{'uref_with_commands_characters'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'uref',
               'source_info' => {
                 'line_nr' => 1
               }

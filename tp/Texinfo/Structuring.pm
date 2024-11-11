@@ -542,9 +542,9 @@ sub check_nodes_are_referenced($)
   # consider nodes in internal @*ref commands to be referenced
   if (defined($refs)) {
     foreach my $ref (@$refs) {
-      if ($ref->{'args'} and scalar(@{$ref->{'args'}})
-          and $ref->{'args'}->[0]->{'extra'}) {
-        my $label_arg = $ref->{'args'}->[0];
+      if ($ref->{'contents'} and scalar(@{$ref->{'contents'}})
+          and $ref->{'contents'}->[0]->{'extra'}) {
+        my $label_arg = $ref->{'contents'}->[0];
         my $label_normalized = $label_arg->{'extra'}->{'normalized'};
         if ($label_normalized) {
           my $node_target = $identifier_target->{$label_normalized};
@@ -1064,7 +1064,7 @@ sub associate_internal_references($)
     if ($ref->{'type'} and $ref->{'type'} eq 'menu_entry_node') {
       $label_element = $ref;
     } else {
-      $label_element = $ref->{'args'}->[0];
+      $label_element = $ref->{'contents'}->[0];
     }
 
     if ($label_element->{'extra'}

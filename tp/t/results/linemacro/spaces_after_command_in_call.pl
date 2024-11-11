@@ -182,7 +182,8 @@ $result_trees{'spaces_after_command_in_call'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -192,7 +193,6 @@ $result_trees{'spaces_after_command_in_call'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'info' => {
                                 'spaces_after_cmd_before_arg' => {
                                   'text' => ' '
@@ -235,7 +235,8 @@ $result_trees{'spaces_after_command_in_call'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'ringaccent',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -245,7 +246,6 @@ $result_trees{'spaces_after_command_in_call'} = {
                                   'type' => 'following_arg'
                                 }
                               ],
-                              'cmdname' => 'ringaccent',
                               'info' => {
                                 'spaces_after_cmd_before_arg' => {
                                   'text' => ' '
@@ -314,7 +314,8 @@ $result_trees{'spaces_after_command_in_call'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -324,7 +325,6 @@ $result_trees{'spaces_after_command_in_call'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'code',
                           'info' => {
                             'spaces_after_cmd_before_arg' => {
                               'text' => ' '

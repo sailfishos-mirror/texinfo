@@ -122,7 +122,8 @@ $result_trees{'conversion_with_undef_customization'} = {
               'text' => 'chap'
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -132,7 +133,6 @@ $result_trees{'conversion_with_undef_customization'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 7
               }
@@ -169,7 +169,8 @@ $result_trees{'conversion_with_undef_customization'} = {
               'text' => 'Chap'
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -179,7 +180,6 @@ $result_trees{'conversion_with_undef_customization'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 8
               }
@@ -207,7 +207,8 @@ $result_trees{'conversion_with_undef_customization'} = {
               'text' => 'Text'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -216,7 +217,8 @@ $result_trees{'conversion_with_undef_customization'} = {
                           'text' => 'Go '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'samp',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -226,7 +228,6 @@ $result_trees{'conversion_with_undef_customization'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'samp',
                           'source_info' => {
                             'line_nr' => 10
                           }
@@ -238,7 +239,6 @@ $result_trees{'conversion_with_undef_customization'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 10

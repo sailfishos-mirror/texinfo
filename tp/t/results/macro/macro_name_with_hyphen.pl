@@ -117,7 +117,8 @@ $result_trees{'macro_name_with_hyphen'} = {
               'text' => 'This blah and that '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -127,7 +128,6 @@ $result_trees{'macro_name_with_hyphen'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 5,
                 'macro' => 'macro-one'

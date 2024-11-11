@@ -294,8 +294,8 @@ sub _convert($)
       return $result;
     # commands with braces
     } elsif ($accent_commands{$cmdname}) {
-      return '' if (!$element->{'args'});
-      my $accent_text = _convert($element->{'args'}->[0]);
+      return '' if (!$element->{'contents'});
+      my $accent_text = _convert($element->{'contents'}->[0]);
       my $accented_char
         = Texinfo::Convert::Unicode::unicode_accent($accent_text,
                                                     $element);
@@ -313,20 +313,20 @@ sub _convert($)
         @args_try_order = (0, 1, 2, 4, 3);
       }
       foreach my $index (@args_try_order) {
-        if (defined($element->{'args'}->[$index])) {
-          my $text = _convert($element->{'args'}->[$index]);
+        if (defined($element->{'contents'}->[$index])) {
+          my $text = _convert($element->{'contents'}->[$index]);
           return $text if (defined($text) and $text =~ /\S/);
         }
       }
       return '';
     # Here all the commands with args are processed, if they have
     # more than one arg the first one is used.
-    } elsif ($element->{'args'} and $element->{'args'}->[0]
-           and (($element->{'args'}->[0]->{'type'}
-                 and ($element->{'args'}->[0]->{'type'} eq 'brace_container'
-             or $element->{'args'}->[0]->{'type'} eq 'brace_arg'))
+    } elsif ($element->{'contents'} and $element->{'contents'}->[0]
+           and (($element->{'contents'}->[0]->{'type'}
+                 and ($element->{'contents'}->[0]->{'type'} eq 'brace_container'
+             or $element->{'contents'}->[0]->{'type'} eq 'brace_arg'))
                 or $cmdname eq 'math')) {
-      return _convert($element->{'args'}->[0]);
+      return _convert($element->{'contents'}->[0]);
     }
   }
   my $result = '';

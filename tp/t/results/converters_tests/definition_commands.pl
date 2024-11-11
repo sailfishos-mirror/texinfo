@@ -252,7 +252,8 @@ $result_trees{'definition_commands'} = {
                       'text' => 'deffn no var for '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -262,7 +263,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 8
                       }
@@ -271,7 +271,8 @@ $result_trees{'definition_commands'} = {
                       'text' => ' and '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -281,7 +282,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 8
                       }
@@ -387,7 +387,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -397,7 +398,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 11
                               }
@@ -417,7 +417,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -427,7 +428,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 11
                               }
@@ -483,7 +483,8 @@ $result_trees{'definition_commands'} = {
                       'text' => 'deffn explict var for '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -493,7 +494,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 12
                       }
@@ -502,7 +502,8 @@ $result_trees{'definition_commands'} = {
                       'text' => ' and '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -512,7 +513,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 12
                       }
@@ -618,11 +618,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -632,7 +634,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 15
                                       }
@@ -641,7 +642,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 15
                               }
@@ -661,11 +661,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -675,7 +677,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 15
                                       }
@@ -684,7 +685,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 15
                               }
@@ -740,7 +740,8 @@ $result_trees{'definition_commands'} = {
                       'text' => 'deffn r slanted for '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -750,7 +751,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 16
                       }
@@ -759,7 +759,8 @@ $result_trees{'definition_commands'} = {
                       'text' => ' and '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -769,7 +770,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 16
                       }
@@ -1088,7 +1088,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1098,7 +1099,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 20
                               }
@@ -1148,7 +1148,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1158,7 +1159,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 20
                               }
@@ -1187,7 +1187,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1197,7 +1198,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 20
                               }
@@ -1341,7 +1341,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1351,7 +1352,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 21
                               }
@@ -1401,7 +1401,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1411,7 +1412,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 21
                               }
@@ -1440,7 +1440,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1450,7 +1451,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 21
                               }
@@ -1594,7 +1594,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'slanted',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1604,7 +1605,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'slanted',
                               'source_info' => {
                                 'line_nr' => 22
                               }
@@ -1654,7 +1654,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'slanted',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1664,7 +1665,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'slanted',
                               'source_info' => {
                                 'line_nr' => 22
                               }
@@ -1693,7 +1693,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'slanted',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1703,7 +1704,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'slanted',
                               'source_info' => {
                                 'line_nr' => 22
                               }
@@ -1847,7 +1847,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1857,7 +1858,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 23
                               }
@@ -1907,7 +1907,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1917,7 +1918,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 23
                               }
@@ -1946,7 +1946,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1956,7 +1957,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 23
                               }
@@ -2100,7 +2100,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -2110,7 +2111,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 24
                               }
@@ -2160,7 +2160,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -2170,7 +2171,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 24
                               }
@@ -2199,7 +2199,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -2209,7 +2210,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 24
                               }
@@ -2353,11 +2353,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'b',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -2367,7 +2369,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'b',
                                       'source_info' => {
                                         'line_nr' => 25
                                       }
@@ -2376,7 +2377,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 25
                               }
@@ -2426,11 +2426,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'b',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -2440,7 +2442,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'b',
                                       'source_info' => {
                                         'line_nr' => 25
                                       }
@@ -2449,7 +2450,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 25
                               }
@@ -2478,11 +2478,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'b',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -2492,7 +2494,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'b',
                                       'source_info' => {
                                         'line_nr' => 25
                                       }
@@ -2501,7 +2502,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 25
                               }
@@ -2645,11 +2645,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -2659,7 +2661,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 26
                                       }
@@ -2668,7 +2669,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 26
                               }
@@ -2718,11 +2718,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -2732,7 +2734,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 26
                                       }
@@ -2741,7 +2742,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 26
                               }
@@ -2770,11 +2770,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -2784,7 +2786,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 26
                                       }
@@ -2793,7 +2794,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 26
                               }
@@ -2937,11 +2937,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -2951,7 +2953,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 27
                                       }
@@ -2960,7 +2961,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 27
                               }
@@ -3010,11 +3010,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -3024,7 +3026,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 27
                                       }
@@ -3033,7 +3034,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 27
                               }
@@ -3062,11 +3062,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -3076,7 +3078,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 27
                                       }
@@ -3085,7 +3086,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 27
                               }
@@ -3229,11 +3229,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'code',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -3243,7 +3245,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 28
                                       }
@@ -3252,7 +3253,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 28
                               }
@@ -3302,11 +3302,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'code',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -3316,7 +3318,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 28
                                       }
@@ -3325,7 +3326,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 28
                               }
@@ -3354,11 +3354,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'code',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -3368,7 +3370,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 28
                                       }
@@ -3377,7 +3378,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 28
                               }
@@ -3521,11 +3521,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 't',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -3535,7 +3537,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 't',
                                       'source_info' => {
                                         'line_nr' => 29
                                       }
@@ -3544,7 +3545,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 29
                               }
@@ -3594,11 +3594,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 't',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -3608,7 +3610,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 't',
                                       'source_info' => {
                                         'line_nr' => 29
                                       }
@@ -3617,7 +3618,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 29
                               }
@@ -3646,11 +3646,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 't',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -3660,7 +3662,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 't',
                                       'source_info' => {
                                         'line_nr' => 29
                                       }
@@ -3669,7 +3670,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 29
                               }
@@ -3813,11 +3813,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -3827,7 +3829,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 30
                                       }
@@ -3836,7 +3837,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 30
                               }
@@ -3886,11 +3886,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -3900,7 +3902,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 30
                                       }
@@ -3909,7 +3910,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 30
                               }
@@ -3938,11 +3938,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -3952,7 +3954,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 30
                                       }
@@ -3961,7 +3962,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 30
                               }
@@ -4105,11 +4105,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -4119,7 +4121,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 31
                                       }
@@ -4128,7 +4129,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 31
                               }
@@ -4178,11 +4178,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -4192,7 +4194,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 31
                                       }
@@ -4201,7 +4202,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 31
                               }
@@ -4230,11 +4230,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -4244,7 +4246,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 31
                                       }
@@ -4253,7 +4254,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 31
                               }
@@ -4397,11 +4397,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -4411,7 +4413,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 32
                                       }
@@ -4420,7 +4421,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 32
                               }
@@ -4470,11 +4470,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -4484,7 +4486,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 32
                                       }
@@ -4493,7 +4494,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 32
                               }
@@ -4522,11 +4522,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -4536,7 +4538,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 32
                                       }
@@ -4545,7 +4546,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 32
                               }
@@ -4689,11 +4689,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -4703,7 +4705,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 33
                                       }
@@ -4712,7 +4713,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 33
                               }
@@ -4762,11 +4762,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -4776,7 +4778,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 33
                                       }
@@ -4785,7 +4786,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 33
                               }
@@ -4814,11 +4814,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -4828,7 +4830,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 33
                                       }
@@ -4837,7 +4838,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 33
                               }
@@ -5133,7 +5133,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -5143,7 +5144,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 38
                               }
@@ -5262,7 +5262,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -5272,7 +5273,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 39
                               }
@@ -5391,7 +5391,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'slanted',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -5401,7 +5402,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'slanted',
                               'source_info' => {
                                 'line_nr' => 40
                               }
@@ -5520,7 +5520,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -5530,7 +5531,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 41
                               }
@@ -5649,7 +5649,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -5659,7 +5660,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 42
                               }
@@ -5778,11 +5778,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'b',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -5792,7 +5794,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'b',
                                       'source_info' => {
                                         'line_nr' => 43
                                       }
@@ -5801,7 +5802,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 43
                               }
@@ -5920,11 +5920,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -5934,7 +5936,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 44
                                       }
@@ -5943,7 +5944,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 44
                               }
@@ -6062,11 +6062,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -6076,7 +6078,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 45
                                       }
@@ -6085,7 +6086,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 45
                               }
@@ -6204,11 +6204,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'code',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -6218,7 +6220,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 46
                                       }
@@ -6227,7 +6228,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 46
                               }
@@ -6346,11 +6346,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 't',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -6360,7 +6362,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 't',
                                       'source_info' => {
                                         'line_nr' => 47
                                       }
@@ -6369,7 +6370,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 47
                               }
@@ -6488,11 +6488,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -6502,7 +6504,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 48
                                       }
@@ -6511,7 +6512,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 48
                               }
@@ -6630,11 +6630,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -6644,7 +6646,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 49
                                       }
@@ -6653,7 +6654,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 49
                               }
@@ -6772,11 +6772,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -6786,7 +6788,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 50
                                       }
@@ -6795,7 +6796,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 50
                               }
@@ -6914,11 +6914,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -6928,7 +6930,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 51
                                       }
@@ -6937,7 +6938,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 51
                               }
@@ -7095,7 +7095,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -7105,7 +7106,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 55
                               }
@@ -7129,11 +7129,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -7143,7 +7145,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 55
                                       }
@@ -7152,7 +7153,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 55
                               }
@@ -7184,7 +7184,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 't',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -7193,8 +7194,7 @@ $result_trees{'definition_commands'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 't'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -7226,12 +7226,12 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Escape'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'tie',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'tie',
                               'source_info' => {
                                 'line_nr' => 56
                               }
@@ -7254,7 +7254,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -7264,17 +7265,18 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 56
                               }
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -7284,7 +7286,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 56
                                       }
@@ -7293,18 +7294,17 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 56
                               }
                             },
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 56
                               }
@@ -7333,7 +7333,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 't',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -7342,15 +7343,16 @@ $result_trees{'definition_commands'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 't'
+                          ]
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'r',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'slanted',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -7359,22 +7361,20 @@ $result_trees{'definition_commands'} = {
                                       ],
                                       'type' => 'brace_container'
                                     }
-                                  ],
-                                  'cmdname' => 'slanted'
+                                  ]
                                 }
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'r'
+                          ]
                         },
                         {
-                          'args' => [
+                          'cmdname' => 't',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 't'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -7410,12 +7410,12 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Escape'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'tie',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'tie',
                               'source_info' => {
                                 'line_nr' => 57
                               }
@@ -7438,7 +7438,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -7448,17 +7449,18 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 57
                               }
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -7468,7 +7470,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 57
                                       }
@@ -7477,18 +7478,17 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 57
                               }
                             },
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 57
                               }
@@ -7517,7 +7517,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 't',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -7526,15 +7527,16 @@ $result_trees{'definition_commands'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 't'
+                          ]
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'r',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'slanted',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -7543,22 +7545,20 @@ $result_trees{'definition_commands'} = {
                                       ],
                                       'type' => 'brace_container'
                                     }
-                                  ],
-                                  'cmdname' => 'slanted'
+                                  ]
                                 }
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'r'
+                          ]
                         },
                         {
-                          'args' => [
+                          'cmdname' => 't',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 't'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -7594,12 +7594,12 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Escape'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'tie',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'tie',
                               'source_info' => {
                                 'line_nr' => 58
                               }
@@ -7622,7 +7622,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -7632,17 +7633,18 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 58
                               }
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -7652,7 +7654,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 58
                                       }
@@ -7661,13 +7662,13 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 58
                               }
                             },
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -7677,7 +7678,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 58
                               }
@@ -7697,7 +7697,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -7707,7 +7708,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 58
                               }
@@ -7723,11 +7723,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -7737,7 +7739,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 58
                                       }
@@ -7746,7 +7747,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 58
                               }
@@ -7762,7 +7762,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -7772,7 +7773,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 58
                               }
@@ -7801,7 +7801,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 't',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -7810,15 +7811,16 @@ $result_trees{'definition_commands'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 't'
+                          ]
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'r',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'slanted',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -7827,17 +7829,16 @@ $result_trees{'definition_commands'} = {
                                       ],
                                       'type' => 'brace_container'
                                     }
-                                  ],
-                                  'cmdname' => 'slanted'
+                                  ]
                                 }
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'r'
+                          ]
                         },
                         {
-                          'args' => [
+                          'cmdname' => 't',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -7846,8 +7847,7 @@ $result_trees{'definition_commands'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 't'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -7897,7 +7897,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -7907,7 +7908,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 59
                               }
@@ -7936,7 +7936,8 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 't',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -7945,8 +7946,7 @@ $result_trees{'definition_commands'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 't'
+                          ]
                         }
                       ],
                       'type' => 'def_line_arg'
@@ -7978,7 +7978,8 @@ $result_trees{'definition_commands'} = {
                       'text' => 'The '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -7988,7 +7989,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 60
                       }
@@ -7997,7 +7997,8 @@ $result_trees{'definition_commands'} = {
                       'text' => ' request and the '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -8007,7 +8008,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 60
                       }
@@ -8020,7 +8020,8 @@ $result_trees{'definition_commands'} = {
                       'text' => 'to '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -8030,7 +8031,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 61
                       }
@@ -8039,18 +8039,19 @@ $result_trees{'definition_commands'} = {
                       'text' => ' (one-character name'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'tie',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'tie',
                       'source_info' => {
                         'line_nr' => 61
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -8060,7 +8061,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 61
                       }
@@ -8070,7 +8070,8 @@ $result_trees{'definition_commands'} = {
 '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -8080,7 +8081,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 62
                       }
@@ -8200,7 +8200,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8210,7 +8211,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8230,17 +8230,17 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => '['
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
                               'cmdname' => 'slanted',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => '['
+                                    }
+                                  ],
+                                  'type' => 'brace_container'
+                                }
+                              ],
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8260,37 +8260,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => '['
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
                               'cmdname' => 'code',
-                              'source_info' => {
-                                'line_nr' => 65
-                              }
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8300,7 +8271,36 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
+                              'source_info' => {
+                                'line_nr' => 65
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
                               'cmdname' => 't',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => '['
+                                    }
+                                  ],
+                                  'type' => 'brace_container'
+                                }
+                              ],
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8320,54 +8320,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => '['
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
                                       'cmdname' => 'slanted',
-                                      'source_info' => {
-                                        'line_nr' => 65
-                                      }
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'cmdname' => 'r',
-                              'source_info' => {
-                                'line_nr' => 65
-                              }
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'args' => [
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -8377,7 +8336,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 65
                                       }
@@ -8386,7 +8344,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8406,15 +8363,61 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'code',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
-                                              'args' => [
+                                              'text' => '['
+                                            }
+                                          ],
+                                          'type' => 'brace_container'
+                                        }
+                                      ],
+                                      'source_info' => {
+                                        'line_nr' => 65
+                                      }
+                                    }
+                                  ],
+                                  'type' => 'brace_container'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 65
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'cmdname' => 'r',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'cmdname' => 'code',
+                                      'contents' => [
+                                        {
+                                          'contents' => [
+                                            {
+                                              'cmdname' => 'slanted',
+                                              'contents' => [
                                                 {
                                                   'contents' => [
                                                     {
@@ -8424,7 +8427,6 @@ $result_trees{'definition_commands'} = {
                                                   'type' => 'brace_container'
                                                 }
                                               ],
-                                              'cmdname' => 'slanted',
                                               'source_info' => {
                                                 'line_nr' => 65
                                               }
@@ -8433,7 +8435,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 65
                                       }
@@ -8442,7 +8443,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8462,11 +8462,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 't',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -8476,7 +8478,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 't',
                                       'source_info' => {
                                         'line_nr' => 65
                                       }
@@ -8485,7 +8486,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8513,7 +8513,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8523,7 +8524,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8543,17 +8543,17 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => ','
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
                               'cmdname' => 'slanted',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => ','
+                                    }
+                                  ],
+                                  'type' => 'brace_container'
+                                }
+                              ],
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8573,37 +8573,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => ','
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
                               'cmdname' => 'code',
-                              'source_info' => {
-                                'line_nr' => 65
-                              }
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8613,7 +8584,36 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
+                              'source_info' => {
+                                'line_nr' => 65
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
                               'cmdname' => 't',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => ','
+                                    }
+                                  ],
+                                  'type' => 'brace_container'
+                                }
+                              ],
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8633,54 +8633,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => ','
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
                                       'cmdname' => 'slanted',
-                                      'source_info' => {
-                                        'line_nr' => 65
-                                      }
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'cmdname' => 'r',
-                              'source_info' => {
-                                'line_nr' => 65
-                              }
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'args' => [
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -8690,7 +8649,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 65
                                       }
@@ -8699,7 +8657,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8719,15 +8676,61 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'code',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
-                                              'args' => [
+                                              'text' => ','
+                                            }
+                                          ],
+                                          'type' => 'brace_container'
+                                        }
+                                      ],
+                                      'source_info' => {
+                                        'line_nr' => 65
+                                      }
+                                    }
+                                  ],
+                                  'type' => 'brace_container'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 65
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'cmdname' => 'r',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'cmdname' => 'code',
+                                      'contents' => [
+                                        {
+                                          'contents' => [
+                                            {
+                                              'cmdname' => 'slanted',
+                                              'contents' => [
                                                 {
                                                   'contents' => [
                                                     {
@@ -8737,7 +8740,6 @@ $result_trees{'definition_commands'} = {
                                                   'type' => 'brace_container'
                                                 }
                                               ],
-                                              'cmdname' => 'slanted',
                                               'source_info' => {
                                                 'line_nr' => 65
                                               }
@@ -8746,7 +8748,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 65
                                       }
@@ -8755,7 +8756,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8775,11 +8775,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 't',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -8789,7 +8791,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 't',
                                       'source_info' => {
                                         'line_nr' => 65
                                       }
@@ -8798,7 +8799,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8826,7 +8826,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8836,7 +8837,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8856,17 +8856,17 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => ']'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
                               'cmdname' => 'slanted',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => ']'
+                                    }
+                                  ],
+                                  'type' => 'brace_container'
+                                }
+                              ],
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8886,37 +8886,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => ']'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
                               'cmdname' => 'code',
-                              'source_info' => {
-                                'line_nr' => 65
-                              }
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -8926,7 +8897,36 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
+                              'source_info' => {
+                                'line_nr' => 65
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
                               'cmdname' => 't',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => ']'
+                                    }
+                                  ],
+                                  'type' => 'brace_container'
+                                }
+                              ],
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -8946,54 +8946,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => ']'
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
                                       'cmdname' => 'slanted',
-                                      'source_info' => {
-                                        'line_nr' => 65
-                                      }
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'cmdname' => 'r',
-                              'source_info' => {
-                                'line_nr' => 65
-                              }
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'args' => [
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -9003,7 +8962,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 65
                                       }
@@ -9012,7 +8970,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -9032,15 +8989,61 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'code',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
-                                              'args' => [
+                                              'text' => ']'
+                                            }
+                                          ],
+                                          'type' => 'brace_container'
+                                        }
+                                      ],
+                                      'source_info' => {
+                                        'line_nr' => 65
+                                      }
+                                    }
+                                  ],
+                                  'type' => 'brace_container'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 65
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'cmdname' => 'r',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'cmdname' => 'code',
+                                      'contents' => [
+                                        {
+                                          'contents' => [
+                                            {
+                                              'cmdname' => 'slanted',
+                                              'contents' => [
                                                 {
                                                   'contents' => [
                                                     {
@@ -9050,7 +9053,6 @@ $result_trees{'definition_commands'} = {
                                                   'type' => 'brace_container'
                                                 }
                                               ],
-                                              'cmdname' => 'slanted',
                                               'source_info' => {
                                                 'line_nr' => 65
                                               }
@@ -9059,7 +9061,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 65
                                       }
@@ -9068,7 +9069,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -9088,11 +9088,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 't',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -9102,7 +9104,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 't',
                                       'source_info' => {
                                         'line_nr' => 65
                                       }
@@ -9111,7 +9112,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 65
                               }
@@ -9220,7 +9220,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9230,7 +9231,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 66
                               }
@@ -9250,17 +9250,17 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => '[]'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
                               'cmdname' => 'slanted',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => '[]'
+                                    }
+                                  ],
+                                  'type' => 'brace_container'
+                                }
+                              ],
                               'source_info' => {
                                 'line_nr' => 66
                               }
@@ -9280,37 +9280,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => '[]'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
                               'cmdname' => 'code',
-                              'source_info' => {
-                                'line_nr' => 66
-                              }
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9320,7 +9291,36 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
+                              'source_info' => {
+                                'line_nr' => 66
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
                               'cmdname' => 't',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => '[]'
+                                    }
+                                  ],
+                                  'type' => 'brace_container'
+                                }
+                              ],
                               'source_info' => {
                                 'line_nr' => 66
                               }
@@ -9340,54 +9340,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => '[]'
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
                                       'cmdname' => 'slanted',
-                                      'source_info' => {
-                                        'line_nr' => 66
-                                      }
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'cmdname' => 'r',
-                              'source_info' => {
-                                'line_nr' => 66
-                              }
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'args' => [
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -9397,7 +9356,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 66
                                       }
@@ -9406,7 +9364,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 66
                               }
@@ -9426,15 +9383,61 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'code',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
-                                              'args' => [
+                                              'text' => '[]'
+                                            }
+                                          ],
+                                          'type' => 'brace_container'
+                                        }
+                                      ],
+                                      'source_info' => {
+                                        'line_nr' => 66
+                                      }
+                                    }
+                                  ],
+                                  'type' => 'brace_container'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 66
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'cmdname' => 'r',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'cmdname' => 'code',
+                                      'contents' => [
+                                        {
+                                          'contents' => [
+                                            {
+                                              'cmdname' => 'slanted',
+                                              'contents' => [
                                                 {
                                                   'contents' => [
                                                     {
@@ -9444,7 +9447,6 @@ $result_trees{'definition_commands'} = {
                                                   'type' => 'brace_container'
                                                 }
                                               ],
-                                              'cmdname' => 'slanted',
                                               'source_info' => {
                                                 'line_nr' => 66
                                               }
@@ -9453,7 +9455,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 66
                                       }
@@ -9462,7 +9463,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 66
                               }
@@ -9661,7 +9661,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9671,7 +9672,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 70
                               }
@@ -9712,7 +9712,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -9722,7 +9723,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 70
                               }
@@ -9779,12 +9779,12 @@ $result_trees{'definition_commands'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'dots',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'dots',
                       'source_info' => {
                         'line_nr' => 71
                       }
@@ -9793,7 +9793,8 @@ $result_trees{'definition_commands'} = {
                       'text' => ' with var for '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -9803,7 +9804,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 71
                       }
@@ -9812,7 +9812,8 @@ $result_trees{'definition_commands'} = {
                       'text' => ' and '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -9822,7 +9823,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 71
                       }
@@ -9969,11 +9969,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -9983,7 +9985,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 74
                                       }
@@ -9992,7 +9993,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 74
                               }
@@ -10033,11 +10033,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -10047,7 +10049,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 74
                                       }
@@ -10056,7 +10057,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 74
                               }
@@ -10113,12 +10113,12 @@ $result_trees{'definition_commands'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'dots',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'dots',
                       'source_info' => {
                         'line_nr' => 75
                       }
@@ -10127,7 +10127,8 @@ $result_trees{'definition_commands'} = {
                       'text' => ' with r slanted for '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -10137,7 +10138,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 75
                       }
@@ -10146,7 +10146,8 @@ $result_trees{'definition_commands'} = {
                       'text' => ' and '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -10156,7 +10157,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 75
                       }
@@ -10337,12 +10337,12 @@ $result_trees{'definition_commands'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'dots',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'dots',
                       'source_info' => {
                         'line_nr' => 80
                       }
@@ -10451,7 +10451,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -10461,7 +10462,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 83
                               }
@@ -10584,12 +10584,12 @@ $result_trees{'definition_commands'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'dots',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'dots',
                       'source_info' => {
                         'line_nr' => 84
                       }
@@ -10750,7 +10750,8 @@ $result_trees{'definition_commands'} = {
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'var',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -10760,7 +10761,6 @@ $result_trees{'definition_commands'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => 'var',
                                   'source_info' => {
                                     'line_nr' => 88
                                   }
@@ -10801,7 +10801,8 @@ $result_trees{'definition_commands'} = {
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'var',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -10811,7 +10812,6 @@ $result_trees{'definition_commands'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => 'var',
                                   'source_info' => {
                                     'line_nr' => 88
                                   }
@@ -10868,12 +10868,12 @@ $result_trees{'definition_commands'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'dots',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'dots',
                           'source_info' => {
                             'line_nr' => 89
                           }
@@ -10882,7 +10882,8 @@ $result_trees{'definition_commands'} = {
                           'text' => ' for '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -10892,7 +10893,6 @@ $result_trees{'definition_commands'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'var',
                           'source_info' => {
                             'line_nr' => 89
                           }
@@ -10901,7 +10901,8 @@ $result_trees{'definition_commands'} = {
                           'text' => ' and '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -10911,7 +10912,6 @@ $result_trees{'definition_commands'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'var',
                           'source_info' => {
                             'line_nr' => 89
                           }
@@ -11142,7 +11142,8 @@ $result_trees{'definition_commands'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -11152,7 +11153,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 94
                       }
@@ -11161,7 +11161,8 @@ $result_trees{'definition_commands'} = {
                       'text' => ' calls no var '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -11171,7 +11172,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 94
                       }
@@ -11180,7 +11180,8 @@ $result_trees{'definition_commands'} = {
                       'text' => ' with '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -11190,7 +11191,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 94
                       }
@@ -11319,11 +11319,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'b',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -11333,7 +11335,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'b',
                                       'source_info' => {
                                         'line_nr' => 97
                                       }
@@ -11342,7 +11343,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 97
                               }
@@ -11415,7 +11415,8 @@ $result_trees{'definition_commands'} = {
                       'text' => 'explicit keyword marking, no var '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -11425,7 +11426,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 98
                       }
@@ -11434,7 +11434,8 @@ $result_trees{'definition_commands'} = {
                       'text' => ' with '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'var',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -11444,7 +11445,6 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 98
                       }
@@ -11567,7 +11567,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11577,7 +11578,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 101
                               }
@@ -11597,7 +11597,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11607,7 +11608,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 101
                               }
@@ -11627,7 +11627,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11637,7 +11638,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 101
                               }
@@ -11678,7 +11678,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11688,7 +11689,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 101
                               }
@@ -11712,7 +11712,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11722,7 +11723,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 101
                               }
@@ -11746,7 +11746,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11756,7 +11757,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 101
                               }
@@ -11787,7 +11787,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11797,7 +11798,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 102
                               }
@@ -11821,7 +11821,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -11831,7 +11832,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 102
                               }
@@ -12037,7 +12037,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12047,7 +12048,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 106
                               }
@@ -12092,7 +12092,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12102,7 +12103,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 106
                               }
@@ -12259,7 +12259,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12269,7 +12270,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 107
                               }
@@ -12285,7 +12285,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12295,7 +12296,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 107
                               }
@@ -12336,7 +12336,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12346,7 +12347,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 107
                               }
@@ -12362,7 +12362,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12372,7 +12373,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 107
                               }
@@ -12530,7 +12530,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12540,7 +12541,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 108
                               }
@@ -12556,7 +12556,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12566,7 +12567,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 108
                               }
@@ -12607,7 +12607,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12617,7 +12618,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 108
                               }
@@ -12633,7 +12633,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12643,7 +12644,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 108
                               }
@@ -12801,7 +12801,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12811,7 +12812,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 109
                               }
@@ -12827,7 +12827,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'slanted',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12837,7 +12838,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'slanted',
                               'source_info' => {
                                 'line_nr' => 109
                               }
@@ -12878,7 +12878,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12888,7 +12889,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 109
                               }
@@ -12904,7 +12904,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'slanted',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -12914,7 +12915,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'slanted',
                               'source_info' => {
                                 'line_nr' => 109
                               }
@@ -13072,7 +13072,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13082,7 +13083,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 110
                               }
@@ -13098,7 +13098,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13108,7 +13109,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 110
                               }
@@ -13149,7 +13149,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13159,7 +13160,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 110
                               }
@@ -13175,7 +13175,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13185,7 +13186,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 110
                               }
@@ -13343,7 +13343,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13353,7 +13354,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 111
                               }
@@ -13369,7 +13369,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13379,7 +13380,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 111
                               }
@@ -13420,7 +13420,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13430,7 +13431,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 111
                               }
@@ -13446,7 +13446,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13456,7 +13457,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 111
                               }
@@ -13614,7 +13614,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13624,7 +13625,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 112
                               }
@@ -13640,11 +13640,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'b',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -13654,7 +13656,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'b',
                                       'source_info' => {
                                         'line_nr' => 112
                                       }
@@ -13663,7 +13664,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 112
                               }
@@ -13704,7 +13704,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13714,7 +13715,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 112
                               }
@@ -13730,11 +13730,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'b',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -13744,7 +13746,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'b',
                                       'source_info' => {
                                         'line_nr' => 112
                                       }
@@ -13753,7 +13754,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 112
                               }
@@ -13911,7 +13911,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -13921,7 +13922,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 113
                               }
@@ -13937,11 +13937,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -13951,7 +13953,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 113
                                       }
@@ -13960,7 +13961,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 113
                               }
@@ -14001,7 +14001,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -14011,7 +14012,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 113
                               }
@@ -14027,11 +14027,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -14041,7 +14043,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 113
                                       }
@@ -14050,7 +14051,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 113
                               }
@@ -14208,7 +14208,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -14218,7 +14219,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 114
                               }
@@ -14234,11 +14234,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -14248,7 +14250,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 114
                                       }
@@ -14257,7 +14258,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 114
                               }
@@ -14298,7 +14298,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -14308,7 +14309,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 114
                               }
@@ -14324,11 +14324,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -14338,7 +14340,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 114
                                       }
@@ -14347,7 +14348,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 114
                               }
@@ -14505,7 +14505,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -14515,7 +14516,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 115
                               }
@@ -14531,11 +14531,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'code',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -14545,7 +14547,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 115
                                       }
@@ -14554,7 +14555,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 115
                               }
@@ -14595,7 +14595,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -14605,7 +14606,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 115
                               }
@@ -14621,11 +14621,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'code',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -14635,7 +14637,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 115
                                       }
@@ -14644,7 +14645,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 115
                               }
@@ -14802,7 +14802,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -14812,7 +14813,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 116
                               }
@@ -14828,11 +14828,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 't',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -14842,7 +14844,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 't',
                                       'source_info' => {
                                         'line_nr' => 116
                                       }
@@ -14851,7 +14852,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 116
                               }
@@ -14892,7 +14892,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -14902,7 +14903,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 116
                               }
@@ -14918,11 +14918,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 't',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -14932,7 +14934,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 't',
                                       'source_info' => {
                                         'line_nr' => 116
                                       }
@@ -14941,7 +14942,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 116
                               }
@@ -15099,7 +15099,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -15109,7 +15110,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 117
                               }
@@ -15125,11 +15125,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -15139,7 +15141,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 117
                                       }
@@ -15148,7 +15149,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 117
                               }
@@ -15189,7 +15189,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -15199,7 +15200,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 117
                               }
@@ -15215,11 +15215,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -15229,7 +15231,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 117
                                       }
@@ -15238,7 +15239,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 117
                               }
@@ -15396,7 +15396,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -15406,7 +15407,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 118
                               }
@@ -15422,11 +15422,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -15436,7 +15438,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 118
                                       }
@@ -15445,7 +15446,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 118
                               }
@@ -15486,7 +15486,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -15496,7 +15497,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 118
                               }
@@ -15512,11 +15512,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -15526,7 +15528,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 118
                                       }
@@ -15535,7 +15536,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 118
                               }
@@ -15693,7 +15693,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -15703,7 +15704,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 119
                               }
@@ -15719,11 +15719,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -15733,7 +15735,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 119
                                       }
@@ -15742,7 +15743,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 119
                               }
@@ -15783,7 +15783,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -15793,7 +15794,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 119
                               }
@@ -15809,11 +15809,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -15823,7 +15825,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 119
                                       }
@@ -15832,7 +15833,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 119
                               }
@@ -15990,7 +15990,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -16000,7 +16001,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 120
                               }
@@ -16016,11 +16016,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -16030,7 +16032,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 120
                                       }
@@ -16039,7 +16040,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 120
                               }
@@ -16080,7 +16080,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -16090,7 +16091,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 120
                               }
@@ -16106,11 +16106,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -16120,7 +16122,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 120
                                       }
@@ -16129,7 +16130,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 120
                               }
@@ -16349,7 +16349,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -16359,7 +16360,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 124
                               }
@@ -16404,7 +16404,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -16414,7 +16415,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 124
                               }
@@ -16554,7 +16554,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -16564,7 +16565,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 125
                               }
@@ -16584,7 +16584,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -16594,7 +16595,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 125
                               }
@@ -16639,7 +16639,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -16649,7 +16650,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 125
                               }
@@ -16794,7 +16794,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -16804,7 +16805,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 126
                               }
@@ -16824,7 +16824,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -16834,7 +16835,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 126
                               }
@@ -16879,7 +16879,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -16889,7 +16890,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 126
                               }
@@ -17034,7 +17034,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'slanted',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -17044,7 +17045,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'slanted',
                               'source_info' => {
                                 'line_nr' => 127
                               }
@@ -17064,7 +17064,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -17074,7 +17075,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 127
                               }
@@ -17119,7 +17119,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -17129,7 +17130,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 127
                               }
@@ -17274,7 +17274,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -17284,7 +17285,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 128
                               }
@@ -17304,7 +17304,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -17314,7 +17315,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 128
                               }
@@ -17359,7 +17359,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -17369,7 +17370,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 128
                               }
@@ -17514,7 +17514,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -17524,7 +17525,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 129
                               }
@@ -17544,7 +17544,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -17554,7 +17555,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 129
                               }
@@ -17599,7 +17599,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -17609,7 +17610,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 129
                               }
@@ -17754,11 +17754,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'b',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -17768,7 +17770,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'b',
                                       'source_info' => {
                                         'line_nr' => 130
                                       }
@@ -17777,7 +17778,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 130
                               }
@@ -17797,7 +17797,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -17807,7 +17808,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 130
                               }
@@ -17852,7 +17852,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -17862,7 +17863,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 130
                               }
@@ -18007,11 +18007,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -18021,7 +18023,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 131
                                       }
@@ -18030,7 +18031,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 131
                               }
@@ -18050,7 +18050,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -18060,7 +18061,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 131
                               }
@@ -18105,7 +18105,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -18115,7 +18116,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 131
                               }
@@ -18260,11 +18260,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -18274,7 +18276,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 132
                                       }
@@ -18283,7 +18284,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 132
                               }
@@ -18303,7 +18303,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -18313,7 +18314,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 132
                               }
@@ -18358,7 +18358,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -18368,7 +18369,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 132
                               }
@@ -18513,11 +18513,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'code',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -18527,7 +18529,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'code',
                                       'source_info' => {
                                         'line_nr' => 133
                                       }
@@ -18536,7 +18537,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 133
                               }
@@ -18556,7 +18556,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -18566,7 +18567,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 133
                               }
@@ -18611,7 +18611,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -18621,7 +18622,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 133
                               }
@@ -18766,11 +18766,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'r',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 't',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -18780,7 +18782,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 't',
                                       'source_info' => {
                                         'line_nr' => 134
                                       }
@@ -18789,7 +18790,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'r',
                               'source_info' => {
                                 'line_nr' => 134
                               }
@@ -18809,7 +18809,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -18819,7 +18820,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 134
                               }
@@ -18864,7 +18864,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -18874,7 +18875,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 134
                               }
@@ -19019,11 +19019,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -19033,7 +19035,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 135
                                       }
@@ -19042,7 +19043,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 135
                               }
@@ -19062,7 +19062,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -19072,7 +19073,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 135
                               }
@@ -19117,7 +19117,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -19127,7 +19128,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 135
                               }
@@ -19272,11 +19272,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'var',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -19286,7 +19288,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'var',
                                       'source_info' => {
                                         'line_nr' => 136
                                       }
@@ -19295,7 +19296,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 136
                               }
@@ -19315,7 +19315,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -19325,7 +19326,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 136
                               }
@@ -19370,7 +19370,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -19380,7 +19381,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 136
                               }
@@ -19525,11 +19525,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -19539,7 +19541,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 137
                                       }
@@ -19548,7 +19549,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 137
                               }
@@ -19568,7 +19568,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -19578,7 +19579,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 137
                               }
@@ -19623,7 +19623,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -19633,7 +19634,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 137
                               }
@@ -19778,11 +19778,13 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 't',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'args' => [
+                                      'cmdname' => 'slanted',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -19792,7 +19794,6 @@ $result_trees{'definition_commands'} = {
                                           'type' => 'brace_container'
                                         }
                                       ],
-                                      'cmdname' => 'slanted',
                                       'source_info' => {
                                         'line_nr' => 138
                                       }
@@ -19801,7 +19802,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 't',
                               'source_info' => {
                                 'line_nr' => 138
                               }
@@ -19821,7 +19821,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -19831,7 +19832,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 138
                               }
@@ -19876,7 +19876,8 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -19886,7 +19887,6 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 138
                               }

@@ -134,7 +134,8 @@ $result_trees{'displaymath'} = {
           'cmdname' => 'displaymath',
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -144,7 +145,6 @@ $result_trees{'displaymath'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 8
               }
@@ -153,7 +153,8 @@ $result_trees{'displaymath'} = {
               'text' => ' a < b \\sum'
             },
             {
-              'args' => [
+              'cmdname' => 'sub',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -163,7 +164,6 @@ $result_trees{'displaymath'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sub',
               'source_info' => {
                 'line_nr' => 8
               }
@@ -172,7 +172,8 @@ $result_trees{'displaymath'} = {
               'text' => ' q'
             },
             {
-              'args' => [
+              'cmdname' => 'sup',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -182,7 +183,6 @@ $result_trees{'displaymath'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sup',
               'source_info' => {
                 'line_nr' => 8
               }
@@ -263,7 +263,8 @@ $result_trees{'displaymath'} = {
                   'text' => '{'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -284,7 +285,6 @@ $result_trees{'displaymath'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 13
                   }

@@ -15,7 +15,8 @@ $result_trees{'footnote'} = {
               'text' => 'text'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -35,7 +36,8 @@ $result_trees{'footnote'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'r',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -45,7 +47,6 @@ $result_trees{'footnote'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'r',
                           'source_info' => {
                             'line_nr' => 3
                           }
@@ -60,7 +61,6 @@ $result_trees{'footnote'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 1

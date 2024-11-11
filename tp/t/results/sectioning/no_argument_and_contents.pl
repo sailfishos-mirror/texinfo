@@ -76,12 +76,12 @@ $result_trees{'no_argument_and_contents'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 5
               }

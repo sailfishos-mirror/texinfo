@@ -86,7 +86,8 @@ $result_trees{'accent_on_table_line'} = {
                               'text' => 'no at-command '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -96,7 +97,6 @@ $result_trees{'accent_on_table_line'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 3
                               }
@@ -186,12 +186,12 @@ $result_trees{'accent_on_table_line'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => '~',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '~',
                   'source_info' => {
                     'line_nr' => 6
                   }
@@ -257,7 +257,8 @@ $result_trees{'accent_on_table_line'} = {
                               'text' => 'no at-command '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -267,7 +268,6 @@ $result_trees{'accent_on_table_line'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 8
                               }
@@ -702,12 +702,12 @@ $result_trees{'accent_on_table_line'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'ringaccent',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'ringaccent',
                   'source_info' => {
                     'line_nr' => 23
                   }
@@ -820,7 +820,8 @@ $result_trees{'accent_on_table_line'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'ringaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -830,7 +831,6 @@ $result_trees{'accent_on_table_line'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'ringaccent',
                   'source_info' => {
                     'line_nr' => 27
                   }

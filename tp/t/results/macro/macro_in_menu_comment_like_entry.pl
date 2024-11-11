@@ -142,7 +142,8 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                       'text' => '* a5'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'b',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -177,7 +178,6 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'b',
                       'source_info' => {
                         'line_nr' => 7
                       },

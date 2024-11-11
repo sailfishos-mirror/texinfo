@@ -116,7 +116,7 @@ protect_first_parenthesis (ELEMENT *element)
 
               current_position
                 = relocate_source_marks (content->source_mark_list,
-                              new_command->e.c->args.list[0]->e.c->contents.list[0],
+                    new_command->e.c->contents.list[0]->e.c->contents.list[0],
                                      current_position, u8_len);
               destroy_element_empty_source_mark_list (content);
             }
@@ -277,7 +277,7 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
                     = new_command_element (ET_brace_command, CM_asis);
                   ELEMENT *brace_container
                     = new_element (ET_brace_container);
-                  add_to_element_args (asis_command, brace_container);
+                  add_to_element_contents (asis_command, brace_container);
                   line_content = asis_command;
                 }
               add_to_element_contents (line_arg, line_content);
@@ -888,9 +888,9 @@ reference_to_arg_internal (const char *type,
       while (arguments_order[order_index] >= 0)
         {
           size_t idx = (size_t) arguments_order[order_index];
-          if (e->e.c->args.number > idx)
+          if (e->e.c->contents.number > idx)
             {
-              ELEMENT *arg = e->e.c->args.list[idx];
+              ELEMENT *arg = e->e.c->contents.list[idx];
             /*
              this will not detect if the content expands as spaces only, like
              @asis{ }, @ , but it is not an issue or could even be considered
@@ -898,7 +898,7 @@ reference_to_arg_internal (const char *type,
              */
               if (!is_content_empty (arg, 0))
                 {
-                  ELEMENT *removed = remove_from_args (e, idx);
+                  ELEMENT *removed = remove_from_contents (e, idx);
                   size_t i;
                   if (removed != arg)
                     fatal ("BUG: reference_to_arg_internal removed != arg");
@@ -1451,7 +1451,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                           p++;
 
                           hashchar->parent = parent;
-                          add_to_element_args (hashchar, arg);
+                          add_to_element_contents (hashchar, arg);
                           add_to_element_list (container, hashchar);
 
                           if (u8_text)

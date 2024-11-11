@@ -24,7 +24,8 @@ $result_trees{'empty_deftypeop_name'} = {
                               'text' => 'Command'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -34,7 +35,6 @@ $result_trees{'empty_deftypeop_name'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -57,7 +57,8 @@ $result_trees{'empty_deftypeop_name'} = {
                               'text' => 'Window'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -67,7 +68,6 @@ $result_trees{'empty_deftypeop_name'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -93,7 +93,8 @@ $result_trees{'empty_deftypeop_name'} = {
                               'text' => 'expose'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -103,7 +104,6 @@ $result_trees{'empty_deftypeop_name'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 1
                               }

@@ -226,7 +226,8 @@ $result_trees{'complex_nestings'} = {
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'var',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -236,7 +237,6 @@ $result_trees{'complex_nestings'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => 'var',
                                   'source_info' => {
                                     'line_nr' => 9
                                   }
@@ -256,12 +256,12 @@ $result_trees{'complex_nestings'} = {
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'dots',
+                                  'contents' => [
                                     {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => 'dots',
                                   'source_info' => {
                                     'line_nr' => 9
                                   }

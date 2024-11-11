@@ -34,7 +34,8 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -44,7 +45,6 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'code',
                           'source_info' => {
                             'line_nr' => 3
                           }

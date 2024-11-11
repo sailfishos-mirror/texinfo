@@ -12,7 +12,8 @@ $result_trees{'uref_url'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'uref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -30,7 +31,6 @@ $result_trees{'uref_url'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'uref',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -40,7 +40,8 @@ $result_trees{'uref_url'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'uref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -50,7 +51,6 @@ $result_trees{'uref_url'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'uref',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -60,7 +60,8 @@ $result_trees{'uref_url'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'uref',
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 },
@@ -73,7 +74,6 @@ $result_trees{'uref_url'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'uref',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -83,7 +83,8 @@ $result_trees{'uref_url'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'uref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -109,7 +110,6 @@ $result_trees{'uref_url'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'uref',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -119,7 +119,8 @@ $result_trees{'uref_url'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'uref',
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 },
@@ -140,7 +141,6 @@ $result_trees{'uref_url'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'uref',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -150,7 +150,8 @@ $result_trees{'uref_url'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'uref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -171,7 +172,6 @@ $result_trees{'uref_url'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'uref',
               'source_info' => {
                 'line_nr' => 6
               }
@@ -181,7 +181,8 @@ $result_trees{'uref_url'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'uref',
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 },
@@ -197,7 +198,6 @@ $result_trees{'uref_url'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'uref',
               'source_info' => {
                 'line_nr' => 7
               }
@@ -207,7 +207,8 @@ $result_trees{'uref_url'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'url',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -225,7 +226,6 @@ $result_trees{'uref_url'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'url',
               'source_info' => {
                 'line_nr' => 8
               }
@@ -235,7 +235,8 @@ $result_trees{'uref_url'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'url',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -261,7 +262,6 @@ $result_trees{'uref_url'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'url',
               'source_info' => {
                 'line_nr' => 9
               }

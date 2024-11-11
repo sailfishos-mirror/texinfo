@@ -12,7 +12,8 @@ $result_trees{'too_much_args'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'abbr',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -35,7 +36,6 @@ $result_trees{'too_much_args'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'abbr',
               'source_info' => {
                 'line_nr' => 1
               }

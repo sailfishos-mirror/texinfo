@@ -15,7 +15,8 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
               'text' => 'Before '
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -25,13 +26,13 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 1
               }
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -41,13 +42,13 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 1
               }
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -57,7 +58,6 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -66,7 +66,8 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
               'text' => ']]? Afte'
             },
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -76,13 +77,13 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'source_info' => {
                 'line_nr' => 1
               }
             },
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -92,7 +93,6 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'line_nr' => 1
               }

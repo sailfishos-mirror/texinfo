@@ -16,16 +16,17 @@ $result_trees{'accents'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => '~',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'TeX',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'TeX',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -34,7 +35,6 @@ $result_trees{'accents'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '~',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -43,7 +43,8 @@ $result_trees{'accents'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => '~',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -53,7 +54,6 @@ $result_trees{'accents'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '~',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -77,11 +77,13 @@ $result_trees{'accents'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => '~',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -91,7 +93,6 @@ $result_trees{'accents'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -100,7 +101,6 @@ $result_trees{'accents'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '~',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -109,11 +109,13 @@ $result_trees{'accents'} = {
               'text' => '.  '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'anchor',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -123,7 +125,6 @@ $result_trees{'accents'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'anchor',
                       'extra' => {
                         'is_target' => 1,
                         'normalized' => 'truc'
@@ -136,7 +137,6 @@ $result_trees{'accents'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 5
               }

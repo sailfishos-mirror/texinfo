@@ -40,12 +40,12 @@ $result_trees{'command_in_end_expanded_raw_one_char_before_command'} = {
                       'text' => 't'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'asis',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 3
                       }

@@ -15,7 +15,8 @@ $result_trees{'space_in_footnote'} = {
               'text' => 'text'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -30,7 +31,6 @@ $result_trees{'space_in_footnote'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {

@@ -28,7 +28,8 @@ $result_trees{'ref_in_copying'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'ref',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -46,7 +47,6 @@ $result_trees{'ref_in_copying'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'ref',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -360,7 +360,7 @@ $result_trees{'ref_in_copying'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'ref_in_copying'} = '@copying

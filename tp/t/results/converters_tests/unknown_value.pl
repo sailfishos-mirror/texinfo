@@ -10,7 +10,8 @@ $result_trees{'unknown_value'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'value',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -19,8 +20,7 @@ $result_trees{'unknown_value'} = {
               ],
               'type' => 'brace_container'
             }
-          ],
-          'cmdname' => 'value'
+          ]
         }
       ],
       'type' => 'before_node_section'

@@ -12,7 +12,8 @@ $result_trees{'abbr_acronym'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -30,7 +31,6 @@ $result_trees{'abbr_acronym'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -40,7 +40,8 @@ $result_trees{'abbr_acronym'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -50,7 +51,6 @@ $result_trees{'abbr_acronym'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -60,7 +60,8 @@ $result_trees{'abbr_acronym'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -75,12 +76,12 @@ $result_trees{'abbr_acronym'} = {
                       'text' => 'an accronym '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'comma',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'comma',
                       'source_info' => {
                         'line_nr' => 3
                       }
@@ -89,12 +90,12 @@ $result_trees{'abbr_acronym'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'enddots',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'enddots',
                       'source_info' => {
                         'line_nr' => 3
                       }
@@ -103,7 +104,6 @@ $result_trees{'abbr_acronym'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -123,11 +123,13 @@ $result_trees{'abbr_acronym'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'abbr',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '\'',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -137,7 +139,6 @@ $result_trees{'abbr_acronym'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '\'',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -146,12 +147,12 @@ $result_trees{'abbr_acronym'} = {
                       'text' => '--a. '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'comma',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'comma',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -165,7 +166,8 @@ $result_trees{'abbr_acronym'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '\'',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -175,7 +177,6 @@ $result_trees{'abbr_acronym'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '\'',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -184,12 +185,12 @@ $result_trees{'abbr_acronym'} = {
                       'text' => 'tude--'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'comma',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'comma',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -198,7 +199,8 @@ $result_trees{'abbr_acronym'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'b',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -208,7 +210,6 @@ $result_trees{'abbr_acronym'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'b',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -225,7 +226,6 @@ $result_trees{'abbr_acronym'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'abbr',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -235,11 +235,13 @@ $result_trees{'abbr_acronym'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'abbr',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '\'',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -249,7 +251,6 @@ $result_trees{'abbr_acronym'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '\'',
                       'source_info' => {
                         'line_nr' => 6
                       }
@@ -258,12 +259,12 @@ $result_trees{'abbr_acronym'} = {
                       'text' => '--a. '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'comma',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'comma',
                       'source_info' => {
                         'line_nr' => 6
                       }
@@ -275,7 +276,6 @@ $result_trees{'abbr_acronym'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'abbr',
               'source_info' => {
                 'line_nr' => 6
               }

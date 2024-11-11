@@ -15,12 +15,12 @@ $result_trees{'test_tie'} = {
               'text' => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
             },
             {
-              'args' => [
+              'cmdname' => 'tie',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'tie',
               'source_info' => {
                 'line_nr' => 1
               }

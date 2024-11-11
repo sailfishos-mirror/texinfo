@@ -125,7 +125,8 @@ $result_trees{'custom_headings'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -135,7 +136,6 @@ $result_trees{'custom_headings'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 3
                       }

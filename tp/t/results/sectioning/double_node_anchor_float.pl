@@ -73,7 +73,8 @@ $result_trees{'double_node_anchor_float'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -83,7 +84,6 @@ $result_trees{'double_node_anchor_float'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'normalized' => 'node1'
           },
@@ -102,7 +102,8 @@ $result_trees{'double_node_anchor_float'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -112,7 +113,6 @@ $result_trees{'double_node_anchor_float'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'anchor1'

@@ -37,7 +37,8 @@ $result_trees{'footnote_in_ref'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -52,7 +53,8 @@ $result_trees{'footnote_in_ref'} = {
                       'text' => 'Text'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'footnote',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -81,7 +83,6 @@ $result_trees{'footnote_in_ref'} = {
                           'type' => 'brace_command_context'
                         }
                       ],
-                      'cmdname' => 'footnote',
                       'extra' => {},
                       'source_info' => {
                         'line_nr' => 3
@@ -99,7 +100,6 @@ $result_trees{'footnote_in_ref'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 3
               }

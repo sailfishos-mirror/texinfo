@@ -137,7 +137,8 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -147,7 +148,6 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'fOO'
@@ -373,7 +373,8 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -391,7 +392,6 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 18
               }
@@ -411,7 +411,8 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -429,7 +430,6 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 20
               }
@@ -457,8 +457,8 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'}{'contents'}[10]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'file_name_case_insensitive_conflict_node_no_redirections'} = '@node Top
 @top top section

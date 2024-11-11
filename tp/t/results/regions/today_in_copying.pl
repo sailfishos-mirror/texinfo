@@ -28,12 +28,12 @@ $result_trees{'today_in_copying'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'today',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'today',
                       'source_info' => {
                         'line_nr' => 2
                       }

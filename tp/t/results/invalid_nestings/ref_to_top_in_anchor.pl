@@ -30,14 +30,16 @@ $result_trees{'ref_to_top_in_anchor'} = {
       'cmdname' => 'node',
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
                   'text' => 'TOP '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'ref',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -55,7 +57,6 @@ $result_trees{'ref_to_top_in_anchor'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'ref',
                   'source_info' => {
                     'line_nr' => 2
                   }
@@ -64,7 +65,6 @@ $result_trees{'ref_to_top_in_anchor'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'TOP-Top'
@@ -90,7 +90,7 @@ $result_trees{'ref_to_top_in_anchor'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_to_top_in_anchor'}{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'ref_to_top_in_anchor'} = '@node Top
 @anchor{TOP @ref{Top}}';

@@ -29,7 +29,8 @@ $result_trees{'value_after_accent'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ringaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -39,14 +40,14 @@ $result_trees{'value_after_accent'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => 'ringaccent',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 1,
                       'element' => {
-                        'args' => [
+                        'cmdname' => 'value',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -55,8 +56,7 @@ $result_trees{'value_after_accent'} = {
                             ],
                             'type' => 'brace_container'
                           }
-                        ],
-                        'cmdname' => 'value'
+                        ]
                       },
                       'line' => 'a',
                       'position' => 1,
@@ -83,7 +83,8 @@ $result_trees{'value_after_accent'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => '~',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -93,14 +94,14 @@ $result_trees{'value_after_accent'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '~',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'source_marks' => [
                     {
                       'counter' => 2,
                       'element' => {
-                        'args' => [
+                        'cmdname' => 'value',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -109,8 +110,7 @@ $result_trees{'value_after_accent'} = {
                             ],
                             'type' => 'brace_container'
                           }
-                        ],
-                        'cmdname' => 'value'
+                        ]
                       },
                       'line' => 'a',
                       'sourcemark_type' => 'value_expansion',

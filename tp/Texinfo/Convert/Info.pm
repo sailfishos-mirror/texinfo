@@ -544,7 +544,7 @@ sub format_ref($$$$)
   my $formatter = shift;
 
   my @args;
-  for my $arg (@{$element->{'args'}}) {
+  for my $arg (@{$element->{'contents'}}) {
     if (defined $arg->{'contents'}) {
       push @args, $arg;
     } else {
@@ -553,7 +553,7 @@ sub format_ref($$$$)
   }
   $args[0] = {'text' => ''} if (!defined($args[0]));
 
-  my $node_arg = $element->{'args'}->[0];
+  my $node_arg = $element->{'contents'}->[0];
 
   # normalize node name, to get a ref with the right formatting
   # NOTE as a consequence, the line numbers appearing in case of errors
@@ -963,23 +963,23 @@ sub format_image_element($$)
 
   my $lines_count = 0;
 
-  if ($element->{'args'}
-      and $element->{'args'}->[0]->{'contents'}) {
+  if ($element->{'contents'}
+      and $element->{'contents'}->[0]->{'contents'}) {
     Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
     my $basefile = Texinfo::Convert::Text::convert_to_text(
-                                         $element->{'args'}->[0],
+                                         $element->{'contents'}->[0],
                                    $self->{'convert_text_options'});
     Texinfo::Convert::Text::reset_options_code(
                                  $self->{'convert_text_options'});
 
-    if (defined($element->{'args'}->[4])
-        and $element->{'args'}->[4]->{'contents'}
-        and @{$element->{'args'}->[4]->{'contents'}}) {
+    if (defined($element->{'contents'}->[4])
+        and $element->{'contents'}->[4]->{'contents'}
+        and @{$element->{'contents'}->[4]->{'contents'}}) {
       Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
       my $extension = Texinfo::Convert::Text::convert_to_text(
-                                         $element->{'args'}->[4],
+                                         $element->{'contents'}->[4],
                                    $self->{'convert_text_options'});
       Texinfo::Convert::Text::reset_options_code(
                                  $self->{'convert_text_options'});
@@ -1004,11 +1004,11 @@ sub format_image_element($$)
     # remove last end of line
     chomp($text) if (defined($text));
     my $alt;
-    if (defined($element->{'args'}->[3])
-        and $element->{'args'}->[3]->{'contents'}
-        and @{$element->{'args'}->[3]->{'contents'}}) {
+    if (defined($element->{'contents'}->[3])
+        and $element->{'contents'}->[3]->{'contents'}
+        and @{$element->{'contents'}->[3]->{'contents'}}) {
      $alt = Texinfo::Convert::Text::convert_to_text(
-                                    $element->{'args'}->[3],
+                                    $element->{'contents'}->[3],
                                   $self->{'convert_text_options'});
     }
 

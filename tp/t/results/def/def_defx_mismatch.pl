@@ -81,7 +81,8 @@ $result_trees{'def_defx_mismatch'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -91,7 +92,6 @@ $result_trees{'def_defx_mismatch'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -111,12 +111,12 @@ $result_trees{'def_defx_mismatch'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'dots',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'dots',
                               'source_info' => {
                                 'line_nr' => 1
                               }

@@ -12,7 +12,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ringaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => 'ringaccent',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => '    '
@@ -47,7 +47,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ringaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -57,7 +58,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'ringaccent',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => '
@@ -83,7 +83,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ringaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -93,7 +94,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => 'ringaccent',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => '
@@ -119,7 +119,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'ringaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -129,7 +130,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => 'ringaccent',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => '
@@ -155,7 +155,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -165,7 +166,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => ' '
@@ -190,7 +190,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -200,7 +201,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => '
@@ -226,7 +226,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -236,7 +237,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => '
@@ -262,7 +262,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -273,7 +274,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '^',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => ' '

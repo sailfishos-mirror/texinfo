@@ -12,7 +12,8 @@ $result_trees{'email_possibilities'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -30,7 +31,6 @@ $result_trees{'email_possibilities'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -40,7 +40,8 @@ $result_trees{'email_possibilities'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 },
@@ -53,7 +54,6 @@ $result_trees{'email_possibilities'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -63,7 +63,8 @@ $result_trees{'email_possibilities'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -73,7 +74,6 @@ $result_trees{'email_possibilities'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'line_nr' => 3
               }

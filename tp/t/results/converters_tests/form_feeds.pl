@@ -141,7 +141,8 @@ $result_trees{'form_feeds'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -151,7 +152,6 @@ $result_trees{'form_feeds'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 11
               }
@@ -171,7 +171,8 @@ $result_trees{'form_feeds'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -181,7 +182,6 @@ $result_trees{'form_feeds'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 13
               }
@@ -201,7 +201,8 @@ $result_trees{'form_feeds'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -211,7 +212,6 @@ $result_trees{'form_feeds'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 15
               }
@@ -229,7 +229,8 @@ $result_trees{'form_feeds'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -239,7 +240,6 @@ $result_trees{'form_feeds'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'aa'
@@ -258,7 +258,8 @@ $result_trees{'form_feeds'} = {
               'text' => 'something '
             },
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -286,13 +287,13 @@ $result_trees{'form_feeds'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'line_nr' => 17
               }
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -315,7 +316,6 @@ $result_trees{'form_feeds'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -331,7 +331,8 @@ $result_trees{'form_feeds'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -358,7 +359,6 @@ $result_trees{'form_feeds'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -384,7 +384,8 @@ $result_trees{'form_feeds'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -402,7 +403,6 @@ $result_trees{'form_feeds'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 20
               }
@@ -544,7 +544,8 @@ $result_trees{'form_feeds'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'indicateurl',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -554,7 +555,6 @@ $result_trees{'form_feeds'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'indicateurl',
               'source_info' => {
                 'line_nr' => 29
               }
@@ -1032,7 +1032,8 @@ $result_trees{'form_feeds'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1067,7 +1068,6 @@ $result_trees{'form_feeds'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },
@@ -1094,7 +1094,8 @@ $result_trees{'form_feeds'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'shortcaption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1129,7 +1130,6 @@ $result_trees{'form_feeds'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'shortcaption',
               'extra' => {
                 'float' => {}
               },
@@ -1346,7 +1346,7 @@ $result_trees{'form_feeds'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[22]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[22]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[31]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[31]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'contents'}[1]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33];

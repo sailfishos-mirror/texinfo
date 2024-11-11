@@ -17,7 +17,8 @@ $result_trees{'unclosed_verb_end_of_line_on_misc_line'} = {
                   'text' => 'name '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'verb',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -29,7 +30,6 @@ $result_trees{'unclosed_verb_end_of_line_on_misc_line'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'verb',
                   'info' => {
                     'delimiter' => ''
                   },

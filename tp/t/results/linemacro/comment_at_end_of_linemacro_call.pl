@@ -83,7 +83,8 @@ $result_trees{'comment_at_end_of_linemacro_call'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -155,7 +156,6 @@ $result_trees{'comment_at_end_of_linemacro_call'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => '

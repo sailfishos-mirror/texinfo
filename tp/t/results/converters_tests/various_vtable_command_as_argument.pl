@@ -855,7 +855,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                               'text' => 'a'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'sup',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -865,7 +866,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'sup',
                               'source_info' => {
                                 'line_nr' => 30
                               }

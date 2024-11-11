@@ -239,7 +239,8 @@ $result_trees{'titlepage_with_commands_classical'} = {
                           'text' => ' author'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'footnote',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -351,7 +352,6 @@ $result_trees{'titlepage_with_commands_classical'} = {
                               'type' => 'brace_command_context'
                             }
                           ],
-                          'cmdname' => 'footnote',
                           'extra' => {},
                           'source_info' => {
                             'line_nr' => 10

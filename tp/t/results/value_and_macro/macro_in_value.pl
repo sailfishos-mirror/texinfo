@@ -106,7 +106,8 @@ $result_trees{'macro_in_value'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -115,8 +116,7 @@ $result_trees{'macro_in_value'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => '@ab',
                   'position' => 8,

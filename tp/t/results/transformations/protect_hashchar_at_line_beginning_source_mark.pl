@@ -108,12 +108,12 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               'text' => ''
             },
             {
-              'args' => [
+              'cmdname' => 'hashchar',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
-              ],
-              'cmdname' => 'hashchar'
+              ]
             },
             {
               'source_marks' => [
@@ -219,12 +219,12 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               'text' => ''
             },
             {
-              'args' => [
+              'cmdname' => 'hashchar',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'hashchar',
               'source_marks' => [
                 {
                   'counter' => 2,
@@ -312,12 +312,12 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'hashchar',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
-              ],
-              'cmdname' => 'hashchar'
+              ]
             },
             {
               'source_marks' => [
@@ -390,7 +390,8 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -399,8 +400,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => '#',
                   'sourcemark_type' => 'value_expansion',
@@ -410,12 +410,12 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               'text' => ''
             },
             {
-              'args' => [
+              'cmdname' => 'hashchar',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'hashchar',
               'source_marks' => [
                 {
                   'counter' => 1,

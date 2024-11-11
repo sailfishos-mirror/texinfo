@@ -126,7 +126,8 @@ something @comment in}'
               'text' => 'c '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -162,7 +163,6 @@ something @comment in}'
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 7,
                 'macro' => 'lm'

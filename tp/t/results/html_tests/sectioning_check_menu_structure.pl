@@ -173,11 +173,13 @@ $result_trees{'sectioning_check_menu_structure'} = {
                           'text' => 'With command '
                         },
                         {
-                          'args' => [
+                          'cmdname' => '^',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'dotless',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -187,7 +189,6 @@ $result_trees{'sectioning_check_menu_structure'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => 'dotless',
                                   'source_info' => {
                                     'file_name' => 'sectioning.texi',
                                     'line_nr' => 9
@@ -197,7 +198,6 @@ $result_trees{'sectioning_check_menu_structure'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => '^',
                           'source_info' => {
                             'file_name' => 'sectioning.texi',
                             'line_nr' => 9
@@ -211,7 +211,8 @@ $result_trees{'sectioning_check_menu_structure'} = {
                           'text' => 'a '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'cite',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -221,7 +222,6 @@ $result_trees{'sectioning_check_menu_structure'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'cite',
                           'source_info' => {
                             'file_name' => 'sectioning.texi',
                             'line_nr' => 10

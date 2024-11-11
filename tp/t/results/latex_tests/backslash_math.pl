@@ -15,7 +15,8 @@ $result_trees{'backslash_math'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,12 +29,12 @@ $result_trees{'backslash_math'} = {
                       'text' => ' b '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'backslashchar',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'backslashchar',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -45,7 +46,6 @@ $result_trees{'backslash_math'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'source_info' => {
                 'line_nr' => 1
               }

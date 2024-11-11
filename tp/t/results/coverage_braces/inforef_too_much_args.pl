@@ -37,7 +37,8 @@ $result_trees{'inforef_too_much_args'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inforef',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -80,7 +81,6 @@ $result_trees{'inforef_too_much_args'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inforef',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -109,7 +109,7 @@ $result_trees{'inforef_too_much_args'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'inforef_too_much_args'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'inforef_too_much_args'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'inforef_too_much_args'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'inforef_too_much_args'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'inforef_too_much_args'} = '@node chapter
 

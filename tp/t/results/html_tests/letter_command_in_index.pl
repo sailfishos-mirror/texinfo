@@ -137,12 +137,12 @@ $result_trees{'letter_command_in_index'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'TH',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'TH',
                   'source_info' => {
                     'line_nr' => 7
                   }
@@ -186,12 +186,12 @@ $result_trees{'letter_command_in_index'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'l',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'l',
                   'source_info' => {
                     'line_nr' => 9
                   }
@@ -235,7 +235,8 @@ $result_trees{'letter_command_in_index'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -245,7 +246,6 @@ $result_trees{'letter_command_in_index'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'line_nr' => 11
                   }

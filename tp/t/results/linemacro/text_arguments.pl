@@ -137,12 +137,12 @@ $result_trees{'text_arguments'} = {
               'text' => 'Z'
             },
             {
-              'args' => [
+              'cmdname' => 'bullet',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'bullet',
               'source_info' => {
                 'line_nr' => 5,
                 'macro' => 'nospace'
@@ -152,12 +152,12 @@ $result_trees{'text_arguments'} = {
               'text' => 'Y'
             },
             {
-              'args' => [
+              'cmdname' => 'minus',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'minus',
               'source_info' => {
                 'line_nr' => 5,
                 'macro' => 'nospace'

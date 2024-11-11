@@ -79,7 +79,8 @@ $result_trees{'ampchar'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -92,7 +93,6 @@ $result_trees{'ampchar'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -248,12 +248,12 @@ $result_trees{'ampchar'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'ampchar',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'ampchar',
               'source_info' => {
                 'line_nr' => 3
               }

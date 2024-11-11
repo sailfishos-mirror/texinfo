@@ -91,7 +91,8 @@ $result_trees{'macro_end_call_in_ignored_inlinefmt'} = {
               'text' => 'Para '
             },
             {
-              'args' => [
+              'cmdname' => 'inlinefmt',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -119,7 +120,6 @@ still ignored',
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlinefmt',
               'extra' => {
                 'format' => 'tex'
               },

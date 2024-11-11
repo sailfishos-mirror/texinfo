@@ -827,7 +827,8 @@ $result_trees{'macro_in_index_commands'} = {
                   'text' => 'a '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'var',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -837,7 +838,6 @@ $result_trees{'macro_in_index_commands'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'var',
                   'source_info' => {
                     'line_nr' => 41,
                     'macro' => 'defcodeindexentry'
@@ -847,7 +847,8 @@ $result_trees{'macro_in_index_commands'} = {
                   'text' => ' t'
                 },
                 {
-                  'args' => [
+                  'cmdname' => '\'',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -857,7 +858,6 @@ $result_trees{'macro_in_index_commands'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '\'',
                   'source_info' => {
                     'line_nr' => 41,
                     'macro' => 'defcodeindexentry'
@@ -867,11 +867,13 @@ $result_trees{'macro_in_index_commands'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'dotless',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -881,7 +883,6 @@ $result_trees{'macro_in_index_commands'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'dotless',
                           'source_info' => {
                             'line_nr' => 41,
                             'macro' => 'defcodeindexentry'
@@ -891,7 +892,6 @@ $result_trees{'macro_in_index_commands'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'line_nr' => 41,
                     'macro' => 'defcodeindexentry'

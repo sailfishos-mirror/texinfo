@@ -142,12 +142,12 @@ $result_trees{'test_formatting_customizations'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'AA',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'AA',
               'source_info' => {
                 'file_name' => 'formatting_customizations_input.texi',
                 'line_nr' => 7
@@ -157,12 +157,12 @@ $result_trees{'test_formatting_customizations'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'equiv',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'equiv',
               'source_info' => {
                 'file_name' => 'formatting_customizations_input.texi',
                 'line_nr' => 7
@@ -178,12 +178,12 @@ $result_trees{'test_formatting_customizations'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'copyright',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'copyright',
               'source_info' => {
                 'file_name' => 'formatting_customizations_input.texi',
                 'line_nr' => 7

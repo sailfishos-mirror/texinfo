@@ -42,12 +42,12 @@ $result_trees{'invalid_clickstyle'} = {
               'text' => 'A '
             },
             {
-              'args' => [
+              'cmdname' => 'click',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'click',
               'extra' => {
                 'clickstyle' => 'result'
               },
@@ -95,12 +95,12 @@ $result_trees{'invalid_clickstyle'} = {
               'text' => 'A '
             },
             {
-              'args' => [
+              'cmdname' => 'click',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'click',
               'extra' => {
                 'clickstyle' => 'nocmd'
               },
@@ -142,12 +142,12 @@ $result_trees{'invalid_clickstyle'} = {
               'text' => 'A '
             },
             {
-              'args' => [
+              'cmdname' => 'click',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'click',
               'extra' => {
                 'clickstyle' => 'nocmd'
               },

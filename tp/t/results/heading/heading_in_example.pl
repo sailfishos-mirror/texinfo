@@ -37,7 +37,8 @@ $result_trees{'heading_in_example'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'emph',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -47,7 +48,6 @@ $result_trees{'heading_in_example'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'emph',
                       'source_info' => {
                         'line_nr' => 2
                       }

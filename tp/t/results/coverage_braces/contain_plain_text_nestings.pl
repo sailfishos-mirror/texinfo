@@ -138,11 +138,13 @@ $result_trees{'contain_plain_text_nestings'} = {
               'text' => 'Text '
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -152,7 +154,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 7
                       }
@@ -164,7 +165,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 7
               }
@@ -174,11 +174,13 @@ $result_trees{'contain_plain_text_nestings'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'hyphenation',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -188,7 +190,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 8
                       }
@@ -200,7 +201,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'hyphenation',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 8
@@ -212,11 +212,13 @@ $result_trees{'contain_plain_text_nestings'} = {
               'type' => 'spaces_after_close_brace'
             },
             {
-              'args' => [
+              'cmdname' => 'key',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -226,7 +228,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 9
                       }
@@ -238,7 +239,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'key',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -259,11 +259,13 @@ $result_trees{'contain_plain_text_nestings'} = {
                       'type' => 'spaces_at_end'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'sortas',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -273,7 +275,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 10
                               }
@@ -285,7 +286,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'sortas',
                       'source_info' => {
                         'line_nr' => 10
                       }
@@ -344,11 +344,13 @@ $result_trees{'contain_plain_text_nestings'} = {
               'text' => 'Text '
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'ref',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -379,7 +381,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'ref',
                       'source_info' => {
                         'line_nr' => 13
                       }
@@ -391,7 +392,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 13
               }
@@ -401,11 +401,13 @@ $result_trees{'contain_plain_text_nestings'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'hyphenation',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'ref',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -436,7 +438,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'ref',
                       'source_info' => {
                         'line_nr' => 14
                       }
@@ -448,7 +449,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'hyphenation',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 14
@@ -460,11 +460,13 @@ $result_trees{'contain_plain_text_nestings'} = {
               'type' => 'spaces_after_close_brace'
             },
             {
-              'args' => [
+              'cmdname' => 'key',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'ref',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -495,7 +497,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'ref',
                       'source_info' => {
                         'line_nr' => 15
                       }
@@ -507,7 +508,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'key',
               'source_info' => {
                 'line_nr' => 15
               }
@@ -528,11 +528,13 @@ $result_trees{'contain_plain_text_nestings'} = {
                       'type' => 'spaces_at_end'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'sortas',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'ref',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -563,7 +565,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                                   'type' => 'brace_arg'
                                 }
                               ],
-                              'cmdname' => 'ref',
                               'source_info' => {
                                 'line_nr' => 16
                               }
@@ -575,7 +576,6 @@ $result_trees{'contain_plain_text_nestings'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'sortas',
                       'source_info' => {
                         'line_nr' => 16
                       }
@@ -667,10 +667,10 @@ $result_trees{'contain_plain_text_nestings'} = {
   'type' => 'document_root'
 };
 $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[3];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[4]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[3];
 
 $result_texis{'contain_plain_text_nestings'} = '@node Top

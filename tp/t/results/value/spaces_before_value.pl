@@ -38,7 +38,8 @@ $result_trees{'spaces_before_value'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -48,7 +49,6 @@ $result_trees{'spaces_before_value'} = {
                         'type' => 'brace_container'
                       }
                     ],
-                    'cmdname' => 'value',
                     'info' => {
                       'spaces_after_cmd_before_arg' => {
                         'text' => '  '

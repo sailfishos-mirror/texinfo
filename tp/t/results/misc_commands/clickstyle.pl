@@ -37,12 +37,12 @@ $result_trees{'clickstyle'} = {
               'text' => 'A '
             },
             {
-              'args' => [
+              'cmdname' => 'click',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'click',
               'extra' => {
                 'clickstyle' => 'result'
               },
@@ -90,12 +90,12 @@ $result_trees{'clickstyle'} = {
               'text' => 'A '
             },
             {
-              'args' => [
+              'cmdname' => 'click',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'click',
               'extra' => {
                 'clickstyle' => 'equiv'
               },

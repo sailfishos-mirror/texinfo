@@ -18,12 +18,12 @@ $result_trees{'commands'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'TeX',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'TeX',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -36,7 +36,8 @@ $result_trees{'commands'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => '"',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -46,7 +47,6 @@ $result_trees{'commands'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '"',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -55,11 +55,13 @@ $result_trees{'commands'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'dotless',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -69,7 +71,6 @@ $result_trees{'commands'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'dotless',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -78,7 +79,6 @@ $result_trees{'commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -87,7 +87,8 @@ $result_trees{'commands'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '~',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -97,7 +98,6 @@ $result_trees{'commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '~',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -106,7 +106,8 @@ $result_trees{'commands'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'ringaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -116,7 +117,6 @@ $result_trees{'commands'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => 'ringaccent',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => ' '
@@ -141,19 +141,20 @@ $result_trees{'commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'clicksequence',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'File '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'click',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'click',
                       'extra' => {
                         'clickstyle' => 'arrow'
                       },
@@ -168,7 +169,6 @@ $result_trees{'commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'clicksequence',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -181,7 +181,8 @@ $result_trees{'commands'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -204,7 +205,6 @@ $result_trees{'commands'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -213,7 +213,8 @@ $result_trees{'commands'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -223,7 +224,6 @@ $result_trees{'commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -236,7 +236,8 @@ $result_trees{'commands'} = {
               'text' => '--- -- \'\' ``. '
             },
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -246,7 +247,6 @@ $result_trees{'commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 6
               }
@@ -271,12 +271,12 @@ $result_trees{'commands'} = {
                   'text' => 'index entry ``in text\'\' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'LaTeX',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'LaTeX',
                   'source_info' => {
                     'line_nr' => 8
                   }
@@ -322,7 +322,8 @@ $result_trees{'commands'} = {
                   'text' => 'majorheading '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'b',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -332,7 +333,6 @@ $result_trees{'commands'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'b',
                   'source_info' => {
                     'line_nr' => 10
                   }

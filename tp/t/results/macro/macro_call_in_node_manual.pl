@@ -840,7 +840,8 @@ $result_trees{'macro_call_in_node_manual'} = {
                       'text' => 'begin'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -850,7 +851,6 @@ $result_trees{'macro_call_in_node_manual'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 31
                       },

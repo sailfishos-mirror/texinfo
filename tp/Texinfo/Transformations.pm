@@ -185,8 +185,8 @@ sub fill_gaps_in_sectioning($;$)
         } else {
           my $asis_command = {'cmdname' => 'asis',
                               'parent' => $line_arg};
-          $asis_command->{'args'} = [{'type' => 'brace_container',
-                                      'parent' => $asis_command}];
+          $asis_command->{'contents'} = [{'type' => 'brace_container',
+                                          'parent' => $asis_command}];
           $line_content = $asis_command;
         }
         $line_arg->{'contents'} = [$line_content];
@@ -233,7 +233,7 @@ sub _reference_to_arg($$$)
 
   if ($current->{'cmdname'} and
       $Texinfo::Commands::ref_commands{$current->{'cmdname'}}
-      and $current->{'args'}) {
+      and $current->{'contents'}) {
 
     # remove from internal references
     if ($document) {
@@ -249,8 +249,8 @@ sub _reference_to_arg($$$)
       @args_try_order = (0, 1, 2, 4, 3);
     }
     foreach my $index (@args_try_order) {
-      if (defined($current->{'args'}->[$index])) {
-        my $arg = $current->{'args'}->[$index];
+      if (defined($current->{'contents'}->[$index])) {
+        my $arg = $current->{'contents'}->[$index];
         # this will not detect if the arg expands as spaces only, like
         # @asis{ }, @ , but it is not an issue or could even be considered
         # as a feature.
@@ -903,7 +903,7 @@ sub _protect_hashchar_at_line_beginning($$$)
 
             $e = {'cmdname' => 'hashchar', 'parent' => $parent};
             my $arg = {'type' => 'brace_container', 'parent' => $e};
-            $e->{'args'} = [$arg];
+            $e->{'contents'} = [$arg];
             $current_position = Texinfo::Common::relocate_source_marks(
                                           $remaining_source_marks, $e,
                                           $current_position, 1);

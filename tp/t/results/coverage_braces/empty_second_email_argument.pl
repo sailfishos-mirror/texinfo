@@ -12,7 +12,8 @@ $result_trees{'empty_second_email_argument'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -41,7 +42,6 @@ $result_trees{'empty_second_email_argument'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'line_nr' => 1
               }

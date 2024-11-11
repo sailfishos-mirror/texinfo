@@ -75,12 +75,12 @@ $result_trees{'empty_string_index_entry'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'w',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'w',
                   'source_info' => {
                     'line_nr' => 4
                   }
@@ -150,12 +150,12 @@ $result_trees{'empty_string_index_entry'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'w',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'w',
                               'source_info' => {
                                 'line_nr' => 7
                               }
@@ -276,12 +276,12 @@ $result_trees{'empty_string_index_entry'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'w',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'w',
                               'source_info' => {
                                 'line_nr' => 10
                               }
@@ -342,12 +342,12 @@ $result_trees{'empty_string_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'w',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'w'
+                          ]
                         }
                       ],
                       'type' => 'bracketed_arg'
@@ -399,12 +399,12 @@ $result_trees{'empty_string_index_entry'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'w',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'w',
                               'source_info' => {
                                 'line_nr' => 11
                               }
@@ -466,12 +466,12 @@ $result_trees{'empty_string_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'w',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'w'
+                          ]
                         }
                       ],
                       'type' => 'bracketed_arg'

@@ -39,12 +39,12 @@ $result_trees{'at_commands_glued_in_example'} = {
                   'text' => 'TeX'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'TeX',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'TeX',
                   'source_info' => {
                     'line_nr' => 3
                   }
@@ -57,7 +57,8 @@ $result_trees{'at_commands_glued_in_example'} = {
                   'text' => 'code'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -67,7 +68,6 @@ $result_trees{'at_commands_glued_in_example'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 4
                   }
@@ -80,7 +80,8 @@ $result_trees{'at_commands_glued_in_example'} = {
                   'text' => 'acronym'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'acronym',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -103,7 +104,6 @@ $result_trees{'at_commands_glued_in_example'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'acronym',
                   'source_info' => {
                     'line_nr' => 5
                   }
@@ -116,7 +116,8 @@ $result_trees{'at_commands_glued_in_example'} = {
                   'text' => 'acronym2'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'acronym',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -126,7 +127,6 @@ $result_trees{'at_commands_glued_in_example'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'acronym',
                   'source_info' => {
                     'line_nr' => 6
                   }
@@ -139,7 +139,8 @@ $result_trees{'at_commands_glued_in_example'} = {
                   'text' => 'email'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'email',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -162,7 +163,6 @@ $result_trees{'at_commands_glued_in_example'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'email',
                   'source_info' => {
                     'line_nr' => 7
                   }
@@ -175,7 +175,8 @@ $result_trees{'at_commands_glued_in_example'} = {
                   'text' => 'ref'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'ref',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -193,7 +194,6 @@ $result_trees{'at_commands_glued_in_example'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'ref',
                   'source_info' => {
                     'line_nr' => 8
                   }
@@ -206,7 +206,8 @@ $result_trees{'at_commands_glued_in_example'} = {
                   'text' => 'Foornote'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'footnote',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -221,7 +222,6 @@ $result_trees{'at_commands_glued_in_example'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'footnote',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 9
@@ -235,11 +235,13 @@ $result_trees{'at_commands_glued_in_example'} = {
                   'text' => 'accent'
                 },
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'dotless',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -249,7 +251,6 @@ $result_trees{'at_commands_glued_in_example'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'dotless',
                           'source_info' => {
                             'line_nr' => 10
                           }
@@ -258,7 +259,6 @@ $result_trees{'at_commands_glued_in_example'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'line_nr' => 10
                   }
@@ -333,7 +333,8 @@ $result_trees{'at_commands_glued_in_example'} = {
                   'text' => 'anchor'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'anchor',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -343,7 +344,6 @@ $result_trees{'at_commands_glued_in_example'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'anchor',
                   'extra' => {
                     'is_target' => 1,
                     'normalized' => 'anchor'
@@ -438,7 +438,7 @@ $result_trees{'at_commands_glued_in_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'at_commands_glued_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[19]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'at_commands_glued_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[19]{'args'}[0]{'contents'}[0];
+$result_trees{'at_commands_glued_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[19]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'at_commands_glued_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[19]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'at_commands_glued_in_example'} = '@example
 at@@.

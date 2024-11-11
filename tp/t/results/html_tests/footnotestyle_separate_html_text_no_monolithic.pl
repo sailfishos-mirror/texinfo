@@ -105,7 +105,8 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
               'text' => 'In top'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -120,7 +121,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 5

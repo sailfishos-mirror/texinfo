@@ -72,7 +72,8 @@ $result_trees{'value_node_directions'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -81,8 +82,7 @@ $result_trees{'value_node_directions'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'bar',
                   'position' => 1,
@@ -175,7 +175,8 @@ $result_trees{'value_node_directions'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -184,8 +185,7 @@ $result_trees{'value_node_directions'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'bar',
                   'position' => 4,
@@ -220,7 +220,8 @@ $result_trees{'value_node_directions'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -229,8 +230,7 @@ $result_trees{'value_node_directions'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'bar',
                   'sourcemark_type' => 'value_expansion',
@@ -367,7 +367,8 @@ $result_trees{'value_node_directions'} = {
             {
               'counter' => 4,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -376,8 +377,7 @@ $result_trees{'value_node_directions'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => 'bar',
               'position' => 1,
@@ -475,7 +475,8 @@ $result_trees{'value_node_directions'} = {
                 {
                   'counter' => 5,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -484,8 +485,7 @@ $result_trees{'value_node_directions'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'bar',
                   'position' => 1,

@@ -106,7 +106,8 @@ $result_trees{'empty_nodes_with_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -116,7 +117,6 @@ $result_trees{'empty_nodes_with_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 6
               }

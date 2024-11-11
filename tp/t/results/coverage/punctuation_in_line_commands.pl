@@ -320,7 +320,8 @@ $result_trees{'punctuation_in_line_commands'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'shortcaption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -335,7 +336,6 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'shortcaption',
               'extra' => {
                 'float' => {}
               },
@@ -440,7 +440,8 @@ $result_trees{'punctuation_in_line_commands'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -455,7 +456,6 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },
@@ -630,7 +630,8 @@ $result_trees{'punctuation_in_line_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'titlefont',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -640,7 +641,6 @@ $result_trees{'punctuation_in_line_commands'} = {
               'type' => 'brace_container'
             }
           ],
-          'cmdname' => 'titlefont',
           'extra' => {},
           'source_info' => {
             'line_nr' => 30

@@ -12,7 +12,8 @@ $result_trees{'unknown_accents'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '"',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '"',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -31,7 +31,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '"',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -41,7 +42,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '"',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -50,7 +50,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '"',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -60,7 +61,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '"',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -69,7 +69,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '"',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -79,7 +80,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '"',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -99,7 +99,8 @@ $result_trees{'unknown_accents'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '\'',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -109,7 +110,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '\'',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -118,7 +118,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '\'',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -128,7 +129,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '\'',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -137,7 +137,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '\'',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -147,7 +148,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '\'',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -157,7 +157,8 @@ $result_trees{'unknown_accents'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => '\'',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -167,7 +168,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '\'',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -176,7 +176,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '\'',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -186,7 +187,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '\'',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -195,7 +195,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '\'',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -205,7 +206,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '\'',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -225,7 +225,8 @@ $result_trees{'unknown_accents'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => ',',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -235,7 +236,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => ',',
               'source_info' => {
                 'line_nr' => 6
               }
@@ -244,7 +244,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => ',',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -254,7 +255,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => ',',
               'source_info' => {
                 'line_nr' => 6
               }
@@ -274,7 +274,8 @@ $result_trees{'unknown_accents'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -284,7 +285,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 8
               }
@@ -293,7 +293,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -303,7 +304,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 8
               }
@@ -312,7 +312,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -322,7 +323,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 8
               }
@@ -331,7 +331,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -341,7 +342,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 8
               }
@@ -351,7 +351,8 @@ $result_trees{'unknown_accents'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -361,7 +362,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -370,7 +370,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -380,7 +381,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -389,7 +389,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -399,7 +400,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -408,7 +408,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -418,7 +419,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -438,7 +438,8 @@ $result_trees{'unknown_accents'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '`',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -448,7 +449,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '`',
               'source_info' => {
                 'line_nr' => 11
               }
@@ -457,7 +457,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '`',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -467,7 +468,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '`',
               'source_info' => {
                 'line_nr' => 11
               }
@@ -476,7 +476,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '`',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -486,7 +487,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '`',
               'source_info' => {
                 'line_nr' => 11
               }
@@ -506,7 +506,8 @@ $result_trees{'unknown_accents'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => '~',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -516,7 +517,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '~',
               'source_info' => {
                 'line_nr' => 13
               }
@@ -525,7 +525,8 @@ $result_trees{'unknown_accents'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => '~',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -535,7 +536,6 @@ $result_trees{'unknown_accents'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '~',
               'source_info' => {
                 'line_nr' => 13
               }

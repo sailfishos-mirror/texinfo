@@ -12,7 +12,8 @@ $result_trees{'simple'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'b',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'simple'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'b',
               'source_info' => {
                 'line_nr' => 1
               }

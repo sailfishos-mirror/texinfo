@@ -137,7 +137,8 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -147,7 +148,6 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'myanchor'

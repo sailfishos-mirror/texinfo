@@ -259,12 +259,12 @@ $result_trees{'complex_float'} = {
                   'text' => 'An example of float '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'enddots',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'enddots',
                   'source_info' => {
                     'line_nr' => 13
                   }
@@ -705,7 +705,8 @@ $result_trees{'complex_float'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'xref',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -731,7 +732,6 @@ $result_trees{'complex_float'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'xref',
                   'source_info' => {
                     'line_nr' => 45
                   }
@@ -745,7 +745,8 @@ $result_trees{'complex_float'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'footnote',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -760,7 +761,6 @@ $result_trees{'complex_float'} = {
                       'type' => 'brace_command_context'
                     }
                   ],
-                  'cmdname' => 'footnote',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 47
@@ -781,12 +781,12 @@ $result_trees{'complex_float'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'TeX',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'TeX',
                   'source_info' => {
                     'line_nr' => 49
                   }
@@ -795,18 +795,21 @@ $result_trees{'complex_float'} = {
                   'text' => ' and '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'emph',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'b',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
                                   'text' => 't'
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => '\'',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -816,17 +819,18 @@ $result_trees{'complex_float'} = {
                                       'type' => 'following_arg'
                                     }
                                   ],
-                                  'cmdname' => '\'',
                                   'source_info' => {
                                     'line_nr' => 49
                                   }
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => '^',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
-                                          'args' => [
+                                          'cmdname' => 'dotless',
+                                          'contents' => [
                                             {
                                               'contents' => [
                                                 {
@@ -836,7 +840,6 @@ $result_trees{'complex_float'} = {
                                               'type' => 'brace_container'
                                             }
                                           ],
-                                          'cmdname' => 'dotless',
                                           'source_info' => {
                                             'line_nr' => 49
                                           }
@@ -845,7 +848,6 @@ $result_trees{'complex_float'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => '^',
                                   'source_info' => {
                                     'line_nr' => 49
                                   }
@@ -854,13 +856,13 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'b',
                           'source_info' => {
                             'line_nr' => 49
                           }
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'url',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -870,7 +872,6 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'url',
                           'source_info' => {
                             'line_nr' => 49
                           }
@@ -879,7 +880,6 @@ $result_trees{'complex_float'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 49
                   }
@@ -888,7 +888,8 @@ $result_trees{'complex_float'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'sc',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -898,7 +899,6 @@ $result_trees{'complex_float'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'sc',
                   'source_info' => {
                     'line_nr' => 49
                   }
@@ -907,7 +907,8 @@ $result_trees{'complex_float'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'verb',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -918,7 +919,6 @@ $result_trees{'complex_float'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'verb',
                   'info' => {
                     'delimiter' => '!'
                   },
@@ -951,12 +951,12 @@ $result_trees{'complex_float'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'AE',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'AE',
                   'source_info' => {
                     'line_nr' => 49
                   }
@@ -974,7 +974,8 @@ $result_trees{'complex_float'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -983,12 +984,12 @@ $result_trees{'complex_float'} = {
                           'text' => 'An example of float caption'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'enddots',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'enddots',
                           'source_info' => {
                             'line_nr' => 51
                           }
@@ -1068,7 +1069,8 @@ $result_trees{'complex_float'} = {
                       'type' => 'empty_line'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'anchor',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1078,7 +1080,6 @@ $result_trees{'complex_float'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'anchor',
                       'extra' => {
                         'is_target' => 1,
                         'normalized' => 'Anchor-in-caption'
@@ -1599,7 +1600,8 @@ $result_trees{'complex_float'} = {
 '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'xref',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1625,7 +1627,6 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'xref',
                           'source_info' => {
                             'line_nr' => 80
                           }
@@ -1639,7 +1640,8 @@ $result_trees{'complex_float'} = {
 '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'footnote',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1654,7 +1656,6 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_command_context'
                             }
                           ],
-                          'cmdname' => 'footnote',
                           'extra' => {},
                           'source_info' => {
                             'line_nr' => 82
@@ -1675,12 +1676,12 @@ $result_trees{'complex_float'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'TeX',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'TeX',
                           'source_info' => {
                             'line_nr' => 84
                           }
@@ -1689,18 +1690,21 @@ $result_trees{'complex_float'} = {
                           'text' => ' and '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'emph',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'b',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
                                           'text' => 't'
                                         },
                                         {
-                                          'args' => [
+                                          'cmdname' => '\'',
+                                          'contents' => [
                                             {
                                               'contents' => [
                                                 {
@@ -1710,17 +1714,18 @@ $result_trees{'complex_float'} = {
                                               'type' => 'following_arg'
                                             }
                                           ],
-                                          'cmdname' => '\'',
                                           'source_info' => {
                                             'line_nr' => 84
                                           }
                                         },
                                         {
-                                          'args' => [
+                                          'cmdname' => '^',
+                                          'contents' => [
                                             {
                                               'contents' => [
                                                 {
-                                                  'args' => [
+                                                  'cmdname' => 'dotless',
+                                                  'contents' => [
                                                     {
                                                       'contents' => [
                                                         {
@@ -1730,7 +1735,6 @@ $result_trees{'complex_float'} = {
                                                       'type' => 'brace_container'
                                                     }
                                                   ],
-                                                  'cmdname' => 'dotless',
                                                   'source_info' => {
                                                     'line_nr' => 84
                                                   }
@@ -1739,7 +1743,6 @@ $result_trees{'complex_float'} = {
                                               'type' => 'brace_container'
                                             }
                                           ],
-                                          'cmdname' => '^',
                                           'source_info' => {
                                             'line_nr' => 84
                                           }
@@ -1748,13 +1751,13 @@ $result_trees{'complex_float'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => 'b',
                                   'source_info' => {
                                     'line_nr' => 84
                                   }
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'url',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -1764,7 +1767,6 @@ $result_trees{'complex_float'} = {
                                       'type' => 'brace_arg'
                                     }
                                   ],
-                                  'cmdname' => 'url',
                                   'source_info' => {
                                     'line_nr' => 84
                                   }
@@ -1773,7 +1775,6 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'emph',
                           'source_info' => {
                             'line_nr' => 84
                           }
@@ -1782,7 +1783,8 @@ $result_trees{'complex_float'} = {
                           'text' => ' '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'sc',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1792,7 +1794,6 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'sc',
                           'source_info' => {
                             'line_nr' => 84
                           }
@@ -1801,7 +1802,8 @@ $result_trees{'complex_float'} = {
                           'text' => ' '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1812,7 +1814,6 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => '!'
                           },
@@ -1845,12 +1846,12 @@ $result_trees{'complex_float'} = {
                           'text' => ' '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'AE',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'AE',
                           'source_info' => {
                             'line_nr' => 84
                           }
@@ -1866,7 +1867,6 @@ $result_trees{'complex_float'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },
@@ -1890,18 +1890,19 @@ $result_trees{'complex_float'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'shortcaption',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'TeX',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'TeX',
                           'source_info' => {
                             'line_nr' => 87
                           }
@@ -1910,18 +1911,21 @@ $result_trees{'complex_float'} = {
                           'text' => ' and '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'emph',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'b',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
                                           'text' => 't'
                                         },
                                         {
-                                          'args' => [
+                                          'cmdname' => '\'',
+                                          'contents' => [
                                             {
                                               'contents' => [
                                                 {
@@ -1931,17 +1935,18 @@ $result_trees{'complex_float'} = {
                                               'type' => 'following_arg'
                                             }
                                           ],
-                                          'cmdname' => '\'',
                                           'source_info' => {
                                             'line_nr' => 87
                                           }
                                         },
                                         {
-                                          'args' => [
+                                          'cmdname' => '^',
+                                          'contents' => [
                                             {
                                               'contents' => [
                                                 {
-                                                  'args' => [
+                                                  'cmdname' => 'dotless',
+                                                  'contents' => [
                                                     {
                                                       'contents' => [
                                                         {
@@ -1951,7 +1956,6 @@ $result_trees{'complex_float'} = {
                                                       'type' => 'brace_container'
                                                     }
                                                   ],
-                                                  'cmdname' => 'dotless',
                                                   'source_info' => {
                                                     'line_nr' => 87
                                                   }
@@ -1960,7 +1964,6 @@ $result_trees{'complex_float'} = {
                                               'type' => 'brace_container'
                                             }
                                           ],
-                                          'cmdname' => '^',
                                           'source_info' => {
                                             'line_nr' => 87
                                           }
@@ -1969,13 +1972,13 @@ $result_trees{'complex_float'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => 'b',
                                   'source_info' => {
                                     'line_nr' => 87
                                   }
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'url',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -1985,7 +1988,6 @@ $result_trees{'complex_float'} = {
                                       'type' => 'brace_arg'
                                     }
                                   ],
-                                  'cmdname' => 'url',
                                   'source_info' => {
                                     'line_nr' => 87
                                   }
@@ -1994,7 +1996,6 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'emph',
                           'source_info' => {
                             'line_nr' => 87
                           }
@@ -2003,7 +2004,8 @@ $result_trees{'complex_float'} = {
                           'text' => ' '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'sc',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -2013,7 +2015,6 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'sc',
                           'source_info' => {
                             'line_nr' => 87
                           }
@@ -2022,7 +2023,8 @@ $result_trees{'complex_float'} = {
                           'text' => ' '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -2033,7 +2035,6 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => '!'
                           },
@@ -2066,12 +2067,12 @@ $result_trees{'complex_float'} = {
                           'text' => ' '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'AE',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'AE',
                           'source_info' => {
                             'line_nr' => 87
                           }
@@ -2086,7 +2087,6 @@ $result_trees{'complex_float'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'shortcaption',
               'extra' => {
                 'float' => {}
               },
@@ -2273,7 +2273,8 @@ $result_trees{'complex_float'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2282,12 +2283,12 @@ $result_trees{'complex_float'} = {
                           'text' => 'An example of float caption'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'enddots',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'enddots',
                           'source_info' => {
                             'line_nr' => 98
                           }
@@ -2862,7 +2863,8 @@ $result_trees{'complex_float'} = {
                       'type' => 'empty_line'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'anchor',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -2872,7 +2874,6 @@ $result_trees{'complex_float'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'anchor',
                       'extra' => {
                         'is_target' => 1,
                         'normalized' => 'Anchor-in-caption-2'
@@ -2898,7 +2899,8 @@ $result_trees{'complex_float'} = {
 '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'xref',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -2924,7 +2926,6 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'xref',
                           'source_info' => {
                             'line_nr' => 127
                           }
@@ -2938,7 +2939,8 @@ $result_trees{'complex_float'} = {
 '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'footnote',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -2953,7 +2955,6 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_command_context'
                             }
                           ],
-                          'cmdname' => 'footnote',
                           'extra' => {},
                           'source_info' => {
                             'line_nr' => 129
@@ -2974,12 +2975,12 @@ $result_trees{'complex_float'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'TeX',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'TeX',
                           'source_info' => {
                             'line_nr' => 131
                           }
@@ -2988,18 +2989,21 @@ $result_trees{'complex_float'} = {
                           'text' => ' and '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'emph',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'b',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
                                           'text' => 't'
                                         },
                                         {
-                                          'args' => [
+                                          'cmdname' => '\'',
+                                          'contents' => [
                                             {
                                               'contents' => [
                                                 {
@@ -3009,17 +3013,18 @@ $result_trees{'complex_float'} = {
                                               'type' => 'following_arg'
                                             }
                                           ],
-                                          'cmdname' => '\'',
                                           'source_info' => {
                                             'line_nr' => 131
                                           }
                                         },
                                         {
-                                          'args' => [
+                                          'cmdname' => '^',
+                                          'contents' => [
                                             {
                                               'contents' => [
                                                 {
-                                                  'args' => [
+                                                  'cmdname' => 'dotless',
+                                                  'contents' => [
                                                     {
                                                       'contents' => [
                                                         {
@@ -3029,7 +3034,6 @@ $result_trees{'complex_float'} = {
                                                       'type' => 'brace_container'
                                                     }
                                                   ],
-                                                  'cmdname' => 'dotless',
                                                   'source_info' => {
                                                     'line_nr' => 131
                                                   }
@@ -3038,7 +3042,6 @@ $result_trees{'complex_float'} = {
                                               'type' => 'brace_container'
                                             }
                                           ],
-                                          'cmdname' => '^',
                                           'source_info' => {
                                             'line_nr' => 131
                                           }
@@ -3047,13 +3050,13 @@ $result_trees{'complex_float'} = {
                                       'type' => 'brace_container'
                                     }
                                   ],
-                                  'cmdname' => 'b',
                                   'source_info' => {
                                     'line_nr' => 131
                                   }
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'url',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -3063,7 +3066,6 @@ $result_trees{'complex_float'} = {
                                       'type' => 'brace_arg'
                                     }
                                   ],
-                                  'cmdname' => 'url',
                                   'source_info' => {
                                     'line_nr' => 131
                                   }
@@ -3072,7 +3074,6 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'emph',
                           'source_info' => {
                             'line_nr' => 131
                           }
@@ -3081,7 +3082,8 @@ $result_trees{'complex_float'} = {
                           'text' => ' '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'sc',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -3091,7 +3093,6 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'sc',
                           'source_info' => {
                             'line_nr' => 131
                           }
@@ -3100,7 +3101,8 @@ $result_trees{'complex_float'} = {
                           'text' => ' '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'verb',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -3111,7 +3113,6 @@ $result_trees{'complex_float'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'verb',
                           'info' => {
                             'delimiter' => '!'
                           },
@@ -3144,12 +3145,12 @@ $result_trees{'complex_float'} = {
                           'text' => ' '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'AE',
+                          'contents' => [
                             {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'AE',
                           'source_info' => {
                             'line_nr' => 131
                           }
@@ -3165,7 +3166,6 @@ $result_trees{'complex_float'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },
@@ -3243,7 +3243,8 @@ $result_trees{'complex_float'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3261,7 +3262,6 @@ $result_trees{'complex_float'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 136
               }
@@ -3298,24 +3298,24 @@ $result_trees{'complex_float'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'con
 $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'complex_float'}{'contents'}[1];
 $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[10]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[10]{'args'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[12]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[12]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'args'}[0]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'args'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'args'}[0]{'contents'}[11]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'complex_float'}{'contents'}[1];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'args'}[0]{'contents'}[14]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'args'}[0]{'contents'}[16]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'args'}[0]{'contents'}[16]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[12]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'contents'}[0]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'contents'}[0]{'contents'}[11]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'complex_float'}{'contents'}[1];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'contents'}[0]{'contents'}[14]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'contents'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16]{'extra'}{'float'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7];
 $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[19]{'extra'}{'float'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7];
 $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'extra'}{'caption'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[16];
 $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'extra'}{'float_section'} = $result_trees{'complex_float'}{'contents'}[2];
 $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'extra'}{'shortcaption'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[19];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[8]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'complex_float'}{'contents'}[3];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[11]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[11]{'args'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[16]{'contents'}[1]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[16]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[8]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'complex_float'}{'contents'}[3];
+$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[11]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[11]{'args'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'extra'}{'float'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1];
 $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[3];
 $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'extra'}{'float_section'} = $result_trees{'complex_float'}{'contents'}[4];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'complex_float'} = '@node Top
 @top Test floats

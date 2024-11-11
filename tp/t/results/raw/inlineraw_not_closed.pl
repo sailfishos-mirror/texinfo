@@ -12,7 +12,8 @@ $result_trees{'inlineraw_not_closed'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlineraw',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -36,7 +37,6 @@ $result_trees{'inlineraw_not_closed'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlineraw',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'html'

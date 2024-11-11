@@ -127,7 +127,8 @@ $result_trees{'double_top'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -137,7 +138,6 @@ $result_trees{'double_top'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'normalized' => 'Top'
           },

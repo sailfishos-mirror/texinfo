@@ -295,7 +295,7 @@ sub definition_category_tree($$)
     my $brace_arg
       = {'type' => 'brace_container', 'contents' => [$arg_class],
          'parent' => $arg_class_code};
-    $arg_class_code->{'args'} = [$brace_arg];
+    $arg_class_code->{'contents'} = [$brace_arg];
   }
 
   my $def_command = $current->{'extra'}->{'def_command'};
@@ -357,10 +357,10 @@ sub find_innermost_accent_contents($)
     }
     push @accent_commands, $current;
     # A bogus accent, that may happen
-    if (!$current->{'args'}) {
+    if (!$current->{'contents'}) {
       return (undef, \@accent_commands);
     }
-    my $arg = $current->{'args'}->[0];
+    my $arg = $current->{'contents'}->[0];
     if (!$arg->{'contents'}) {
       return (undef, \@accent_commands);
     }

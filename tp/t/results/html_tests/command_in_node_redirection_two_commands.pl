@@ -54,7 +54,8 @@ $result_trees{'command_in_node_redirection_two_commands'} = {
               'text' => 't '
             },
             {
-              'args' => [
+              'cmdname' => 'r',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -64,7 +65,6 @@ $result_trees{'command_in_node_redirection_two_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'r',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -87,11 +87,13 @@ $result_trees{'command_in_node_redirection_two_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'sansserif',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -101,7 +103,6 @@ $result_trees{'command_in_node_redirection_two_commands'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'sansserif',
                   'source_info' => {
                     'line_nr' => 4
                   }
@@ -110,7 +111,8 @@ $result_trees{'command_in_node_redirection_two_commands'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'r',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -120,7 +122,6 @@ $result_trees{'command_in_node_redirection_two_commands'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'r',
                   'source_info' => {
                     'line_nr' => 4
                   }
@@ -129,7 +130,6 @@ $result_trees{'command_in_node_redirection_two_commands'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'll-jj'

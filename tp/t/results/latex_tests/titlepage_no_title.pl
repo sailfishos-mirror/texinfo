@@ -26,7 +26,8 @@ $result_trees{'titlepage_no_title'} = {
               'cmdname' => 'titlepage',
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'titlefont',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -36,7 +37,6 @@ $result_trees{'titlepage_no_title'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'titlefont',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 2

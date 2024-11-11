@@ -98,7 +98,8 @@ $result_trees{'redefine_texinfo_macro'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -108,7 +109,6 @@ $result_trees{'redefine_texinfo_macro'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'line_nr' => 5,
                 'macro' => 'code'

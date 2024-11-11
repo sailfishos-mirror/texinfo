@@ -320,12 +320,12 @@ $result_trees{'ftable_vtable'} = {
                               'text' => 'var1 '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'error',
+                              'contents' => [
                                 {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'error',
                               'source_info' => {
                                 'line_nr' => 13
                               }

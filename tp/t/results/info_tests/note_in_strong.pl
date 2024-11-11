@@ -40,7 +40,8 @@ $result_trees{'note_in_strong'} = {
               'text' => '3 One '
             },
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -50,7 +51,6 @@ $result_trees{'note_in_strong'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -73,7 +73,8 @@ $result_trees{'note_in_strong'} = {
               'text' => '5 '
             },
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -83,7 +84,6 @@ $result_trees{'note_in_strong'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -116,7 +116,8 @@ $result_trees{'note_in_strong'} = {
               'text' => '9 '
             },
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -126,7 +127,6 @@ $result_trees{'note_in_strong'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'source_info' => {
                 'line_nr' => 9
               }
@@ -149,7 +149,8 @@ $result_trees{'note_in_strong'} = {
               'text' => '11 '
             },
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -159,7 +160,6 @@ $result_trees{'note_in_strong'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'source_info' => {
                 'line_nr' => 11
               }
@@ -182,7 +182,8 @@ $result_trees{'note_in_strong'} = {
               'text' => '13 '
             },
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -192,7 +193,6 @@ $result_trees{'note_in_strong'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'source_info' => {
                 'line_nr' => 13
               }
@@ -215,7 +215,8 @@ $result_trees{'note_in_strong'} = {
               'text' => '15 '
             },
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -225,7 +226,6 @@ $result_trees{'note_in_strong'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'source_info' => {
                 'line_nr' => 15
               }

@@ -274,7 +274,7 @@ sub l2h_process($$)
       my $command = $element->{'cmdname'};
       my $tree;
       if ($command eq 'math') {
-        $tree = $element->{'args'}->[0];
+        $tree = $element->{'contents'}->[0];
       } else {
         $tree = {'contents' => [@{$element->{'contents'}}]};
         if ($tree->{'contents'}->[0]

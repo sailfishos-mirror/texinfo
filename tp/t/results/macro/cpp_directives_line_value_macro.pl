@@ -357,7 +357,8 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -366,8 +367,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => '#',
                   'sourcemark_type' => 'value_expansion',

@@ -17,7 +17,8 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                   'text' => '``category---'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'var',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -27,7 +28,6 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'var',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -120,7 +120,8 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                           'text' => '``hello---'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'var',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -130,7 +131,6 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'var',
                           'source_info' => {
                             'line_nr' => 3
                           }

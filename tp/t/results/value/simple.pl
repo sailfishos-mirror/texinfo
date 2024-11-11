@@ -38,7 +38,8 @@ $result_trees{'simple'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -47,8 +48,7 @@ $result_trees{'simple'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'the value @b{b}',
                   'sourcemark_type' => 'value_expansion',
@@ -58,7 +58,8 @@ $result_trees{'simple'} = {
               'text' => 'the value '
             },
             {
-              'args' => [
+              'cmdname' => 'b',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -68,7 +69,6 @@ $result_trees{'simple'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'b',
               'source_info' => {
                 'line_nr' => 3
               },

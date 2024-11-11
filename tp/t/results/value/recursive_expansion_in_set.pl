@@ -31,7 +31,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -40,8 +41,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -50,7 +50,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -59,8 +60,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -69,7 +69,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -78,8 +79,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -88,7 +88,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 4,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -97,8 +98,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -107,7 +107,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 5,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -116,8 +117,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -126,7 +126,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 6,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -135,8 +136,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -145,7 +145,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 7,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -154,8 +155,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -164,7 +164,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 8,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -173,8 +174,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -183,7 +183,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 9,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -192,8 +193,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -202,7 +202,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 10,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -211,8 +212,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -221,7 +221,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 11,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -230,8 +231,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -240,7 +240,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 12,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -249,8 +250,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -259,7 +259,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 13,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -268,8 +269,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -278,7 +278,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 14,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -287,8 +288,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -297,7 +297,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 15,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -306,8 +307,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -316,7 +316,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 16,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -325,8 +326,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -335,7 +335,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 17,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -344,8 +345,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -354,7 +354,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 18,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -363,8 +364,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -373,7 +373,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 19,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -382,8 +383,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -392,7 +392,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 20,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -401,8 +402,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -411,7 +411,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 21,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -420,8 +421,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -430,7 +430,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 22,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -439,8 +440,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -449,7 +449,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 23,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -458,8 +459,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -468,7 +468,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 24,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -477,8 +478,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -487,7 +487,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 25,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -496,8 +497,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -506,7 +506,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 26,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -515,8 +516,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -525,7 +525,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 27,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -534,8 +535,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -544,7 +544,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 28,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -553,8 +554,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -563,7 +563,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 29,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -572,8 +573,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -582,7 +582,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 30,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -591,8 +592,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -601,7 +601,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 31,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -610,8 +611,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -620,7 +620,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 32,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -629,8 +630,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -639,7 +639,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 33,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -648,8 +649,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -658,7 +658,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 34,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -667,8 +668,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -677,7 +677,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 35,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -686,8 +687,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -696,7 +696,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 36,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -705,8 +706,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -715,7 +715,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 37,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -724,8 +725,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -734,7 +734,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 38,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -743,8 +744,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -753,7 +753,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 39,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -762,8 +763,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -772,7 +772,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 40,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -781,8 +782,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -791,7 +791,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 41,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -800,8 +801,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -810,7 +810,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 42,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -819,8 +820,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -829,7 +829,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 43,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -838,8 +839,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -848,7 +848,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 44,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -857,8 +858,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -867,7 +867,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 45,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -876,8 +877,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -886,7 +886,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 46,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -895,8 +896,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -905,7 +905,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 47,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -914,8 +915,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -924,7 +924,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 48,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -933,8 +934,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -943,7 +943,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 49,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -952,8 +953,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -962,7 +962,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 50,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -971,8 +972,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -981,7 +981,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 51,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -990,8 +991,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1000,7 +1000,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 52,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1009,8 +1010,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1019,7 +1019,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 53,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1028,8 +1029,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1038,7 +1038,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 54,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1047,8 +1048,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1057,7 +1057,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 55,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1066,8 +1067,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1076,7 +1076,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 56,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1085,8 +1086,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1095,7 +1095,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 57,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1104,8 +1105,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1114,7 +1114,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 58,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1123,8 +1124,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1133,7 +1133,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 59,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1142,8 +1143,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1152,7 +1152,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 60,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1161,8 +1162,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1171,7 +1171,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 61,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1180,8 +1181,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1190,7 +1190,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 62,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1199,8 +1200,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1209,7 +1209,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 63,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1218,8 +1219,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1228,7 +1228,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 64,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1237,8 +1238,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1247,7 +1247,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 65,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1256,8 +1257,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1266,7 +1266,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 66,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1275,8 +1276,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1285,7 +1285,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 67,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1294,8 +1295,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1304,7 +1304,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 68,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1313,8 +1314,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1323,7 +1323,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 69,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1332,8 +1333,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1342,7 +1342,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 70,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1351,8 +1352,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1361,7 +1361,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 71,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1370,8 +1371,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1380,7 +1380,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 72,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1389,8 +1390,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1399,7 +1399,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 73,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1408,8 +1409,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1418,7 +1418,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 74,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1427,8 +1428,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1437,7 +1437,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 75,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1446,8 +1447,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1456,7 +1456,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 76,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1465,8 +1466,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1475,7 +1475,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 77,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1484,8 +1485,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1494,7 +1494,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 78,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1503,8 +1504,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1513,7 +1513,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 79,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1522,8 +1523,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1532,7 +1532,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 80,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1541,8 +1542,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1551,7 +1551,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 81,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1560,8 +1561,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1570,7 +1570,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 82,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1579,8 +1580,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1589,7 +1589,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 83,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1598,8 +1599,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1608,7 +1608,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 84,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1617,8 +1618,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1627,7 +1627,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 85,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1636,8 +1637,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1646,7 +1646,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 86,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1655,8 +1656,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1665,7 +1665,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 87,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1674,8 +1675,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1684,7 +1684,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 88,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1693,8 +1694,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1703,7 +1703,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 89,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1712,8 +1713,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1722,7 +1722,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 90,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1731,8 +1732,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1741,7 +1741,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 91,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1750,8 +1751,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1760,7 +1760,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 92,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1769,8 +1770,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1779,7 +1779,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 93,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1788,8 +1789,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1798,7 +1798,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 94,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1807,8 +1808,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1817,7 +1817,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 95,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1826,8 +1827,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1836,7 +1836,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 96,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1845,8 +1846,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1855,7 +1855,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 97,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1864,8 +1865,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1874,7 +1874,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 98,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1883,8 +1884,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1893,7 +1893,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 99,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1902,8 +1903,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',
@@ -1912,7 +1912,8 @@ $result_trees{'recursive_expansion_in_set'} = {
             {
               'counter' => 100,
               'element' => {
-                'args' => [
+                'cmdname' => 'value',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1921,8 +1922,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                     ],
                     'type' => 'brace_container'
                   }
-                ],
-                'cmdname' => 'value'
+                ]
               },
               'line' => '@value{V}',
               'sourcemark_type' => 'value_expansion',

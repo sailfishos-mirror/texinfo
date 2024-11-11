@@ -29,12 +29,12 @@ $result_trees{'exdent_and_formats'} = {
                   'text' => ' Example   Hoho. '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'TeX',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'TeX',
                   'source_info' => {
                     'line_nr' => 2
                   }

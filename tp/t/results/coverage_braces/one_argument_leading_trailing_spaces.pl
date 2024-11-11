@@ -12,7 +12,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -31,7 +31,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'slanted',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -41,7 +42,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'slanted',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -50,7 +50,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'var',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -60,7 +61,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'var',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -69,7 +69,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'sub',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -79,7 +80,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sub',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -89,7 +89,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'hyphenation',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -107,7 +108,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'hyphenation',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 2
@@ -119,7 +119,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'type' => 'spaces_after_close_brace'
             },
             {
-              'args' => [
+              'cmdname' => 'indicateurl',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -129,7 +130,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'indicateurl',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -138,7 +138,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'U',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -156,7 +157,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'U',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -165,7 +165,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -175,7 +176,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -184,7 +184,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -195,7 +196,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => ':'
               },
@@ -208,7 +208,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -218,7 +219,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -227,7 +227,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'ringaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -237,7 +238,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'ringaccent',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -246,7 +246,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'dotless',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -256,7 +257,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'dotless',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -265,7 +265,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'tieaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -275,7 +276,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'tieaccent',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -285,7 +285,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'aa',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -295,7 +296,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'aa',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -304,7 +304,8 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'enddots',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -314,7 +315,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'enddots',
               'source_info' => {
                 'line_nr' => 5
               }

@@ -73,7 +73,8 @@ $result_trees{'filenameconflictwithspecialelement'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -88,7 +89,6 @@ $result_trees{'filenameconflictwithspecialelement'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 4
@@ -187,7 +187,8 @@ $result_trees{'filenameconflictwithspecialelement'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -197,7 +198,6 @@ $result_trees{'filenameconflictwithspecialelement'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'filenameconflictwithspecialelement-fot'

@@ -73,7 +73,8 @@ $result_trees{'macro_call_in_inlinefmtifelse_format'} = {
               'text' => 'Toto '
             },
             {
-              'args' => [
+              'cmdname' => 'inlinefmtifelse',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -132,7 +133,6 @@ $result_trees{'macro_call_in_inlinefmtifelse_format'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlinefmtifelse',
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'tex'

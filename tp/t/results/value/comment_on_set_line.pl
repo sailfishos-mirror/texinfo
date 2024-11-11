@@ -89,7 +89,8 @@ $result_trees{'comment_on_set_line'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -98,8 +99,7 @@ $result_trees{'comment_on_set_line'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => '',
                   'position' => 1,
@@ -115,7 +115,8 @@ $result_trees{'comment_on_set_line'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -124,8 +125,7 @@ $result_trees{'comment_on_set_line'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => '',
                   'position' => 5,
@@ -141,7 +141,8 @@ $result_trees{'comment_on_set_line'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -150,8 +151,7 @@ $result_trees{'comment_on_set_line'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'g',
                   'position' => 9,
@@ -167,7 +167,8 @@ $result_trees{'comment_on_set_line'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -176,8 +177,7 @@ $result_trees{'comment_on_set_line'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'a vv',
                   'position' => 14,

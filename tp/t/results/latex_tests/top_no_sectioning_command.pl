@@ -111,7 +111,8 @@ $result_trees{'top_no_sectioning_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'pxref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -129,7 +130,6 @@ $result_trees{'top_no_sectioning_command'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'pxref',
               'source_info' => {
                 'line_nr' => 6
               }
@@ -157,7 +157,7 @@ $result_trees{'top_no_sectioning_command'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'top_no_sectioning_command'} = '@node Top
 

@@ -41,7 +41,8 @@ $result_trees{'def_groupings_args'} = {
                               'text' => 'b'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -51,7 +52,6 @@ $result_trees{'def_groupings_args'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -85,7 +85,8 @@ $result_trees{'def_groupings_args'} = {
                           'text' => 'b'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -94,8 +95,7 @@ $result_trees{'def_groupings_args'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'code'
+                          ]
                         },
                         {
                           'text' => 'c'
@@ -177,7 +177,8 @@ $result_trees{'def_groupings_args'} = {
                               'text' => 'a'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'samp',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -187,7 +188,6 @@ $result_trees{'def_groupings_args'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'samp',
                               'source_info' => {
                                 'line_nr' => 4
                               }
@@ -274,7 +274,8 @@ $result_trees{'def_groupings_args'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'var',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -284,7 +285,6 @@ $result_trees{'def_groupings_args'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'var',
                               'source_info' => {
                                 'line_nr' => 7
                               }
@@ -310,7 +310,8 @@ $result_trees{'def_groupings_args'} = {
                               'text' => 'br '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'samp',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -320,7 +321,6 @@ $result_trees{'def_groupings_args'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'samp',
                               'source_info' => {
                                 'line_nr' => 7
                               }
@@ -356,7 +356,8 @@ $result_trees{'def_groupings_args'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -366,7 +367,6 @@ $result_trees{'def_groupings_args'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 7
                               }
@@ -401,7 +401,8 @@ $result_trees{'def_groupings_args'} = {
                           'text' => 'br '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'samp',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -410,8 +411,7 @@ $result_trees{'def_groupings_args'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'samp'
+                          ]
                         }
                       ],
                       'type' => 'bracketed_arg'

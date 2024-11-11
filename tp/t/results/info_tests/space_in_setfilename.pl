@@ -17,7 +17,8 @@ $result_trees{'space_in_setfilename'} = {
                   'cmdname' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'verb',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -28,7 +29,6 @@ $result_trees{'space_in_setfilename'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'verb',
                   'info' => {
                     'delimiter' => ':'
                   },

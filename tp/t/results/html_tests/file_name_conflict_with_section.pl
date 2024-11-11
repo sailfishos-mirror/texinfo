@@ -66,7 +66,8 @@ $result_trees{'file_name_conflict_with_section'} = {
       'cmdname' => 'top',
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -76,7 +77,6 @@ $result_trees{'file_name_conflict_with_section'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'Chap'

@@ -15,7 +15,8 @@ $result_trees{'accents_errors'} = {
               'text' => 'accent at end of line '
             },
             {
-              'args' => [
+              'cmdname' => 'ringaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -25,7 +26,6 @@ $result_trees{'accents_errors'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => 'ringaccent',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => '
@@ -40,7 +40,8 @@ $result_trees{'accents_errors'} = {
               'text' => 'ccent at end of line and spaces '
             },
             {
-              'args' => [
+              'cmdname' => 'ringaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -50,7 +51,6 @@ $result_trees{'accents_errors'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => 'ringaccent',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => '  
@@ -97,7 +97,8 @@ $result_trees{'accents_errors'} = {
               'text' => 'accent character with spaces '
             },
             {
-              'args' => [
+              'cmdname' => '~',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -107,7 +108,6 @@ $result_trees{'accents_errors'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '~',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => ' '
@@ -125,7 +125,8 @@ $result_trees{'accents_errors'} = {
               'text' => 'accent character at end of line '
             },
             {
-              'args' => [
+              'cmdname' => '~',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -135,7 +136,6 @@ $result_trees{'accents_errors'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '~',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => '

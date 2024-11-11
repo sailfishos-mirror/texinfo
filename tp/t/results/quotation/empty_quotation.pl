@@ -132,12 +132,12 @@ $result_trees{'empty_quotation'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 7
                   }

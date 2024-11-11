@@ -410,13 +410,20 @@ sub conversion_output_begin($;$$)
 
   my $fulltitle_command;
   if ($global_commands) {
-    foreach my $title_cmdname ('title', 'shorttitlepage', 'titlefont') {
+    foreach my $title_cmdname ('title', 'shorttitlepage') {
       if ($global_commands->{$title_cmdname}) {
         my $command = $global_commands->{$title_cmdname};
         next if (!$command->{'args'}
                  or !$command->{'args'}->[0]->{'contents'});
         $fulltitle_command = $command;
         last;
+      }
+    }
+    if (!defined($fulltitle_command)) {
+      my $command = $global_commands->{'titlefont'};
+      if ($command and $command->{'contents'}
+          and $command->{'contents'}->[0]->{'contents'}) {
+        $fulltitle_command = $command;
       }
     }
   }
@@ -648,13 +655,13 @@ sub _index_entry($$)
       $result .= "<see>";
       # args is set as the extra information is added when closing braces
       $result .= _convert($self, $index_entry->{'entry_element'}
-                                   ->{'extra'}->{'seeentry'}->{'args'}->[0]);
+                               ->{'extra'}->{'seeentry'}->{'contents'}->[0]);
       $result .= "</see>";
     }
     if ($index_entry->{'entry_element'}->{'extra'}->{'seealso'}) {
       $result .= "<seealso>";
       $result .= _convert($self, $index_entry->{'entry_element'}
-                               ->{'extra'}->{'seealso'}->{'args'}->[0]);
+                           ->{'extra'}->{'seealso'}->{'contents'}->[0]);
       $result .= "</seealso>";
     }
 
@@ -1106,14 +1113,15 @@ sub _convert($$;$)
       }
     } elsif ($element->{'type'}
              and $element->{'type'} eq 'definfoenclose_command') {
-      if ($element->{'args'}) {
-        my $arg_text = _convert($self, $element->{'args'}->[0]);
+      if ($element->{'contents'}) {
+        my $arg_text = _convert($self, $element->{'contents'}->[0]);
         $result .= $arg_text;
       }
+      return $result;
 
-    } elsif ($element->{'args'}
+    } elsif ($element->{'contents'}
              and exists($Texinfo::Commands::brace_commands{$cmdname})) {
-      #Texinfo::Common::debug_list(" brace command with args", $element->{'args'});
+      #Texinfo::Common::debug_list(" brace command with args", $element->{'contents'});
       if ($style_commands_formatting{$cmdname}) {
         if ($Texinfo::Commands::brace_commands{$cmdname} eq 'context') {
           _new_document_context($self);
@@ -1140,7 +1148,7 @@ sub _convert($$;$)
 
         my ($style, $attribute_text)
            = _parse_attribute($formatting->{'attribute'});
-        my $result = _convert($self, $element->{'args'}->[0]);
+        my $result = _convert($self, $element->{'contents'}->[0]);
         if ($style ne '' and (!$self->{'document_context'}->[-1]->{'inline'}
                                or $inline_elements{$style})) {
           $result = "<$style${attribute_text}>$result</$style>";
@@ -1170,8 +1178,8 @@ sub _convert($$;$)
       } elsif ($cmdname eq 'anchor') {
         return _output_anchor($element);
       } elsif ($Texinfo::Commands::ref_commands{$cmdname}) {
-        if ($element->{'args'}) {
-          my $args_nr = scalar(@{$element->{'args'}});
+        if ($element->{'contents'}) {
+          my $args_nr = scalar(@{$element->{'contents'}});
           my $command_name;
           my $book_element;
           my ($section_name, $node_name);
@@ -1184,27 +1192,27 @@ sub _convert($$;$)
             $command_name = 'ref';
           } else {
             if ($args_nr >= 5
-                and $element->{'args'}->[4]->{'contents'}) {
-              $book_element = $element->{'args'}->[4];
+                and $element->{'contents'}->[4]->{'contents'}) {
+              $book_element = $element->{'contents'}->[4];
             }
             if ($args_nr >= 3
-                and $element->{'args'}->[2]->{'contents'}) {
-              my $section_arg = $element->{'args'}->[2];
+                and $element->{'contents'}->[2]->{'contents'}) {
+              my $section_arg = $element->{'contents'}->[2];
               $section_name = _convert($self, $section_arg);
             }
             $command_name = $cmdname;
           }
           my $manual_file_element;
           if ($args_nr >= $manual_file_index+1
-              and $element->{'args'}->[$manual_file_index]->{'contents'}) {
-            $manual_file_element = $element->{'args'}->[$manual_file_index];
+              and $element->{'contents'}->[$manual_file_index]->{'contents'}) {
+            $manual_file_element = $element->{'contents'}->[$manual_file_index];
           }
           if (! defined($section_name) and $args_nr >= 2
-              and $element->{'args'}->[1]->{'contents'}) {
-            my $section_arg = $element->{'args'}->[1];
+              and $element->{'contents'}->[1]->{'contents'}) {
+            my $section_arg = $element->{'contents'}->[1];
             $section_name = _convert($self, $section_arg);
-          } elsif ($element->{'args'}->[0]->{'contents'}) {
-            my $node_arg = $element->{'args'}->[0];
+          } elsif ($element->{'contents'}->[0]->{'contents'}) {
+            my $node_arg = $element->{'contents'}->[0];
             push @{$self->{'document_context'}->[-1]->{'upper_case'}}, 0;
             $node_name = _convert($self, $node_arg);
             pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
@@ -1330,7 +1338,7 @@ sub _convert($$;$)
             $result = '';
           } else {
             my $linkend = '';
-            my $node_arg = $element->{'args'}->[0];
+            my $node_arg = $element->{'contents'}->[0];
             if ($node_arg and $node_arg->{'extra'}
                 and defined($node_arg->{'extra'}->{'normalized'})
                 and !$node_arg->{'extra'}->{'manual_content'}) {
@@ -1363,14 +1371,14 @@ sub _convert($$;$)
           return '';
         }
       } elsif ($cmdname eq 'image') {
-        if ($element->{'args'}
-            and $element->{'args'}->[0]->{'contents'}) {
+        if ($element->{'contents'}
+            and $element->{'contents'}->[0]->{'contents'}) {
           Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
           Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                   $self->{'convert_text_options'});
           my $basefile = Texinfo::Convert::Text::convert_to_text(
-                                        $element->{'args'}->[0],
+                                        $element->{'contents'}->[0],
                                     $self->{'convert_text_options'});
           Texinfo::Convert::Text::reset_options_code(
                                  $self->{'convert_text_options'});
@@ -1422,17 +1430,18 @@ sub _convert($$;$)
             $result .= "</mediaobject></informalfigure>";
           }
         }
+        return $result;
       } elsif ($cmdname eq 'email') {
-        if ($element->{'args'}) {
+        if ($element->{'contents'}) {
           my $name;
           my $email;
           my $email_text;
-          if (scalar(@{$element->{'args'}}) >= 2
-              and $element->{'args'}->[1]->{'contents'}) {
-            $name = $element->{'args'}->[1];
+          if (scalar(@{$element->{'contents'}}) >= 2
+              and $element->{'contents'}->[1]->{'contents'}) {
+            $name = $element->{'contents'}->[1];
           }
-          if ($element->{'args'}->[0]->{'contents'}) {
-            $email = $element->{'args'}->[0];
+          if ($element->{'contents'}->[0]->{'contents'}) {
+            $email = $element->{'contents'}->[0];
             Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
             Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
@@ -1462,11 +1471,11 @@ sub _convert($$;$)
         }
 
       } elsif ($cmdname eq 'uref' or $cmdname eq 'url') {
-        if ($element->{'args'}) {
-          my $args_nr = scalar(@{$element->{'args'}});
+        if ($element->{'contents'}) {
+          my $args_nr = scalar(@{$element->{'contents'}});
           my ($url_text, $url_arg);
-          if ($element->{'args'}->[0]->{'contents'}) {
-            $url_arg = $element->{'args'}->[0];
+          if ($element->{'contents'}->[0]->{'contents'}) {
+            $url_arg = $element->{'contents'}->[0];
             Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
             Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
@@ -1483,13 +1492,13 @@ sub _convert($$;$)
           }
           my $replacement;
           if ($args_nr >= 2
-              and $element->{'args'}->[1]->{'contents'}) {
-            $replacement = _convert($self, $element->{'args'}->[1]);
+              and $element->{'contents'}->[1]->{'contents'}) {
+            $replacement = _convert($self, $element->{'contents'}->[1]);
           }
           if (!defined($replacement) or $replacement eq '') {
             if ($args_nr >= 3
-                and $element->{'args'}->[2]->{'contents'}) {
-              $replacement = _convert($self, $element->{'args'}->[2]);
+                and $element->{'contents'}->[2]->{'contents'}) {
+              $replacement = _convert($self, $element->{'contents'}->[2]);
             }
           }
           if (!defined($replacement) or $replacement eq '') {
@@ -1503,10 +1512,10 @@ sub _convert($$;$)
         }
 
       } elsif ($cmdname eq 'abbr' or $cmdname eq 'acronym') {
-        if ($element->{'args'}) {
+        if ($element->{'contents'}) {
           my $argument;
-          if ($element->{'args'}->[0]->{'contents'}) {
-            my $arg_text = _convert($self, $element->{'args'}->[0]);
+          if ($element->{'contents'}->[0]->{'contents'}) {
+            my $arg_text = _convert($self, $element->{'contents'}->[0]);
             if ($arg_text ne '') {
               my $format_element;
               if ($cmdname eq 'abbr') {
@@ -1517,17 +1526,17 @@ sub _convert($$;$)
               $argument = "<$format_element>$arg_text</$format_element>";
             }
           }
-          if (scalar(@{$element->{'args'}}) >= 2
-              and $element->{'args'}->[1]->{'contents'}) {
+          if (scalar(@{$element->{'contents'}}) >= 2
+              and $element->{'contents'}->[1]->{'contents'}) {
             if (defined($argument)) {
               my $tree = $self->cdt('{abbr_or_acronym} ({explanation})',
                              {'abbr_or_acronym' => {'type' => '_converted',
                                                     'text' => $argument},
                               'explanation' =>
-                                  $element->{'args'}->[1]});
+                                  $element->{'contents'}->[1]});
               return _convert($self, $tree);
             } else {
-              return _convert($self, $element->{'args'}->[1]);
+              return _convert($self, $element->{'contents'}->[1]);
             }
           } elsif (defined($argument)) {
             return $argument;
@@ -1536,10 +1545,11 @@ sub _convert($$;$)
         return '';
 
       } elsif ($cmdname eq 'U') {
-        if ($element->{'args'}
-            and $element->{'args'}->[0]->{'contents'}
-            and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}) {
-          my $arg_text = $element->{'args'}->[0]->{'contents'}->[0]->{'text'};
+        if ($element->{'contents'}
+            and $element->{'contents'}->[0]->{'contents'}
+            and $element->{'contents'}->[0]->{'contents'}->[0]->{'text'}) {
+          my $arg_text
+            = $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
 
           if (defined($arg_text)) {
             my $result = "&#x$arg_text;";
@@ -1567,9 +1577,9 @@ sub _convert($$;$)
                  and ! $self->{'expanded_formats'}->{$element->{'extra'}->{'format'}}) {
           $arg_index = 2;
         }
-        if (scalar(@{$element->{'args'}}) > $arg_index
-            and $element->{'args'}->[$arg_index]->{'contents'}) {
-          $result .= _convert($self, $element->{'args'}->[$arg_index]);
+        if (scalar(@{$element->{'contents'}}) > $arg_index
+            and $element->{'contents'}->[$arg_index]->{'contents'}) {
+          $result .= _convert($self, $element->{'contents'}->[$arg_index]);
         }
         if ($cmdname eq 'inlineraw') {
           pop @{$self->{'document_context'}};

@@ -1017,7 +1017,7 @@ end_line_starting_block (ELEMENT *current)
           /* if the command as argument does not have braces but it is
              not a mark (noarg) command, warn */
               if (k_command_as_arg
-                  && command_as_arg_e->e.c->args.number <= 0
+                  && command_as_arg_e->e.c->contents.number <= 0
               /* only brace commands are registered as command_as_argument
                  so we can assume that the following is true:
                  && command_data(command_as_arg_e->e.c->cmd).flags & CF_brace

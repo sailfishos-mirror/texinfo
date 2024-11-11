@@ -51,7 +51,8 @@ $result_trees{'utf8_enable_encoding'} = {
               'text' => 'AA '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -61,7 +62,6 @@ $result_trees{'utf8_enable_encoding'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 3
               }

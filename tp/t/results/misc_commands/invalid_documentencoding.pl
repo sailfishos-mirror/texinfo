@@ -27,12 +27,12 @@ $result_trees{'invalid_documentencoding'} = {
                   'text' => 'us-ascii'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 2
                   }
@@ -73,7 +73,8 @@ $result_trees{'invalid_documentencoding'} = {
                   'text' => 'latin1'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -83,7 +84,6 @@ $result_trees{'invalid_documentencoding'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 4
                   }
@@ -277,12 +277,12 @@ $result_trees{'invalid_documentencoding'} = {
                       'text' => 'AAA'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'TeX',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'TeX',
                       'source_info' => {
                         'line_nr' => 10
                       }
@@ -318,7 +318,8 @@ $result_trees{'invalid_documentencoding'} = {
                       'text' => 'BBB'
                     },
                     {
-                      'args' => [
+                      'cmdname' => '\'',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -328,7 +329,6 @@ $result_trees{'invalid_documentencoding'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '\'',
                       'source_info' => {
                         'line_nr' => 11
                       }

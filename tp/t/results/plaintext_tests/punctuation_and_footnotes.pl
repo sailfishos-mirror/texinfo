@@ -20,7 +20,8 @@ $result_trees{'punctuation_and_footnotes'} = {
               'text' => 'Text.'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -35,7 +36,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 2
@@ -49,7 +49,8 @@ $result_trees{'punctuation_and_footnotes'} = {
               'text' => 'end.'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -64,7 +65,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 3
@@ -74,7 +74,8 @@ $result_trees{'punctuation_and_footnotes'} = {
               'text' => '  S2.'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -89,7 +90,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 3
@@ -113,7 +113,8 @@ $result_trees{'punctuation_and_footnotes'} = {
               'text' => 'No PERIOD.'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -128,7 +129,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 5
@@ -138,7 +138,8 @@ $result_trees{'punctuation_and_footnotes'} = {
               'text' => ' worD.'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -153,7 +154,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 5
@@ -167,7 +167,8 @@ $result_trees{'punctuation_and_footnotes'} = {
               'text' => 'wW.'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -182,7 +183,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 6
@@ -209,7 +209,8 @@ $result_trees{'punctuation_and_footnotes'} = {
               'cmdname' => '.'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -224,7 +225,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 8
@@ -241,7 +241,8 @@ $result_trees{'punctuation_and_footnotes'} = {
               'cmdname' => '.'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -256,7 +257,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 9
@@ -273,7 +273,8 @@ $result_trees{'punctuation_and_footnotes'} = {
               'cmdname' => '.'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -288,7 +289,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 10
@@ -315,7 +315,8 @@ $result_trees{'punctuation_and_footnotes'} = {
               'cmdname' => ':'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -330,7 +331,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 12
@@ -347,7 +347,8 @@ $result_trees{'punctuation_and_footnotes'} = {
               'cmdname' => ':'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -362,7 +363,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 13
@@ -379,7 +379,8 @@ $result_trees{'punctuation_and_footnotes'} = {
               'cmdname' => ':'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -394,7 +395,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 14

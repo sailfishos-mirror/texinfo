@@ -37,7 +37,8 @@ $result_trees{'command_in_end_expanded_raw_one_char_not_in_command'} = {
                           'text' => 't'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'asis',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -47,7 +48,6 @@ $result_trees{'command_in_end_expanded_raw_one_char_not_in_command'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'asis',
                           'source_info' => {
                             'line_nr' => 3
                           }

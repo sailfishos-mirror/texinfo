@@ -102,12 +102,12 @@ $result_trees{'punctuation_commands_frenchspacing'} = {
               'text' => 'Enddots'
             },
             {
-              'args' => [
+              'cmdname' => 'enddots',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'enddots',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -116,12 +116,12 @@ $result_trees{'punctuation_commands_frenchspacing'} = {
               'text' => ' Enddots'
             },
             {
-              'args' => [
+              'cmdname' => 'enddots',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'enddots',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -174,12 +174,12 @@ $result_trees{'punctuation_commands_frenchspacing'} = {
               'text' => 'Enddots'
             },
             {
-              'args' => [
+              'cmdname' => 'enddots',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'enddots',
               'source_info' => {
                 'line_nr' => 10
               }
@@ -240,12 +240,12 @@ $result_trees{'punctuation_commands_frenchspacing'} = {
               'text' => 'Enddots'
             },
             {
-              'args' => [
+              'cmdname' => 'enddots',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'enddots',
               'source_info' => {
                 'line_nr' => 17
               }

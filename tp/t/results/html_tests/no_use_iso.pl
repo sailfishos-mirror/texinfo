@@ -15,7 +15,8 @@ $result_trees{'no_use_iso'} = {
               'text' => 'AA '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -25,7 +26,6 @@ $result_trees{'no_use_iso'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 1
               }

@@ -153,7 +153,8 @@ $result_trees{'no_empty_line_after_section'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'uref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -163,7 +164,6 @@ $result_trees{'no_empty_line_after_section'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'uref',
               'source_info' => {
                 'line_nr' => 11
               }

@@ -494,7 +494,8 @@ $result_trees{'formats_in_menu'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'acronym',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -508,7 +509,6 @@ $result_trees{'formats_in_menu'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'acronym',
                           'source_info' => {
                             'line_nr' => 21
                           }

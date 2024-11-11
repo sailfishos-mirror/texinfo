@@ -263,7 +263,8 @@ macroseven defined
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -274,7 +275,6 @@ macroseven defined
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => '%'
               },
@@ -839,7 +839,8 @@ macroseven defined
 '
             },
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -849,7 +850,6 @@ macroseven defined
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'line_nr' => 41,
                 'macro' => 'macroseven'

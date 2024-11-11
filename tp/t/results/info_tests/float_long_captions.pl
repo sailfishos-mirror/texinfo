@@ -65,7 +65,8 @@ $result_trees{'float_long_captions'} = {
           'cmdname' => 'float',
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -80,7 +81,6 @@ $result_trees{'float_long_captions'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },
@@ -175,7 +175,8 @@ $result_trees{'float_long_captions'} = {
           'cmdname' => 'float',
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -190,7 +191,6 @@ $result_trees{'float_long_captions'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },

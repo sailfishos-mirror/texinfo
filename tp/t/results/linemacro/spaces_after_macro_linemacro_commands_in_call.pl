@@ -337,7 +337,8 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                               'text' => ''
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'samp',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -347,7 +348,6 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'samp',
                               'source_info' => {
                                 'line_nr' => 15,
                                 'macro' => 'mymac'
@@ -391,7 +391,8 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                           'text' => ''
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'samp',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -400,8 +401,7 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                               ],
                               'type' => 'brace_container'
                             }
-                          ],
-                          'cmdname' => 'samp'
+                          ]
                         }
                       ],
                       'info' => {

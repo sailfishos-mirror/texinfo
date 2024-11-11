@@ -12,7 +12,8 @@ $result_trees{'accent_command_punctuation'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'dotaccent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'accent_command_punctuation'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'dotaccent',
               'source_info' => {
                 'line_nr' => 1
               }

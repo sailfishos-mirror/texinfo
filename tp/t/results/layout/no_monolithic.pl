@@ -92,7 +92,8 @@ $result_trees{'no_monolithic'} = {
               'text' => 'Not monolitic manual'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -107,7 +108,6 @@ $result_trees{'no_monolithic'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'file_name' => 'no_monolithic.texi',

@@ -76,7 +76,8 @@ $result_trees{'code_in_def'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'code',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -89,7 +90,6 @@ $result_trees{'code_in_def'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'code',
                               'source_info' => {
                                 'line_nr' => 1
                               }
@@ -165,7 +165,8 @@ $result_trees{'code_in_def'} = {
                       'text' => 'Documentation of '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -175,7 +176,6 @@ $result_trees{'code_in_def'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 2
                       }

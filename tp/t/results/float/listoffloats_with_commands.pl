@@ -20,7 +20,8 @@ $result_trees{'listoffloats_with_commands'} = {
                   'text' => 'th'
                 },
                 {
-                  'args' => [
+                  'cmdname' => '\'',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -30,7 +31,6 @@ $result_trees{'listoffloats_with_commands'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '\'',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -39,7 +39,8 @@ $result_trees{'listoffloats_with_commands'} = {
                   'text' => 'or'
                 },
                 {
-                  'args' => [
+                  'cmdname' => '`',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -49,7 +50,6 @@ $result_trees{'listoffloats_with_commands'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '`',
                   'source_info' => {
                     'line_nr' => 1
                   }

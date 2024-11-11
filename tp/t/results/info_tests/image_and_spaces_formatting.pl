@@ -35,7 +35,8 @@ $result_trees{'image_and_spaces_formatting'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -45,7 +46,6 @@ $result_trees{'image_and_spaces_formatting'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -57,7 +57,8 @@ $result_trees{'image_and_spaces_formatting'} = {
           'text' => ' '
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -67,7 +68,6 @@ $result_trees{'image_and_spaces_formatting'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -79,7 +79,8 @@ $result_trees{'image_and_spaces_formatting'} = {
           'text' => ' '
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -89,7 +90,6 @@ $result_trees{'image_and_spaces_formatting'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -101,7 +101,8 @@ $result_trees{'image_and_spaces_formatting'} = {
           'text' => ' '
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -111,7 +112,6 @@ $result_trees{'image_and_spaces_formatting'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -123,7 +123,8 @@ $result_trees{'image_and_spaces_formatting'} = {
           'text' => ' '
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -133,7 +134,6 @@ $result_trees{'image_and_spaces_formatting'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -145,7 +145,8 @@ $result_trees{'image_and_spaces_formatting'} = {
           'text' => ' '
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -155,7 +156,6 @@ $result_trees{'image_and_spaces_formatting'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -167,7 +167,8 @@ $result_trees{'image_and_spaces_formatting'} = {
           'text' => ' '
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -177,7 +178,6 @@ $result_trees{'image_and_spaces_formatting'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -200,7 +200,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => 'Some text '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -210,7 +211,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -222,7 +222,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -232,7 +233,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -244,7 +244,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -254,7 +255,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -266,7 +266,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -276,7 +277,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -288,7 +288,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -298,7 +299,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -310,7 +310,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -320,7 +321,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -332,7 +332,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -342,7 +343,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -368,7 +368,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => 'Some text '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -378,7 +379,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -390,7 +390,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => ' text aaaaaaaaa '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -400,7 +401,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -412,7 +412,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => ' text bbbbbbbbbbb '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -422,7 +423,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -434,7 +434,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => ' text ccccccccccccc '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -444,7 +445,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -456,7 +456,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => ' text ddddddddddddd '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -466,7 +467,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -478,7 +478,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => ' text eeeeeeeeeeeeeee '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -488,7 +489,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -500,7 +500,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => ' text fffffffffff '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -510,7 +511,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -536,7 +536,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -546,7 +547,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -572,7 +572,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBB '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -582,7 +583,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -608,7 +608,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => 'Text. '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -618,7 +619,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },
@@ -630,7 +630,8 @@ $result_trees{'image_and_spaces_formatting'} = {
               'text' => '       '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -640,7 +641,6 @@ $result_trees{'image_and_spaces_formatting'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },

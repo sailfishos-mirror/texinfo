@@ -865,7 +865,8 @@ $result_trees{'special_spaces_in_nodes'} = {
         {
           "contents" => [
             {
-              "args" => [
+              "cmdname" => "ref",
+              "contents" => [
                 {
                   "contents" => [
                     {
@@ -883,7 +884,6 @@ $result_trees{'special_spaces_in_nodes'} = {
                   "type" => "brace_arg"
                 }
               ],
-              "cmdname" => "ref",
               "source_info" => {
                 "file_name" => "special_spaces_in_nodes.texi",
                 "line_nr" => 36
@@ -934,7 +934,7 @@ $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents
 $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[5]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[5]{"contents"}[1]{"contents"}[0];
 $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[6]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[6]{"contents"}[1]{"contents"}[0];
 $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[7]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[7]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[12]{"contents"}[1]{"contents"}[0]{"args"}[0]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[12]{"contents"}[1]{"contents"}[0]{"args"}[0]{"contents"}[0];
+$result_trees{'special_spaces_in_nodes'}{"contents"}[12]{"contents"}[1]{"contents"}[0]{"contents"}[0]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[12]{"contents"}[1]{"contents"}[0]{"contents"}[0]{"contents"}[0];
 
 $result_texis{'special_spaces_in_nodes'} = '
 @node Top  

@@ -1147,6 +1147,7 @@ sub _bug_message($$;$$)
 }
 
 # for debugging
+# TODO probably useless now that args are contents
 sub _print_command_args_texi($)
 {
   my $current = shift;
@@ -4332,7 +4333,7 @@ sub _end_line_starting_block($$$)
       # if the command as argument does not have braces but it is
       # not a mark (noarg) command, warn
       if (defined($command_as_argument)
-          and !$command_as_argument->{'args'}
+          and !$command_as_argument->{'contents'}
           and $brace_commands{$command_as_argument->{'cmdname'}} ne 'noarg') {
         my $cmdname = $command_as_argument->{'cmdname'};
         $self->_command_warn($current, __("\@%s expected braces"),
@@ -5162,11 +5163,11 @@ sub _new_value_element($$;$$)
   my $spaces_element = shift;
 
   my $value_elt = { 'cmdname' => $command,
-                      'args' => [] };
+                      'contents' => [] };
   $value_elt->{'parent'} = $current if (defined($current));
   my $brace_container = {'type' => 'brace_container',
                          'contents' => [], 'parent' => $value_elt};
-  push @{$value_elt->{'args'}}, $brace_container;
+  push @{$value_elt->{'contents'}}, $brace_container;
   push @{$brace_container->{'contents'}}, {'text' => $flag,
                                            'parent' => $brace_container};
   if ($spaces_element) {
@@ -6233,7 +6234,7 @@ sub _handle_open_brace($$$$)
     }
 
     my $arg = {'parent' => $current};
-    $current->{'args'} = [$arg];
+    $current->{'contents'} = [$arg];
     $current = $arg;
     push @{$self->{'nesting_context'}->{'basic_inline_stack'}}, $command
       if ($self->{'basic_inline_commands'}
@@ -6455,7 +6456,7 @@ sub _handle_close_brace($$$)
     } elsif ($ref_commands{$closed_cmdname}) {
       my $ref = $brace_command;
       my @args;
-      for $a (@{$ref->{'args'}}) {
+      for $a (@{$ref->{'contents'}}) {
         if ($a->{'contents'}) {
           push @args, $a->{'contents'};
         } else {
@@ -6474,7 +6475,7 @@ sub _handle_close_brace($$$)
            "command \@%s missing a node or external manual argument"),
                               $closed_cmdname), $source_info);
       } else {
-        my $arg_label = $ref->{'args'}->[0];
+        my $arg_label = $ref->{'contents'}->[0];
         my $ref_label_info
           = Texinfo::Common::parse_node_manual($arg_label, 1);
         if (defined($ref_label_info)) {
@@ -6515,7 +6516,7 @@ sub _handle_close_brace($$$)
       }
     } elsif ($closed_cmdname eq 'image') {
       my $image = $brace_command;
-      if (!$image->{'args'}->[0]->{'contents'}) {
+      if (!$image->{'contents'}->[0]->{'contents'}) {
         $self->_line_error(
            __("\@image missing filename argument"), $source_info);
       }
@@ -6540,7 +6541,7 @@ sub _handle_close_brace($$$)
     } elsif ($explained_commands{$closed_cmdname}
              or ($brace_commands{$closed_cmdname}
                  and $brace_commands{$closed_cmdname} eq 'inline')) {
-      if (!$brace_command->{'args'}->[0]->{'contents'}) {
+      if (!$brace_command->{'contents'}->[0]->{'contents'}) {
         $self->_line_warn(
            sprintf(__("\@%s missing first argument"),
                    $closed_cmdname), $source_info);
@@ -6665,15 +6666,15 @@ sub _handle_comma($$$$)
   #                          and $type ne 'brace_arg'
   #                          and $type ne 'block_line_arg'
   #                          and $type ne 'line_arg');
-  my $brace_command = $current->{'parent'};
+  my $command_element = $current->{'parent'};
 
-  $brace_command->{'remaining_args'}--;
+  $command_element->{'remaining_args'}--;
 
-  if ($brace_commands{$brace_command->{'cmdname'}}
-      and $brace_commands{$brace_command->{'cmdname'}} eq 'inline') {
+  if ($brace_commands{$command_element->{'cmdname'}}
+      and $brace_commands{$command_element->{'cmdname'}} eq 'inline') {
     my $expandp = 0;
-    $brace_command->{'extra'} = {} if (!$brace_command->{'extra'});
-    if (! $brace_command->{'extra'}->{'format'}) {
+    $command_element->{'extra'} = {} if (!$command_element->{'extra'});
+    if (! $command_element->{'extra'}->{'format'}) {
       my $inline_type;
       # get the first argument, which is also $current, which was before the comma
       # and put it in extra format
@@ -6687,33 +6688,33 @@ sub _handle_comma($$$$)
           if ($self->{'conf'}->{'DEBUG'});
       } else {
         print STDERR "INLINE: $inline_type\n" if ($self->{'conf'}->{'DEBUG'});
-        if ($inline_format_commands{$brace_command->{'cmdname'}}) {
+        if ($inline_format_commands{$command_element->{'cmdname'}}) {
           if ($self->{'expanded_formats_hash'}->{$inline_type}) {
             $expandp = 1;
-            $brace_command->{'extra'}->{'expand_index'} = 1;
+            $command_element->{'extra'}->{'expand_index'} = 1;
           } else {
             $expandp = 0;
           }
-        } elsif (($brace_command->{'cmdname'} eq 'inlineifset'
+        } elsif (($command_element->{'cmdname'} eq 'inlineifset'
                   and exists($self->{'values'}->{$inline_type}))
-                 or ($brace_command->{'cmdname'} eq 'inlineifclear'
+                 or ($command_element->{'cmdname'} eq 'inlineifclear'
                      and ! exists($self->{'values'}->{$inline_type}))) {
           $expandp = 1;
-          $brace_command->{'extra'}->{'expand_index'} = 1;
+          $command_element->{'extra'}->{'expand_index'} = 1;
         } else {
           $expandp = 0;
         }
       }
-      $brace_command->{'extra'}->{'format'} = $inline_type;
+      $command_element->{'extra'}->{'format'} = $inline_type;
 
       # Skip first argument for a false @inlinefmtifelse
-      if (!$expandp and $brace_command->{'cmdname'} eq 'inlinefmtifelse') {
-        $brace_command->{'extra'}->{'expand_index'} = 2;
+      if (!$expandp and $command_element->{'cmdname'} eq 'inlinefmtifelse') {
+        $command_element->{'extra'}->{'expand_index'} = 2;
 
         my $elided_arg_elt = {'type' => 'elided_brace_command_arg',
                               'contents' => [],
-                              'parent' => $brace_command,};
-        push @{$brace_command->{'args'}}, $elided_arg_elt;
+                              'parent' => $command_element,};
+        push @{$command_element->{'contents'}}, $elided_arg_elt;
         my $arg_text_e = {'type' => 'raw', 'text' => '',
                           'parent' => $elided_arg_elt};
         push @{$elided_arg_elt->{'contents'}}, $arg_text_e;
@@ -6727,7 +6728,7 @@ sub _handle_comma($$$$)
             my $delimiter = $2;
             if ($delimiter eq ',') {
               if ($brace_count == 1) {
-                $brace_command->{'remaining_args'}--;
+                $command_element->{'remaining_args'}--;
                 last;
               }
               $arg_text_e->{'text'} .= $delimiter;
@@ -6762,7 +6763,7 @@ sub _handle_comma($$$$)
         # when condition is false.  Keep it.
         $expandp = 1;
       }
-    } elsif ($brace_command->{'cmdname'} eq 'inlinefmtifelse') {
+    } elsif ($command_element->{'cmdname'} eq 'inlinefmtifelse') {
       # Second part of @inlinefmtifelse (not counting the format) when
       # condition is true. Discard second part.
       $expandp = 0;
@@ -6772,8 +6773,8 @@ sub _handle_comma($$$$)
     if (!$expandp) {
       my $elided_arg_elt = {'type' => 'elided_brace_command_arg',
                             'contents' => [],
-                            'parent' => $brace_command,};
-      push @{$brace_command->{'args'}}, $elided_arg_elt;
+                            'parent' => $command_element,};
+      push @{$command_element->{'contents'}}, $elided_arg_elt;
       my $arg_text_e = {'type' => 'raw', 'text' => '',
                         'parent' => $elided_arg_elt};
       push @{$elided_arg_elt->{'contents'}}, $arg_text_e;
@@ -6811,8 +6812,13 @@ sub _handle_comma($$$$)
       # goto funexit;  # used in XS code
     }
   }
-  my $new_arg = {'type' => $type, 'parent' => $brace_command, 'contents' => []};
-  push @{$brace_command->{'args'}}, $new_arg;
+  my $new_arg = {'type' => $type, 'parent' => $command_element,
+                 'contents' => []};
+  if ($brace_commands{$command_element->{'cmdname'}}) {
+    push @{$command_element->{'contents'}}, $new_arg;
+  } else {
+    push @{$command_element->{'args'}}, $new_arg;
+  }
   # internal_spaces_before_argument is a transient internal type,
   # which should end up in info spaces_before_argument.
   my $space_before = {'type' => 'internal_spaces_before_argument',
@@ -7335,7 +7341,7 @@ sub _process_remaining_on_line($$$$)
         if ($self->{'conf'}->{'DEBUG'});
       my $following_arg = {'type' => 'following_arg',
                            'parent' => $current};
-      $current->{'args'} = [ $following_arg ];
+      $current->{'contents'} = [ $following_arg ];
       my $accent_arg = { 'text' => $arg_char, 'parent' => $following_arg };
       $following_arg->{'contents'} = [ $accent_arg ];
 

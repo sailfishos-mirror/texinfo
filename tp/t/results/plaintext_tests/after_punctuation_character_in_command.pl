@@ -15,7 +15,8 @@ $result_trees{'after_punctuation_character_in_command'} = {
               'text' => 'Text.'
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -29,7 +30,6 @@ $result_trees{'after_punctuation_character_in_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 1
               }

@@ -114,7 +114,8 @@ arg}
               'text' => 'With a doubles arg a simple '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -128,7 +129,6 @@ arg}
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 8,
                 'macro' => 'macrotwo'
@@ -142,7 +142,8 @@ arg}
               'text' => ' and re a simple '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -156,7 +157,6 @@ arg}
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 8,
                 'macro' => 'macrotwo'

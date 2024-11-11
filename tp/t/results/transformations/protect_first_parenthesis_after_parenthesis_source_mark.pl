@@ -68,11 +68,13 @@ $result_trees{'protect_first_parenthesis_after_parenthesis_source_mark'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'asis',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -105,8 +107,7 @@ $result_trees{'protect_first_parenthesis_after_parenthesis_source_mark'} = {
                       ],
                       'type' => 'brace_container'
                     }
-                  ],
-                  'cmdname' => 'asis'
+                  ]
                 },
                 {
                   'text' => 'my_f)'
@@ -115,7 +116,6 @@ $result_trees{'protect_first_parenthesis_after_parenthesis_source_mark'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => '_0028my_005ff_0029'

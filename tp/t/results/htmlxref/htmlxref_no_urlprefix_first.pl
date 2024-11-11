@@ -139,7 +139,8 @@ $result_trees{'htmlxref_no_urlprefix_first'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 },
@@ -158,7 +159,6 @@ $result_trees{'htmlxref_no_urlprefix_first'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 7
               }
@@ -178,7 +178,8 @@ $result_trees{'htmlxref_no_urlprefix_first'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 },
@@ -197,7 +198,6 @@ $result_trees{'htmlxref_no_urlprefix_first'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 9
               }

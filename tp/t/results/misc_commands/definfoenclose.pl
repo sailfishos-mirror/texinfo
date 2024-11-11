@@ -64,7 +64,8 @@ $result_trees{'definfoenclose'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'phoo',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -74,7 +75,6 @@ $result_trees{'definfoenclose'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'phoo',
               'extra' => {
                 'begin' => '//',
                 'end' => '\\'
@@ -149,7 +149,8 @@ $result_trees{'definfoenclose'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'phi',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -159,7 +160,6 @@ $result_trees{'definfoenclose'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'phi',
               'extra' => {
                 'begin' => ':',
                 'end' => ':'
@@ -187,7 +187,8 @@ $result_trees{'definfoenclose'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -197,7 +198,6 @@ $result_trees{'definfoenclose'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'source_info' => {
                 'line_nr' => 10
               }
@@ -256,7 +256,8 @@ $result_trees{'definfoenclose'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -266,7 +267,6 @@ $result_trees{'definfoenclose'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'extra' => {
                 'begin' => '(strong:',
                 'end' => ':)'

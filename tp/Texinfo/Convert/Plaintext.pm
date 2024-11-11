@@ -199,7 +199,8 @@ foreach my $nobrace_command (keys(%nobrace_commands)) {
 
 my %ignored_commands = (%ignored_line_commands, %ignored_nobrace_commands);
 foreach my $ignored_brace_commands ('caption', 'shortcaption',
-                                    'hyphenation', 'sortas') {
+                                    'hyphenation', 'sortas', 'errormsg',
+                                    'seeentry', 'seealso') {
   $ignored_commands{$ignored_brace_commands} = 1;
 }
 
@@ -1316,7 +1317,7 @@ sub process_footnotes($;$)
             'contents' => [$label_element,
                            {'text' => $footnote_anchor_postfix}]};
         $self->add_location({'cmdname' => 'anchor',
-                    'args' => [$footnote_anchor_arg],
+                    'contents' => [$footnote_anchor_arg],
                     'extra' => {'is_target' => 1,
                         'normalized'
        => $node_element->{'extra'}->{'normalized'}.$footnote_anchor_postfix},
@@ -1338,8 +1339,8 @@ sub process_footnotes($;$)
       _stream_output($self, $footnote_text);
 
       my $footnote_element = $footnote_info->{'footnote_element'};
-      if ($footnote_element->{'args'}) {
-        _convert($self, $footnote_element->{'args'}->[0]);
+      if ($footnote_element->{'contents'}) {
+        _convert($self, $footnote_element->{'contents'}->[0]);
       }
       _add_newline_if_needed($self);
 
@@ -1800,9 +1801,9 @@ sub process_printindex($$;$)
       my $referred_tree = {};
       $referred_tree->{'type'} = '_code'
         if ($indices_information->{$entry_index_name}->{'in_code'});
-      if ($referred_entry->{'args'} and $referred_entry->{'args'}->[0]
-          and $referred_entry->{'args'}->[0]->{'contents'}) {
-        $referred_tree->{'contents'} = [$referred_entry->{'args'}->[0]];
+      if ($referred_entry->{'contents'} and $referred_entry->{'contents'}->[0]
+          and $referred_entry->{'contents'}->[0]->{'contents'}) {
+        $referred_tree->{'contents'} = [$referred_entry->{'contents'}->[0]];
       }
 
       # indent with the same width as '* ', but do not use * such that the
@@ -1962,14 +1963,14 @@ sub format_ref($$$$)
   my $formatter = shift;
 
   my @args;
-  for my $arg (@{$element->{'args'}}) {
+  for my $arg (@{$element->{'contents'}}) {
     if (defined $arg->{'contents'}) {
       push @args, $arg;
     } else {
       push @args, undef;
     }
   }
-  my $node_arg = $element->{'args'}->[0];
+  my $node_arg = $element->{'contents'}->[0];
 
   # normalize node name, to get a ref with the right formatting
   # NOTE as a consequence, the line numbers appearing in case of errors
@@ -2210,10 +2211,10 @@ sub image_formatted_text($$$$)
   my $result;
   if (defined($text)) {
     $result = $text;
-  } elsif (scalar(@{$element->{'args'}}) >= 4
-           and $element->{'args'}->[3]->{'contents'}) {
+  } elsif (scalar(@{$element->{'contents'}}) >= 4
+           and $element->{'contents'}->[3]->{'contents'}) {
     $result = '[' .Texinfo::Convert::Text::convert_to_text(
-         $element->{'args'}->[3], $self->{'convert_text_options'}) .']';
+         $element->{'contents'}->[3], $self->{'convert_text_options'}) .']';
   } else {
     $self->plaintext_line_warn($self, sprintf(__(
                     "could not find \@image file `%s.txt' nor alternate text"),
@@ -2227,12 +2228,12 @@ sub format_image_element($$)
 {
   my ($self, $element) = @_;
 
-  if ($element->{'args'}
-      and $element->{'args'}->[0]->{'contents'}) {
+  if ($element->{'contents'}
+      and $element->{'contents'}->[0]->{'contents'}) {
     Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
     my $basefile = Texinfo::Convert::Text::convert_to_text(
-                                      $element->{'args'}->[0],
+                                      $element->{'contents'}->[0],
                                       $self->{'convert_text_options'});
     Texinfo::Convert::Text::reset_options_code(
                                  $self->{'convert_text_options'});
@@ -2971,12 +2972,13 @@ sub _convert($$)
                        add_next($formatter->{'container'}, $text_before, 1),
                        $formatter->{'container'})
            if ($text_before ne '');
-        if ($element->{'args'}) {
-          _convert($self, $element->{'args'}->[0]);
+        if ($element->{'contents'}) {
+          _convert($self, $element->{'contents'}->[0]);
           if ($cmdname eq 'strong'
-              and $element->{'args'}->[0]->{'contents'}
-              and defined($element->{'args'}->[0]->{'contents'}->[0]->{'text'})
-              and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}
+              and $element->{'contents'}->[0]->{'contents'}
+              and defined($element->{'contents'}->[0]->{'contents'}->[0]
+                                                                   ->{'text'})
+              and $element->{'contents'}->[0]->{'contents'}->[0]->{'text'}
                     =~ /^Note\s/i
               and $self->format_warn_strong_note()) {
             $self->plaintext_line_warn($self, __(
@@ -3027,16 +3029,16 @@ sub _convert($$)
         }
         return;
       } elsif ($cmdname eq 'link') {
-        if ($element->{'args'}) {
+        if ($element->{'contents'}) {
           # Use arg 2 if present, otherwise use arg 1.  Do not produce
           # functional link in Info/plaintext output.
           my $text_arg;
 
-          if (scalar(@{$element->{'args'}}) >= 2
-              and $element->{'args'}->[1]->{'contents'}) {
-            $text_arg = $element->{'args'}->[1];
-          } elsif ($element->{'args'}->[0]->{'contents'}) {
-            $text_arg = $element->{'args'}->[0];
+          if (scalar(@{$element->{'contents'}}) >= 2
+              and $element->{'contents'}->[1]->{'contents'}) {
+            $text_arg = $element->{'contents'}->[1];
+          } elsif ($element->{'contents'}->[0]->{'contents'}) {
+            $text_arg = $element->{'contents'}->[0];
           }
           if (defined($text_arg)) {
             _convert($self, $text_arg);
@@ -3046,7 +3048,7 @@ sub _convert($$)
       } elsif ($ref_commands{$cmdname}) {
         # no args may happen with bogus @-commands without argument, maybe only
         # at the end of a document
-        if ($element->{'args'}) {
+        if ($element->{'contents'}) {
           $self->format_ref($cmdname, $element, $formatter);
         }
         return;
@@ -3112,15 +3114,15 @@ sub _convert($$)
         }
         return;
       } elsif ($cmdname eq 'email') {
-        if ($element->{'args'}) {
+        if ($element->{'contents'}) {
           my $name;
           my $email;
-          if (scalar (@{$element->{'args'}}) >= 2
-              and $element->{'args'}->[1]->{'contents'}) {
-            $name = $element->{'args'}->[1];
+          if (scalar (@{$element->{'contents'}}) >= 2
+              and $element->{'contents'}->[1]->{'contents'}) {
+            $name = $element->{'contents'}->[1];
           }
-          if ($element->{'args'}->[0]->{'contents'}) {
-            $email = $element->{'args'}->[0];
+          if ($element->{'contents'}->[0]->{'contents'}) {
+            $email = $element->{'contents'}->[0];
           }
           my $email_tree;
           if ($name and $email) {
@@ -3139,28 +3141,28 @@ sub _convert($$)
         return;
       } elsif ($cmdname eq 'uref' or $cmdname eq 'url') {
         my $inserted;
-        if ($element->{'args'}) {
-          if (scalar(@{$element->{'args'}}) == 3
-               and $element->{'args'}->[2]->{'contents'}) {
+        if ($element->{'contents'}) {
+          if (scalar(@{$element->{'contents'}}) == 3
+               and $element->{'contents'}->[2]->{'contents'}) {
             $inserted = {'type' => '_stop_upper_case',
-                         'contents' => [$element->{'args'}->[2]]};
-          } elsif ($element->{'args'}->[0]->{'contents'}) {
+                         'contents' => [$element->{'contents'}->[2]]};
+          } elsif ($element->{'contents'}->[0]->{'contents'}) {
             # no mangling of --- and similar in url.
             my $url = {'type' => '_stop_upper_case',
               'contents' => [
                {'type' => '_code',
-                'contents' => [$element->{'args'}->[0]]}]};
-            if (scalar(@{$element->{'args'}}) == 2
-                and $element->{'args'}->[1]->{'contents'}) {
+                'contents' => [$element->{'contents'}->[0]]}]};
+            if (scalar(@{$element->{'contents'}}) == 2
+                and $element->{'contents'}->[1]->{'contents'}) {
               $inserted = $self->cdt('{text} ({url})',
-                   {'text' => $element->{'args'}->[1],
+                   {'text' => $element->{'contents'}->[1],
                     'url' => $url });
             } else {
               $inserted = $self->cdt('@t{<{url}>}', {'url' => $url});
             }
-          } elsif (scalar(@{$element->{'args'}}) == 2
-                   and $element->{'args'}->[1]->{'contents'}) {
-            $inserted = $element->{'args'}->[1];
+          } elsif (scalar(@{$element->{'contents'}}) == 2
+                   and $element->{'contents'}->[1]->{'contents'}) {
+            $inserted = $element->{'contents'}->[1];
           }
         }
         if ($inserted) {
@@ -3191,7 +3193,7 @@ sub _convert($$)
           _convert($self, {'contents' =>
            [{'text' => ' ('},
             {'cmdname' => 'pxref',
-             'args' => [
+             'contents' => [
                {'type' => 'brace_arg',
                 'contents' => [
                    $self->{'current_node'}->{'args'}->[0],
@@ -3210,21 +3212,21 @@ sub _convert($$)
         _anchor($self, $element);
         return;
       } elsif ($explained_commands{$cmdname}) {
-        if ($element->{'args'}
-            and $element->{'args'}->[0]->{'contents'}) {
+        if ($element->{'contents'}
+            and $element->{'contents'}->[0]->{'contents'}) {
           # in abbr spaces never end a sentence.
           my $argument;
           if ($cmdname eq 'abbr') {
             $argument = {'type' => 'frenchspacing',
-                         'contents' => [$element->{'args'}->[0]]};
+                         'contents' => [$element->{'contents'}->[0]]};
           } else {
-            $argument = $element->{'args'}->[0];
+            $argument = $element->{'contents'}->[0];
           }
-          if (scalar(@{$element->{'args'}}) >= 2
-              and $element->{'args'}->[1]->{'contents'}) {
+          if (scalar(@{$element->{'contents'}}) >= 2
+              and $element->{'contents'}->[1]->{'contents'}) {
             my $inserted = $self->cdt('{abbr_or_acronym} ({explanation})',
                    {'abbr_or_acronym' => $argument,
-                    'explanation' => $element->{'args'}->[1]});
+                    'explanation' => $element->{'contents'}->[1]});
             _convert($self, $inserted);
             return;
           } else {
@@ -3245,11 +3247,11 @@ sub _convert($$)
                                         ->{$element->{'extra'}->{'format'}})) {
           $arg_index = 2;
         }
-        if (scalar(@{$element->{'args'}}) > $arg_index
-           and defined($element->{'args'}->[$arg_index])
-           and $element->{'args'}->[$arg_index]->{'contents'}
-           and scalar(@{$element->{'args'}->[$arg_index]->{'contents'}})) {
-          my $arg = $element->{'args'}->[$arg_index];
+        if (scalar(@{$element->{'contents'}}) > $arg_index
+           and defined($element->{'contents'}->[$arg_index])
+           and $element->{'contents'}->[$arg_index]->{'contents'}
+           and scalar(@{$element->{'contents'}->[$arg_index]->{'contents'}})) {
+          my $arg = $element->{'contents'}->[$arg_index];
           my $argument;
           if ($cmdname eq 'inlineraw') {
             $argument = {'type' => '_stop_upper_case',
@@ -3263,7 +3265,7 @@ sub _convert($$)
         return;
         # condition should actually be that the $cmdname is inline
       } elsif ($math_commands{$cmdname}) {
-        if ($element->{'args'}) {
+        if ($element->{'contents'}) {
           push @{$self->{'context'}}, $cmdname;
           if ($self->{'elements_images'}
               and $self->{'elements_images'}->{$element}) {
@@ -3282,7 +3284,7 @@ sub _convert($$)
           }
           _convert($self, {'type' => 'frenchspacing',
                'contents' => [{'type' => '_code',
-                              'contents' => [$element->{'args'}->[0]]}]});
+                              'contents' => [$element->{'contents'}->[0]]}]});
           if ($self->{'elements_images'}
               and $self->{'elements_images'}->{$element}) {
             # flush @math, including spaces
@@ -3304,11 +3306,11 @@ sub _convert($$)
         }
         return;
       } elsif ($cmdname eq 'titlefont') {
-        if ($element->{'args'}) {
-          my $result = _text_heading($self,
+        if ($element->{'contents'}) {
+          my $result = _text_heading($self, 
                           {'extra' => {'section_level' => 0},
                            'cmdname' => 'titlefont'},
-                            $element->{'args'}->[0],
+                            $element->{'contents'}->[0],
                             $self->get_conf('NUMBER_SECTIONS'),
           ($self->{'format_context'}->[-1]->{'indent_level'}) *$indent_length);
           $result =~ s/\n$//; # final newline has its own tree element
@@ -3317,10 +3319,11 @@ sub _convert($$)
         }
         return;
       } elsif ($cmdname eq 'U') {
-        if ($element->{'args'}
-            and $element->{'args'}->[0]->{'contents'}
-            and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}) {
-          my $arg_text = $element->{'args'}->[0]->{'contents'}->[0]->{'text'};
+        if ($element->{'contents'}
+            and $element->{'contents'}->[0]->{'contents'}
+            and $element->{'contents'}->[0]->{'contents'}->[0]->{'text'}) {
+          my $arg_text
+            = $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
 
           if (defined($arg_text)) {
             # Syntactic checks on the value were already done in Parser.pm,
@@ -3348,7 +3351,7 @@ sub _convert($$)
         return;
       } elsif ($cmdname eq 'value') {
         my $expansion = $self->cdt('@{No value for `{value}\'@}',
-                                   {'value' => $element->{'args'}->[0]});
+                                   {'value' => $element->{'contents'}->[0]});
         my $piece;
         if ($formatter->{'_top_formatter'}) {
           $piece = {'type' => 'paragraph',
@@ -3750,11 +3753,11 @@ sub _convert($$)
           } elsif ($float->{'extra'}->{'caption'}) {
             $caption = $float->{'extra'}->{'caption'};
           }
-          if ($caption and $caption->{'args'}
-              and $caption->{'args'}->[0]->{'contents'}) {
+          if ($caption and $caption->{'contents'}
+              and $caption->{'contents'}->[0]->{'contents'}) {
             push @{$self->{'context'}}, 'listoffloats';
             $self->{'multiple_pass'} = 1;
-            my $caption_arg = $caption->{'args'}->[0];
+            my $caption_arg = $caption->{'contents'}->[0];
 
             # we do not want to start a new paragraph formatter so
             # we iterate over the contents of a paragraph rather than
@@ -4350,7 +4353,7 @@ sub _convert($$)
         }
         if ($caption) {
           $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
-          my $tree = $caption->{'args'}->[0];
+          my $tree = $caption->{'contents'}->[0];
           _convert($self, $tree);
         }
       }

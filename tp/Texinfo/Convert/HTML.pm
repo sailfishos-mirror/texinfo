@@ -1280,8 +1280,14 @@ sub _internal_command_tree($$$)
                     or $command->{'cmdname'} eq 'anchor')) {
         # to be a target, the node or anchor cannot be empty (nor expand to
         # spaces only), so argument is necessarily set.
+        my $label_element;
+        if ($command->{'cmdname'} eq 'anchor') {
+          $label_element = $command->{'contents'}->[0];
+        } else {
+          $label_element = $command->{'args'}->[0];
+        }
         $tree = {'type' => '_code',
-                 'contents' => [$command->{'args'}->[0]]};
+                 'contents' => [$label_element]};
       } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'float')) {
         $tree = $self->float_type_number($command);
       } elsif (!$command->{'args'}->[0]
@@ -3317,11 +3323,11 @@ sub _convert_explained_command($$$$)
   my $explanation_string;
   my $normalized_type = '';
 
-  if ($command->{'args'}
-      and $command->{'args'}->[0]->{'contents'}) {
+  if ($command->{'contents'}
+      and $command->{'contents'}->[0]->{'contents'}) {
     $normalized_type
        = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-                                   $command->{'args'}->[0]);
+                                   $command->{'contents'}->[0]);
   }
 
   if ($args and $args->[1] and defined($args->[1]->{'string'})
@@ -5277,7 +5283,7 @@ sub _convert_listoffloats_command($$$$)
           $multiple_formatted .= '-'.($formatted_listoffloats_nr - 1);
         }
         $caption_text = $self->convert_tree_new_formatting_context(
-          $caption_element->{'args'}->[0], $cmdname, $multiple_formatted);
+          $caption_element->{'contents'}->[0], $cmdname, $multiple_formatted);
         push @caption_classes, "${caption_cmdname}-in-${cmdname}";
       } else {
         $caption_text = '';
@@ -5351,10 +5357,10 @@ sub _convert_float_command($$$$$)
       $prepended_text = '';
     }
     my $caption_text = '';
-    if ($caption_element and $caption_element->{'args'}->[0]
-        and $caption_element->{'args'}->[0]->{'contents'}) {
+    if ($caption_element and $caption_element->{'contents'}->[0]
+        and $caption_element->{'contents'}->[0]->{'contents'}) {
       $caption_text = $self->convert_tree_new_formatting_context(
-                         $caption_element->{'args'}->[0], 'float caption');
+                         $caption_element->{'contents'}->[0], 'float caption');
     }
     return $prepended.$content.$caption_text;
   }
@@ -5380,8 +5386,8 @@ sub _convert_float_command($$$$$)
     # if not empty?
     $prepended_text = $self->convert_tree_new_formatting_context(
                                {'cmdname' => 'strong',
-                                'args' => [{'type' => 'brace_container',
-                                            'contents' => [$prepended]}]},
+                                'contents' => [{'type' => 'brace_container',
+                                               'contents' => [$prepended]}]},
                                'float number type');
     if ($caption_element) {
       # register the converted prepended tree to be prepended to
@@ -5389,7 +5395,7 @@ sub _convert_float_command($$$$$)
       $self->register_pending_formatted_inline_content($caption_command_name,
                                                        $prepended_text);
       $caption_text = $self->convert_tree_new_formatting_context(
-                   $caption_element->{'args'}->[0], 'float caption');
+                   $caption_element->{'contents'}->[0], 'float caption');
       my $cancelled_prepended
         = $self->cancel_pending_formatted_inline_content($caption_command_name);
       # unset if prepended text is in caption, i.e. is not cancelled
@@ -5401,7 +5407,7 @@ sub _convert_float_command($$$$$)
     }
   } elsif (defined($caption_element)) {
     $caption_text = $self->convert_tree_new_formatting_context(
-                   $caption_element->{'args'}->[0], 'float caption');
+                   $caption_element->{'contents'}->[0], 'float caption');
   }
 
   if (defined($caption_text) and $caption_text ne '') {
@@ -5815,7 +5821,7 @@ sub _convert_xref_commands($$$$)
     if ($args->[4] and defined($args->[4]->{'normal'})
         and $args->[4]->{'normal'} ne '');
 
-  my $arg_node = $command->{'args'}->[0];
+  my $arg_node = $command->{'contents'}->[0];
 
   # internal reference
   if ($cmdname ne 'inforef' and !defined($book) and !defined($file)
@@ -6309,9 +6315,10 @@ sub _convert_printindex_command($$$$)
         }
         my $referred_tree = {};
         $referred_tree->{'type'} = '_code' if ($in_code);
-        if ($referred_entry->{'args'} and $referred_entry->{'args'}->[0]
-            and $referred_entry->{'args'}->[0]->{'contents'}) {
-          $referred_tree->{'contents'} = [$referred_entry->{'args'}->[0]];
+        if ($referred_entry->{'contents'}
+            and $referred_entry->{'contents'}->[0]
+            and $referred_entry->{'contents'}->[0]->{'contents'}) {
+          $referred_tree->{'contents'} = [$referred_entry->{'contents'}->[0]];
         }
         my $entry;
         # for @seealso, to appear where chapter/node ususally appear
@@ -11449,7 +11456,7 @@ sub _default_format_single_footnote($$$$$$)
   my $self = shift;
   my ($command, $footid, $number_in_doc, $href, $mark) = @_;
   my $footnote_text
-      = $self->convert_tree_new_formatting_context($command->{'args'}->[0],
+      = $self->convert_tree_new_formatting_context($command->{'contents'}->[0],
                             "$command->{'cmdname'} $number_in_doc $footid");
   chomp ($footnote_text);
   $footnote_text .= "\n";
@@ -12605,8 +12612,9 @@ sub _prepare_converted_output_info($$$$)
       }
     }
     if (!$fulltitle_tree and $global_commands->{'titlefont'}
-        and $global_commands->{'titlefont'}->[0]->{'args'}
-        and $global_commands->{'titlefont'}->[0]->{'args'}->[0]->{'contents'}) {
+        and $global_commands->{'titlefont'}->[0]->{'contents'}
+        and $global_commands->{'titlefont'}->[0]->{'contents'}->[0]
+                                                        ->{'contents'}) {
       $fulltitle_tree = $global_commands->{'titlefont'}->[0];
     }
   }
@@ -13544,8 +13552,8 @@ sub _convert($$;$)
                                                  $command_name, $element);
       }
       my $content_formatted = '';
-      if ($element->{'contents'}) {
-        if ($convert_to_latex and !$brace_commands{$command_name}) {
+      if ($element->{'contents'} and !$brace_commands{$command_name}) {
+        if ($convert_to_latex) {
           # displaymath
           $content_formatted
            = Texinfo::Convert::LaTeX::convert_to_latex_math(undef,
@@ -13571,14 +13579,20 @@ sub _convert($$;$)
               or $command_name eq 'smallquotation')
           or $command_name eq 'float'
           or $command_name eq 'cartouche') {
-        if ($element->{'args'}) {
+        my $arguments_list;
+        if ($brace_commands{$command_name}) {
+          $arguments_list = $element->{'contents'};
+        } else {
+          $arguments_list = $element->{'args'};
+        }
+        if ($arguments_list) {
           $args_formatted = [];
           my @args_specification;
           @args_specification = @{$html_default_commands_args{$command_name}}
             if (defined($html_default_commands_args{$command_name}));
           my $spec_nr = scalar(@args_specification);
           my $arg_idx = -1;
-          foreach my $arg (@{$element->{'args'}}) {
+          foreach my $arg (@{$arguments_list}) {
             $arg_idx++;
             my $arg_spec;
             if ($arg_idx < $spec_nr) {
@@ -13716,8 +13730,8 @@ sub _convert($$;$)
 
     my $content_formatted = '';
     if ($type_name eq 'definfoenclose_command') {
-      if ($element->{'args'}) {
-        $content_formatted = $self->_convert($element->{'args'}->[0],
+      if ($element->{'contents'}) {
+        $content_formatted = $self->_convert($element->{'contents'}->[0],
                                              "DEFINFOENCLOSE_ARG");
       }
     } elsif ($element->{'contents'}

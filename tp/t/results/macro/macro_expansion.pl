@@ -243,7 +243,8 @@ $result_trees{'macro_expansion'} = {
               'text' => 'comma in command. result of a macro with aaa '
             },
             {
-              'args' => [
+              'cmdname' => 'samp',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -253,7 +254,6 @@ $result_trees{'macro_expansion'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'samp',
               'source_info' => {
                 'line_nr' => 11,
                 'macro' => 'macroone'

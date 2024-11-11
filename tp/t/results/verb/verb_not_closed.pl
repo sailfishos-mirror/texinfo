@@ -12,7 +12,8 @@ $result_trees{'verb_not_closed'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -23,7 +24,6 @@ $result_trees{'verb_not_closed'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => '.'
               },

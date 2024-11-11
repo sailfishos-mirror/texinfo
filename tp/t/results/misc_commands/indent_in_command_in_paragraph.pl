@@ -15,7 +15,8 @@ $result_trees{'indent_in_command_in_paragraph'} = {
               'text' => 'In para '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'indent_in_command_in_paragraph'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -37,11 +37,13 @@ $result_trees{'indent_in_command_in_paragraph'} = {
               'text' => '.  '
             },
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'b',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -57,7 +59,6 @@ $result_trees{'indent_in_command_in_paragraph'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'b',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -66,7 +67,6 @@ $result_trees{'indent_in_command_in_paragraph'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 1
               }

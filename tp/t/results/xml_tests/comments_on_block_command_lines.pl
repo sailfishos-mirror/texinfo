@@ -314,12 +314,12 @@ $result_trees{'comments_on_block_command_lines'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'bullet',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'bullet',
                   'source_info' => {
                     'line_nr' => 13
                   }
@@ -1037,7 +1037,8 @@ $result_trees{'comments_on_block_command_lines'} = {
                   'text' => 'in '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1047,7 +1048,6 @@ $result_trees{'comments_on_block_command_lines'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 45
                   }

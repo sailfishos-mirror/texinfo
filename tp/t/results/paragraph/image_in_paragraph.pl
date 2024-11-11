@@ -15,7 +15,8 @@ $result_trees{'image_in_paragraph'} = {
               'text' => 'Para. '
             },
             {
-              'args' => [
+              'cmdname' => 'image',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -57,7 +58,6 @@ $result_trees{'image_in_paragraph'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'image',
               'extra' => {
                 'input_encoding_name' => 'utf-8'
               },

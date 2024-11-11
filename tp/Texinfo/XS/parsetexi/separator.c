@@ -68,7 +68,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       if (cmd == CM_verb)
         {
           arg = new_element (ET_brace_container);
-          add_to_element_args (current, arg);
+          add_to_element_contents (current, arg);
           current = arg;
 
           /* the delimiter may be in macro expansion */
@@ -98,7 +98,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           int n;
 
           arg = new_element (ET_brace_command_context);
-          add_to_element_args (current, arg);
+          add_to_element_contents (current, arg);
           current = arg;
           if (cmd == CM_caption || cmd == CM_shortcaption)
             {
@@ -192,7 +192,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
             {
               arg = new_element (ET_brace_container);
             }
-          add_to_element_args (current, arg);
+          add_to_element_contents (current, arg);
           current = arg;
         }
       debug_nonl ("OPENED @%s, remaining: %d ",
@@ -333,22 +333,22 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
           int link_or_inforef = (closed_cmd == CM_link
                                  || closed_cmd == CM_inforef);
           if ((link_or_inforef
-               && (ref->e.c->args.list[0]->e.c->contents.number == 0)
-               && (ref->e.c->args.number <= 2
-                   || ref->e.c->args.list[2]->e.c->contents.number == 0))
+               && (ref->e.c->contents.list[0]->e.c->contents.number == 0)
+               && (ref->e.c->contents.number <= 2
+                   || ref->e.c->contents.list[2]->e.c->contents.number == 0))
               || (!link_or_inforef
-                   && (ref->e.c->args.list[0]->e.c->contents.number == 0)
-                   && (ref->e.c->args.number <= 3
-                       || ref->e.c->args.list[3]->e.c->contents.number == 0)
-                   && (ref->e.c->args.number <= 4
-                       || ref->e.c->args.list[4]->e.c->contents.number == 0)))
+                   && (ref->e.c->contents.list[0]->e.c->contents.number == 0)
+                   && (ref->e.c->contents.number <= 3
+                       || ref->e.c->contents.list[3]->e.c->contents.number == 0)
+                   && (ref->e.c->contents.number <= 4
+                || ref->e.c->contents.list[4]->e.c->contents.number == 0)))
             {
               line_warn ("command @%s missing a node or external manual "
                          "argument", command_name(closed_cmd));
             }
           else
             {
-              ELEMENT *arg_label = args_child_by_index (ref, 0);
+              ELEMENT *arg_label = contents_child_by_index (ref, 0);
               NODE_SPEC_EXTRA *ref_label_info = parse_node_manual (arg_label, 1);
 
               if (ref_label_info && (ref_label_info->manual_content
@@ -369,15 +369,17 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                     destroy_element (ref_label_info->node_content);
                 }
               if ((!link_or_inforef
-                   && (ref->e.c->args.number <= 3
-                       || (ref->e.c->args.number <= 4
-                           && ref->e.c->args.list[3]->e.c->contents.number == 0)
-                       || (ref->e.c->args.list[3]->e.c->contents.number == 0
-                           && ref->e.c->args.list[4]->e.c->contents.number == 0))
+                   && (ref->e.c->contents.number <= 3
+                       || (ref->e.c->contents.number <= 4
+                           && ref->e.c->contents.list[3]
+                                            ->e.c->contents.number == 0)
+                       || (ref->e.c->contents.list[3]->e.c->contents.number == 0
+                           && ref->e.c->contents.list[4]
+                                           ->e.c->contents.number == 0))
                    && !ref_label_info->manual_content)
                   || (link_or_inforef
-                      && (ref->e.c->args.number <= 2
-                          || ref->e.c->args.list[2]->e.c->contents.number == 0)))
+                      && (ref->e.c->contents.number <= 2
+                   || ref->e.c->contents.list[2]->e.c->contents.number == 0)))
                 {
                   /* we use the @*ref command here and not the label
                      command to have more information for messages */
@@ -386,39 +388,39 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
               free (ref_label_info);
             }
 
-          if (ref->e.c->args.number > 1
-              && ref->e.c->args.list[1]->e.c->contents.number > 0)
+          if (ref->e.c->contents.number > 1
+              && ref->e.c->contents.list[1]->e.c->contents.number > 0)
             {
-              if (check_empty_expansion (ref->e.c->args.list[1]))
+              if (check_empty_expansion (ref->e.c->contents.list[1]))
                 {
                   char *texi = 0;
-                  if (ref->e.c->args.list[1])
+                  if (ref->e.c->contents.list[1])
                     texi
-                     = convert_contents_to_texinfo (ref->e.c->args.list[1]);
+                     = convert_contents_to_texinfo (ref->e.c->contents.list[1]);
 
                   line_warn ("in @%s empty cross reference name "
                              "after expansion `%s'",
                              command_name(closed_cmd),
-                             ref->e.c->args.list[1] ? texi : "");
+                             ref->e.c->contents.list[1] ? texi : "");
                   free (texi);
                 }
             }
 
           if (!link_or_inforef
-              && ref->e.c->args.number > 2
-              && ref->e.c->args.list[2]->e.c->contents.number > 0)
+              && ref->e.c->contents.number > 2
+              && ref->e.c->contents.list[2]->e.c->contents.number > 0)
             {
-              if (check_empty_expansion (ref->e.c->args.list[2]))
+              if (check_empty_expansion (ref->e.c->contents.list[2]))
                 {
                   char *texi = 0;
-                  if (ref->e.c->args.list[2])
+                  if (ref->e.c->contents.list[2])
                     texi
-                      = convert_contents_to_texinfo (ref->e.c->args.list[2]);
+                    = convert_contents_to_texinfo (ref->e.c->contents.list[2]);
 
                   line_warn ("in @%s empty cross reference title "
                              "after expansion `%s'",
                              command_name(closed_cmd),
-                             ref->e.c->args.list[2] ? texi : "");
+                             ref->e.c->contents.list[2] ? texi : "");
                   free (texi);
                 }
             }
@@ -427,7 +429,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
         {
           GLOBAL_INFO *global_info = &parsed_document->global_info;
           ELEMENT *image = brace_command;
-          if (image->e.c->args.list[0]->e.c->contents.number == 0)
+          if (image->e.c->contents.list[0]->e.c->contents.number == 0)
             {
               line_error ("@image missing filename argument");
             }
@@ -456,7 +458,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                || closed_cmd == CM_abbr
                || closed_cmd == CM_acronym)
         {
-          if (brace_command->e.c->args.list[0]->e.c->contents.number == 0)
+          if (brace_command->e.c->contents.list[0]->e.c->contents.number == 0)
             {
               line_warn ("@%s missing first argument",
                          command_name(closed_cmd));
@@ -615,7 +617,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
 {
   const char *line = *line_inout;
   enum element_type type;
-  ELEMENT *brace_command;
+  ELEMENT *command_element;
   ELEMENT *new_arg, *spaces_before_e;
   ELEMENT *new_current;
 
@@ -623,15 +625,15 @@ handle_comma (ELEMENT *current, const char **line_inout)
   isolate_last_space (current);
 
   type = current->type;
-  brace_command = current->parent;
+  command_element = current->parent;
 
-  if (counter_value (&count_remaining_args, brace_command) != COUNTER_VARIADIC)
+  if (counter_value (&count_remaining_args, command_element) != COUNTER_VARIADIC)
     counter_dec (&count_remaining_args);
 
-  if (command_data(brace_command->e.c->cmd).data == BRACE_inline)
+  if (command_data(command_element->e.c->cmd).data == BRACE_inline)
     {
       int expandp = 0;
-      const char *format = lookup_extra_string (brace_command, AI_key_format);
+      const char *format = lookup_extra_string (command_element, AI_key_format);
       if (!format)
         {/* get the first argument, which is also current that was before the comma
             and put it in extra format */
@@ -647,51 +649,52 @@ handle_comma (ELEMENT *current, const char **line_inout)
             {
               /* Condition is missing */
               debug ("INLINE COND MISSING");
-              add_extra_string (brace_command, AI_key_format, 0);
+              add_extra_string (command_element, AI_key_format, 0);
             }
           else
             {
               debug ("INLINE: %s", inline_type);
-              if (brace_command->e.c->cmd == CM_inlineraw
-                  || brace_command->e.c->cmd == CM_inlinefmt
-                  || brace_command->e.c->cmd == CM_inlinefmtifelse)
+              if (command_element->e.c->cmd == CM_inlineraw
+                  || command_element->e.c->cmd == CM_inlinefmt
+                  || command_element->e.c->cmd == CM_inlinefmtifelse)
                 {
                   if (parser_format_expanded_p (inline_type))
                     {
                       expandp = 1;
-                      add_extra_integer (brace_command, AI_key_expand_index, 1);
+                      add_extra_integer (command_element,
+                                         AI_key_expand_index, 1);
                     }
                   else
                     expandp = 0;
                 }
-              else if (brace_command->e.c->cmd == CM_inlineifset
-                       || brace_command->e.c->cmd == CM_inlineifclear)
+              else if (command_element->e.c->cmd == CM_inlineifset
+                       || command_element->e.c->cmd == CM_inlineifclear)
                 {
                   expandp = 0;
                   if (fetch_value (inline_type))
                     expandp = 1;
-                  if (brace_command->e.c->cmd == CM_inlineifclear)
+                  if (command_element->e.c->cmd == CM_inlineifclear)
                     expandp = !expandp;
                   if (expandp)
-                    add_extra_integer (brace_command, AI_key_expand_index, 1);
+                    add_extra_integer (command_element, AI_key_expand_index, 1);
                 }
               else
                 expandp = 0;
 
-              add_extra_string_dup (brace_command, AI_key_format, inline_type);
+              add_extra_string_dup (command_element, AI_key_format, inline_type);
             }
 
           /* Skip first argument for a false @inlinefmtifelse */
-          if (!expandp && brace_command->e.c->cmd == CM_inlinefmtifelse)
+          if (!expandp && command_element->e.c->cmd == CM_inlinefmtifelse)
             {
               ELEMENT *elided_arg_elt;
               ELEMENT *arg_text_e;
               int brace_count = 1;
 
-              add_extra_integer (brace_command, AI_key_expand_index, 2);
+              add_extra_integer (command_element, AI_key_expand_index, 2);
 
               elided_arg_elt = new_element (ET_elided_brace_command_arg);
-              add_to_element_args (brace_command, elided_arg_elt);
+              add_to_element_contents (command_element, elided_arg_elt);
               arg_text_e = new_text_element (ET_raw);
               add_to_element_contents (elided_arg_elt, arg_text_e);
 
@@ -755,7 +758,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
         { /* format is set, so this is the second comma */
           /* Second part (not counting the format) of @inlinefmtifelse when
              condition is true.  Discard second part. */
-          if (brace_command->e.c->cmd == CM_inlinefmtifelse)
+          if (command_element->e.c->cmd == CM_inlinefmtifelse)
             expandp = 0;
           else
         /* the functions is called only for an @-command with 3 arguments for
@@ -773,7 +776,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
           int brace_count = 1;
 
           elided_arg_elt = new_element (ET_elided_brace_command_arg);
-          add_to_element_args (brace_command, elided_arg_elt);
+          add_to_element_contents (command_element, elided_arg_elt);
           arg_text_e = new_text_element (ET_raw);
           add_to_element_contents (elided_arg_elt, arg_text_e);
 
@@ -814,7 +817,10 @@ handle_comma (ELEMENT *current, const char **line_inout)
     }
 
   new_arg = new_element (type);
-  add_to_element_args (brace_command, new_arg);
+  if (command_flags(command_element) & CF_brace)
+    add_to_element_contents (command_element, new_arg);
+  else
+    add_to_element_args (command_element, new_arg);
   spaces_before_e = new_text_element (ET_internal_spaces_before_argument);
   add_to_element_contents (new_arg, spaces_before_e);
   internal_space_holder = new_arg;

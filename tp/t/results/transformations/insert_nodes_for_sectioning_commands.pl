@@ -116,18 +116,19 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'text' => 'chap'
             },
             {
-              'args' => [
+              'cmdname' => 'comma',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
-              ],
-              'cmdname' => 'comma'
+              ]
             },
             {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -136,8 +137,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
                   ],
                   'type' => 'brace_container'
                 }
-              ],
-              'cmdname' => 'code'
+              ]
             }
           ],
           'info' => {
@@ -168,7 +168,8 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'text' => 'chap, '
             },
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -178,7 +179,6 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 5
               }
@@ -687,12 +687,12 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
-              ],
-              'cmdname' => 'asis'
+              ]
             },
             {
               'text' => ' 2'
@@ -723,12 +723,12 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'asis',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'asis',
               'source_info' => {
                 'line_nr' => 23
               }

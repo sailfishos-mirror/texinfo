@@ -71,7 +71,8 @@ $result_trees{'filenameconflictwithnonsplit'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -81,7 +82,6 @@ $result_trees{'filenameconflictwithnonsplit'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'filenameconflictwithnonsplit'

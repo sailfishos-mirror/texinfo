@@ -16,7 +16,8 @@ $result_trees{'inline_in_node'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'inlineraw',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -34,7 +35,6 @@ $result_trees{'inline_in_node'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'inlineraw',
                       'extra' => {
                         'expand_index' => 1,
                         'format' => 'html'
@@ -47,7 +47,8 @@ $result_trees{'inline_in_node'} = {
                       'text' => 'Title'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'inlineraw',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -65,7 +66,6 @@ $result_trees{'inline_in_node'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'inlineraw',
                       'extra' => {
                         'expand_index' => 1,
                         'format' => 'html'
@@ -166,7 +166,8 @@ $result_trees{'inline_in_node'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlineraw',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -184,7 +185,6 @@ $result_trees{'inline_in_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlineraw',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'html'
@@ -197,7 +197,8 @@ $result_trees{'inline_in_node'} = {
               'text' => 'One'
             },
             {
-              'args' => [
+              'cmdname' => 'inlineraw',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -215,7 +216,6 @@ $result_trees{'inline_in_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlineraw',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'html'
@@ -253,7 +253,8 @@ $result_trees{'inline_in_node'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlineraw',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -271,7 +272,6 @@ $result_trees{'inline_in_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlineraw',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'html'
@@ -284,7 +284,8 @@ $result_trees{'inline_in_node'} = {
               'text' => 'One'
             },
             {
-              'args' => [
+              'cmdname' => 'inlineraw',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -302,7 +303,6 @@ $result_trees{'inline_in_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlineraw',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'html'

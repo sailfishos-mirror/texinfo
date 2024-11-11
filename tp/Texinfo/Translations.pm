@@ -365,7 +365,7 @@ sub _substitute_element_array($$) {
     if (!defined($element->{'text'})) {
       if ($element->{'cmdname'}
           and $element->{'cmdname'} eq 'txiinternalvalue') {
-        my $name = $element->{'args'}->[0]->{'contents'}->[0]->{'text'};
+        my $name = $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
         if ($replaced_substrings->{$name}) {
           $array->[$idx] = $replaced_substrings->{$name};
         }

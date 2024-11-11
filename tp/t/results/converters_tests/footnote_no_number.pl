@@ -137,7 +137,8 @@ $result_trees{'footnote_no_number'} = {
               'text' => 'Para'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -152,7 +153,6 @@ $result_trees{'footnote_no_number'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 7
@@ -176,7 +176,8 @@ $result_trees{'footnote_no_number'} = {
               'text' => 'Para2'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -191,7 +192,6 @@ $result_trees{'footnote_no_number'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 9

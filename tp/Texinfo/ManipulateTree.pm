@@ -420,13 +420,13 @@ sub _new_asis_command_with_text($$;$)
   my $parent = shift;
   my $text_type = shift;
   my $new_command = {'cmdname' => 'asis', 'parent' => $parent };
-  push @{$new_command->{'args'}}, {'type' => 'brace_container',
+  push @{$new_command->{'contents'}}, {'type' => 'brace_container',
                                    'parent' => $new_command};
-  push @{$new_command->{'args'}->[0]->{'contents'}}, {
+  push @{$new_command->{'contents'}->[0]->{'contents'}}, {
     'text' => $text,
-    'parent' => $new_command->{'args'}->[0]};
+    'parent' => $new_command->{'contents'}->[0]};
   if (defined($text_type)) {
-    $new_command->{'args'}->[0]->{'contents'}->[0]->{'type'} = $text_type;
+    $new_command->{'contents'}->[0]->{'contents'}->[0]->{'type'} = $text_type;
   }
   return $new_command;
 }
@@ -469,7 +469,7 @@ sub _protect_text($$)
             my $e = {'cmdname' => 'comma', 'parent' => $current->{'parent'}};
             my $brace_container = {'type' => 'brace_container',
                                    'parent' => $e};
-            $e->{'args'} = [$brace_container];
+            $e->{'contents'} = [$brace_container];
             $current_position = Texinfo::Common::relocate_source_marks(
                                           $remaining_source_marks, $e,
                                           $current_position, 1);
@@ -478,7 +478,7 @@ sub _protect_text($$)
         } else {
           my $new_asis = _new_asis_command_with_text($2, $current->{'parent'},
                                                     $current->{'type'});
-          my $e = $new_asis->{'args'}->[0]->{'contents'}->[0];
+          my $e = $new_asis->{'contents'}->[0]->{'contents'}->[0];
           $current_position = Texinfo::Common::relocate_source_marks(
                                           $remaining_source_marks, $e,
                                           $current_position, length($2));
@@ -559,7 +559,7 @@ sub protect_first_parenthesis($)
       }
       my $new_asis = _new_asis_command_with_text('(', $content->{'parent'},
                                                  $content->{'type'});
-      my $e = $new_asis->{'args'}->[0]->{'contents'}->[0];
+      my $e = $new_asis->{'contents'}->[0]->{'contents'}->[0];
       $current_position = Texinfo::Common::relocate_source_marks(
                                        $remaining_source_marks, $e,
                                        $current_position, length('('));

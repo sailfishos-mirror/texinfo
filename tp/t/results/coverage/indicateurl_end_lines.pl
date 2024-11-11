@@ -12,7 +12,8 @@ $result_trees{'indicateurl_end_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'indicateurl',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -26,7 +27,6 @@ $result_trees{'indicateurl_end_lines'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'indicateurl',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -46,7 +46,8 @@ $result_trees{'indicateurl_end_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'indicateurl',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -62,7 +63,6 @@ $result_trees{'indicateurl_end_lines'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'indicateurl',
               'source_info' => {
                 'line_nr' => 4
               }

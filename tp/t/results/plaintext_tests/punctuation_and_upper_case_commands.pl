@@ -17,7 +17,8 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'var',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -27,7 +28,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'var',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -36,11 +36,13 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'var',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '~',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -50,7 +52,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '~',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -59,7 +60,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'var',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -68,16 +68,17 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'var',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'aa',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'aa',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -86,7 +87,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'var',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -96,7 +96,8 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'var',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -106,7 +107,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'var',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -115,11 +115,13 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'var',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '~',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -129,7 +131,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '~',
                       'source_info' => {
                         'line_nr' => 3
                       }
@@ -138,7 +139,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'var',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -147,16 +147,17 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'var',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'AA',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'AA',
                       'source_info' => {
                         'line_nr' => 3
                       }
@@ -165,7 +166,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'var',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -175,7 +175,8 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'var',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -185,7 +186,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'var',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -194,14 +194,16 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
               'text' => '.  '
             },
             {
-              'args' => [
+              'cmdname' => 'var',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'double '
                     },
                     {
-                      'args' => [
+                      'cmdname' => '~',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -211,7 +213,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '~',
                       'source_info' => {
                         'line_nr' => 4
                       }
@@ -220,7 +221,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'var',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -229,19 +229,20 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'var',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'double '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'AA',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'AA',
                       'source_info' => {
                         'line_nr' => 4
                       }
@@ -250,7 +251,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'var',
               'source_info' => {
                 'line_nr' => 4
               }
@@ -270,7 +270,8 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -280,7 +281,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 6
               }
@@ -289,11 +289,13 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '~',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -303,7 +305,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '~',
                       'source_info' => {
                         'line_nr' => 6
                       }
@@ -312,7 +313,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 6
               }
@@ -321,16 +321,17 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'aa',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'aa',
                       'source_info' => {
                         'line_nr' => 6
                       }
@@ -339,7 +340,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 6
               }
@@ -349,7 +349,8 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -359,7 +360,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 7
               }
@@ -368,11 +368,13 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => '~',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -382,7 +384,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '~',
                       'source_info' => {
                         'line_nr' => 7
                       }
@@ -391,7 +392,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 7
               }
@@ -400,16 +400,17 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'AA',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'AA',
                       'source_info' => {
                         'line_nr' => 7
                       }
@@ -418,7 +419,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 7
               }
@@ -428,7 +428,8 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -438,7 +439,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 8
               }
@@ -447,14 +447,16 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
               'text' => '.  '
             },
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'double '
                     },
                     {
-                      'args' => [
+                      'cmdname' => '~',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -464,7 +466,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                           'type' => 'following_arg'
                         }
                       ],
-                      'cmdname' => '~',
                       'source_info' => {
                         'line_nr' => 8
                       }
@@ -473,7 +474,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 8
               }
@@ -482,19 +482,20 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'double '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'AA',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'AA',
                       'source_info' => {
                         'line_nr' => 8
                       }
@@ -503,7 +504,6 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 8
               }

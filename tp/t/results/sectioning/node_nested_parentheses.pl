@@ -171,7 +171,8 @@ $result_trees{'node_nested_parentheses'} = {
                       'text' => '('
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -181,7 +182,6 @@ $result_trees{'node_nested_parentheses'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 6
                       }
@@ -247,7 +247,8 @@ $result_trees{'node_nested_parentheses'} = {
                       'text' => '('
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -257,7 +258,6 @@ $result_trees{'node_nested_parentheses'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 7
                       }

@@ -20,7 +20,8 @@ $result_trees{'float_type_with_tieaccent'} = {
                   'text' => 'A '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'tieaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -30,7 +31,6 @@ $result_trees{'float_type_with_tieaccent'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'tieaccent',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -39,7 +39,8 @@ $result_trees{'float_type_with_tieaccent'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'tieaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -49,7 +50,6 @@ $result_trees{'float_type_with_tieaccent'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'tieaccent',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -58,11 +58,13 @@ $result_trees{'float_type_with_tieaccent'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'tieaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => '^',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -72,7 +74,6 @@ $result_trees{'float_type_with_tieaccent'} = {
                               'type' => 'following_arg'
                             }
                           ],
-                          'cmdname' => '^',
                           'source_info' => {
                             'line_nr' => 1
                           }
@@ -84,7 +85,6 @@ $result_trees{'float_type_with_tieaccent'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'tieaccent',
                   'source_info' => {
                     'line_nr' => 1
                   }
@@ -179,7 +179,8 @@ $result_trees{'float_type_with_tieaccent'} = {
                   'text' => 'A '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'tieaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -189,7 +190,6 @@ $result_trees{'float_type_with_tieaccent'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'tieaccent',
                   'source_info' => {
                     'line_nr' => 5
                   }
@@ -198,7 +198,8 @@ $result_trees{'float_type_with_tieaccent'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'tieaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -208,7 +209,6 @@ $result_trees{'float_type_with_tieaccent'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'tieaccent',
                   'source_info' => {
                     'line_nr' => 5
                   }
@@ -217,11 +217,13 @@ $result_trees{'float_type_with_tieaccent'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'tieaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => '^',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -231,7 +233,6 @@ $result_trees{'float_type_with_tieaccent'} = {
                               'type' => 'following_arg'
                             }
                           ],
-                          'cmdname' => '^',
                           'source_info' => {
                             'line_nr' => 5
                           }
@@ -243,7 +244,6 @@ $result_trees{'float_type_with_tieaccent'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'tieaccent',
                   'source_info' => {
                     'line_nr' => 5
                   }

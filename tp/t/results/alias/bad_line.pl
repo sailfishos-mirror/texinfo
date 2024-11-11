@@ -54,7 +54,8 @@ $result_trees{'bad_line'} = {
                   'text' => 'garbage-on-line =cmd '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -64,7 +65,6 @@ $result_trees{'bad_line'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 4
                   }

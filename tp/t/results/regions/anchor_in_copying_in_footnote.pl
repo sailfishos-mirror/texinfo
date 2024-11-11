@@ -36,7 +36,8 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                       'text' => 'Copying'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'footnote',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -46,7 +47,8 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
 '
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'anchor',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -59,7 +61,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                                       'type' => 'brace_arg'
                                     }
                                   ],
-                                  'cmdname' => 'anchor',
                                   'extra' => {
                                     'is_target' => 1,
                                     'normalized' => 'Copying-footnote'
@@ -80,7 +81,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                           'type' => 'brace_command_context'
                         }
                       ],
-                      'cmdname' => 'footnote',
                       'extra' => {},
                       'info' => {
                         'spaces_before_argument' => {
@@ -253,7 +253,8 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'xref',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -271,7 +272,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'xref',
               'source_info' => {
                 'line_nr' => 18
               }
@@ -305,7 +305,7 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'anchor_in_copying_in_footnote'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_copying_in_footnote'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'anchor_in_copying_in_footnote'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_copying_in_footnote'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'anchor_in_copying_in_footnote'} = '@copying
 

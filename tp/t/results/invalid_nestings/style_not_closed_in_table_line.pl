@@ -77,7 +77,8 @@ $result_trees{'style_not_closed_in_table_line'} = {
                           'text' => 'line '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'code',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -87,7 +88,6 @@ $result_trees{'style_not_closed_in_table_line'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'code',
                           'source_info' => {
                             'line_nr' => 4
                           }

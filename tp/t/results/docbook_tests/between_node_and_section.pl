@@ -173,7 +173,8 @@ $result_trees{'between_node_and_section'} = {
       'cmdname' => 'node',
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -183,7 +184,6 @@ $result_trees{'between_node_and_section'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'Old-name'

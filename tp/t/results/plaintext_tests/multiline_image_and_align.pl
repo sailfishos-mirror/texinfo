@@ -14,7 +14,8 @@ $result_trees{'multiline_image_and_align'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -24,7 +25,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -65,7 +65,8 @@ $result_trees{'multiline_image_and_align'} = {
                   'text' => 'CCCC '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -75,7 +76,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -116,7 +116,8 @@ $result_trees{'multiline_image_and_align'} = {
                   'text' => 'fffffffffffffffffffffffffffffffffffffff '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -126,7 +127,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -167,7 +167,8 @@ $result_trees{'multiline_image_and_align'} = {
                   'text' => 'dddd '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -177,7 +178,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -234,7 +234,8 @@ $result_trees{'multiline_image_and_align'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -244,7 +245,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -270,7 +270,8 @@ $result_trees{'multiline_image_and_align'} = {
                   'text' => 'BBB '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -280,7 +281,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -292,7 +292,8 @@ $result_trees{'multiline_image_and_align'} = {
                   'text' => ' gggg '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -302,7 +303,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },
@@ -329,7 +329,8 @@ $result_trees{'multiline_image_and_align'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'image',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -339,7 +340,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'image',
                   'extra' => {
                     'input_encoding_name' => 'utf-8'
                   },

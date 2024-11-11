@@ -17,7 +17,8 @@ $result_trees{'ifset_in_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'file',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -174,7 +175,6 @@ $result_trees{'ifset_in_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'file',
               'source_info' => {
                 'line_nr' => 2
               }

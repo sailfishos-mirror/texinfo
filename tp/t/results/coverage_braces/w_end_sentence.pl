@@ -15,7 +15,8 @@ $result_trees{'w_end_sentence'} = {
               'text' => 'a. '
             },
             {
-              'args' => [
+              'cmdname' => 'w',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -25,7 +26,6 @@ $result_trees{'w_end_sentence'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'w',
               'source_info' => {
                 'line_nr' => 1
               }

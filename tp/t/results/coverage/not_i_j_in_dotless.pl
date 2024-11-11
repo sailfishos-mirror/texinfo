@@ -12,7 +12,8 @@ $result_trees{'not_i_j_in_dotless'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'dotless',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'not_i_j_in_dotless'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => 'dotless',
               'info' => {
                 'spaces_after_cmd_before_arg' => {
                   'text' => ' '
@@ -36,11 +36,13 @@ $result_trees{'not_i_j_in_dotless'} = {
               'text' => ' bc, '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'dotless',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -50,7 +52,6 @@ $result_trees{'not_i_j_in_dotless'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'dotless',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -59,7 +60,6 @@ $result_trees{'not_i_j_in_dotless'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 1
               }

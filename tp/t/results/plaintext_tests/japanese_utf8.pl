@@ -240,12 +240,12 @@ $result_trees{'japanese_utf8'} = {
                   'text' => 'Copyright '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'copyright',
+                  'contents' => [
                     {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'copyright',
                   'source_info' => {
                     'file_name' => 'japanese_utf8.texi',
                     'line_nr' => 12
@@ -266,7 +266,8 @@ $result_trees{'japanese_utf8'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'emph',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -284,7 +285,6 @@ $result_trees{'japanese_utf8'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'emph',
                   'source_info' => {
                     'file_name' => 'japanese_utf8.texi',
                     'line_nr' => 14
@@ -305,7 +305,8 @@ $result_trees{'japanese_utf8'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'emph',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -319,7 +320,6 @@ $result_trees{'japanese_utf8'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'emph',
                   'source_info' => {
                     'file_name' => 'japanese_utf8.texi',
                     'line_nr' => 18

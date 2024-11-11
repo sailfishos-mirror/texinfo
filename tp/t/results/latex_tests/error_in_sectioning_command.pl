@@ -107,7 +107,8 @@ $result_trees{'error_in_sectioning_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -126,7 +127,6 @@ $result_trees{'error_in_sectioning_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 6
               }
@@ -135,12 +135,12 @@ $result_trees{'error_in_sectioning_command'} = {
               'text' => ' ('
             },
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 6
               }
@@ -177,7 +177,8 @@ $result_trees{'error_in_sectioning_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -196,7 +197,6 @@ $result_trees{'error_in_sectioning_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 7
               }
@@ -205,12 +205,12 @@ $result_trees{'error_in_sectioning_command'} = {
               'text' => ' ('
             },
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 7
               }
@@ -241,12 +241,12 @@ $result_trees{'error_in_sectioning_command'} = {
               'text' => 'Describe '
             },
             {
-              'args' => [
+              'cmdname' => 'error',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'error',
               'source_info' => {
                 'line_nr' => 9
               }

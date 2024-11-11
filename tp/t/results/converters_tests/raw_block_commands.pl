@@ -223,7 +223,8 @@ $result_trees{'raw_block_commands'} = {
                   'text' => '$\\underline{a < b '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -244,7 +245,6 @@ $result_trees{'raw_block_commands'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 15
                   }
@@ -316,7 +316,8 @@ $result_trees{'raw_block_commands'} = {
                   'text' => '$\\frac{a < b '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'code',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -337,7 +338,6 @@ $result_trees{'raw_block_commands'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 19
                   }

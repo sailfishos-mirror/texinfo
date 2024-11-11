@@ -12,19 +12,20 @@ $result_trees{'commands_in_email'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
                       'text' => 'endots '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'enddots',
+                      'contents' => [
                         {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'enddots',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -33,7 +34,8 @@ $result_trees{'commands_in_email'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'code',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -43,7 +45,6 @@ $result_trees{'commands_in_email'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -52,7 +53,6 @@ $result_trees{'commands_in_email'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'line_nr' => 1
               }

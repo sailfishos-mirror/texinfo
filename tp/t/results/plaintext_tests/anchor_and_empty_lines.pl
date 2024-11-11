@@ -24,7 +24,8 @@ $result_trees{'anchor_and_empty_lines'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -34,7 +35,6 @@ $result_trees{'anchor_and_empty_lines'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'in-anchor'

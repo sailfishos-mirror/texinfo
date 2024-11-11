@@ -1786,7 +1786,12 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                    || command->e.c->cmd == CM_anchor)
             {
               ELEMENT *root_code = new_element_added (tree, ET__code);
-              add_to_contents_as_array (root_code, command->e.c->args.list[0]);
+              ELEMENT *label_element;
+              if (command->e.c->cmd == CM_anchor)
+                label_element = command->e.c->contents.list[0];
+              else
+                label_element = command->e.c->args.list[0];
+              add_to_contents_as_array (root_code, label_element);
               tree->tree = root_code;
               add_tree_to_build (self, tree->tree);
             }
@@ -3110,7 +3115,7 @@ html_default_format_single_footnote (CONVERTER *self, const ELEMENT *element,
                            number_in_doc, footid);
   footnote_text
     = html_convert_tree_new_formatting_context (self,
-                                                element->e.c->args.list[0],
+                                                element->e.c->contents.list[0],
                                                 context_str, 0, 0, 0);
   free (context_str);
 
@@ -5969,10 +5974,10 @@ html_convert_explained_command (CONVERTER *self, const enum command_id cmd,
   EXPLAINED_COMMAND_TYPE_LIST *type_explanations
     = &self->shared_conversion_state.explained_commands;
 
-  if (element->e.c->args.number > 0
-      && element->e.c->args.list[0]->e.c->contents.number > 0)
+  if (element->e.c->contents.number > 0
+      && element->e.c->contents.list[0]->e.c->contents.number > 0)
     {
-      normalized_type = convert_to_identifier (element->e.c->args.list[0]);
+      normalized_type = convert_to_identifier (element->e.c->contents.list[0]);
     }
   else
     normalized_type = strdup ("");
@@ -7552,8 +7557,8 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
       && strlen (args_formatted->args[4].formatted[AFT_type_normal]))
     book = args_formatted->args[4].formatted[AFT_type_normal];
 
-  if (element->e.c->args.number > 0)
-    arg_node = element->e.c->args.list[0];
+  if (element->e.c->contents.number > 0)
+    arg_node = element->e.c->contents.list[0];
 
   /* check for internal reference */
   if (cmd != CM_inforef && !book && !file && arg_node)
@@ -8393,12 +8398,13 @@ html_convert_float_command (CONVERTER *self, const enum command_id cmd,
       if (content)
         text_append (result, content);
 
-      if (caption_element && caption_element->e.c->args.number > 0
-          && caption_element->e.c->args.list[0]->e.c->contents.number > 0)
+      if (caption_element && caption_element->e.c->contents.number > 0
+          && caption_element->e.c->contents.list[0]->e.c->contents.number > 0)
         {
           char *caption_text
             = html_convert_tree_new_formatting_context (self,
-               caption_element->e.c->args.list[0], "float caption", 0, 0, 0);
+                          caption_element->e.c->contents.list[0],
+                          "float caption", 0, 0, 0);
           if (caption_text)
             {
               text_append (result, caption_text);
@@ -8432,7 +8438,7 @@ html_convert_float_command (CONVERTER *self, const enum command_id cmd,
       ELEMENT *strong_element
         = new_command_element (ET_brace_command, CM_strong);
 
-      add_to_element_args (strong_element, args);
+      add_to_element_contents (strong_element, args);
       add_to_element_contents (args, prepended);
 
       add_tree_to_build (self, strong_element);
@@ -8451,8 +8457,8 @@ html_convert_float_command (CONVERTER *self, const enum command_id cmd,
             html_register_pending_formatted_inline_content (self,
                               caption_command_name, prepended_text);
           caption_text = html_convert_tree_new_formatting_context (self,
-                           caption_element->e.c->args.list[0], "float caption",
-                                0, 0, 0);
+                               caption_element->e.c->contents.list[0],
+                               "float caption", 0, 0, 0);
           if (prepended_text)
             {
               cancelled_prepended
@@ -8480,8 +8486,8 @@ html_convert_float_command (CONVERTER *self, const enum command_id cmd,
   else if (caption_element)
     {
       caption_text = html_convert_tree_new_formatting_context (self,
-                           caption_element->e.c->args.list[0], "float caption",
-                                0, 0, 0);
+                                  caption_element->e.c->contents.list[0],
+                                  "float caption", 0, 0, 0);
     }
 
   if (caption_text && strlen (caption_text))
@@ -9513,7 +9519,7 @@ html_convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
                 {
                   char *caption_text
                     = html_convert_tree_new_formatting_context (self,
-                        caption_element->e.c->args.list[0],
+                        caption_element->e.c->contents.list[0],
                         builtin_command_name (cmd),
                         multiple_pass_str, 0, 0);
                   text_append (result, caption_text);
@@ -10057,11 +10063,12 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
               else
                 referred_tree = new_element (ET_NONE);
 
-              if (referred_entry->e.c->args.number > 0
-                  && referred_entry->e.c->args.list[0]->e.c->contents.number > 0)
+              if (referred_entry->e.c->contents.number > 0
+                  && referred_entry->e.c->contents.list[0]
+                                            ->e.c->contents.number > 0)
                 {
                   ELEMENT *referred_copy
-                    = copy_tree (referred_entry->e.c->args.list[0]);
+                    = copy_tree (referred_entry->e.c->contents.list[0]);
                   add_to_contents_as_array (referred_tree, referred_copy);
                 }
 

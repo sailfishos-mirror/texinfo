@@ -415,12 +415,12 @@ $result_trees{'node_line_arguments'} = {
               'text' => 'arg1 '
             },
             {
-              'args' => [
+              'cmdname' => 'comma',
+              'contents' => [
                 {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'comma',
               'source_info' => {
                 'line_nr' => 10
               }
@@ -434,7 +434,8 @@ $result_trees{'node_line_arguments'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => ',',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -444,7 +445,6 @@ $result_trees{'node_line_arguments'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => ',',
               'source_info' => {
                 'line_nr' => 10
               }
@@ -472,7 +472,8 @@ $result_trees{'node_line_arguments'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'strong',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -482,7 +483,6 @@ $result_trees{'node_line_arguments'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'strong',
               'source_info' => {
                 'line_nr' => 10
               }

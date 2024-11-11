@@ -15,7 +15,8 @@ $result_trees{'in_errormsg'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'anchor',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -25,7 +26,6 @@ $result_trees{'in_errormsg'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'anchor',
           'extra' => {
             'is_target' => 1,
             'normalized' => 'in-ref'
@@ -45,11 +45,13 @@ $result_trees{'in_errormsg'} = {
               'text' => 'Text. '
             },
             {
-              'args' => [
+              'cmdname' => 'errormsg',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'anchor',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -59,7 +61,6 @@ $result_trees{'in_errormsg'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'anchor',
                       'extra' => {
                         'is_target' => 1,
                         'normalized' => 'in-anchor'
@@ -73,7 +74,8 @@ $result_trees{'in_errormsg'} = {
                       'type' => 'spaces_after_close_brace'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'ref',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -91,7 +93,6 @@ $result_trees{'in_errormsg'} = {
                           'type' => 'brace_arg'
                         }
                       ],
-                      'cmdname' => 'ref',
                       'source_info' => {
                         'line_nr' => 3
                       }
@@ -100,7 +101,6 @@ $result_trees{'in_errormsg'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'errormsg',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -118,7 +118,8 @@ $result_trees{'in_errormsg'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'errormsg',
+          'contents' => [
             {
               'info' => {
                 'spaces_before_argument' => {
@@ -129,7 +130,6 @@ $result_trees{'in_errormsg'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'errormsg',
           'source_info' => {
             'line_nr' => 5
           }
@@ -242,7 +242,7 @@ $result_trees{'in_errormsg'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0];
 $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'extra'}{'command_as_argument'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0];
 
 $result_texis{'in_errormsg'} = '

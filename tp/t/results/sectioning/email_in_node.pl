@@ -15,7 +15,8 @@ $result_trees{'email_in_node'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -33,7 +34,6 @@ $result_trees{'email_in_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -42,7 +42,8 @@ $result_trees{'email_in_node'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -70,7 +71,6 @@ $result_trees{'email_in_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -79,7 +79,8 @@ $result_trees{'email_in_node'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'info' => {
                     'spaces_before_argument' => {
@@ -102,7 +103,6 @@ $result_trees{'email_in_node'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'line_nr' => 1
               }

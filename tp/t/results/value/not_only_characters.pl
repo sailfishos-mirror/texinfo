@@ -38,7 +38,8 @@ $result_trees{'not_only_characters'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -47,8 +48,7 @@ $result_trees{'not_only_characters'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'hh',
                   'position' => 4,

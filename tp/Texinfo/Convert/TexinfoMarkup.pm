@@ -721,7 +721,7 @@ sub _convert($$;$)
       }
       if ($self->{'itemize_command_as_argument'}
           and $element eq $self->{'itemize_command_as_argument'}
-          and !$element->{'args'}) {
+          and !$element->{'contents'}) {
         my $arguments = [['command', $element->{'cmdname'}]];
         push @$arguments, ['automatic', 'on']
           if ($element->{'info'} and $element->{'info'}->{'inserted'});
@@ -734,17 +734,17 @@ sub _convert($$;$)
       } else {
         my $attributes = [];
         my $arg;
-        if (!$element->{'args'}) {
+        if (!$element->{'contents'}) {
           $arg = '';
         } else {
-          $arg = $self->_convert($element->{'args'}->[0]);
+          $arg = $self->_convert($element->{'contents'}->[0]);
           if ($element->{'info'}
               and $element->{'info'}->{'spaces_after_cmd_before_arg'}) {
             push @$attributes, ['spacesaftercmd',
                $element->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'}];
           }
-          if ($element->{'args'}->[0]->{'type'} ne 'brace_container'
-              and $element->{'args'}->[0]->{'type'} ne 'brace_arg') {
+          if ($element->{'contents'}->[0]->{'type'} ne 'brace_container'
+              and $element->{'contents'}->[0]->{'type'} ne 'brace_arg') {
             push @$attributes, ['bracketed', 'off'];
           }
         }
@@ -925,9 +925,11 @@ sub _convert($$;$)
                 push @$attributes, ['automatic', 'on'];
 
                 if (defined($node_direction->{'extra'}->{'normalized'})) {
+                  my $label_element
+                    = Texinfo::Common::get_label_element($node_direction);
                   $node_name .= Texinfo::Common::normalize_top_node_name(
                     $self->_convert({'contents'
-                             => $node_direction->{'args'}->[0]->{'contents'}}));
+                             => $label_element->{'contents'}}));
                 }
               } else {
                 $node_name
@@ -1113,16 +1115,16 @@ sub _convert($$;$)
       push @{$self->{'document_context'}->[-1]->{'monospace'}},
         $in_monospace_not_normal
           if (defined($in_monospace_not_normal));
-      my $arg = $self->_convert($element->{'args'}->[0]);
+      my $arg = $self->_convert($element->{'contents'}->[0]);
       pop @{$self->{'document_context'}->[-1]->{'monospace'}}
         if (defined($in_monospace_not_normal));
       my $command_result = $self->txi_markup_open_element('infoenclose',
                                           [['command', $element->{'cmdname'}],
                                        $self->_infoenclose_attribute($element)])
-                 .$arg.$self->_convert_comment_at_end($element->{'args'}->[0]).
+             .$arg.$self->_convert_comment_at_end($element->{'contents'}->[0]).
                  $self->txi_markup_close_element('infoenclose');
       return $command_result;
-    } elsif ($element->{'args'}
+    } elsif ($element->{'contents'}
              and exists($brace_commands{$element->{'cmdname'}})) {
 
       if ($Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}
@@ -1133,12 +1135,12 @@ sub _convert($$;$)
           $self->{'document_context'}->[-1]->{'raw'} = 1;
         }
         my $command_result = '';
-        if (scalar(@{$element->{'args'}}) >= 2
-              and defined($element->{'args'}->[1])
-              and $element->{'args'}->[1]->{'contents'}
-              and scalar(@{$element->{'args'}->[1]->{'contents'}})) {
+        if (scalar(@{$element->{'contents'}}) >= 2
+              and defined($element->{'contents'}->[1])
+              and $element->{'contents'}->[1]->{'contents'}
+              and scalar(@{$element->{'contents'}->[1]->{'contents'}})) {
           $command_result = $self->_convert({'contents'
-                                         => [$element->{'args'}->[1]]});
+                                         => [$element->{'contents'}->[1]]});
         }
         if ($element->{'cmdname'} eq 'inlineraw') {
           pop @{$self->{'document_context'}};
@@ -1197,11 +1199,11 @@ sub _convert($$;$)
       my $args_or_one_arg_cmd = '';
       my $arg_index = 0;
       foreach my $format_element (@format_elements) {
-        if (defined($element->{'args'}->[$arg_index])) {
+        if (defined($element->{'contents'}->[$arg_index])) {
           # Leading spaces are gathered here except for context brace_commands
           # (gathered just above).
           push @$attribute,
-            _leading_spaces_arg($element->{'args'}->[$arg_index]);
+            _leading_spaces_arg($element->{'contents'}->[$arg_index]);
           my $in_monospace_not_normal;
           if (defined($default_args_code_style{$element->{'cmdname'}})
               and $default_args_code_style{$element->{'cmdname'}}->[$arg_index]) {
@@ -1213,16 +1215,16 @@ sub _convert($$;$)
           push @{$self->{'document_context'}->[-1]->{'monospace'}},
             $in_monospace_not_normal
               if (defined($in_monospace_not_normal));
-          my $arg = $self->_convert($element->{'args'}->[$arg_index]);
+          my $arg = $self->_convert($element->{'contents'}->[$arg_index]);
           my $comment_at_end
-            = $self->_convert_comment_at_end($element->{'args'}->[$arg_index]);
+            = $self->_convert_comment_at_end($element->{'contents'}->[$arg_index]);
           pop @{$self->{'document_context'}->[-1]->{'monospace'}}
             if (defined($in_monospace_not_normal));
 
-          if ($element->{'args'}->[$arg_index]->{'info'}
-              and $element->{'args'}->[$arg_index]
+          if ($element->{'contents'}->[$arg_index]->{'info'}
+              and $element->{'contents'}->[$arg_index]
                                       ->{'info'}->{'spaces_after_argument'}) {
-            $arg .= $element->{'args'}->[$arg_index]
+            $arg .= $element->{'contents'}->[$arg_index]
                    ->{'info'}->{'spaces_after_argument'}->{'text'};
           }
 
@@ -1268,9 +1270,9 @@ sub _convert($$;$)
           push @$attribute, ['where', 'inline'];
         }
       } elsif ($Texinfo::Commands::ref_commands{$element->{'cmdname'}}) {
-        if ($element->{'args'}) {
+        if ($element->{'contents'}) {
           my $normalized;
-          my $node_arg = $element->{'args'}->[0];
+          my $node_arg = $element->{'contents'}->[0];
           if ($node_arg and $node_arg->{'extra'}
               and $node_arg->{'extra'}->{'node_content'}) {
             my $normalized;
@@ -1291,16 +1293,16 @@ sub _convert($$;$)
                 or $element->{'cmdname'} eq 'inforef') {
             $manual_arg_index = 2;
           }
-          if (defined($element->{'args'}->[$manual_arg_index])
-              and $element->{'args'}->[$manual_arg_index]->{'contents'}
-              and @{$element->{'args'}->[$manual_arg_index]->{'contents'}}) {
+          if (defined($element->{'contents'}->[$manual_arg_index])
+              and $element->{'contents'}->[$manual_arg_index]->{'contents'}
+              and @{$element->{'contents'}->[$manual_arg_index]->{'contents'}}) {
 
             Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
             Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                   $self->{'convert_text_options'});
             $manual = Texinfo::Convert::Text::convert_to_text(
-                                    $element->{'args'}->[$manual_arg_index],
+                               $element->{'contents'}->[$manual_arg_index],
                                    $self->{'convert_text_options'});
             Texinfo::Convert::Text::reset_options_encoding(
                                  $self->{'convert_text_options'});

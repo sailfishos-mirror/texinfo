@@ -68,7 +68,8 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
               'text' => 'Toto '
             },
             {
-              'args' => [
+              'cmdname' => 'inlineifset',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -113,7 +114,6 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlineifset',
               'extra' => {
                 'format' => 'flag'
               },
@@ -139,7 +139,8 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
               'text' => 'Again with space '
             },
             {
-              'args' => [
+              'cmdname' => 'inlineifset',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -184,7 +185,6 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlineifset',
               'extra' => {
                 'format' => 'flag'
               },

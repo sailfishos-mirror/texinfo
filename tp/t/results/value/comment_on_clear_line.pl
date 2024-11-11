@@ -133,7 +133,8 @@ $result_trees{'comment_on_clear_line'} = {
               'text' => '!'
             },
             {
-              'args' => [
+              'cmdname' => 'value',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -142,14 +143,14 @@ $result_trees{'comment_on_clear_line'} = {
                   ],
                   'type' => 'brace_container'
                 }
-              ],
-              'cmdname' => 'value'
+              ]
             },
             {
               'text' => '!, !'
             },
             {
-              'args' => [
+              'cmdname' => 'value',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -158,15 +159,15 @@ $result_trees{'comment_on_clear_line'} = {
                   ],
                   'type' => 'brace_container'
                 }
-              ],
-              'cmdname' => 'value'
+              ]
             },
             {
               'source_marks' => [
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -175,8 +176,7 @@ $result_trees{'comment_on_clear_line'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'g',
                   'position' => 4,
@@ -192,7 +192,8 @@ $result_trees{'comment_on_clear_line'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -201,8 +202,7 @@ $result_trees{'comment_on_clear_line'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'a vv',
                   'position' => 9,

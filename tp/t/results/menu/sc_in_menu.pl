@@ -64,7 +64,8 @@ $result_trees{'sc_in_menu'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'sc',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -74,7 +75,6 @@ $result_trees{'sc_in_menu'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'sc',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -89,7 +89,8 @@ $result_trees{'sc_in_menu'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'sc',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -99,7 +100,6 @@ $result_trees{'sc_in_menu'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'sc',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -124,7 +124,8 @@ $result_trees{'sc_in_menu'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'sc',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -134,7 +135,6 @@ $result_trees{'sc_in_menu'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'sc',
                           'source_info' => {
                             'line_nr' => 5
                           }
@@ -165,7 +165,8 @@ $result_trees{'sc_in_menu'} = {
                       'type' => 'after_menu_description_line'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'sc',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -175,7 +176,6 @@ $result_trees{'sc_in_menu'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'sc',
                       'source_info' => {
                         'line_nr' => 7
                       }
@@ -212,7 +212,8 @@ $result_trees{'sc_in_menu'} = {
                           'text' => '* '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'sc',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -222,7 +223,6 @@ $result_trees{'sc_in_menu'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'sc',
                           'source_info' => {
                             'line_nr' => 10
                           }
@@ -231,7 +231,8 @@ $result_trees{'sc_in_menu'} = {
                           'text' => ':(dir)'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'sc',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -241,7 +242,6 @@ $result_trees{'sc_in_menu'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'sc',
                           'source_info' => {
                             'line_nr' => 10
                           }
@@ -250,7 +250,8 @@ $result_trees{'sc_in_menu'} = {
                           'text' => '.   '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'sc',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -260,7 +261,6 @@ $result_trees{'sc_in_menu'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'sc',
                           'source_info' => {
                             'line_nr' => 10
                           }
@@ -275,7 +275,8 @@ $result_trees{'sc_in_menu'} = {
                           'type' => 'empty_line'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'sc',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -285,7 +286,6 @@ $result_trees{'sc_in_menu'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'sc',
                           'source_info' => {
                             'line_nr' => 12
                           }
@@ -394,7 +394,8 @@ $result_trees{'sc_in_menu'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'sc',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -404,7 +405,6 @@ $result_trees{'sc_in_menu'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'sc',
               'source_info' => {
                 'line_nr' => 16
               }
@@ -463,7 +463,8 @@ $result_trees{'sc_in_menu'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'sc',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -473,7 +474,6 @@ $result_trees{'sc_in_menu'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'sc',
                           'source_info' => {
                             'line_nr' => 20
                           }
@@ -497,7 +497,8 @@ $result_trees{'sc_in_menu'} = {
                           'text' => ')'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'sc',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -507,7 +508,6 @@ $result_trees{'sc_in_menu'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'sc',
                           'source_info' => {
                             'line_nr' => 20
                           }
@@ -537,7 +537,8 @@ $result_trees{'sc_in_menu'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'sc',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -547,7 +548,6 @@ $result_trees{'sc_in_menu'} = {
                                   'type' => 'brace_container'
                                 }
                               ],
-                              'cmdname' => 'sc',
                               'source_info' => {
                                 'line_nr' => 20
                               }
@@ -578,7 +578,8 @@ $result_trees{'sc_in_menu'} = {
                           'type' => 'after_menu_description_line'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'sc',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -588,7 +589,6 @@ $result_trees{'sc_in_menu'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'sc',
                           'source_info' => {
                             'line_nr' => 22
                           }

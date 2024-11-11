@@ -84,7 +84,8 @@ $result_trees{'item_in_ref'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'ref',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -111,7 +112,6 @@ $result_trees{'item_in_ref'} = {
                               'type' => 'brace_arg'
                             }
                           ],
-                          'cmdname' => 'ref',
                           'source_info' => {
                             'line_nr' => 5
                           }

@@ -12,7 +12,8 @@ $result_trees{'punctuation_abbr_acronym'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'abbr',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -22,7 +23,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'abbr',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -31,7 +31,8 @@ $result_trees{'punctuation_abbr_acronym'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -41,7 +42,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -50,7 +50,8 @@ $result_trees{'punctuation_abbr_acronym'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'abbr',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -60,7 +61,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'abbr',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -69,7 +69,8 @@ $result_trees{'punctuation_abbr_acronym'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -79,7 +80,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -89,7 +89,8 @@ $result_trees{'punctuation_abbr_acronym'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'abbr',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -112,7 +113,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'abbr',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -121,7 +121,8 @@ $result_trees{'punctuation_abbr_acronym'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -144,7 +145,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -153,7 +153,8 @@ $result_trees{'punctuation_abbr_acronym'} = {
               'text' => '. '
             },
             {
-              'args' => [
+              'cmdname' => 'abbr',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -176,7 +177,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'abbr',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -186,7 +186,8 @@ $result_trees{'punctuation_abbr_acronym'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'acronym',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -209,7 +210,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'acronym',
               'source_info' => {
                 'line_nr' => 3
               }

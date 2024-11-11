@@ -23,12 +23,12 @@ $result_trees{'invalid_U'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'U',
+              'contents' => [
                 {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'U',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -37,7 +37,8 @@ $result_trees{'invalid_U'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'U',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -47,7 +48,6 @@ $result_trees{'invalid_U'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'U',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -56,7 +56,8 @@ $result_trees{'invalid_U'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'U',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -66,7 +67,6 @@ $result_trees{'invalid_U'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'U',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -75,7 +75,8 @@ $result_trees{'invalid_U'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'U',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -85,7 +86,6 @@ $result_trees{'invalid_U'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'U',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -94,7 +94,8 @@ $result_trees{'invalid_U'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'U',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -104,7 +105,6 @@ $result_trees{'invalid_U'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'U',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -113,7 +113,8 @@ $result_trees{'invalid_U'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'U',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -123,7 +124,6 @@ $result_trees{'invalid_U'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'U',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -133,7 +133,8 @@ $result_trees{'invalid_U'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'U',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -151,7 +152,6 @@ $result_trees{'invalid_U'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'U',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -160,7 +160,8 @@ $result_trees{'invalid_U'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'U',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -170,7 +171,6 @@ $result_trees{'invalid_U'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'U',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -179,7 +179,8 @@ $result_trees{'invalid_U'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'U',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -197,7 +198,6 @@ $result_trees{'invalid_U'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'U',
               'source_info' => {
                 'line_nr' => 2
               }

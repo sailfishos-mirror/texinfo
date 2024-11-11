@@ -313,7 +313,8 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'a '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'var',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -323,7 +324,6 @@ $result_trees{'def_syn_indices'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'var',
                   'source_info' => {
                     'line_nr' => 17
                   }
@@ -332,7 +332,8 @@ $result_trees{'def_syn_indices'} = {
                   'text' => ' t'
                 },
                 {
-                  'args' => [
+                  'cmdname' => '~',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -342,7 +343,6 @@ $result_trees{'def_syn_indices'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => '~',
                   'source_info' => {
                     'line_nr' => 17
                   }
@@ -351,11 +351,13 @@ $result_trees{'def_syn_indices'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => '^',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'dotless',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -365,7 +367,6 @@ $result_trees{'def_syn_indices'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'dotless',
                           'source_info' => {
                             'line_nr' => 17
                           }
@@ -374,7 +375,6 @@ $result_trees{'def_syn_indices'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => '^',
                   'source_info' => {
                     'line_nr' => 17
                   }

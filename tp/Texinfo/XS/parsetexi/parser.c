@@ -1185,7 +1185,7 @@ new_value_element (enum command_id cmd, const char *flag,
   ELEMENT *value_text = new_text_element (ET_normal_text);
 
   text_append_n (value_text->e.text, flag, flag_len);
-  add_to_element_args (value_elt, brace_container);
+  add_to_element_contents (value_elt, brace_container);
   add_to_element_contents (brace_container, value_text);
   if (spaces_element)
     value_elt->elt_info[eit_spaces_after_cmd_before_arg]
@@ -2204,7 +2204,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           int char_len;
 
           e = new_element (ET_following_arg);
-          add_to_element_args (current, e);
+          add_to_element_contents (current, e);
 
           /* Count any UTF-8 continuation bytes. */
           char_len = 1;

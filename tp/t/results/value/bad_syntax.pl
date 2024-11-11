@@ -102,7 +102,8 @@ $result_trees{'bad_syntax'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'value',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -111,8 +112,7 @@ $result_trees{'bad_syntax'} = {
               ],
               'type' => 'brace_container'
             }
-          ],
-          'cmdname' => 'value'
+          ]
         },
         {
           'text' => '

@@ -76,7 +76,8 @@ $result_trees{'nodes_no_section_footnote_no_top_node_output'} = {
               'text' => 'a'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -91,7 +92,6 @@ $result_trees{'nodes_no_section_footnote_no_top_node_output'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 4

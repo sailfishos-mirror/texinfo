@@ -34,7 +34,8 @@ $result_trees{'closing_brace_in_value_in_ignored_inline'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmt',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -50,7 +51,8 @@ $result_trees{'closing_brace_in_value_in_ignored_inline'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'value',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -59,8 +61,7 @@ $result_trees{'closing_brace_in_value_in_ignored_inline'} = {
                                 ],
                                 'type' => 'brace_container'
                               }
-                            ],
-                            'cmdname' => 'value'
+                            ]
                           },
                           'line' => '}',
                           'position' => 5,
@@ -80,7 +81,6 @@ $result_trees{'closing_brace_in_value_in_ignored_inline'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'inlinefmt',
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'html'
@@ -115,7 +115,8 @@ $result_trees{'closing_brace_in_value_in_ignored_inline'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'inlinefmt',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -137,7 +138,6 @@ after
                   'type' => 'elided_brace_command_arg'
                 }
               ],
-              'cmdname' => 'inlinefmt',
               'extra' => {
                 'format' => 'tex'
               },

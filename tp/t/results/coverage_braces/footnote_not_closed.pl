@@ -15,7 +15,8 @@ $result_trees{'footnote_not_closed'} = {
               'text' => 'AAA'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -45,7 +46,6 @@ $result_trees{'footnote_not_closed'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '

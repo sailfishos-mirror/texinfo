@@ -325,7 +325,8 @@ $result_trees{'commands_and_spaces'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -390,7 +391,6 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -408,7 +408,8 @@ $result_trees{'commands_and_spaces'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'image',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -479,7 +480,6 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'brace_arg'
             }
           ],
-          'cmdname' => 'image',
           'extra' => {
             'input_encoding_name' => 'utf-8'
           },
@@ -614,7 +614,8 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'caption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -629,7 +630,6 @@ $result_trees{'commands_and_spaces'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'caption',
               'extra' => {
                 'float' => {}
               },
@@ -652,7 +652,8 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'shortcaption',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -667,7 +668,6 @@ $result_trees{'commands_and_spaces'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'shortcaption',
               'extra' => {
                 'float' => {}
               },
@@ -870,7 +870,8 @@ $result_trees{'commands_and_spaces'} = {
                   'text' => '  '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'var',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -880,7 +881,6 @@ $result_trees{'commands_and_spaces'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'var',
                   'source_info' => {
                     'line_nr' => 39
                   }
@@ -1246,7 +1246,8 @@ $result_trees{'commands_and_spaces'} = {
               'text' => 'T'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1261,7 +1262,6 @@ $result_trees{'commands_and_spaces'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -1290,7 +1290,8 @@ $result_trees{'commands_and_spaces'} = {
               'text' => 'Math '
             },
             {
-              'args' => [
+              'cmdname' => 'math',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1314,7 +1315,6 @@ $result_trees{'commands_and_spaces'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'math',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -1339,7 +1339,8 @@ $result_trees{'commands_and_spaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'indicateurl',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1349,7 +1350,6 @@ $result_trees{'commands_and_spaces'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'indicateurl',
               'source_info' => {
                 'line_nr' => 62
               }

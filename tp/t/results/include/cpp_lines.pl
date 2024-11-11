@@ -73,7 +73,8 @@ $result_trees{'cpp_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -83,7 +84,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 68
@@ -307,7 +307,8 @@ $result_trees{'cpp_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -317,7 +318,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 57
@@ -376,7 +376,8 @@ $result_trees{'cpp_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -386,7 +387,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 61
@@ -472,7 +472,8 @@ $result_trees{'cpp_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -482,7 +483,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 68
@@ -547,7 +547,8 @@ $result_trees{'cpp_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -557,7 +558,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 72
@@ -627,7 +627,8 @@ $result_trees{'cpp_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -637,7 +638,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'file_name' => 'inc',
                 'line_nr' => 10
@@ -666,7 +666,8 @@ $result_trees{'cpp_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -676,7 +677,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 75
@@ -697,7 +697,8 @@ $result_trees{'cpp_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'verb',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -714,7 +715,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'verb',
               'info' => {
                 'delimiter' => ':'
               },
@@ -738,7 +738,8 @@ $result_trees{'cpp_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -748,7 +749,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 81
@@ -772,7 +772,8 @@ $result_trees{'cpp_lines'} = {
               'text' => 'a'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -787,7 +788,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -818,7 +818,8 @@ $result_trees{'cpp_lines'} = {
               'text' => 'a'
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -838,7 +839,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -871,7 +871,8 @@ $result_trees{'cpp_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -905,7 +906,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'file_name' => 'footnote2',
                 'line_nr' => 40
@@ -926,7 +926,8 @@ $result_trees{'cpp_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -960,7 +961,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'file_name' => 'email2',
                 'line_nr' => 64
@@ -981,7 +981,8 @@ $result_trees{'cpp_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1015,7 +1016,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'file_name' => 'email2',
                 'line_nr' => 69
@@ -1036,7 +1036,8 @@ $result_trees{'cpp_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'email',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1054,7 +1055,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'email',
               'source_info' => {
                 'file_name' => 'email12',
                 'line_nr' => 64

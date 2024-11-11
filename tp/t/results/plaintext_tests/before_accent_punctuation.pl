@@ -15,7 +15,8 @@ $result_trees{'before_accent_punctuation'} = {
               'text' => 'a. '
             },
             {
-              'args' => [
+              'cmdname' => '^',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -25,7 +26,6 @@ $result_trees{'before_accent_punctuation'} = {
                   'type' => 'following_arg'
                 }
               ],
-              'cmdname' => '^',
               'source_info' => {
                 'line_nr' => 1
               }

@@ -12,7 +12,8 @@ $result_trees{'bad_style_nesting'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -23,7 +24,6 @@ $result_trees{'bad_style_nesting'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 1
               }

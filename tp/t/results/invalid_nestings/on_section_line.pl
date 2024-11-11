@@ -28,7 +28,8 @@ $result_trees{'on_section_line'} = {
               'text' => 'Text '
             },
             {
-              'args' => [
+              'cmdname' => 'titlefont',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -38,7 +39,6 @@ $result_trees{'on_section_line'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'titlefont',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 1
@@ -48,7 +48,8 @@ $result_trees{'on_section_line'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'anchor',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -58,7 +59,6 @@ $result_trees{'on_section_line'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'anchor',
               'extra' => {
                 'is_target' => 1,
                 'normalized' => 'in-anchor'
@@ -68,7 +68,8 @@ $result_trees{'on_section_line'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -83,7 +84,6 @@ $result_trees{'on_section_line'} = {
                   'type' => 'brace_command_context'
                 }
               ],
-              'cmdname' => 'footnote',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 1

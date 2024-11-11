@@ -199,7 +199,8 @@ $result_trees{'value_expansion_in_include'} = {
                           {
                             'counter' => 1,
                             'element' => {
-                              'args' => [
+                              'cmdname' => 'value',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -208,8 +209,7 @@ $result_trees{'value_expansion_in_include'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'value'
+                              ]
                             },
                             'line' => 'incl-incl.txi',
                             'position' => 1,
@@ -235,7 +235,8 @@ $result_trees{'value_expansion_in_include'} = {
               'text' => 'This is the '
             },
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -245,7 +246,6 @@ $result_trees{'value_expansion_in_include'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'file_name' => 'incl-incl.txi',
                 'line_nr' => 1
@@ -315,7 +315,8 @@ $result_trees{'value_expansion_in_include'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -324,8 +325,7 @@ $result_trees{'value_expansion_in_include'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'incl-incl.txi',
                   'position' => 1,
@@ -391,7 +391,8 @@ $result_trees{'value_expansion_in_include'} = {
                           {
                             'counter' => 3,
                             'element' => {
-                              'args' => [
+                              'cmdname' => 'value',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -400,8 +401,7 @@ $result_trees{'value_expansion_in_include'} = {
                                   ],
                                   'type' => 'brace_container'
                                 }
-                              ],
-                              'cmdname' => 'value'
+                              ]
                             },
                             'line' => 'incl-incl.tx',
                             'position' => 1,
@@ -427,7 +427,8 @@ $result_trees{'value_expansion_in_include'} = {
               'text' => 'This is the '
             },
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -437,7 +438,6 @@ $result_trees{'value_expansion_in_include'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'file_name' => 'incl-incl.txi',
                 'line_nr' => 1
@@ -507,7 +507,8 @@ $result_trees{'value_expansion_in_include'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'value',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -516,8 +517,7 @@ $result_trees{'value_expansion_in_include'} = {
                         ],
                         'type' => 'brace_container'
                       }
-                    ],
-                    'cmdname' => 'value'
+                    ]
                   },
                   'line' => 'incl-incl.tx',
                   'position' => 1,
@@ -557,7 +557,8 @@ $result_trees{'value_expansion_in_include'} = {
                               {
                                 'counter' => 5,
                                 'element' => {
-                                  'args' => [
+                                  'cmdname' => 'value',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -566,8 +567,7 @@ $result_trees{'value_expansion_in_include'} = {
                                       ],
                                       'type' => 'brace_container'
                                     }
-                                  ],
-                                  'cmdname' => 'value'
+                                  ]
                                 },
                                 'line' => 'ncl-incl.tx',
                                 'position' => 1,
@@ -617,7 +617,8 @@ $result_trees{'value_expansion_in_include'} = {
               'text' => 'This is the '
             },
             {
-              'args' => [
+              'cmdname' => 'emph',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -627,7 +628,6 @@ $result_trees{'value_expansion_in_include'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'emph',
               'source_info' => {
                 'file_name' => 'incl-incl.txi',
                 'line_nr' => 1
@@ -670,7 +670,8 @@ $result_trees{'value_expansion_in_include'} = {
                     {
                       'counter' => 6,
                       'element' => {
-                        'args' => [
+                        'cmdname' => 'value',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -679,8 +680,7 @@ $result_trees{'value_expansion_in_include'} = {
                             ],
                             'type' => 'brace_container'
                           }
-                        ],
-                        'cmdname' => 'value'
+                        ]
                       },
                       'line' => 'ncl-incl.tx',
                       'position' => 1,

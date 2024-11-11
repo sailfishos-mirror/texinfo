@@ -12,7 +12,8 @@ $result_trees{'commands_in_abbr'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'abbr',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -24,7 +25,8 @@ $result_trees{'commands_in_abbr'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'b',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -34,7 +36,6 @@ $result_trees{'commands_in_abbr'} = {
                           'type' => 'brace_container'
                         }
                       ],
-                      'cmdname' => 'b',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -51,7 +52,6 @@ $result_trees{'commands_in_abbr'} = {
                   'type' => 'brace_arg'
                 }
               ],
-              'cmdname' => 'abbr',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -85,7 +85,8 @@ $result_trees{'commands_in_abbr'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'abbr',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -97,7 +98,8 @@ $result_trees{'commands_in_abbr'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'b',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -107,7 +109,6 @@ $result_trees{'commands_in_abbr'} = {
                               'type' => 'brace_container'
                             }
                           ],
-                          'cmdname' => 'b',
                           'source_info' => {
                             'line_nr' => 4
                           }
@@ -124,7 +125,6 @@ $result_trees{'commands_in_abbr'} = {
                       'type' => 'brace_arg'
                     }
                   ],
-                  'cmdname' => 'abbr',
                   'source_info' => {
                     'line_nr' => 4
                   }

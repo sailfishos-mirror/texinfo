@@ -109,7 +109,8 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
                   'text' => 'toto is there:: and the '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'emph',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -119,13 +120,13 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 7
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'w',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -135,7 +136,6 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'w',
                   'source_info' => {
                     'line_nr' => 7
                   }
@@ -144,7 +144,8 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
                   'text' => ' and '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'verb',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -155,7 +156,6 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
                       'type' => 'brace_container'
                     }
                   ],
-                  'cmdname' => 'verb',
                   'info' => {
                     'delimiter' => ':'
                   },
@@ -167,7 +167,8 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'ringaccent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -177,7 +178,6 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
                       'type' => 'following_arg'
                     }
                   ],
-                  'cmdname' => 'ringaccent',
                   'info' => {
                     'spaces_after_cmd_before_arg' => {
                       'text' => ' '

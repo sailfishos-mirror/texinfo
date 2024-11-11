@@ -12,7 +12,8 @@ $result_trees{'cartouche_in_style_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'code',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -23,7 +24,6 @@ $result_trees{'cartouche_in_style_command'} = {
                   'type' => 'brace_container'
                 }
               ],
-              'cmdname' => 'code',
               'source_info' => {
                 'line_nr' => 1
               }
