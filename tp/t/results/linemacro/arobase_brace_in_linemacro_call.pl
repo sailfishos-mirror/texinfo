@@ -10,22 +10,25 @@ $result_trees{'arobase_brace_in_linemacro_call'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'simplemac',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg1',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'arg2',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'simplemac',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg1',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'arg2',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'first: \\arg1\\|
 ',

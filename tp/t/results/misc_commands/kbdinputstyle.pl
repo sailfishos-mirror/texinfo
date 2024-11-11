@@ -10,14 +10,17 @@ $result_trees{'kbdinputstyle'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'codekbdmacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'codekbdmacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@code{in code out of example @code{in nested code}}.
 ',

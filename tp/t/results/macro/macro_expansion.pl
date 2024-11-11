@@ -15,22 +15,25 @@ $result_trees{'macro_expansion'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'macroone',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg1',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'arg2',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macroone',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg1',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'arg2',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'result of a macro with \\arg1\\ and 
 ',

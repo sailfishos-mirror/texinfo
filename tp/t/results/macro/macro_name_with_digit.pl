@@ -10,14 +10,17 @@ $result_trees{'macro_name_with_digit'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'macro1',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macro1',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'macro1
 ',
@@ -68,18 +71,21 @@ $result_trees{'macro_name_with_digit'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'macro11',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macro11',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'expand \\arg\\
 ',

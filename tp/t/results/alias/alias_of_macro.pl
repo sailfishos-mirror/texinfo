@@ -10,18 +10,21 @@ $result_trees{'alias_of_macro'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'mymacro',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'thearg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'mymacro',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'thearg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '||\\thearg||
 ',

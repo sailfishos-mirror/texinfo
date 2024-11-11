@@ -22,18 +22,21 @@ $result_trees{'cpp_directives_in_macro'} = {
         {
           'contents' => [
             {
-              'args' => [
-                {
-                  'text' => 'simplemacro',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'out',
-                  'type' => 'macro_arg'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'simplemacro',
+                      'type' => 'macro_name'
+                    },
+                    {
+                      'text' => 'out',
+                      'type' => 'macro_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '\\out\\
 ',

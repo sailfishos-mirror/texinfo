@@ -10,14 +10,17 @@ $result_trees{'macro_end_call_in_ignored_inlinefmt'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'startfmt',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'startfmt',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'Para @inlinefmt{tex, inT
 ',

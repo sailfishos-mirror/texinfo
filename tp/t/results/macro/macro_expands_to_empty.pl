@@ -10,18 +10,21 @@ $result_trees{'macro_expands_to_empty'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'foo',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'foo',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '\\arg\\
 ',

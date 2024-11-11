@@ -22,14 +22,17 @@ $result_trees{'cpp_directives_line_value_macro'} = {
         {
           'contents' => [
             {
-              'args' => [
-                {
-                  'text' => 'vvv',
-                  'type' => 'macro_name'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'vvv',
+                      'type' => 'macro_name'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '#line 30 "toto"
 ',
@@ -123,14 +126,17 @@ $result_trees{'cpp_directives_line_value_macro'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'machash',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'machash',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '#
 ',
@@ -221,18 +227,21 @@ $result_trees{'cpp_directives_line_value_macro'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'numberfileflag',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'numberfileflag',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '\\arg\\ "titi" 3\\arg\\
 ',

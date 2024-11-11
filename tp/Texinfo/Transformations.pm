@@ -862,6 +862,8 @@ sub _protect_hashchar_at_line_beginning($$$)
       if ($parent->{'contents'}->[$i] eq $current) {
         # protect if first in container, or if after a newline
         if ($i == 0
+            or ($i == 1 and $parent->{'contents'}->[0]->{'type'}
+                and $parent->{'contents'}->[0]->{'type'} eq 'argument')
             or ($parent->{'contents'}->[$i-1]->{'text'}
                 and $parent->{'contents'}->[$i-1]->{'text'} =~ /\n$/)) {
           # do not actually protect in raw block command, but warn

@@ -10,26 +10,29 @@ $result_trees{'braces_after_text'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'mymacro',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'a',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'b',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'c',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'mymacro',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'a',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'b',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'c',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@defline \\a\\ \\b\\ \\c\\
 ',

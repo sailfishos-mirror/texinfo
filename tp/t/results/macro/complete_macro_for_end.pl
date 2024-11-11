@@ -10,14 +10,17 @@ $result_trees{'complete_macro_for_end'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'theend',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'theend',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@end cartouche
 ',

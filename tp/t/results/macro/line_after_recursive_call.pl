@@ -10,14 +10,17 @@ $result_trees{'line_after_recursive_call'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'mac',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'mac',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'ggg
 ',

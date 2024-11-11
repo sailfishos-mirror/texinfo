@@ -15,18 +15,21 @@ $result_trees{'implicit_quoting_one_arg'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'FIXAME',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'a',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'FIXAME',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'a',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@strong{FIXAME: \\a\\}
 ',

@@ -10,14 +10,17 @@ $result_trees{'no_arguments'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'noarg',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'noarg',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'Body.
 ',

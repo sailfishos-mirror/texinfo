@@ -10,18 +10,21 @@ $result_trees{'block_begin_end_in_linemacro_call'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'lm',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'a',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'lm',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'a',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'b \\a\\ a
 ',
@@ -612,22 +615,25 @@ args \\e\\|\\f\\|
 '
             },
             {
-              'args' => [
-                {
-                  'text' => 'mymac',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'e',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'f',
-                  'type' => 'macro_arg'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'mymac',
+                      'type' => 'macro_name'
+                    },
+                    {
+                      'text' => 'e',
+                      'type' => 'macro_arg'
+                    },
+                    {
+                      'text' => 'f',
+                      'type' => 'macro_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => 'args \\e\\|\\f\\|
 ',

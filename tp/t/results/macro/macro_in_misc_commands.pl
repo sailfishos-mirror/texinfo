@@ -10,14 +10,17 @@ $result_trees{'macro_in_misc_commands'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'text',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'text',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'atext
 ',
@@ -68,14 +71,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'Top',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'Top',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'Top
 ',
@@ -322,14 +328,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'en',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'en',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'en
 ',
@@ -375,14 +384,17 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'documentlanguagecommand',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'documentlanguagecommand',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@documentlanguage
 ',
@@ -578,14 +590,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'pagesizesarg',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'pagesizesarg',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '200mm,150mm
 ',
@@ -636,14 +651,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'afourpapermacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'afourpapermacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@afourpaper
 ',
@@ -947,14 +965,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'needarg',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'needarg',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '0.1
 ',
@@ -1069,14 +1090,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'raisesectionsmacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'raisesectionsmacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@raisesections
 ',
@@ -1155,14 +1179,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'cmdname' => 'raisesections'
         },
         {
-          'args' => [
-            {
-              'text' => 'lowersectionsmacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'lowersectionsmacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@lowersections
 ',
@@ -1334,14 +1361,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'definfoenclosename',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'definfoenclosename',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'phi
 ',
@@ -1491,14 +1521,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'strongmacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'strongmacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@strong
 ',
@@ -1544,14 +1577,17 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'strongname',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'strongname',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'strong
 ',
@@ -1851,14 +1887,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'kbdinputstylearg',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'kbdinputstylearg',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'code
 ',
@@ -2083,14 +2122,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'asisarg',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'asisarg',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'asis
 ',
@@ -2136,14 +2178,17 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'zero',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'zero',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '0
 ',
@@ -2189,14 +2234,17 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'nonearg',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'nonearg',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'none
 ',
@@ -2242,14 +2290,17 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'four',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'four',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '4
 ',
@@ -2295,14 +2346,17 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'six',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'six',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '6
 ',
@@ -2712,14 +2766,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'endarg',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'endarg',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'end
 ',
@@ -2765,14 +2822,17 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'separatearg',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'separatearg',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'separate 
 ',
@@ -2941,14 +3001,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'onarg',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'onarg',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'on
 ',
@@ -2994,14 +3057,17 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'offarg',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'offarg',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'off
 ',
@@ -3180,14 +3246,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'cmdname' => 'c'
         },
         {
-          'args' => [
-            {
-              'text' => 'ten',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'ten',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '10
 ',
@@ -3302,14 +3371,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'cmdname' => 'c'
         },
         {
-          'args' => [
-            {
-              'text' => 'falsearg',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'falsearg',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'false
 ',
@@ -3355,14 +3427,17 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'truearg',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'truearg',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'true
 ',
@@ -3536,14 +3611,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'pagemacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'pagemacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@page
 ',
@@ -3589,14 +3667,17 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'noindentmacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'noindentmacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@noindent
 ',
@@ -3642,14 +3723,17 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'refillmacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'refillmacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@refill
 ',
@@ -4199,14 +4283,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'contentsmacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'contentsmacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@contents
 ',
@@ -4310,14 +4397,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'exdentmacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'exdentmacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@exdent
 ',
@@ -4421,14 +4511,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'two',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'two',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '2
 ',
@@ -4538,14 +4631,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'resultmacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'resultmacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@result
 ',
@@ -4879,14 +4975,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'shortcontentsmacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'shortcontentsmacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@shortcontents
 ',
@@ -4975,14 +5074,17 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'byemacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'byemacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@bye
 ',

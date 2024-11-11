@@ -13,6 +13,9 @@ $result_trees{'non_ascii_in_macro_name'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
+              'type' => 'argument'
+            },
+            {
               'text' => '(@`{\\a\\})
 ',
               'type' => 'raw'

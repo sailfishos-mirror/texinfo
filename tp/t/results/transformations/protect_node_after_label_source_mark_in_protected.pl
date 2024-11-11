@@ -10,14 +10,17 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'vvv',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'vvv',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'some text .,
 ',

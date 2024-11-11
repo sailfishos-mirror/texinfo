@@ -10,22 +10,25 @@ $result_trees{'nested_macros'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'truc',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'ex',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'truc',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'ex',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'in macro \\arg\\
 ',

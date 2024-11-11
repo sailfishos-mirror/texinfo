@@ -10,18 +10,21 @@ $result_trees{'ifset_in_macro'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'note',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'note',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@ifset notes 
 ',

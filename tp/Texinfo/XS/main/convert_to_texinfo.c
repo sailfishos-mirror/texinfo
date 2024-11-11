@@ -166,7 +166,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
 {
   ELEMENT *elt;
 
-  if (e->flags & EF_inserted)
+  if (e->flags & EF_inserted || e->type == ET_argument)
     {}
   else if (type_data[e->type].flags & TF_text)
     {

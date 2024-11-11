@@ -10,26 +10,29 @@ $result_trees{'spaces_after_command_in_call'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'mylinecommand',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'first',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'second',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'rest',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'mylinecommand',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'first',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'second',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'rest',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@defblock
 ',

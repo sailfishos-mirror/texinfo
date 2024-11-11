@@ -10,14 +10,17 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'simple',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'simple',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'ab
 ',
@@ -68,18 +71,21 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'endbrace',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'endbrace',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'c\\arg\\d}
 ',

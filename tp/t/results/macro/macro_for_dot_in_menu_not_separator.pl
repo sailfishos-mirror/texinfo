@@ -10,14 +10,17 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'macrodot',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macrodot',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '.
 ',

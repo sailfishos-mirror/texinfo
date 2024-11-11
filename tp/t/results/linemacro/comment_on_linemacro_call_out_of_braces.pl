@@ -10,26 +10,29 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'lm',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'a',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'b',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'c',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'lm',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'a',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'b',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'c',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'first |\\a\\|
 ',

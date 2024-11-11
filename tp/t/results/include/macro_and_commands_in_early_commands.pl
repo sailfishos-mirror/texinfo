@@ -10,14 +10,17 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'begin-file',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'begin-file',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'macro_i--n_pass@@
 ',
@@ -135,14 +138,17 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'latin1',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'latin1',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'ISO-8859-1@@
 ',
@@ -258,14 +264,17 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'multiinclude',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'multiinclude',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'macro_included.texi
 ',
@@ -466,14 +475,17 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'themacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'themacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'in themacro
 ',

@@ -10,14 +10,17 @@ $result_trees{'macro_for_end'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'myend',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'myend',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@end
 ',

@@ -22,14 +22,17 @@ $result_trees{'cpp_directives_after_macros'} = {
         {
           'contents' => [
             {
-              'args' => [
-                {
-                  'text' => 'noargsspaces',
-                  'type' => 'macro_name'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'noargsspaces',
+                      'type' => 'macro_name'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '  
 ',
@@ -82,14 +85,17 @@ $result_trees{'cpp_directives_after_macros'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'text' => 'emptyexpansion',
-                  'type' => 'macro_name'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'emptyexpansion',
+                      'type' => 'macro_name'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '
 ',

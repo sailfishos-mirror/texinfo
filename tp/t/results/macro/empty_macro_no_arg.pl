@@ -10,14 +10,17 @@ $result_trees{'empty_macro_no_arg'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'foo',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'foo',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

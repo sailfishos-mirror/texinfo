@@ -10,14 +10,17 @@ $result_trees{'ignored_macro_definition'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'mymacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'mymacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'outside
 ',

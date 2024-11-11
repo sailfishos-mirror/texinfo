@@ -10,14 +10,17 @@ $result_trees{'closing_brace_in_macro_call_in_ignored_inline'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'closebrace',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'closebrace',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '}
 ',

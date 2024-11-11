@@ -10,22 +10,25 @@ $result_trees{'implicit_quoting_recursion'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'cat',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'a',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'b',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'rmacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'cat',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'a',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'b',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '\\a\\\\b\\
 ',

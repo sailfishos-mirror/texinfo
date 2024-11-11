@@ -10,14 +10,17 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'beginifsetcontent',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'beginifsetcontent',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@ifset a
 ',

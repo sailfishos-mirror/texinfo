@@ -10,14 +10,17 @@ $result_trees{'protect_first_parenthesis_after_parenthesis_source_mark'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'vvv',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'vvv',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '(
 ',

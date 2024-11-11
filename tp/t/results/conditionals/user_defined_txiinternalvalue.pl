@@ -10,14 +10,17 @@ $result_trees{'user_defined_txiinternalvalue'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'txiinternalvalue',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'txiinternalvalue',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'user internalvalue
 ',

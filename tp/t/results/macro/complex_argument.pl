@@ -10,18 +10,21 @@ $result_trees{'complex_argument'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'macrotwo',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macrotwo',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'coucou \\arg\\ after arg
 ',
@@ -72,14 +75,17 @@ $result_trees{'complex_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'macrofour',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macrofour',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '1
 ',
@@ -145,22 +151,25 @@ $result_trees{'complex_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'macrothree',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'text',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macrothree',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'text',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '\\text\\
 ',
@@ -548,18 +557,21 @@ macroseven defined
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'macroseven',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'truc',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macroseven',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'truc',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@emph{\\truc\\}
 ',

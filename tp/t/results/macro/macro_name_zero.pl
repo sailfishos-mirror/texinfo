@@ -10,14 +10,17 @@ $result_trees{'macro_name_zero'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => '0',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => '0',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'in macro
 ',

@@ -10,14 +10,17 @@ $result_trees{'macro_call_in_ignored_inlinefmtifelse'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'commafmt',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'commafmt',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'before comma, after
 ',

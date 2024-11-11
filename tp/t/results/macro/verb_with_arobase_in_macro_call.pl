@@ -10,22 +10,25 @@ $result_trees{'verb_with_arobase_in_macro_call'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'showarg',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'a',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'b',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'showarg',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'a',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'b',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'first: \\a\\
 ',

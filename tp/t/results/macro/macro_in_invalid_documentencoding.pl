@@ -10,14 +10,17 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'badmacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'badmacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'badm
 ',

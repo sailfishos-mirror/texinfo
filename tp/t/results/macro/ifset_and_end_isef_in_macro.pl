@@ -10,14 +10,17 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'beginifset',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'beginifset',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@ifset a
 ',
@@ -68,14 +71,17 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'endifset',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'endifset',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@end ifset
 ',

@@ -10,14 +10,17 @@ $result_trees{'macro_in_value'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'ab',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'ab',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'a
 ',

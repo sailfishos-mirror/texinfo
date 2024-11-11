@@ -1349,7 +1349,9 @@ protect_hashchar_at_line_beginning_internal (const char *type,
               if (parent->e.c->contents.list[i] == current)
                 {
                   int do_protect = 0;
-                  if (i == 0)
+                  if (i == 0
+                      || (i == 1
+                        && parent->e.c->contents.list[0]->type == ET_argument))
                     do_protect = 1;
                   else
                     {

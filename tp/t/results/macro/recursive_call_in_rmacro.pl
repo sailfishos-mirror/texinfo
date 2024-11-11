@@ -15,14 +15,17 @@ $result_trees{'recursive_call_in_rmacro'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'rec',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'rmacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'rec',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@rec{}
 ',

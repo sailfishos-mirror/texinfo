@@ -15,14 +15,17 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'emptystring',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'emptystring',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',

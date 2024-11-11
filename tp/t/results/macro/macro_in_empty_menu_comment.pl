@@ -10,14 +10,17 @@ $result_trees{'macro_in_empty_menu_comment'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'emptystring',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'emptystring',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',

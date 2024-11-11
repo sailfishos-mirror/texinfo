@@ -68,14 +68,17 @@ $result_trees{'glossary'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'text' => 'glossarytext',
-                  'type' => 'macro_name'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'glossarytext',
+                      'type' => 'macro_name'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '@table @asis
 ',
@@ -128,14 +131,17 @@ $result_trees{'glossary'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'text' => 'glossary',
-                  'type' => 'macro_name'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'glossary',
+                      'type' => 'macro_name'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '@glossarytext
 ',
@@ -198,26 +204,29 @@ $result_trees{'glossary'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'text' => 'gentry',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'id',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'name',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'text',
-                  'type' => 'macro_arg'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'gentry',
+                      'type' => 'macro_name'
+                    },
+                    {
+                      'text' => 'id',
+                      'type' => 'macro_arg'
+                    },
+                    {
+                      'text' => 'name',
+                      'type' => 'macro_arg'
+                    },
+                    {
+                      'text' => 'text',
+                      'type' => 'macro_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '@ifhtml
 ',
@@ -749,18 +758,21 @@ $result_trees{'glossary'} = {
               }
             },
             {
-              'args' => [
-                {
-                  'text' => 'expandglossary',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'glossary',
-                  'type' => 'macro_arg'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'expandglossary',
+                      'type' => 'macro_name'
+                    },
+                    {
+                      'text' => 'glossary',
+                      'type' => 'macro_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '@unmacro glossarytext
 ',
@@ -874,14 +886,17 @@ $result_trees{'glossary'} = {
               }
             },
             {
-              'args' => [
-                {
-                  'text' => 'glossarytext',
-                  'type' => 'macro_name'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'glossarytext',
+                      'type' => 'macro_name'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '@glossarytext{}
 ',
@@ -1189,18 +1204,21 @@ $result_trees{'glossary'} = {
               }
             },
             {
-              'args' => [
-                {
-                  'text' => 'expandglossary',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'glossary',
-                  'type' => 'macro_arg'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'expandglossary',
+                      'type' => 'macro_name'
+                    },
+                    {
+                      'text' => 'glossary',
+                      'type' => 'macro_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '@unmacro glossarytext
 ',
@@ -1314,14 +1332,17 @@ $result_trees{'glossary'} = {
               }
             },
             {
-              'args' => [
-                {
-                  'text' => 'glossarytext',
-                  'type' => 'macro_name'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'glossarytext',
+                      'type' => 'macro_name'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '@glossarytext{}
 ',

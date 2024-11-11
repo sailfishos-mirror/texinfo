@@ -15,14 +15,17 @@ $result_trees{'text_before_after'} = {
               'text' => 'before '
             },
             {
-              'args' => [
-                {
-                  'text' => 'mymacro',
-                  'type' => 'macro_name'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'mymacro',
+                      'type' => 'macro_name'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => 'in macro
 ',

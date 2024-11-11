@@ -66,18 +66,21 @@ $result_trees{'backslash_in_arg'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'funindex',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'TEXT',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'funindex',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'TEXT',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@findex \\TEXT\\
 ',

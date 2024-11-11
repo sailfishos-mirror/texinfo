@@ -297,18 +297,21 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
-            {
-              'text' => 'aaa',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'g',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'aaa',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'g',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'll /g/
 ',

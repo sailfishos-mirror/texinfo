@@ -10,14 +10,17 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse_else'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'endcallinignoredinlineelse',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'endcallinignoredinlineelse',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'own, ignored
 ',

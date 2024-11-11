@@ -10,14 +10,17 @@ $result_trees{'macro_not_closed'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'name',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'name',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'in macro
 ',

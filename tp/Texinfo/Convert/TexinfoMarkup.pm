@@ -1380,18 +1380,20 @@ sub _convert($$;$)
       } elsif ($element->{'cmdname'} eq 'macro'
                or $element->{'cmdname'} eq 'rmacro'
                or $element->{'cmdname'} eq 'linemacro') {
-        if (defined($element->{'args'})) {
-          my @args = @{$element->{'args'}};
-          my $name_arg = shift @args;
-          if (defined($name_arg) and defined($name_arg->{'text'})) {
-            push @$attribute, ['name', $name_arg->{'text'}];
-          }
-
-          while (@args) {
-            my $formal_arg = shift @args;
-            $prepended_elements .= $self->txi_markup_open_element('formalarg')
+        if (defined($element->{'contents'})) {
+          my $macro_definition_arg = $element->{'contents'}->[0];
+          my $macro_args_nr = scalar(@{$macro_definition_arg->{'contents'}});
+          if ($macro_args_nr > 0) {
+            my $name_arg = $macro_definition_arg->{'contents'}->[0];
+            if (defined($name_arg) and defined($name_arg->{'text'})) {
+              push @$attribute, ['name', $name_arg->{'text'}];
+            }
+            for (my $i = 1; $i < $macro_args_nr; $i++) {
+              my $formal_arg = $macro_definition_arg->{'contents'}->[$i];
+              $prepended_elements .= $self->txi_markup_open_element('formalarg')
                 .$self->txi_markup_protect_text($formal_arg->{'text'})
                 .$self->txi_markup_close_element('formalarg');
+            }
           }
         }
         push @$attribute, $self->_arg_line($element);
@@ -1582,8 +1584,9 @@ sub _convert($$;$)
   }
   if ($element->{'type'}) {
 
-    if ($container_ignored_if_empty{$element->{'type'}}
-        and !$element->{'contents'}) {
+    if ($element->{'type'} eq 'argument'
+        or ($container_ignored_if_empty{$element->{'type'}}
+            and !$element->{'contents'})) {
       return $result;
     }
 

@@ -10,18 +10,21 @@ $result_trees{'no_macrobody'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'nomacrobody',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'nomacrobody',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

@@ -10,18 +10,21 @@ $result_trees{'macro_in_ifset_end_in_arg'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'macroone',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macroone',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@end ifset
 ',

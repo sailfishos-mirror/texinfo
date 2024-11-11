@@ -10,14 +10,17 @@ $result_trees{'macro_in_end_argument'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'acartouche',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'acartouche',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'cartouche
 ',

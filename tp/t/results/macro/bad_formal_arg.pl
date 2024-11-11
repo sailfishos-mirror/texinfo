@@ -15,22 +15,25 @@ $result_trees{'bad_formal_arg'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'bad',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => '',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'not_empty',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'bad',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => '',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'not_empty',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'in bad macro
 ',
@@ -84,22 +87,25 @@ $result_trees{'bad_formal_arg'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'badspace',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'first',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'in 2arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'badspace',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'first',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'in 2arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'bad space
 ',
@@ -153,18 +159,21 @@ $result_trees{'bad_formal_arg'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'abar',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => ':::',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'abar',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => ':::',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'in bar
 ',

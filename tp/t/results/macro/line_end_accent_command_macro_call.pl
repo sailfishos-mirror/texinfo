@@ -10,14 +10,17 @@ $result_trees{'line_end_accent_command_macro_call'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'expand',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'expand',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@center A @ringaccent 
 ',
@@ -153,14 +156,17 @@ $result_trees{'line_end_accent_command_macro_call'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'nospace',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'nospace',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@center B @ringaccent
 ',

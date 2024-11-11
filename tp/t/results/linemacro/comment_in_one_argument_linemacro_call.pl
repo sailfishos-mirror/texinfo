@@ -10,18 +10,21 @@ $result_trees{'comment_in_one_argument_linemacro_call'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'lm',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'a',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'lm',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'a',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'c \\a\\ d
 ',

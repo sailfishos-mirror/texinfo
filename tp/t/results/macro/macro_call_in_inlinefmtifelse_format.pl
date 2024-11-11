@@ -10,14 +10,17 @@ $result_trees{'macro_call_in_inlinefmtifelse_format'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'inlinefirstarg',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'inlinefirstarg',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'ex, before, after
 ',

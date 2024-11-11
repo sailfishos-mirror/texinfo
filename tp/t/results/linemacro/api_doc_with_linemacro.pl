@@ -10,22 +10,25 @@ $result_trees{'api_doc_with_linemacro'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'param',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'param',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'type',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'param',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'param',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'type',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@defline Parameter @var{\\param\\} @code{ : \\type\\}
 ',
@@ -71,22 +74,25 @@ $result_trees{'api_doc_with_linemacro'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'returns',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'param',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'type',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'returns',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'param',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'type',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@defline {Return Value} @var{\\param\\} @code{ : \\type\\}
 ',
@@ -132,18 +138,21 @@ $result_trees{'api_doc_with_linemacro'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'raises',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'exception',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'raises',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'exception',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@defline {Exception} \\exception\\
 ',

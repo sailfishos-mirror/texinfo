@@ -71,18 +71,21 @@ $result_trees{'test_allowcodebreaks'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'testallowcodebreakspara',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'nr',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'testallowcodebreakspara',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'nr',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'Out of code --- out-of-code.
 ',
@@ -158,14 +161,17 @@ $result_trees{'test_allowcodebreaks'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'testallowcodebreaksexample',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'testallowcodebreaksexample',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',

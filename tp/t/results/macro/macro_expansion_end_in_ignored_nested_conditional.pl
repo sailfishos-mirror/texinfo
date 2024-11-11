@@ -10,14 +10,17 @@ $result_trees{'macro_expansion_end_in_ignored_nested_conditional'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'beginnestedcond',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'beginnestedcond',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@ifset a
 ',

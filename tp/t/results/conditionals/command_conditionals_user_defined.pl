@@ -10,14 +10,17 @@ $result_trees{'command_conditionals_user_defined'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'truc',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'truc',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'machin
 ',

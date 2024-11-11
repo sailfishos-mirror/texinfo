@@ -12,14 +12,17 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
         {
           'contents' => [
             {
-              'args' => [
-                {
-                  'text' => 'quotes',
-                  'type' => 'macro_name'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'quotes',
+                      'type' => 'macro_name'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{} @*
 ',
@@ -95,14 +98,17 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'text' => 'allquotes',
-                  'type' => 'macro_name'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'allquotes',
+                      'type' => 'macro_name'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '@quotes{}
 ',

@@ -10,14 +10,17 @@ $result_trees{'macro_call_in_node_manual'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'openbrace',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'openbrace',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '(
 ',
@@ -68,14 +71,17 @@ $result_trees{'macro_call_in_node_manual'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'openbracetext',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'openbracetext',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '(begin
 ',
@@ -126,14 +132,17 @@ $result_trees{'macro_call_in_node_manual'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'manualnameend',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'manualnameend',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'last
 ',
@@ -184,14 +193,17 @@ $result_trees{'macro_call_in_node_manual'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'manualnameendbrace',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'manualnameendbrace',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'last)
 ',
@@ -242,14 +254,17 @@ $result_trees{'macro_call_in_node_manual'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'manualnameendbracespace',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'manualnameendbracespace',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'last)   
 ',
@@ -300,14 +315,17 @@ $result_trees{'macro_call_in_node_manual'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'manualnameendbracespacetext',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'manualnameendbracespacetext',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'last)  mynode
 ',

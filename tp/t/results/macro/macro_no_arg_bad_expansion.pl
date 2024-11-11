@@ -10,14 +10,17 @@ $result_trees{'macro_no_arg_bad_expansion'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'testone',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'testone',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'res1
 ',

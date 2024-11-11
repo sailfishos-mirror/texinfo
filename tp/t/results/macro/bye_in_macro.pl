@@ -10,14 +10,17 @@ $result_trees{'bye_in_macro'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'byeinmacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'byeinmacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'Text
 ',

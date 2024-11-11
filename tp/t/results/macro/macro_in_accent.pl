@@ -10,14 +10,17 @@ $result_trees{'macro_in_accent'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'aletter',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'aletter',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'a
 ',
@@ -68,14 +71,17 @@ $result_trees{'macro_in_accent'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'aspace',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'aspace',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '  
 ',

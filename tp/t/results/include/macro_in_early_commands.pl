@@ -10,14 +10,17 @@ $result_trees{'macro_in_early_commands'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'begin-file',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'begin-file',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'macro_in_pass
 ',
@@ -63,18 +66,21 @@ $result_trees{'macro_in_early_commands'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'end-file-name',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'ext',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'end-file-name',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'ext',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'texi_commands.\\ext\\
 ',
@@ -215,14 +221,17 @@ $result_trees{'macro_in_early_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'latin1',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'latin1',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'ISO-8859-1
 ',
@@ -273,14 +282,17 @@ $result_trees{'macro_in_early_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'documentencoding-command',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'documentencoding-command',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@documentencoding
 ',
@@ -414,14 +426,17 @@ $result_trees{'macro_in_early_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'multiinclude',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'multiinclude',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'macro_included.texi
 ',
@@ -622,14 +637,17 @@ $result_trees{'macro_in_early_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'themacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'themacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'in themacro
 ',

@@ -12,6 +12,10 @@ Before next release
 
 Report --number-footnotes not documented in texi2any --help
 
+tp/Texinfo/XS/main/build_perl_info.c (pass_generic_converter_to_converter_sv):
+fix typo in opened_files key string.
+ "opened_files_hv" -> "opened_files"
+
 Bugs
 ====
 

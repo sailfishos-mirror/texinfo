@@ -15,26 +15,29 @@ $result_trees{'newline_and_continuation_in_brace'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'mylinecommand',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'first',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'second',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'rest',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'mylinecommand',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'first',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'second',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'rest',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@defline category \\first\\ \\second\\ \\rest\\
 ',

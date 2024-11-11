@@ -10,14 +10,17 @@ $result_trees{'macro_expansion_end_in_conditional_line'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'begincond',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'begincond',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@ifset fl
 ',

@@ -10,26 +10,29 @@ $result_trees{'paragraph_no_paragraph'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'mycommand',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'a',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'b',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'c',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'mycommand',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'a',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'b',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'c',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '\\a\\, \\b\\ \\c\\
 ',

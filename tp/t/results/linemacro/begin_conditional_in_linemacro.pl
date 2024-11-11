@@ -10,18 +10,21 @@ $result_trees{'begin_conditional_in_linemacro'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'lm',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'a',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'lm',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'a',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'b \\a\\ a
 ',

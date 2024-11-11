@@ -10,26 +10,29 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'mylinecommand',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'first',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'second',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'rest',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'mylinecommand',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'first',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'second',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'rest',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@defblock
 ',
@@ -90,18 +93,21 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'mymac',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg1',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'mymac',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg1',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@samp{arg1}
 ',
@@ -152,22 +158,25 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'mylinemac',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'name',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'rest',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'mylinemac',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'name',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'rest',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '{\\name\\} \\rest\\
 ',

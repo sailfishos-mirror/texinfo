@@ -245,14 +245,17 @@ $result_trees{'cpp_lines'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'macr',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macr',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '# line 7 "k"
 ',
@@ -405,14 +408,17 @@ $result_trees{'cpp_lines'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'macrtwo',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macrtwo',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'line before
 ',

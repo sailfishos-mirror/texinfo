@@ -10,14 +10,17 @@ $result_trees{'macro_in_brace_command'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'foo',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'foo',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'foo-expansion
 ',
@@ -68,14 +71,17 @@ $result_trees{'macro_in_brace_command'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'abar',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'abar',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'bar-expansion
 ',

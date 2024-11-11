@@ -13,6 +13,9 @@ $result_trees{'bad_argument'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
+              'type' => 'argument'
+            },
+            {
               'text' => 'in macro
 ',
               'type' => 'raw'
@@ -65,14 +68,17 @@ $result_trees{'bad_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'abar',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'rmacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'abar',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'in
 ',
@@ -126,18 +132,21 @@ $result_trees{'bad_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'aftername',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'ggg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'aftername',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'ggg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'in macro
 ',
@@ -193,6 +202,9 @@ $result_trees{'bad_argument'} = {
         {
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'type' => 'argument'
+            },
             {
               'text' => 'in #
 ',

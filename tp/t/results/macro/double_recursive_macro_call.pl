@@ -15,18 +15,21 @@ $result_trees{'double_recursive_macro_call'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'macone',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macone',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@mactwo{}
 ',
@@ -77,18 +80,21 @@ $result_trees{'double_recursive_macro_call'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'mactwo',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'mactwo',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@macone{}
 ',

@@ -10,14 +10,17 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'setargendignored',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'setargendignored',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'ag,
 ',

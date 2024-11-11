@@ -10,22 +10,25 @@ $result_trees{'call_macro_in_linemacro_body'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'lm',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'a',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'b',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'lm',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'a',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'b',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@mymacro{@code{}
 ',
@@ -86,22 +89,25 @@ $result_trees{'call_macro_in_linemacro_body'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'mymacro',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'c',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'd',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'mymacro',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'c',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'd',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@table \\c\\
 ',

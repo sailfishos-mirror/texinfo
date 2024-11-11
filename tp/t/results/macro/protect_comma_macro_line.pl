@@ -10,18 +10,21 @@ $result_trees{'protect_comma_macro_line'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'macrotwo',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macrotwo',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'we get \\arg\\ and another \\arg\\
 ',

@@ -10,22 +10,25 @@ $result_trees{'macro_and_args'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'good',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'aaa',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => '2b-bb',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'good',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'aaa',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => '2b-bb',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -71,26 +74,29 @@ $result_trees{'macro_and_args'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'bad',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'ggg"@@^_ ff',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'nnn_b',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'ccc v',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'bad',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'ggg"@@^_ ff',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'nnn_b',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'ccc v',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

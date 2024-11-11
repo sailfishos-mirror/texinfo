@@ -10,18 +10,21 @@ $result_trees{'expansion_order'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'bidule',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'bidule',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@machin{}
 ',
@@ -72,14 +75,17 @@ $result_trees{'expansion_order'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'machin',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'machin',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '\\\\arg\\\\
 ',

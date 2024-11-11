@@ -10,14 +10,17 @@ $result_trees{'space_macro_after_end_verbatim'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'spaces',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'spaces',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',

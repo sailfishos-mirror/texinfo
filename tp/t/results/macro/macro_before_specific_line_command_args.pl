@@ -10,14 +10,17 @@ $result_trees{'macro_before_specific_line_command_args'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'cpfn',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'cpfn',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => ' cp fn
 ',

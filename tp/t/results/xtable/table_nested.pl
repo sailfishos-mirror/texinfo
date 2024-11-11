@@ -10,14 +10,17 @@ $result_trees{'table_nested'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'myvtable',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'myvtable',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@vtable @asis
 ',

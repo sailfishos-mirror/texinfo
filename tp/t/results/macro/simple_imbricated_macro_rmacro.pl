@@ -10,14 +10,17 @@ $result_trees{'simple_imbricated_macro_rmacro'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'truc',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'truc',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'truc.
 ',
@@ -107,14 +110,17 @@ $result_trees{'simple_imbricated_macro_rmacro'} = {
 '
             },
             {
-              'args' => [
-                {
-                  'text' => 'bidule',
-                  'type' => 'macro_name'
-                }
-              ],
               'cmdname' => 'rmacro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'bidule',
+                      'type' => 'macro_name'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => 'bidule.
 ',

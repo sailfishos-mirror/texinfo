@@ -10,22 +10,25 @@ $result_trees{'macro_name_with_hyphen'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'macro-one',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg-one',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'arg2',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macro-one',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg-one',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'arg2',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'This \\arg-one\\ and that \\arg2\\.
 ',

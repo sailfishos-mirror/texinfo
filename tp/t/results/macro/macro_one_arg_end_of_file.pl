@@ -10,18 +10,21 @@ $result_trees{'macro_one_arg_end_of_file'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'onearg',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'onearg',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'Arg \\arg\\.
 ',

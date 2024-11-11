@@ -10,14 +10,17 @@ $result_trees{'macro_for_ignored_line_command'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'pagemacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'pagemacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@page
 ',

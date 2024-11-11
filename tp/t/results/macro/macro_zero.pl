@@ -10,14 +10,17 @@ $result_trees{'macro_zero'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'zero',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'zero',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '0
 ',

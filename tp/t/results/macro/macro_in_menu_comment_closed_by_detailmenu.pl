@@ -10,14 +10,17 @@ $result_trees{'macro_in_menu_comment_closed_by_detailmenu'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'emptystring',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'emptystring',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',

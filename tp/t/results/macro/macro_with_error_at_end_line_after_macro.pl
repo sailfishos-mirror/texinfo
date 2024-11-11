@@ -10,18 +10,21 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'witherror',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'string',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'witherror',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'string',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@center
 ',

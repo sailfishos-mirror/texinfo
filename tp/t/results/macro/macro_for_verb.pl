@@ -10,14 +10,17 @@ $result_trees{'macro_for_verb'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'verbopen',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'verbopen',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@verb{
 ',

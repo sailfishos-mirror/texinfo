@@ -10,14 +10,17 @@ $result_trees{'kbdinputstyle_in_table'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'codekbdmacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'codekbdmacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@table @kbd
 ',

@@ -50,14 +50,17 @@ $result_trees{'macro_definition_in_include'} = {
           'text' => ''
         },
         {
-          'args' => [
-            {
-              'text' => 'themacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'themacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'in themacro
 ',

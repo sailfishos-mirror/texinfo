@@ -5,6 +5,29 @@
 
 2024-11-11  Patrice Dumas  <pertusus@free.fr>
 
+	@*macro arguments in 'argument' container in contents instead of args
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line)
+	(_expand_macro_arguments, _expand_linemacro_arguments)
+	(_lookup_macro_parameter, _expand_macro_body, _handle_macro)
+	(_process_macro_block_contents), tp/Texinfo/XS/main/element_types.txt
+	(argument), tp/Texinfo/XS/parsetexi/macro.c (parse_macro_command_line)
+	(lookup_macro_parameter, expand_macro_arguments)
+	(expand_linemacro_arguments, expand_macro_body, handle_macro),
+	tp/Texinfo/XS/parsetexi/parser.c (process_macro_block_contents):
+	put @*macro commands argument first in contents in a new container
+	type, argument.  Do not use command args anymore.
+
+	* tp/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/Transformations.pm (_protect_hashchar_at_line_beginning),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (convert_to_texinfo_internal),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(protect_hashchar_at_line_beginning_internal): update for the change
+	in @*macro arguments.
+
+2024-11-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/element_types.txt: remove unused internal type
 	internal_spaces_after_cmd_before_arg.
 

@@ -10,14 +10,17 @@ $result_trees{'macro_end_call_in_ignored_inlineraw'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'startraw',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'startraw',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'Para @inlineraw{tex, in@something
 ',

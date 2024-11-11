@@ -10,18 +10,21 @@ $result_trees{'protect_colon_source_mark'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'klm',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'klm',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'some text : \\arg\\ then more
 ',

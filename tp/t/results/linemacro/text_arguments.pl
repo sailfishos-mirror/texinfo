@@ -10,26 +10,29 @@ $result_trees{'text_arguments'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'nospace',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'one',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'two',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'three',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'nospace',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'one',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'two',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'three',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '\\three\\@bullet{}\\two\\@minus{}\\one\\
 ',

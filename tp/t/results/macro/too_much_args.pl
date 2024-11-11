@@ -10,22 +10,25 @@ $result_trees{'too_much_args'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'twoargs',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'first',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'second',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'twoargs',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'first',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'second',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'first arg: \\first\\
 ',

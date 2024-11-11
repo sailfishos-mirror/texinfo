@@ -10,22 +10,25 @@ $result_trees{'last_argument_with_braces'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'defbuiltin',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'symbol',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'rest',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'defbuiltin',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'symbol',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'rest',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@defline \\symbol\\ f r
 ',

@@ -10,18 +10,21 @@ $result_trees{'expand_two_same'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'macrotwo',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macrotwo',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'With a doubles arg \\arg\\ and re \\arg\\
 ',

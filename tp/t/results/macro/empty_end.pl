@@ -10,18 +10,21 @@ $result_trees{'empty_end'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'foo',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'aaa',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'foo',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'aaa',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'in foo
 ',

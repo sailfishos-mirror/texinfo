@@ -10,22 +10,25 @@ $result_trees{'bad_macro_name_with_underscore'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'the_macro',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg1',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'arg2',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'the_macro',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg1',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'arg2',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'In macro
 ',

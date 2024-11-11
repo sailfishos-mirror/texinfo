@@ -32,22 +32,25 @@ $result_trees{'value_in_macro_formal_arg'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'testvalue',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'the@value{argument',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'testvalue',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'the@value{argument',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'result: @emph{\\arg\\} the \\the\\ thearg \\thearg\\ with value \\the@value{argument}\\
 ',

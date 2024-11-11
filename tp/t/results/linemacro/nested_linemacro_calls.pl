@@ -10,22 +10,25 @@ $result_trees{'nested_linemacro_calls'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'inside',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'a',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'b',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'inside',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'a',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'b',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'inside {\\a\\ operator \\b\\}
 ',
@@ -76,26 +79,29 @@ $result_trees{'nested_linemacro_calls'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'outside',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'one',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'two',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'three',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'outside',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'one',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'two',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'three',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@defline \\one\\ {\\two\\} \\three\\
 ',

@@ -66,14 +66,17 @@ $result_trees{'at_commands_in_raw'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'othermacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'othermacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'Other macro
 ',

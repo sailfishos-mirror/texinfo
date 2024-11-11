@@ -10,22 +10,25 @@ $result_trees{'macro_call_empty_two_arg'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'twoa',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'aa',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'bb',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'twoa',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'aa',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'bb',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'first \\aa\\,
 ',

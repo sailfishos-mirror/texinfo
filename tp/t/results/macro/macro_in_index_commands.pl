@@ -10,14 +10,17 @@ $result_trees{'macro_in_index_commands'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'cp',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'cp',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'cp
 ',
@@ -63,14 +66,17 @@ $result_trees{'macro_in_index_commands'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'fn',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'fn',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'fn
 ',
@@ -116,14 +122,17 @@ $result_trees{'macro_in_index_commands'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'syncodeindexcommand',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'syncodeindexcommand',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@syncodeindex
 ',
@@ -321,14 +330,17 @@ $result_trees{'macro_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'truc',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'truc',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'truc
 ',
@@ -456,14 +468,17 @@ $result_trees{'macro_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'trucindexcommand',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'trucindexcommand',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@trucindex
 ',
@@ -514,14 +529,17 @@ $result_trees{'macro_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'codeidx',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'codeidx',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'codeidx
 ',
@@ -636,14 +654,17 @@ $result_trees{'macro_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'defcodeindexentry',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'defcodeindexentry',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'a @var{index entry} t@\'e @^{@dotless{i}}
 ',

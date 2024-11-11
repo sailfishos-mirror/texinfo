@@ -1739,18 +1739,21 @@ $result_trees{'bib_example'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'text' => 'mybibsetrefnode',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'node',
-                  'type' => 'macro_arg'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'mybibsetrefnode',
+                      'type' => 'macro_name'
+                    },
+                    {
+                      'text' => 'node',
+                      'type' => 'macro_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '@set mybibrefnode \\node\\
 ',
@@ -1828,14 +1831,17 @@ $result_trees{'bib_example'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'text' => 'mybibnode',
-                  'type' => 'macro_name'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'mybibnode',
+                      'type' => 'macro_name'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '@value{mybibrefnode}
 ',
@@ -1913,18 +1919,21 @@ $result_trees{'bib_example'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'text' => 'mybibusetable',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'node',
-                  'type' => 'macro_arg'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'mybibusetable',
+                      'type' => 'macro_name'
+                    },
+                    {
+                      'text' => 'node',
+                      'type' => 'macro_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '@set mybibtable true
 ',
@@ -2022,18 +2031,21 @@ $result_trees{'bib_example'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'text' => 'mybibuselist',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'node',
-                  'type' => 'macro_arg'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'mybibuselist',
+                      'type' => 'macro_name'
+                    },
+                    {
+                      'text' => 'node',
+                      'type' => 'macro_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '@set mybiblist true
 ',
@@ -2126,18 +2138,21 @@ $result_trees{'bib_example'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'text' => 'mybibcite',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'ref',
-                  'type' => 'macro_arg'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'mybibcite',
+                      'type' => 'macro_name'
+                    },
+                    {
+                      'text' => 'ref',
+                      'type' => 'macro_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '@ifclear mybibrefnode
 ',
@@ -2225,22 +2240,25 @@ $result_trees{'bib_example'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'text' => 'mybibmakeref',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'node',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'ref',
-                  'type' => 'macro_arg'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'mybibmakeref',
+                      'type' => 'macro_name'
+                    },
+                    {
+                      'text' => 'node',
+                      'type' => 'macro_arg'
+                    },
+                    {
+                      'text' => 'ref',
+                      'type' => 'macro_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '(See item [\\ref\\] in @ref{\\node\\, \\ref\\}.)
 ',
@@ -2308,18 +2326,21 @@ $result_trees{'bib_example'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'text' => 'mybibitem',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'ref',
-                  'type' => 'macro_arg'
-                }
-              ],
               'cmdname' => 'macro',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'mybibitem',
+                      'type' => 'macro_name'
+                    },
+                    {
+                      'text' => 'ref',
+                      'type' => 'macro_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '@ifclear mybiblist
 ',

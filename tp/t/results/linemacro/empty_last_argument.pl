@@ -42,22 +42,25 @@ $result_trees{'empty_last_argument'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'defbuiltin',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'symbol',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'rest',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'defbuiltin',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'symbol',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'rest',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@BIindex \\symbol\\
 ',

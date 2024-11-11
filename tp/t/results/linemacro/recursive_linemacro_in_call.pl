@@ -10,22 +10,25 @@ $result_trees{'recursive_linemacro_in_call'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'anorecurse',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'other',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'linemacro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'anorecurse',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'other',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '\\arg\\ d \\other\\
 ',

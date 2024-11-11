@@ -10,14 +10,17 @@ $result_trees{'macro_in_def_delimiters'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'string',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'string',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'aa(b *c)
 ',

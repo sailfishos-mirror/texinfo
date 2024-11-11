@@ -32,18 +32,21 @@ $result_trees{'value_in_macro_body'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'testvaluebody',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'testvaluebody',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'result: @emph{\\@value{bodyarg}\\  }
 ',

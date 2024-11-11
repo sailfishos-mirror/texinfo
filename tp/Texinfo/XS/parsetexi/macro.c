@@ -133,7 +133,7 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
 {
   const char *line = *line_inout;
   const char *pline = line;
-  ELEMENT *macro, *macro_name;
+  ELEMENT *macro, *macro_name, *argument;
   char *name;
   const char *args_ptr;
 
@@ -144,6 +144,9 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
   macro->e.c->source_info = current_source_info;
 
   macro->e.c->string_info[sit_arg_line] = strdup (line);
+
+  argument = new_element (ET_argument);
+  add_to_element_contents (macro, argument);
 
   pline += strspn (pline, whitespace_chars);
   name = read_command_name (&pline);
@@ -169,7 +172,7 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
   macro_name = new_text_element (ET_macro_name);
   text_append (macro_name->e.text, name);
   free (name);
-  add_to_element_args (macro, macro_name);
+  add_to_element_contents (argument, macro_name);
 
   args_ptr = pline;
   args_ptr += strspn (args_ptr, whitespace_chars);
@@ -215,7 +218,7 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
               line_error ("bad or empty @%s formal argument: ",
                           command_name(cmd));
               arg = new_text_element (ET_macro_arg);
-              add_to_element_args (macro, arg);
+              add_to_element_contents (argument, arg);
               macro->flags |= EF_invalid_syntax;
             }
         }
@@ -223,7 +226,7 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
         {
           arg = new_text_element (ET_macro_arg);
           text_append_n (arg->e.text, args_ptr, q2 - args_ptr);
-          add_to_element_args (macro, arg);
+          add_to_element_contents (argument, arg);
 
           /* Check the argument name. */
             {
@@ -282,11 +285,12 @@ lookup_macro_parameter (const char *name, const ELEMENT *macro)
   size_t i, idx;
   /* the args_list pointer is const not the ELEMENT */
   ELEMENT *const *args_list;
+  const ELEMENT *macro_definition_arg = macro->e.c->contents.list[0];
 
   /* Find 'arg' in MACRO parameters. */
-  args_list = macro->e.c->args.list;
+  args_list = macro_definition_arg->e.c->contents.list;
   idx = 0;
-  for (i = 0; i < macro->e.c->args.number; i++)
+  for (i = 0; i < macro_definition_arg->e.c->contents.number; i++)
     {
       if (args_list[i]->type == ET_macro_arg)
         {
@@ -313,13 +317,15 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
   int whitespaces_len;
   ELEMENT *argument = new_element (ET_brace_arg);
   ELEMENT *argument_content = new_text_element (ET_other_text);
+  ELEMENT *macro_definition_arg;
 
   add_to_element_contents (current, argument);
   add_to_element_contents (argument, argument_content);
   arg = argument_content->e.text;
 
+  macro_definition_arg = macro->e.c->contents.list[0];
   /* -1 because of the macro name */
-  args_total = macro->e.c->args.number - 1;
+  args_total = macro_definition_arg->e.c->contents.number - 1;
 
   /* *pline is '{', advance past the open brace, start at braces_level = 1 */
   pline++;
@@ -457,6 +463,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   size_t i;
   ELEMENT *argument = new_element (ET_line_arg);
   ELEMENT *argument_content = new_text_element (ET_other_text);
+  ELEMENT *macro_definition_arg;
 
   add_to_element_contents (current, argument);
   add_to_element_contents (argument, argument_content);
@@ -474,8 +481,9 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
       pline += spaces_nr;
     }
 
+  macro_definition_arg = macro->e.c->contents.list[0];
   /* -1 because of the macro name */
-  args_total = macro->e.c->args.number - 1;
+  args_total = macro_definition_arg->e.c->contents.number - 1;
 
   while (1)
     {
@@ -689,9 +697,11 @@ expand_macro_body (const MACRO *macro_record, const ELEMENT *arguments,
           pos = lookup_macro_parameter (name, macro);
           if (pos == 0)
             {
+              ELEMENT *macro_definition_arg = macro->e.c->contents.list[0];
               line_error ("\\ in @%s expansion followed `%s' instead of "
                           "parameter name or \\",
-                          macro->e.c->args.list[0]->e.text->text, name);
+                   macro_definition_arg->e.c->contents.list[0]->e.text->text,
+                          name);
               text_append (expanded, "\\");
               text_append (expanded, name);
             }
@@ -770,6 +780,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
   const char *line, *p;
   MACRO *macro_record;
   const ELEMENT *macro;
+  const ELEMENT *macro_definition_arg;
   TEXT expanded;
   char *expanded_macro_text;
   size_t args_number;
@@ -783,6 +794,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
   if (!macro_record)
     fatal ("no macro record");
   macro = macro_record->element;
+  macro_definition_arg = macro->e.c->contents.list[0];
 
   /* It is important to check for expansion before the expansion and
      not after, as during the expansion, the text may go past the
@@ -821,7 +833,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
   else
     {
       /* Get number of args. - 1 for the macro name. */
-      args_number = macro->e.c->args.number - 1;
+      args_number = macro_definition_arg->e.c->contents.number - 1;
 
       p = line + strspn (line, whitespace_chars);
       if (*p == '{')

@@ -15,14 +15,17 @@ $result_trees{'nested_ifset_ifclear'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'conditionals',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'conditionals',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@ifset somevar
 ',

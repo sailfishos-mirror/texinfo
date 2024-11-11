@@ -10,14 +10,17 @@ $result_trees{'macro_in_empty_multitable_empty_before_item'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'emptymacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'emptymacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

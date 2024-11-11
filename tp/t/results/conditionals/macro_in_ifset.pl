@@ -15,14 +15,17 @@ $result_trees{'macro_in_ifset'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'truc',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'truc',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'truc
 ',

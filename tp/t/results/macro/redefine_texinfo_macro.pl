@@ -10,18 +10,21 @@ $result_trees{'redefine_texinfo_macro'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'code',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'code',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@emph{\\arg\\}
 ',

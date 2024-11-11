@@ -133,18 +133,21 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'phooindex',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'phooindex',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '||\\arg\\||
 ',
@@ -516,18 +519,21 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'phooindex',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'phooindex',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '!!\\arg\\!!
 ',
@@ -692,18 +698,21 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'phooindex',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'phooindex',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '!!\\arg\\!!
 ',
@@ -1072,18 +1081,21 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'phooindex',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'phooindex',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '%%\\arg\\%%
 ',

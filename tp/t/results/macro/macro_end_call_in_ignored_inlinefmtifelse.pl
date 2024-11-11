@@ -10,14 +10,17 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'inlinefirstfmt',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'inlinefirstfmt',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'Toto @inlinefmtifelse{tex, before
 ',

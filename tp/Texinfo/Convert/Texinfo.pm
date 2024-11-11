@@ -196,8 +196,9 @@ sub _convert_to_texinfo($)
      if (ref($element) ne 'HASH');
   my $result = '';
 
-  return '' if ($element->{'info'}
-                and $element->{'info'}->{'inserted'});
+  return '' if (($element->{'info'}
+                 and $element->{'info'}->{'inserted'})
+                or ($element->{'type'} and $element->{'type'} eq 'argument'));
   if (defined($element->{'text'})) {
     $result .= $element->{'text'};
   } else {

@@ -10,14 +10,17 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'macrooneone',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macrooneone',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'a, macro2
 ',
@@ -68,22 +71,25 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'macrothree',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'text',
-              'type' => 'macro_arg'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'macrothree',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'text',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '\\text\\
 ',

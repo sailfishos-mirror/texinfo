@@ -15,14 +15,17 @@ $result_trees{'macro_in_menu'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'astar',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'astar',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '*
 ',
@@ -73,14 +76,17 @@ $result_trees{'macro_in_menu'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'starspaces',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'starspaces',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '* 
 ',
@@ -131,14 +137,17 @@ $result_trees{'macro_in_menu'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'spaces',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'spaces',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '  
 ',
@@ -189,14 +198,17 @@ $result_trees{'macro_in_menu'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'aspace',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'aspace',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => ' 
 ',
@@ -247,14 +259,17 @@ $result_trees{'macro_in_menu'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'twocolon',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'twocolon',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '::
 ',
@@ -305,14 +320,17 @@ $result_trees{'macro_in_menu'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'acolon',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'acolon',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => ':
 ',

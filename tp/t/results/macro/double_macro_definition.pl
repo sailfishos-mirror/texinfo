@@ -10,14 +10,17 @@ $result_trees{'double_macro_definition'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'foo',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'foo',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -63,14 +66,17 @@ $result_trees{'double_macro_definition'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'foo',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'foo',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

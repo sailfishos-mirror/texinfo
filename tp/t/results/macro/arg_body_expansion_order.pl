@@ -15,14 +15,17 @@ $result_trees{'arg_body_expansion_order'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'othermacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'othermacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'initial
 ',
@@ -73,18 +76,21 @@ $result_trees{'arg_body_expansion_order'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'text' => 'redefineothermacro',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'redefineothermacro',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@unmacro othermacro
 ',
@@ -192,14 +198,17 @@ $result_trees{'arg_body_expansion_order'} = {
           }
         },
         {
-          'args' => [
-            {
-              'text' => 'othermacro',
-              'type' => 'macro_name'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'othermacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => 'different
 ',

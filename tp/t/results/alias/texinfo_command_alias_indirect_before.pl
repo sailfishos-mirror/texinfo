@@ -10,18 +10,21 @@ $result_trees{'texinfo_command_alias_indirect_before'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'text' => 'mystrong',
-              'type' => 'macro_name'
-            },
-            {
-              'text' => 'arg',
-              'type' => 'macro_arg'
-            }
-          ],
           'cmdname' => 'macro',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'mystrong',
+                  'type' => 'macro_name'
+                },
+                {
+                  'text' => 'arg',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '!!\\arg\\!!
 ',
