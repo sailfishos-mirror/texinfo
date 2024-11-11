@@ -270,35 +270,38 @@ $result_trees{'transliterated_names_conflicts'} = [
             'type' => 'empty_line'
           },
           {
-            'args' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'Figure'
-                  }
-                ],
-                'type' => 'block_line_arg'
-              },
-              {
-                'contents' => [
-                  {
-                    'text' => "Pr\x{e8}s"
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  },
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'type' => 'block_line_arg'
-              }
-            ],
             'cmdname' => 'float',
             'contents' => [
+              {
+                'contents' => [
+                  {
+                    'contents' => [
+                      {
+                        'text' => 'Figure'
+                      }
+                    ],
+                    'type' => 'block_line_arg'
+                  },
+                  {
+                    'contents' => [
+                      {
+                        'text' => "Pr\x{e8}s"
+                      }
+                    ],
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      },
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'type' => 'argument'
+              },
               {
                 'contents' => [
                   {

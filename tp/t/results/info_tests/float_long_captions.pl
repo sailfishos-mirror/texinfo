@@ -35,35 +35,38 @@ $result_trees{'float_long_captions'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Text'
-                }
-              ],
-              'type' => 'block_line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'text1'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'float',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'Text'
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'text1'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'caption',
               'contents' => [
@@ -145,35 +148,38 @@ $result_trees{'float_long_captions'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Text'
-                }
-              ],
-              'type' => 'block_line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'text2'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'float',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'Text'
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'text2'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'caption',
               'contents' => [
@@ -301,10 +307,10 @@ $result_trees{'float_long_captions'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'float'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1];
-$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'extra'}{'float'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3];
-$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'contents'}[0];
+$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'float'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1];
+$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
+$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'float'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3];
+$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'contents'}[1];
 
 $result_texis{'float_long_captions'} = '@node Top
 

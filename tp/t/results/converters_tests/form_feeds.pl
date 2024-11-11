@@ -1009,19 +1009,22 @@ $result_trees{'form_feeds'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'float',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -1201,40 +1204,43 @@ $result_trees{'form_feeds'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'type'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'fl'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' 
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'float',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'type'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'fl'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' 
+'
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -1349,10 +1355,10 @@ $result_trees{'form_feeds'} = {
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[31]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[31]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'form_feeds'}{'contents'}[2];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'contents'}[1]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'contents'}[4]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'extra'}{'caption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'contents'}[1];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'extra'}{'shortcaption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'contents'}[4];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'contents'}[2]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'contents'}[5]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'extra'}{'caption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'contents'}[2];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'extra'}{'shortcaption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'contents'}[5];
 
 $result_texis{'form_feeds'} = '@node Top
 

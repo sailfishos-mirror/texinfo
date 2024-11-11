@@ -6860,7 +6860,7 @@ foreach my $type ('ignorable_spaces_after_command', 'postamble_after_end',
             'preamble_before_setfilename',
             'spaces_at_end',
             'spaces_before_paragraph',
-            'spaces_after_close_brace') {
+            'spaces_after_close_brace', 'argument') {
   $default_types_conversion{$type} = undef;
 }
 

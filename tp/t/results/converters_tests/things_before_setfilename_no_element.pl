@@ -256,30 +256,33 @@ $result_trees{'things_before_setfilename_no_element'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'type' => 'block_line_arg'
-                },
+              'cmdname' => 'float',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'float anchor'
+                      'type' => 'block_line_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'float anchor'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'block_line_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'float',
-              'contents' => [
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -385,35 +388,38 @@ $result_trees{'things_before_setfilename_no_element'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Text'
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ta'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'float',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'Text'
+                        }
+                      ],
+                      'type' => 'block_line_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'ta'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -889,8 +895,8 @@ $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2]{'extra'}{'float'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'extra'}{'caption'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2];
+$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[3]{'extra'}{'float'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14];
+$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'extra'}{'caption'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[3];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0];

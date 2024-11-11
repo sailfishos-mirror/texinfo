@@ -106,35 +106,38 @@ $result_trees{'cindex_in_caption'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fl'
-                }
-              ],
-              'type' => 'block_line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'label'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'float',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'fl'
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'label'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -316,9 +319,9 @@ $result_trees{'cindex_in_caption'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'cindex_in_caption'}{'contents'}[2];
-$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'float'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3];
-$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
+$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'cindex_in_caption'}{'contents'}[2];
+$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'extra'}{'float'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3];
+$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[2];
 
 $result_texis{'cindex_in_caption'} = '@node Top
 @node chap

@@ -13,92 +13,95 @@ $result_trees{'float_with_at_commands'} = {
           'type' => 'preamble_before_content'
         },
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'entr'
-                },
-                {
-                  'cmdname' => '\'',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'e'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => 'e'
-                }
-              ],
-              'type' => 'block_line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'premi'
-                },
-                {
-                  'cmdname' => '`',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'e'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => 're entr'
-                },
-                {
-                  'cmdname' => '\'',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'e'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => 'e'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'float',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'entr'
+                    },
+                    {
+                      'cmdname' => '\'',
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'e'
+                            }
+                          ],
+                          'type' => 'following_arg'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
+                    },
+                    {
+                      'text' => 'e'
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'premi'
+                    },
+                    {
+                      'cmdname' => '`',
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'e'
+                            }
+                          ],
+                          'type' => 'following_arg'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
+                    },
+                    {
+                      'text' => 're entr'
+                    },
+                    {
+                      'cmdname' => '\'',
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'e'
+                            }
+                          ],
+                          'type' => 'following_arg'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
+                    },
+                    {
+                      'text' => 'e'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',
@@ -334,8 +337,8 @@ $result_trees{'float_with_at_commands'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'extra'}{'float'} = $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1];
-$result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'extra'}{'float'} = $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1];
+$result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_with_at_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
 
 $result_texis{'float_with_at_commands'} = '@float entr@\'ee, premi@`ere entr@\'ee
 

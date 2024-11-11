@@ -218,48 +218,51 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Figure'
-                }
-              ],
-              'type' => 'block_line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'samp',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'chap'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'float',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'Figure'
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'cmdname' => 'samp',
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'chap'
+                            }
+                          ],
+                          'type' => 'brace_container'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 9
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

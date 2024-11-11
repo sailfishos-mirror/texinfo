@@ -154,6 +154,38 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
       if (braces)
         ADD("}");
     }
+  else if (e->e.c->contents.number > 0
+           && e->e.c->contents.list[0]->type == ET_argument)
+    {
+      size_t i, arg_nr;
+      int with_commas = 0;
+      ELEMENT *argument = e->e.c->contents.list[0];
+
+      if (spc_before_arg)
+        ADD((char *)spc_before_arg->e.text->text);
+
+      if ((builtin_command_data[cmd].flags & CF_block
+           && ! (builtin_command_data[cmd].flags & CF_def
+                 || cmd == CM_multitable))
+          || cmd == CM_node)
+        with_commas = 1;
+
+      arg_nr = 0;
+      for (i = 0; i < argument->e.c->contents.number; i++)
+        {
+          ELEMENT *arg = argument->e.c->contents.list[i];
+          if (arg->flags & EF_inserted)
+            continue;
+
+          if (with_commas)
+            {
+              if (arg_nr)
+                ADD(",");
+              arg_nr++;
+            }
+          convert_to_texinfo_internal (arg, result);
+        }
+    }
   else
     {
       if (spc_before_arg)

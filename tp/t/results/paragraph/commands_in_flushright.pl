@@ -665,35 +665,38 @@ $result_trees{'commands_in_flushright'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'label'
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'type'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'float',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'label'
+                        }
+                      ],
+                      'type' => 'block_line_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'type'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'text' => '
 ',
@@ -1103,8 +1106,8 @@ $result_trees{'commands_in_flushright'} = {
 };
 $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'extra'}{'columnfractions'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0]{'contents'}[0];
-$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'contents'}[3]{'extra'}{'float'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11];
-$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'extra'}{'caption'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'contents'}[3];
+$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'contents'}[4]{'extra'}{'float'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11];
+$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'extra'}{'caption'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'contents'}[4];
 
 $result_texis{'commands_in_flushright'} = '@flushright
 

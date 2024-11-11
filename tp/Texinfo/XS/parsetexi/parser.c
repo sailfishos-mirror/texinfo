@@ -2515,7 +2515,10 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
     {
       line++;
       /* comma as a command argument separator */
-      if (counter_value (&count_remaining_args, current->parent) > 0)
+      if (counter_value (&count_remaining_args, current->parent) > 0
+          || (current->parent && current->parent->parent
+              && counter_value (
+                      &count_remaining_args, current->parent->parent) > 0))
         current = handle_comma (current, &line);
       else if (current->type == ET_line_arg
                && current->parent->e.c->cmd == CM_node)

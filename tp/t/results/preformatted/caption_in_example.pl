@@ -10,24 +10,27 @@ $result_trees{'caption_in_example'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'float',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'float'
+                  'contents' => [
+                    {
+                      'text' => 'float'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'float',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',
@@ -192,8 +195,8 @@ $result_trees{'caption_in_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'float'} = $result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0];
-$result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'float'} = $result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0];
+$result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1];
 
 $result_texis{'caption_in_example'} = '@float float
 

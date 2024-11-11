@@ -1617,36 +1617,36 @@ $result_trees{'test_image'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Image'
-                }
-              ],
-              'type' => 'block_line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Image with commands'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'float',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'Image'
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'Image with commands'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
               'source_marks' => [
                 {
                   'counter' => 4,
@@ -1665,7 +1665,7 @@ $result_trees{'test_image'} = {
                   'status' => 'start'
                 }
               ],
-              'text' => ''
+              'type' => 'argument'
             },
             {
               'cmdname' => 'image',

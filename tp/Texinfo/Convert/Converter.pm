@@ -1334,14 +1334,22 @@ sub format_comment_or_return_end_line($$)
 
   my $end_line;
 
-  my $comment = $element->{'args'}->[-1]->{'info'}->{'comment_at_end'}
-    if $element->{'args'} and $element->{'args'}->[-1]->{'info'};
+  my $arguments_list;
+  if ($element->{'args'}) {
+    $arguments_list = $element->{'args'};
+  } elsif ($element->{'contents'} and scalar(@{$element->{'contents'}})
+           and $element->{'contents'}->[0]->{'contents'}) {
+    $arguments_list = $element->{'contents'}->[0]->{'contents'};
+  }
+
+  my $comment = $arguments_list->[-1]->{'info'}->{'comment_at_end'}
+    if $arguments_list and $arguments_list->[-1]->{'info'};
 
   if ($comment) {
     $end_line = $self->convert_tree($comment);
-  } elsif ($element->{'args'} and $element->{'args'}->[-1]->{'info'}
-      and $element->{'args'}->[-1]->{'info'}->{'spaces_after_argument'}) {
-    my $text = $element->{'args'}->[-1]
+  } elsif ($arguments_list and $arguments_list->[-1]->{'info'}
+      and $arguments_list->[-1]->{'info'}->{'spaces_after_argument'}) {
+    my $text = $arguments_list->[-1]
                    ->{'info'}->{'spaces_after_argument'}->{'text'};
     if (chomp($text)) {
       $end_line = "\n";
@@ -1414,7 +1422,7 @@ sub float_type_number($$)
 
   my $type_element;
   if ($float->{'extra'}->{'float_type'} ne '') {
-    $type_element = $float->{'args'}->[0];
+    $type_element = $float->{'contents'}->[0]->{'contents'}->[0];
   }
   my $float_number = $float->{'extra'}->{'float_number'};
 
@@ -1465,7 +1473,8 @@ sub float_name_caption($$)
   my $prepended;
   if ($element->{'extra'} and defined($element->{'extra'}->{'float_type'})
       and $element->{'extra'}->{'float_type'} ne '') {
-    $substrings->{'float_type'} = $element->{'args'}->[0];
+    $substrings->{'float_type'}
+       = $element->{'contents'}->[0]->{'contents'}->[0];
     if ($caption_element) {
       if ($float_number_element) {
         # TRANSLATORS: added before caption

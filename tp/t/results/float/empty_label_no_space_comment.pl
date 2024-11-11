@@ -13,33 +13,36 @@ $result_trees{'empty_label_no_space_comment'} = {
           'type' => 'preamble_before_content'
         },
         {
-          'args' => [
+          'cmdname' => 'float',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'Type'
-                }
-              ],
-              'type' => 'block_line_arg'
-            },
-            {
-              'info' => {
-                'comment_at_end' => {
-                  'args' => [
+                  'contents' => [
                     {
-                      'text' => ' comment
-',
-                      'type' => 'rawline_arg'
+                      'text' => 'Type'
                     }
                   ],
-                  'cmdname' => 'c'
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'info' => {
+                    'comment_at_end' => {
+                      'args' => [
+                        {
+                          'text' => ' comment
+',
+                          'type' => 'rawline_arg'
+                        }
+                      ],
+                      'cmdname' => 'c'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'float',
-          'contents' => [
+              ],
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

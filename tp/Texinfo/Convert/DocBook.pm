@@ -232,7 +232,7 @@ foreach my $type (
             'postamble_after_end',
             'preamble_before_beginning',
             'preamble_before_setfilename',
-            'spaces_at_end',
+            'spaces_at_end', 'argument',
   ) {
   $ignored_types{$type} = 1;
 }

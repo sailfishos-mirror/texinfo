@@ -568,7 +568,7 @@ foreach my $type ('ignorable_spaces_after_command',
 
 my %ignored_types;
 foreach my $type ('postamble_after_end', 'preamble_before_beginning',
-            'preamble_before_setfilename') {
+            'preamble_before_setfilename', 'argument') {
   $ignored_types{$type} = 1;
 }
 
@@ -912,7 +912,8 @@ sub _prepare_floats($)
         my $float = $floats->{$normalized_float_type}->[0];
         $latex_variable_float_name
           = Texinfo::Convert::NodeNameNormalization::transliterate_texinfo(
-           {'contents' => $float->{'args'}->[0]->{'contents'}});
+           {'contents' => $float->{'contents'}->[0]
+                                     ->{'contents'}->[0]->{'contents'}});
       } else {
         $latex_variable_float_name = $normalized_float_type;
       }
@@ -1386,7 +1387,9 @@ sub _latex_header() {
         if ($normalized_float_type ne '') {
           _push_new_context($self, 'float_type '.$normalized_float_type);
           my $float = $floats->{$normalized_float_type}->[0];
-          my $float_type = _convert($self, $float->{'args'}->[0]);
+          my $float_type
+            = _convert($self,
+                       $float->{'contents'}->[0]->{'contents'}->[0]);
           _pop_context($self);
         }
         $header_code .= "% new float for type `$normalized_float_type'\n";
@@ -3486,7 +3489,9 @@ sub _convert($$)
           if (exists($reference->{'cmdname'})
               and $reference->{'cmdname'} eq 'float') {
             if ($reference->{'extra'}->{'float_type'} ne '') {
-              $float_type = _convert($self, $reference->{'args'}->[0]);
+              $float_type
+                = _convert($self,
+                           $reference->{'contents'}->[0]->{'contents'}->[0]);
             } else {
               $float_type = '';
             }
@@ -4439,10 +4444,13 @@ sub _convert($$)
     if ($cmdname eq 'float') {
       # do that at the end of the float to be sure that it is after
       # the caption
-      if ($element->{'args'} and scalar(@{$element->{'args'}}) >= 2
-          and $element->{'args'}->[1]->{'contents'}) {
+      if ($element->{'contents'} and scalar(@{$element->{'contents'}})
+          and $element->{'contents'}->[0]->{'contents'}
+          and scalar(@{$element->{'contents'}->[0]->{'contents'}}) >= 2
+          and $element->{'contents'}->[0]->{'contents'}->[1]->{'contents'}) {
         my $float_label
-          = _tree_anchor_label($element->{'args'}->[1]->{'contents'});
+          = _tree_anchor_label(
+               $element->{'contents'}->[0]->{'contents'}->[1]->{'contents'});
         $result .= "\\label{$float_label}%\n";
       }
       if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {

@@ -13,27 +13,30 @@ $result_trees{'empty_label_no_space'} = {
           'type' => 'preamble_before_content'
         },
         {
-          'args' => [
+          'cmdname' => 'float',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'Type'
+                  'contents' => [
+                    {
+                      'text' => 'Type'
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
+              'type' => 'argument'
             },
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'float',
-          'contents' => [
             {
               'args' => [
                 {

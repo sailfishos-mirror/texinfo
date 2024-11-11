@@ -71,47 +71,50 @@ $result_trees{'comment_space_comand_in_float'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Text '
-                },
-                {
-                  'cmdname' => ' '
-                }
-              ],
-              'type' => 'block_line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'label '
-                },
-                {
-                  'cmdname' => ' '
-                }
-              ],
-              'info' => {
-                'comment_at_end' => {
-                  'args' => [
-                    {
-                      'text' => ' float
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ],
-                  'cmdname' => 'c'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'float',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'Text '
+                    },
+                    {
+                      'cmdname' => ' '
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'label '
+                    },
+                    {
+                      'cmdname' => ' '
+                    }
+                  ],
+                  'info' => {
+                    'comment_at_end' => {
+                      'args' => [
+                        {
+                          'text' => ' float
+',
+                          'type' => 'rawline_arg'
+                        }
+                      ],
+                      'cmdname' => 'c'
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

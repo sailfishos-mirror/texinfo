@@ -137,79 +137,82 @@ $result_trees{'special_characters_in_float_type'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'A < " `` ` \' \' \\aaa '
-                },
-                {
-                  'cmdname' => '.'
-                },
-                {
-                  'text' => ' --- '
-                },
-                {
-                  'cmdname' => 'var',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in var'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 7
-                  }
-                }
-              ],
-              'type' => 'block_line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'L < " `` ` \' \' \\aaa '
-                },
-                {
-                  'cmdname' => '.'
-                },
-                {
-                  'text' => ' --- '
-                },
-                {
-                  'cmdname' => 'var',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in var'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 7
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'float',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'A < " `` ` \' \' \\aaa '
+                    },
+                    {
+                      'cmdname' => '.'
+                    },
+                    {
+                      'text' => ' --- '
+                    },
+                    {
+                      'cmdname' => 'var',
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'in var'
+                            }
+                          ],
+                          'type' => 'brace_container'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 7
+                      }
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'L < " `` ` \' \' \\aaa '
+                    },
+                    {
+                      'cmdname' => '.'
+                    },
+                    {
+                      'text' => ' --- '
+                    },
+                    {
+                      'cmdname' => 'var',
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'in var'
+                            }
+                          ],
+                          'type' => 'brace_container'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 7
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -390,8 +393,8 @@ $result_trees{'special_characters_in_float_type'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'extra'}{'float'} = $result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[1];
-$result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[1]{'contents'}[1];
+$result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'extra'}{'float'} = $result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[1];
+$result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[1]{'contents'}[2];
 $result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[1]{'extra'}{'float_section'} = $result_trees{'special_characters_in_float_type'}{'contents'}[4];
 
 $result_texis{'special_characters_in_float_type'} = '@node Top

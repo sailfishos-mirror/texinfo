@@ -474,35 +474,38 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'tfloat'
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f1'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'float',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'tfloat'
+                        }
+                      ],
+                      'type' => 'block_line_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'f1'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'cmdname' => 'image',
                   'contents' => [
@@ -1030,8 +1033,8 @@ $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[0];
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[3]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3];
-$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'contents'}[2]{'extra'}{'float'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5];
-$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'extra'}{'caption'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'contents'}[2];
+$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'contents'}[3]{'extra'}{'float'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5];
+$result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'extra'}{'caption'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'contents'}[3];
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'contents'}[5]{'extra'}{'float_section'}{'contents'}[1] = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'};
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3];
 $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_long_description'} = $result_trees{'commands_in_nodedescriptionblock'}{'contents'}[3]{'extra'}{'node_description'};

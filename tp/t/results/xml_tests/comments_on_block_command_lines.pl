@@ -1755,41 +1755,44 @@ $result_trees{'comments_on_block_command_lines'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'f'
-                }
-              ],
-              'type' => 'block_line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'g'
-                }
-              ],
-              'info' => {
-                'comment_at_end' => {
-                  'args' => [
-                    {
-                      'text' => ' comm
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ],
-                  'cmdname' => 'c'
-                },
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'float',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'f'
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'g'
+                    }
+                  ],
+                  'info' => {
+                    'comment_at_end' => {
+                      'args' => [
+                        {
+                          'text' => ' comm
+',
+                          'type' => 'rawline_arg'
+                        }
+                      ],
+                      'cmdname' => 'c'
+                    },
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

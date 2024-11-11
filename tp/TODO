@@ -936,6 +936,21 @@ Decomposition of the time used for the Texinfo manual with full XS
 SUM: 98
 
 
+find Texinfo  -type f -regex '\.pm' -list
+find Texinfo  -type f -name '*.pm' -execdir perl -wpli -e 's/^#no autovivification qw\(fetch delete exists store strict\);/no autovivification qw\(fetch delete exists store strict\);/' '{}' ';'
+find Texinfo  -type f -name '*.pm' -execdir perl -wpli -e 's/^no autovivification qw\(fetch delete exists store strict\);/#no autovivification qw\(fetch delete exists store strict\);/' '{}' ';'
+
+
+patch -p1 < build_perl_info_fix_typo.diff
+patch -p1 < avoid_deprecated_dirs_autovivification.diff
+patch -p1 < test_sort_init_config_customization.diff
+
+patch -R -p1 < build_perl_info_fix_typo.diff
+patch -R -p1 < avoid_deprecated_dirs_autovivification.diff
+patch -R -p1 < test_sort_init_config_customization.diff
+
+
+
 Setting flags
 # some features are only enabled at -O2, but sometime -O0 is better
 # for debugging with valgrind

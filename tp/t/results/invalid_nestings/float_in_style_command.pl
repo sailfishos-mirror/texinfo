@@ -32,35 +32,38 @@ $result_trees{'float_in_style_command'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'A'
-                }
-              ],
-              'type' => 'block_line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'B'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'float',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'A'
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'B'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -151,8 +154,8 @@ $result_trees{'float_in_style_command'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'float'} = $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1];
-$result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'extra'}{'float'} = $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1];
+$result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
 
 $result_texis{'float_in_style_command'} = '@code{
 }@float A, B

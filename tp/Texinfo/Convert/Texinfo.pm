@@ -293,15 +293,15 @@ sub _expand_cmd_args_to_texi($) {
     my $braces;
     $braces = 1 if (scalar(@{$cmd->{'contents'}})
                     and ($cmd->{'contents'}->[0]->{'type'}
-                          and ($cmd->{'contents'}->[0]->{'type'} eq 'brace_container'
-                               or $cmd->{'contents'}->[0]->{'type'} eq 'brace_arg'
-                               or $cmd->{'contents'}->[0]->{'type'} eq 'brace_command_context')));
+                        and ($cmd->{'contents'}->[0]->{'type'} eq 'brace_container'
+                             or $cmd->{'contents'}->[0]->{'type'} eq 'brace_arg'
+                             or $cmd->{'contents'}->[0]->{'type'} eq 'brace_command_context')));
     $result .= '{' if ($braces);
     if ($cmdname eq 'verb') {
       $result .= $cmd->{'info'}->{'delimiter'};
     }
     $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
-       if ($cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'});
+      if ($cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'});
     my $arg_nr = 0;
     foreach my $arg (@{$cmd->{'contents'}}) {
       next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
@@ -313,6 +313,31 @@ sub _expand_cmd_args_to_texi($) {
       $result .= $cmd->{'info'}->{'delimiter'};
     }
     $result .= '}' if ($braces);
+  } elsif ($cmd->{'contents'}
+           and $cmd->{'contents'}->[0]->{'type'}
+           and $cmd->{'contents'}->[0]->{'type'} eq 'argument') {
+    $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
+      if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
+    my $with_commas = 0;
+    if (($block_commands{$cmdname}
+         # block line commands with arguments not separated by commas
+         and not ($def_commands{$cmdname}
+                  or $block_commands{$cmdname} eq 'multitable'))
+        or $cmdname eq 'node') {
+      $with_commas = 1;
+    }
+    my $arg_nr = 0;
+    my $argument = $cmd->{'contents'}->[0];
+    if ($argument->{'contents'}) {
+      foreach my $arg (@{$argument->{'contents'}}) {
+        next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
+        if ($with_commas) {
+          $result .= ',' if ($arg_nr);
+          $arg_nr++;
+        }
+        $result .= _convert_to_texinfo($arg);
+      }
+    }
   } else {
     $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
       if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};

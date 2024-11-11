@@ -10,24 +10,27 @@ $result_trees{'caption_not_closed'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'float',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'Text'
+                  'contents' => [
+                    {
+                      'text' => 'Text'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'float',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',
@@ -158,8 +161,8 @@ $result_trees{'caption_not_closed'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'float'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'float'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0];
+$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 
 $result_texis{'caption_not_closed'} = '@float Text
 

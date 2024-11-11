@@ -27,7 +27,17 @@ parse_float_type (ELEMENT *current)
 {
   char *normalized;
   if (current->e.c->args.number > 0)
+    /* listoffloats */
     normalized = convert_to_normalized (current->e.c->args.list[0]);
+  else if (current->e.c->contents.number > 0
+           /* FIXME useful? */
+           && current->e.c->contents.list[0]->type == ET_argument
+           && current->e.c->contents.list[0]->e.c->contents.number > 0)
+    {
+      /* float */
+      normalized = convert_to_normalized (
+        current->e.c->contents.list[0]->e.c->contents.list[0]);
+    }
   else
     normalized = strdup ("");
   add_extra_string (current, AI_key_float_type, normalized);

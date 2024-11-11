@@ -1733,8 +1733,10 @@ sub get_label_element($)
            and $current->{'contents'} and scalar(@{$current->{'contents'}})) {
     return $current->{'contents'}->[0];
   } elsif ($current->{'cmdname'} eq 'float'
-      and $current->{'args'} and scalar(@{$current->{'args'}}) >= 2) {
-    return $current->{'args'}->[1];
+      and $current->{'contents'} and scalar(@{$current->{'contents'}})
+      and $current->{'contents'}->[0]->{'contents'}
+      and scalar(@{$current->{'contents'}->[0]->{'contents'}}) >= 2) {
+    return $current->{'contents'}->[0]->{'contents'}->[1];
   }
   return undef;
 }

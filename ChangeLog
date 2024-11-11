@@ -5,6 +5,40 @@
 
 2024-11-11  Patrice Dumas  <pertusus@free.fr>
 
+	@float arguments in 'argument' container in contents instead of args
+
+	* tp/Texinfo/Common.pm (get_label_element), tp/Texinfo/ParserNonXS.pm
+	(_parse_float_type, _end_line_starting_block, _handle_block_command)
+	(_handle_comma, _process_remaining_on_line),
+	tp/Texinfo/XS/main/floats.c (parse_float_type),
+	tp/Texinfo/XS/main/utils.c (get_label_element),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_comma): put @float
+	line arguments in argument container first in contents, remove float
+	args.
+
+	* tp/Texinfo/Convert/Converter.pm (format_comment_or_return_end_line)
+	(float_type_number, float_name_caption), tp/Texinfo/Convert/DocBook.pm
+	(%ignored_types), tp/Texinfo/Convert/HTML.pm
+	(%default_types_conversion), tp/Texinfo/Convert/LaTeX.pm
+	(%ignored_types, _prepare_floats, _convert),
+	tp/Texinfo/Convert/Plaintext.pm (%ignored_types, _convert),
+	tp/Texinfo/Convert/Texinfo.pm (_expand_cmd_args_to_texi),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_end_line_spaces)
+	(_convert_argument_and_end_line, _convert), tp/Texinfo/Convert/Text.pm
+	(%ignored_types, _convert), tp/Texinfo/XS/convert/converter.c
+	(float_type_number, float_name_caption),
+	tp/Texinfo/XS/convert/html_prepare_converter.c (ignored_types),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi),
+	tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal): adapt
+	conversion to float argument being in in an argument container in
+	contents, and prepare more generally for block commands with arguments
+	in 'argument' container in contents.
+
+2024-11-11  Patrice Dumas  <pertusus@free.fr>
+
 	@*macro arguments in 'argument' container in contents instead of args
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line)

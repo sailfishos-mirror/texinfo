@@ -293,7 +293,7 @@ foreach my $type ('ignorable_spaces_after_command',
 my %ignored_types;
 foreach my $type ('postamble_after_end',
             'preamble_before_beginning',
-            'preamble_before_setfilename') {
+            'preamble_before_setfilename', 'argument') {
   $ignored_types{$type} = 1;
 }
 
@@ -3494,8 +3494,11 @@ sub _convert($$)
         $self->{'document_context'}->[-1]->{'in_multitable'}++;
       } elsif ($cmdname eq 'float') {
         _add_newline_if_needed($self);
-        if ($element->{'args'} and scalar(@{$element->{'args'}}) >= 2
-            and $element->{'args'}->[1]->{'contents'}) {
+        if ($element->{'contents'}
+            and scalar(@{$element->{'contents'}})
+            and $element->{'contents'}->[0]->{'contents'}
+            and scalar(@{$element->{'contents'}->[0]->{'contents'}}) >= 2
+            and $element->{'contents'}->[0]->{'contents'}->[1]->{'contents'}) {
           _anchor($self, $element);
         }
       } elsif ($cmdname eq 'cartouche') {
@@ -3700,8 +3703,11 @@ sub _convert($$)
         _stream_output($self, "* Menu:\n\n");
         $lines_count += 2;
         foreach my $float (@{$floats->{$float_type}}) {
-          next if (!$float->{'args'} or scalar(@{$float->{'args'}}) < 2
-                   or !$float->{'args'}->[1]->{'contents'});
+          next if (!$float->{'contents'}
+                   or !scalar(@{$float->{'contents'}})
+                   or !$float->{'contents'}->[0]->{'contents'}
+                   or scalar(@{$float->{'contents'}->[0]->{'contents'}}) < 2
+               or !$float->{'contents'}->[0]->{'contents'}->[1]->{'contents'});
 
           my $float_entry = $self->float_type_number($float);
           next if !defined($float_entry);
@@ -3725,7 +3731,8 @@ sub _convert($$)
           _stream_output($self, add_next($container, ': '), $container);
 
           _convert($self, {'type' => '_code',
-                          'contents' => [$float->{'args'}->[1]]});
+                          'contents' =>
+                      [$float->{'contents'}->[0]->{'contents'}->[1]]});
           _stream_output($self, add_next($container, '.'), $container);
           _stream_output($self,
                    Texinfo::Convert::Paragraph::add_pending_word($container),

@@ -130,7 +130,7 @@ foreach my $command (keys(%def_commands)) {
 
 my %ignored_types;
 foreach my $type ('postamble_after_end',
-            'preamble_before_beginning') {
+            'preamble_before_beginning', 'argument') {
   $ignored_types{$type} = 1;
 }
 
@@ -689,6 +689,18 @@ sub _convert($$)
              or $cmdname eq 'cartouche') {
       if ($element->{'args'}) {
         foreach my $arg (@{$element->{'args'}}) {
+          my $converted_arg = _convert($options, $arg);
+          if ($converted_arg =~ /\S/) {
+            $result .= $converted_arg.", ";
+          }
+        }
+        $result =~ s/, $//;
+        chomp ($result);
+        $result .= "\n" if ($result =~ /\S/);
+      } elsif ($element->{'contents'} and scalar(@{$element->{'contents'}})
+               and $element->{'contents'}->[0]->{'contents'}) {
+        my $argument = $element->{'contents'}->[0];
+        foreach my $arg (@{$argument->{'contents'}}) {
           my $converted_arg = _convert($options, $arg);
           if ($converted_arg =~ /\S/) {
             $result .= $converted_arg.", ";

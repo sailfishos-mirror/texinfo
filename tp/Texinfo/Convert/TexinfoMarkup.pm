@@ -464,12 +464,19 @@ sub _end_line_spaces
   my $element = shift;
 
   my $end_spaces = '';
-  if ($element->{'args'}->[-1]
-      and $element->{'args'}->[-1]->{'info'}
-      and $element->{'args'}->[-1]->{'info'}->{'spaces_after_argument'}) {
+  my $arguments_list;
+  if ($element->{'args'}) {
+    $arguments_list = $element->{'args'};
+  } elsif ($element->{'contents'} and scalar(@{$element->{'contents'}})
+           and $element->{'contents'}->[0]->{'contents'}) {
+    $arguments_list = $element->{'contents'}->[0]->{'contents'};
+  }
+  if ($arguments_list->[-1]
+      and $arguments_list->[-1]->{'info'}
+      and $arguments_list->[-1]->{'info'}->{'spaces_after_argument'}) {
     # spaces and form feeds only, protection is needed for form feeds
     my $spaces
-      = $element->{'args'}->[-1]->{'info'}->{'spaces_after_argument'}->{'text'};
+      = $arguments_list->[-1]->{'info'}->{'spaces_after_argument'}->{'text'};
     chomp $spaces;
     $end_spaces = $self->txi_markup_protect_text($spaces);
   }
@@ -561,7 +568,14 @@ sub _convert_argument_and_end_line($$)
   my $self = shift;
   my $element = shift;
 
-  my $converted = $self->convert_tree($element->{'args'}->[-1]);
+  my $arguments_list;
+  if ($element->{'args'}) {
+    $arguments_list = $element->{'args'};
+  } elsif ($element->{'contents'} and scalar(@{$element->{'contents'}})
+           and $element->{'contents'}->[0]->{'contents'}) {
+    $arguments_list = $element->{'contents'}->[0]->{'contents'};
+  }
+  my $converted = $self->convert_tree($arguments_list->[-1]);
   my $end_space = _end_line_spaces($self, $element);
   my $end_line = $self->format_comment_or_return_end_line($element);
   return ($converted, $end_space, $end_line);
@@ -1416,13 +1430,20 @@ sub _convert($$;$)
                                    [@$attribute, _leading_spaces_arg($element),
                                     @end_command_spaces])
                    .${prepended_elements};
+        my $arguments_list;
         if ($element->{'args'}) {
+          $arguments_list = $element->{'args'};
+        } elsif ($element->{'contents'} and scalar(@{$element->{'contents'}})
+                 and $element->{'contents'}->[0]->{'contents'}) {
+          $arguments_list = $element->{'contents'}->[0]->{'contents'};
+        }
+        if ($arguments_list) {
           my $variadic_element = undef;
           my $last_empty_element;
           my $end_line = '';
           if ($commands_args_elements{$element->{'cmdname'}}) {
             my $arg_index = 0;
-            foreach my $arg_element (@{$element->{'args'}}) {
+            foreach my $arg_element (@{$arguments_list}) {
               my $format_element;
               if (defined($variadic_element)) {
                 $format_element = $variadic_element;
@@ -1460,7 +1481,7 @@ sub _convert($$;$)
                 if ($arg_index != 0) {
                   push @$spaces, _leading_spaces_arg($arg_element);
                 }
-                if ($arg_index+1 eq scalar(@{$element->{'args'}})) {
+                if ($arg_index+1 eq scalar(@{$arguments_list})) {
                   # last argument
                   ($arg, $end_space, $end_line)
                     = $self->_convert_argument_and_end_line($element);

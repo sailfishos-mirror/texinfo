@@ -10,33 +10,38 @@ $result_trees{'section_on_float_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'float',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 't'
-                }
-              ],
-              'type' => 'block_line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'l'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
+                  'contents' => [
+                    {
+                      'text' => 't'
+                    }
+                  ],
+                  'type' => 'block_line_arg'
                 },
-                'spaces_before_argument' => {
-                  'text' => ' '
+                {
+                  'contents' => [
+                    {
+                      'text' => 'l'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
-              },
-              'type' => 'block_line_arg'
+              ],
+              'type' => 'argument'
             }
           ],
-          'cmdname' => 'float',
           'extra' => {
             'float_type' => 't',
             'is_target' => 1,

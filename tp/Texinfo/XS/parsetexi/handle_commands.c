@@ -1010,7 +1010,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
   const char *line = *line_inout;
   unsigned long flags = command_data(cmd).flags;
   ELEMENT *block = 0;
-  ELEMENT *bla;   /* block line arg element */
+  ELEMENT *bla_element;   /* block line arg element */
   ELEMENT *block_line_e;
 
   if (command_data(cmd).data == BLOCK_menu
@@ -1151,19 +1151,28 @@ handle_block_command (ELEMENT *current, const char **line_inout,
   block->e.c->source_info = current_source_info;
   add_to_element_contents (current, block);
 
-  bla = new_element (ET_block_line_arg);
-  add_to_element_args (block_line_e, bla);
+  bla_element = new_element (ET_block_line_arg);
+  if (cmd == CM_float)
+    {
+      ELEMENT *argument = new_element (ET_argument);
+      add_to_element_contents (block_line_e, argument);
+      add_to_element_contents (argument, bla_element);
+    }
+  else
+    {
+      add_to_element_args (block_line_e, bla_element);
+    }
 
 
   if (command_data(cmd).flags & CF_contain_basic_inline)
     push_command (&nesting_context.basic_inline_stack_block, cmd);
 
   register_global_command (block);
-  start_empty_line_after_command (bla, &line, block);
+  start_empty_line_after_command (bla_element, &line, block);
 
   *line_inout = line;
   *command_element = block;
-  return bla;
+  return bla_element;
 }
 
 /* in that case command_element always point to the returned current

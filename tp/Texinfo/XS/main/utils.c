@@ -658,8 +658,9 @@ get_label_element (const ELEMENT *e)
     return e->e.c->args.list[0];
   else if (e->e.c->cmd == CM_anchor && e->e.c->contents.number > 0)
     return e->e.c->contents.list[0];
-  else if (e->e.c->cmd == CM_float && e->e.c->args.number >= 2)
-    return e->e.c->args.list[1];
+  else if (e->e.c->cmd == CM_float && e->e.c->contents.number
+           && e->e.c->contents.list[0]->e.c->contents.number >= 2 )
+    return e->e.c->contents.list[0]->e.c->contents.list[1];
   return 0;
 }
 

@@ -106,35 +106,38 @@ $result_trees{'footnote_in_caption_and_error'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fl'
-                }
-              ],
-              'type' => 'block_line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'label'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'float',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'fl'
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'label'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -264,8 +267,8 @@ $result_trees{'footnote_in_caption_and_error'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'float'} = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3];
-$result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
+$result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'extra'}{'float'} = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3];
+$result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'footnote_in_caption_and_error'}{'contents'}[2]{'contents'}[3]{'contents'}[2];
 
 $result_texis{'footnote_in_caption_and_error'} = '@node Top
 @node chap

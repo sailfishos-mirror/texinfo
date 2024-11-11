@@ -792,8 +792,10 @@ end_line_starting_block (ELEMENT *current)
 
   if (current->parent->flags & EF_def_line)
     command = current->parent->parent->e.c->cmd;
-  else
+  else if (current->parent->e.c->cmd)
     command = current->parent->e.c->cmd;
+  else if (current->parent->parent && current->parent->parent->e.c->cmd)
+    command = current->parent->parent->e.c->cmd;
 
   if (command_data(command).flags & CF_contain_basic_inline)
       (void) pop_command (&nesting_context.basic_inline_stack_block);
@@ -876,6 +878,8 @@ end_line_starting_block (ELEMENT *current)
     }
 
   current = current->parent;
+  if (current->type == ET_argument)
+    current = current->parent;
   if (counter_value (&count_remaining_args, current) != -1)
     counter_pop (&count_remaining_args);
 
@@ -884,9 +888,10 @@ end_line_starting_block (ELEMENT *current)
       char *float_type;
       ELEMENT *float_label_element = 0;
       current->e.c->source_info = current_source_info;
-      if (current->e.c->args.number >= 2)
+      if (current->e.c->contents.list[0]->e.c->contents.number >= 2)
         {
-          float_label_element = args_child_by_index (current, 1);
+          float_label_element
+            = contents_child_by_index (current->e.c->contents.list[0], 1);
         }
       check_register_target_element_label (float_label_element, current);
       float_type = parse_float_type (current);

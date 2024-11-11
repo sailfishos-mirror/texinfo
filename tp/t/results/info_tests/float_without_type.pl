@@ -42,27 +42,30 @@ $result_trees{'float_without_type'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'float',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'a'
+                  'contents' => [
+                    {
+                      'text' => 'a'
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
+              'type' => 'argument'
             },
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'float',
-          'contents' => [
             {
               'contents' => [
                 {

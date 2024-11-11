@@ -3590,11 +3590,21 @@ sub _parse_float_type($)
 {
   my $current = shift;
 
+  my $arguments_list;
+  if ($current->{'args'}) {
+    # listoffloats
+    $arguments_list = $current->{'args'};
+  } elsif ($current->{'contents'} and scalar(@{$current->{'contents'}})
+           and $current->{'contents'}->[0]->{'contents'}) {
+    # float
+    $arguments_list = $current->{'contents'}->[0]->{'contents'};
+  }
+
   my $normalized = '';
-  if ($current->{'args'} and scalar(@{$current->{'args'}})) {
+  if ($arguments_list and scalar(@{$arguments_list})) {
     $normalized
        = Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
-                                                  $current->{'args'}->[0]);
+                                                       $arguments_list->[0]);
   }
   $current->{'extra'} = {} if (!$current->{'extra'});
   $current->{'extra'}->{'float_type'} = $normalized;
@@ -4171,7 +4181,12 @@ sub _end_line_starting_block($$$)
         and $current->{'parent'}->{'extra'}->{'def_command'}) {
     $command = $current->{'parent'}->{'parent'}->{'cmdname'}
   } else {
-    $command = $current->{'parent'}->{'cmdname'};
+    if ($current->{'parent'}->{'cmdname'}) {
+      $command = $current->{'parent'}->{'cmdname'};
+    } elsif ($current->{'parent'}->{'parent'}
+             and $current->{'parent'}->{'parent'}->{'cmdname'}) {
+      $command = $current->{'parent'}->{'parent'}->{'cmdname'};
+    }
   }
   $command = '' if !defined($command);
 
@@ -4242,13 +4257,16 @@ sub _end_line_starting_block($$$)
     }
   }
   $current = $current->{'parent'};
+  if ($current->{'type'} and $current->{'type'} eq 'argument') {
+    $current = $current->{'parent'};
+  }
   delete $current->{'remaining_args'};
 
   # @float args
   if ($command eq 'float') {
     my $float_label_element;
-    $float_label_element = $current->{'args'}->[1]
-      if ($current->{'args'} and scalar(@{$current->{'args'}}) >= 2);
+    $float_label_element = $current->{'contents'}->[0]->{'contents'}->[1]
+      if (scalar(@{$current->{'contents'}->[0]->{'contents'}} >= 2));
     _check_register_target_element_label($self, $float_label_element,
                                          $current, $source_info);
 
@@ -6168,11 +6186,22 @@ sub _handle_block_command($$$$$)
   push @{$current->{'contents'}}, $block;
 
   # bla = block line argument
-  my $bla_element = {
+  my $bla_element;
+
+  if ($command eq 'float') {
+    my $argument = {'type' => 'argument', 'parent' => $block_line_e};
+    $block_line_e->{'contents'} = [$argument];
+    $bla_element = {
+                 'type' => 'block_line_arg',
+                 'parent' => $argument};
+    $argument->{'contents'} = [$bla_element];
+  } else {
+    $bla_element = {
                  'type' => 'block_line_arg',
                  'parent' => $block_line_e};
 
-  $block_line_e->{'args'} = [$bla_element];
+    $block_line_e->{'args'} = [$bla_element];
+  }
 
   if ($self->{'basic_inline_commands'}->{$command}) {
     push @{$self->{'nesting_context'}->{'basic_inline_stack_block'}},
@@ -6676,7 +6705,13 @@ sub _handle_comma($$$$)
   #                          and $type ne 'brace_arg'
   #                          and $type ne 'block_line_arg'
   #                          and $type ne 'line_arg');
-  my $command_element = $current->{'parent'};
+  my $command_element;
+  my $argument = $current->{'parent'};
+  if ($argument->{'type'} and $argument->{'type'} eq 'argument') {
+    $command_element = $argument->{'parent'};
+  } else {
+    $command_element = $current->{'parent'};
+  }
 
   $command_element->{'remaining_args'}--;
 
@@ -6822,12 +6857,13 @@ sub _handle_comma($$$$)
       # goto funexit;  # used in XS code
     }
   }
-  my $new_arg = {'type' => $type, 'parent' => $command_element,
+  my $new_arg = {'type' => $type, 'parent' => $argument,
                  'contents' => []};
-  if ($brace_commands{$command_element->{'cmdname'}}) {
-    push @{$command_element->{'contents'}}, $new_arg;
+  if ($brace_commands{$command_element->{'cmdname'}}
+      or $argument ne $command_element) {
+    push @{$argument->{'contents'}}, $new_arg;
   } else {
-    push @{$command_element->{'args'}}, $new_arg;
+    push @{$argument->{'args'}}, $new_arg;
   }
   # internal_spaces_before_argument is a transient internal type,
   # which should end up in info spaces_before_argument.
@@ -7575,9 +7611,11 @@ sub _process_remaining_on_line($$$$)
     $current = _handle_close_brace($self, $current, $source_info);
 
   } elsif ($comma) {
-    substr($line, 0, 1) = '';
-    if ($current->{'parent'}
-        and $current->{'parent'}->{'remaining_args'}) {
+    substr ($line, 0, 1) = '';
+    if (($current->{'parent'}
+         and $current->{'parent'}->{'remaining_args'})
+        or ($current->{'parent'} and $current->{'parent'}->{'parent'}
+            and $current->{'parent'}->{'parent'}->{'remaining_args'})) {
       ($current, $line, $source_info)
          = _handle_comma($self, $current, $line, $source_info);
     } elsif ($current->{'type'}

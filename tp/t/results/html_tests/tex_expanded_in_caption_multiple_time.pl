@@ -10,35 +10,38 @@ $result_trees{'tex_expanded_in_caption_multiple_time'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'A'
-                }
-              ],
-              'type' => 'block_line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'B'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'float',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'A'
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'B'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    },
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -220,8 +223,8 @@ $result_trees{'tex_expanded_in_caption_multiple_time'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'tex_expanded_in_caption_multiple_time'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'float'} = $result_trees{'tex_expanded_in_caption_multiple_time'}{'contents'}[0]{'contents'}[0];
-$result_trees{'tex_expanded_in_caption_multiple_time'}{'contents'}[0]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'tex_expanded_in_caption_multiple_time'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'tex_expanded_in_caption_multiple_time'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'float'} = $result_trees{'tex_expanded_in_caption_multiple_time'}{'contents'}[0]{'contents'}[0];
+$result_trees{'tex_expanded_in_caption_multiple_time'}{'contents'}[0]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'tex_expanded_in_caption_multiple_time'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 
 $result_texis{'tex_expanded_in_caption_multiple_time'} = '@float A, B
 My float.

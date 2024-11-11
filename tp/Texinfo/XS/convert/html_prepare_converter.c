@@ -187,7 +187,8 @@ static enum element_type ignored_types[] = {
     ET_preamble_before_setfilename,
     ET_spaces_at_end,
     ET_spaces_before_paragraph,
-    ET_spaces_after_close_brace, 0
+    ET_spaces_after_close_brace,
+    ET_argument, 0
 };
 
 HTML_COMMAND_STRUCT html_commands_data[BUILTIN_CMD_NUMBER];
