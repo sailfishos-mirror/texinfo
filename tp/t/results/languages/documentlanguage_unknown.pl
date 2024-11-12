@@ -421,7 +421,7 @@ $result_trees{'documentlanguage_unknown'} = {
           'cmdname' => 'deftypemethod',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

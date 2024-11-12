@@ -13,7 +13,7 @@ $result_trees{'empty_main_def_arguments'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

@@ -72,7 +72,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
               'cmdname' => 'deftypefun',
               'contents' => [
                 {
-                  'args' => [
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -404,7 +404,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
           'cmdname' => 'deftypefun',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

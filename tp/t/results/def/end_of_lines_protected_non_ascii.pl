@@ -26,7 +26,7 @@ $result_trees{'end_of_lines_protected_non_ascii'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

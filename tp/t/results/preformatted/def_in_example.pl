@@ -30,7 +30,7 @@ $result_trees{'def_in_example'} = {
               'cmdname' => 'defun',
               'contents' => [
                 {
-                  'args' => [
+                  'contents' => [
                     {
                       'contents' => [
                         {

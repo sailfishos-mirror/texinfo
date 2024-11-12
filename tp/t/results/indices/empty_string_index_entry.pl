@@ -248,7 +248,7 @@ $result_trees{'empty_string_index_entry'} = {
           'cmdname' => 'defun',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -371,7 +371,8 @@ $result_trees{'empty_string_index_entry'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'defunx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -461,7 +462,6 @@ $result_trees{'empty_string_index_entry'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defunx',
               'extra' => {
                 'def_command' => 'defun',
                 'def_index_element' => {

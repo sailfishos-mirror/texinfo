@@ -5974,8 +5974,13 @@ sub _handle_line_command($$$$$$)
       }
     }
     $current = $current->{'contents'}->[-1];
-    $current->{'args'} = [{ 'type' => 'line_arg',
-                            'parent' => $current }];
+    if ($def_commands{$data_cmdname}) {
+      $current->{'contents'} = [{ 'type' => 'line_arg',
+                                  'parent' => $current }];
+    } else {
+      $current->{'args'} = [{ 'type' => 'line_arg',
+                              'parent' => $current }];
+    }
     if ($self->{'basic_inline_commands'}
         and $self->{'basic_inline_commands'}->{$data_cmdname}) {
       push @{$self->{'nesting_context'}->{'basic_inline_stack_on_line'}},
@@ -6031,9 +6036,12 @@ sub _handle_line_command($$$$$$)
       }
     }
 
-    $current = $current->{'args'}->[-1];
-    $self->_push_context('ct_line', $command)
-      unless ($def_commands{$data_cmdname});
+    if ($def_commands{$data_cmdname}) {
+      $current = $current->{'contents'}->[-1];
+    } else {
+      $current = $current->{'args'}->[-1];
+      $self->_push_context('ct_line', $command);
+    }
     $line = _start_empty_line_after_command($self, $line, $current, $command_e);
   }
   _register_global_command($self, $command_e, $source_info)
@@ -6186,7 +6194,6 @@ sub _handle_block_command($$$$$)
   # bla = block line argument
   my $bla_element;
 
-  #if ($command eq 'float' or $blockitem_commands{$command}) {
   if (!$def_commands{$command}) {
     my $argument = {'type' => 'argument', 'parent' => $block_line_e};
     $block_line_e->{'contents'} = [$argument];
@@ -6199,7 +6206,7 @@ sub _handle_block_command($$$$$)
                  'type' => 'block_line_arg',
                  'parent' => $block_line_e};
 
-    $block_line_e->{'args'} = [$bla_element];
+    $block_line_e->{'contents'} = [$bla_element];
   }
 
   if ($self->{'basic_inline_commands'}->{$command}) {

@@ -13,7 +13,7 @@ $result_trees{'leading_space_in_def_arg'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

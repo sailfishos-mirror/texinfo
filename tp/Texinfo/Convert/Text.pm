@@ -687,6 +687,8 @@ sub _convert($$)
              or $cmdname eq 'smallquotation'
              or $cmdname eq 'float'
              or $cmdname eq 'cartouche') {
+      # TODO the first condition is never true, the second can be
+      # simplified
       if ($element->{'args'}) {
         foreach my $arg (@{$element->{'args'}}) {
           my $converted_arg = _convert($options, $arg);
@@ -727,10 +729,10 @@ sub _convert($$)
           $result .= "\n";
         }
       }
-    } elsif ($converted_formattable_line_commands{$cmdname}
-             and $element->{'args'}) {
+    } elsif ($converted_formattable_line_commands{$cmdname}) {
       if ($def_commands{$cmdname}) {
         $result = _convert_def_line($options, $element);
+        return $result;
       } elsif ($cmdname eq 'sp') {
         if ($element->{'extra'} and $element->{'extra'}->{'misc_args'}
             and $element->{'extra'}->{'misc_args'}->[0]) {
@@ -766,6 +768,7 @@ sub _convert($$)
   if ($element->{'type'}) {
     if ($element->{'type'} eq 'def_line') {
       $result = _convert_def_line($options, $element);
+      return $result;
     } elsif ($element->{'type'} eq 'untranslated_def_line_arg') {
       my $tree;
       my $category_text = $element->{'contents'}->[0]->{'text'};

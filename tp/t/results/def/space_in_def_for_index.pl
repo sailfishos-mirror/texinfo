@@ -69,7 +69,7 @@ $result_trees{'space_in_def_for_index'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -215,7 +215,8 @@ $result_trees{'space_in_def_for_index'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'deffnx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -281,7 +282,6 @@ $result_trees{'space_in_def_for_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
                 'def_index_element' => {

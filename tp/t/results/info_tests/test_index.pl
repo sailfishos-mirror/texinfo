@@ -273,7 +273,7 @@ $result_trees{'test_index'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -401,7 +401,8 @@ $result_trees{'test_index'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'deffnx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -478,7 +479,6 @@ $result_trees{'test_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
                 'def_index_element' => {

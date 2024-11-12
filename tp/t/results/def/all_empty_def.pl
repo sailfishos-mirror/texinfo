@@ -13,7 +13,7 @@ $result_trees{'all_empty_def'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -77,7 +77,7 @@ $result_trees{'all_empty_def'} = {
           'cmdname' => 'defvr',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -141,7 +141,7 @@ $result_trees{'all_empty_def'} = {
           'cmdname' => 'deftypefn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -205,7 +205,7 @@ $result_trees{'all_empty_def'} = {
           'cmdname' => 'deftypeop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -269,7 +269,7 @@ $result_trees{'all_empty_def'} = {
           'cmdname' => 'deftypevr',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -333,7 +333,7 @@ $result_trees{'all_empty_def'} = {
           'cmdname' => 'defcv',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -397,7 +397,7 @@ $result_trees{'all_empty_def'} = {
           'cmdname' => 'deftypecv',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -461,7 +461,7 @@ $result_trees{'all_empty_def'} = {
           'cmdname' => 'defop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -525,7 +525,7 @@ $result_trees{'all_empty_def'} = {
           'cmdname' => 'deftp',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {

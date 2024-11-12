@@ -3630,6 +3630,7 @@ sub _convert($$)
     # not block commands and not brace commands
     } elsif ($def_commands{$cmdname}) {
       _convert_def_line($self, $element);
+      return;
     } elsif ($cmdname eq 'center') {
       #my ($counts, $new_locations);
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
@@ -3903,6 +3904,7 @@ sub _convert($$)
       }
     } elsif ($type eq 'def_line') {
       _convert_def_line($self, $element);
+      return;
     } elsif ($type eq 'menu_entry') {
       my $entry_name_seen = 0;
       my $menu_entry_node;

@@ -111,7 +111,7 @@ $result_trees{'unknown_region'} = {
           'cmdname' => 'defivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

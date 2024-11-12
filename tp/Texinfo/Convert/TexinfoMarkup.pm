@@ -468,8 +468,13 @@ sub _end_line_spaces
   if ($element->{'args'}) {
     $arguments_list = $element->{'args'};
   } elsif ($element->{'contents'} and scalar(@{$element->{'contents'}})
-           and $element->{'contents'}->[0]->{'contents'}) {
+           and $element->{'contents'}->[0]->{'type'}
+           and $element->{'contents'}->[0]->{'type'} eq 'argument') {
     $arguments_list = $element->{'contents'}->[0]->{'contents'};
+  } elsif (($element->{'cmdname'}
+           and $Texinfo::Commands::def_commands{$element->{'cmdname'}})
+           or ($element->{'type'} and $element->{'type'} eq 'def_line')) {
+    $arguments_list = $element->{'contents'};
   }
   if ($arguments_list->[-1]
       and $arguments_list->[-1]->{'info'}
@@ -616,8 +621,8 @@ sub _convert_def_line($$)
   $result .= $self->_index_entry($element);
   push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
   my $def_command = $element->{'extra'}->{'def_command'};
-  if ($element->{'args'} and @{$element->{'args'}}
-      and $element->{'args'}->[0]->{'contents'}) {
+  if ($element->{'contents'} and @{$element->{'contents'}}
+      and $element->{'contents'}->[0]->{'contents'}) {
     my $main_command;
     my $alias;
     if ($Texinfo::Common::def_aliases{$def_command}) {
@@ -628,7 +633,7 @@ sub _convert_def_line($$)
       $main_command = $def_command;
       $alias = 0;
     }
-    foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
+    foreach my $arg (@{$element->{'contents'}->[0]->{'contents'}}) {
       my $type = $arg->{'type'};
       # should only happen for dubious trees in which the def line
       # was not split in def roles
@@ -999,6 +1004,7 @@ sub _convert($$;$)
           }
         } elsif ($Texinfo::Commands::def_commands{$cmdname}) {
           $result .= _convert_def_line($self, $element);
+          return $result;
         } else {
           my $attribute = [_leading_spaces_arg($element)];
           if ($cmdname eq 'listoffloats') {
@@ -1431,10 +1437,9 @@ sub _convert($$;$)
                                     @end_command_spaces])
                    .${prepended_elements};
         my $arguments_list;
-        if ($element->{'args'}) {
-          $arguments_list = $element->{'args'};
-        } elsif ($element->{'contents'} and scalar(@{$element->{'contents'}})
-                 and $element->{'contents'}->[0]->{'contents'}) {
+        if ($element->{'contents'} and scalar(@{$element->{'contents'}})
+            and $element->{'contents'}->[0]->{'type'}
+            and $element->{'contents'}->[0]->{'type'} eq 'argument') {
           $arguments_list = $element->{'contents'}->[0]->{'contents'};
         }
         if ($arguments_list) {
@@ -1620,6 +1625,7 @@ sub _convert($$;$)
                                           $attribute);
     } elsif ($element->{'type'} eq 'def_line') {
       $result .= _convert_def_line($self, $element);
+      return $result;
     # case of bracketed in def line not corresponding to a def* argument
     # by itself, for example, in the following '{a b}{c d}' is the
     # argument, it is not a bracketed by itself, but contains two

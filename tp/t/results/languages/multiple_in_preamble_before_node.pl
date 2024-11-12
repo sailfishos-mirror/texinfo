@@ -67,7 +67,7 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                   'cmdname' => 'defivar',
                   'contents' => [
                     {
-                      'args' => [
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -556,7 +556,7 @@ $result_trees{'multiple_in_preamble_before_node'} = {
           'cmdname' => 'defivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

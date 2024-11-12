@@ -30,7 +30,7 @@ $result_trees{'defx_after_comment_in_example'} = {
               'cmdname' => 'deffn',
               'contents' => [
                 {
-                  'args' => [
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -177,7 +177,8 @@ $result_trees{'defx_after_comment_in_example'} = {
                   'type' => 'inter_def_item'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'deffnx',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -240,7 +241,6 @@ $result_trees{'defx_after_comment_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'deffnx',
                   'extra' => {
                     'def_command' => 'deffn',
                     'def_index_element' => {

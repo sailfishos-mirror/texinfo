@@ -67,7 +67,7 @@ $result_trees{'multiple_documentlanguage'} = {
                   'cmdname' => 'defivar',
                   'contents' => [
                     {
-                      'args' => [
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -473,7 +473,7 @@ $result_trees{'multiple_documentlanguage'} = {
           'cmdname' => 'defivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -805,7 +805,7 @@ $result_trees{'multiple_documentlanguage'} = {
           'cmdname' => 'defivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

@@ -13,7 +13,7 @@ $result_trees{'protected_brace'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

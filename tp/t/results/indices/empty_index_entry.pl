@@ -81,7 +81,7 @@ $result_trees{'empty_index_entry'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

@@ -209,7 +209,7 @@ $result_trees{'test_deftypefnnewline'} = {
           'cmdname' => 'deftypefun',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -382,7 +382,7 @@ $result_trees{'test_deftypefnnewline'} = {
           'cmdname' => 'deftypefn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -532,7 +532,7 @@ $result_trees{'test_deftypefnnewline'} = {
           'cmdname' => 'deftypeop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -769,7 +769,7 @@ $result_trees{'test_deftypefnnewline'} = {
           'cmdname' => 'deftypeop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -989,7 +989,7 @@ $result_trees{'test_deftypefnnewline'} = {
           'cmdname' => 'deftypecv',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1209,7 +1209,7 @@ $result_trees{'test_deftypefnnewline'} = {
           'cmdname' => 'deftypecv',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1446,7 +1446,7 @@ $result_trees{'test_deftypefnnewline'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1616,7 +1616,7 @@ $result_trees{'test_deftypefnnewline'} = {
           'cmdname' => 'deftypefun',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1789,7 +1789,7 @@ $result_trees{'test_deftypefnnewline'} = {
           'cmdname' => 'deftypefn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1939,7 +1939,7 @@ $result_trees{'test_deftypefnnewline'} = {
           'cmdname' => 'deftypeop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2176,7 +2176,7 @@ $result_trees{'test_deftypefnnewline'} = {
           'cmdname' => 'deftypeop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2396,7 +2396,7 @@ $result_trees{'test_deftypefnnewline'} = {
           'cmdname' => 'deftypecv',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2616,7 +2616,7 @@ $result_trees{'test_deftypefnnewline'} = {
           'cmdname' => 'deftypecv',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2853,7 +2853,7 @@ $result_trees{'test_deftypefnnewline'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

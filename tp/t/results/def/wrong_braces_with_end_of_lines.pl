@@ -13,7 +13,7 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -198,7 +198,7 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

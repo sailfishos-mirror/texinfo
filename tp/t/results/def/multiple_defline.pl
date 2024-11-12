@@ -30,7 +30,8 @@ $result_trees{'multiple_defline'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -98,7 +99,6 @@ $result_trees{'multiple_defline'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {
@@ -144,7 +144,8 @@ $result_trees{'multiple_defline'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -233,7 +234,6 @@ $result_trees{'multiple_defline'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {

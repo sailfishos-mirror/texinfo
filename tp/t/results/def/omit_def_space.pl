@@ -98,7 +98,7 @@ $result_trees{'omit_def_space'} = {
           'cmdname' => 'defun',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -222,7 +222,8 @@ $result_trees{'omit_def_space'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'defunx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -296,7 +297,6 @@ $result_trees{'omit_def_space'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defunx',
               'extra' => {
                 'def_command' => 'defun',
                 'def_index_element' => {

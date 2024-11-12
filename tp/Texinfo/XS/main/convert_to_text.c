@@ -982,6 +982,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                && builtin_command_data[data_cmd].flags & CF_def)
         {
           convert_def_line (element, text_options, result);
+          return;
         }
       else if (data_cmd == CM_sp)
         {
@@ -1047,6 +1048,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
   if (element->type == ET_def_line)
     {
       convert_def_line (element, text_options, result);
+      return;
     }
    else if (element->type == ET_untranslated_def_line_arg)
     {

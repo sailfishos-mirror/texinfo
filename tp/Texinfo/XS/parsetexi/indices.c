@@ -407,7 +407,7 @@ complete_indices (DOCUMENT *document, int debug_level)
                 {
                   ELEMENT *name = 0;
                   ELEMENT *class = 0;
-                  ELEMENT *def_l_e = main_entry_element->e.c->args.list[0];
+                  ELEMENT *def_l_e = main_entry_element->e.c->contents.list[0];
                   if (def_l_e->e.c->contents.number > 0)
                     {
                       size_t ic;

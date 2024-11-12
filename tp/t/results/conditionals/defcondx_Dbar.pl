@@ -100,7 +100,7 @@ $result_trees{'defcondx_Dbar'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -188,7 +188,8 @@ $result_trees{'defcondx_Dbar'} = {
               'type' => 'inter_def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'deffnx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -214,7 +215,6 @@ $result_trees{'defcondx_Dbar'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
                 'original_def_cmdname' => 'deffnx'

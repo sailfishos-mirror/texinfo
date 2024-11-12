@@ -185,7 +185,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -348,7 +348,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
           'cmdname' => 'defvar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

@@ -141,7 +141,8 @@ $result_trees{'last_argument_with_braces'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -218,7 +219,6 @@ $result_trees{'last_argument_with_braces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {
@@ -247,7 +247,8 @@ $result_trees{'last_argument_with_braces'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -398,7 +399,6 @@ $result_trees{'last_argument_with_braces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {
@@ -478,7 +478,8 @@ $result_trees{'last_argument_with_braces'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -555,7 +556,6 @@ $result_trees{'last_argument_with_braces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {
@@ -584,7 +584,8 @@ $result_trees{'last_argument_with_braces'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -683,7 +684,6 @@ $result_trees{'last_argument_with_braces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {
@@ -763,7 +763,8 @@ $result_trees{'last_argument_with_braces'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -840,7 +841,6 @@ $result_trees{'last_argument_with_braces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {
@@ -869,7 +869,8 @@ $result_trees{'last_argument_with_braces'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1012,7 +1013,6 @@ $result_trees{'last_argument_with_braces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {

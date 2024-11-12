@@ -38,7 +38,7 @@ $result_trees{'menu_in_deffn'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

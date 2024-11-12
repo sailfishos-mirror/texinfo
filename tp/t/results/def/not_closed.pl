@@ -13,7 +13,7 @@ $result_trees{'not_closed'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -100,7 +100,8 @@ $result_trees{'not_closed'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'deffnx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -160,7 +161,6 @@ $result_trees{'not_closed'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
                 'def_index_element' => {
@@ -197,7 +197,7 @@ $result_trees{'not_closed'} = {
                   'cmdname' => 'defvar',
                   'contents' => [
                     {
-                      'args' => [
+                      'contents' => [
                         {
                           'contents' => [
                             {

@@ -13,7 +13,7 @@ $result_trees{'end_of_lines_protected'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

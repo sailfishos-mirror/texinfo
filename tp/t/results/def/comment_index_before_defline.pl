@@ -95,7 +95,8 @@ $result_trees{'comment_index_before_defline'} = {
               'type' => 'before_defline'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -172,7 +173,6 @@ $result_trees{'comment_index_before_defline'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {

@@ -133,7 +133,7 @@ $result_trees{'protected_spaces_on_line'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -403,7 +403,7 @@ $result_trees{'protected_spaces_on_line'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -704,7 +704,7 @@ $result_trees{'protected_spaces_on_line'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

@@ -13,7 +13,7 @@ $result_trees{'defx_after_paragraph_end'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -159,7 +159,8 @@ $result_trees{'defx_after_paragraph_end'} = {
               'type' => 'inter_def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'deffnx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -222,7 +223,6 @@ $result_trees{'defx_after_paragraph_end'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
                 'def_index_element' => {

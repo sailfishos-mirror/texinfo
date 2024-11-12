@@ -13,7 +13,7 @@ $result_trees{'no_category_or_no_name'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -91,7 +91,7 @@ $result_trees{'no_category_or_no_name'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -192,7 +192,7 @@ $result_trees{'no_category_or_no_name'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -296,7 +296,8 @@ $result_trees{'no_category_or_no_name'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'deffnx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -322,7 +323,6 @@ $result_trees{'no_category_or_no_name'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
                 'original_def_cmdname' => 'deffnx'
@@ -337,7 +337,8 @@ $result_trees{'no_category_or_no_name'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'deffnx',
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -348,7 +349,6 @@ $result_trees{'no_category_or_no_name'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
                 'original_def_cmdname' => 'deffnx'

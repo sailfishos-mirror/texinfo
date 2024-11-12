@@ -789,7 +789,8 @@ args \\e\\|\\f\\|
               'type' => 'before_defline'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -882,7 +883,6 @@ args \\e\\|\\f\\|
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {

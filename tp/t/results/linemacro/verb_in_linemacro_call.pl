@@ -256,7 +256,8 @@ $result_trees{'verb_in_linemacro_call'} = {
               'type' => 'before_defline'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -327,7 +328,6 @@ $result_trees{'verb_in_linemacro_call'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {

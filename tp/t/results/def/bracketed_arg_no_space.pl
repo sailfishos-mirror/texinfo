@@ -13,7 +13,7 @@ $result_trees{'bracketed_arg_no_space'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

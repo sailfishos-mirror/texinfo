@@ -74,7 +74,7 @@ $result_trees{'macro_in_def_delimiters'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

@@ -407,7 +407,7 @@ $result_trees{'conversion_with_undef_customization'} = {
           'cmdname' => 'deftypefn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

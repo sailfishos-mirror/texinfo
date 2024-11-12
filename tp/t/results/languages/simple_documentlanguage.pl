@@ -111,7 +111,7 @@ $result_trees{'simple_documentlanguage'} = {
           'cmdname' => 'defivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

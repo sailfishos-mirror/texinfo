@@ -228,7 +228,8 @@ $result_trees{'nested_linemacro_calls'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -394,7 +395,6 @@ $result_trees{'nested_linemacro_calls'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {

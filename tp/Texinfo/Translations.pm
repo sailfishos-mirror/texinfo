@@ -419,8 +419,8 @@ sub complete_indices($;$)
           and $main_entry_element->{'extra'}->{'def_command'}
           and not $main_entry_element->{'extra'}->{'def_index_element'}) {
         my ($name, $class);
-        if ($main_entry_element->{'args'}->[0]->{'contents'}) {
-          foreach my $arg (@{$main_entry_element->{'args'}->[0]->{'contents'}}) {
+        if ($main_entry_element->{'contents'}->[0]->{'contents'}) {
+          foreach my $arg (@{$main_entry_element->{'contents'}->[0]->{'contents'}}) {
             my $type = $arg->{'type'};
             if ($type eq 'def_name') {
               $name = $arg;

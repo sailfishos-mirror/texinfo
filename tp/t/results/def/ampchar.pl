@@ -13,7 +13,7 @@ $result_trees{'ampchar'} = {
           'cmdname' => 'defop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

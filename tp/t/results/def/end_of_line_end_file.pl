@@ -13,7 +13,7 @@ $result_trees{'end_of_line_end_file'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

@@ -13,7 +13,7 @@ $result_trees{'empty_deftypeop_name'} = {
           'cmdname' => 'deftypeop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

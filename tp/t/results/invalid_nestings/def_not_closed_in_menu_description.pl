@@ -71,7 +71,7 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                       'cmdname' => 'deffn',
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
                               'contents' => [
                                 {

@@ -273,7 +273,7 @@ $result_trees{'brace_in_index'} = {
           'cmdname' => 'defun',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

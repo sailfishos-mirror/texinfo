@@ -161,7 +161,7 @@ $result_trees{'complex_nestings'} = {
               'cmdname' => 'defun',
               'contents' => [
                 {
-                  'args' => [
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -313,7 +313,8 @@ $result_trees{'complex_nestings'} = {
                   'type' => 'def_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'defunx',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -399,7 +400,6 @@ $result_trees{'complex_nestings'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'defunx',
                   'extra' => {
                     'def_command' => 'defun',
                     'def_index_element' => {
@@ -437,7 +437,7 @@ $result_trees{'complex_nestings'} = {
                       'cmdname' => 'deffn',
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -587,7 +587,7 @@ $result_trees{'complex_nestings'} = {
                               'cmdname' => 'defvar',
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -699,7 +699,8 @@ $result_trees{'complex_nestings'} = {
                                   'type' => 'inter_def_item'
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'defvarx',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -768,7 +769,6 @@ $result_trees{'complex_nestings'} = {
                                       'type' => 'line_arg'
                                     }
                                   ],
-                                  'cmdname' => 'defvarx',
                                   'extra' => {
                                     'def_command' => 'defvar',
                                     'def_index_element' => {

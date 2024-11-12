@@ -69,7 +69,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'defvr',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -202,7 +202,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -352,7 +352,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -485,7 +485,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'deftypefn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -652,7 +652,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'deftypefn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -802,7 +802,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'deftypeop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1039,7 +1039,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'deftypeop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1259,7 +1259,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'deftypevr',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1409,7 +1409,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'defcv',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1559,7 +1559,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'defcv',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1726,7 +1726,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'deftypecv',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1946,7 +1946,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'deftypecv',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2183,7 +2183,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'defop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2403,7 +2403,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'defop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2606,7 +2606,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'deftp',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2756,7 +2756,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'defun',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2912,7 +2912,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'defmac',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3068,7 +3068,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'defspec',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3224,7 +3224,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'defvar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3363,7 +3363,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'defvar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3536,7 +3536,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'defopt',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3675,7 +3675,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'deftypefun',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3848,7 +3848,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'deftypevar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4004,7 +4004,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'defivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4213,7 +4213,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'deftypeivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4439,7 +4439,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'defmethod',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4665,7 +4665,7 @@ $result_trees{'all_commands_printindex'} = {
           'cmdname' => 'deftypemethod',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

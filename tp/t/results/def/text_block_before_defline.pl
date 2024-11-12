@@ -372,7 +372,8 @@ $result_trees{'text_block_before_defline'} = {
               'type' => 'before_defline'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -449,7 +450,6 @@ $result_trees{'text_block_before_defline'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {

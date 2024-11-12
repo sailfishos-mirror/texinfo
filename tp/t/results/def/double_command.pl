@@ -13,7 +13,7 @@ $result_trees{'double_command'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -143,7 +143,8 @@ $result_trees{'double_command'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'deffnx',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -295,7 +296,6 @@ $result_trees{'double_command'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'deffnx',
                               'extra' => {
                                 'def_command' => 'deffn',
                                 'def_index_element' => {
@@ -426,7 +426,7 @@ $result_trees{'double_command'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -488,7 +488,7 @@ $result_trees{'double_command'} = {
                               'cmdname' => 'defvr',
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {

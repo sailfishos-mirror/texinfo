@@ -234,7 +234,7 @@ $result_trees{'colon_in_index_entry'} = {
           'cmdname' => 'defvr',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -345,7 +345,8 @@ $result_trees{'colon_in_index_entry'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'defvrx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -445,7 +446,6 @@ $result_trees{'colon_in_index_entry'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defvrx',
               'extra' => {
                 'def_command' => 'defvr',
                 'def_index_element' => {

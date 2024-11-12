@@ -202,8 +202,7 @@ sub _convert_to_texinfo($)
   if (defined($element->{'text'})) {
     $result .= $element->{'text'};
   } else {
-    if ($element->{'cmdname'}
-        or ($element->{'type'} and $element->{'type'} eq 'def_line')) {
+    if ($element->{'cmdname'}) {
       $result .= _expand_cmd_args_to_texi($element);
       if ($element->{'cmdname'}
           and (exists($brace_commands{$element->{'cmdname'}})
@@ -252,7 +251,7 @@ sub _expand_cmd_args_to_texi($) {
     $result = '@'.$cmdname;
 
     # this is done here otherwise for some constructs, there are
-    # no 'args', and so the space is never readded.
+    # no arguments and the space is not output.
     if ($cmd->{'info'}
         and $cmd->{'info'}->{'spaces_after_cmd_before_arg'}) {
       $result .= $cmd->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'};
@@ -266,21 +265,11 @@ sub _expand_cmd_args_to_texi($) {
   } elsif ($cmd->{'args'}) {
     $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
        if ($cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'});
-    my $with_commas = 0;
-    if (($block_commands{$cmdname}
-         # block line commands with arguments not separated by commas
-         and not ($def_commands{$cmdname}
-                  or $block_commands{$cmdname} eq 'multitable'))
-        or $cmdname eq 'node') {
-      $with_commas = 1;
-    }
     my $arg_nr = 0;
     foreach my $arg (@{$cmd->{'args'}}) {
       next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
-      if ($with_commas) {
-        $result .= ',' if ($arg_nr);
-        $arg_nr++;
-      }
+      $result .= ',' if ($arg_nr);
+      $arg_nr++;
       $result .= _convert_to_texinfo($arg);
     }
    # TODO consider moving the braces command code to _convert_to_texinfo.
@@ -290,12 +279,8 @@ sub _expand_cmd_args_to_texi($) {
            and (exists($brace_commands{$cmdname})
                 or ($cmd->{'type'}
                     and $cmd->{'type'} eq 'definfoenclose_command'))) {
-    my $braces;
-    $braces = 1 if (scalar(@{$cmd->{'contents'}})
-                    and ($cmd->{'contents'}->[0]->{'type'}
-                        and ($cmd->{'contents'}->[0]->{'type'} eq 'brace_container'
-                             or $cmd->{'contents'}->[0]->{'type'} eq 'brace_arg'
-                             or $cmd->{'contents'}->[0]->{'type'} eq 'brace_command_context')));
+    my $braces = 1;
+    $braces = 0 if ($cmd->{'contents'}->[0]->{'type'} eq 'following_arg');
     $result .= '{' if ($braces);
     if ($cmdname eq 'verb') {
       $result .= $cmd->{'info'}->{'delimiter'};
@@ -314,29 +299,17 @@ sub _expand_cmd_args_to_texi($) {
     }
     $result .= '}' if ($braces);
   } elsif ($cmd->{'contents'}
-           and $cmd->{'contents'}->[0]->{'type'}
-           and $cmd->{'contents'}->[0]->{'type'} eq 'argument') {
+           and ($cmd->{'contents'}->[0]->{'type'}
+                and $cmd->{'contents'}->[0]->{'type'} eq 'argument')) {
     $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
       if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
-    my $with_commas = 0;
-    if (($block_commands{$cmdname}
-         # block line commands with arguments not separated by commas
-         and not ($def_commands{$cmdname}
-                  or $block_commands{$cmdname} eq 'multitable'))
-        or $cmdname eq 'node') {
-      $with_commas = 1;
-    }
     my $arg_nr = 0;
     my $argument = $cmd->{'contents'}->[0];
-    if ($argument->{'contents'}) {
-      foreach my $arg (@{$argument->{'contents'}}) {
-        next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
-        if ($with_commas) {
-          $result .= ',' if ($arg_nr);
-          $arg_nr++;
-        }
-        $result .= _convert_to_texinfo($arg);
-      }
+    foreach my $arg (@{$argument->{'contents'}}) {
+      next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
+      $result .= ',' if ($arg_nr);
+      $arg_nr++;
+      $result .= _convert_to_texinfo($arg);
     }
   } else {
     $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}

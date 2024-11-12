@@ -13,7 +13,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'defvr',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -145,7 +145,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -294,7 +294,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -426,7 +426,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'deftypefn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -592,7 +592,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'deftypefn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -741,7 +741,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'deftypeop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -977,7 +977,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'deftypeop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1196,7 +1196,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'deftypevr',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1345,7 +1345,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'defcv',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1494,7 +1494,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'defcv',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1660,7 +1660,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'deftypecv',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1879,7 +1879,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'deftypecv',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2115,7 +2115,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'defop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2334,7 +2334,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'defop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2536,7 +2536,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'deftp',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2685,7 +2685,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'defun',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2840,7 +2840,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'defmac',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2995,7 +2995,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'defspec',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3150,7 +3150,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'defvar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3288,7 +3288,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'defvar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3460,7 +3460,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'defopt',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3598,7 +3598,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'deftypefun',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3770,7 +3770,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'deftypevar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3925,7 +3925,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'defivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4133,7 +4133,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'deftypeivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4358,7 +4358,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'defmethod',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4583,7 +4583,7 @@ $result_trees{'all_commands'} = {
           'cmdname' => 'deftypemethod',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

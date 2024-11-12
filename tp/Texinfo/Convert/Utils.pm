@@ -235,9 +235,9 @@ sub definition_arguments_content($)
 
   my ($category, $class, $type, $name, $args);
   return ($category, $class, $type, $name, $args)
-     if (!$element->{'args'}->[0]->{'contents'});
+     if (!$element->{'contents'}->[0]->{'contents'});
 
-  my @args = @{$element->{'args'}->[0]->{'contents'}};
+  my @args = @{$element->{'contents'}->[0]->{'contents'}};
   while (@args) {
     my $arg_type = $args[0]->{'type'};
     if ($arg_type eq 'def_category') {
@@ -266,14 +266,14 @@ sub definition_category_tree($$)
   my $self = shift;
   my $current = shift;
 
-  return undef if (!$current->{'args'}->[0]->{'contents'});
+  return undef if (!$current->{'contents'}->[0]->{'contents'});
 
   # NOTE we take care of not changing the parent of the tree elements.
   # We could also copy them and set the parent (as in the XS code).
 
   my $arg_category;
   my $arg_class;
-  foreach my $arg (@{$current->{'args'}->[0]->{'contents'}}) {
+  foreach my $arg (@{$current->{'contents'}->[0]->{'contents'}}) {
     my $type = $arg->{'type'};
     if ($type eq 'def_category') {
       $arg_category = $arg;

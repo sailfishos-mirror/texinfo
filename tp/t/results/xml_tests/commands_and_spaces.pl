@@ -1394,7 +1394,7 @@ $result_trees{'commands_and_spaces'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

@@ -13,7 +13,7 @@ $result_trees{'empty_deftype'} = {
           'cmdname' => 'deftypefun',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -225,7 +225,7 @@ $result_trees{'empty_deftype'} = {
           'cmdname' => 'defun',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -422,7 +422,7 @@ $result_trees{'empty_deftype'} = {
           'cmdname' => 'deftypemethod',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -704,7 +704,7 @@ $result_trees{'empty_deftype'} = {
           'cmdname' => 'defmethod',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

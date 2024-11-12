@@ -1,5 +1,42 @@
 2024-11-12  Patrice Dumas  <pertusus@free.fr>
 
+	use contents for definition lines instead of args
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_line_command)
+	(_handle_block_command), tp/Texinfo/Translations.pm
+	(complete_indices), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_line_command, handle_block_command),
+	tp/Texinfo/XS/parsetexi/indices.c (complete_indices): use contents for
+	definition lines in tree instead of args.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert),
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/Convert/Text.pm (_convert): return right after converting
+	definition line.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert_def_line),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_end_line_spaces)
+	(_convert_def_line), tp/Texinfo/Convert/Utils.pm
+	(definition_arguments_content, definition_category_tree),
+	tp/Texinfo/XS/main/convert_utils.c (definition_arguments_content)
+	(definition_category_tree): update for change in definition line in
+	tree.
+
+	* tp/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo)
+	(_expand_cmd_args_to_texi), tp/Texinfo/XS/main/convert_to_texinfo.c
+	(expand_cmd_args_to_texi, convert_to_texinfo_internal): update for
+	change in definition line in tree.  Simplify code by handling
+	definition lines as regular contents containers and by simplifying the
+	cases if arguments formatting.
+
+	* tp/Texinfo/Convert/TextContent.pm (%ignored_types, _convert): update
+	for change in definition line in tree.  Format argument container type
+	like any other container.
+
+2024-11-12  Patrice Dumas  <pertusus@free.fr>
+
 	remaining non-definition block commands 'argument' container in contents
 
 	* tp/Texinfo/ParserNonXS.pm (_gather_def_item)

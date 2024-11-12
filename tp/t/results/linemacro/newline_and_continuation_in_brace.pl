@@ -160,7 +160,8 @@ $result_trees{'newline_and_continuation_in_brace'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -334,7 +335,6 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {

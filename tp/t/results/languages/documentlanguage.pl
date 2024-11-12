@@ -421,7 +421,7 @@ $result_trees{'documentlanguage'} = {
           'cmdname' => 'deftypemethod',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

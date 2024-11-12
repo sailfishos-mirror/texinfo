@@ -214,7 +214,8 @@ $result_trees{'empty_last_argument'} = {
               'type' => 'before_defline'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -265,7 +266,6 @@ $result_trees{'empty_last_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {
@@ -367,7 +367,8 @@ $result_trees{'empty_last_argument'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -418,7 +419,6 @@ $result_trees{'empty_last_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {
@@ -534,7 +534,8 @@ $result_trees{'empty_last_argument'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -600,7 +601,6 @@ $result_trees{'empty_last_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {

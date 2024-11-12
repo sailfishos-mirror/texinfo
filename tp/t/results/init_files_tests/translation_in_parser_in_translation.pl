@@ -177,7 +177,7 @@ $result_trees{'translation_in_parser_in_translation'} = {
           'cmdname' => 'deftypeop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

@@ -713,7 +713,7 @@ $result_trees{'multiple_lang_chapters'} = {
           'cmdname' => 'defivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1065,7 +1065,7 @@ $result_trees{'multiple_lang_chapters'} = {
           'cmdname' => 'defivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1381,7 +1381,7 @@ $result_trees{'multiple_lang_chapters'} = {
           'cmdname' => 'defivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

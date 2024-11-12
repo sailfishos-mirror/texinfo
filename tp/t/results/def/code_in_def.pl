@@ -13,7 +13,7 @@ $result_trees{'code_in_def'} = {
           'cmdname' => 'deftypefn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

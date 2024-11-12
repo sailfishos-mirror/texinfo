@@ -298,7 +298,8 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -392,7 +393,6 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'def_index_element' => {
@@ -561,7 +561,8 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'defline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -758,7 +759,6 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
                 'original_def_cmdname' => 'defline'

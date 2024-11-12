@@ -3145,6 +3145,7 @@ sub _convert($$)
       return $result;
     } elsif ($def_line_commands{$cmdname}) {
       $result .= _convert_def_line($self, $element);
+      return $result;
     } elsif ($cmdname eq 'dmn') {
       $result .= '\\thinspace ';
       if ($element->{'contents'}) {
@@ -4308,6 +4309,7 @@ sub _convert($$)
     }
     if ($element->{'type'} eq 'def_line') {
       $result .= _convert_def_line($self, $element);
+      return $result;
     } elsif ($element->{'type'} eq 'def_item') {
       $result .= "\\begin{quote}\n";
       # Remove vertical space and start paragaph, avoiding adding

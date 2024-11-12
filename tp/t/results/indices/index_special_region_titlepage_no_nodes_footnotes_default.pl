@@ -798,7 +798,7 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -860,7 +860,8 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'deffnx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -890,7 +891,6 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
                 'original_def_cmdname' => 'deffnx'
@@ -901,7 +901,8 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'deffnx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -942,7 +943,6 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
                 'original_def_cmdname' => 'deffnx'

@@ -13,7 +13,7 @@ $result_trees{'wrong_braces_simple'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -182,7 +182,7 @@ $result_trees{'wrong_braces_simple'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -368,7 +368,7 @@ $result_trees{'wrong_braces_simple'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -552,7 +552,7 @@ $result_trees{'wrong_braces_simple'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -744,7 +744,7 @@ $result_trees{'wrong_braces_simple'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -865,7 +865,8 @@ $result_trees{'wrong_braces_simple'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'deffnx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -959,7 +960,6 @@ $result_trees{'wrong_braces_simple'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
                 'def_index_element' => {
@@ -991,7 +991,8 @@ $result_trees{'wrong_braces_simple'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'deffnx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1102,7 +1103,6 @@ $result_trees{'wrong_braces_simple'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
                 'def_index_element' => {
@@ -1134,7 +1134,8 @@ $result_trees{'wrong_braces_simple'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'deffnx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1243,7 +1244,6 @@ $result_trees{'wrong_braces_simple'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
                 'def_index_element' => {
@@ -1275,7 +1275,8 @@ $result_trees{'wrong_braces_simple'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'deffnx',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1392,7 +1393,6 @@ $result_trees{'wrong_braces_simple'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
                 'def_index_element' => {

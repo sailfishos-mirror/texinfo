@@ -49,7 +49,7 @@ $result_trees{'block_not_matching'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

@@ -100,7 +100,7 @@ $result_trees{'defcondx_Ubar'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

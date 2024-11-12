@@ -83,16 +83,9 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
   else if (e->e.c->args.number > 0)
     {
       size_t i, arg_nr;
-      int with_commas = 0;
 
       if (spc_before_arg)
         ADD((char *)spc_before_arg->e.text->text);
-
-      if ((builtin_command_data[cmd].flags & CF_block
-           && ! (builtin_command_data[cmd].flags & CF_def
-                 || cmd == CM_multitable))
-          || cmd == CM_node)
-        with_commas = 1;
 
       arg_nr = 0;
       for (i = 0; i < e->e.c->args.number; i++)
@@ -101,12 +94,9 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
           if (arg->flags & EF_inserted)
             continue;
 
-          if (with_commas)
-            {
-              if (arg_nr)
-                ADD(",");
-              arg_nr++;
-            }
+          if (arg_nr)
+            ADD(",");
+          arg_nr++;
           convert_to_texinfo_internal (arg, result);
         }
     }
@@ -117,9 +107,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
       size_t i, arg_nr;
       int braces;
 
-      braces = (e->e.c->contents.list[0]->type == ET_brace_container
-                || e->e.c->contents.list[0]->type == ET_brace_arg
-                || e->e.c->contents.list[0]->type == ET_brace_command_context);
+      braces = !(e->e.c->contents.list[0]->type == ET_following_arg);
       if (braces)
         ADD("{");
 
@@ -158,17 +146,10 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
            && e->e.c->contents.list[0]->type == ET_argument)
     {
       size_t i, arg_nr;
-      int with_commas = 0;
       ELEMENT *argument = e->e.c->contents.list[0];
 
       if (spc_before_arg)
         ADD((char *)spc_before_arg->e.text->text);
-
-      if ((builtin_command_data[cmd].flags & CF_block
-           && ! (builtin_command_data[cmd].flags & CF_def
-                 || cmd == CM_multitable))
-          || cmd == CM_node)
-        with_commas = 1;
 
       arg_nr = 0;
       for (i = 0; i < argument->e.c->contents.number; i++)
@@ -177,12 +158,9 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
           if (arg->flags & EF_inserted)
             continue;
 
-          if (with_commas)
-            {
-              if (arg_nr)
-                ADD(",");
-              arg_nr++;
-            }
+          if (arg_nr)
+            ADD(",");
+          arg_nr++;
           convert_to_texinfo_internal (arg, result);
         }
     }
@@ -207,8 +185,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
     }
   else
     {
-      if (e->e.c->cmd
-          || e->type == ET_def_line)
+      if (e->e.c->cmd)
         {
           enum command_id cmd = element_builtin_cmd (e);
           expand_cmd_args_to_texi (e, result);

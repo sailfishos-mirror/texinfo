@@ -35,7 +35,7 @@ $result_trees{'def_in_style_command'} = {
           'cmdname' => 'defun',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

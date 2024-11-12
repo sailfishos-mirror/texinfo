@@ -471,10 +471,10 @@ definition_arguments_content (const ELEMENT *element)
   PARSED_DEF *result = malloc (sizeof (PARSED_DEF));
   memset (result, 0, sizeof (PARSED_DEF));
   /* this condition is most probably always true */
-  if (element->e.c->args.number > 0)
+  if (element->e.c->contents.number > 0)
     {
       size_t i;
-      const ELEMENT *def_line = element->e.c->args.list[0];
+      const ELEMENT *def_line = element->e.c->contents.list[0];
       if (def_line->e.c->contents.number > 0)
         {
           for (i = 0; i < def_line->e.c->contents.number; i++)
@@ -527,10 +527,10 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
   ELEMENT *class_copy;
   char *def_command;
 
-  if (current->e.c->args.number > 0)
+  if (current->e.c->contents.number > 0)
     {
       size_t i;
-      const ELEMENT *def_line = current->e.c->args.list[0];
+      const ELEMENT *def_line = current->e.c->contents.list[0];
       for (i = 0; i < def_line->e.c->contents.number; i++)
         {
           ELEMENT *arg = def_line->e.c->contents.list[i];

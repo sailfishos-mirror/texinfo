@@ -737,8 +737,8 @@ sub _convert_def_line($$)
   _new_document_context($self);
   $self->{'document_context'}->[-1]->{'monospace'}->[0] = 1;
   $self->{'document_context'}->[-1]->{'inline'}++;
-  if ($element->{'args'}
-      and $element->{'args'}->[0]->{'contents'}) {
+  if ($element->{'contents'}
+      and $element->{'contents'}->[0]->{'contents'}) {
     my $main_command;
     if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
       $main_command
@@ -746,7 +746,7 @@ sub _convert_def_line($$)
     } else {
       $main_command = $element->{'extra'}->{'def_command'};
     }
-    foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
+    foreach my $arg (@{$element->{'contents'}->[0]->{'contents'}}) {
       my $type = $arg->{'type'};
 
       my $content = _convert($self, $arg);
@@ -1065,6 +1065,7 @@ sub _convert($$;$)
         my $def_line_result = _convert_def_line($self, $element);
         next if (!defined($def_line_result));
         $result .= $def_line_result;
+        return $result;
       } elsif (exists ($docbook_line_elements_with_arg_map{$cmdname})) {
         my ($docbook_element, $attribute_text)
           = _parse_attribute($docbook_line_elements_with_arg_map{$cmdname});
@@ -1767,6 +1768,7 @@ sub _convert($$;$)
       my $def_line_result = _convert_def_line($self, $element);
       next if (!defined($def_line_result));
       $result .= $def_line_result;
+      return $result;
     } elsif ($element->{'type'} eq 'table_term') {
       # should be closed by the @item.  Allows to have the index entries in
       # term, which is better than out.

@@ -289,7 +289,7 @@ $result_trees{'frenchspacing_and_code'} = {
           'cmdname' => 'deftypeop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -632,7 +632,7 @@ $result_trees{'frenchspacing_and_code'} = {
           'cmdname' => 'defop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1165,7 +1165,7 @@ $result_trees{'frenchspacing_and_code'} = {
           'cmdname' => 'deftypeop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1508,7 +1508,7 @@ $result_trees{'frenchspacing_and_code'} = {
           'cmdname' => 'defop',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

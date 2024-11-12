@@ -680,7 +680,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
           'cmdname' => 'defivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1032,7 +1032,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
           'cmdname' => 'defivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1348,7 +1348,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
           'cmdname' => 'defivar',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {

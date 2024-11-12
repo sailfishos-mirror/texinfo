@@ -53,7 +53,7 @@ foreach my $type ('ignorable_spaces_after_command',
             'postamble_after_end',
             'preamble_before_beginning',
             'spaces_before_paragraph',
-            'spaces_after_close_brace', 'argument') {
+            'spaces_after_close_brace') {
   $ignored_types{$type} = 1;
 }
 
@@ -134,6 +134,9 @@ sub _convert($$)
 
   return '' if (!($element->{'type'} and $element->{'type'} eq 'def_line')
      and (($element->{'type'} and $ignored_types{$element->{'type'}})
+          or ($element->{'type'} and $element->{'type'} eq 'argument'
+              and $Texinfo::Commands::blockitem_commands{
+                                $element->{'parent'}->{'cmdname'}})
           or ($element->{'cmdname'}
              and ($ignored_brace_commands{$element->{'cmdname'}}
                  or ($ignored_block_commands{$element->{'cmdname'}}
@@ -176,31 +179,10 @@ sub _convert($$)
   if ($element->{'args'}) {
     foreach my $arg (@{$element->{'args'}}) {
       $result .= _convert($self, $arg);
-      if ($arg->{'type'}
-          and $arg->{'type'} eq 'block_line_arg'
-          and $arg->{'info'} and $arg->{'info'}->{'spaces_after_argument'}
-          and $result =~ /\S/) {
-        $result .= $arg->{'info'}->{'spaces_after_argument'}->{'text'};
-      }
     }
   }
   if ($element->{'contents'}) {
     my $contents_nr = scalar(@{$element->{'contents'}});
-    if ($contents_nr and $element->{'contents'}->[0]->{'type'}
-        and $element->{'contents'}->[0]->{'type'} eq 'argument'
-        and (!$element->{'cmdname'}
-         or !$Texinfo::Commands::blockitem_commands{$element->{'cmdname'}})) {
-      my $argument = $element->{'contents'}->[0];
-      foreach my $arg (@{$argument->{'contents'}}) {
-        $result .= _convert($self, $arg);
-        if ($arg->{'type'}
-            and $arg->{'type'} eq 'block_line_arg'
-            and $arg->{'info'} and $arg->{'info'}->{'spaces_after_argument'}
-            and $result =~ /\S/) {
-          $result .= $arg->{'info'}->{'spaces_after_argument'}->{'text'};
-        }
-      }
-    }
 
     my $start = 0;
     if ($element->{'cmdname'}
@@ -211,6 +193,12 @@ sub _convert($$)
     for (my $i = $start; $i < $contents_nr; $i++) {
       my $content = $element->{'contents'}->[$i];
       $result .= _convert($self, $content);
+      if ($content->{'type'}
+          and $content->{'type'} eq 'block_line_arg'
+          and $content->{'info'} and $content->{'info'}->{'spaces_after_argument'}
+          and $result =~ /\S/) {
+        $result .= $content->{'info'}->{'spaces_after_argument'}->{'text'};
+      }
     }
   }
 

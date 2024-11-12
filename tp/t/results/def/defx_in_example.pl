@@ -30,7 +30,7 @@ $result_trees{'defx_in_example'} = {
               'cmdname' => 'deffn',
               'contents' => [
                 {
-                  'args' => [
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -157,7 +157,8 @@ $result_trees{'defx_in_example'} = {
                   'type' => 'def_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'deffnx',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -220,7 +221,6 @@ $result_trees{'defx_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'deffnx',
                   'extra' => {
                     'def_command' => 'deffn',
                     'def_index_element' => {

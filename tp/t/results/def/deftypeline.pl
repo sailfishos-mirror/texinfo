@@ -30,7 +30,8 @@ $result_trees{'deftypeline'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'deftypeline',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -199,7 +200,6 @@ $result_trees{'deftypeline'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'deftypeline',
               'extra' => {
                 'def_command' => 'deftypeline',
                 'def_index_element' => {

@@ -925,7 +925,10 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       /* change 'current' to its last child.  This is command_e.  */
       current = last_contents_child (current);
       arg = new_element (ET_line_arg);
-      add_to_element_args (current, arg);
+      if (command_data(data_cmd).flags & CF_def)
+        add_to_element_contents (current, arg);
+      else
+        add_to_element_args (current, arg);
 
       if (command_data(data_cmd).flags & CF_contain_basic_inline)
         push_command (&nesting_context.basic_inline_stack_on_line, cmd);
@@ -973,12 +976,17 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       else if (cmd == CM_printindex && current_node)
         current_node->flags |= EF_isindex;
 
-      current = last_args_child (current);
 
+      if (command_data(data_cmd).flags & CF_def)
+        current = last_contents_child (current);
+      else
+        {
+          current = last_args_child (current);
       /* add 'line' to context_stack.  This will be the
          case while we read the argument on this line. */
-      if (!(command_data(data_cmd).flags & CF_def))
-        push_context (ct_line, cmd);
+          push_context (ct_line, cmd);
+        }
+
       start_empty_line_after_command (current, &line, command_e);
     }
 
@@ -1161,7 +1169,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
     }
   else
     {
-      add_to_element_args (block_line_e, bla_element);
+      add_to_element_contents (block_line_e, bla_element);
     }
 
 

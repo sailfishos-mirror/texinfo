@@ -13,7 +13,7 @@ $result_trees{'section_on_def_line'} = {
           'cmdname' => 'deffn',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'contents' => [
                     {
