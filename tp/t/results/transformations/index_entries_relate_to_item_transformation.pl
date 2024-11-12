@@ -156,28 +156,31 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'code',
-                  'source_info' => {
-                    'file_name' => 'index_entries_relate_to_item.texi',
-                    'line_nr' => 9
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'code',
+                      'source_info' => {
+                        'file_name' => 'index_entries_relate_to_item.texi',
+                        'line_nr' => 9
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -600,10 +603,10 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[3];
-$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[3];
-$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[3];
-$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[3];
+$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[3];
+$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[3];
+$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'index_entries_relate_to_item_transformation'} = '\\input texinfo @c -*-texinfo-*-
 

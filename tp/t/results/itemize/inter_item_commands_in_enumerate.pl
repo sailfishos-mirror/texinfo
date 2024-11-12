@@ -137,19 +137,22 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'enumerate',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -238,19 +241,22 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'enumerate',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -370,19 +376,22 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'enumerate',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -497,19 +506,22 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'enumerate',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -624,19 +636,22 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'enumerate',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -755,19 +770,22 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'enumerate',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -974,13 +992,13 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
-$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
-$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
-$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
-$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
-$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
-$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[3];
 
 $result_texis{'inter_item_commands_in_enumerate'} = '@node Top
 @top top

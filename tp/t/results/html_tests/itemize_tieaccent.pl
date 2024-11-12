@@ -13,37 +13,40 @@ $result_trees{'itemize_tieaccent'} = {
           'type' => 'preamble_before_content'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'tieaccent',
                   'contents' => [
                     {
+                      'cmdname' => 'tieaccent',
                       'contents' => [
                         {
-                          'text' => 'ab'
+                          'contents' => [
+                            {
+                              'text' => 'ab'
+                            }
+                          ],
+                          'type' => 'brace_container'
                         }
                       ],
-                      'type' => 'brace_container'
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -133,61 +136,64 @@ $result_trees{'itemize_tieaccent'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'tieaccent',
                   'contents' => [
                     {
+                      'cmdname' => 'tieaccent',
                       'contents' => [
                         {
-                          'cmdname' => 'aa',
                           'contents' => [
                             {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 5
-                          }
-                        },
-                        {
-                          'cmdname' => '^',
-                          'contents' => [
-                            {
+                              'cmdname' => 'aa',
                               'contents' => [
                                 {
-                                  'text' => 'e'
+                                  'type' => 'brace_container'
                                 }
                               ],
-                              'type' => 'following_arg'
+                              'source_info' => {
+                                'line_nr' => 5
+                              }
+                            },
+                            {
+                              'cmdname' => '^',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'e'
+                                    }
+                                  ],
+                                  'type' => 'following_arg'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 5
+                              }
                             }
                           ],
-                          'source_info' => {
-                            'line_nr' => 5
-                          }
+                          'type' => 'brace_container'
                         }
                       ],
-                      'type' => 'brace_container'
+                      'source_info' => {
+                        'line_nr' => 5
+                      }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -301,48 +307,51 @@ $result_trees{'itemize_tieaccent'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'tieaccent',
                   'contents' => [
                     {
+                      'cmdname' => 'tieaccent',
                       'contents' => [
                         {
-                          'cmdname' => 'aa',
                           'contents' => [
                             {
-                              'type' => 'brace_container'
+                              'cmdname' => 'aa',
+                              'contents' => [
+                                {
+                                  'type' => 'brace_container'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 9
+                              }
+                            },
+                            {
+                              'text' => 'd'
                             }
                           ],
-                          'source_info' => {
-                            'line_nr' => 9
-                          }
-                        },
-                        {
-                          'text' => 'd'
+                          'type' => 'brace_container'
                         }
                       ],
-                      'type' => 'brace_container'
+                      'source_info' => {
+                        'line_nr' => 9
+                      }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -443,53 +452,56 @@ $result_trees{'itemize_tieaccent'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'tieaccent',
                   'contents' => [
                     {
+                      'cmdname' => 'tieaccent',
                       'contents' => [
                         {
-                          'text' => 'x'
-                        },
-                        {
-                          'cmdname' => '^',
                           'contents' => [
                             {
+                              'text' => 'x'
+                            },
+                            {
+                              'cmdname' => '^',
                               'contents' => [
                                 {
-                                  'text' => 'e'
+                                  'contents' => [
+                                    {
+                                      'text' => 'e'
+                                    }
+                                  ],
+                                  'type' => 'following_arg'
                                 }
                               ],
-                              'type' => 'following_arg'
+                              'source_info' => {
+                                'line_nr' => 13
+                              }
                             }
                           ],
-                          'source_info' => {
-                            'line_nr' => 13
-                          }
+                          'type' => 'brace_container'
                         }
                       ],
-                      'type' => 'brace_container'
+                      'source_info' => {
+                        'line_nr' => 13
+                      }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 13
-                  }
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -595,37 +607,40 @@ $result_trees{'itemize_tieaccent'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'tieaccent',
                   'contents' => [
                     {
+                      'cmdname' => 'tieaccent',
                       'contents' => [
                         {
-                          'text' => 'g'
+                          'contents' => [
+                            {
+                              'text' => 'g'
+                            }
+                          ],
+                          'type' => 'brace_container'
                         }
                       ],
-                      'type' => 'brace_container'
+                      'source_info' => {
+                        'line_nr' => 17
+                      }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 17
-                  }
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -715,50 +730,53 @@ $result_trees{'itemize_tieaccent'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'tieaccent',
                   'contents' => [
                     {
+                      'cmdname' => 'tieaccent',
                       'contents' => [
                         {
-                          'cmdname' => '^',
                           'contents' => [
                             {
+                              'cmdname' => '^',
                               'contents' => [
                                 {
-                                  'text' => 'e'
+                                  'contents' => [
+                                    {
+                                      'text' => 'e'
+                                    }
+                                  ],
+                                  'type' => 'following_arg'
                                 }
                               ],
-                              'type' => 'following_arg'
+                              'source_info' => {
+                                'line_nr' => 21
+                              }
                             }
                           ],
-                          'source_info' => {
-                            'line_nr' => 21
-                          }
+                          'type' => 'brace_container'
                         }
                       ],
-                      'type' => 'brace_container'
+                      'source_info' => {
+                        'line_nr' => 21
+                      }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 21
-                  }
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [

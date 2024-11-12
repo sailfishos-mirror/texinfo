@@ -1811,25 +1811,27 @@ sub _gather_previous_item($$;$$)
   # itemx and put it into the $type.
   my $contents_count = scalar(@{$current->{'contents'}});
   my $begin;
-  for (my $i = $contents_count - 1; $i >= 0; $i--) {
-    if ($current->{'contents'}->[$i]->{'cmdname'}
-        and ($current->{'contents'}->[$i]->{'cmdname'} eq 'item'
-             or ($current->{'contents'}->[$i]->{'cmdname'} eq 'itemx'))) {
-      $begin = $i + 1;
+  for (my $position = $contents_count; $position >= 2; $position--) {
+    my $content_element = $current->{'contents'}->[$position - 1];
+    if ($content_element->{'cmdname'}
+        and ($content_element->{'cmdname'} eq 'item'
+             or ($content_element->{'cmdname'} eq 'itemx'))) {
+      $begin = $position;
       last;
     }
   }
-  $begin = 0 if !defined($begin);
+  $begin = 1 if !defined($begin);
 
   # Find the end
   my $end;
   if (defined($next_command)) {
     # Don't absorb trailing index entries as they are included with a
     # following @item.
-    for (my $i = $contents_count - 1; $i >= $begin; $i--) {
-      if (!$current->{'contents'}->[$i]->{'type'}
-          or $current->{'contents'}->[$i]->{'type'} ne 'index_entry_command') {
-        $end = $i + 1;
+    for (my $position = $contents_count; $position >= $begin +1; $position--) {
+      my $content_element = $current->{'contents'}->[$position - 1];
+      if (!$content_element->{'type'}
+          or $content_element->{'type'} ne 'index_entry_command') {
+        $end = $position;
         last;
       }
     }
@@ -2043,7 +2045,7 @@ sub _close_command_cleanup($$) {
       and $block_commands{$current->{'cmdname'}} eq 'item_line') {
     # At this point the end command hasn't been added to the command contents.
     # so checks cannot be done at this point.
-    if ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
+    if (scalar(@{$current->{'contents'}}) > 1) {
       _gather_previous_item($self, $current);
     }
   }
@@ -2054,19 +2056,19 @@ sub _close_command_cleanup($$) {
   # remove empty before_item.
   # warn if not empty before_item, but format is empty
   if ($blockitem_commands{$current->{'cmdname'}}) {
-    if ($current->{'contents'}
-        and $current->{'contents'}->[0]->{'type'}
-        and $current->{'contents'}->[0]->{'type'} eq 'before_item') {
-      my $before_item = $current->{'contents'}->[0];
+    if (scalar(@{$current->{'contents'}} > 1)
+        and $current->{'contents'}->[1]->{'type'}
+        and $current->{'contents'}->[1]->{'type'} eq 'before_item') {
+      my $before_item = $current->{'contents'}->[1];
       if (_is_container_empty($before_item)
           and not $before_item->{'source_marks'}) {
         # remove empty before_item
-        shift @{$current->{'contents'}};
+        splice(@{$current->{'contents'}}, 1, 1);
       } else {
         # The elements that can appear right in a block item command
         # besides before_item are either an @*item or are associated
         # with items
-        if (scalar(@{$current->{'contents'}}) == 1) {
+        if (scalar(@{$current->{'contents'}}) == 2) {
           # no @*item, only before_item.  Warn if before_item is not empty
           my $empty_before_item = 1;
           if ($before_item->{'contents'}) {
@@ -2435,7 +2437,7 @@ sub _item_line_parent($)
 {
   my $current = shift;
   if ($current->{'type'} and $current->{'type'} eq 'before_item'
-            and $current->{'parent'}) {
+      and $current->{'parent'}) {
     $current = $current->{'parent'};
   }
   return $current if ($current->{'cmdname'}
@@ -4029,15 +4031,17 @@ sub _end_line_misc_line($$$)
   # columnfractions
   } elsif ($command eq 'columnfractions') {
     # in a multitable, we are in a block_line_arg
-    if (!$current->{'parent'} or !$current->{'parent'}->{'cmdname'}
-                 or $current->{'parent'}->{'cmdname'} ne 'multitable') {
+    if (!$current->{'parent'} or !$current->{'parent'}->{'parent'}
+        or !$current->{'parent'}->{'parent'}->{'cmdname'}
+        or $current->{'parent'}->{'parent'}->{'cmdname'} ne 'multitable') {
       $self->_line_error(
           sprintf(__("\@%s only meaningful on a \@multitable line"),
              $command), $source_info);
     } else {
-      $current->{'parent'}->{'extra'} = {}
-        if (!defined($current->{'parent'}->{'extra'}));
-      $current->{'parent'}->{'extra'}->{'columnfractions'} = $misc_cmd;
+      my $command_element = $current->{'parent'}->{'parent'};
+      $command_element->{'extra'} = {}
+        if (!defined($command_element->{'extra'}));
+      $command_element->{'extra'}->{'columnfractions'} = $misc_cmd;
     }
   } elsif ($root_commands{$data_cmdname}) {
     $current = $current->{'contents'}->[-1];
@@ -4211,12 +4215,12 @@ sub _end_line_starting_block($$$)
 
   # @multitable args
   if ($command eq 'multitable'
-      and $current->{'parent'}->{'extra'}
-      and defined($current->{'parent'}->{'extra'}->{'columnfractions'})) {
-    my $multitable = $current->{'parent'};
-    my $misc_cmd = $current->{'parent'}->{'extra'}->{'columnfractions'};
+      and $current->{'parent'}->{'parent'}
+      and $current->{'parent'}->{'parent'}->{'extra'}
+      and defined($current->{'parent'}->{'parent'}->{'extra'}->{'columnfractions'})) {
+    my $multitable = $current->{'parent'}->{'parent'};
+    my $misc_cmd = $multitable->{'extra'}->{'columnfractions'};
 
-    $multitable->{'extra'} = {} if (!defined($multitable->{'extra'}));
     if ($misc_cmd->{'extra'}
         and defined($misc_cmd->{'extra'}->{'misc_args'})) {
       $multitable->{'extra'}->{'max_columns'}
@@ -4226,6 +4230,7 @@ sub _end_line_starting_block($$$)
       delete $multitable->{'extra'}->{'columnfractions'};
     }
   } elsif ($command eq 'multitable') {
+    my $multitable = $current->{'parent'}->{'parent'};
     # determine max columns based on prototypes
     my $max_columns = 0;
     if ($current->{'contents'}) {
@@ -4240,15 +4245,14 @@ sub _end_line_starting_block($$$)
           if (!$content->{'cmdname'}
                 or ($content->{'cmdname'} ne 'c'
                     and $content->{'cmdname'} ne 'comment')) {
-            $self->_command_warn($current->{'parent'},
-                __("unexpected argument on \@%s line: %s"),
+            $self->_command_warn($multitable,
+                     __("unexpected argument on \@%s line: %s"),
                      $command,
                      Texinfo::Convert::Texinfo::convert_to_texinfo($content));
           }
         }
       }
     }
-    my $multitable = $current->{'parent'};
     $multitable->{'extra'} = {} if (!$multitable->{'extra'});
     $multitable->{'extra'}->{'max_columns'} = $max_columns;
     if (!$max_columns) {
@@ -4264,11 +4268,12 @@ sub _end_line_starting_block($$$)
 
   # @float args
   if ($command eq 'float') {
-    my $float_label_element;
-    $float_label_element = $current->{'contents'}->[0]->{'contents'}->[1]
-      if (scalar(@{$current->{'contents'}->[0]->{'contents'}} >= 2));
-    _check_register_target_element_label($self, $float_label_element,
-                                         $current, $source_info);
+    my $argument = $current->{'contents'}->[0];
+    if (scalar(@{$argument->{'contents'}} >= 2)) {
+      my $float_label_element = $argument->{'contents'}->[1];
+      _check_register_target_element_label($self, $float_label_element,
+                                           $current, $source_info);
+    }
 
     my $float_type = _parse_float_type($current);
     push @{$document->{'listoffloats_list'}->{$float_type}}, $current;
@@ -4282,14 +4287,14 @@ sub _end_line_starting_block($$$)
   } elsif ($blockitem_commands{$command}) {
     if ($command eq 'enumerate') {
       my $spec = '1';
-      if ($current->{'args'} and $current->{'args'}->[0]
-          and $current->{'args'}->[0]->{'contents'}
-          and @{$current->{'args'}->[0]->{'contents'}}) {
-        if (scalar(@{$current->{'args'}->[0]->{'contents'}}) > 1) {
+      my $argument = $current->{'contents'}->[0];
+      my $block_line_arg = $argument->{'contents'}->[0];
+      if ($block_line_arg->{'contents'}) {
+        if (scalar(@{$block_line_arg->{'contents'}}) > 1) {
           $self->_command_error($current,
                       __("superfluous argument to \@%s"), $command);
         }
-        my $arg = $current->{'args'}->[0]->{'contents'}->[0];
+        my $arg = $block_line_arg->{'contents'}->[0];
         if (!defined($arg->{'text'})
             or $arg->{'text'} !~ /^((\d+)|([[:alpha:]]))$/) {
           $self->_command_error($current,
@@ -4303,12 +4308,14 @@ sub _end_line_starting_block($$$)
     } elsif ($block_commands{$command} eq 'item_line') {
       if (!$current->{'extra'}
           or !$current->{'extra'}->{'command_as_argument'}) {
-        if ($current->{'args'}->[0]->{'contents'}
-            and scalar(@{$current->{'args'}->[0]->{'contents'}})) {
+        my $argument = $current->{'contents'}->[0];
+        my $block_line_arg = $argument->{'contents'}->[0];
+        if ($block_line_arg->{'contents'}
+            and scalar(@{$block_line_arg->{'contents'}})) {
           # expand the contents to avoid surrounding spaces
           my $texi_arg
             = Texinfo::Convert::Texinfo::convert_to_texinfo(
-                    {'contents' => $current->{'args'}->[0]->{'contents'}});
+                    {'contents' => $block_line_arg->{'contents'}});
           $self->_command_error($current,
                                 __("bad argument to \@%s: %s"),
                                 $command, $texi_arg);
@@ -4335,7 +4342,8 @@ sub _end_line_starting_block($$$)
       # This code checks that the command_as_argument of the @itemize
       # is alone on the line, otherwise it is not a command_as_argument.
       my $i;
-      my $line_arg = $current->{'args'}->[0];
+      my $argument = $current->{'contents'}->[0];
+      my $line_arg = $argument->{'contents'}->[0];
       my $contents_nr = scalar(@{$line_arg->{'contents'}});
       for ($i = 0; $i < $contents_nr; $i++) {
         if ($line_arg->{'contents'}->[$i] eq $command_as_argument) {
@@ -4384,20 +4392,9 @@ sub _end_line_starting_block($$$)
       }
     }
     if ($command eq 'itemize') {
-      if (!$current->{'args'}
-          or !scalar(@{$current->{'args'}})
-          or !$current->{'args'}->[0]->{'contents'}) {
-        my $block_line_arg;
-        if ($current->{'args'} and $current->{'args'}->[-1]
-            and $current->{'args'}->[-1]->{'type'}
-            and $current->{'args'}->[-1]->{'type'} eq 'block_line_arg') {
-          $block_line_arg = $current->{'args'}->[-1];
-        } else {
-          $block_line_arg = { 'type' => 'block_line_arg',
-                              'parent' => $current,
-                              'contents' => [] };
-          unshift @{$current->{'args'}}, $block_line_arg;
-        }
+      my $argument = $current->{'contents'}->[0];
+      my $block_line_arg = $argument->{'contents'}->[0];
+      if (!$block_line_arg->{'contents'}) {
         my $inserted = { 'cmdname' => 'bullet',
                          'info' => {'inserted' => 1},
                          'parent' => $block_line_arg };
@@ -4408,10 +4405,12 @@ sub _end_line_starting_block($$$)
     } elsif ($block_commands{$command} eq 'item_line') {
       $current->{'extra'} = {} if (!$current->{'extra'});
       if (!$current->{'extra'}->{'command_as_argument'}) {
+        my $argument = $current->{'contents'}->[0];
+        my $block_line_arg = $argument->{'contents'}->[0];
         my $inserted =  { 'cmdname' => 'asis',
                           'info' => {'inserted' => 1},
                           'parent' => $current };
-        unshift @{$current->{'args'}}, $inserted;
+        unshift @{$block_line_arg->{'contents'}}, $inserted;
         $current->{'extra'}->{'command_as_argument'} = $inserted;
       }
     }
@@ -4966,10 +4965,12 @@ sub _parent_of_command_as_argument($)
   return ($current and $current->{'type'}
       and $current->{'type'} eq 'block_line_arg'
       and $current->{'parent'}
-      and $current->{'parent'}->{'cmdname'}
-      and ($current->{'parent'}->{'cmdname'} eq 'itemize'
-           or ($block_commands{$current->{'parent'}->{'cmdname'}}
-               and $block_commands{$current->{'parent'}->{'cmdname'}} eq 'item_line'))
+      and $current->{'parent'}->{'parent'}
+      and $current->{'parent'}->{'parent'}->{'cmdname'}
+      and ($current->{'parent'}->{'parent'}->{'cmdname'} eq 'itemize'
+           or ($block_commands{$current->{'parent'}->{'parent'}->{'cmdname'}}
+               and $block_commands{$current->{'parent'}->{'parent'}->{'cmdname'}}
+                                                                eq 'item_line'))
       and scalar(@{$current->{'contents'}}) == 1);
 }
 
@@ -4978,16 +4979,19 @@ sub _register_command_as_argument($$)
 {
   my $self = shift;
   my $cmd_as_arg = shift;
-  print STDERR "FOR PARENT \@$cmd_as_arg->{'parent'}->{'parent'}->{'cmdname'} ".
+
+  my $command_element = $cmd_as_arg->{'parent'}->{'parent'}->{'parent'};
+
+  print STDERR "FOR PARENT \@$command_element->{'parent'}->{'cmdname'} ".
          "command_as_argument $cmd_as_arg->{'cmdname'}\n"
               if ($self->{'conf'}->{'DEBUG'});
-  $cmd_as_arg->{'parent'}->{'parent'}->{'extra'} = {}
-    if (!defined($cmd_as_arg->{'parent'}->{'parent'}->{'extra'}));
-  $cmd_as_arg->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
+  $command_element->{'extra'} = {}
+    if (!defined($command_element->{'extra'}));
+  $command_element->{'extra'}->{'command_as_argument'}
     = $cmd_as_arg;
   if ($cmd_as_arg->{'cmdname'} eq 'kbd'
-      and _kbd_formatted_as_code($self, $cmd_as_arg->{'parent'}->{'parent'})) {
-    $cmd_as_arg->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
+      and _kbd_formatted_as_code($self, $command_element)) {
+    $command_element->{'extra'}->{'command_as_argument_kbd_code'} = 1;
   }
 }
 
@@ -5665,8 +5669,9 @@ sub _handle_other_command($$$$$)
           push @{$parent->{'contents'}}, $row;
           # Note that the "row_number" extra value
           # isn't actually used anywhere at present.
+          # -2 because of the 'argument'
           $row->{'extra'}
-              = {'row_number' => scalar(@{$parent->{'contents'}}) - 1};
+              = {'row_number' => scalar(@{$parent->{'contents'}}) - 2};
           $command_e = { 'cmdname' => $command,
                          'parent' => $row,
                          'contents' => [],
@@ -6188,7 +6193,7 @@ sub _handle_block_command($$$$$)
   # bla = block line argument
   my $bla_element;
 
-  if ($command eq 'float') {
+  if ($command eq 'float' or $blockitem_commands{$command}) {
     my $argument = {'type' => 'argument', 'parent' => $block_line_e};
     $block_line_e->{'contents'} = [$argument];
     $bla_element = {
@@ -6377,8 +6382,9 @@ sub _handle_open_brace($$$$)
       .' '.Texinfo::Common::debug_print_element($current)."\n"
        if ($self->{'conf'}->{'DEBUG'});
   } elsif ($current->{'parent'}
-            and (($current->{'parent'}->{'cmdname'}
-                  and $current->{'parent'}->{'cmdname'} eq 'multitable')
+            and (($current->{'parent'}->{'parent'}
+                  and $current->{'parent'}->{'parent'}->{'cmdname'}
+                  and $current->{'parent'}->{'parent'}->{'cmdname'} eq 'multitable')
                  or ($current->{'parent'}->{'extra'}
                      and $current->{'parent'}->{'extra'}->{'def_command'}))) {
     _abort_empty_line($self, $current);

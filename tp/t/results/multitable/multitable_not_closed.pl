@@ -10,45 +10,50 @@ $result_trees{'multitable_not_closed'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'r'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'contents' => [
+                      'contents' => [
+                        {
+                          'text' => 'r'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
-                      'text' => 't'
+                      'text' => ' '
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 't'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      },
+                      'type' => 'bracketed_arg'
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 1
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
                   },
-                  'type' => 'bracketed_arg'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
+              'type' => 'argument'
             }
           ],
-          'cmdname' => 'multitable',
           'extra' => {
             'max_columns' => 2
           },

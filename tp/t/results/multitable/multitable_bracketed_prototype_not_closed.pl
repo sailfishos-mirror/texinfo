@@ -15,32 +15,35 @@ $result_trees{'multitable_bracketed_prototype_not_closed'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'a
+                      'contents' => [
+                        {
+                          'text' => 'a
 '
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'line_nr' => 2
+                      },
+                      'type' => 'bracketed_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 2
-                  },
-                  'type' => 'bracketed_arg'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

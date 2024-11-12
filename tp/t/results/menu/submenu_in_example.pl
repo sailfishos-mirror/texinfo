@@ -405,19 +405,22 @@ $result_trees{'submenu_in_example'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
                       'cmdname' => 'enumerate',
                       'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'block_line_arg'
+                            }
+                          ],
+                          'type' => 'argument'
+                        },
                         {
                           'cmdname' => 'item',
                           'contents' => [

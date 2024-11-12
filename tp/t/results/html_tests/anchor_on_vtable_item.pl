@@ -132,27 +132,30 @@ $result_trees{'anchor_on_vtable_item'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'vtable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'code',
-                  'source_info' => {
-                    'line_nr' => 7
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'code',
+                      'source_info' => {
+                        'line_nr' => 7
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'vtable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -590,10 +593,10 @@ $result_trees{'anchor_on_vtable_item'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[3];
 $result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[3];
 $result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[3];
-$result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[3];
+$result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'anchor_on_vtable_item'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_on_vtable_item'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'anchor_on_vtable_item'} = '@node Top

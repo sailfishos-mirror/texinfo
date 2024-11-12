@@ -38,27 +38,30 @@ $result_trees{'table_in_display_in_example'} = {
               'cmdname' => 'display',
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'table',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'cmdname' => 'asis',
-                          'source_info' => {
-                            'line_nr' => 3
-                          }
+                          'contents' => [
+                            {
+                              'cmdname' => 'asis',
+                              'source_info' => {
+                                'line_nr' => 3
+                              }
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
                         }
                       ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'cmdname' => 'table',
-                  'contents' => [
+                      'type' => 'argument'
+                    },
                     {
                       'contents' => [
                         {
@@ -229,7 +232,7 @@ $result_trees{'table_in_display_in_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'table_in_display_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'table_in_display_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'table_in_display_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'table_in_display_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'table_in_display_in_example'} = '@example
 @display

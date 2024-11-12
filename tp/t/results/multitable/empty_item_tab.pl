@@ -10,47 +10,50 @@ $result_trees{'empty_item_tab'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'contents' => [
                     {
-                      'contents' => [
+                      'args' => [
                         {
-                          'text' => '1.0'
+                          'contents' => [
+                            {
+                              'text' => '1.0'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
                         }
                       ],
+                      'cmdname' => 'columnfractions',
+                      'extra' => {
+                        'misc_args' => [
+                          '1.0'
+                        ]
+                      },
                       'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
+                        'spaces_before_argument' => {
+                          'text' => ' '
                         }
                       },
-                      'type' => 'line_arg'
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
                     }
                   ],
-                  'cmdname' => 'columnfractions',
-                  'extra' => {
-                    'misc_args' => [
-                      '1.0'
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -215,48 +218,51 @@ $result_trees{'empty_item_tab'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'contents' => [
                     {
-                      'contents' => [
+                      'args' => [
                         {
-                          'text' => '0.5 0.5'
+                          'contents' => [
+                            {
+                              'text' => '0.5 0.5'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
                         }
                       ],
+                      'cmdname' => 'columnfractions',
+                      'extra' => {
+                        'misc_args' => [
+                          '0.5',
+                          '0.5'
+                        ]
+                      },
                       'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
+                        'spaces_before_argument' => {
+                          'text' => ' '
                         }
                       },
-                      'type' => 'line_arg'
+                      'source_info' => {
+                        'line_nr' => 9
+                      }
                     }
                   ],
-                  'cmdname' => 'columnfractions',
-                  'extra' => {
-                    'misc_args' => [
-                      '0.5',
-                      '0.5'
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -641,8 +647,8 @@ $result_trees{'empty_item_tab'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_item_tab'}{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'empty_item_tab'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'empty_item_tab'}{'contents'}[0]{'contents'}[2]{'extra'}{'columnfractions'} = $result_trees{'empty_item_tab'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'empty_item_tab'}{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'empty_item_tab'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'empty_item_tab'}{'contents'}[0]{'contents'}[2]{'extra'}{'columnfractions'} = $result_trees{'empty_item_tab'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'empty_item_tab'} = '@multitable @columnfractions 1.0
 @item

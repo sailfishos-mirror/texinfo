@@ -15,27 +15,30 @@ $result_trees{'index_command_before_end_table'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'code',
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'code',
+                      'source_info' => {
+                        'line_nr' => 2
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -203,7 +206,7 @@ $result_trees{'index_command_before_end_table'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'index_command_before_end_table'}{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'index_command_before_end_table'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'index_command_before_end_table'}{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'index_command_before_end_table'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'index_command_before_end_table'} = '
 @table @code

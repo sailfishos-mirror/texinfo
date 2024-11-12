@@ -10,24 +10,27 @@ $result_trees{'bad_enumerate_arguments'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'enumerate',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'a b'
+                  'contents' => [
+                    {
+                      'text' => 'a b'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'enumerate',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -77,24 +80,27 @@ $result_trees{'bad_enumerate_arguments'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'enumerate',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => '!'
+                  'contents' => [
+                    {
+                      'text' => '!'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'enumerate',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -144,37 +150,40 @@ $result_trees{'bad_enumerate_arguments'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'enumerate',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'code',
                   'contents' => [
                     {
+                      'cmdname' => 'code',
                       'contents' => [
                         {
-                          'text' => 'a'
+                          'contents' => [
+                            {
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'brace_container'
                         }
                       ],
-                      'type' => 'brace_container'
+                      'source_info' => {
+                        'line_nr' => 7
+                      }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 7
-                  }
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'enumerate',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -224,27 +233,30 @@ $result_trees{'bad_enumerate_arguments'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'enumerate',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'a'
-                },
-                {
-                  'cmdname' => '@'
+                  'contents' => [
+                    {
+                      'text' => 'a'
+                    },
+                    {
+                      'cmdname' => '@'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'enumerate',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -294,24 +306,27 @@ $result_trees{'bad_enumerate_arguments'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'enumerate',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'a0'
+                  'contents' => [
+                    {
+                      'text' => 'a0'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'enumerate',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

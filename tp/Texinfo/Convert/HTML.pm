@@ -5539,9 +5539,11 @@ sub _convert_itemize_command($$$$$)
     return $self->html_attribute_class('ul', [$cmdname])
          .">\n" . $content. "</ul>\n";
   } else {
+    my $argument = $command->{'contents'}->[0];
+    my $block_line_arg = $argument->{'contents'}->[0];
     my $css_string
-      = $self->html_convert_css_string_for_list_mark($command->{'args'}->[0],
-                                                      'itemize arg');
+      = $self->html_convert_css_string_for_list_mark($block_line_arg,
+                                                     'itemize arg');
     if ($css_string ne '') {
       return $self->html_attribute_class('ul', [$cmdname])
         ." style=\"list-style-type: '".

@@ -35,46 +35,49 @@ $result_trees{'nested_multitable_anchor_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'truc AAAA   machin'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 3
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => '    '
-                },
-                {
-                  'contents' => [
+                      'contents' => [
+                        {
+                          'text' => 'truc AAAA   machin'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 3
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
-                      'text' => 'bidule'
+                      'text' => '    '
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'bidule'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 3
+                      },
+                      'type' => 'bracketed_arg'
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 3
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
                   },
-                  'type' => 'bracketed_arg'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -88,46 +91,49 @@ $result_trees{'nested_multitable_anchor_index'} = {
                           'type' => 'ignorable_spaces_after_command'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'multitable',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'text' => 'AAAA'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 5
-                                  },
-                                  'type' => 'bracketed_arg'
-                                },
-                                {
-                                  'text' => ' '
-                                },
-                                {
-                                  'contents' => [
+                                      'contents' => [
+                                        {
+                                          'text' => 'AAAA'
+                                        }
+                                      ],
+                                      'source_info' => {
+                                        'line_nr' => 5
+                                      },
+                                      'type' => 'bracketed_arg'
+                                    },
                                     {
-                                      'text' => 'machin'
+                                      'text' => ' '
+                                    },
+                                    {
+                                      'contents' => [
+                                        {
+                                          'text' => 'machin'
+                                        }
+                                      ],
+                                      'source_info' => {
+                                        'line_nr' => 5
+                                      },
+                                      'type' => 'bracketed_arg'
                                     }
                                   ],
-                                  'source_info' => {
-                                    'line_nr' => 5
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
                                   },
-                                  'type' => 'bracketed_arg'
+                                  'type' => 'block_line_arg'
                                 }
                               ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'cmdname' => 'multitable',
-                          'contents' => [
+                              'type' => 'argument'
+                            },
                             {
                               'contents' => [
                                 {
@@ -615,8 +621,8 @@ $result_trees{'nested_multitable_anchor_index'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1];
-$result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1];
+$result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1];
+$result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1];
 $result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nested_multitable_anchor_index'}{'contents'}[1]{'contents'}[5]{'contents'}[2]{'contents'}[0]{'contents'}[0];
 

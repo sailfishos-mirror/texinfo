@@ -10,41 +10,44 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'aa'
+                      'contents' => [
+                        {
+                          'text' => 'aa'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      },
+                      'type' => 'bracketed_arg'
+                    },
+                    {
+                      'text' => ' bb'
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 1
+                  'info' => {
+                    'comment_at_end' => {
+                      'args' => [
+                        {
+                          'text' => ' cc
+',
+                          'type' => 'rawline_arg'
+                        }
+                      ],
+                      'cmdname' => 'comment'
+                    }
                   },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => ' bb'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'comment_at_end' => {
-                  'args' => [
-                    {
-                      'text' => ' cc
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ],
-                  'cmdname' => 'comment'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

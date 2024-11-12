@@ -10,24 +10,27 @@ $result_trees{'itemize_long_item'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc'
+                  'contents' => [
+                    {
+                      'text' => 'youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [

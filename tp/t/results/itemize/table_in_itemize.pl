@@ -10,27 +10,30 @@ $result_trees{'table_in_itemize'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'bullet',
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'bullet',
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -64,27 +67,30 @@ $result_trees{'table_in_itemize'} = {
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'table',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'cmdname' => 'asis',
-                          'source_info' => {
-                            'line_nr' => 4
-                          }
+                          'contents' => [
+                            {
+                              'cmdname' => 'asis',
+                              'source_info' => {
+                                'line_nr' => 4
+                              }
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
                         }
                       ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'cmdname' => 'table',
-                  'contents' => [
+                      'type' => 'argument'
+                    },
                     {
                       'contents' => [
                         {
@@ -333,8 +339,8 @@ $result_trees{'table_in_itemize'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'table_in_itemize'} = '@itemize @bullet
 @item item one

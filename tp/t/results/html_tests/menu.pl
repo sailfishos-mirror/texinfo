@@ -124,27 +124,30 @@ $result_trees{'menu'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemize',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'cmdname' => 'bullet',
+                              'contents' => [
+                                {
+                                  'cmdname' => 'bullet',
+                                  'info' => {
+                                    'inserted' => 1
+                                  }
+                                }
+                              ],
                               'info' => {
-                                'inserted' => 1
-                              }
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'block_line_arg'
                             }
                           ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'cmdname' => 'itemize',
-                      'contents' => [
+                          'type' => 'argument'
+                        },
                         {
                           'cmdname' => 'item',
                           'contents' => [
@@ -305,27 +308,30 @@ $result_trees{'menu'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'itemize',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'cmdname' => 'bullet',
+                          'contents' => [
+                            {
+                              'cmdname' => 'bullet',
+                              'info' => {
+                                'inserted' => 1
+                              }
+                            }
+                          ],
                           'info' => {
-                            'inserted' => 1
-                          }
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
                         }
                       ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'cmdname' => 'itemize',
-                  'contents' => [
+                      'type' => 'argument'
+                    },
                     {
                       'cmdname' => 'item',
                       'contents' => [
@@ -471,27 +477,30 @@ $result_trees{'menu'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'itemize',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'cmdname' => 'bullet',
+                          'contents' => [
+                            {
+                              'cmdname' => 'bullet',
+                              'info' => {
+                                'inserted' => 1
+                              }
+                            }
+                          ],
                           'info' => {
-                            'inserted' => 1
-                          }
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
                         }
                       ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'cmdname' => 'itemize',
-                  'contents' => [
+                      'type' => 'argument'
+                    },
                     {
                       'cmdname' => 'item',
                       'contents' => [
@@ -810,27 +819,30 @@ $result_trees{'menu'} = {
                           'type' => 'preformatted'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'itemize',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
-                                  'cmdname' => 'bullet',
+                                  'contents' => [
+                                    {
+                                      'cmdname' => 'bullet',
+                                      'info' => {
+                                        'inserted' => 1
+                                      }
+                                    }
+                                  ],
                                   'info' => {
-                                    'inserted' => 1
-                                  }
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'block_line_arg'
                                 }
                               ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'cmdname' => 'itemize',
-                          'contents' => [
+                              'type' => 'argument'
+                            },
                             {
                               'cmdname' => 'item',
                               'contents' => [
@@ -991,27 +1003,30 @@ $result_trees{'menu'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemize',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'cmdname' => 'bullet',
+                              'contents' => [
+                                {
+                                  'cmdname' => 'bullet',
+                                  'info' => {
+                                    'inserted' => 1
+                                  }
+                                }
+                              ],
                               'info' => {
-                                'inserted' => 1
-                              }
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'block_line_arg'
                             }
                           ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'cmdname' => 'itemize',
-                      'contents' => [
+                          'type' => 'argument'
+                        },
                         {
                           'cmdname' => 'item',
                           'contents' => [
@@ -1157,27 +1172,30 @@ $result_trees{'menu'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemize',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'cmdname' => 'bullet',
+                              'contents' => [
+                                {
+                                  'cmdname' => 'bullet',
+                                  'info' => {
+                                    'inserted' => 1
+                                  }
+                                }
+                              ],
                               'info' => {
-                                'inserted' => 1
-                              }
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'block_line_arg'
                             }
                           ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'cmdname' => 'itemize',
-                      'contents' => [
+                          'type' => 'argument'
+                        },
                         {
                           'cmdname' => 'item',
                           'contents' => [
@@ -1520,16 +1538,16 @@ $result_trees{'menu'} = {
   'type' => 'document_root'
 };
 $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1];
 $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'contents'}[1];
 $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[5]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[5]{'contents'}[1]{'contents'}[1];
 $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[2]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[2]{'contents'}[1]{'contents'}[1];
 $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[4]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[4]{'contents'}[1]{'contents'}[1];
 $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[5]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[5]{'contents'}[1]{'contents'}[1];

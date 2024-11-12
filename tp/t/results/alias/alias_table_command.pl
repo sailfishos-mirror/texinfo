@@ -48,30 +48,33 @@ $result_trees{'alias_table_command'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'code',
+                  'contents' => [
+                    {
+                      'cmdname' => 'code',
+                      'info' => {
+                        'alias_of' => 'myalias'
+                      },
+                      'source_info' => {
+                        'line_nr' => 3
+                      }
+                    }
+                  ],
                   'info' => {
-                    'alias_of' => 'myalias'
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
                   },
-                  'source_info' => {
-                    'line_nr' => 3
-                  }
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -158,7 +161,7 @@ $result_trees{'alias_table_command'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'alias_table_command'} = '@alias myalias = code
 

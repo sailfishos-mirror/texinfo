@@ -10,24 +10,27 @@ $result_trees{'empty_multitable_in_itemize'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'a--n itemize line'
+                  'contents' => [
+                    {
+                      'text' => 'a--n itemize line'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -50,19 +53,22 @@ $result_trees{'empty_multitable_in_itemize'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
                   'cmdname' => 'multitable',
                   'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
+                        }
+                      ],
+                      'type' => 'argument'
+                    },
                     {
                       'args' => [
                         {

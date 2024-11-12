@@ -327,27 +327,30 @@ $result_trees{'printindex_index_entry_in_copying'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'ftable',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'cmdname' => 'asis',
-                          'source_info' => {
-                            'line_nr' => 10
-                          }
+                          'contents' => [
+                            {
+                              'cmdname' => 'asis',
+                              'source_info' => {
+                                'line_nr' => 10
+                              }
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
                         }
                       ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'cmdname' => 'ftable',
-                  'contents' => [
+                      'type' => 'argument'
+                    },
                     {
                       'contents' => [
                         {
@@ -879,7 +882,7 @@ $result_trees{'printindex_index_entry_in_copying'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'printindex_index_entry_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'printindex_index_entry_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0];
+$result_trees{'printindex_index_entry_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'printindex_index_entry_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'printindex_index_entry_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'printindex_index_entry_in_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'printindex_index_entry_in_copying'} = '@copying

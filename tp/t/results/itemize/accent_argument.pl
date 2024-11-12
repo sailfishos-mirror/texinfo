@@ -10,37 +10,40 @@ $result_trees{'accent_argument'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => '~',
                   'contents' => [
                     {
+                      'cmdname' => '~',
                       'contents' => [
                         {
-                          'text' => 'e'
+                          'contents' => [
+                            {
+                              'text' => 'e'
+                            }
+                          ],
+                          'type' => 'following_arg'
                         }
                       ],
-                      'type' => 'following_arg'
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -111,37 +114,40 @@ $result_trees{'accent_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => '~',
                   'contents' => [
                     {
+                      'cmdname' => '~',
                       'contents' => [
                         {
-                          'text' => 'e'
+                          'contents' => [
+                            {
+                              'text' => 'e'
+                            }
+                          ],
+                          'type' => 'brace_container'
                         }
                       ],
-                      'type' => 'brace_container'
+                      'source_info' => {
+                        'line_nr' => 5
+                      }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -212,42 +218,45 @@ $result_trees{'accent_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'ringaccent',
                   'contents' => [
                     {
+                      'cmdname' => 'ringaccent',
                       'contents' => [
                         {
-                          'text' => 'a'
+                          'contents' => [
+                            {
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'following_arg'
                         }
                       ],
-                      'type' => 'following_arg'
+                      'info' => {
+                        'spaces_after_cmd_before_arg' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'line_nr' => 9
+                      }
                     }
                   ],
                   'info' => {
-                    'spaces_after_cmd_before_arg' => {
-                      'text' => ' '
+                    'spaces_after_argument' => {
+                      'text' => '
+'
                     }
                   },
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [

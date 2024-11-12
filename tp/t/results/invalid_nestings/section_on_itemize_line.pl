@@ -10,30 +10,35 @@ $result_trees{'section_on_itemize_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'minus',
                   'contents' => [
                     {
-                      'type' => 'brace_container'
+                      'cmdname' => 'minus',
+                      'contents' => [
+                        {
+                          'type' => 'brace_container'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
+              'type' => 'argument'
             }
           ],
-          'cmdname' => 'itemize',
           'extra' => {
             'command_as_argument' => {}
           },
@@ -74,33 +79,38 @@ $result_trees{'section_on_itemize_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'minus',
                   'contents' => [
                     {
-                      'type' => 'brace_container'
+                      'cmdname' => 'minus',
+                      'contents' => [
+                        {
+                          'type' => 'brace_container'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 3
+                      }
+                    },
+                    {
+                      'text' => ' aa'
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 3
-                  }
-                },
-                {
-                  'text' => ' aa'
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
+              'type' => 'argument'
             }
           ],
-          'cmdname' => 'itemize',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -148,20 +158,25 @@ $result_trees{'section_on_itemize_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'bullet',
-                  'info' => {
-                    'inserted' => 1
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'bullet',
+                      'info' => {
+                        'inserted' => 1
+                      }
+                    }
+                  ],
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
+              'type' => 'argument'
             }
           ],
-          'cmdname' => 'itemize',
           'extra' => {
             'command_as_argument' => {}
           },
@@ -212,25 +227,30 @@ $result_trees{'section_on_itemize_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'ringaccent',
-                  'info' => {
-                    'spaces_after_cmd_before_arg' => {
-                      'text' => ' '
+                  'contents' => [
+                    {
+                      'cmdname' => 'ringaccent',
+                      'info' => {
+                        'spaces_after_cmd_before_arg' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'line_nr' => 7
+                      }
                     }
-                  },
-                  'source_info' => {
-                    'line_nr' => 7
-                  }
+                  ],
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
+              'type' => 'argument'
             }
           ],
-          'cmdname' => 'itemize',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -286,8 +306,8 @@ $result_trees{'section_on_itemize_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_on_itemize_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'section_on_itemize_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'section_on_itemize_line'}{'contents'}[2]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'section_on_itemize_line'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'section_on_itemize_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'section_on_itemize_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'section_on_itemize_line'}{'contents'}[2]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'section_on_itemize_line'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'section_on_itemize_line'} = '@itemize @minus{} @section first
 

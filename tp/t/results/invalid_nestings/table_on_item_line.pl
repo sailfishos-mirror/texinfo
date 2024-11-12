@@ -10,27 +10,30 @@ $result_trees{'table_on_item_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'asis',
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'asis',
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -43,26 +46,31 @@ $result_trees{'table_on_item_line'} = {
                               'text' => 'item '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'table',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'cmdname' => 'asis',
-                                      'source_info' => {
-                                        'line_nr' => 2
-                                      }
+                                      'contents' => [
+                                        {
+                                          'cmdname' => 'asis',
+                                          'source_info' => {
+                                            'line_nr' => 2
+                                          }
+                                        }
+                                      ],
+                                      'info' => {
+                                        'spaces_after_argument' => {
+                                          'text' => '
+'
+                                        }
+                                      },
+                                      'type' => 'block_line_arg'
                                     }
                                   ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'block_line_arg'
+                                  'type' => 'argument'
                                 }
                               ],
-                              'cmdname' => 'table',
                               'extra' => {
                                 'command_as_argument' => {}
                               },
@@ -220,8 +228,8 @@ $result_trees{'table_on_item_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'table_on_item_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table_on_item_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'table_on_item_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'table_on_item_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'table_on_item_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table_on_item_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'table_on_item_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'table_on_item_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'table_on_item_line'} = '@table @asis
 @item item @table @asis

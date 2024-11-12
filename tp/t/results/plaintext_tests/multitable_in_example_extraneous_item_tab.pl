@@ -24,24 +24,27 @@ $result_trees{'multitable_in_example_extraneous_item_tab'} = {
           'cmdname' => 'example',
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'multitable',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'a'
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'multitable',
-              'contents' => [
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {

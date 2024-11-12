@@ -24,48 +24,51 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
           'cmdname' => 'example',
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'multitable',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => '0.5 0.5'
+                              'contents' => [
+                                {
+                                  'text' => '0.5 0.5'
+                                }
+                              ],
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'line_arg'
                             }
                           ],
+                          'cmdname' => 'columnfractions',
+                          'extra' => {
+                            'misc_args' => [
+                              '0.5',
+                              '0.5'
+                            ]
+                          },
                           'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
+                            'spaces_before_argument' => {
+                              'text' => ' '
                             }
                           },
-                          'type' => 'line_arg'
+                          'source_info' => {
+                            'line_nr' => 2
+                          }
                         }
                       ],
-                      'cmdname' => 'columnfractions',
-                      'extra' => {
-                        'misc_args' => [
-                          '0.5',
-                          '0.5'
-                        ]
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
+                      'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'multitable',
-              'contents' => [
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -347,7 +350,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'verbatim_in_multitable_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'verbatim_in_multitable_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'verbatim_in_multitable_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'verbatim_in_multitable_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'verbatim_in_multitable_in_example'} = '@example
 @multitable @columnfractions 0.5 0.5

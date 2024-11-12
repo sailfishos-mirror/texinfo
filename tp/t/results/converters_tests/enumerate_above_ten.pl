@@ -10,24 +10,27 @@ $result_trees{'enumerate_above_ten'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'enumerate',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => '14'
+                  'contents' => [
+                    {
+                      'text' => '14'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'enumerate',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [

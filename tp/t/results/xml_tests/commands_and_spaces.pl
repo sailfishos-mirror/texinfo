@@ -744,48 +744,51 @@ $result_trees{'commands_and_spaces'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'contents' => [
                     {
-                      'contents' => [
+                      'args' => [
                         {
-                          'text' => '0.4  0.6'
+                          'contents' => [
+                            {
+                              'text' => '0.4  0.6'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '  
+'
+                            }
+                          },
+                          'type' => 'line_arg'
                         }
                       ],
+                      'cmdname' => 'columnfractions',
+                      'extra' => {
+                        'misc_args' => [
+                          '0.4',
+                          '0.6'
+                        ]
+                      },
                       'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '  
-'
+                        'spaces_before_argument' => {
+                          'text' => '  '
                         }
                       },
-                      'type' => 'line_arg'
+                      'source_info' => {
+                        'line_nr' => 36
+                      }
                     }
                   ],
-                  'cmdname' => 'columnfractions',
-                  'extra' => {
-                    'misc_args' => [
-                      '0.4',
-                      '0.6'
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => '  '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 36
-                  }
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -836,73 +839,76 @@ $result_trees{'commands_and_spaces'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'aa b'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 39
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => '  '
-                },
-                {
-                  'contents' => [
+                      'contents' => [
+                        {
+                          'text' => 'aa b'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 39
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
-                      'text' => 'r '
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 39
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => '  '
-                },
-                {
-                  'cmdname' => 'var',
-                  'contents' => [
+                      'text' => '  '
+                    },
                     {
                       'contents' => [
                         {
-                          'text' => 'cmd'
+                          'text' => 'r '
                         }
                       ],
-                      'type' => 'brace_container'
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'line_nr' => 39
+                      },
+                      'type' => 'bracketed_arg'
+                    },
+                    {
+                      'text' => '  '
+                    },
+                    {
+                      'cmdname' => 'var',
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'cmd'
+                            }
+                          ],
+                          'type' => 'brace_container'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 39
+                      }
+                    },
+                    {
+                      'text' => 'gg hh j'
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 39
-                  }
-                },
-                {
-                  'text' => 'gg hh j'
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' 
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' 
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -1137,27 +1143,30 @@ $result_trees{'commands_and_spaces'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'strong',
-                  'source_info' => {
-                    'line_nr' => 54
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'strong',
+                      'source_info' => {
+                        'line_nr' => 54
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '  
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '  
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -1640,8 +1649,8 @@ $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'contents'}[
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'contents'}[4]{'extra'}{'float'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'extra'}{'caption'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'contents'}[2];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'extra'}{'shortcaption'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[23]{'contents'}[4];
-$result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[25]{'extra'}{'columnfractions'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[25]{'args'}[0]{'contents'}[0];
-$result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[35]{'extra'}{'command_as_argument'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[35]{'args'}[0]{'contents'}[0];
+$result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[25]{'extra'}{'columnfractions'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[25]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[35]{'extra'}{'command_as_argument'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[35]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[43]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'commands_and_spaces'}{'contents'}[1];
 
 $result_texis{'commands_and_spaces'} = '@set  foo   some @value

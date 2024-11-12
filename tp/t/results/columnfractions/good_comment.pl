@@ -10,55 +10,58 @@ $result_trees{'good_comment'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'contents' => [
                     {
-                      'contents' => [
+                      'args' => [
                         {
-                          'text' => '0.4 .6 5.'
-                        }
-                      ],
-                      'info' => {
-                        'comment_at_end' => {
-                          'args' => [
+                          'contents' => [
                             {
-                              'text' => ' comment
-',
-                              'type' => 'rawline_arg'
+                              'text' => '0.4 .6 5.'
                             }
                           ],
-                          'cmdname' => 'c'
+                          'info' => {
+                            'comment_at_end' => {
+                              'args' => [
+                                {
+                                  'text' => ' comment
+',
+                                  'type' => 'rawline_arg'
+                                }
+                              ],
+                              'cmdname' => 'c'
+                            }
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'columnfractions',
+                      'extra' => {
+                        'misc_args' => [
+                          '0.4',
+                          '.6',
+                          '5.'
+                        ]
+                      },
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
                         }
                       },
-                      'type' => 'line_arg'
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
                     }
                   ],
-                  'cmdname' => 'columnfractions',
-                  'extra' => {
-                    'misc_args' => [
-                      '0.4',
-                      '.6',
-                      '5.'
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -103,7 +106,7 @@ $result_trees{'good_comment'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'good_comment'}{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'good_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'good_comment'}{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'good_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'good_comment'} = '@multitable @columnfractions 0.4 .6 5.@c comment
 @end multitable';

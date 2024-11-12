@@ -10,24 +10,27 @@ $result_trees{'enumerate_letters'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'enumerate',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'c'
+                  'contents' => [
+                    {
+                      'text' => 'c'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'enumerate',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [

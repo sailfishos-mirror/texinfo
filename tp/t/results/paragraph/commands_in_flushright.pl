@@ -165,19 +165,22 @@ $result_trees{'commands_in_flushright'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'enumerate',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'cmdname' => 'item',
                   'contents' => [
@@ -275,27 +278,30 @@ $result_trees{'commands_in_flushright'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'table',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'cmdname' => 'emph',
-                      'source_info' => {
-                        'line_nr' => 17
-                      }
+                      'contents' => [
+                        {
+                          'cmdname' => 'emph',
+                          'source_info' => {
+                            'line_nr' => 17
+                          }
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'table',
-              'contents' => [
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -437,48 +443,51 @@ $result_trees{'commands_in_flushright'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'multitable',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => '0.5 0.5'
+                              'contents' => [
+                                {
+                                  'text' => '0.5 0.5'
+                                }
+                              ],
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'line_arg'
                             }
                           ],
+                          'cmdname' => 'columnfractions',
+                          'extra' => {
+                            'misc_args' => [
+                              '0.5',
+                              '0.5'
+                            ]
+                          },
                           'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
+                            'spaces_before_argument' => {
+                              'text' => ' '
                             }
                           },
-                          'type' => 'line_arg'
+                          'source_info' => {
+                            'line_nr' => 25
+                          }
                         }
                       ],
-                      'cmdname' => 'columnfractions',
-                      'extra' => {
-                        'misc_args' => [
-                          '0.5',
-                          '0.5'
-                        ]
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 25
-                      }
+                      'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'multitable',
-              'contents' => [
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -1104,8 +1113,8 @@ $result_trees{'commands_in_flushright'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'extra'}{'columnfractions'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0]{'contents'}[0];
+$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'extra'}{'columnfractions'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'contents'}[4]{'extra'}{'float'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11];
 $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'extra'}{'caption'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'contents'}[4];
 

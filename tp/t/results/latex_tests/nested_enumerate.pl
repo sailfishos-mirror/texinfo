@@ -13,19 +13,22 @@ $result_trees{'nested_enumerate'} = {
           'type' => 'preamble_before_content'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'enumerate',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -79,19 +82,22 @@ $result_trees{'nested_enumerate'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
                   'cmdname' => 'enumerate',
                   'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
+                        }
+                      ],
+                      'type' => 'argument'
+                    },
                     {
                       'contents' => [
                         {
@@ -145,19 +151,22 @@ $result_trees{'nested_enumerate'} = {
                           'type' => 'paragraph'
                         },
                         {
-                          'args' => [
-                            {
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
                           'cmdname' => 'enumerate',
                           'contents' => [
+                            {
+                              'contents' => [
+                                {
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'block_line_arg'
+                                }
+                              ],
+                              'type' => 'argument'
+                            },
                             {
                               'contents' => [
                                 {
@@ -211,19 +220,22 @@ $result_trees{'nested_enumerate'} = {
                                   'type' => 'paragraph'
                                 },
                                 {
-                                  'args' => [
-                                    {
-                                      'info' => {
-                                        'spaces_after_argument' => {
-                                          'text' => '
-'
-                                        }
-                                      },
-                                      'type' => 'block_line_arg'
-                                    }
-                                  ],
                                   'cmdname' => 'enumerate',
                                   'contents' => [
+                                    {
+                                      'contents' => [
+                                        {
+                                          'info' => {
+                                            'spaces_after_argument' => {
+                                              'text' => '
+'
+                                            }
+                                          },
+                                          'type' => 'block_line_arg'
+                                        }
+                                      ],
+                                      'type' => 'argument'
+                                    },
                                     {
                                       'contents' => [
                                         {

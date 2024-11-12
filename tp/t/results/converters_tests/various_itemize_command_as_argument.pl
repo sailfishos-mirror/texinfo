@@ -132,27 +132,30 @@ $result_trees{'various_itemize_command_as_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'inlineraw',
-                  'source_info' => {
-                    'line_nr' => 7
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'inlineraw',
+                      'source_info' => {
+                        'line_nr' => 7
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -226,27 +229,30 @@ $result_trees{'various_itemize_command_as_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'image',
-                  'source_info' => {
-                    'line_nr' => 11
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'image',
+                      'source_info' => {
+                        'line_nr' => 11
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -344,27 +350,30 @@ $result_trees{'various_itemize_command_as_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'footnote',
-                  'source_info' => {
-                    'line_nr' => 16
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'footnote',
+                      'source_info' => {
+                        'line_nr' => 16
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -485,27 +494,30 @@ $result_trees{'various_itemize_command_as_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'caption',
-                  'source_info' => {
-                    'line_nr' => 25
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'caption',
+                      'source_info' => {
+                        'line_nr' => 25
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -579,27 +591,30 @@ $result_trees{'various_itemize_command_as_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'math',
-                  'source_info' => {
-                    'line_nr' => 29
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'math',
+                      'source_info' => {
+                        'line_nr' => 29
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -735,27 +750,30 @@ $result_trees{'various_itemize_command_as_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'anchor',
-                  'source_info' => {
-                    'line_nr' => 37
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'anchor',
+                      'source_info' => {
+                        'line_nr' => 37
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -853,27 +871,30 @@ $result_trees{'various_itemize_command_as_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'verb',
-                  'source_info' => {
-                    'line_nr' => 42
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'verb',
+                      'source_info' => {
+                        'line_nr' => 42
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -962,13 +983,13 @@ $result_trees{'various_itemize_command_as_argument'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[9]{'extra'}{'command_as_argument'} = $result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[9]{'args'}[0]{'contents'}[0];
-$result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[11]{'extra'}{'command_as_argument'} = $result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[11]{'args'}[0]{'contents'}[0];
-$result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[13]{'extra'}{'command_as_argument'} = $result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[13]{'args'}[0]{'contents'}[0];
+$result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[9]{'extra'}{'command_as_argument'} = $result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[11]{'extra'}{'command_as_argument'} = $result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[13]{'extra'}{'command_as_argument'} = $result_trees{'various_itemize_command_as_argument'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'various_itemize_command_as_argument'} = '@node Top
 @top top

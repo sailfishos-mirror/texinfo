@@ -13,27 +13,30 @@ $result_trees{'nested_itemize'} = {
           'type' => 'preamble_before_content'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'bullet',
+                  'contents' => [
+                    {
+                      'cmdname' => 'bullet',
+                      'info' => {
+                        'inserted' => 1
+                      }
+                    }
+                  ],
                   'info' => {
-                    'inserted' => 1
-                  }
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -87,27 +90,30 @@ $result_trees{'nested_itemize'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'itemize',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'cmdname' => 'bullet',
+                          'contents' => [
+                            {
+                              'cmdname' => 'bullet',
+                              'info' => {
+                                'inserted' => 1
+                              }
+                            }
+                          ],
                           'info' => {
-                            'inserted' => 1
-                          }
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
                         }
                       ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'cmdname' => 'itemize',
-                  'contents' => [
+                      'type' => 'argument'
+                    },
                     {
                       'contents' => [
                         {
@@ -161,27 +167,30 @@ $result_trees{'nested_itemize'} = {
                           'type' => 'paragraph'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'itemize',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
-                                  'cmdname' => 'bullet',
+                                  'contents' => [
+                                    {
+                                      'cmdname' => 'bullet',
+                                      'info' => {
+                                        'inserted' => 1
+                                      }
+                                    }
+                                  ],
                                   'info' => {
-                                    'inserted' => 1
-                                  }
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'block_line_arg'
                                 }
                               ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'cmdname' => 'itemize',
-                          'contents' => [
+                              'type' => 'argument'
+                            },
                             {
                               'contents' => [
                                 {
@@ -235,27 +244,30 @@ $result_trees{'nested_itemize'} = {
                                   'type' => 'paragraph'
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'itemize',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
-                                          'cmdname' => 'bullet',
+                                          'contents' => [
+                                            {
+                                              'cmdname' => 'bullet',
+                                              'info' => {
+                                                'inserted' => 1
+                                              }
+                                            }
+                                          ],
                                           'info' => {
-                                            'inserted' => 1
-                                          }
+                                            'spaces_after_argument' => {
+                                              'text' => '
+'
+                                            }
+                                          },
+                                          'type' => 'block_line_arg'
                                         }
                                       ],
-                                      'info' => {
-                                        'spaces_after_argument' => {
-                                          'text' => '
-'
-                                        }
-                                      },
-                                      'type' => 'block_line_arg'
-                                    }
-                                  ],
-                                  'cmdname' => 'itemize',
-                                  'contents' => [
+                                      'type' => 'argument'
+                                    },
                                     {
                                       'contents' => [
                                         {
@@ -503,10 +515,10 @@ $result_trees{'nested_itemize'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[3]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[2]{'contents'}[3]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'nested_itemize'} = '@itemize
    @item First level item

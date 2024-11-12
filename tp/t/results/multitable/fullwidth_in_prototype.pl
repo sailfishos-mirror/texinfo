@@ -10,60 +10,63 @@ $result_trees{'fullwidth_in_prototype'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => "\x{e9}\x{e9}\x{e9}\x{e9} \x{e9}\x{e9}\x{e9}\x{e9} \x{e9}\x{e9}\x{e9}\x{e9} \x{e9}\x{e9}\x{e9}\x{e9}"
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'contents' => [
+                      'contents' => [
+                        {
+                          'text' => "\x{e9}\x{e9}\x{e9}\x{e9} \x{e9}\x{e9}\x{e9}\x{e9} \x{e9}\x{e9}\x{e9}\x{e9} \x{e9}\x{e9}\x{e9}\x{e9}"
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
-                      'text' => 'xxxx xxxx xxxx xxxx'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'contents' => [
+                      'text' => ' '
+                    },
                     {
-                      'text' => "\x{4eba}\x{4eba} \x{4eba}\x{4eba} \x{4eba}\x{4eba} \x{4eba}\x{4eba}"
+                      'contents' => [
+                        {
+                          'text' => 'xxxx xxxx xxxx xxxx'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      },
+                      'type' => 'bracketed_arg'
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => "\x{4eba}\x{4eba} \x{4eba}\x{4eba} \x{4eba}\x{4eba} \x{4eba}\x{4eba}"
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      },
+                      'type' => 'bracketed_arg'
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 1
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
                   },
-                  'type' => 'bracketed_arg'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

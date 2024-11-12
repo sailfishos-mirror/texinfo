@@ -10,27 +10,30 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'strong',
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'strong',
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -82,27 +85,30 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                       'type' => 'paragraph'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemize',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'cmdname' => 'bullet',
+                              'contents' => [
+                                {
+                                  'cmdname' => 'bullet',
+                                  'info' => {
+                                    'inserted' => 1
+                                  }
+                                }
+                              ],
                               'info' => {
-                                'inserted' => 1
-                              }
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'block_line_arg'
                             }
                           ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'cmdname' => 'itemize',
-                      'contents' => [
+                          'type' => 'argument'
+                        },
                         {
                           'contents' => [
                             {
@@ -179,19 +185,22 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                       'type' => 'empty_line'
                     },
                     {
-                      'args' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
                       'cmdname' => 'enumerate',
                       'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'block_line_arg'
+                            }
+                          ],
+                          'type' => 'argument'
+                        },
                         {
                           'contents' => [
                             {
@@ -322,8 +331,8 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'itemx_in_itemize_enumerate_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'itemx_in_itemize_enumerate_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'itemx_in_itemize_enumerate_in_table'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'itemx_in_itemize_enumerate_in_table'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'itemx_in_itemize_enumerate_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'itemx_in_itemize_enumerate_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'itemx_in_itemize_enumerate_in_table'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'itemx_in_itemize_enumerate_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'itemx_in_itemize_enumerate_in_table'} = '@table @strong
 @item item

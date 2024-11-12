@@ -132,27 +132,30 @@ $result_trees{'macro_in_brace_command'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'bullet',
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'bullet',
+                      'source_info' => {
+                        'line_nr' => 9
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -302,7 +305,7 @@ $result_trees{'macro_in_brace_command'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_in_brace_command'}{'contents'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'macro_in_brace_command'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0];
+$result_trees{'macro_in_brace_command'}{'contents'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'macro_in_brace_command'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'macro_in_brace_command'} = '@macro foo
 foo-expansion

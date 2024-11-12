@@ -10,33 +10,36 @@ $result_trees{'comment_first_on_itemize_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'bullet',
-                  'info' => {
-                    'inserted' => 1
-                  }
-                }
-              ],
-              'info' => {
-                'comment_at_end' => {
-                  'args' => [
+                  'contents' => [
                     {
-                      'text' => ' comment on itemize line
-',
-                      'type' => 'rawline_arg'
+                      'cmdname' => 'bullet',
+                      'info' => {
+                        'inserted' => 1
+                      }
                     }
                   ],
-                  'cmdname' => 'c'
+                  'info' => {
+                    'comment_at_end' => {
+                      'args' => [
+                        {
+                          'text' => ' comment on itemize line
+',
+                          'type' => 'rawline_arg'
+                        }
+                      ],
+                      'cmdname' => 'c'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              ],
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -110,7 +113,7 @@ $result_trees{'comment_first_on_itemize_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'comment_first_on_itemize_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'comment_first_on_itemize_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'comment_first_on_itemize_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'comment_first_on_itemize_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'comment_first_on_itemize_line'} = '@itemize @c comment on itemize line
 @item first

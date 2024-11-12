@@ -15,27 +15,30 @@ $result_trees{'table'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'asis',
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'asis',
+                      'source_info' => {
+                        'line_nr' => 2
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -168,33 +171,36 @@ $result_trees{'table'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'vtable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'samp',
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                }
-              ],
-              'info' => {
-                'comment_at_end' => {
-                  'args' => [
+                  'contents' => [
                     {
-                      'text' => ' samp
-',
-                      'type' => 'rawline_arg'
+                      'cmdname' => 'samp',
+                      'source_info' => {
+                        'line_nr' => 9
+                      }
                     }
                   ],
-                  'cmdname' => 'c'
+                  'info' => {
+                    'comment_at_end' => {
+                      'args' => [
+                        {
+                          'text' => ' samp
+',
+                          'type' => 'rawline_arg'
+                        }
+                      ],
+                      'cmdname' => 'c'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'vtable',
-          'contents' => [
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -444,27 +450,30 @@ $result_trees{'table'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'strong',
-                  'source_info' => {
-                    'line_nr' => 20
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'strong',
+                      'source_info' => {
+                        'line_nr' => 20
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -551,9 +560,9 @@ $result_trees{'table'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'table'}{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'table'}{'contents'}[0]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'table'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0];
+$result_trees{'table'}{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'table'}{'contents'}[0]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'table'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'table'} = '
 @table @asis

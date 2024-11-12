@@ -10,33 +10,36 @@ $result_trees{'table_command_comment'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'code',
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                }
-              ],
-              'info' => {
-                'comment_at_end' => {
-                  'args' => [
+                  'contents' => [
                     {
-                      'text' => ' in comment
-',
-                      'type' => 'rawline_arg'
+                      'cmdname' => 'code',
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
                     }
                   ],
-                  'cmdname' => 'c'
+                  'info' => {
+                    'comment_at_end' => {
+                      'args' => [
+                        {
+                          'text' => ' in comment
+',
+                          'type' => 'rawline_arg'
+                        }
+                      ],
+                      'cmdname' => 'c'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -117,7 +120,7 @@ $result_trees{'table_command_comment'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'table_command_comment'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'table_command_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'table_command_comment'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'table_command_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'table_command_comment'} = '@table @code@c in comment
 @item item

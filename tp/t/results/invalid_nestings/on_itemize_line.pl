@@ -10,117 +10,120 @@ $result_trees{'on_itemize_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'indent',
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'cmdname' => 'titlefont',
                   'contents' => [
                     {
-                      'contents' => [
-                        {
-                          'text' => 'in titlefont'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'anchor',
-                  'contents' => [
+                      'cmdname' => 'indent',
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
+                    },
                     {
-                      'contents' => [
-                        {
-                          'text' => 'in anchor'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'is_target' => 1,
-                    'normalized' => 'in-anchor'
-                  },
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'cmdname' => 'footnote',
-                  'contents' => [
+                      'text' => ' ',
+                      'type' => 'ignorable_spaces_after_command'
+                    },
                     {
+                      'cmdname' => 'titlefont',
                       'contents' => [
                         {
                           'contents' => [
                             {
-                              'text' => 'footnote'
+                              'text' => 'in titlefont'
                             }
                           ],
-                          'type' => 'paragraph'
+                          'type' => 'brace_container'
                         }
                       ],
-                      'type' => 'brace_command_context'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'args' => [
+                      'extra' => {},
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
+                    },
                     {
+                      'text' => ' '
+                    },
+                    {
+                      'cmdname' => 'anchor',
                       'contents' => [
                         {
-                          'text' => 'exdent'
+                          'contents' => [
+                            {
+                              'text' => 'in anchor'
+                            }
+                          ],
+                          'type' => 'brace_arg'
                         }
                       ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
+                      'extra' => {
+                        'is_target' => 1,
+                        'normalized' => 'in-anchor'
+                      },
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
+                    },
+                    {
+                      'cmdname' => 'footnote',
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'footnote'
+                                }
+                              ],
+                              'type' => 'paragraph'
+                            }
+                          ],
+                          'type' => 'brace_command_context'
+                        }
+                      ],
+                      'extra' => {},
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'exdent'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'exdent',
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
                         }
                       },
-                      'type' => 'line_arg'
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
                     }
                   ],
-                  'cmdname' => 'exdent',
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -191,31 +194,34 @@ $result_trees{'on_itemize_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'on line '
-                },
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'text' => 'in item'
+                  'contents' => [
+                    {
+                      'text' => 'on line '
+                    },
+                    {
+                      'text' => ' ',
+                      'type' => 'ignorable_spaces_after_command'
+                    },
+                    {
+                      'text' => 'in item'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

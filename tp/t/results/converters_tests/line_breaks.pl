@@ -188,27 +188,30 @@ $result_trees{'line_breaks'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'strong',
-                  'source_info' => {
-                    'line_nr' => 10
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'strong',
+                      'source_info' => {
+                        'line_nr' => 10
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -427,7 +430,7 @@ $result_trees{'line_breaks'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'line_breaks'}{'contents'}[0]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'line_breaks'}{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0];
+$result_trees{'line_breaks'}{'contents'}[0]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'line_breaks'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'line_breaks'} = '@documentdescription 
 a document @* yes!

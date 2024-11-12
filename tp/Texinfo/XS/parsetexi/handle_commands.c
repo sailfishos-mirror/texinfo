@@ -486,8 +486,9 @@ handle_other_command (ELEMENT *current, const char **line_inout,
 
                   /* Note that the "row_number" extra value
                      isn't actually used anywhere at present. */
+                  /* -2 because of the 'argument' */
                   add_extra_integer (row, AI_key_row_number,
-                                     parent->e.c->contents.number - 1);
+                                     parent->e.c->contents.number - 2);
 
                   command_e = new_command_element (ET_container_command, cmd);
                   add_to_element_contents (row, command_e);
@@ -1152,7 +1153,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
   add_to_element_contents (current, block);
 
   bla_element = new_element (ET_block_line_arg);
-  if (cmd == CM_float)
+  if (cmd == CM_float || command_data(cmd).flags & CF_blockitem)
     {
       ELEMENT *argument = new_element (ET_argument);
       add_to_element_contents (block_line_e, argument);

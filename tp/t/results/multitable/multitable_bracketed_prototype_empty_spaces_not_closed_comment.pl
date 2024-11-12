@@ -15,38 +15,41 @@ $result_trees{'multitable_bracketed_prototype_empty_spaces_not_closed_comment'} 
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'text' => ' comment
+                          'args' => [
+                            {
+                              'text' => ' comment
 ',
-                          'type' => 'rawline_arg'
+                              'type' => 'rawline_arg'
+                            }
+                          ],
+                          'cmdname' => 'comment'
                         }
                       ],
-                      'cmdname' => 'comment'
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'line_nr' => 2
+                      },
+                      'type' => 'bracketed_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 2
-                  },
-                  'type' => 'bracketed_arg'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

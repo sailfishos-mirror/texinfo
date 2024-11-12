@@ -32,24 +32,27 @@ $result_trees{'enumerate_in_style_command'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'enumerate',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => '1'
+                  'contents' => [
+                    {
+                      'text' => '1'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'enumerate',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [

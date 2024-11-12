@@ -1,7 +1,30 @@
-2024-12-24  Patrice Dumas  <pertusus@free.fr>
+2024-11-12  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/Convert/LaTeX.pm (convert_math_to_images): use contents
-	instead of args for @math.
+	block commands with items in 'argument' container in contents
+
+	* tp/Texinfo/ParserNonXS.pm (_gather_previous_item)
+	(_close_command_cleanup, _close_command_cleanup, _end_line_misc_line)
+	(_end_line_starting_block, _parent_of_command_as_argument)
+	(_register_command_as_argument, _handle_other_command)
+	(_handle_block_command, _handle_open_brace),
+	tp/Texinfo/XS/convert/format_html.c (html_convert_itemize_command),
+	tp/Texinfo/XS/parsetexi/close.c (close_command_cleanup),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block)
+	(end_line_misc_line), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_other_command, handle_block_command),
+	tp/Texinfo/XS/parsetexi/multitable.c (gather_previous_item),
+	tp/Texinfo/XS/parsetexi/parser.c (parent_of_command_as_argument)
+	(register_command_as_argument), tp/Texinfo/XS/parsetexi/separator.c
+	(handle_open_brace): put arguments of block commands with items in the
+	first content in the argument container type, remove args.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert), tp/Texinfo/Convert/HTML.pm
+	(_convert_itemize_command), tp/Texinfo/Convert/LaTeX.pm
+	(_set_environment_options, _convert), tp/Texinfo/Convert/Plaintext.pm
+	(_convert), tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/Convert/TextContent.pm (%ignored_types, _convert),
+	tp/init/html32.pm (html32_convert_item_command): update conversion for
+	change in block commands with items tree.
 
 2024-11-11  Patrice Dumas  <pertusus@free.fr>
 
@@ -59,6 +82,11 @@
 	tp/Texinfo/XS/structuring_transfo/transformations.c
 	(protect_hashchar_at_line_beginning_internal): update for the change
 	in @*macro arguments.
+
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/LaTeX.pm (convert_math_to_images): use contents
+	instead of args for @math.
 
 2024-11-11  Patrice Dumas  <pertusus@free.fr>
 
@@ -146,7 +174,7 @@
 	* tp/init/documentation_examples.pm
 	(my_test_documentation_convert_xref_commands), tp/t/01use.t,
 	tp/t/init/footnote_mark_in_inline_content.pm
-	(_texi2any_test_format_single_footnote_in_inline_content): update 
+	(_texi2any_test_format_single_footnote_in_inline_content): update
 	tests init files and manually written tree.
 
 	* tp/t/09indices.t: change code order.

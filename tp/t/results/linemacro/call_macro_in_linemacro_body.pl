@@ -257,33 +257,36 @@ now second arg: gg '
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'code',
                   'contents' => [
                     {
-                      'type' => 'brace_container'
+                      'cmdname' => 'code',
+                      'contents' => [
+                        {
+                          'type' => 'brace_container'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 14,
+                        'macro' => 'mymacro'
+                      }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 14,
-                    'macro' => 'mymacro'
-                  }
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -434,7 +437,7 @@ now second arg: gg '
   ],
   'type' => 'document_root'
 };
-$result_trees{'call_macro_in_linemacro_body'}{'contents'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'call_macro_in_linemacro_body'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0];
+$result_trees{'call_macro_in_linemacro_body'}{'contents'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'call_macro_in_linemacro_body'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'call_macro_in_linemacro_body'} = '@linemacro lm {a, b}
 @mymacro{@code{}

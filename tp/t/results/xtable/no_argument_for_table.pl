@@ -10,25 +10,30 @@ $result_trees{'no_argument_for_table'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'cmdname' => 'asis',
-              'info' => {
-                'inserted' => 1
-              }
-            },
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'table',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'cmdname' => 'asis',
+                      'info' => {
+                        'inserted' => 1
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -124,7 +129,7 @@ $result_trees{'no_argument_for_table'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'no_argument_for_table'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'no_argument_for_table'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'no_argument_for_table'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'no_argument_for_table'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'no_argument_for_table'} = '@table
 @item item

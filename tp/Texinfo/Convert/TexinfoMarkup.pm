@@ -774,11 +774,11 @@ sub _convert($$;$)
                or $element->{'parent'}->{'cmdname'} eq 'enumerate')) {
         $result .= $self->txi_markup_open_element('listitem',
                                 [_leading_spaces_arg($element)]);
-        if ($element->{'parent'}->{'cmdname'} eq 'itemize'
-            and $element->{'parent'}->{'args'}
-            and @{$element->{'parent'}->{'args'}}) {
+        if ($element->{'parent'}->{'cmdname'} eq 'itemize') {
+          my $argument = $element->{'parent'}->{'contents'}->[0];
+          my $block_line_arg = $argument->{'contents'}->[0];
           $result .= $self->txi_markup_open_element('prepend')
-            .$self->_convert($element->{'parent'}->{'args'}->[0])
+            .$self->_convert($block_line_arg)
             .$self->txi_markup_close_element('prepend');
         }
         unshift @close_format_elements, 'listitem';
@@ -1528,18 +1528,18 @@ sub _convert($$;$)
             # in that case the end of line is in the columnfractions line
             # or in the columnprototypes.
             if ($element->{'cmdname'} eq 'multitable') {
-              if ($element->{'args'} and $element->{'args'}->[0]
-                       and $element->{'args'}->[0]->{'contents'}
-                       and (($element->{'extra'}
-                             and $element->{'extra'}->{'columnfractions'})
-                            # case of bogus/empty @columnfractions
-                            or ($element->{'args'}->[0]->{'contents'}->[0]
-                                and $element->{'args'}->[0]->{'contents'}
-                                                           ->[0]->{'cmdname'}
-                                and $element->{'args'}->[0]->{'contents'}
+              my $argument = $element->{'contents'}->[0];
+              my $block_line_arg = $argument->{'contents'}->[0];
+              if ($block_line_arg->{'contents'}
+                  and (($element->{'extra'}
+                        and $element->{'extra'}->{'columnfractions'})
+                        # case of bogus/empty @columnfractions
+                        or (scalar(@{$block_line_arg->{'contents'}}) > 0
+                            and $block_line_arg->{'contents'}->[0]->{'cmdname'}
+                            and $block_line_arg->{'contents'}
                                    ->[0]->{'cmdname'} eq 'columnfractions'))) {
                 my $columnfractions_element;
-                foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
+                foreach my $content (@{$block_line_arg->{'contents'}}) {
                   if ($content->{'cmdname'}
                       and $content->{'cmdname'} eq 'columnfractions') {
                     $columnfractions_element = $content;
@@ -1548,10 +1548,9 @@ sub _convert($$;$)
                 }
                 $result
                  .= _format_columnfractions($self, $columnfractions_element);
-              } elsif ($element->{'args'} and scalar(@{$element->{'args'}})
-                       and $element->{'args'}->[0]->{'contents'}) {
+              } elsif ($block_line_arg->{'contents'}) {
                 $result .= $self->txi_markup_open_element('columnprototypes');
-                foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
+                foreach my $arg (@{$block_line_arg->{'contents'}}) {
                   if ($arg->{'type'}
                       and $arg->{'type'} eq 'bracketed_arg') {
                     my $attributes = [];
@@ -1629,8 +1628,9 @@ sub _convert($$;$)
     # @deffn {a b}{c d} h{e f} g h
     } elsif ($element->{'type'} eq 'bracketed_arg'
              and not ($element->{'parent'}->{'parent'}
-                      and $element->{'parent'}->{'parent'}->{'cmdname'}
-                      and $element->{'parent'}->{'parent'}->{'cmdname'}
+                      and $element->{'parent'}->{'parent'}->{'parent'}
+                 and $element->{'parent'}->{'parent'}->{'parent'}->{'cmdname'}
+                 and $element->{'parent'}->{'parent'}->{'parent'}->{'cmdname'}
                                                            eq 'multitable')
              and (!$element->{'parent'}->{'type'}
                   or ($element->{'parent'}->{'type'} ne 'def_category'

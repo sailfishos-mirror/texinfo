@@ -10,35 +10,38 @@ $result_trees{'prototype_brace_no_brace'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'aa'
+                      'contents' => [
+                        {
+                          'text' => 'aa'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      },
+                      'type' => 'bracketed_arg'
+                    },
+                    {
+                      'text' => ' bb'
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 1
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
                   },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => ' bb'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

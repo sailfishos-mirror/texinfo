@@ -10,69 +10,72 @@ $result_trees{'on_block_command_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'cmdname' => 'anchor',
+                      'contents' => [
+                        {
+                          'cmdname' => 'anchor',
+                          'contents' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'in anchor'
+                                }
+                              ],
+                              'type' => 'brace_arg'
+                            }
+                          ],
+                          'extra' => {
+                            'is_target' => 1,
+                            'normalized' => 'in-anchor'
+                          },
+                          'source_info' => {
+                            'line_nr' => 1
+                          }
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      },
+                      'type' => 'bracketed_arg'
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'cmdname' => 'titlefont',
                       'contents' => [
                         {
                           'contents' => [
                             {
-                              'text' => 'in anchor'
+                              'text' => 'in titlefont'
                             }
                           ],
-                          'type' => 'brace_arg'
+                          'type' => 'brace_container'
                         }
                       ],
-                      'extra' => {
-                        'is_target' => 1,
-                        'normalized' => 'in-anchor'
-                      },
+                      'extra' => {},
                       'source_info' => {
                         'line_nr' => 1
                       }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'titlefont',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in titlefont'
-                        }
-                      ],
-                      'type' => 'brace_container'
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
                     }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

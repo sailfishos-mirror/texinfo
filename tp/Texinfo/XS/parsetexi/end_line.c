@@ -812,20 +812,21 @@ end_line_starting_block (ELEMENT *current)
 
   /* @multitable args */
   if (command == CM_multitable
-      && (k = lookup_extra (current->parent, AI_key_columnfractions)))
+      && (k = lookup_extra (current->parent->parent, AI_key_columnfractions)))
     {
       const ELEMENT *misc_cmd = k->k.const_element;
       const STRING_LIST *misc_args
           = lookup_extra_misc_args (misc_cmd, AI_key_misc_args);
+      ELEMENT *multitable = current->parent->parent;
 
       if (misc_args)
         {
-          add_extra_integer (current->parent, AI_key_max_columns,
+          add_extra_integer (multitable, AI_key_max_columns,
                              misc_args->number);
         }
       else
         {
-          add_extra_integer (current->parent, AI_key_max_columns, 0);
+          add_extra_integer (multitable, AI_key_max_columns, 0);
           k->key = AI_key_none;
           k->type = extra_deleted;
         }
@@ -836,6 +837,7 @@ end_line_starting_block (ELEMENT *current)
       /* NOTE max_columns could overflow, as in general INT_MAX < SIZE_MAX.
          We ignore as this would be for unrealistic column numbers */
       int max_columns = 0;
+      ELEMENT *multitable = current->parent->parent;
 
       for (i = 0; i < current->e.c->contents.number; i++)
         {
@@ -861,19 +863,18 @@ end_line_starting_block (ELEMENT *current)
                 {
                   char *texi;
                   texi = convert_to_texinfo (e);
-                  command_warn (current->parent,
+                  command_warn (multitable,
                                 "unexpected argument on @%s line: %s",
-                                command_name(current->parent->e.c->cmd),
-                                texi);
+                                command_name(multitable->e.c->cmd), texi);
                   free (texi);
                 }
             }
         }
 
       {
-      add_extra_integer (current->parent, AI_key_max_columns, max_columns);
+      add_extra_integer (multitable, AI_key_max_columns, max_columns);
       if (max_columns == 0)
-        command_warn (current->parent, "empty multitable");
+        command_warn (multitable, "empty multitable");
       }
     }
 
@@ -886,14 +887,15 @@ end_line_starting_block (ELEMENT *current)
   if (command == CM_float)
     {
       char *float_type;
-      ELEMENT *float_label_element = 0;
+      const ELEMENT *argument = current->e.c->contents.list[0];
+
       current->e.c->source_info = current_source_info;
-      if (current->e.c->contents.list[0]->e.c->contents.number >= 2)
+      if (argument->e.c->contents.number >= 2)
         {
-          float_label_element
-            = contents_child_by_index (current->e.c->contents.list[0], 1);
+          ELEMENT *float_label_element
+            = contents_child_by_index (argument, 1);
+          check_register_target_element_label (float_label_element, current);
         }
-      check_register_target_element_label (float_label_element, current);
       float_type = parse_float_type (current);
 
       /* add to global 'floats' array */
@@ -908,15 +910,16 @@ end_line_starting_block (ELEMENT *current)
       if (command == CM_enumerate)
         {
           const char *spec = "1";
+          const ELEMENT *argument = current->e.c->contents.list[0];
+          const ELEMENT *block_line_arg = argument->e.c->contents.list[0];
 
-          if (current->e.c->args.number > 0
-              && current->e.c->args.list[0]->e.c->contents.number > 0)
+          if (block_line_arg->e.c->contents.number > 0)
             {
               ELEMENT *g;
-              if (current->e.c->args.list[0]->e.c->contents.number > 1)
+              if (block_line_arg->e.c->contents.number > 1)
                 command_error (current, "superfluous argument to @%s",
                                command_name(current->e.c->cmd));
-              g = current->e.c->args.list[0]->e.c->contents.list[0];
+              g = block_line_arg->e.c->contents.list[0];
               /* Check if @enumerate specification is either a single
                  letter or a string of digits. */
               if (g->type == ET_normal_text
@@ -940,14 +943,15 @@ end_line_starting_block (ELEMENT *current)
           k_command_as_arg = lookup_extra (current, AI_key_command_as_argument);
           if (!k_command_as_arg)
             {
-              if (current->e.c->args.number > 0
-                  && current->e.c->args.list[0]->e.c->contents.number > 0)
+              const ELEMENT *argument = current->e.c->contents.list[0];
+              const ELEMENT *block_line_arg = argument->e.c->contents.list[0];
+              if (block_line_arg->e.c->contents.number > 0)
                 {
                   char *texi_arg;
 
                   /* expand the contents to avoid surrounding spaces */
                   texi_arg
-                    = convert_contents_to_texinfo (current->e.c->args.list[0]);
+                    = convert_contents_to_texinfo (block_line_arg);
                   command_error (current, "bad argument to @%s: %s",
                                  command_name(command), texi_arg);
                   free (texi_arg);
@@ -983,21 +987,22 @@ end_line_starting_block (ELEMENT *current)
           if (k_command_as_arg)
             {
               size_t i;
-              ELEMENT *e = args_child_by_index (current, 0);
-              ELEMENT *command_as_arg_e = k_command_as_arg->k.element;
+              const ELEMENT *argument = contents_child_by_index (current, 0);
+              const ELEMENT *line_arg = contents_child_by_index (argument, 0);
+              const ELEMENT *command_as_arg_e = k_command_as_arg->k.element;
 
-              for (i = 0; i < e->e.c->contents.number; i++)
+              for (i = 0; i < line_arg->e.c->contents.number; i++)
                 {
-                  if (contents_child_by_index (e, i) == command_as_arg_e)
+                  if (contents_child_by_index (line_arg, i) == command_as_arg_e)
                     {
                       i++;
                       break;
                     }
                 }
-              for (; i < e->e.c->contents.number; i++)
+              for (; i < line_arg->e.c->contents.number; i++)
                 {
                   int not_command_as_arg = 0;
-                  ELEMENT *f = contents_child_by_index (e, i);
+                  ELEMENT *f = contents_child_by_index (line_arg, i);
                   if (f->type == ET_normal_text)
                     {
                       if (f->e.text->end > 0
@@ -1053,36 +1058,30 @@ end_line_starting_block (ELEMENT *current)
         }
       /* if no command_as_argument given, default to @bullet for
          @itemize, and @asis for @table. */
-      if (command == CM_itemize
-          && (current->e.c->args.number == 0
-              || current->e.c->args.list[0]->e.c->contents.number == 0))
+      if (command == CM_itemize)
         {
-          ELEMENT *e;
-          ELEMENT *block_line_arg;
-          if (last_args_child (current)
-              && last_args_child (current)->type == ET_block_line_arg)
-            {
-              block_line_arg = last_args_child (current);
-            }
-          else
-            {
-              block_line_arg = new_element (ET_block_line_arg);
-              insert_into_args (current, block_line_arg, 0);
-            }
+          const ELEMENT *argument = current->e.c->contents.list[0];
+          ELEMENT *block_line_arg = argument->e.c->contents.list[0];
 
-          e = new_command_element (ET_brace_noarg_command, CM_bullet);
-          e->flags |= EF_inserted;
-          insert_into_contents (block_line_arg, e, 0);
-          add_extra_element (current, AI_key_command_as_argument, e);
+          if (block_line_arg->e.c->contents.number == 0)
+            {
+              ELEMENT *e
+                = new_command_element (ET_brace_noarg_command, CM_bullet);
+              e->flags |= EF_inserted;
+              insert_into_contents (block_line_arg, e, 0);
+              add_extra_element (current, AI_key_command_as_argument, e);
+            }
         }
       else if (command_data(command).data == BLOCK_item_line
                && !lookup_extra_element (current, AI_key_command_as_argument))
         {
+          const ELEMENT *argument = current->e.c->contents.list[0];
+          ELEMENT *block_line_arg = argument->e.c->contents.list[0];
           ELEMENT *e;
 
           e = new_command_element (ET_brace_command, CM_asis);
           e->flags |= EF_inserted;
-          insert_into_args (current, e, 0);
+          insert_into_contents (block_line_arg, e, 0);
           add_extra_element (current, AI_key_command_as_argument, e);
         }
 
@@ -1787,13 +1786,15 @@ end_line_misc_line (ELEMENT *current)
   else if (cmd == CM_columnfractions)
     {
       /* Check if in multitable. */
-      if (!current->parent || current->parent->e.c->cmd != CM_multitable)
+      if (!current->parent || !current->parent->parent
+          || current->parent->parent->e.c->cmd != CM_multitable)
         {
           line_error ("@columnfractions only meaningful on a @multitable line");
         }
       else
         {
-          add_extra_element (current->parent, AI_key_columnfractions, misc_cmd);
+          add_extra_element (current->parent->parent,
+                             AI_key_columnfractions, misc_cmd);
         }
     }
   else if (command_data(data_cmd).flags & CF_root)

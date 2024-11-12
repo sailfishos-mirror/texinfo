@@ -34,27 +34,30 @@ $result_trees{'formats_not_closed_in_example'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'table',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'cmdname' => 'asis',
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
+                      'contents' => [
+                        {
+                          'cmdname' => 'asis',
+                          'source_info' => {
+                            'line_nr' => 3
+                          }
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'table',
-              'contents' => [
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -110,19 +113,22 @@ $result_trees{'formats_not_closed_in_example'} = {
                           'type' => 'preformatted'
                         },
                         {
-                          'args' => [
-                            {
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
                           'cmdname' => 'enumerate',
                           'contents' => [
+                            {
+                              'contents' => [
+                                {
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'block_line_arg'
+                                }
+                              ],
+                              'type' => 'argument'
+                            },
                             {
                               'contents' => [
                                 {
@@ -259,7 +265,7 @@ $result_trees{'formats_not_closed_in_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'formats_not_closed_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'formats_not_closed_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'formats_not_closed_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'formats_not_closed_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'formats_not_closed_in_example'} = '@example
 

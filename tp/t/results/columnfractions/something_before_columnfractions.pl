@@ -10,51 +10,54 @@ $result_trees{'something_before_columnfractions'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'aaa '
-                },
-                {
-                  'args' => [
+                  'contents' => [
                     {
-                      'contents' => [
+                      'text' => 'aaa '
+                    },
+                    {
+                      'args' => [
                         {
-                          'text' => '0.3 0.7'
+                          'contents' => [
+                            {
+                              'text' => '0.3 0.7'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
                         }
                       ],
+                      'cmdname' => 'columnfractions',
+                      'extra' => {
+                        'misc_args' => [
+                          '0.3',
+                          '0.7'
+                        ]
+                      },
                       'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
+                        'spaces_before_argument' => {
+                          'text' => ' '
                         }
                       },
-                      'type' => 'line_arg'
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
                     }
                   ],
-                  'cmdname' => 'columnfractions',
-                  'extra' => {
-                    'misc_args' => [
-                      '0.3',
-                      '0.7'
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -99,7 +102,7 @@ $result_trees{'something_before_columnfractions'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
+$result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 
 $result_texis{'something_before_columnfractions'} = '@multitable aaa @columnfractions 0.3 0.7
 @end multitable';

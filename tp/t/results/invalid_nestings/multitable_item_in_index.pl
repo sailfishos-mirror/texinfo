@@ -10,46 +10,49 @@ $result_trees{'multitable_item_in_index'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'aaa'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'contents' => [
+                      'contents' => [
+                        {
+                          'text' => 'aaa'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
-                      'text' => 'bbb'
+                      'text' => ' '
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'bbb'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      },
+                      'type' => 'bracketed_arg'
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 1
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
                   },
-                  'type' => 'bracketed_arg'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

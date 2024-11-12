@@ -136,264 +136,267 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'simple'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 2,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        },
-                        {
-                          'counter' => 1,
-                          'position' => 4,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'h ab i'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 9
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'simple'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 2,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        },
-                        {
-                          'counter' => 2,
-                          'position' => 4,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'j ab'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 9
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'k '
-                    },
-                    {
-                      'cmdname' => 'emph',
                       'contents' => [
                         {
-                          'contents' => [
+                          'source_marks' => [
                             {
-                              'text' => 's'
+                              'counter' => 1,
+                              'element' => {
+                                'contents' => [
+                                  {
+                                    'type' => 'brace_arg'
+                                  }
+                                ],
+                                'info' => {
+                                  'command_name' => 'simple'
+                                },
+                                'type' => 'macro_call'
+                              },
+                              'position' => 2,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'start'
+                            },
+                            {
+                              'counter' => 1,
+                              'position' => 4,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'end'
                             }
                           ],
-                          'type' => 'brace_container'
+                          'text' => 'h ab i'
                         }
                       ],
                       'source_info' => {
                         'line_nr' => 9
-                      }
+                      },
+                      'type' => 'bracketed_arg'
                     },
                     {
-                      'source_marks' => [
+                      'text' => ' '
+                    },
+                    {
+                      'contents' => [
                         {
-                          'counter' => 3,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'simple'
+                          'source_marks' => [
+                            {
+                              'counter' => 2,
+                              'element' => {
+                                'contents' => [
+                                  {
+                                    'type' => 'brace_arg'
+                                  }
+                                ],
+                                'info' => {
+                                  'command_name' => 'simple'
+                                },
+                                'type' => 'macro_call'
+                              },
+                              'position' => 2,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'start'
                             },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
+                            {
+                              'counter' => 2,
+                              'position' => 4,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
+                          'text' => 'j ab'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 9
+                      },
+                      'type' => 'bracketed_arg'
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'k '
                         },
                         {
-                          'counter' => 3,
-                          'position' => 3,
+                          'cmdname' => 'emph',
+                          'contents' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 's'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 9
+                          }
+                        },
+                        {
+                          'source_marks' => [
+                            {
+                              'counter' => 3,
+                              'element' => {
+                                'contents' => [
+                                  {
+                                    'type' => 'brace_arg'
+                                  }
+                                ],
+                                'info' => {
+                                  'command_name' => 'simple'
+                                },
+                                'type' => 'macro_call'
+                              },
+                              'position' => 1,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'start'
+                            },
+                            {
+                              'counter' => 3,
+                              'position' => 3,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
+                          'text' => 'nab'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 9
+                      },
+                      'type' => 'bracketed_arg'
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'source_marks' => [
+                            {
+                              'counter' => 4,
+                              'element' => {
+                                'contents' => [
+                                  {
+                                    'contents' => [
+                                      {
+                                        'text' => '@code{l}'
+                                      }
+                                    ],
+                                    'type' => 'brace_arg'
+                                  }
+                                ],
+                                'info' => {
+                                  'command_name' => 'endbrace'
+                                },
+                                'type' => 'macro_call'
+                              },
+                              'position' => 2,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'start'
+                            }
+                          ],
+                          'text' => 'g c'
+                        },
+                        {
+                          'cmdname' => 'code',
+                          'contents' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'l'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 9,
+                            'macro' => 'endbrace'
+                          }
+                        },
+                        {
+                          'text' => 'd'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 9
+                      },
+                      'source_marks' => [
+                        {
+                          'counter' => 4,
                           'sourcemark_type' => 'macro_expansion',
                           'status' => 'end'
                         }
                       ],
-                      'text' => 'nab'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 9
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 4,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => '@code{l}'
-                                  }
-                                ],
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'endbrace'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 2,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'g c'
+                      'type' => 'bracketed_arg'
                     },
                     {
-                      'cmdname' => 'code',
+                      'text' => ' '
+                    },
+                    {
                       'contents' => [
                         {
-                          'contents' => [
+                          'source_marks' => [
                             {
-                              'text' => 'l'
+                              'counter' => 5,
+                              'element' => {
+                                'contents' => [
+                                  {
+                                    'contents' => [
+                                      {
+                                        'text' => 'T'
+                                      }
+                                    ],
+                                    'type' => 'brace_arg'
+                                  }
+                                ],
+                                'info' => {
+                                  'command_name' => 'endbrace'
+                                },
+                                'type' => 'macro_call'
+                              },
+                              'position' => 2,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'start'
                             }
                           ],
-                          'type' => 'brace_container'
+                          'text' => 'h cTd'
                         }
                       ],
                       'source_info' => {
-                        'line_nr' => 9,
-                        'macro' => 'endbrace'
-                      }
-                    },
-                    {
-                      'text' => 'd'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 9
-                  },
-                  'source_marks' => [
-                    {
-                      'counter' => 4,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'contents' => [
-                    {
+                        'line_nr' => 9
+                      },
                       'source_marks' => [
                         {
                           'counter' => 5,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'T'
-                                  }
-                                ],
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'endbrace'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 2,
                           'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
+                          'status' => 'end'
                         }
                       ],
-                      'text' => 'h cTd'
+                      'type' => 'bracketed_arg'
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 9
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
                   },
-                  'source_marks' => [
-                    {
-                      'counter' => 5,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'type' => 'bracketed_arg'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

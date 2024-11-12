@@ -10,22 +10,27 @@ $result_trees{'section_on_enumerate_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'enumerate',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'something'
+                  'contents' => [
+                    {
+                      'text' => 'something'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
+              'type' => 'argument'
             }
           ],
-          'cmdname' => 'enumerate',
           'extra' => {
             'enumerate_specification' => '1'
           },
@@ -66,22 +71,27 @@ $result_trees{'section_on_enumerate_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'enumerate',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => '4'
+                  'contents' => [
+                    {
+                      'text' => '4'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
+              'type' => 'argument'
             }
           ],
-          'cmdname' => 'enumerate',
           'extra' => {
             'enumerate_specification' => '4'
           },

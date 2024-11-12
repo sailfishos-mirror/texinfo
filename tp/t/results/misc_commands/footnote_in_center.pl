@@ -54,27 +54,30 @@ $result_trees{'footnote_in_center'} = {
                           'cmdname' => 'example',
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'table',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'cmdname' => 'asis',
-                                      'source_info' => {
-                                        'line_nr' => 5
-                                      }
+                                      'contents' => [
+                                        {
+                                          'cmdname' => 'asis',
+                                          'source_info' => {
+                                            'line_nr' => 5
+                                          }
+                                        }
+                                      ],
+                                      'info' => {
+                                        'spaces_after_argument' => {
+                                          'text' => '
+'
+                                        }
+                                      },
+                                      'type' => 'block_line_arg'
                                     }
                                   ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'block_line_arg'
-                                }
-                              ],
-                              'cmdname' => 'table',
-                              'contents' => [
+                                  'type' => 'argument'
+                                },
                                 {
                                   'contents' => [
                                     {
@@ -242,7 +245,7 @@ $result_trees{'footnote_in_center'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'footnote_in_center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'footnote_in_center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'footnote_in_center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'footnote_in_center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'footnote_in_center'} = '@center Centered text with a footnote@footnote{This footnote
 shows an important feature of the centered text.

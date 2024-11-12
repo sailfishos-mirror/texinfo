@@ -10,24 +10,27 @@ $result_trees{'enumerate_argument'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'enumerate',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => '1'
+                  'contents' => [
+                    {
+                      'text' => '1'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'enumerate',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -77,30 +80,33 @@ $result_trees{'enumerate_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'enumerate',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'A'
-                }
-              ],
-              'info' => {
-                'comment_at_end' => {
-                  'args' => [
+                  'contents' => [
                     {
-                      'text' => ' comment
-',
-                      'type' => 'rawline_arg'
+                      'text' => 'A'
                     }
                   ],
-                  'cmdname' => 'c'
+                  'info' => {
+                    'comment_at_end' => {
+                      'args' => [
+                        {
+                          'text' => ' comment
+',
+                          'type' => 'rawline_arg'
+                        }
+                      ],
+                      'cmdname' => 'c'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'enumerate',
-          'contents' => [
+              ],
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -150,33 +156,36 @@ $result_trees{'enumerate_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'enumerate',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'z'
-                }
-              ],
-              'info' => {
-                'comment_at_end' => {
-                  'args' => [
+                  'contents' => [
                     {
-                      'text' => ' comment
-',
-                      'type' => 'rawline_arg'
+                      'text' => 'z'
                     }
                   ],
-                  'cmdname' => 'c'
-                },
-                'spaces_after_argument' => {
-                  'text' => ' '
+                  'info' => {
+                    'comment_at_end' => {
+                      'args' => [
+                        {
+                          'text' => ' comment
+',
+                          'type' => 'rawline_arg'
+                        }
+                      ],
+                      'cmdname' => 'c'
+                    },
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'enumerate',
-          'contents' => [
+              ],
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -226,24 +235,27 @@ $result_trees{'enumerate_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'enumerate',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => '0'
+                  'contents' => [
+                    {
+                      'text' => '0'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'enumerate',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

@@ -10,24 +10,27 @@ $result_trees{'itemize_and_empty_lines'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'youhou'
+                  'contents' => [
+                    {
+                      'text' => 'youhou'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -432,27 +435,30 @@ $result_trees{'itemize_and_empty_lines'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'bullet',
+                  'contents' => [
+                    {
+                      'cmdname' => 'bullet',
+                      'info' => {
+                        'inserted' => 1
+                      }
+                    }
+                  ],
                   'info' => {
-                    'inserted' => 1
-                  }
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -880,27 +886,30 @@ $result_trees{'itemize_and_empty_lines'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'minus',
-                  'source_info' => {
-                    'line_nr' => 57
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'minus',
+                      'source_info' => {
+                        'line_nr' => 57
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -1001,27 +1010,30 @@ $result_trees{'itemize_and_empty_lines'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'minus',
-                  'source_info' => {
-                    'line_nr' => 65
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'minus',
+                      'source_info' => {
+                        'line_nr' => 65
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -1043,27 +1055,30 @@ $result_trees{'itemize_and_empty_lines'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'itemize',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'cmdname' => 'bullet',
-                          'source_info' => {
-                            'line_nr' => 68
-                          }
+                          'contents' => [
+                            {
+                              'cmdname' => 'bullet',
+                              'source_info' => {
+                                'line_nr' => 68
+                              }
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
                         }
                       ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'cmdname' => 'itemize',
-                  'contents' => [
+                      'type' => 'argument'
+                    },
                     {
                       'cmdname' => 'item',
                       'contents' => [
@@ -1206,27 +1221,30 @@ $result_trees{'itemize_and_empty_lines'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'bullet',
-                  'source_info' => {
-                    'line_nr' => 75
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'bullet',
+                      'source_info' => {
+                        'line_nr' => 75
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [
@@ -1352,11 +1370,11 @@ $result_trees{'itemize_and_empty_lines'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[10]{'extra'}{'command_as_argument'} = $result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[13]{'extra'}{'command_as_argument'} = $result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0];
+$result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[10]{'extra'}{'command_as_argument'} = $result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[13]{'extra'}{'command_as_argument'} = $result_trees{'itemize_and_empty_lines'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'itemize_and_empty_lines'} = '@itemize youhou
 @item first item

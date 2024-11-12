@@ -292,17 +292,17 @@ close_command_cleanup (ELEMENT *current)
       || current->e.c->cmd == CM_ftable
       || current->e.c->cmd == CM_vtable)
     {
-      if (current->e.c->contents.number > 0)
-        gather_previous_item (current, 0);
+      if (current->e.c->contents.number > 1)
+        gather_previous_item (current, CM_NONE);
     }
 
   /* Block commands that contain @item's - e.g. @multitable, @table,
      @itemize. */
   if (command_data(current->e.c->cmd).flags & CF_blockitem
-      && current->e.c->contents.number > 0
-      && current->e.c->contents.list[0]->type == ET_before_item)
+      && current->e.c->contents.number > 1
+      && current->e.c->contents.list[1]->type == ET_before_item)
     {
-      ELEMENT *before_item = current->e.c->contents.list[0];
+      const ELEMENT *before_item = current->e.c->contents.list[1];
 
       /* If the ET_before_item is empty, remove it.  Note that the
          some before_item content could also have been reparented in
@@ -310,7 +310,7 @@ close_command_cleanup (ELEMENT *current)
       if (is_container_empty (before_item)
           && !before_item->source_mark_list)
         {
-          ELEMENT *removed = remove_from_contents (current, 0);
+          ELEMENT *removed = remove_from_contents (current, 1);
           destroy_element (removed);
         }
       else /* Non-empty ET_before_item */
@@ -318,7 +318,7 @@ close_command_cleanup (ELEMENT *current)
           /* The elements that can appear right in a block item command
              besides before_item are either an @*item or are associated
              with items */
-          if (current->e.c->contents.number == 1)
+          if (current->e.c->contents.number == 2)
             {
        /* no @*item, only before_item.  Warn if before_item is not empty */
               int empty_before_item = 1;

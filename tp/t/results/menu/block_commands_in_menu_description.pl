@@ -122,27 +122,30 @@ $result_trees{'block_commands_in_menu_description'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemize',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'cmdname' => 'bullet',
+                              'contents' => [
+                                {
+                                  'cmdname' => 'bullet',
+                                  'info' => {
+                                    'inserted' => 1
+                                  }
+                                }
+                              ],
                               'info' => {
-                                'inserted' => 1
-                              }
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'block_line_arg'
                             }
                           ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'cmdname' => 'itemize',
-                      'contents' => [
+                          'type' => 'argument'
+                        },
                         {
                           'contents' => [
                             {
@@ -226,27 +229,30 @@ $result_trees{'block_commands_in_menu_description'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'table',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'cmdname' => 'asis',
-                              'source_info' => {
-                                'line_nr' => 11
-                              }
+                              'contents' => [
+                                {
+                                  'cmdname' => 'asis',
+                                  'source_info' => {
+                                    'line_nr' => 11
+                                  }
+                                }
+                              ],
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'block_line_arg'
                             }
                           ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'cmdname' => 'table',
-                      'contents' => [
+                          'type' => 'argument'
+                        },
                         {
                           'contents' => [
                             {
@@ -552,8 +558,8 @@ $result_trees{'block_commands_in_menu_description'} = {
   'type' => 'document_root'
 };
 $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'block_commands_in_menu_description'} = '@node first
 @top top

@@ -155,28 +155,31 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'minus',
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 9
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'minus',
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 9
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -305,28 +308,31 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'bullet',
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 15
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'bullet',
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 15
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -513,27 +519,30 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'itemize',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'bullet',
+                  'contents' => [
+                    {
+                      'cmdname' => 'bullet',
+                      'info' => {
+                        'inserted' => 1
+                      }
+                    }
+                  ],
                   'info' => {
-                    'inserted' => 1
-                  }
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'itemize',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -666,19 +675,22 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'enumerate',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -770,19 +782,22 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'enumerate',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -906,19 +921,22 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'enumerate',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -1037,19 +1055,22 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'enumerate',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -1168,19 +1189,22 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'enumerate',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -1303,19 +1327,22 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'enumerate',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -1513,28 +1540,31 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'vtable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'code',
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 68
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'code',
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 68
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'vtable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -1655,28 +1685,31 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'vtable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'asis',
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 74
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'asis',
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 74
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'vtable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -1837,28 +1870,31 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'ftable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'var',
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 81
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'var',
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 81
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'ftable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -2191,28 +2227,31 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'code',
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 97
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'code',
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 97
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -2363,28 +2402,31 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'code',
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 104
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'code',
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 104
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -2525,28 +2567,31 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'samp',
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 110
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'samp',
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 110
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -2697,28 +2742,31 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'samp',
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 117
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'samp',
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 117
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -2859,28 +2907,31 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'samp',
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 123
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'samp',
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 123
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -3022,28 +3073,31 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'samp',
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 130
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'samp',
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 130
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -3180,28 +3234,31 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'samp',
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 136
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'samp',
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 136
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -3338,28 +3395,31 @@ $result_trees{'indices_in_begin_tables_lists'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'samp',
-                  'source_info' => {
-                    'file_name' => 'indices_in_begin_tables_lists.texi',
-                    'line_nr' => 142
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'samp',
+                      'source_info' => {
+                        'file_name' => 'indices_in_begin_tables_lists.texi',
+                        'line_nr' => 142
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -3781,49 +3841,49 @@ $result_trees{'indices_in_begin_tables_lists'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[19]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[19]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[21]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[21]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[15]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[17]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[17]{'contents'}[1]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[17]{'contents'}[1]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[19]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[19]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[21]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[21]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[21]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[23]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[23]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
 $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[23]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[23]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[23]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[25]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[25]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[25]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[27]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[27]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[27]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[29]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[29]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[29]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[31]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[31]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[31]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[33]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[33]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[33]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[35]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[35]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[35]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[37]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[37]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[37]{'args'}[0]{'contents'}[0];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[39]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[39]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[39]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
-$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[39]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[39]{'args'}[0]{'contents'}[0];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[23]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[23]{'contents'}[2]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[23]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[25]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[25]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[25]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[27]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[27]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[27]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[29]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[29]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[29]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[31]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[31]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[31]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[33]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[33]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[33]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[35]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[35]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[35]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[37]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[37]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[37]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[39]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[39]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[39]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[3];
+$result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[39]{'extra'}{'command_as_argument'} = $result_trees{'indices_in_begin_tables_lists'}{'contents'}[4]{'contents'}[39]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'indices_in_begin_tables_lists'} = '\\input texinfo.tex
 

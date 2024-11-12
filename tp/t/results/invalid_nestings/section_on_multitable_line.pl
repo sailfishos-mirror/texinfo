@@ -10,12 +10,17 @@ $result_trees{'section_on_multitable_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
-              'type' => 'block_line_arg'
+              'contents' => [
+                {
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
             }
           ],
-          'cmdname' => 'multitable',
           'extra' => {
             'max_columns' => 0
           },
@@ -56,35 +61,40 @@ $result_trees{'section_on_multitable_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'code',
                   'contents' => [
                     {
+                      'cmdname' => 'code',
                       'contents' => [
                         {
-                          'text' => 'this'
+                          'contents' => [
+                            {
+                              'text' => 'this'
+                            }
+                          ],
+                          'type' => 'brace_container'
                         }
                       ],
-                      'type' => 'brace_container'
+                      'source_info' => {
+                        'line_nr' => 3
+                      }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 3
-                  }
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
+              'type' => 'argument'
             }
           ],
-          'cmdname' => 'multitable',
           'extra' => {
             'max_columns' => 0
           },
@@ -135,44 +145,49 @@ $result_trees{'section_on_multitable_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'aaa'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 5
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'contents' => [
+                      'contents' => [
+                        {
+                          'text' => 'aaa'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 5
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
-                      'text' => 'bbb'
+                      'text' => ' '
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'bbb'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 5
+                      },
+                      'type' => 'bracketed_arg'
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 5
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
                   },
-                  'type' => 'bracketed_arg'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
+              'type' => 'argument'
             }
           ],
-          'cmdname' => 'multitable',
           'extra' => {
             'max_columns' => 2
           },

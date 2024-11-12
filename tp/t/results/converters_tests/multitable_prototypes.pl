@@ -10,54 +10,85 @@ $result_trees{'multitable_prototypes'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'aa b'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => '  '
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'r '
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 1
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'j '
+                      'contents' => [
+                        {
+                          'text' => 'aa b'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      },
+                      'type' => 'bracketed_arg'
                     },
                     {
-                      'cmdname' => 'code',
+                      'text' => '  '
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'r '
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'source_info' => {
+                        'line_nr' => 1
+                      },
+                      'type' => 'bracketed_arg'
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'j '
+                        },
+                        {
+                          'cmdname' => 'code',
+                          'contents' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'some code'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 1
+                          }
+                        },
+                        {
+                          'text' => ' '
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 1
+                      },
+                      'type' => 'bracketed_arg'
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'cmdname' => 'var',
                       'contents' => [
                         {
                           'contents' => [
                             {
-                              'text' => 'some code'
+                              'text' => 'cmd'
                             }
                           ],
                           'type' => 'brace_container'
@@ -68,48 +99,20 @@ $result_trees{'multitable_prototypes'} = {
                       }
                     },
                     {
-                      'text' => ' '
+                      'text' => 'gg hh j'
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 1
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' 
+'
+                    }
                   },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'var',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'cmd'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => 'gg hh j'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' 
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

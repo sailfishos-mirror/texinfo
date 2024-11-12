@@ -10,49 +10,52 @@ $result_trees{'empty_headitem'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'contents' => [
                     {
-                      'contents' => [
+                      'args' => [
                         {
-                          'text' => '.1 .1 .1'
+                          'contents' => [
+                            {
+                              'text' => '.1 .1 .1'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
                         }
                       ],
+                      'cmdname' => 'columnfractions',
+                      'extra' => {
+                        'misc_args' => [
+                          '.1',
+                          '.1',
+                          '.1'
+                        ]
+                      },
                       'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
+                        'spaces_before_argument' => {
+                          'text' => ' '
                         }
                       },
-                      'type' => 'line_arg'
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
                     }
                   ],
-                  'cmdname' => 'columnfractions',
-                  'extra' => {
-                    'misc_args' => [
-                      '.1',
-                      '.1',
-                      '.1'
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -285,7 +288,7 @@ $result_trees{'empty_headitem'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_headitem'}{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'empty_headitem'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'empty_headitem'}{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'empty_headitem'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'empty_headitem'} = '@multitable @columnfractions .1 .1 .1
 @headitem @tab Index @tab Value

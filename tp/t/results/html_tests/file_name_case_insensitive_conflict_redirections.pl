@@ -106,27 +106,30 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'samp',
-                  'source_info' => {
-                    'line_nr' => 6
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'samp',
+                      'source_info' => {
+                        'line_nr' => 6
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -472,7 +475,7 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'file_name_case_insensitive_conflict_redirections'}{'contents'}[3]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 

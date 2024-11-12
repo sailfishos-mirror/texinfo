@@ -101,27 +101,30 @@ $result_trees{'preformatted'} = {
           'cmdname' => 'format',
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'vtable',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'cmdname' => 'code',
-                      'source_info' => {
-                        'line_nr' => 9
-                      }
+                      'contents' => [
+                        {
+                          'cmdname' => 'code',
+                          'source_info' => {
+                            'line_nr' => 9
+                          }
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'vtable',
-              'contents' => [
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -268,7 +271,7 @@ $result_trees{'preformatted'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'preformatted'} = '
 @example

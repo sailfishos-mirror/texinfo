@@ -936,9 +936,9 @@ Decomposition of the time used for the Texinfo manual with full XS
 SUM: 98
 
 
-find Texinfo  -type f -regex '\.pm' -list
-find Texinfo  -type f -name '*.pm' -execdir perl -wpli -e 's/^#no autovivification qw\(fetch delete exists store strict\);/no autovivification qw\(fetch delete exists store strict\);/' '{}' ';'
-find Texinfo  -type f -name '*.pm' -execdir perl -wpli -e 's/^no autovivification qw\(fetch delete exists store strict\);/#no autovivification qw\(fetch delete exists store strict\);/' '{}' ';'
+find tp/Texinfo  -type f -regex '\.pm' -list
+find tp/Texinfo  -type f -name '*.pm' -execdir perl -wpli -e 's/^#no autovivification qw\(fetch delete exists store strict\);/no autovivification qw\(fetch delete exists store strict\);/' '{}' ';'
+find tp/Texinfo  -type f -name '*.pm' -execdir perl -wpli -e 's/^no autovivification qw\(fetch delete exists store strict\);/#no autovivification qw\(fetch delete exists store strict\);/' '{}' ';'
 
 
 patch -p1 < build_perl_info_fix_typo.diff

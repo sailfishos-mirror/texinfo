@@ -871,10 +871,11 @@ sub _convert($$;$)
             and !($element->{'parent'}->{'extra'}
                   and $element->{'parent'}->{'extra'}->{'command_as_argument'}
                   and $element->{'parent'}->{'extra'}->{'command_as_argument'}
-                                                      ->{'cmdname'} eq 'bullet')
-            and $element->{'parent'}->{'args'}) {
+                                               ->{'cmdname'} eq 'bullet')) {
+          my $argument = $element->{'parent'}->{'contents'}->[0];
+          my $block_line_arg = $argument->{'contents'}->[0];
           $self->{'pending_prepend'}
-            = _convert($self, $element->{'parent'}->{'args'}->[0]);
+            = _convert($self, $block_line_arg);
           $self->{'pending_prepend'} .= " ";
         }
         push @close_format_elements, 'listitem';
@@ -1647,24 +1648,28 @@ sub _convert($$;$)
           if ($element->{'extra'}->{'columnfractions'}) {
             @fractions = @{$element->{'extra'}->{'columnfractions'}->{'extra'}->{'misc_args'}};
             $multiply = 100;
-          } elsif ($element->{'args'}
-                   and $element->{'args'}->[0]->{'contents'}) {
-            $multiply = 1;
-            foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
-              if ($content->{'type'} and $content->{'type'} eq 'bracketed_arg') {
-                my $prototype_text = '';
-                if ($content->{'contents'}) {
-                  Texinfo::Convert::Text::set_options_encoding_if_not_ascii(
-                                  $self, $self->{'convert_text_options'});
-                  $prototype_text
-                    = Texinfo::Convert::Text::convert_to_text(
-                                     $content,
-                                     $self->{'convert_text_options'});
-                  Texinfo::Convert::Text::reset_options_encoding(
-                                     $self->{'convert_text_options'});
+          } else {
+            my $argument = $element->{'contents'}->[0];
+            my $block_line_arg = $argument->{'contents'}->[0];
+            if ($block_line_arg->{'contents'}) {
+              $multiply = 1;
+              foreach my $content (@{$block_line_arg->{'contents'}}) {
+                if ($content->{'type'}
+                    and $content->{'type'} eq 'bracketed_arg') {
+                  my $prototype_text = '';
+                  if ($content->{'contents'}) {
+                    Texinfo::Convert::Text::set_options_encoding_if_not_ascii(
+                                    $self, $self->{'convert_text_options'});
+                    $prototype_text
+                      = Texinfo::Convert::Text::convert_to_text(
+                                       $content,
+                                       $self->{'convert_text_options'});
+                    Texinfo::Convert::Text::reset_options_encoding(
+                                       $self->{'convert_text_options'});
+                  }
+                  push @fractions,
+                    Texinfo::Convert::Unicode::string_width($prototype_text);
                 }
-                push @fractions,
-                  Texinfo::Convert::Unicode::string_width($prototype_text);
               }
             }
           }

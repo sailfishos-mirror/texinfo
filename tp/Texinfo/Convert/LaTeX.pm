@@ -2395,13 +2395,19 @@ sub _set_environment_options($$$)
       # the result with \hbox{} would probably have been the same,
       # but using an empty label is more consistent with the Texinfo manual
       return {$environment => 'label={}'};
-    } elsif ($element->{'args'} and $element->{'args'}->[0]->{'contents'}) {
+    } else {
+      my $argument = $element->{'contents'}->[0];
+      my $block_line_arg = $argument->{'contents'}->[0];
+      my $label_element = $block_line_arg->{'contents'}->[0];
       # NOTE when @itemize is in a preformatted environment (@example...),
       # we are not in a preformatted type here, such that the conversion
       # does not take into account the preformatted environment.  Ok or best.
-      my $itemize_label = _convert($self, $element->{'args'}->[0]);
-      if ($itemize_label ne '') {
-        return {$environment => 'label='.$itemize_label};
+      if (!$label_element->{'info'}
+          or !$label_element->{'info'}->{'inserted'}) {
+        my $itemize_label = _convert($self, $block_line_arg);
+        if ($itemize_label ne '') {
+          return {$environment => 'label='.$itemize_label};
+        }
       }
     }
   }
@@ -3888,28 +3894,31 @@ sub _convert($$)
         if ($element->{'extra'}->{'columnfractions'}) {
           @fractions
       = @{$element->{'extra'}->{'columnfractions'}->{'extra'}->{'misc_args'}};
-        } elsif ($element->{'args'} and scalar(@{$element->{'args'}})
-                 and $element->{'args'}->[0]->{'contents'}) {
-          my @prototypes_length;
-          my $total_length = 0.;
-          foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
-            if ($content->{'type'} and $content->{'type'} eq 'bracketed_arg') {
-              my $prototype_text = '';
-              if ($content->{'contents'}) {
-                $prototype_text
-                    = Texinfo::Convert::Text::convert_to_text(
-                                 $content,
-                                 $self->{'convert_text_options'});
+        } else {
+          my $argument = $element->{'contents'}->[0];
+          my $block_line_arg = $argument->{'contents'}->[0];
+          if ($block_line_arg->{'contents'}) {
+            my @prototypes_length;
+            my $total_length = 0.;
+            foreach my $content (@{$block_line_arg->{'contents'}}) {
+              if ($content->{'type'} and $content->{'type'} eq 'bracketed_arg') {
+                my $prototype_text = '';
+                if ($content->{'contents'}) {
+                  $prototype_text
+                      = Texinfo::Convert::Text::convert_to_text(
+                                   $content,
+                                   $self->{'convert_text_options'});
+                }
+                my $length
+                   = Texinfo::Convert::Unicode::string_width($prototype_text);
+                $total_length += $length;
+                push @prototypes_length, $length;
               }
-              my $length
-                 = Texinfo::Convert::Unicode::string_width($prototype_text);
-              $total_length += $length;
-              push @prototypes_length, $length;
             }
-          }
-          if ($total_length > 0.) {
-            foreach my $length (@prototypes_length) {
-              push @fractions, $length / $total_length;
+            if ($total_length > 0.) {
+              foreach my $length (@prototypes_length) {
+                push @fractions, $length / $total_length;
+              }
             }
           }
         }

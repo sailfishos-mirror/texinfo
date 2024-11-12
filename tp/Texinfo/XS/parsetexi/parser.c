@@ -1155,8 +1155,9 @@ int
 parent_of_command_as_argument (ELEMENT *current)
 {
   return current->type == ET_block_line_arg
-    && (current->parent->e.c->cmd == CM_itemize
-        || command_data(current->parent->e.c->cmd).data == BLOCK_item_line)
+    && current->parent->parent
+    && (current->parent->parent->e.c->cmd == CM_itemize
+        || command_data(current->parent->parent->e.c->cmd).data == BLOCK_item_line)
     && (current->e.c->contents.number == 1);
 }
 
@@ -1164,14 +1165,15 @@ parent_of_command_as_argument (ELEMENT *current)
 void
 register_command_as_argument (ELEMENT *cmd_as_arg)
 {
+  ELEMENT *command_element = cmd_as_arg->parent->parent->parent;
   debug ("FOR PARENT @%s command_as_argument %s",
-         command_name(cmd_as_arg->parent->parent->e.c->cmd),
+         command_name(command_element->e.c->cmd),
          command_name(cmd_as_arg->e.c->cmd));
-  add_extra_element (cmd_as_arg->parent->parent,
+  add_extra_element (command_element,
                      AI_key_command_as_argument, cmd_as_arg);
   if (cmd_as_arg->e.c->cmd == CM_kbd
-      && kbd_formatted_as_code (cmd_as_arg->parent->parent)) {
-    cmd_as_arg->parent->parent->flags |= EF_command_as_argument_kbd_code;
+      && kbd_formatted_as_code (command_element)) {
+    command_element->flags |= EF_command_as_argument_kbd_code;
   }
 }
 

@@ -450,34 +450,37 @@ $result_trees{'index_table'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'cmdname' => 'asis',
-              'info' => {
-                'inserted' => 1
-              }
-            },
+          'cmdname' => 'vtable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'bullet',
-                  'source_info' => {
-                    'file_name' => 'index_table.texi',
-                    'line_nr' => 21
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'asis',
+                      'info' => {
+                        'inserted' => 1
+                      }
+                    },
+                    {
+                      'cmdname' => 'bullet',
+                      'source_info' => {
+                        'file_name' => 'index_table.texi',
+                        'line_nr' => 21
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'vtable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -632,34 +635,37 @@ $result_trees{'index_table'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
-            {
-              'cmdname' => 'asis',
-              'info' => {
-                'inserted' => 1
-              }
-            },
+          'cmdname' => 'ftable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'bullet',
-                  'source_info' => {
-                    'file_name' => 'index_table.texi',
-                    'line_nr' => 28
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'asis',
+                      'info' => {
+                        'inserted' => 1
+                      }
+                    },
+                    {
+                      'cmdname' => 'bullet',
+                      'source_info' => {
+                        'file_name' => 'index_table.texi',
+                        'line_nr' => 28
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'ftable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -6141,13 +6147,13 @@ $result_trees{'index_table'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'conte
 $result_trees{'index_table'}{'contents'}[2]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'index_table'}{'contents'}[2]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'index_table'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_table'}{'contents'}[3];
 $result_trees{'index_table'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_table'}{'contents'}[3];
-$result_trees{'index_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_table'}{'contents'}[3];
-$result_trees{'index_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_table'}{'contents'}[3];
-$result_trees{'index_table'}{'contents'}[4]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'index_table'}{'contents'}[4]{'contents'}[7]{'args'}[0];
-$result_trees{'index_table'}{'contents'}[4]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_table'}{'contents'}[3];
-$result_trees{'index_table'}{'contents'}[4]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_table'}{'contents'}[3];
+$result_trees{'index_table'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_table'}{'contents'}[3];
+$result_trees{'index_table'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_table'}{'contents'}[3];
+$result_trees{'index_table'}{'contents'}[4]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'index_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'index_table'}{'contents'}[4]{'contents'}[10]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_table'}{'contents'}[3];
-$result_trees{'index_table'}{'contents'}[4]{'contents'}[10]{'extra'}{'command_as_argument'} = $result_trees{'index_table'}{'contents'}[4]{'contents'}[10]{'args'}[0];
+$result_trees{'index_table'}{'contents'}[4]{'contents'}[10]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_table'}{'contents'}[3];
+$result_trees{'index_table'}{'contents'}[4]{'contents'}[10]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_table'}{'contents'}[3];
+$result_trees{'index_table'}{'contents'}[4]{'contents'}[10]{'extra'}{'command_as_argument'} = $result_trees{'index_table'}{'contents'}[4]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'index_table'}{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'index_table'}{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'index_table'}{'contents'}[8]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_table'}{'contents'}[7];
 $result_trees{'index_table'}{'contents'}[8]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'index_table'}{'contents'}[7];

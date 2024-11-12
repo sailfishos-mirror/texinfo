@@ -24,27 +24,30 @@ $result_trees{'itemize_in_headitem_in_example'} = {
           'cmdname' => 'example',
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'itemize',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'cmdname' => 'bullet',
+                      'contents' => [
+                        {
+                          'cmdname' => 'bullet',
+                          'info' => {
+                            'inserted' => 1
+                          }
+                        }
+                      ],
                       'info' => {
-                        'inserted' => 1
-                      }
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'itemize',
-              'contents' => [
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -112,27 +115,30 @@ $result_trees{'itemize_in_headitem_in_example'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'itemize',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'cmdname' => 'bullet',
+                      'contents' => [
+                        {
+                          'cmdname' => 'bullet',
+                          'info' => {
+                            'inserted' => 1
+                          }
+                        }
+                      ],
                       'info' => {
-                        'inserted' => 1
-                      }
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'itemize',
-              'contents' => [
+                  'type' => 'argument'
+                },
                 {
                   'cmdname' => 'item',
                   'contents' => [
@@ -219,27 +225,30 @@ $result_trees{'itemize_in_headitem_in_example'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'itemize',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'cmdname' => 'bullet',
+                      'contents' => [
+                        {
+                          'cmdname' => 'bullet',
+                          'info' => {
+                            'inserted' => 1
+                          }
+                        }
+                      ],
                       'info' => {
-                        'inserted' => 1
-                      }
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'itemize',
-              'contents' => [
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -331,27 +340,30 @@ $result_trees{'itemize_in_headitem_in_example'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'itemize',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'cmdname' => 'bullet',
+                      'contents' => [
+                        {
+                          'cmdname' => 'bullet',
+                          'info' => {
+                            'inserted' => 1
+                          }
+                        }
+                      ],
                       'info' => {
-                        'inserted' => 1
-                      }
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'itemize',
-              'contents' => [
+                  'type' => 'argument'
+                },
                 {
                   'cmdname' => 'item',
                   'contents' => [
@@ -502,10 +514,10 @@ $result_trees{'itemize_in_headitem_in_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0];
-$result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'extra'}{'command_as_argument'} = $result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0];
+$result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'extra'}{'command_as_argument'} = $result_trees{'itemize_in_headitem_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'itemize_in_headitem_in_example'} = '@example
 @itemize

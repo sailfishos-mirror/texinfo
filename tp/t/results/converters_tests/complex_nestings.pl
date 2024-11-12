@@ -818,27 +818,30 @@ $result_trees{'complex_nestings'} = {
                                       'type' => 'preformatted'
                                     },
                                     {
-                                      'args' => [
+                                      'cmdname' => 'table',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
-                                              'cmdname' => 'asis',
-                                              'source_info' => {
-                                                'line_nr' => 18
-                                              }
+                                              'contents' => [
+                                                {
+                                                  'cmdname' => 'asis',
+                                                  'source_info' => {
+                                                    'line_nr' => 18
+                                                  }
+                                                }
+                                              ],
+                                              'info' => {
+                                                'spaces_after_argument' => {
+                                                  'text' => '
+'
+                                                }
+                                              },
+                                              'type' => 'block_line_arg'
                                             }
                                           ],
-                                          'info' => {
-                                            'spaces_after_argument' => {
-                                              'text' => '
-'
-                                            }
-                                          },
-                                          'type' => 'block_line_arg'
-                                        }
-                                      ],
-                                      'cmdname' => 'table',
-                                      'contents' => [
+                                          'type' => 'argument'
+                                        },
                                         {
                                           'contents' => [
                                             {
@@ -1188,7 +1191,7 @@ $result_trees{'complex_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'
 $result_trees{'complex_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'complex_nestings'}{'contents'}[3];
 $result_trees{'complex_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'complex_nestings'}{'contents'}[3];
 $result_trees{'complex_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'complex_nestings'}{'contents'}[3];
-$result_trees{'complex_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'complex_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'complex_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'complex_nestings'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'complex_nestings'} = '@node Top
 @top top

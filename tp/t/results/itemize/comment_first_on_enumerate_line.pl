@@ -10,25 +10,28 @@ $result_trees{'comment_first_on_enumerate_line'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'info' => {
-                'comment_at_end' => {
-                  'args' => [
-                    {
-                      'text' => ' comment on enumerate line
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ],
-                  'cmdname' => 'c'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'enumerate',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'comment_at_end' => {
+                      'args' => [
+                        {
+                          'text' => ' comment on enumerate line
+',
+                          'type' => 'rawline_arg'
+                        }
+                      ],
+                      'cmdname' => 'c'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'item',
               'contents' => [

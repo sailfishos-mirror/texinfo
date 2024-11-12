@@ -10,55 +10,58 @@ $result_trees{'wrong_command'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'contents' => [
                     {
-                      'contents' => [
+                      'args' => [
                         {
-                          'cmdname' => 'b',
                           'contents' => [
                             {
+                              'cmdname' => 'b',
                               'contents' => [
                                 {
-                                  'text' => '3.4'
+                                  'contents' => [
+                                    {
+                                      'text' => '3.4'
+                                    }
+                                  ],
+                                  'type' => 'brace_container'
                                 }
                               ],
-                              'type' => 'brace_container'
+                              'source_info' => {
+                                'line_nr' => 1
+                              }
                             }
                           ],
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' 
+'
+                            }
+                          },
+                          'type' => 'line_arg'
                         }
                       ],
+                      'cmdname' => 'columnfractions',
                       'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' 
-'
+                        'spaces_before_argument' => {
+                          'text' => ' '
                         }
                       },
-                      'type' => 'line_arg'
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
                     }
                   ],
-                  'cmdname' => 'columnfractions',
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

@@ -3475,18 +3475,21 @@ sub _convert($$)
                    int($fraction
                        * $self->{'text_element_context'}->[-1]->{'max'} +0.5);
           }
-        } elsif ($element->{'args'}
-                 and $element->{'args'}->[0]->{'contents'}) {
-          foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
-            if ($content->{'type'} and $content->{'type'} eq 'bracketed_arg') {
-              my $column_size = 0;
-              if ($content->{'contents'}) {
-                my ($formatted_prototype, $width)
-                    = $self->convert_line_new_context
-                        ($content, {'indent_length' => 0});
-                $column_size = $width;
+        } else {
+          my $argument = $element->{'contents'}->[0];
+          my $block_line_arg = $argument->{'contents'}->[0];
+          if ($block_line_arg->{'contents'}) {
+            foreach my $content (@{$block_line_arg->{'contents'}}) {
+              if ($content->{'type'} and $content->{'type'} eq 'bracketed_arg') {
+                my $column_size = 0;
+                if ($content->{'contents'}) {
+                  my ($formatted_prototype, $width)
+                      = $self->convert_line_new_context
+                          ($content, {'indent_length' => 0});
+                  $column_size = $width;
+                }
+                push @$columnsize, 2+$column_size;
               }
-              push @$columnsize, 2+$column_size;
             }
           }
         }
@@ -3589,9 +3592,11 @@ sub _convert($$)
                  $element->{'parent'}->{'extra'}->{'enumerate_specification'},
                  $element->{'extra'}->{'item_number'}) . '. '),
             $line->{'container'});
-      } elsif ($element->{'parent'}->{'args'}) {
+      } else {
+        my $argument = $element->{'parent'}->{'contents'}->[0];
+        my $block_line_args = $argument->{'contents'}->[0];
         # this is the text prepended to items.
-        _convert($self, $element->{'parent'}->{'args'}->[0]);
+        _convert($self, $block_line_args);
         _convert($self, { 'text' => ' ' });
       }
       _stream_output($self,

@@ -8747,8 +8747,10 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
 
   if (!selector_style && self->conf->NO_CSS.o.integer <= 0)
     {
+      const ELEMENT *argument = element->e.c->contents.list[0];
+      const ELEMENT *block_line_arg = argument->e.c->contents.list[0];
       char *css_string
-        = html_convert_css_string_for_list_mark (self, element->e.c->args.list[0],
+        = html_convert_css_string_for_list_mark (self, block_line_arg,
                                                  "itemize arg");
       if (css_string && strlen (css_string))
         {

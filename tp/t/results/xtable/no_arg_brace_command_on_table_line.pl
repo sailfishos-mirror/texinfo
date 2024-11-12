@@ -10,33 +10,36 @@ $result_trees{'no_arg_brace_command_on_table_line'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'cmdname' => 'asis',
-              'info' => {
-                'inserted' => 1
-              }
-            },
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'bullet',
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'asis',
+                      'info' => {
+                        'inserted' => 1
+                      }
+                    },
+                    {
+                      'cmdname' => 'bullet',
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -123,7 +126,7 @@ $result_trees{'no_arg_brace_command_on_table_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'no_arg_brace_command_on_table_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'no_arg_brace_command_on_table_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'no_arg_brace_command_on_table_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'no_arg_brace_command_on_table_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'no_arg_brace_command_on_table_line'} = '@table @bullet
 @item item

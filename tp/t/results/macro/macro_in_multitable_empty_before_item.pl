@@ -66,49 +66,52 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'contents' => [
                     {
-                      'contents' => [
+                      'args' => [
                         {
-                          'text' => '0.4 .6 5.'
+                          'contents' => [
+                            {
+                              'text' => '0.4 .6 5.'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'line_arg'
                         }
                       ],
+                      'cmdname' => 'columnfractions',
+                      'extra' => {
+                        'misc_args' => [
+                          '0.4',
+                          '.6',
+                          '5.'
+                        ]
+                      },
                       'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
+                        'spaces_before_argument' => {
+                          'text' => ' '
                         }
                       },
-                      'type' => 'line_arg'
+                      'source_info' => {
+                        'line_nr' => 4
+                      }
                     }
                   ],
-                  'cmdname' => 'columnfractions',
-                  'extra' => {
-                    'misc_args' => [
-                      '0.4',
-                      '.6',
-                      '5.'
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 4
-                  }
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -250,7 +253,7 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_in_multitable_empty_before_item'}{'contents'}[0]{'contents'}[2]{'extra'}{'columnfractions'} = $result_trees{'macro_in_multitable_empty_before_item'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'macro_in_multitable_empty_before_item'}{'contents'}[0]{'contents'}[2]{'extra'}{'columnfractions'} = $result_trees{'macro_in_multitable_empty_before_item'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'macro_in_multitable_empty_before_item'} = '@macro emptymacro
 @end macro

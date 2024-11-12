@@ -448,27 +448,30 @@ $result_trees{'center'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'asis',
-                  'source_info' => {
-                    'line_nr' => 21
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'asis',
+                      'source_info' => {
+                        'line_nr' => 21
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -557,27 +560,30 @@ $result_trees{'center'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'emph',
-                  'source_info' => {
-                    'line_nr' => 25
-                  }
+                  'contents' => [
+                    {
+                      'cmdname' => 'emph',
+                      'source_info' => {
+                        'line_nr' => 25
+                      }
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -896,46 +902,49 @@ $result_trees{'center'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'AAA'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 39
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => '  '
-                },
-                {
-                  'contents' => [
+                      'contents' => [
+                        {
+                          'text' => 'AAA'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 39
+                      },
+                      'type' => 'bracketed_arg'
+                    },
                     {
-                      'text' => 'BBB'
+                      'text' => '  '
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'BBB'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 39
+                      },
+                      'type' => 'bracketed_arg'
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 39
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
                   },
-                  'type' => 'bracketed_arg'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -1121,26 +1130,31 @@ $result_trees{'center'} = {
                   'text' => 'before the table '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'table',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'cmdname' => 'asis',
-                          'source_info' => {
-                            'line_nr' => 45
-                          }
+                          'contents' => [
+                            {
+                              'cmdname' => 'asis',
+                              'source_info' => {
+                                'line_nr' => 45
+                              }
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
                         }
                       ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
+                      'type' => 'argument'
                     }
                   ],
-                  'cmdname' => 'table',
                   'extra' => {
                     'command_as_argument' => {}
                   },
@@ -1208,9 +1222,9 @@ $result_trees{'center'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'center'}{'contents'}[0]{'contents'}[20]{'extra'}{'command_as_argument'} = $result_trees{'center'}{'contents'}[0]{'contents'}[20]{'args'}[0]{'contents'}[0];
-$result_trees{'center'}{'contents'}[0]{'contents'}[22]{'extra'}{'command_as_argument'} = $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'args'}[0]{'contents'}[0];
-$result_trees{'center'}{'contents'}[0]{'contents'}[35]{'args'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'center'}{'contents'}[0]{'contents'}[35]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'center'}{'contents'}[0]{'contents'}[20]{'extra'}{'command_as_argument'} = $result_trees{'center'}{'contents'}[0]{'contents'}[20]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'center'}{'contents'}[0]{'contents'}[22]{'extra'}{'command_as_argument'} = $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'center'}{'contents'}[0]{'contents'}[35]{'args'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'center'}{'contents'}[0]{'contents'}[35]{'args'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'center'} = '@center @indent @titlefont{in titlefont} @anchor{in anchor}@footnote{footnote}
 

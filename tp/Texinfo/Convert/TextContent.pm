@@ -53,7 +53,7 @@ foreach my $type ('ignorable_spaces_after_command',
             'postamble_after_end',
             'preamble_before_beginning',
             'spaces_before_paragraph',
-            'spaces_after_close_brace') {
+            'spaces_after_close_brace', 'argument') {
   $ignored_types{$type} = 1;
 }
 
@@ -173,19 +173,9 @@ sub _convert($$)
     }
   }
   my $result = '';
-  if ($element->{'args'}
-      and (!$element->{'cmdname'}
-           or !$Texinfo::Commands::blockitem_commands{$element->{'cmdname'}})) {
+  if ($element->{'args'}) {
     my $args;
-    if ($element->{'cmdname'}
-        and $Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}) {
-      my @args = @{$element->{'args'}};
-      shift @args;
-      $args = \@args;
-    } else {
-      $args = $element->{'args'};
-    }
-    foreach my $arg (@{$args}) {
+    foreach my $arg (@{$element->{'args'}}) {
       $result .= _convert($self, $arg);
       if ($arg->{'type'}
           and $arg->{'type'} eq 'block_line_arg'
@@ -196,7 +186,15 @@ sub _convert($$)
     }
   }
   if ($element->{'contents'}) {
-    foreach my $content (@{$element->{'contents'}}) {
+    my $contents_nr = scalar(@{$element->{'contents'}});
+    my $start = 0;
+    if ($element->{'cmdname'}
+        and $Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}) {
+      # TODO not sure that there is a test for that code
+      $start = 1;
+    }
+    for (my $i = $start; $i < $contents_nr; $i++) {
+      my $content = $element->{'contents'}->[$i];
       $result .= _convert($self, $content);
     }
   }

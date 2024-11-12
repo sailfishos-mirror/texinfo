@@ -49,35 +49,38 @@ $result_trees{'definfoenclose_on_table_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'table',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'phi',
-                  'extra' => {
-                    'begin' => ':',
-                    'end' => ':'
-                  },
+                  'contents' => [
+                    {
+                      'cmdname' => 'phi',
+                      'extra' => {
+                        'begin' => ':',
+                        'end' => ':'
+                      },
+                      'info' => {
+                        'command_name' => 'phi'
+                      },
+                      'source_info' => {
+                        'line_nr' => 3
+                      },
+                      'type' => 'definfoenclose_command'
+                    }
+                  ],
                   'info' => {
-                    'command_name' => 'phi'
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
                   },
-                  'source_info' => {
-                    'line_nr' => 3
-                  },
-                  'type' => 'definfoenclose_command'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -210,7 +213,7 @@ $result_trees{'definfoenclose_on_table_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'definfoenclose_on_table_line'}{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'definfoenclose_on_table_line'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'definfoenclose_on_table_line'}{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'definfoenclose_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'definfoenclose_on_table_line'} = '@definfoenclose phi,:,:
 

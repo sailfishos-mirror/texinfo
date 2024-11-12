@@ -10,32 +10,35 @@ $result_trees{'empty'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'contents' => [
                     {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' 
+                      'args' => [
+                        {
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' 
 '
+                            }
+                          },
+                          'type' => 'line_arg'
                         }
-                      },
-                      'type' => 'line_arg'
+                      ],
+                      'cmdname' => 'columnfractions',
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
                     }
                   ],
-                  'cmdname' => 'columnfractions',
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

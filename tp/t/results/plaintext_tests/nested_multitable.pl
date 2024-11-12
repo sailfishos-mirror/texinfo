@@ -15,52 +15,55 @@ $result_trees{'nested_multitable'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'truc AAAA '
+                      'contents' => [
+                        {
+                          'text' => 'truc AAAA '
+                        },
+                        {
+                          'cmdname' => ' '
+                        },
+                        {
+                          'text' => ' machin'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 2
+                      },
+                      'type' => 'bracketed_arg'
                     },
                     {
-                      'cmdname' => ' '
+                      'text' => '    '
                     },
                     {
-                      'text' => ' machin'
+                      'contents' => [
+                        {
+                          'text' => 'bidule'
+                        }
+                      ],
+                      'source_info' => {
+                        'line_nr' => 2
+                      },
+                      'type' => 'bracketed_arg'
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 2
-                  },
-                  'type' => 'bracketed_arg'
-                },
-                {
-                  'text' => '    '
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'bidule'
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
                     }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 2
                   },
-                  'type' => 'bracketed_arg'
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -74,46 +77,49 @@ $result_trees{'nested_multitable'} = {
                           'type' => 'ignorable_spaces_after_command'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'multitable',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
                                   'contents' => [
                                     {
-                                      'text' => 'AAAA'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 4
-                                  },
-                                  'type' => 'bracketed_arg'
-                                },
-                                {
-                                  'text' => ' '
-                                },
-                                {
-                                  'contents' => [
+                                      'contents' => [
+                                        {
+                                          'text' => 'AAAA'
+                                        }
+                                      ],
+                                      'source_info' => {
+                                        'line_nr' => 4
+                                      },
+                                      'type' => 'bracketed_arg'
+                                    },
                                     {
-                                      'text' => 'machin'
+                                      'text' => ' '
+                                    },
+                                    {
+                                      'contents' => [
+                                        {
+                                          'text' => 'machin'
+                                        }
+                                      ],
+                                      'source_info' => {
+                                        'line_nr' => 4
+                                      },
+                                      'type' => 'bracketed_arg'
                                     }
                                   ],
-                                  'source_info' => {
-                                    'line_nr' => 4
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
                                   },
-                                  'type' => 'bracketed_arg'
+                                  'type' => 'block_line_arg'
                                 }
                               ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'cmdname' => 'multitable',
-                          'contents' => [
+                              'type' => 'argument'
+                            },
                             {
                               'contents' => [
                                 {

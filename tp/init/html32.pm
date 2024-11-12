@@ -315,9 +315,11 @@ sub html32_convert_item_command($$$$$)
     } else {
       # Setting multiple expansion should not be needed, except in
       # case of invalid constructs
+      my $argument = $itemize->{'contents'}->[0];
+      my $block_line_arg = $argument->{'contents'}->[0];
       $prepend = $self->convert_tree_new_formatting_context(
-        $itemize->{'args'}->[0],
-        $command->{'cmdname'}, 'item_prepended');
+                                 $block_line_arg,
+                                 $command->{'cmdname'}, 'item_prepended');
     }
     if ($content =~ /\S/) {
       return '<li>' . $prepend .' '. $content . '</li>';

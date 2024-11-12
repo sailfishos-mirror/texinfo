@@ -87,27 +87,30 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'table',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'cmdname' => 'asis',
-                          'source_info' => {
-                            'line_nr' => 4
-                          }
+                          'contents' => [
+                            {
+                              'cmdname' => 'asis',
+                              'source_info' => {
+                                'line_nr' => 4
+                              }
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
                         }
                       ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'cmdname' => 'table',
-                  'contents' => [
+                      'type' => 'argument'
+                    },
                     {
                       'contents' => [
                         {
@@ -221,7 +224,7 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
   'type' => 'document_root'
 };
 $result_trees{'table_not_closed_in_menu_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'table_not_closed_in_menu_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'table_not_closed_in_menu_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table_not_closed_in_menu_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'table_not_closed_in_menu_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table_not_closed_in_menu_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'table_not_closed_in_menu_comment'} = '@menu
 * (manual):: desc

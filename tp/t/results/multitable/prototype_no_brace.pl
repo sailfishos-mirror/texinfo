@@ -10,43 +10,46 @@ $result_trees{'prototype_no_brace'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'multitable',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'aa'
-                },
-                {
-                  'cmdname' => 'var',
                   'contents' => [
                     {
+                      'text' => 'aa'
+                    },
+                    {
+                      'cmdname' => 'var',
                       'contents' => [
                         {
-                          'text' => 'FF'
+                          'contents' => [
+                            {
+                              'text' => 'FF'
+                            }
+                          ],
+                          'type' => 'brace_container'
                         }
                       ],
-                      'type' => 'brace_container'
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
+                    },
+                    {
+                      'text' => ' b    cc'
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' b    cc'
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'multitable',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
