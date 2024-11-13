@@ -1,7 +1,7 @@
 2024-11-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS: run
-	  gnulib-tool --add-import obstack.  Module not currently used.
+	  gnulib-tool --remove-import obstack.  Module not currently used.
 
 2024-11-10  Gavin Smith <gavinsmith0123@gmail.com>
 
