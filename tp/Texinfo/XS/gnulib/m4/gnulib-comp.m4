@@ -45,8 +45,6 @@ AC_DEFUN([gl_EARLY],
   # Code from module absolute-header:
   # Code from module access:
   # Code from module acl-permissions:
-  # Code from module alignasof:
-  # Code from module alignof:
   # Code from module alloca-opt:
   # Code from module array-mergesort:
   # Code from module assert-h:
@@ -127,7 +125,6 @@ AC_DEFUN([gl_EARLY],
   # Code from module msvc-inval:
   # Code from module msvc-nothrow:
   # Code from module multiarch:
-  # Code from module obstack:
   # Code from module open:
   # Code from module pathmax:
   # Code from module qcopy-acl:
@@ -267,7 +264,6 @@ AC_DEFUN([gl_INIT],
   gl_CONDITIONAL([GL_COND_OBJ_ACCESS], [test $REPLACE_ACCESS = 1])
   gl_UNISTD_MODULE_INDICATOR([access])
   gl_FUNC_ACL
-  gl_ALIGNASOF
   gl_FUNC_ALLOCA
   gl_CONDITIONAL_HEADER([alloca.h])
   AC_PROG_MKDIR_P
@@ -508,11 +504,6 @@ AC_DEFUN([gl_INIT],
                  [test $HAVE_MSVC_INVALID_PARAMETER_HANDLER = 1])
   gl_MODULE_INDICATOR([msvc-nothrow])
   gl_MULTIARCH
-  gl_FUNC_OBSTACK
-  gl_CONDITIONAL_HEADER([obstack.h])
-  gl_CONDITIONAL([GL_COND_OBJ_OBSTACK],
-                 [test $HAVE_OBSTACK = 0 || test $REPLACE_OBSTACK = 1])
-  AC_PROG_MKDIR_P
   gl_FUNC_OPEN
   gl_CONDITIONAL([GL_COND_OBJ_OPEN], [test $REPLACE_OPEN = 1])
   AM_COND_IF([GL_COND_OBJ_OPEN], [
@@ -1009,7 +1000,6 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/acl-internal.h
   lib/acl.h
   lib/acl_entries.c
-  lib/alignof.h
   lib/alloca.in.h
   lib/arg-nonnull.h
   lib/array-mergesort.h
@@ -1103,8 +1093,6 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/msvc-inval.h
   lib/msvc-nothrow.c
   lib/msvc-nothrow.h
-  lib/obstack.c
-  lib/obstack.in.h
   lib/open.c
   lib/pathmax.h
   lib/printf-args.c
@@ -1352,7 +1340,6 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/msvc-nothrow.m4
   m4/multiarch.m4
   m4/musl.m4
-  m4/obstack.m4
   m4/off64_t.m4
   m4/off_t.m4
   m4/open-cloexec.m4
@@ -1378,7 +1365,6 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/stat-time.m4
   m4/stat.m4
   m4/std-gnu11.m4
-  m4/stdalign.m4
   m4/stddef_h.m4
   m4/stdint.m4
   m4/stdint_h.m4

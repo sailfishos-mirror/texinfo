@@ -40,7 +40,6 @@
 #  iconv \
 #  libunistring \
 #  locale \
-#  obstack \
 #  setenv \
 #  strchrnul \
 #  strndup \
@@ -140,13 +139,6 @@ EXTRA_DIST += acl-internal.h acl.h acl_entries.c
 EXTRA_libgnu_la_SOURCES += acl_entries.c
 
 ## end   gnulib module acl-permissions
-
-## begin gnulib module alignof
-
-
-EXTRA_DIST += alignof.h
-
-## end   gnulib module alignof
 
 ## begin gnulib module alloca-opt
 
@@ -885,33 +877,6 @@ endif
 EXTRA_DIST += msvc-nothrow.h
 
 ## end   gnulib module msvc-nothrow
-
-## begin gnulib module obstack
-
-BUILT_SOURCES += $(OBSTACK_H)
-
-# We need the following in order to create <obstack.h> when the system
-# doesn't have one that works with any size object.
-if GL_GENERATE_OBSTACK_H
-obstack.h: obstack.in.h $(top_builddir)/config.status
-	$(gl_V_at)$(SED_HEADER_STDOUT) \
-	      -e 's|@''REPLACE_OBSTACK''@|$(REPLACE_OBSTACK)|g' \
-	      -e 's|@''SMALL_PTRDIFF_T''@|$(SMALL_PTRDIFF_T)|g' \
-	      $(srcdir)/obstack.in.h > $@-t
-	$(AM_V_at)mv $@-t $@
-else
-obstack.h: $(top_builddir)/config.status
-	rm -f $@
-endif
-MOSTLYCLEANFILES += obstack.h obstack.h-t
-
-if GL_COND_OBJ_OBSTACK
-libgnu_la_SOURCES += obstack.c
-endif
-
-EXTRA_DIST += obstack.in.h
-
-## end   gnulib module obstack
 
 ## begin gnulib module open
 

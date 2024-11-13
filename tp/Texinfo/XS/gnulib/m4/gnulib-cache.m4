@@ -45,7 +45,6 @@
 #  iconv \
 #  libunistring \
 #  locale \
-#  obstack \
 #  setenv \
 #  strchrnul \
 #  strndup \
@@ -85,7 +84,6 @@ gl_MODULES([
   iconv
   libunistring
   locale
-  obstack
   setenv
   strchrnul
   strndup

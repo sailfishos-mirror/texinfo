@@ -29,7 +29,6 @@ gnulib/lib/acl-internal.c
 gnulib/lib/acl-internal.h
 gnulib/lib/acl.h
 gnulib/lib/acl_entries.c
-gnulib/lib/alignof.h
 gnulib/lib/alloca.in.h
 gnulib/lib/arg-nonnull.h
 gnulib/lib/array-mergesort.h
@@ -123,8 +122,6 @@ gnulib/lib/msvc-inval.c
 gnulib/lib/msvc-inval.h
 gnulib/lib/msvc-nothrow.c
 gnulib/lib/msvc-nothrow.h
-gnulib/lib/obstack.c
-gnulib/lib/obstack.in.h
 gnulib/lib/open.c
 gnulib/lib/pathmax.h
 gnulib/lib/printf-args.c
