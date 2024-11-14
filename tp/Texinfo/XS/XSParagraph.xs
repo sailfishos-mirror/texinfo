@@ -38,8 +38,7 @@ MODULE = Texinfo::Convert::Paragraph PACKAGE = Texinfo::Convert::Paragraph PREFI
 PROTOTYPES: ENABLE
 
 void
-xspara_set_state (state)
-     SV * state
+xspara_set_state (int state)
 
 # Return a reference blessed into the XSParagraph class
 # CLASS is ignored because we know it is "XSParagraph".  Optional
@@ -57,7 +56,10 @@ xspara_new (class, ...)
             if (SvROK(ST(1)) && SvTYPE(SvRV(ST(1))) == SVt_PVHV)
               conf = (HV *) SvRV(ST(1));
           }
-        id = xspara_new (conf);
+        id = xspara_new ();
+
+        if (conf)
+          xspara_init_state (conf);
 
         /* Create an integer, which the other functions
            need as their first argument. */
@@ -67,8 +69,7 @@ xspara_new (class, ...)
 
 
 int
-xspara_end_line_count (paragraph)
-        SV *paragraph
+xspara_end_line_count (int paragraph)
     CODE:
         xspara_set_state (paragraph);
         RETVAL = xspara_end_line_count ();
@@ -76,8 +77,7 @@ xspara_end_line_count (paragraph)
         RETVAL
 
 int
-xspara_counter (paragraph)
-        SV *paragraph
+xspara_counter (int paragraph)
     CODE:
         xspara_set_state (paragraph);
         RETVAL = xspara_counter ();
@@ -85,15 +85,13 @@ xspara_counter (paragraph)
         RETVAL
 
 void
-xspara__end_line (paragraph)
-        SV *paragraph
+xspara__end_line (int paragraph)
     CODE:
         xspara_set_state (paragraph);
         xspara__end_line ();
 
 char *
-xspara_end_line (paragraph)
-        SV *paragraph
+xspara_end_line (int paragraph)
     CODE:
         xspara_set_state (paragraph);
         RETVAL = xspara_end_line ();
@@ -101,8 +99,7 @@ xspara_end_line (paragraph)
         RETVAL
 
 char *
-xspara_get_pending (paragraph)
-        SV *paragraph
+xspara_get_pending (int paragraph)
     CODE:
         xspara_set_state (paragraph);
         RETVAL = xspara_get_pending ();
@@ -111,8 +108,7 @@ xspara_get_pending (paragraph)
 
 # ... is for add_spaces
 SV *
-xspara_add_pending_word (paragraph, ...)
-        SV *paragraph
+xspara_add_pending_word (int paragraph, ...)
     PREINIT:
         int add_spaces = 0;
         char *retval;
@@ -134,8 +130,7 @@ xspara_add_pending_word (paragraph, ...)
         RETVAL
 
 SV *
-xspara_end (paragraph)
-        SV *paragraph
+xspara_end (int paragraph)
     PREINIT:
         char *retval;
     CODE:
@@ -149,8 +144,7 @@ xspara_end (paragraph)
 
 
 SV *
-xspara_add_text (paragraph, text_in)
-        SV *paragraph
+xspara_add_text (int paragraph, text_in)
         SV *text_in
     PREINIT:
         char *text;
@@ -174,8 +168,7 @@ xspara_add_text (paragraph, text_in)
         RETVAL
 
 SV *
-xspara_add_next (paragraph, text_in, ...)
-        SV *paragraph
+xspara_add_next (int paragraph, text_in, ...)
         SV *text_in
     PREINIT:
         char *text;
@@ -210,15 +203,13 @@ xspara_add_next (paragraph, text_in, ...)
 
 
 void
-xspara_remove_end_sentence (paragraph)
-        SV *paragraph
+xspara_remove_end_sentence (int paragraph)
     CODE:
         xspara_set_state (paragraph);
         xspara_remove_end_sentence ();
 
 void
-xspara_add_end_sentence (paragraph, value)
-        SV *paragraph
+xspara_add_end_sentence (int paragraph, value)
         SV * value
     PREINIT:
         int intvalue = 0;
@@ -229,8 +220,7 @@ xspara_add_end_sentence (paragraph, value)
         xspara_add_end_sentence (intvalue);
 
 void
-xspara_allow_end_sentence (paragraph)
-        SV *paragraph
+xspara_allow_end_sentence (int paragraph)
     CODE:
         xspara_set_state (paragraph);
         xspara_allow_end_sentence ();
@@ -239,8 +229,7 @@ xspara_allow_end_sentence (paragraph)
 # DOUBLE_WIDTH_NO_BREAK.
 # Pass them to the C function as -1 if not given or undef.
 void
-xspara_set_space_protection (paragraph, space_protection_in, ...)
-        SV *paragraph
+xspara_set_space_protection (int paragraph, space_protection_in, ...)
         SV * space_protection_in
     PREINIT:
         int space_protection = -1;

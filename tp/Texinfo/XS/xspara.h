@@ -1,8 +1,8 @@
 #include "main/text.h"
 
-int xspara_new (HV *conf);
+int xspara_new (void);
 void xspara_init_state (HV *hash);
-void xspara_set_state (SV *state);
+void xspara_set_state (int paragraph);
 TEXT xspara_add_next (char *, int, int transparent);
 TEXT xspara_add_text (char *, int);
 void xspara_set_space_protection (int space_protection, int ignore_columns,

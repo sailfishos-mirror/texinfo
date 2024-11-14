@@ -162,11 +162,9 @@ xspara__switch_state (int id)
 }
 
 int
-xspara_new (HV *conf)
+xspara_new (void)
 {
   int i;
-
-  dTHX; /* Perl boiler plate */
 
   TEXT saved_space, saved_word;
 
@@ -201,21 +199,14 @@ xspara_new (HV *conf)
   state.end_sentence = eos_undef;
   state.last_letter = (char32_t) '\0';
 
-  if (conf)
-    xspara_init_state (conf);
-
   /* The paragraph ID. */
   return i;
 }
 
-
-/* SV is a blessed reference to an integer containing the paragraph ID. */
 void
-xspara_set_state (SV *sv)
+xspara_set_state (int paragraph)
 {
-  dTHX;
-
-  xspara__switch_state (SvIV (sv));
+  xspara__switch_state (paragraph);
 }
 
 /* Set the state internal to this C module from the Perl hash. */
