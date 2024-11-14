@@ -199,32 +199,30 @@ xspara_set_state (int paragraph)
   xspara__switch_state (paragraph);
 }
 
-#define SET_CONF(variable) \
-  if (variable != -1) {state.variable = variable;}
+/* set a function to set the state for each of the possible configuration
+   variables */
 
-void
-xspara_init_state (int end_sentence, int max, int indent_length,
-                   int indent_length_next, int counter, int word_counter,
-                   int lines_counter, int end_line_count, int no_break,
-                   int ignore_columns, int keep_end_lines, int frenchspacing,
-                   int unfilled, int no_final_newline, int add_final_space)
-{
-  SET_CONF(end_sentence)
-  SET_CONF(max)
-  SET_CONF(indent_length)
-  SET_CONF(indent_length_next)
-  SET_CONF(counter)
-  SET_CONF(word_counter)
-  SET_CONF(lines_counter)
-  SET_CONF(end_line_count)
-  SET_CONF(no_break)
-  SET_CONF(ignore_columns)
-  SET_CONF(keep_end_lines)
-  SET_CONF(frenchspacing)
-  SET_CONF(unfilled)
-  SET_CONF(no_final_newline)
-  SET_CONF(add_final_space)
+#define SET_CONF(variable) \
+void xspara_set_conf_##variable (int variable) { \
+  state.variable = variable; \
 }
+
+SET_CONF(end_sentence)
+SET_CONF(max)
+SET_CONF(indent_length)
+SET_CONF(indent_length_next)
+SET_CONF(counter)
+SET_CONF(word_counter)
+SET_CONF(lines_counter)
+SET_CONF(end_line_count)
+SET_CONF(no_break)
+SET_CONF(ignore_columns)
+SET_CONF(keep_end_lines)
+SET_CONF(frenchspacing)
+SET_CONF(unfilled)
+SET_CONF(no_final_newline)
+SET_CONF(add_final_space)
+
 #undef SET_CONF
 
 /************************************************************************/

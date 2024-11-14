@@ -37,24 +37,9 @@ xspara_new (class, ...)
         HV *conf = 0;
         int id;
         SV **val;
-        int end_sentence = -1;
-        int max = -1;
-        int indent_length = -1;
-        int indent_length_next = -1;
-        int counter = -1;
-        int word_counter = -1;
-        int lines_counter = -1;
-        int end_line_count = -1;
-        int no_break = -1;
-        int ignore_columns = -1;
-        int keep_end_lines = -1;
-        int frenchspacing = -1;
-        int unfilled = -1;
-        int no_final_newline = -1;
-        int add_final_space = -1;
 #define FETCH(key) hv_fetch (conf, key, strlen (key), 0)
 #define FETCH_INT(variable) { val = FETCH(#variable); \
-                               if (val) { variable = SvIV (*val); } }
+                if (val) { xspara_set_conf_##variable (SvIV (*val)); } }
     CODE:
         items--;
         if (items > 0)
@@ -81,11 +66,6 @@ xspara_new (class, ...)
             FETCH_INT(unfilled)
             FETCH_INT(no_final_newline)
             FETCH_INT(add_final_space)
-            xspara_init_state (end_sentence, max, indent_length,
-                               indent_length_next, counter, word_counter,
-                               lines_counter, end_line_count, no_break,
-                               ignore_columns, keep_end_lines, frenchspacing,
-                               unfilled, no_final_newline, add_final_space);
           }
 
         /* Create an integer, which the other functions
