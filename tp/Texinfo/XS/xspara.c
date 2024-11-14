@@ -19,23 +19,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 #include <unitypes.h>
 #include <uniwidth.h>
 #include <unictype.h>
 #include <unistr.h>
 #include <uchar.h>
-
-/* See "How do I use all this in extensions" in 'man perlguts'. */
-#define PERL_NO_GET_CONTEXT
-
-#include "EXTERN.h"
-#include "perl.h"
-#if defined _WIN32 && !defined __CYGWIN__
-/* See comment in XSParagraph.xs for why we #undef free. */
-# undef free
-#endif
-#include "XSUB.h"
 
 #include "main/text.h"
 #include "xspara.h"
@@ -85,7 +75,7 @@ typedef struct {
                            @flushleft and @flushright. */
     int keep_end_lines; /* A newline in the input ends a line in the output.
                            Used by @flushleft and @flushright. */
-    int french_spacing; /* Only one space, not two, after a full stop. */
+    int frenchspacing;  /* Only one space, not two, after a full stop. */
     int double_width_no_break; /* No line break between double width chars. */
 
     /* No wrapping of lines and spaces are kept as-is. */
@@ -209,58 +199,33 @@ xspara_set_state (int paragraph)
   xspara__switch_state (paragraph);
 }
 
-/* Set the state internal to this C module from the Perl hash. */
+#define SET_CONF(variable) \
+  if (variable != -1) {state.variable = variable;}
+
 void
-xspara_init_state (HV *hash)
+xspara_init_state (int end_sentence, int max, int indent_length,
+                   int indent_length_next, int counter, int word_counter,
+                   int lines_counter, int end_line_count, int no_break,
+                   int ignore_columns, int keep_end_lines, int frenchspacing,
+                   int unfilled, int no_final_newline, int add_final_space)
 {
-#define FETCH(key) hv_fetch (hash, key, strlen (key), 0)
-#define FETCH_INT(key,where) { val = FETCH(key); \
-                               if (val) { where = SvIV (*val); } }
-
-  SV **val;
-  
-  dTHX; /* This is boilerplate for interacting with Perl. */
-
-  /* Fetch all these so they are set, and reset for each paragraph. */
-  FETCH_INT("end_sentence", state.end_sentence);
-  FETCH_INT("max", state.max);
-
-  FETCH_INT("indent_length", state.indent_length);
-  FETCH_INT("indent_length_next", state.indent_length_next);
-  FETCH_INT("counter", state.counter); 
-
-  FETCH_INT("word_counter", state.word_counter);
-
-  FETCH_INT("lines_counter", state.lines_counter);
-  FETCH_INT("end_line_count", state.end_line_count);
-
-  FETCH_INT("no_break", state.no_break);
-  FETCH_INT("ignore_columns", state.ignore_columns);
-  FETCH_INT("keep_end_lines", state.keep_end_lines);
-  FETCH_INT("frenchspacing", state.french_spacing);
-
-  FETCH_INT("unfilled", state.unfilled);
-  FETCH_INT("no_final_newline", state.no_final_newline);
-  FETCH_INT("add_final_space", state.add_final_space);
-
-  val = FETCH("word");
-  if (val)
-    {
-      fprintf (stderr, "Bug: setting 'word' is not supported.\n");
-      abort ();
-    }
-  val = FETCH("space");
-  if (val)
-    {
-      fprintf (stderr, "Bug: setting 'space' is not supported.\n");
-      abort ();
-    }
-  return;
-
-#undef FETCH
-#undef FETCH_INT
+  SET_CONF(end_sentence)
+  SET_CONF(max)
+  SET_CONF(indent_length)
+  SET_CONF(indent_length_next)
+  SET_CONF(counter)
+  SET_CONF(word_counter)
+  SET_CONF(lines_counter)
+  SET_CONF(end_line_count)
+  SET_CONF(no_break)
+  SET_CONF(ignore_columns)
+  SET_CONF(keep_end_lines)
+  SET_CONF(frenchspacing)
+  SET_CONF(unfilled)
+  SET_CONF(no_final_newline)
+  SET_CONF(add_final_space)
 }
-
+#undef SET_CONF
 
 /************************************************************************/
 
@@ -336,8 +301,6 @@ xspara_get_pending (void)
 void
 xspara__add_pending_word (TEXT *result, int add_spaces)
 {
-  dTHX;
-
   if (state.word.end == 0 && !state.invisible_pending_word && !add_spaces)
     return;
 
@@ -414,8 +377,6 @@ xspara_end (void)
 {
   static TEXT ret;
 
-  dTHX;
-
   text_reset (&ret);
   state.end_line_count = 0;
 
@@ -464,8 +425,6 @@ void
 xspara__add_next (TEXT *result, char *word, int word_len,
                   int transparent, int col_count)
 {
-  dTHX;
-
   if (!word)
     return;
 
@@ -612,7 +571,7 @@ xspara_set_space_protection (int no_break,
   if (double_width_no_break != -1)
     state.double_width_no_break = double_width_no_break;
   if (french_spacing != -1)
-    state.french_spacing = french_spacing;
+    state.frenchspacing = french_spacing;
 
   /*fprintf (stderr, "SETTING SPACE (%d, %d, %d, %d)\n",
                                    no_break,
@@ -657,8 +616,6 @@ xspara_add_text (char *text, int len)
      is no chance of this being overwritten before it is used.  It is
      zeroed when the block is output. */
   int regular_col_count = 0;
-
-  dTHX;
 
   text_reset (&result);
 
@@ -783,7 +740,7 @@ xspara_add_text (char *text, int len)
                   || state.word.text[state.word.end - 1] != ' ')
                 {
                   if (state.end_sentence == eos_present
-                      && !state.french_spacing)
+                      && !state.frenchspacing)
                     {
                       text_append_n (&state.word, "  ", 2);
                       state.word_counter += 2;
@@ -812,7 +769,7 @@ xspara_add_text (char *text, int len)
                   /* If we are at the end of a sentence where two spaces
                      are required. */
                   if (state.end_sentence == eos_present
-                      && !state.french_spacing)
+                      && !state.frenchspacing)
                     {
                       state.space.end = 0;
                       text_append_n (&state.space, "  ", 2);
@@ -898,7 +855,7 @@ xspara_add_text (char *text, int len)
                   /* Doesn't count if preceded by an upper-case letter. */
                   if (!uc_is_upper (state.last_letter))
                     {
-                      if (state.french_spacing)
+                      if (state.frenchspacing)
                         state.end_sentence = eos_present_frenchspacing;
                       else
                         state.end_sentence = eos_present;

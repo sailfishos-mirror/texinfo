@@ -1,7 +1,11 @@
 #include "main/text.h"
 
 int xspara_new (void);
-void xspara_init_state (HV *hash);
+void xspara_init_state (int end_sentence, int max, int indent_length,
+                   int indent_length_next, int counter, int word_counter,
+                   int lines_counter, int end_line_count, int no_break,
+                   int ignore_columns, int keep_end_lines, int french_spacing,
+                   int unfilled, int no_final_newline, int add_final_space);
 void xspara_set_state (int paragraph);
 TEXT xspara_add_next (char *, int, int transparent);
 TEXT xspara_add_text (char *, int);

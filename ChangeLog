@@ -1,5 +1,19 @@
 2024-11-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/xspara.c (PARAGRAPH): rename french_spacing as
+	frenchspacing to match exactly the Perl key.
+
+	* tp/Texinfo/XS/XSParagraph.xs (xspara_new), tp/Texinfo/XS/xspara.c
+	(xspara_init_state): modify xspara_init_state to be C only and get all
+	the configuration variables in argument.  Get Perl conf in xspara_new
+	with code similar to former xspara_init_state code in XSParagraph.xs
+	and call xspara_init_state.
+
+	* tp/Texinfo/XS/xspara.c: do not include Perl headers now that there
+	is only pure C.
+
+2024-11-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/XSParagraph.xs (xspara_new), tp/Texinfo/XS/xspara.c
 	(xspara_new): call xspara_init_state from XSParagraph.xs, not from C.
 

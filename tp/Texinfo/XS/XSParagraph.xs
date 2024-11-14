@@ -49,6 +49,25 @@ xspara_new (class, ...)
     PREINIT:
         HV *conf = 0;
         int id;
+        SV **val;
+        int end_sentence = -1;
+        int max = -1;
+        int indent_length = -1;
+        int indent_length_next = -1;
+        int counter = -1;
+        int word_counter = -1;
+        int lines_counter = -1;
+        int end_line_count = -1;
+        int no_break = -1;
+        int ignore_columns = -1;
+        int keep_end_lines = -1;
+        int frenchspacing = -1;
+        int unfilled = -1;
+        int no_final_newline = -1;
+        int add_final_space = -1;
+#define FETCH(key) hv_fetch (conf, key, strlen (key), 0)
+#define FETCH_INT(variable) { val = FETCH(#variable); \
+                               if (val) { variable = SvIV (*val); } }
     CODE:
         items--;
         if (items > 0)
@@ -59,13 +78,37 @@ xspara_new (class, ...)
         id = xspara_new ();
 
         if (conf)
-          xspara_init_state (conf);
+          {
+            FETCH_INT(end_sentence)
+            FETCH_INT(max)
+            FETCH_INT(indent_length)
+            FETCH_INT(indent_length_next)
+            FETCH_INT(counter)
+            FETCH_INT(word_counter)
+            FETCH_INT(lines_counter)
+            FETCH_INT(end_line_count)
+            FETCH_INT(no_break)
+            FETCH_INT(ignore_columns)
+            FETCH_INT(keep_end_lines)
+            FETCH_INT(frenchspacing)
+            FETCH_INT(unfilled)
+            FETCH_INT(no_final_newline)
+            FETCH_INT(add_final_space)
+            xspara_init_state (end_sentence, max, indent_length,
+                               indent_length_next, counter, word_counter,
+                               lines_counter, end_line_count, no_break,
+                               ignore_columns, keep_end_lines, frenchspacing,
+                               unfilled, no_final_newline, add_final_space);
+          }
 
         /* Create an integer, which the other functions
            need as their first argument. */
         RETVAL = newSViv (id);
     OUTPUT:
         RETVAL
+    CLEANUP:
+#undef FETCH
+#undef FETCH_INT
 
 
 int
