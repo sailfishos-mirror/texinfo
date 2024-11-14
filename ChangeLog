@@ -1,5 +1,10 @@
 2024-11-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/XSParagraph.xs (xspara_add_text, xspara_add_next):
+	use SvPVutf8.
+
+2024-11-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/XSParagraph.xs (xspara_new): iterate over the conf
 	hash keys instead of trying all the variables.  It should be faster if
 	there are only few variables set (not if lots of variables are set, as

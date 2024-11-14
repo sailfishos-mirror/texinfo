@@ -164,12 +164,7 @@ xspara_add_text (int paragraph, text_in)
         STRLEN text_len;
         TEXT retval;
     CODE:
-        /* Always convert the input to UTF8 with sv_utf8_upgrade, so we can 
-           process it properly in xspara_add_next. */
-        if (!SvUTF8 (text_in))
-          sv_utf8_upgrade (text_in);
-
-        text = SvPV (text_in, text_len);
+        text = SvPVutf8 (text_in, text_len);
 
         xspara_set_state (paragraph);
         retval = xspara_add_text (text, text_len);
@@ -199,11 +194,7 @@ xspara_add_next (int paragraph, text_in, ...)
               transparent = (int)SvIV(arg_in);
           }
 
-        /* Always convert the input to UTF8 with sv_utf8_upgrade, so we can 
-           process it properly in xspara_add_next. */
-        if (!SvUTF8 (text_in))
-          sv_utf8_upgrade (text_in);
-        text = SvPV (text_in, text_len);
+        text = SvPVutf8 (text_in, text_len);
 
         xspara_set_state (paragraph);
         retval = xspara_add_next (text, text_len, transparent);
