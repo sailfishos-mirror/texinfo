@@ -317,6 +317,17 @@ run all tests with valgrind:
           perl -w $f ; done
  (could take 1-2 hours to finish).  check log files one by one afterwards.
 
+Consider doing make check with autovivification turned off to find bugs
+and make sure that it is possible to turn off autovivification during
+developpement.  It may be interesting to set TEXINFO_XS=omit for this
+verification.  The module turning off autovivification is not in Perl
+core, so when commiting the lines turning autovivification off should
+always be commented out.
+To turn off autovivification, you can use:
+ find tp/Texinfo tp/ext tp/init -type f -name '*.pm' -execdir perl -wpli -e 's/^#no autovivification qw\(fetch delete exists store strict\);/no autovivification qw\(fetch delete exists store strict\);/' '{}' ';'
+To get back to the default:
+ find tp/Texinfo tp/ext tp/init -type f -name '*.pm' -execdir perl -wpli -e 's/^no autovivification qw\(fetch delete exists store strict\);/#no autovivification qw\(fetch delete exists store strict\);/' '{}' ';'
+
 Manual testing:
 . try groff.texinfo from groff source repo.
 . process doc/texinfo-tex-test.texi with TeX and check that output is good.

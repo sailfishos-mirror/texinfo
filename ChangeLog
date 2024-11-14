@@ -1,5 +1,10 @@
 2024-11-14  Patrice Dumas  <pertusus@free.fr>
 
+	* README-hacking: add suggestion and instructions to run tests after
+	turning off autovivification in Perl.
+
+2024-11-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (locate_file_in_dirs),
 	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser), tp/ext/epub3.pm
 	(epub_convert_image_command), tp/init/html32.pm
