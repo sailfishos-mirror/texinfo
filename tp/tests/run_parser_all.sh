@@ -178,6 +178,12 @@ post_process_output ()
   fi
 }
 
+# ensure only ASCII filenames are used in output
+escape_file_names ()
+{
+    find "${outdir}${dir}" | ${srcdir}/escape_file_names.pl
+}
+
 LC_ALL=C; export LC_ALL
 LANGUAGE=en; export LANGUAGE
 
@@ -443,6 +449,7 @@ while read line; do
       rm -rf "${raw_outdir}$dir"
 
       post_process_output
+      escape_file_names
 
       if test "z$res_dir_used" != 'z' ; then
         diff $DIFF_OPTIONS -r "$res_dir_used" "${outdir}$dir" 2>>$logfile > "$testdir/$diffs_dir/$diff_base.diff"

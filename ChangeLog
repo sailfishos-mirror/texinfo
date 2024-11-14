@@ -1,3 +1,15 @@
+2024-11-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Escape non-ASCII bytes in reference test results
+
+	* tp/tests/escape_file_names.pl: New file.
+	* tp/tests/run_parser_all.sh (escape_file_names): Add, and
+	run escape_file_names.pl on all files in output directory.
+
+	This reduces the number of files with non-ASCII file namess
+	in the sources which can cause problems on some unusual platforms.
+	Report from Eli.
+
 2024-11-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (html_do_js_files): set
