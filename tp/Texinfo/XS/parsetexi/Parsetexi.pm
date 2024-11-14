@@ -57,7 +57,7 @@ sub parser (;$)
   # parser configuration, as the configuration isn't already reset and the new
   # configuration is set afterwards.
   my $debug = 0;
-  $debug = $conf->{'DEBUG'} if ($conf->{'DEBUG'});
+  $debug = $conf->{'DEBUG'} if ($conf and $conf->{'DEBUG'});
 
   # The reset_parser call resets the conf to the same values as found in
   # Texinfo::Common parser_document_parsing_options.

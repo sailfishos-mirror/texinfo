@@ -309,7 +309,7 @@ sub html32_convert_item_command($$$$$)
       and $command->{'parent'}->{'cmdname'} eq 'itemize') {
     my $prepend ;
     my $itemize = $command->{'parent'};
-    if ($itemize->{'extra'}->{'command_as_argument'}
+    if ($itemize->{'extra'} and $itemize->{'extra'}->{'command_as_argument'}
        and $itemize->{'extra'}->{'command_as_argument'}->{'cmdname'} eq 'bullet') {
       $prepend = '';
     } else {

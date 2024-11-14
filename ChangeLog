@@ -1,5 +1,13 @@
 2024-11-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (locate_file_in_dirs),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser), tp/ext/epub3.pm
+	(epub_convert_image_command), tp/init/html32.pm
+	(html32_convert_item_command): check that hashes exist before
+	accessing them to avoid spurious autovivification.
+
+2024-11-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_sort.t: call
 	Texinfo::Config::GNUT_initialize_customization, to avoid
 	initialization being done through autovivification.

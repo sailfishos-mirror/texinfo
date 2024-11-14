@@ -261,7 +261,8 @@ sub epub_convert_image_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  if (defined($args->[0]->{'filenametext'})
+  if ($args and defined($args->[0])
+      and defined($args->[0]->{'filenametext'})
       and $args->[0]->{'filenametext'} ne '') {
     my $image_basefile = $args->[0]->{'filenametext'};
     my $basefile_string = '';

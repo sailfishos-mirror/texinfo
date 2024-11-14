@@ -1020,7 +1020,7 @@ sub locate_file_in_dirs($$$;$)
         next unless (-d $dir);
         my $possible_file = File::Spec->catfile($dir, $input_file_path);
         if (-e $possible_file and -r $possible_file) {
-          if ($deprecated_dirs->{$dir}) {
+          if ($deprecated_dirs and $deprecated_dirs->{$dir}) {
             $deprecated_dirs_used = [] if (!defined($deprecated_dirs_used));
             push @$deprecated_dirs_used, $dir;
           }
