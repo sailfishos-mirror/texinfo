@@ -38,7 +38,7 @@ xspara_new (class, ...)
         int id;
         SV **val;
 #define FETCH(key) hv_fetch (conf, key, strlen (key), 0)
-#define FETCH_INT(variable) { val = FETCH(#variable); \
+#define xspara_SET_CONF(variable) { val = FETCH(#variable); \
                 if (val) { xspara_set_conf_##variable (SvIV (*val)); } }
     CODE:
         items--;
@@ -51,21 +51,7 @@ xspara_new (class, ...)
 
         if (conf)
           {
-            FETCH_INT(end_sentence)
-            FETCH_INT(max)
-            FETCH_INT(indent_length)
-            FETCH_INT(indent_length_next)
-            FETCH_INT(counter)
-            FETCH_INT(word_counter)
-            FETCH_INT(lines_counter)
-            FETCH_INT(end_line_count)
-            FETCH_INT(no_break)
-            FETCH_INT(ignore_columns)
-            FETCH_INT(keep_end_lines)
-            FETCH_INT(frenchspacing)
-            FETCH_INT(unfilled)
-            FETCH_INT(no_final_newline)
-            FETCH_INT(add_final_space)
+            XSPARA_CONF_VARIABLES_LIST 
           }
 
         /* Create an integer, which the other functions
@@ -74,8 +60,8 @@ xspara_new (class, ...)
     OUTPUT:
         RETVAL
     CLEANUP:
+#undef xspara_SET_CONF
 #undef FETCH
-#undef FETCH_INT
 
 
 int

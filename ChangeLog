@@ -13,6 +13,16 @@
 2024-11-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/XSParagraph.xs (xspara_new), tp/Texinfo/XS/xspara.c
+	(xspara_SET_CONF), tp/Texinfo/XS/xspara.h
+	(XSPARA_CONF_VARIABLES_LIST): setup a list of XSParagraph
+	configuration variables, XSPARA_CONF_VARIABLES_LIST applied to
+	xspara_SET_CONF such that xspara_SET_CONF can be redefined in
+	different codes to generate code for all the configuration variables.
+	Use XSPARA_CONF_VARIABLES_LIST in xspara.c and XSParagraph.xs.
+
+2024-11-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/XSParagraph.xs (xspara_new), tp/Texinfo/XS/xspara.c
 	(SET_CONF), tp/Texinfo/XS/xspara.h (SET_CONF): instead of passing all
 	the configuration variables in one function, setup a function per
 	variable using the SET_CONF macro in xspara.c and xspara.h.  Remove
