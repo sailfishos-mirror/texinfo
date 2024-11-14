@@ -30,9 +30,12 @@
 #include "options_data.h"
 #include "tree_types.h"
 #include "document_types.h"
+/* non_perl_* */
+#include "xs_utils.h"
 #include "extra.h"
-/* for non_perl_* */
+/* needed?
 #include "utils.h"
+ */
 #include "customization_options.h"
 /* for clear_error_message_list */
 #include "errors.h"

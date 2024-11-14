@@ -102,6 +102,16 @@ XSParagraph_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNI
 
 EXTRA_DIST += XSParagraph.xs MiscXS.xs
 
+############ Convenience library used in XS code, separate to use different
+#            flags to be sure that Perl headers and Perl replacement functions
+#            are not used and libc functions are used.
+
+noinst_LTLIBRARIES =
+noinst_LTLIBRARIES += libxsutils.la
+
+libxsutils_la_SOURCES = \
+		main/xs_utils.c \
+		main/xs_utils.h
 
 ########################## shared common library and parser library
 
@@ -217,14 +227,6 @@ C_libtexinfo_sources = \
 		      structuring_transfo/transformations.c \
 		      structuring_transfo/transformations.h
 
-# api_to_perl.c and call_perl_function.c functions are called in other
-# parts of the code and need to be linked against Perl
-XS_libtexinfo_sources = \
-		      main/api_to_perl.c \
-		      main/api_to_perl.h \
-		      main/call_perl_function.c \
-		      main/call_perl_function.h
-
 EXTRA_DIST += main/accent_tables_8bit_codepoints.c
 EXTRA_DIST += main/command_data.c
 EXTRA_DIST += main/cmd_normalization.c
@@ -234,13 +236,29 @@ EXTRA_DIST += main/global_multi_commands_case.c
 EXTRA_DIST += main/global_unique_commands_case.c
 
 libtexinfo_la_SOURCES = \
-   $(C_libtexinfo_sources) \
-   $(XS_libtexinfo_sources)
+   $(C_libtexinfo_sources)
+
+# convenience library separate from but only used in libtexinfo to have
+# different CPPFLAGS to make sure that gnulib header files are not used
+# in compilation.
+noinst_LTLIBRARIES += libxs_in_libtexinfo.la
+
+# api_to_perl.c and call_perl_function.c functions are called in other
+# parts of the code and need to be linked against Perl
+libxs_in_libtexinfo_la_SOURCES = \
+		      main/api_to_perl.c \
+		      main/api_to_perl.h \
+		      main/call_perl_function.c \
+		      main/call_perl_function.h
+
+libxs_in_libtexinfo_la_CPPFLAGS = -I$(srcdir)/main $(XSLIBS_CPPFLAGS)
+libxs_in_libtexinfo_la_CFLAGS = $(XSLIBS_CFLAGS)
+libxs_in_libtexinfo_la_LIBADD = libxsutils.la $(platform_PERL_LIBADD)
+libxs_in_libtexinfo_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
 # locate include files under out-of-source builds.
-libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-libtexinfo_la_CFLAGS = $(XSLIBS_CFLAGS)
-libtexinfo_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
+libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
+libtexinfo_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libxs_in_libtexinfo.la $(platform_PERL_LIBADD)
 libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 #libtexinfo_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(PERL_LIBS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
@@ -374,7 +392,7 @@ libtexinfoxs_la_SOURCES= \
 # locate include files under out-of-source builds.
 libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
-libtexinfoxs_la_LIBADD = libtexinfo.la $(platform_PERL_LIBADD)
+libtexinfoxs_la_LIBADD = libtexinfo.la libxsutils.la $(platform_PERL_LIBADD)
 # example to trigger errors associated with no undefined
 #libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(PERL_LIBS) $(LTLIBINTL)
 libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL)

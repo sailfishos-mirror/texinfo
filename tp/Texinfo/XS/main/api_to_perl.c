@@ -13,8 +13,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-#include <config.h>
-
 /* Avoid namespace conflicts. */
 #define context perl_context
 
@@ -35,7 +33,7 @@
 #include "converter_types.h"
 #include "document_types.h"
 /* non_perl_* */
-#include "utils.h"
+#include "xs_utils.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */

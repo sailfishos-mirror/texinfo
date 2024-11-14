@@ -35,6 +35,8 @@
 #include "options_data.h"
 #include "document_types.h"
 #include "converter_types.h"
+/* non_perl_* */
+#include "xs_utils.h"
 #include "extra.h"
 #include "builtin_commands.h"
 #include "debug.h"

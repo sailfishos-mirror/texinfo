@@ -35,6 +35,8 @@
 #include "command_ids.h"
 #include "converter_types.h"
 #include "types_data.h"
+/* non_perl_* */
+#include "xs_utils.h"
 /* also for direction_string_type_names direction_string_context_names
    html_conversion_context_type_names html_stage_handler_stage_type_names
  */

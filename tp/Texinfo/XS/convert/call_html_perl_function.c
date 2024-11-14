@@ -36,6 +36,8 @@
 #include "option_types.h"
 #include "converter_types.h"
 #include "types_data.h"
+/* non_perl_* */
+#include "xs_utils.h"
 /* for element_command_name (or could be builtin_command_data) */
 #include "builtin_commands.h"
 /* new_target_filename non_perl_strndup new_target_contents_filename

@@ -40,12 +40,14 @@
 #include "option_types.h"
 #include "options_data.h"
 #include "converter_types.h"
+/* non_perl_free */
+#include "xs_utils.h"
 #include "builtin_commands.h"
 #include "errors.h"
 #include "convert_to_text.h"
 #include "convert_to_texinfo.h"
 #include "manipulate_indices.h"
-/* for command_location_names non_perl_free new_string_list ... */
+/* for command_location_names new_string_list ... */
 #include "utils.h"
 #include "command_stack.h"
 #include "customization_options.h"

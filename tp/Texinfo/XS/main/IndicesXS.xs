@@ -28,8 +28,9 @@
 #include "tree_types.h"
 #include "document_types.h"
 /* non_perl_* */
-#include "utils.h"
+#include "xs_utils.h"
 /*
+#include "utils.h"
 #include "tree.h"
  */
 #include "document.h"

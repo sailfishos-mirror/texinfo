@@ -184,54 +184,6 @@ char *html_command_text_type_name[] = {
   "href", "node", "section",
 };
 
-/* wrappers to be sure to use non-Perl defined functions */
-void
-non_perl_free (void *ptr)
-{
-  free (ptr);
-}
-
-void *
-non_perl_malloc (size_t size)
-{
-  return malloc (size);
-}
-
-char *
-non_perl_strdup (const char *s)
-{
-  return strdup (s);
-}
-
-char *
-non_perl_strndup (const char *s, size_t n)
-{
-  return strndup (s, n);
-}
-
-/* wrapper for vasprintf */
-int
-non_perl_xvasprintf (char **ptr, const char *template, va_list ap)
-{
-  int ret;
-  ret = vasprintf (ptr, template, ap);
-  if (ret < 0)
-    abort (); /* out of memory */
-  return ret;
-}
-
-/* wrapper for asprintf */
-int
-non_perl_xasprintf (char **ptr, const char *template, ...)
-{
-  int ret;
-  va_list v;
-  va_start (v, template);
-  ret = non_perl_xvasprintf (ptr, template, v);
-  va_end (v);
-  return ret;
-}
-
 /* wrapper for asprintf */
 int
 xasprintf (char **ptr, const char *template, ...)

@@ -108,13 +108,6 @@ typedef struct ACCENTS_STACK {
     ELEMENT *argument;
 } ACCENTS_STACK;
 
-void non_perl_free (void *ptr);
-void *non_perl_malloc (size_t size);
-char *non_perl_strdup (const char *s);
-char *non_perl_strndup (const char *s, size_t n);
-int non_perl_xvasprintf (char **ptr, const char *template, va_list ap);
-int non_perl_xasprintf (char **ptr, const char *template, ...);
-
 int xasprintf (char **ptr, const char *template, ...);
 
 void fatal (char *);

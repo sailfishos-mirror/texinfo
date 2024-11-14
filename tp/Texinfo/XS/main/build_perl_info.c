@@ -61,6 +61,8 @@
 #include "document_types.h"
 /* CONVERTER sv_string_type */
 #include "converter_types.h"
+/* non_perl_* */
+#include "xs_utils.h"
 /* for new_element */
 #include "tree.h"
 #include "extra.h"

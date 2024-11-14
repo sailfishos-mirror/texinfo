@@ -13,8 +13,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-#include <config.h>
-
 /* Avoid namespace conflicts. */
 #define context perl_context
 
@@ -25,13 +23,11 @@
 
 #undef context
 
-#include <string.h>
-
 #include "tree_types.h"
 #include "converter_types.h"
 #include "document_types.h"
-/* for non_perl_strndup and similar */
-#include "utils.h"
+/* non_perl_* */
+#include "xs_utils.h"
 #include "call_perl_function.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
