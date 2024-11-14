@@ -36,10 +36,12 @@ xspara_new (class, ...)
     PREINIT:
         HV *conf = 0;
         int id;
-        SV **val;
-#define FETCH(key) hv_fetch (conf, key, strlen (key), 0)
-#define xspara_SET_CONF(variable) { val = FETCH(#variable); \
-                if (val) { xspara_set_conf_##variable (SvIV (*val)); } }
+#define xspara_SET_CONF(variable)  \
+                else if (!strcmp (var_name, #variable)) \
+                  { \
+                    if (SvOK (value_sv)) \
+                      {xspara_set_conf_##variable (SvIV (value_sv));} \
+                  }
     CODE:
         items--;
         if (items > 0)
@@ -51,7 +53,23 @@ xspara_new (class, ...)
 
         if (conf)
           {
-            XSPARA_CONF_VARIABLES_LIST 
+            I32 hv_number;
+            I32 i;
+
+            hv_number = hv_iterinit (conf);
+
+            for (i = 0; i < hv_number; i++)
+              {
+                I32 retlen;
+                char *var_name;
+                SV *value_sv = hv_iternextsv (conf, &var_name, &retlen);
+
+                if (0)
+                  {}
+     /* XSPARA_CONF_VARIABLES_LIST is replaced by xspara_SET_CONF(variable)
+        for each of the configuration variables */
+                XSPARA_CONF_VARIABLES_LIST
+              }
           }
 
         /* Create an integer, which the other functions
@@ -61,7 +79,6 @@ xspara_new (class, ...)
         RETVAL
     CLEANUP:
 #undef xspara_SET_CONF
-#undef FETCH
 
 
 int
