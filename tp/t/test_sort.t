@@ -45,6 +45,7 @@ my $document = $parser->parse_texi_text('@node Top
 ');
 
 my $main_configuration = Texinfo::MainConfig::new();
+Texinfo::Config::GNUT_initialize_customization(undef, {}, {});
 
 # To set $indices_sort_strings, calling
 # Texinfo::Document::indices_sort_strings is more natural, but we want
