@@ -1,5 +1,10 @@
 2024-11-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_do_js_files): set
+	to_file_name independently of COMMAND_LINE_ENCODING.
+
+2024-11-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (noinst_LTLIBRARIES)
 	(XSParagraph_la_SOURCES, libxsparagraph_la_*, XSParagraph_la_CPPFLAGS)
 	(XSParagraph_la_LIBADD), tp/Texinfo/XS/XSParagraph.xs: add

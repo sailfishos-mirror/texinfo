@@ -2541,6 +2541,8 @@ html_do_js_files (CONVERTER *self)
                   xasprintf (&from, "%s/%s", jssrcdir, js_files[i]);
                   xasprintf (&to, "%s/%s", encoded_jsdir, js_files[i]);
 
+                  xasprintf (&to_file_name, "%s/%s", jsdir, js_files[i]);
+
                   const char *encoding
                     = self->conf->COMMAND_LINE_ENCODING.o.string;
                   if (encoding)
@@ -2551,14 +2553,11 @@ html_do_js_files (CONVERTER *self)
                                                     encoding, &status, 0);
                       xasprintf (&from_file_name,
                                  "%s/%s", decoded_jssrcdir, js_files[i]);
-                      xasprintf (&to_file_name,
-                                 "%s/%s", jsdir, js_files[i]);
                       free (decoded_jssrcdir);
                     }
                   else
                     {
                       from_file_name = strdup (from);
-                      to_file_name = strdup (to);
                     }
 
                   copy_file_to (self, from, to, from_file_name, to_file_name);
