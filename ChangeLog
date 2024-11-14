@@ -1,5 +1,11 @@
 2024-11-14  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS: run "gnulib-tool --remove-import copy-file".
+	run "gnulib-tool --import gettext-h" as module appears to be
+	necessary and is removed otherwise.
+
+2024-11-14  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Do not require copy-file module
 
 	* tp/Texinfo/XS/convert/convert_html.c (copy_file_to): New function

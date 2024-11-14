@@ -34,9 +34,9 @@
 #  --libtool \
 #  --macro-prefix=gl \
 #  --po-domain=texinfo_tp \
-#  copy-file \
 #  euidaccess \
 #  getline \
+#  gettext-h \
 #  iconv \
 #  libunistring \
 #  locale \
@@ -99,17 +99,10 @@ libgnu_la_DEPENDENCIES = $(gl_LTLIBOBJS)
 EXTRA_libgnu_la_SOURCES =
 libgnu_la_LDFLAGS = $(AM_LDFLAGS)
 libgnu_la_LDFLAGS += -no-undefined
-libgnu_la_LDFLAGS += $(CLOCK_TIME_LIB)
 libgnu_la_LDFLAGS += $(EUIDACCESS_LIBGEN)
-libgnu_la_LDFLAGS += $(HARD_LOCALE_LIB)
-libgnu_la_LDFLAGS += $(LIB_ACL)
-libgnu_la_LDFLAGS += $(LTLIBC32CONV)
 libgnu_la_LDFLAGS += $(LTLIBICONV)
 libgnu_la_LDFLAGS += $(LTLIBINTL)
 libgnu_la_LDFLAGS += $(LTLIBUNISTRING)
-libgnu_la_LDFLAGS += $(MBRTOWC_LIB)
-libgnu_la_LDFLAGS += $(QCOPY_ACL_LIB)
-libgnu_la_LDFLAGS += $(SETLOCALE_NULL_LIB)
 
 AM_CPPFLAGS += -DDEFAULT_TEXT_DOMAIN=\"texinfo_tp-gnulib\"
 
@@ -129,16 +122,6 @@ libgnu_la_SOURCES += access.c
 endif
 
 ## end   gnulib module access
-
-## begin gnulib module acl-permissions
-
-libgnu_la_SOURCES += acl-errno-valid.c acl-internal.c    get-permissions.c set-permissions.c
-
-EXTRA_DIST += acl-internal.h acl.h acl_entries.c
-
-EXTRA_libgnu_la_SOURCES += acl_entries.c
-
-## end   gnulib module acl-permissions
 
 ## begin gnulib module alloca-opt
 
@@ -207,73 +190,6 @@ EXTRA_DIST += attribute.h
 
 ## end   gnulib module attribute
 
-## begin gnulib module basename-lgpl
-
-libgnu_la_SOURCES += basename-lgpl.c
-
-EXTRA_DIST += basename-lgpl.h
-
-## end   gnulib module basename-lgpl
-
-## begin gnulib module binary-io
-
-libgnu_la_SOURCES += binary-io.h binary-io.c
-
-## end   gnulib module binary-io
-
-## begin gnulib module c-ctype
-
-libgnu_la_SOURCES += c-ctype.h c-ctype.c
-
-## end   gnulib module c-ctype
-
-## begin gnulib module c-strcase
-
-libgnu_la_SOURCES += c-strcase.h c-strcasecmp.c c-strncasecmp.c
-
-## end   gnulib module c-strcase
-
-## begin gnulib module c-strcaseeq
-
-
-EXTRA_DIST += c-strcaseeq.h
-
-## end   gnulib module c-strcaseeq
-
-## begin gnulib module c32isprint
-
-libgnu_la_SOURCES += c32isprint.c
-
-EXTRA_DIST += c32is-impl.h
-
-## end   gnulib module c32isprint
-
-## begin gnulib module calloc-gnu
-
-
-EXTRA_DIST += calloc.c
-
-EXTRA_libgnu_la_SOURCES += calloc.c
-
-## end   gnulib module calloc-gnu
-
-## begin gnulib module calloc-posix
-
-
-EXTRA_DIST += calloc.c
-
-EXTRA_libgnu_la_SOURCES += calloc.c
-
-## end   gnulib module calloc-posix
-
-## begin gnulib module cloexec
-
-libgnu_la_SOURCES += cloexec.c
-
-EXTRA_DIST += cloexec.h
-
-## end   gnulib module cloexec
-
 ## begin gnulib module close
 
 if GL_COND_OBJ_CLOSE
@@ -281,20 +197,6 @@ libgnu_la_SOURCES += close.c
 endif
 
 ## end   gnulib module close
-
-## begin gnulib module copy-file
-
-libgnu_la_SOURCES += copy-file.h copy-file.c
-
-## end   gnulib module copy-file
-
-## begin gnulib module copy-file-range
-
-if GL_COND_OBJ_COPY_FILE_RANGE
-libgnu_la_SOURCES += copy-file-range.c
-endif
-
-## end   gnulib module copy-file-range
 
 ## begin gnulib module dup2
 
@@ -336,38 +238,6 @@ EXTRA_DIST += errno.in.h
 
 ## end   gnulib module errno
 
-## begin gnulib module error
-
-if GL_COND_OBJ_ERROR
-libgnu_la_SOURCES += error.c
-endif
-
-## end   gnulib module error
-
-## begin gnulib module error-h
-
-BUILT_SOURCES += error.h
-
-# We need the following in order to override <error.h>.
-error.h: error.in.h $(top_builddir)/config.status $(CXXDEFS_H)
-	$(gl_V_at)$(SED_HEADER_STDOUT) \
-	      -e 's|@''GUARD_PREFIX''@|GL|g' \
-	      -e 's|@''HAVE_ERROR_H''@|$(HAVE_ERROR_H)|g' \
-	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
-	      -e 's|@''NEXT_ERROR_H''@|$(NEXT_ERROR_H)|g' \
-	      -e 's|@''HAVE_ERROR''@|$(HAVE_ERROR)|g' \
-	      -e 's|@''HAVE_ERROR_AT_LINE''@|$(HAVE_ERROR_AT_LINE)|g' \
-	      -e 's|@''REPLACE_ERROR''@|$(REPLACE_ERROR)|g' \
-	      -e 's|@''REPLACE_ERROR_AT_LINE''@|$(REPLACE_ERROR_AT_LINE)|g' \
-	      -e '/definitions of _GL_FUNCDECL_RPL/r $(CXXDEFS_H)' \
-	      $(srcdir)/error.in.h > $@-t
-	$(AM_V_at)mv $@-t $@
-MOSTLYCLEANFILES += error.h error.h-t
-
-EXTRA_DIST += error.in.h
-
-## end   gnulib module error-h
-
 ## begin gnulib module euidaccess
 
 if GL_COND_OBJ_EUIDACCESS
@@ -375,14 +245,6 @@ libgnu_la_SOURCES += euidaccess.c
 endif
 
 ## end   gnulib module euidaccess
-
-## begin gnulib module exitfail
-
-libgnu_la_SOURCES += exitfail.c
-
-EXTRA_DIST += exitfail.h
-
-## end   gnulib module exitfail
 
 ## begin gnulib module fcntl
 
@@ -486,24 +348,6 @@ endif
 
 ## end   gnulib module free-posix
 
-## begin gnulib module fstat
-
-if GL_COND_OBJ_FSTAT
-libgnu_la_SOURCES += fstat.c
-endif
-
-EXTRA_DIST += stat-w32.c stat-w32.h
-
-EXTRA_libgnu_la_SOURCES += stat-w32.c
-
-## end   gnulib module fstat
-
-## begin gnulib module full-write
-
-libgnu_la_SOURCES += full-write.h full-write.c
-
-## end   gnulib module full-write
-
 ## begin gnulib module gen-header
 
 # In 'sed', replace the pattern space with a "DO NOT EDIT" comment.
@@ -556,35 +400,11 @@ endif
 
 ## end   gnulib module getline
 
-## begin gnulib module getprogname
-
-if GL_COND_OBJ_GETPROGNAME
-libgnu_la_SOURCES += getprogname.c
-endif
-
-EXTRA_DIST += getprogname.h
-
-## end   gnulib module getprogname
-
 ## begin gnulib module gettext-h
 
 libgnu_la_SOURCES += gettext.h
 
 ## end   gnulib module gettext-h
-
-## begin gnulib module gettime
-
-libgnu_la_SOURCES += gettime.c
-
-## end   gnulib module gettime
-
-## begin gnulib module gettimeofday
-
-if GL_COND_OBJ_GETTIMEOFDAY
-libgnu_la_SOURCES += gettimeofday.c
-endif
-
-## end   gnulib module gettimeofday
 
 ## begin gnulib module gperf
 
@@ -603,14 +423,6 @@ endif
 
 ## end   gnulib module group-member
 
-## begin gnulib module hard-locale
-
-libgnu_la_SOURCES += hard-locale.c
-
-EXTRA_DIST += hard-locale.h
-
-## end   gnulib module hard-locale
-
 ## begin gnulib module havelib
 
 
@@ -618,33 +430,11 @@ EXTRA_DIST += $(top_srcdir)/build-aux/config.rpath
 
 ## end   gnulib module havelib
 
-## begin gnulib module ialloc
-
-libgnu_la_SOURCES += ialloc.c
-
-EXTRA_DIST += ialloc.h
-
-## end   gnulib module ialloc
-
 ## begin gnulib module idx
 
 libgnu_la_SOURCES += idx.h
 
 ## end   gnulib module idx
-
-## begin gnulib module ignore-value
-
-
-EXTRA_DIST += ignore-value.h
-
-## end   gnulib module ignore-value
-
-## begin gnulib module intprops
-
-
-EXTRA_DIST += intprops-internal.h intprops.h
-
-## end   gnulib module intprops
 
 ## begin gnulib module inttypes-incomplete
 
@@ -722,14 +512,6 @@ EXTRA_DIST += limits.in.h
 
 ## end   gnulib module limits-h
 
-## begin gnulib module localcharset
-
-libgnu_la_SOURCES += localcharset.c
-
-EXTRA_DIST += localcharset.h
-
-## end   gnulib module localcharset
-
 ## begin gnulib module locale
 
 BUILT_SOURCES += locale.h
@@ -770,14 +552,6 @@ EXTRA_DIST += locale.in.h
 
 ## end   gnulib module locale
 
-## begin gnulib module lstat
-
-if GL_COND_OBJ_LSTAT
-libgnu_la_SOURCES += lstat.c
-endif
-
-## end   gnulib module lstat
-
 ## begin gnulib module malloc-gnu
 
 
@@ -804,38 +578,6 @@ EXTRA_DIST += malloca.h
 
 ## end   gnulib module malloca
 
-## begin gnulib module mbrtoc32
-
-if GL_COND_OBJ_MBRTOC32
-libgnu_la_SOURCES += mbrtoc32.c
-endif
-
-EXTRA_DIST += lc-charset-dispatch.c lc-charset-dispatch.h mbrtowc-impl-utf8.h mbrtowc-impl.h mbtowc-lock.c mbtowc-lock.h windows-initguard.h
-
-EXTRA_libgnu_la_SOURCES += lc-charset-dispatch.c mbtowc-lock.c
-
-## end   gnulib module mbrtoc32
-
-## begin gnulib module mbrtowc
-
-if GL_COND_OBJ_MBRTOWC
-libgnu_la_SOURCES += mbrtowc.c
-endif
-
-EXTRA_DIST += lc-charset-dispatch.c lc-charset-dispatch.h mbrtowc-impl-utf8.h mbrtowc-impl.h mbtowc-lock.c mbtowc-lock.h windows-initguard.h
-
-EXTRA_libgnu_la_SOURCES += lc-charset-dispatch.c mbtowc-lock.c
-
-## end   gnulib module mbrtowc
-
-## begin gnulib module mbsinit
-
-if GL_COND_OBJ_MBSINIT
-libgnu_la_SOURCES += mbsinit.c
-endif
-
-## end   gnulib module mbsinit
-
 ## begin gnulib module mbszero
 
 libgnu_la_SOURCES += mbszero.c
@@ -851,12 +593,6 @@ endif
 EXTRA_DIST += memchr.valgrind
 
 ## end   gnulib module memchr
-
-## begin gnulib module minmax
-
-libgnu_la_SOURCES += minmax.h
-
-## end   gnulib module minmax
 
 ## begin gnulib module msvc-inval
 
@@ -878,49 +614,12 @@ EXTRA_DIST += msvc-nothrow.h
 
 ## end   gnulib module msvc-nothrow
 
-## begin gnulib module open
-
-if GL_COND_OBJ_OPEN
-libgnu_la_SOURCES += open.c
-endif
-
-## end   gnulib module open
-
 ## begin gnulib module pathmax
 
 
 EXTRA_DIST += pathmax.h
 
 ## end   gnulib module pathmax
-
-## begin gnulib module qcopy-acl
-
-libgnu_la_SOURCES += qcopy-acl.c
-
-## end   gnulib module qcopy-acl
-
-## begin gnulib module quote
-
-
-EXTRA_DIST += quote.h
-
-## end   gnulib module quote
-
-## begin gnulib module quotearg
-
-libgnu_la_SOURCES += quotearg.c
-
-EXTRA_DIST += quote.h quotearg.h
-
-## end   gnulib module quotearg
-
-## begin gnulib module raise
-
-if GL_COND_OBJ_RAISE
-libgnu_la_SOURCES += raise.c
-endif
-
-## end   gnulib module raise
 
 ## begin gnulib module rawmemchr
 
@@ -931,14 +630,6 @@ endif
 EXTRA_DIST += rawmemchr.valgrind
 
 ## end   gnulib module rawmemchr
-
-## begin gnulib module read
-
-if GL_COND_OBJ_READ
-libgnu_la_SOURCES += read.c
-endif
-
-## end   gnulib module read
 
 ## begin gnulib module realloc-gnu
 
@@ -958,38 +649,12 @@ EXTRA_libgnu_la_SOURCES += realloc.c
 
 ## end   gnulib module realloc-posix
 
-## begin gnulib module reallocarray
-
-if GL_COND_OBJ_REALLOCARRAY
-libgnu_la_SOURCES += reallocarray.c
-endif
-
-## end   gnulib module reallocarray
-
 ## begin gnulib module root-uid
 
 
 EXTRA_DIST += root-uid.h
 
 ## end   gnulib module root-uid
-
-## begin gnulib module safe-read
-
-libgnu_la_SOURCES += safe-read.c
-
-EXTRA_DIST += safe-read.h sys-limits.h
-
-## end   gnulib module safe-read
-
-## begin gnulib module safe-write
-
-libgnu_la_SOURCES += safe-write.c
-
-EXTRA_DIST += safe-read.c safe-write.h sys-limits.h
-
-EXTRA_libgnu_la_SOURCES += safe-read.c
-
-## end   gnulib module safe-write
 
 ## begin gnulib module setenv
 
@@ -998,68 +663,6 @@ libgnu_la_SOURCES += setenv.c
 endif
 
 ## end   gnulib module setenv
-
-## begin gnulib module setlocale-null
-
-libgnu_la_SOURCES += setlocale_null.c
-if GL_COND_OBJ_SETLOCALE_LOCK
-libgnu_la_SOURCES += setlocale-lock.c
-endif
-
-EXTRA_DIST += setlocale_null.h windows-initguard.h
-
-## end   gnulib module setlocale-null
-
-## begin gnulib module setlocale-null-unlocked
-
-libgnu_la_SOURCES += setlocale_null-unlocked.c
-
-EXTRA_DIST += setlocale_null.h
-
-## end   gnulib module setlocale-null-unlocked
-
-## begin gnulib module signal-h
-
-BUILT_SOURCES += signal.h
-
-# We need the following in order to create <signal.h> when the system
-# doesn't have a complete one.
-signal.h: signal.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) $(WARN_ON_USE_H)
-	$(gl_V_at)$(SED_HEADER_STDOUT) \
-	      -e 's|@''GUARD_PREFIX''@|GL|g' \
-	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
-	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
-	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
-	      -e 's|@''NEXT_SIGNAL_H''@|$(NEXT_SIGNAL_H)|g' \
-	      -e 's/@''GNULIB_PTHREAD_SIGMASK''@/$(GL_GNULIB_PTHREAD_SIGMASK)/g' \
-	      -e 's/@''GNULIB_RAISE''@/$(GL_GNULIB_RAISE)/g' \
-	      -e 's/@''GNULIB_SIG2STR''@/$(GL_GNULIB_SIG2STR)/g' \
-	      -e 's/@''GNULIB_SIGNAL_H_SIGPIPE''@/$(GL_GNULIB_SIGNAL_H_SIGPIPE)/g' \
-	      -e 's/@''GNULIB_SIGPROCMASK''@/$(GL_GNULIB_SIGPROCMASK)/g' \
-	      -e 's/@''GNULIB_SIGACTION''@/$(GL_GNULIB_SIGACTION)/g' \
-	      -e 's|@''HAVE_POSIX_SIGNALBLOCKING''@|$(HAVE_POSIX_SIGNALBLOCKING)|g' \
-	      -e 's|@''HAVE_PTHREAD_SIGMASK''@|$(HAVE_PTHREAD_SIGMASK)|g' \
-	      -e 's|@''HAVE_RAISE''@|$(HAVE_RAISE)|g' \
-	      -e 's|@''HAVE_SIG2STR''@|$(HAVE_SIG2STR)|g' \
-	      -e 's|@''HAVE_SIGSET_T''@|$(HAVE_SIGSET_T)|g' \
-	      -e 's|@''HAVE_SIGINFO_T''@|$(HAVE_SIGINFO_T)|g' \
-	      -e 's|@''HAVE_SIGACTION''@|$(HAVE_SIGACTION)|g' \
-	      -e 's|@''HAVE_STR2SIG''@|$(HAVE_STR2SIG)|g' \
-	      -e 's|@''HAVE_STRUCT_SIGACTION_SA_SIGACTION''@|$(HAVE_STRUCT_SIGACTION_SA_SIGACTION)|g' \
-	      -e 's|@''HAVE_TYPE_VOLATILE_SIG_ATOMIC_T''@|$(HAVE_TYPE_VOLATILE_SIG_ATOMIC_T)|g' \
-	      -e 's|@''HAVE_SIGHANDLER_T''@|$(HAVE_SIGHANDLER_T)|g' \
-	      -e 's|@''REPLACE_PTHREAD_SIGMASK''@|$(REPLACE_PTHREAD_SIGMASK)|g' \
-	      -e 's|@''REPLACE_RAISE''@|$(REPLACE_RAISE)|g' \
-	      -e '/definitions of _GL_FUNCDECL_RPL/r $(CXXDEFS_H)' \
-	      -e '/definition of _GL_ARG_NONNULL/r $(ARG_NONNULL_H)' \
-	      -e '/definition of _GL_WARN_ON_USE/r $(WARN_ON_USE_H)' \
-	      $(srcdir)/signal.in.h > $@-t
-	$(AM_V_at)mv $@-t $@
-MOSTLYCLEANFILES += signal.h signal.h-t
-
-EXTRA_DIST += signal.in.h
-
-## end   gnulib module signal-h
 
 ## begin gnulib module size_max
 
@@ -1587,24 +1190,6 @@ EXTRA_DIST += streq.h
 
 ## end   gnulib module streq
 
-## begin gnulib module strerror
-
-if GL_COND_OBJ_STRERROR
-libgnu_la_SOURCES += strerror.c
-endif
-
-## end   gnulib module strerror
-
-## begin gnulib module strerror-override
-
-if GL_COND_OBJ_STRERROR_OVERRIDE
-libgnu_la_SOURCES += strerror-override.c
-endif
-
-EXTRA_DIST += strerror-override.h
-
-## end   gnulib module strerror-override
-
 ## begin gnulib module string
 
 BUILT_SOURCES += string.h
@@ -1813,39 +1398,6 @@ EXTRA_DIST += sys_stat.in.h
 
 ## end   gnulib module sys_stat
 
-## begin gnulib module sys_time
-
-BUILT_SOURCES += sys/time.h
-
-# We need the following in order to create <sys/time.h> when the system
-# doesn't have one that works with the given compiler.
-sys/time.h: sys_time.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) $(WARN_ON_USE_H)
-	$(AM_V_GEN)$(MKDIR_P) '%reldir%/sys'
-	$(AM_V_at)$(SED_HEADER_STDOUT) \
-	      -e 's|@''GUARD_PREFIX''@|GL|g' \
-	      -e 's/@''HAVE_SYS_TIME_H''@/$(HAVE_SYS_TIME_H)/g' \
-	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
-	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
-	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
-	      -e 's|@''NEXT_SYS_TIME_H''@|$(NEXT_SYS_TIME_H)|g' \
-	      -e 's/@''GNULIB_GETTIMEOFDAY''@/$(GL_GNULIB_GETTIMEOFDAY)/g' \
-	      -e 's|@''HAVE_WINSOCK2_H''@|$(HAVE_WINSOCK2_H)|g' \
-	      -e 's/@''HAVE_GETTIMEOFDAY''@/$(HAVE_GETTIMEOFDAY)/g' \
-	      -e 's/@''HAVE_STRUCT_TIMEVAL''@/$(HAVE_STRUCT_TIMEVAL)/g' \
-	      -e 's/@''REPLACE_GETTIMEOFDAY''@/$(REPLACE_GETTIMEOFDAY)/g' \
-	      -e 's/@''REPLACE_STRUCT_TIMEVAL''@/$(REPLACE_STRUCT_TIMEVAL)/g' \
-	      -e '/definitions of _GL_FUNCDECL_RPL/r $(CXXDEFS_H)' \
-	      -e '/definition of _GL_ARG_NONNULL/r $(ARG_NONNULL_H)' \
-	      -e '/definition of _GL_WARN_ON_USE/r $(WARN_ON_USE_H)' \
-	      $(srcdir)/sys_time.in.h > $@-t
-	$(AM_V_at)mv $@-t $@
-MOSTLYCLEANFILES += sys/time.h sys/time.h-t
-MOSTLYCLEANDIRS += sys
-
-EXTRA_DIST += sys_time.in.h
-
-## end   gnulib module sys_time
-
 ## begin gnulib module sys_types
 
 BUILT_SOURCES += sys/types.h
@@ -1937,14 +1489,6 @@ MOSTLYCLEANFILES += time.h time.h-t
 EXTRA_DIST += time.in.h
 
 ## end   gnulib module time-h
-
-## begin gnulib module timespec
-
-libgnu_la_SOURCES += timespec.c
-
-EXTRA_DIST += timespec.h
-
-## end   gnulib module timespec
 
 ## begin gnulib module uchar
 
@@ -2366,16 +1910,6 @@ endif
 EXTRA_DIST += unictype/combiningclass.h
 
 ## end   gnulib module unictype/combining-class
-
-## begin gnulib module unictype/ctype-print
-
-if LIBUNISTRING_COMPILE_UNICTYPE_CTYPE_PRINT
-libgnu_la_SOURCES += unictype/ctype_print.c
-endif
-
-EXTRA_DIST += unictype/bitmap.h unictype/ctype_print.h
-
-## end   gnulib module unictype/ctype-print
 
 ## begin gnulib module unictype/ctype-upper
 
@@ -2928,51 +2462,6 @@ endif
 
 ## end   gnulib module unsetenv
 
-## begin gnulib module utime
-
-if GL_COND_OBJ_UTIME
-libgnu_la_SOURCES += utime.c
-endif
-
-## end   gnulib module utime
-
-## begin gnulib module utime-h
-
-BUILT_SOURCES += utime.h
-
-# We need the following in order to create <utime.h> when the system
-# doesn't have one that works with the given compiler.
-utime.h: utime.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) $(WARN_ON_USE_H)
-	$(gl_V_at)$(SED_HEADER_STDOUT) \
-	      -e 's|@''GUARD_PREFIX''@|GL|g' \
-	      -e 's/@''HAVE_UTIME_H''@/$(HAVE_UTIME_H)/g' \
-	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
-	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
-	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
-	      -e 's|@''NEXT_UTIME_H''@|$(NEXT_UTIME_H)|g' \
-	      -e 's/@''GNULIB_UTIME''@/$(GL_GNULIB_UTIME)/g' \
-	      -e 's/@''GNULIB_MDA_UTIME''@/$(GL_GNULIB_MDA_UTIME)/g' \
-	      -e 's|@''HAVE_UTIME''@|$(HAVE_UTIME)|g' \
-	      -e 's|@''REPLACE_UTIME''@|$(REPLACE_UTIME)|g' \
-	      -e '/definitions of _GL_FUNCDECL_RPL/r $(CXXDEFS_H)' \
-	      -e '/definition of _GL_ARG_NONNULL/r $(ARG_NONNULL_H)' \
-	      -e '/definition of _GL_WARN_ON_USE/r $(WARN_ON_USE_H)' \
-	      $(srcdir)/utime.in.h > $@-t
-	$(AM_V_at)mv $@-t $@
-MOSTLYCLEANFILES += utime.h utime.h-t
-
-EXTRA_DIST += utime.in.h
-
-## end   gnulib module utime-h
-
-## begin gnulib module utimens
-
-libgnu_la_SOURCES += utimens.c
-
-EXTRA_DIST += utimens.h
-
-## end   gnulib module utimens
-
 ## begin gnulib module vasnprintf
 
 
@@ -3181,30 +2670,6 @@ MOSTLYCLEANFILES += wctype.h wctype.h-t
 EXTRA_DIST += wctype.in.h
 
 ## end   gnulib module wctype-h
-
-## begin gnulib module write
-
-if GL_COND_OBJ_WRITE
-libgnu_la_SOURCES += write.c
-endif
-
-## end   gnulib module write
-
-## begin gnulib module xalloc
-
-libgnu_la_SOURCES += xmalloc.c
-
-EXTRA_DIST += xalloc.h
-
-## end   gnulib module xalloc
-
-## begin gnulib module xalloc-die
-
-libgnu_la_SOURCES += xalloc-die.c
-
-EXTRA_DIST += xalloc.h
-
-## end   gnulib module xalloc-die
 
 ## begin gnulib module xalloc-oversized
 

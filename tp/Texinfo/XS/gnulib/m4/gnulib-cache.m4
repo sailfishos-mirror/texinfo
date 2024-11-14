@@ -39,9 +39,9 @@
 #  --libtool \
 #  --macro-prefix=gl \
 #  --po-domain=texinfo_tp \
-#  copy-file \
 #  euidaccess \
 #  getline \
+#  gettext-h \
 #  iconv \
 #  libunistring \
 #  locale \
@@ -78,9 +78,9 @@
 # Specification in the form of a few gnulib-tool.m4 macro invocations:
 gl_LOCAL_DIR([])
 gl_MODULES([
-  copy-file
   euidaccess
   getline
+  gettext-h
   iconv
   libunistring
   locale
