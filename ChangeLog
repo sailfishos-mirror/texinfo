@@ -1,3 +1,15 @@
+2024-11-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Do not require copy-file module
+
+	* tp/Texinfo/XS/convert/convert_html.c (copy_file_to): New function
+	to copy a file without using Gnulib copy-file module.  Advice
+	on file name encoding from Patrice.
+	(html_do_js_files): Call it.
+
+	The copy-file module has a large amount of dependencies and is
+	not necessary for our needs.
+
 2024-11-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/xs_utils.c (non_perl_*),

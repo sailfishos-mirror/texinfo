@@ -20,8 +20,6 @@
 #include <stdio.h>
 #include <errno.h>
 
-#include "copy-file.h"
-
 #include "html_conversion_data.h"
 #include "text.h"
 #include "element_types.h"
@@ -2392,6 +2390,97 @@ do_jslicenses_file (CONVERTER *self)
   free (formatted_jlicenses);
 }
 
+/* Set FOPEN_RBIN and ROPEN_WBIN. */
+#ifndef O_BINARY
+# ifdef _O_BINARY
+#  define O_BINARY _O_BINARY
+# else
+  #  define O_BINARY 0
+  # endif
+#endif /* O_BINARY */
+
+#if O_BINARY /* MS-Windows */
+# define FOPEN_RBIN     "rb"
+# define FOPEN_WBIN     "wb"
+#else
+# define FOPEN_RBIN     "r"
+# define FOPEN_WBIN     "w"
+#endif
+
+/* Copy FROM to TO.  FROM_FILE_NAME and TO_FILE_NAME are unencoded strings
+   used for error messages. */
+static void
+copy_file_to (CONVERTER *self,
+              const char *from, const char *to,
+              const char *from_file_name, const char *to_file_name)
+{
+  FILE *src = 0, *dest = 0;
+
+  src = fopen (from, FOPEN_RBIN);
+  if (!src)
+    {
+      message_list_document_error (&self->error_messages,
+          self->conf, 0,
+          "error while opening %s for reading: %s",
+          from_file_name, strerror (errno));
+      return;
+    }
+
+  dest = fopen (to, FOPEN_WBIN);
+  if (!dest)
+    {
+      message_list_document_error (&self->error_messages,
+          self->conf, 0,
+          "cannot open %s for writing: %s",
+          to_file_name, strerror (errno));
+      fclose (src);
+      return;
+    }
+
+#define bufsize 512
+  char buf[bufsize];
+  size_t nread, nwritten;
+  do
+    {
+      nread = fread (buf, sizeof(char), sizeof(buf), src);
+
+      nwritten = fwrite (buf, sizeof(char), nread/2, dest);
+      if (nwritten != nread)
+        {
+          message_list_document_error (&self->error_messages,
+              self->conf, 0,
+              "error writing %s: %s",
+              to_file_name, strerror (errno));
+          fclose (src);
+          fclose (dest);
+          return;
+        }
+    }
+  while (nread == bufsize);
+#undef bufsize
+
+  if (ferror (src))
+    {
+      message_list_document_error (&self->error_messages,
+          self->conf, 0,
+          "error reading %s: %s",
+          from_file_name, strerror (errno));
+      fclose (src);
+      fclose (dest);
+      return;
+    }
+
+  fclose (src);
+  if (fclose (dest) != 0)
+    {
+       message_list_document_error (&self->error_messages,
+           self->conf, 0,
+           "error closing %s: %s",
+           to_file_name, strerror (errno));
+       return;
+    }
+}
+
 static const char *js_files[4] = {"info.js", "modernizr.js", "info.css", 0};
 
 void
@@ -2446,85 +2535,38 @@ html_do_js_files (CONVERTER *self)
                 }
               for (i = 0; js_files[i]; i++)
                 {
-                  char *from;
-                  char *to;
-                  int status;
+                  char *from, *to;
+                  char *from_file_name, *to_file_name;
 
                   xasprintf (&from, "%s/%s", jssrcdir, js_files[i]);
                   xasprintf (&to, "%s/%s", encoded_jsdir, js_files[i]);
-                  status = copy_file_to (from, to);
 
-                  if (status != 0)
+                  const char *encoding
+                    = self->conf->COMMAND_LINE_ENCODING.o.string;
+                  if (encoding)
                     {
-                      char *to_file_name;
-                      char *from_file_name;
-
-                      xasprintf (&to_file_name, "%s/%s", jsdir, js_files[i]);
-                      xasprintf (&from_file_name, "%s/%s", jsdir, js_files[i]);
-
-                      switch (status)
-                        {
-                          case GL_COPY_ERR_OPEN_READ:
-                            message_list_document_error (&self->error_messages,
-                                self->conf, 0,
-                                "error while opening %s for reading: %s",
-                                from_file_name, strerror (errno));
-                            break;
-
-                          case GL_COPY_ERR_OPEN_BACKUP_WRITE:
-                            message_list_document_error (&self->error_messages,
-                                self->conf, 0,
-                                "cannot open %s for writing: %s",
-                                to_file_name, strerror (errno));
-                            break;
-
-                          case GL_COPY_ERR_READ:
-                            message_list_document_error (&self->error_messages,
-                                self->conf, 0,
-                                "error reading %s: %s",
-                                from_file_name, strerror (errno));
-                            break;
-
-                          case GL_COPY_ERR_WRITE:
-                            message_list_document_error (&self->error_messages,
-                                self->conf, 0,
-                                "error writing %s: %s",
-                                to_file_name, strerror (errno));
-                            break;
-
-                          case GL_COPY_ERR_AFTER_READ:
-                            message_list_document_error (&self->error_messages,
-                                self->conf, 0,
-                                "error after reading %s: %s",
-                                from_file_name, strerror (errno));
-                            break;
-
-                          case GL_COPY_ERR_GET_ACL:
-                            message_list_document_warn (&self->error_messages,
-                                self->conf, 0,
-                                "%s: %s",
-                                from_file_name, strerror (errno));
-                            break;
-
-                          case GL_COPY_ERR_SET_ACL:
-                            message_list_document_warn (&self->error_messages,
-                                self->conf, 0,
-                                "preserving permissions for %s: %s",
-                                to_file_name, strerror (errno));
-                            break;
-
-                          default:
-                            message_list_document_warn (&self->error_messages,
-                                self->conf, 0,
-                                "unexpected error on copying %s into %s",
-                                from_file_name, to_file_name);
-                            break;
-                        }
-                      free (to_file_name);
-                      free (from_file_name);
+                      int status;
+                      char *decoded_jssrcdir;
+                      decoded_jssrcdir = decode_string (jssrcdir,
+                                                    encoding, &status, 0);
+                      xasprintf (&from_file_name,
+                                 "%s/%s", decoded_jssrcdir, js_files[i]);
+                      xasprintf (&to_file_name,
+                                 "%s/%s", jsdir, js_files[i]);
+                      free (decoded_jssrcdir);
                     }
+                  else
+                    {
+                      from_file_name = strdup (from);
+                      to_file_name = strdup (to);
+                    }
+
+                  copy_file_to (self, from, to, from_file_name, to_file_name);
+
                   free (to);
                   free (from);
+                  free (to_file_name);
+                  free (from_file_name);
                 }
               free (jssrcdir);
             }
