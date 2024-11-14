@@ -13,17 +13,9 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#ifdef HAVE_CONFIG_H
-  #include <config.h>
-#endif
-
 #define PERL_NO_GET_CONTEXT
 #include "EXTERN.h"
 #include "perl.h"
-#if defined _WIN32 && !defined __CYGWIN__
-/* See comment in XSParagraph.xs for why we #undef free. */
-# undef free
-#endif
 #include "XSUB.h"
 
 #include "miscxs.h"
@@ -83,7 +75,7 @@ xs_entity_text (text)
 
 void
 xs_parse_command_name (text)
-     SV *text
+     char *text = (char *)SvPVutf8_nolen ($arg);
   PREINIT:
      char *command;
      int is_single_letter;
@@ -100,7 +92,7 @@ xs_parse_command_name (text)
 
 void
 xs_parse_texi_regex (text)
-     SV *text
+     char *text = (char *)SvPVutf8_nolen ($arg);
   PREINIT:
      char *arobase;
      char *open_brace;

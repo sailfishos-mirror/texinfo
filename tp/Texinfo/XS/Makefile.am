@@ -85,9 +85,9 @@ xs_LTLIBRARIES += MiscXS.la
 nodist_MiscXS_la_SOURCES = MiscXS.c
 CLEANFILES += MiscXS.c
 MiscXS_la_SOURCES = misc.c miscxs.h ppport.h
-MiscXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+MiscXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 MiscXS_la_CFLAGS = $(XSLIBS_CFLAGS)
-MiscXS_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
+MiscXS_la_LIBADD = $(platform_PERL_LIBADD)
 MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 xs_LTLIBRARIES += XSParagraph.la

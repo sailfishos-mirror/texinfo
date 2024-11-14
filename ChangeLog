@@ -1,3 +1,17 @@
+2024-11-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (MiscXS_la_CPPFLAGS, MiscXS_la_LIBADD),
+	tp/Texinfo/XS/MiscXS.xs, tp/Texinfo/XS/misc.c: there is no use of
+	gnulib anymore in MiscXS, remove the gnulib/autoconf flags and
+	includes, in particular do not include config.h.
+
+	* tp/Texinfo/XS/MiscXS.xs (xs_parse_command_name)
+	(xs_parse_texi_regex), tp/Texinfo/XS/misc.c (xs_process_text)
+	(xs_unicode_text, xs_entity_text, xs_parse_command_name)
+	(xs_parse_texi_regex): use SvPVutf8_nolen in MiscXS.xs, not in C code.
+	Remove useless Perl macros, remove Perl includes as there is no C Perl
+	anymore in misc.c.
+
 2024-11-14  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS: run "gnulib-tool --remove-import copy-file".

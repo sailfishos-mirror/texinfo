@@ -13,35 +13,10 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-#ifdef HAVE_CONFIG_H
-  #include <config.h>
-#endif
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <locale.h>
-#ifndef _WIN32
-#include <langinfo.h>
-#else  /* _WIN32 */
-/* Workaround for problems caused in mingw.org's MinGW build by
-   Gnulib's wchar.h overriding the wint_t type definition, which
-   causes compilation errors when perl.h is included below, because
-   perl.h includes ctype.h.  */
 #include <ctype.h>
-#endif
-#include <wchar.h>
-#include <wctype.h>
-
-/* See "How do I use all this in extensions" in 'man perlguts'. */
-#define PERL_NO_GET_CONTEXT
-
-#include "EXTERN.h"
-#include "perl.h"
-#if defined _WIN32 && !defined __CYGWIN__
-/* See comment in XSParagraph.xs for why we #undef free. */
-# undef free
-#endif
-#include "XSUB.h"
 
 #include "miscxs.h"
 
@@ -52,8 +27,6 @@ xs_process_text (char *text)
 {
   static char *new;
   char *p, *q;
-
-  dTHX;
 
   new = realloc (new, strlen (text) + 1);
   strcpy (new, text);
@@ -108,8 +81,6 @@ xs_unicode_text (char *text, int in_code)
   char *p, *q;
   static char *new;
   int new_space, new_len;
-
-  dTHX; /* Perl boilerplate. */
 
   if (in_code)
     return text;
@@ -211,8 +182,6 @@ xs_entity_text (char *text)
   static char *new;
   int new_space, new_len;
 
-  dTHX; /* Perl boilerplate. */
-
   p = text;
   new_space = strlen (text);
   new = realloc (new, new_space + 1);
@@ -283,19 +252,10 @@ xs_entity_text (char *text)
   return new;
 }
 
-void xs_parse_command_name (SV *text_in,
+void xs_parse_command_name (char *text,
                             char **command,
                             int *is_single_letter)
 {
-  char *text;
-
-  dTHX;
-
-  /* Make sure the input is in UTF8. */
-  if (!SvUTF8 (text_in))
-    sv_utf8_upgrade (text_in);
-  text = SvPV_nolen (text_in);
-
   *command = 0;
   *is_single_letter = 0;
 
@@ -329,7 +289,7 @@ void xs_parse_command_name (SV *text_in,
 }
 
 /* Return list ($at_command, $open_brace, ....) */
-void xs_parse_texi_regex (SV *text_in,
+void xs_parse_texi_regex (char *text,
                           char **arobase,
                           char **open_brace,
                           char **close_brace,
@@ -339,15 +299,6 @@ void xs_parse_texi_regex (SV *text_in,
                           char **menu_only_separator,
                           char **new_text)
 {
-  char *text;
-
-  dTHX;
-
-  /* Make sure the input is in UTF8. */
-  if (!SvUTF8 (text_in))
-    sv_utf8_upgrade (text_in);
-  text = SvPV_nolen (text_in);
-
   *arobase = *open_brace = *close_brace = *comma = *asterisk
      = *form_feed = *menu_only_separator = *new_text = 0;
 
@@ -407,8 +358,6 @@ xs_default_format_protect_text (char *text)
   char *p, *q;
   static char *new;
   int new_space, new_len;
-
-  dTHX; /* Perl boilerplate. */
 
   p = text;
   new_space = strlen (text);
