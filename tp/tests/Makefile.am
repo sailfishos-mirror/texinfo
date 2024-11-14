@@ -72,6 +72,6 @@ input_file_names_recoded_stamp.txt: $(srcdir)/input/included_latin1.texi
 distclean-local:
 	rm -rf input_file_names_recoded_stamp.txt built_input
 
-EXTRA_DIST = run_parser_all.sh parser_tests.sh \
+EXTRA_DIST = run_parser_all.sh parser_tests.sh escape_file_names.pl \
  $(one_test_files_generated_list) coverage_macro.texi included_akçentêd.texi \
  input/included_latin1.texi
