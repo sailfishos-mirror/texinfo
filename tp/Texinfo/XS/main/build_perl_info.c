@@ -3131,8 +3131,8 @@ pass_generic_converter_to_converter_sv (SV *converter_sv,
   opened_files_hv = newHV ();
   hv_store (output_files_hv, "unclosed_files", strlen ("unclosed_files"),
             newRV_noinc ((SV *) unclosed_files_hv), 0);
-  hv_store (output_files_hv, "opened_files_hv",
-            strlen ("opened_files_hv"),
+  hv_store (output_files_hv, "opened_files",
+            strlen ("opened_files"),
             newRV_noinc ((SV *) opened_files_hv), 0);
 
   expanded_formats_hv
