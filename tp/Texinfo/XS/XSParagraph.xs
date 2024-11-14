@@ -13,22 +13,9 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-#ifdef HAVE_CONFIG_H
-  #include <config.h>
-#endif
-
 #define PERL_NO_GET_CONTEXT
 #include "EXTERN.h"
 #include "perl.h"
-#if defined _WIN32 && !defined __CYGWIN__
-/* For Perl on MS-Windows, it is possible for the header XSUB.h to redefine
-   'free' (to something like "PerlMem_free").  'free' was already defined
-   by gnulib, in config.h (due to the 'free-posix' module which was
-   brought in as a dependency of other gnulib modules).  We need the Perl
-   redefinition, not the gnulib version.  The #undef line here prevents
-   a warning about the symbol being redefined. */
-  #undef free
-#endif
 #include "XSUB.h"
 
 #include "xspara.h"

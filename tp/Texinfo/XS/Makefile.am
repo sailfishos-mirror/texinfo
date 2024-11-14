@@ -58,6 +58,7 @@ XSLIBS_LDFLAGS = -avoid-version -module
 
 XSLIBS_LDFLAGS += $(perl_conf_LDFLAGS)
 
+noinst_LTLIBRARIES =
 
 ########################## Test XS used in top source dir configure.ac
 
@@ -90,14 +91,23 @@ MiscXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 MiscXS_la_LIBADD = $(platform_PERL_LIBADD)
 MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
+# C only convenience library for XSParagraph solely used to set different
+# flags than the Perl part, requiring Gnulib but not Perl.
+noinst_LTLIBRARIES += libxsparagraph.la
+libxsparagraph_la_SOURCES = xspara.c xspara.h \
+                         main/text.c main/text.h
+libxsparagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
+libxsparagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
+libxsparagraph_la_LDFLAGS = $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)
+
 xs_LTLIBRARIES += XSParagraph.la
 nodist_XSParagraph_la_SOURCES = XSParagraph.c
 CLEANFILES += XSParagraph.c
-XSParagraph_la_SOURCES = xspara.c xspara.h \
-                         main/text.c main/text.h ppport.h
+# FIXME not included?
+XSParagraph_la_SOURCES = ppport.h
 XSParagraph_la_CFLAGS = $(XSLIBS_CFLAGS)
-XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-XSParagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
+XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+XSParagraph_la_LIBADD = libxsparagraph.la $(platform_PERL_LIBADD)
 XSParagraph_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)
 
 EXTRA_DIST += XSParagraph.xs MiscXS.xs
@@ -106,7 +116,6 @@ EXTRA_DIST += XSParagraph.xs MiscXS.xs
 #            flags to be sure that Perl headers and Perl replacement functions
 #            are not used and libc functions are used.
 
-noinst_LTLIBRARIES =
 noinst_LTLIBRARIES += libxsutils.la
 
 libxsutils_la_SOURCES = \

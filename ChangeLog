@@ -1,5 +1,18 @@
 2024-11-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (noinst_LTLIBRARIES)
+	(XSParagraph_la_SOURCES, libxsparagraph_la_*, XSParagraph_la_CPPFLAGS)
+	(XSParagraph_la_LIBADD), tp/Texinfo/XS/XSParagraph.xs: add
+	libxsparagraph.la, a convenience library for XSParagraph with the C
+	code that does not requires Perl and requires Gnulib, to be able to
+	pass different flags than for XSParagraph.la.  Do not include config.h
+	anymore in XSParagraph.xs as there is no need for Gnulib nor autoconf
+	defines in this file.
+
+	* README-hacking: update list of files with Perl C code.
+
+2024-11-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/xspara.c (PARAGRAPH): rename french_spacing as
 	frenchspacing to match exactly the Perl key.
 
