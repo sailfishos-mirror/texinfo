@@ -24,7 +24,7 @@
 
 #include "global_commands_types.h"
 #include "tree_types.h"
-/* reset_obstacks */
+/* new_element */
 #include "tree.h"
 /* for wipe_values ... */
 #include "utils.h"
@@ -98,8 +98,6 @@ initialize_parsing (enum context root_ct)
   reset_command_stack (&nesting_context.regions_stack);
   memset (&nesting_context, 0, sizeof (nesting_context));
   reset_parser_counters ();
-
-  reset_obstacks ();
 
   return parsed_document->descriptor;
 }

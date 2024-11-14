@@ -1,3 +1,9 @@
+2024-11-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/tree.c, tp/Texinfo/XS/parsetexi/api.c
+	(initialize_parsing): remove the noop reset_obstacks function, remove
+	comments related to obstack.
+
 2024-11-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS: run

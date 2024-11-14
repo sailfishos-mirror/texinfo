@@ -14,32 +14,10 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-
-/* TODO obstack is not used as it requires any code adding element to
- be able to access the struct obstack.  The struct obstack could
- be allocated on the heap and be available in the parser.  It could
- also be passed to the parsed document but it seems complicated to
- make it available to alloc_element outside of the parser (more
- precisely after parse_texi has returned), in code related to
- tree modification and conversion.
-
- If obstack is used again, in addition to the obvious changes,
- code following
-   freed in reset_obstacks
- should be commented out.
-
-
-#include "obstack.h"
-
-static struct obstack obs_element;
-static int *obs_element_first = 0;
-
-#define obstack_chunk_alloc malloc
-#define obstack_chunk_free free
- */
 
 #include "tree_types.h"
 #include "types_data.h"
@@ -67,26 +45,9 @@ const char *ai_key_names[] = {
   #undef ai_key
 };
 
-void
-reset_obstacks (void)
-{
-  /* obstacks not used
-
-  if (obs_element_first)
-    obstack_free (&obs_element, obs_element_first);
-  else
-    obstack_init (&obs_element);
-
-  obs_element_first = obstack_alloc (&obs_element, sizeof (int));
-   */
-}
-
 static ELEMENT *alloc_element (void)
 {
   ELEMENT *e;
-  /*
-  e = (ELEMENT *) obstack_alloc (&obs_element, sizeof (ELEMENT));
-   */
   e = (ELEMENT *) malloc (sizeof (ELEMENT));
   memset (e, 0, sizeof (ELEMENT));
   return e;
