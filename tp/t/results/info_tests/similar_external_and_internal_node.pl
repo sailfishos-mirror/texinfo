@@ -11,57 +11,60 @@ $result_trees{'similar_external_and_internal_node'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'text' => 'aa'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '('
-            },
-            {
-              'text' => 'toto'
-            },
-            {
-              'text' => ')'
-            },
-            {
-              'text' => 'bb'
-            }
-          ],
-          'extra' => {
-            'manual_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'bb'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            },
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'node',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'aa'
+                }
+              ],
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '('
+                },
+                {
+                  'text' => 'toto'
+                },
+                {
+                  'text' => ')'
+                },
+                {
+                  'text' => 'bb'
+                }
+              ],
+              'extra' => {
+                'manual_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'bb'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                },
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -282,12 +285,12 @@ $result_trees{'similar_external_and_internal_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'args'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'args'}[1]{'contents'}[1];
-$result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'args'}[1]{'contents'}[3];
-$result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[0];
-$result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'contents'}[0];
+$result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[3];
+$result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0];
+$result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[0];
+$result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[2]{'contents'}[6]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'similar_external_and_internal_node'}{'contents'}[1]{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'similar_external_and_internal_node'} = '@node aa, (toto)bb
 

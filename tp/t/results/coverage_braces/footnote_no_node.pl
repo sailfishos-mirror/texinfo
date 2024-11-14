@@ -11,24 +11,27 @@ $result_trees{'footnote_no_node'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',

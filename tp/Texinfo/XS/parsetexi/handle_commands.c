@@ -927,6 +927,12 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       arg = new_element (ET_line_arg);
       if (command_data(data_cmd).flags & CF_def)
         add_to_element_contents (current, arg);
+      else if (command_data(data_cmd).flags & CF_root)
+        {
+          ELEMENT *argument = new_element (ET_argument);
+          add_to_element_contents (current, argument);
+          add_to_element_contents (argument, arg);
+        }
       else
         add_to_element_args (current, arg);
 
@@ -979,6 +985,11 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
       if (command_data(data_cmd).flags & CF_def)
         current = last_contents_child (current);
+      else if (command_data(data_cmd).flags & CF_root)
+        {
+          current = last_contents_child (current->e.c->contents.list[0]);
+          push_context (ct_line, cmd);
+        }
       else
         {
           current = last_args_child (current);

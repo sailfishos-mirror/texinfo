@@ -18,23 +18,28 @@ $result_trees{'character_and_spaces_in_node'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -49,84 +54,89 @@ $result_trees{'character_and_spaces_in_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap nodes'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '!_"#$%&\'()*+-.'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => 'chap nodes'
+                }
+              ],
+              'type' => 'line_arg'
             },
-            'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
             {
-              'text' => 'Top'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => '!_"#$%&\'()*+-.'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             },
-            'normalized' => 'Top'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
             {
-              'text' => 'Top'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'Top'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             },
-            'normalized' => 'Top'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
+            {
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'Top'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
 '
-            },
-            'spaces_before_argument' => {
-              'text' => ' '
+                },
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
+          ],
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chap-nodes'
@@ -141,84 +151,89 @@ $result_trees{'character_and_spaces_in_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => '!_"#$%&\'()*+-.'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '/;<=>?[\\]^_`|~'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => '!_"#$%&\'()*+-.'
+                }
+              ],
+              'type' => 'line_arg'
             },
-            'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
             {
-              'text' => 'chap nodes'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => '/;<=>?[\\]^_`|~'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             },
-            'normalized' => 'chap-nodes'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
             {
-              'text' => 'chap nodes'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => 'chap nodes'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'chap-nodes'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             },
-            'normalized' => 'chap-nodes'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
+            {
+              'contents' => [
+                {
+                  'text' => 'chap nodes'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'chap-nodes'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
 '
-            },
-            'spaces_before_argument' => {
-              'text' => ' '
+                },
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
+          ],
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
@@ -233,74 +248,79 @@ $result_trees{'character_and_spaces_in_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => '/;<=>?[\\]^_`|~'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'local   node'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => '/;<=>?[\\]^_`|~'
+                }
+              ],
+              'type' => 'line_arg'
             },
-            'normalized' => 'local-node'
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
             {
-              'text' => '!_"#$%&\'()*+-.'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => 'local   node'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'local-node'
+              },
+              'type' => 'line_arg'
             },
-            'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
             {
-              'text' => 'chap nodes'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => '!_"#$%&\'()*+-.'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
+              },
+              'type' => 'line_arg'
             },
-            'normalized' => 'chap-nodes'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
+            {
+              'contents' => [
+                {
+                  'text' => 'chap nodes'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'chap-nodes'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
 '
-            },
-            'spaces_before_argument' => {
-              'text' => ' '
+                },
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
+          ],
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
@@ -315,58 +335,63 @@ $result_trees{'character_and_spaces_in_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'local   node'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '/;<=>?[\\]^_`|~'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => 'local   node'
+                }
+              ],
+              'type' => 'line_arg'
             },
-            'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
             {
-              'text' => 'chap nodes'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
+              'type' => 'line_arg'
             },
-            'normalized' => 'chap-nodes'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
+            {
+              'contents' => [
+                {
+                  'text' => '/;<=>?[\\]^_`|~'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
+              },
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => 'chap nodes'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'chap-nodes'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
+          ],
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'local-node'
@@ -383,17 +408,17 @@ $result_trees{'character_and_spaces_in_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'character_and_spaces_in_node'}{'contents'}[2]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[2]{'args'}[1]{'contents'}[0];
-$result_trees{'character_and_spaces_in_node'}{'contents'}[2]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[2]{'args'}[2]{'contents'}[0];
-$result_trees{'character_and_spaces_in_node'}{'contents'}[2]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[2]{'args'}[3]{'contents'}[0];
-$result_trees{'character_and_spaces_in_node'}{'contents'}[3]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[3]{'args'}[1]{'contents'}[0];
-$result_trees{'character_and_spaces_in_node'}{'contents'}[3]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[3]{'args'}[2]{'contents'}[0];
-$result_trees{'character_and_spaces_in_node'}{'contents'}[3]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[3]{'args'}[3]{'contents'}[0];
-$result_trees{'character_and_spaces_in_node'}{'contents'}[4]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[4]{'args'}[1]{'contents'}[0];
-$result_trees{'character_and_spaces_in_node'}{'contents'}[4]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[4]{'args'}[2]{'contents'}[0];
-$result_trees{'character_and_spaces_in_node'}{'contents'}[4]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[4]{'args'}[3]{'contents'}[0];
-$result_trees{'character_and_spaces_in_node'}{'contents'}[5]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[5]{'args'}[2]{'contents'}[0];
-$result_trees{'character_and_spaces_in_node'}{'contents'}[5]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[5]{'args'}[3]{'contents'}[0];
+$result_trees{'character_and_spaces_in_node'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'character_and_spaces_in_node'}{'contents'}[2]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[2]{'contents'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'character_and_spaces_in_node'}{'contents'}[2]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[0];
+$result_trees{'character_and_spaces_in_node'}{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'character_and_spaces_in_node'}{'contents'}[3]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[3]{'contents'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'character_and_spaces_in_node'}{'contents'}[3]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[3]{'contents'}[0]{'contents'}[3]{'contents'}[0];
+$result_trees{'character_and_spaces_in_node'}{'contents'}[4]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[4]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'character_and_spaces_in_node'}{'contents'}[4]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[4]{'contents'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'character_and_spaces_in_node'}{'contents'}[4]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[4]{'contents'}[0]{'contents'}[3]{'contents'}[0];
+$result_trees{'character_and_spaces_in_node'}{'contents'}[5]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[5]{'contents'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'character_and_spaces_in_node'}{'contents'}[5]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_node'}{'contents'}[5]{'contents'}[0]{'contents'}[3]{'contents'}[0];
 
 $result_texis{'character_and_spaces_in_node'} = '
 @node Top

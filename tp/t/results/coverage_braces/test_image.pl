@@ -592,23 +592,28 @@ $result_trees{'test_image'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -623,24 +628,27 @@ $result_trees{'test_image'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter'
+              'contents' => [
+                {
+                  'text' => 'chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'source_marks' => [
             {
@@ -2668,8 +2676,8 @@ $result_trees{'test_image'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_image'}{'contents'}[2]{'contents'}[11]{'contents'}[6]{'extra'}{'float'} = $result_trees{'test_image'}{'contents'}[2]{'contents'}[11];
-$result_trees{'test_image'}{'contents'}[2]{'contents'}[11]{'extra'}{'caption'} = $result_trees{'test_image'}{'contents'}[2]{'contents'}[11]{'contents'}[6];
+$result_trees{'test_image'}{'contents'}[2]{'contents'}[12]{'contents'}[6]{'extra'}{'float'} = $result_trees{'test_image'}{'contents'}[2]{'contents'}[12];
+$result_trees{'test_image'}{'contents'}[2]{'contents'}[12]{'extra'}{'caption'} = $result_trees{'test_image'}{'contents'}[2]{'contents'}[12]{'contents'}[6];
 
 $result_texis{'test_image'} = '@macro files-char
 @image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,,,,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}

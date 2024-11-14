@@ -31,23 +31,28 @@ $result_trees{'navigation'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -63,24 +68,27 @@ $result_trees{'navigation'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'File used for navigation testing'
+              'contents' => [
+                {
+                  'text' => 'File used for navigation testing'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -205,23 +213,28 @@ $result_trees{'navigation'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter'
+              'contents' => [
+                {
+                  'text' => 'chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chapter'
@@ -237,24 +250,27 @@ $result_trees{'navigation'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'First chapter'
+              'contents' => [
+                {
+                  'text' => 'First chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -381,23 +397,28 @@ $result_trees{'navigation'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'section'
+              'contents' => [
+                {
+                  'text' => 'section'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'section'
@@ -413,24 +434,27 @@ $result_trees{'navigation'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Section in chapter'
+              'contents' => [
+                {
+                  'text' => 'Section in chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -743,23 +767,28 @@ $result_trees{'navigation'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'subsection'
+              'contents' => [
+                {
+                  'text' => 'subsection'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'subsection'
@@ -775,24 +804,27 @@ $result_trees{'navigation'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Sub section in section'
+              'contents' => [
+                {
+                  'text' => 'Sub section in section'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -845,9 +877,9 @@ $result_trees{'navigation'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'navigation'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'navigation'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'navigation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'navigation'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'navigation'}{'contents'}[6]{'contents'}[27]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'navigation'}{'contents'}[6]{'contents'}[27]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'navigation'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'navigation'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'navigation'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'navigation'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'navigation'}{'contents'}[6]{'contents'}[28]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'navigation'}{'contents'}[6]{'contents'}[28]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'navigation'} = '\\input texinfo @c -*-texinfo-*-
 

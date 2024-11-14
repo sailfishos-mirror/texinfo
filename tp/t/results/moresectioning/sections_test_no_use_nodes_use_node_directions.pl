@@ -16,24 +16,27 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -51,24 +54,27 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter'
+              'contents' => [
+                {
+                  'text' => 'chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -88,24 +94,27 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'section'
+              'contents' => [
+                {
+                  'text' => 'section'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -125,24 +134,27 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'subsection'
+              'contents' => [
+                {
+                  'text' => 'subsection'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -162,24 +174,27 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsubsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'subsubsection'
+              'contents' => [
+                {
+                  'text' => 'subsubsection'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsubsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -199,24 +214,27 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'part',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'part'
+              'contents' => [
+                {
+                  'text' => 'part'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'part',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -234,24 +252,27 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter in part'
+              'contents' => [
+                {
+                  'text' => 'chapter in part'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -272,24 +293,27 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'second chapter in part'
+              'contents' => [
+                {
+                  'text' => 'second chapter in part'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -309,24 +333,27 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumbered',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered'
+              'contents' => [
+                {
+                  'text' => 'unnumbered'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumbered',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -344,24 +371,27 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'appendix',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'appendix'
+              'contents' => [
+                {
+                  'text' => 'appendix'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'appendix',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -381,23 +411,28 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'appendixsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'appendixsec'
+              'contents' => [
+                {
+                  'text' => 'appendixsec'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'appendixsec',
       'extra' => {
         'section_number' => 'A.1'
       },

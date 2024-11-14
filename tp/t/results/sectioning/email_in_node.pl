@@ -11,113 +11,118 @@ $result_trees{'email_in_node'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'email',
               'contents' => [
                 {
+                  'cmdname' => 'email',
                   'contents' => [
                     {
-                      'text' => 'a'
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
+                  'source_info' => {
+                    'line_nr' => 1
+                  }
+                },
+                {
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => 'email',
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'c'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'email',
-              'contents' => [
-                {
-                  'contents' => [
                     {
-                      'text' => 'c'
+                      'contents' => [
+                        {
+                          'text' => 'd'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 1
+                  }
                 },
                 {
-                  'contents' => [
-                    {
-                      'text' => 'd'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'email',
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'text' => ' '
                 },
                 {
+                  'cmdname' => 'email',
                   'contents' => [
                     {
-                      'text' => 'e'
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'e'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 1
+                  }
                 }
               ],
-              'source_info' => {
-                'line_nr' => 1
-              }
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'a-c-'

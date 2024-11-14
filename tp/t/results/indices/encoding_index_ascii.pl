@@ -99,23 +99,28 @@ $result_trees{'encoding_index_ascii'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -130,23 +135,28 @@ $result_trees{'encoding_index_ascii'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'top',
       'extra' => {},
       'info' => {
         'spaces_before_argument' => {
@@ -158,24 +168,27 @@ $result_trees{'encoding_index_ascii'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2672,7 +2685,6 @@ $result_trees{'encoding_index_ascii'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'encoding_index_ascii'}{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'encoding_index_ascii'}{'contents'}[3];
 $result_trees{'encoding_index_ascii'}{'contents'}[3]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'encoding_index_ascii'}{'contents'}[3];
 $result_trees{'encoding_index_ascii'}{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'encoding_index_ascii'}{'contents'}[3];
 $result_trees{'encoding_index_ascii'}{'contents'}[3]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'encoding_index_ascii'}{'contents'}[3];
@@ -2729,6 +2741,7 @@ $result_trees{'encoding_index_ascii'}{'contents'}[3]{'contents'}[54]{'extra'}{'e
 $result_trees{'encoding_index_ascii'}{'contents'}[3]{'contents'}[55]{'extra'}{'element_node'} = $result_trees{'encoding_index_ascii'}{'contents'}[3];
 $result_trees{'encoding_index_ascii'}{'contents'}[3]{'contents'}[56]{'extra'}{'element_node'} = $result_trees{'encoding_index_ascii'}{'contents'}[3];
 $result_trees{'encoding_index_ascii'}{'contents'}[3]{'contents'}[57]{'extra'}{'element_node'} = $result_trees{'encoding_index_ascii'}{'contents'}[3];
+$result_trees{'encoding_index_ascii'}{'contents'}[3]{'contents'}[58]{'extra'}{'element_node'} = $result_trees{'encoding_index_ascii'}{'contents'}[3];
 
 $result_texis{'encoding_index_ascii'} = '
 @setfilename encoding_index_ascii.info

@@ -54,32 +54,37 @@ $result_trees{'comment_space_command_on_line'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
-            }
-          ],
-          'info' => {
-            'comment_at_end' => {
-              'args' => [
+              'contents' => [
                 {
-                  'text' => ' @node Top
-',
-                  'type' => 'rawline_arg'
+                  'text' => 'Top'
                 }
               ],
-              'cmdname' => 'comment'
-            },
-            'spaces_after_argument' => {
-              'text' => '  '
+              'info' => {
+                'comment_at_end' => {
+                  'args' => [
+                    {
+                      'text' => ' @node Top
+',
+                      'type' => 'rawline_arg'
+                    }
+                  ],
+                  'cmdname' => 'comment'
+                },
+                'spaces_after_argument' => {
+                  'text' => '  '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
+          ],
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -94,36 +99,39 @@ $result_trees{'comment_space_command_on_line'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top element'
-            },
-            {
-              'cmdname' => ' '
-            }
-          ],
-          'info' => {
-            'comment_at_end' => {
-              'args' => [
+              'contents' => [
                 {
-                  'text' => ' @top
-',
-                  'type' => 'rawline_arg'
+                  'text' => 'top element'
+                },
+                {
+                  'cmdname' => ' '
                 }
               ],
-              'cmdname' => 'comment'
-            },
-            'spaces_after_argument' => {
-              'text' => ' '
+              'info' => {
+                'comment_at_end' => {
+                  'args' => [
+                    {
+                      'text' => ' @top
+',
+                      'type' => 'rawline_arg'
+                    }
+                  ],
+                  'cmdname' => 'comment'
+                },
+                'spaces_after_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -141,32 +149,37 @@ $result_trees{'comment_space_command_on_line'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
-            }
-          ],
-          'info' => {
-            'comment_at_end' => {
-              'args' => [
+              'contents' => [
                 {
-                  'text' => ' @node chap
-',
-                  'type' => 'rawline_arg'
+                  'text' => 'chap'
                 }
               ],
-              'cmdname' => 'comment'
-            },
-            'spaces_after_argument' => {
-              'text' => ' '
+              'info' => {
+                'comment_at_end' => {
+                  'args' => [
+                    {
+                      'text' => ' @node chap
+',
+                      'type' => 'rawline_arg'
+                    }
+                  ],
+                  'cmdname' => 'comment'
+                },
+                'spaces_after_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
+          ],
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -182,36 +195,39 @@ $result_trees{'comment_space_command_on_line'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Chapter'
-            },
-            {
-              'cmdname' => ' '
-            }
-          ],
-          'info' => {
-            'comment_at_end' => {
-              'args' => [
+              'contents' => [
                 {
-                  'text' => ' @chapter
-',
-                  'type' => 'rawline_arg'
+                  'text' => 'Chapter'
+                },
+                {
+                  'cmdname' => ' '
                 }
               ],
-              'cmdname' => 'comment'
-            },
-            'spaces_after_argument' => {
-              'text' => ' '
+              'info' => {
+                'comment_at_end' => {
+                  'args' => [
+                    {
+                      'text' => ' @chapter
+',
+                      'type' => 'rawline_arg'
+                    }
+                  ],
+                  'cmdname' => 'comment'
+                },
+                'spaces_after_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -622,8 +638,8 @@ $result_trees{'comment_space_command_on_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'comment_space_command_on_line'}{'contents'}[3];
-$result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[11]{'extra'}{'float_section'} = $result_trees{'comment_space_command_on_line'}{'contents'}[4];
+$result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'comment_space_command_on_line'}{'contents'}[3];
+$result_trees{'comment_space_command_on_line'}{'contents'}[4]{'contents'}[12]{'extra'}{'float_section'} = $result_trees{'comment_space_command_on_line'}{'contents'}[4];
 
 $result_texis{'comment_space_command_on_line'} = '@settitle Settitle @ @c settittle
 

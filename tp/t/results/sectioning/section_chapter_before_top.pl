@@ -11,24 +11,27 @@ $result_trees{'section_chapter_before_top'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'section'
+              'contents' => [
+                {
+                  'text' => 'section'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => ' 
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => ' 
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -48,24 +51,27 @@ $result_trees{'section_chapter_before_top'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter'
+              'contents' => [
+                {
+                  'text' => 'chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -85,23 +91,28 @@ $result_trees{'section_chapter_before_top'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'top',
       'extra' => {},
       'info' => {
         'spaces_before_argument' => {

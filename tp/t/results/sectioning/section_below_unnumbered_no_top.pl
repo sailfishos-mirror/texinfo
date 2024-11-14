@@ -16,23 +16,28 @@ $result_trees{'section_below_unnumbered_no_top'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'unnumbered',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'U'
+              'contents' => [
+                {
+                  'text' => 'U'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'unnumbered',
       'extra' => {},
       'info' => {
         'spaces_before_argument' => {
@@ -44,23 +49,28 @@ $result_trees{'section_below_unnumbered_no_top'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'S'
+              'contents' => [
+                {
+                  'text' => 'S'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'section',
       'extra' => {},
       'info' => {
         'spaces_before_argument' => {

@@ -11,24 +11,27 @@ $result_trees{'non_empty_part'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'part',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'part before'
+              'contents' => [
+                {
+                  'text' => 'part before'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'part',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -60,23 +63,28 @@ $result_trees{'non_empty_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -91,24 +99,27 @@ $result_trees{'non_empty_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -277,24 +288,27 @@ $result_trees{'non_empty_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'part',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'part I'
+              'contents' => [
+                {
+                  'text' => 'part I'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'part',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -326,24 +340,27 @@ $result_trees{'non_empty_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap in Top node'
+              'contents' => [
+                {
+                  'text' => 'chap in Top node'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -364,24 +381,27 @@ $result_trees{'non_empty_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'part',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Part II'
+              'contents' => [
+                {
+                  'text' => 'Part II'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'part',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -413,23 +433,28 @@ $result_trees{'non_empty_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'part chapter node'
+              'contents' => [
+                {
+                  'text' => 'part chapter node'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'part-chapter-node'
@@ -444,24 +469,27 @@ $result_trees{'non_empty_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'part',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'part III'
+              'contents' => [
+                {
+                  'text' => 'part III'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'part',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -493,24 +521,27 @@ $result_trees{'non_empty_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter with part node'
+              'contents' => [
+                {
+                  'text' => 'chapter with part node'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -531,24 +562,27 @@ $result_trees{'non_empty_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'part',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Part IV'
+              'contents' => [
+                {
+                  'text' => 'Part IV'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'part',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -580,24 +614,27 @@ $result_trees{'non_empty_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'part',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Part V'
+              'contents' => [
+                {
+                  'text' => 'Part V'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'part',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -629,24 +666,27 @@ $result_trees{'non_empty_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'with part no node'
+              'contents' => [
+                {
+                  'text' => 'with part no node'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -667,24 +707,27 @@ $result_trees{'non_empty_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'part',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Part VI'
+              'contents' => [
+                {
+                  'text' => 'Part VI'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'part',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -716,24 +759,27 @@ $result_trees{'non_empty_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'node between part and chapter'
+              'contents' => [
+                {
+                  'text' => 'node between part and chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -754,24 +800,27 @@ $result_trees{'non_empty_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter after part node'
+              'contents' => [
+                {
+                  'text' => 'chapter after part node'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -794,8 +843,8 @@ $result_trees{'non_empty_part'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_empty_part'}{'contents'}[3]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'non_empty_part'}{'contents'}[3]{'extra'}{'associated_part'} = $result_trees{'non_empty_part'}{'contents'}[1];
 $result_trees{'non_empty_part'}{'contents'}[5]{'extra'}{'associated_part'} = $result_trees{'non_empty_part'}{'contents'}[4];
 $result_trees{'non_empty_part'}{'contents'}[9]{'extra'}{'associated_part'} = $result_trees{'non_empty_part'}{'contents'}[8];

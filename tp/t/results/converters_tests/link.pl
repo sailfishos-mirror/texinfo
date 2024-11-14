@@ -11,23 +11,28 @@ $result_trees{'link'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'One'
+              'contents' => [
+                {
+                  'text' => 'One'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'One'
@@ -42,24 +47,27 @@ $result_trees{'link'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'ONEX'
+              'contents' => [
+                {
+                  'text' => 'ONEX'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -93,24 +101,27 @@ $result_trees{'link'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Two'
+              'contents' => [
+                {
+                  'text' => 'Two'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -513,12 +524,12 @@ $result_trees{'link'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'link'}{'contents'}[3]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'link'}{'contents'}[3]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'link'}{'contents'}[3]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'link'}{'contents'}[3]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'link'}{'contents'}[3]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'link'}{'contents'}[3]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'link'}{'contents'}[3]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'link'}{'contents'}[3]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'link'}{'contents'}[3]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'link'}{'contents'}[3]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'link'}{'contents'}[3]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'link'}{'contents'}[3]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'link'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'link'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'link'}{'contents'}[3]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'link'}{'contents'}[3]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'link'}{'contents'}[3]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'link'}{'contents'}[3]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'link'}{'contents'}[3]{'contents'}[12]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'link'}{'contents'}[3]{'contents'}[12]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'link'}{'contents'}[3]{'contents'}[16]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'link'}{'contents'}[3]{'contents'}[16]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'link'}{'contents'}[3]{'contents'}[18]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'link'}{'contents'}[3]{'contents'}[18]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'link'} = '@node One
 @chapter ONEX

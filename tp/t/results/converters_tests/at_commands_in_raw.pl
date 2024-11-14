@@ -11,23 +11,28 @@ $result_trees{'at_commands_in_raw'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -42,24 +47,27 @@ $result_trees{'at_commands_in_raw'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -138,23 +146,28 @@ $result_trees{'at_commands_in_raw'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -170,24 +183,27 @@ $result_trees{'at_commands_in_raw'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Chapter'
+              'contents' => [
+                {
+                  'text' => 'Chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1061,9 +1077,9 @@ $result_trees{'at_commands_in_raw'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[15]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'at_commands_in_raw'}{'contents'}[3];
+$result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[14]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[14]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[16]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[16]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'at_commands_in_raw'}{'contents'}[4]{'contents'}[16]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'at_commands_in_raw'}{'contents'}[3];
 
 $result_texis{'at_commands_in_raw'} = '@node Top
 @top top

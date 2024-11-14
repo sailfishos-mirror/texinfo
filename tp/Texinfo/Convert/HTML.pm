@@ -1284,43 +1284,47 @@ sub _internal_command_tree($$$)
         if ($command->{'cmdname'} eq 'anchor') {
           $label_element = $command->{'contents'}->[0];
         } else {
-          $label_element = $command->{'args'}->[0];
+          $label_element = $command->{'contents'}->[0]->{'contents'}->[0];
         }
         $tree = {'type' => '_code',
                  'contents' => [$label_element]};
       } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'float')) {
         $tree = $self->float_type_number($command);
-      } elsif (!$command->{'args'}->[0]
-               or !$command->{'args'}->[0]->{'contents'}
-               or !scalar(@{$command->{'args'}->[0]->{'contents'}})) {
       } else {
-        my $section_number;
-        $section_number = $command->{'extra'}->{'section_number'}
-          if ($command->{'extra'}
-              and defined($command->{'extra'}->{'section_number'}));
-        if ($section_number
-            and ($self->get_conf('NUMBER_SECTIONS')
-                 or !defined($self->get_conf('NUMBER_SECTIONS')))) {
-          my $substituted_strings
-            = {'number' => {'text' => $section_number},
-               'section_title'
-          => Texinfo::ManipulateTree::copy_treeNonXS($command->{'args'}->[0])};
-
-          if ($command->{'cmdname'} eq 'appendix'
-              and $command->{'extra'}->{'section_level'} == 1) {
-            $tree = $self->cdt('Appendix {number} {section_title}',
-                               $substituted_strings);
-          } else {
-            # TRANSLATORS: numbered section title
-            $tree = $self->cdt('{number} {section_title}',
-                               $substituted_strings);
-          }
+        my $line_arg;
+        if ($root_commands{$command->{'cmdname'}}) {
+          $line_arg = $command->{'contents'}->[0]->{'contents'}->[0];
         } else {
-          $tree = $command->{'args'}->[0];
+          $line_arg = $command->{'args'}->[0];
+        }
+        if ($line_arg->{'contents'}) {
+          my $section_number;
+          $section_number = $command->{'extra'}->{'section_number'}
+            if ($command->{'extra'}
+                and defined($command->{'extra'}->{'section_number'}));
+          if ($section_number
+              and ($self->get_conf('NUMBER_SECTIONS')
+                   or !defined($self->get_conf('NUMBER_SECTIONS')))) {
+            my $substituted_strings
+              = {'number' => {'text' => $section_number},
+                 'section_title'
+                => Texinfo::ManipulateTree::copy_treeNonXS($line_arg)};
+
+            if ($command->{'cmdname'} eq 'appendix'
+                and $command->{'extra'}->{'section_level'} == 1) {
+              $tree = $self->cdt('Appendix {number} {section_title}',
+                                 $substituted_strings);
+            } else {
+              # TRANSLATORS: numbered section title
+              $tree = $self->cdt('{number} {section_title}',
+                                 $substituted_strings);
+            }
+          } else {
+            $tree = $line_arg;
+          }
         }
 
-        $target->{'tree_nonumber'}
-          = $command->{'args'}->[0];
+        $target->{'tree_nonumber'} = $line_arg;
       }
       $target->{'tree'} = $tree;
     }
@@ -4586,8 +4590,9 @@ sub _convert_heading_command($$$$$)
         if ($element->{'extra'} and $element->{'extra'}->{'associated_node'});
 
       if ($node) {
+        my $argument = $node->{'contents'}->[0];
         my $automatic_directions = 1;
-        if ($node->{'args'} and scalar(@{$node->{'args'}}) > 1) {
+        if (scalar(@{$argument->{'contents'}}) > 1) {
           $automatic_directions = 0;
         }
 
@@ -11127,10 +11132,9 @@ sub _file_header_information($$;$)
       my $element_tree;
       if ($self->get_conf('SECTION_NAME_IN_TITLE')
           and $command->{'extra'}
-          and $command->{'extra'}->{'associated_section'}
-          and $command->{'extra'}->{'associated_section'}->{'args'}
-          and $command->{'extra'}->{'associated_section'}->{'args'}->[0]) {
-        $element_tree = $command->{'extra'}->{'associated_section'}->{'args'}->[0];
+          and $command->{'extra'}->{'associated_section'}){
+        $element_tree = $command->{'extra'}->{'associated_section'}
+            ->{'contents'}->[0]->{'contents'}->[0];
       } else {
         # this should not happen, as the command_string should be empty already
         $element_tree = $self->command_tree($command);
@@ -12613,6 +12617,13 @@ sub _prepare_converted_output_info($$$$)
         last;
       }
     }
+    if (!$fulltitle_tree and $global_commands->{'top'}) {
+      my $argument = $global_commands->{'top'}->{'contents'}->[0];
+      my $line_arg = $argument->{'contents'}->[0];
+      if ($line_arg->{'contents'}) {
+        $fulltitle_tree = $line_arg;
+      }
+    }
     if (!$fulltitle_tree and $global_commands->{'titlefont'}
         and $global_commands->{'titlefont'}->[0]->{'contents'}
         and $global_commands->{'titlefont'}->[0]->{'contents'}->[0]
@@ -12951,12 +12962,14 @@ sub _node_redirections($$$$)
             }
           } elsif ($file_info_type eq 'node') {
             my $conflicting_node = $file_source->{'file_info_element'};
+            my $label_element
+              = Texinfo::Common::get_label_element($conflicting_node);
             $self->converter_line_warn(
          sprintf(__p('conflict of redirection file with file based on node name',
                      "conflict with \@%s `%s' file"),
                  $conflicting_node->{'cmdname'},
                  Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                   => $conflicting_node->{'args'}->[0]->{'contents'}}),
+                                => $label_element->{'contents'}})
                  ),
               $conflicting_node->{'source_info'}, 1);
           } elsif ($file_info_type eq 'redirection') {
@@ -12977,7 +12990,8 @@ sub _node_redirections($$$$)
                      "conflict with \@%s `%s' file"),
                  $conflicting_section->{'cmdname'},
                  Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                   => $conflicting_section->{'args'}->[0]->{'contents'}}),
+                   => $conflicting_section->{'contents'}->[0]
+                                        ->{'contents'}->[0]->{'contents'}}),
                  ),
               $conflicting_section->{'source_info'}, 1);
           } elsif ($file_info_type eq 'special_unit') {

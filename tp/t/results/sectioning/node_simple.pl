@@ -11,17 +11,22 @@ $result_trees{'node_simple'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'first'
+              'contents' => [
+                {
+                  'text' => 'first'
+                }
+              ],
+              'type' => 'line_arg'
             }
           ],
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'first'

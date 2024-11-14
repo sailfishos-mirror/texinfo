@@ -26,23 +26,28 @@ $result_trees{'ftable_vtable'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -57,24 +62,27 @@ $result_trees{'ftable_vtable'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -642,15 +650,15 @@ $result_trees{'ftable_vtable'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
-$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
-$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
-$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
-$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
-$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
-$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
+$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
+$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
+$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
+$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
+$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
+$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
+$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'ftable_vtable'}{'contents'}[2]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'ftable_vtable'}{'contents'}[2];
 
 $result_texis{'ftable_vtable'} = '
 @node Top

@@ -31,60 +31,65 @@ $result_trees{'sectioning_check_menu_structure'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'First node'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'First-node'
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '('
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'type' => 'line_arg'
             },
             {
-              'text' => 'dir'
-            },
-            {
-              'text' => ')'
-            }
-          ],
-          'extra' => {
-            'manual_content' => {
               'contents' => [
-                {}
-              ]
-            }
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
+                {
+                  'text' => 'First node'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'First-node'
+              },
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '('
+                },
+                {
+                  'text' => 'dir'
+                },
+                {
+                  'text' => ')'
+                }
+              ],
+              'extra' => {
+                'manual_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                }
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
+          ],
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -100,19 +105,22 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
-        {
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'top',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'cmdname' => 'menu',
           'contents' => [
@@ -579,58 +587,63 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'First node'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Top'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => 'First node'
+                }
+              ],
+              'type' => 'line_arg'
             },
-            'normalized' => 'Top'
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
             {
-              'text' => 'Top'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
+              'type' => 'line_arg'
             },
-            'normalized' => 'Top'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
+            {
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'Top'
+              },
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'Top'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
+          ],
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'First-node'
@@ -646,24 +659,27 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'first node chapter'
+              'contents' => [
+                {
+                  'text' => 'first node chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -908,23 +924,28 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered'
+              'contents' => [
+                {
+                  'text' => 'unnumbered'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumbered'
@@ -940,24 +961,27 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered section'
+              'contents' => [
+                {
+                  'text' => 'unnumbered section'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1223,23 +1247,28 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered sub'
+              'contents' => [
+                {
+                  'text' => 'unnumbered sub'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumbered-sub'
@@ -1255,24 +1284,27 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsubsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered subsection'
+              'contents' => [
+                {
+                  'text' => 'unnumbered subsection'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsubsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1291,23 +1323,28 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered sub'
+              'contents' => [
+                {
+                  'text' => 'numbered sub'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'numbered-sub'
@@ -1323,24 +1360,27 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered subsection'
+              'contents' => [
+                {
+                  'text' => 'numbered subsection'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1359,23 +1399,28 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered sub2'
+              'contents' => [
+                {
+                  'text' => 'unnumbered sub2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumbered-sub2'
@@ -1391,24 +1436,27 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsubsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered subsection2'
+              'contents' => [
+                {
+                  'text' => 'unnumbered subsection2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsubsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1427,23 +1475,28 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered sub2'
+              'contents' => [
+                {
+                  'text' => 'numbered sub2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'numbered-sub2'
@@ -1459,24 +1512,27 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered subsection2'
+              'contents' => [
+                {
+                  'text' => 'numbered subsection2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1495,23 +1551,28 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered2'
+              'contents' => [
+                {
+                  'text' => 'unnumbered2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumbered2'
@@ -1527,24 +1588,27 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered section2'
+              'contents' => [
+                {
+                  'text' => 'unnumbered section2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1669,23 +1733,28 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered sub3'
+              'contents' => [
+                {
+                  'text' => 'numbered sub3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'numbered-sub3'
@@ -1701,24 +1770,27 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered subsection3'
+              'contents' => [
+                {
+                  'text' => 'numbered subsection3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1742,23 +1814,28 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered'
+              'contents' => [
+                {
+                  'text' => 'numbered'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'numbered'
@@ -1774,24 +1851,27 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered section'
+              'contents' => [
+                {
+                  'text' => 'numbered section'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1812,46 +1892,49 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'text' => 'between node'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Top'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'Top'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'node',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'between node'
+                }
+              ],
+              'type' => 'line_arg'
+            },
+            {
+              'type' => 'line_arg'
+            },
+            {
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'Top'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1887,59 +1970,62 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Second node'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Third node unnumbered'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'Third-node-unnumbered'
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Top'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'Top'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'node',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'Second node'
+                }
+              ],
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => 'Third node unnumbered'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'Third-node-unnumbered'
+              },
+              'type' => 'line_arg'
+            },
+            {
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'Top'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1975,24 +2061,27 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'second node chapter'
+              'contents' => [
+                {
+                  'text' => 'second node chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2027,23 +2116,28 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Third node unnumbered'
+              'contents' => [
+                {
+                  'text' => 'Third node unnumbered'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Third-node-unnumbered'
@@ -2059,24 +2153,27 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumbered',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered chapter'
+              'contents' => [
+                {
+                  'text' => 'unnumbered chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumbered',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2114,59 +2211,62 @@ $result_trees{'sectioning_check_menu_structure'} = {
       }
     },
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Last node no description'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Third node unnumbered'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'Third-node-unnumbered'
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Top'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'Top'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'node',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'Last node no description'
+                }
+              ],
+              'type' => 'line_arg'
+            },
+            {
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => 'Third node unnumbered'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'Third-node-unnumbered'
+              },
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'Top'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2225,28 +2325,28 @@ $result_trees{'sectioning_check_menu_structure'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[1]{'args'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[1]{'args'}[2]{'contents'}[1];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[0]{'contents'}[7]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[0]{'contents'}[8]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[0]{'contents'}[8]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[3]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[3]{'args'}[2]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[3]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[3]{'args'}[3]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[4]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[4]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[16]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[16]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[21]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[21]{'args'}[3]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[22]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[22]{'args'}[1]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[22]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[22]{'args'}[3]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[26]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[26]{'args'}[2]{'contents'}[0];
-$result_trees{'sectioning_check_menu_structure'}{'contents'}[26]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[26]{'args'}[3]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[1]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[1]{'contents'}[5]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[1]{'contents'}[8]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[2]{'contents'}[1]{'contents'}[8]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[3]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[3]{'contents'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[3]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[3]{'contents'}[0]{'contents'}[3]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[4]{'contents'}[3]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[4]{'contents'}[3]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[6]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[16]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[16]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[21]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[21]{'contents'}[0]{'contents'}[3]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[22]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[22]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[22]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[22]{'contents'}[0]{'contents'}[3]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[26]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[26]{'contents'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'sectioning_check_menu_structure'}{'contents'}[26]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sectioning_check_menu_structure'}{'contents'}[26]{'contents'}[0]{'contents'}[3]{'contents'}[0];
 
 $result_texis{'sectioning_check_menu_structure'} = '\\input texinfo @c -*-texinfo-*-
 

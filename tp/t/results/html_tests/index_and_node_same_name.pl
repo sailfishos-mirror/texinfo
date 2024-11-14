@@ -11,23 +11,28 @@ $result_trees{'index_and_node_same_name'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'top',
       'extra' => {},
       'info' => {
         'spaces_before_argument' => {
@@ -39,24 +44,27 @@ $result_trees{'index_and_node_same_name'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'index node'
+              'contents' => [
+                {
+                  'text' => 'index node'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -153,7 +161,7 @@ $result_trees{'index_and_node_same_name'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'index_and_node_same_name'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_and_node_same_name'}{'contents'}[2];
+$result_trees{'index_and_node_same_name'}{'contents'}[2]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'index_and_node_same_name'}{'contents'}[2];
 
 $result_texis{'index_and_node_same_name'} = '@top top
 @node index node

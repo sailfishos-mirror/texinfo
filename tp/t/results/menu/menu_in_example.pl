@@ -11,24 +11,27 @@ $result_trees{'menu_in_example'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'first'
+              'contents' => [
+                {
+                  'text' => 'first'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -491,11 +494,11 @@ $result_trees{'menu_in_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1];
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'contents'}[1];
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'contents'}[4];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'contents'}[1];
+$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'contents'}[4];
 
 $result_texis{'menu_in_example'} = '@node first
 

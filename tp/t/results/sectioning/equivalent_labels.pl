@@ -11,24 +11,27 @@ $result_trees{'equivalent_labels'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'first'
+              'contents' => [
+                {
+                  'text' => 'first'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -347,8 +350,8 @@ $result_trees{'equivalent_labels'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[6]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[6]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[7]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'equivalent_labels'}{'contents'}[1]{'contents'}[7]{'contents'}[2]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'equivalent_labels'} = '@node first
 

@@ -950,6 +950,29 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                 }
             }
         }
+      else if (builtin_command_data[data_cmd].flags & CF_sectioning_heading)
+        {
+          const ELEMENT *line_arg;
+          TEXT text;
+          char *heading;
+
+          text_init (&text);
+          text_append (&text, "");
+
+          if (builtin_command_data[data_cmd].flags & CF_root)
+            line_arg = element->e.c->contents.list[0]->e.c->contents.list[0];
+          else
+            line_arg = element->e.c->args.list[0];
+
+          convert_to_text_internal (line_arg, text_options, &text);
+          heading
+             = text_heading (element, text.text,
+                                    text_options->other_converter_options,
+                                    text_options->NUMBER_SECTIONS, 0);
+          ADD(heading);
+          free (heading);
+          free (text.text);
+        }
       else if (builtin_command_data[data_cmd].other_flags & CF_formatted_line)
         {
           if (data_cmd != CM_node)
@@ -960,21 +983,9 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               if (data_cmd != CM_page)
                 convert_to_text_internal (element->e.c->args.list[0],
                                           text_options, &text);
-              if (builtin_command_data[data_cmd].flags & CF_sectioning_heading)
-                {
-                  char *heading
-                    = text_heading (element, text.text,
-                                    text_options->other_converter_options,
-                                    text_options->NUMBER_SECTIONS, 0);
-                  ADD(heading);
-                  free (heading);
-                }
-              else
-                {
-                  if (!(text.end > 0 && text.text[text.end - 1] == '\n'))
-                    text_append (&text, "\n");
-                  ADD(text.text);
-                }
+              if (!(text.end > 0 && text.text[text.end - 1] == '\n'))
+                text_append (&text, "\n");
+              ADD(text.text);
               free (text.text);
             }
         }

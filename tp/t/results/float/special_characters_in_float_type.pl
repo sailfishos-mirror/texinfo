@@ -16,23 +16,28 @@ $result_trees{'special_characters_in_float_type'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -47,24 +52,27 @@ $result_trees{'special_characters_in_float_type'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -82,23 +90,28 @@ $result_trees{'special_characters_in_float_type'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chap'
@@ -113,24 +126,27 @@ $result_trees{'special_characters_in_float_type'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -393,9 +409,9 @@ $result_trees{'special_characters_in_float_type'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'extra'}{'float'} = $result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[1];
-$result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[1]{'contents'}[2];
-$result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[1]{'extra'}{'float_section'} = $result_trees{'special_characters_in_float_type'}{'contents'}[4];
+$result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'extra'}{'float'} = $result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[2];
+$result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[2]{'extra'}{'caption'} = $result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[2]{'contents'}[2];
+$result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[2]{'extra'}{'float_section'} = $result_trees{'special_characters_in_float_type'}{'contents'}[4];
 
 $result_texis{'special_characters_in_float_type'} = '@node Top
 @top top

@@ -16,23 +16,28 @@ $result_trees{'seealso_duplicate'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -47,24 +52,27 @@ $result_trees{'seealso_duplicate'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -456,17 +464,17 @@ $result_trees{'seealso_duplicate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1];
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[1]{'extra'}{'subentry'};
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'seealso'};
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3];
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3]{'extra'}{'subentry'};
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'seeentry'};
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10];
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[10]{'extra'}{'subentry'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[2]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[2];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[2]{'extra'}{'subentry'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4]{'extra'}{'seealso'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[5] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4]{'extra'}{'subentry'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11]{'extra'}{'seeentry'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11];
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[12] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11]{'extra'}{'subentry'};
 
 $result_texis{'seealso_duplicate'} = '@node Top
 @node chap

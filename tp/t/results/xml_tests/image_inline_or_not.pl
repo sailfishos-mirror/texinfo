@@ -77,23 +77,28 @@ $result_trees{'image_inline_or_not'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -108,24 +113,27 @@ $result_trees{'image_inline_or_not'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -938,39 +946,44 @@ $result_trees{'image_inline_or_not'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'image',
               'contents' => [
                 {
+                  'cmdname' => 'image',
                   'contents' => [
                     {
-                      'text' => 'node_image'
+                      'contents' => [
+                        {
+                          'text' => 'node_image'
+                        }
+                      ],
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'type' => 'brace_arg'
+                  'extra' => {
+                    'input_encoding_name' => 'utf-8'
+                  },
+                  'source_info' => {
+                    'line_nr' => 41
+                  }
                 }
               ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
               },
-              'source_info' => {
-                'line_nr' => 41
-              }
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'node_005fimage'
@@ -985,40 +998,43 @@ $result_trees{'image_inline_or_not'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'image',
               'contents' => [
                 {
+                  'cmdname' => 'image',
                   'contents' => [
                     {
-                      'text' => 'in_chapter_arg'
+                      'contents' => [
+                        {
+                          'text' => 'in_chapter_arg'
+                        }
+                      ],
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'type' => 'brace_arg'
+                  'extra' => {
+                    'input_encoding_name' => 'utf-8'
+                  },
+                  'source_info' => {
+                    'line_nr' => 42
+                  }
                 }
               ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
               },
-              'source_info' => {
-                'line_nr' => 42
-              }
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1356,13 +1372,13 @@ $result_trees{'image_inline_or_not'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[10]{'extra'}{'command_as_argument'} = $result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[12]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[12]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[12]{'contents'}[2]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[12]{'contents'}[2]{'contents'}[3]{'contents'}[1];
-$result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[12]{'contents'}[2]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[12]{'contents'}[2]{'contents'}[3]{'contents'}[3];
-$result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[6]{'contents'}[5]{'extra'}{'float'} = $result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[6];
-$result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[6]{'extra'}{'caption'} = $result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[6]{'contents'}[5];
-$result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[6]{'extra'}{'float_section'} = $result_trees{'image_inline_or_not'}{'contents'}[4];
+$result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[11]{'extra'}{'command_as_argument'} = $result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[13]{'contents'}[2]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[13]{'contents'}[2]{'contents'}[3]{'contents'}[1];
+$result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[13]{'contents'}[2]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'image_inline_or_not'}{'contents'}[2]{'contents'}[13]{'contents'}[2]{'contents'}[3]{'contents'}[3];
+$result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'extra'}{'float'} = $result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[7];
+$result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[7]{'extra'}{'caption'} = $result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[7]{'contents'}[5];
+$result_trees{'image_inline_or_not'}{'contents'}[4]{'contents'}[7]{'extra'}{'float_section'} = $result_trees{'image_inline_or_not'}{'contents'}[4];
 
 $result_texis{'image_inline_or_not'} = '@image{A}
 

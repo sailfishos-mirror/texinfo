@@ -1,3 +1,63 @@
+2024-11-14  Patrice Dumas  <pertusus@free.fr>
+
+	root line commands in 'argument' container in contents
+
+	* tp/Texinfo/Common.pm (is_content_empty), tp/Texinfo/XS/main/utils.c
+	(is_content_empty): ignore argument type.
+
+	* tp/Texinfo/XS/convert/format_html.c (html_open_quotation_command):
+	remove incorrect const.
+
+	* tp/Texinfo/Common.pm (get_label_element), tp/Texinfo/XS/main/utils.c
+	(get_label_element), tp/Texinfo/ParserNonXS.pm (_end_line_misc_line)
+	(_check_valid_nesting, _handle_line_command)
+	(_process_remaining_on_line, _parse_line_command_args),
+	tp/Texinfo/Structuring.pm (check_nodes_are_referenced, nodes_tree)
+	(new_node_menu_entry, new_block_command, new_complete_node_menu)
+	(_print_down_menus), tp/Texinfo/Transformations.pm
+	(fill_gaps_in_sectioning, _new_node)
+	(_get_non_automatic_nodes_with_sections),
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args)
+	(end_line_misc_line), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_line_command), tp/Texinfo/XS/parsetexi/parser.c
+	(check_valid_nesting, process_remaining_on_line),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (new_block_command)
+	(check_nodes_are_referenced, complete_node_tree_with_menus, nodes_tree)
+	(new_node_menu_entry, new_complete_node_menu, print_down_menus),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning, new_node)
+	(insert_nodes_for_sectioning_commands)
+	(get_non_automatic_nodes_with_sections): put arguments of root line
+	commands (@node, sectioning commands) in the first content in the
+	argument container type, remove args.
+
+	* tp/Texinfo/Convert/Converter.pm
+	(normalized_sectioning_command_filename, set_output_units_files)
+	(format_comment_or_return_end_line, sort_element_counts),
+	tp/Texinfo/Convert/DocBook.pm (conversion_output_begin)
+	(_convert_argument_and_end_line, _convert), tp/Texinfo/Convert/HTML.pm
+	(_internal_command_tree, _convert_heading_command)
+	(_file_header_information, _prepare_converted_output_info)
+	(_node_redirections), tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/NodeNameNormalization.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (process_footnotes, format_contents)
+	(_convert), tp/Texinfo/Convert/Texinfo.pm
+	(root_heading_command_to_texinfo), tp/Texinfo/Convert/TexinfoMarkup.pm
+	(_convert), tp/Texinfo/Convert/Text.pm (_convert),
+	tp/Texinfo/XS/convert/convert_html.c (fulltitle_cmds)
+	(html_prepare_converted_output_info, html_node_redirections),
+	tp/Texinfo/XS/convert/converter.c
+	(normalized_sectioning_command_filename),
+	tp/Texinfo/XS/convert/format_html.c (html_internal_command_tree)
+	(file_header_information, html_convert_heading_command),
+	tp/Texinfo/XS/main/convert_to_texinfo.c
+	(root_heading_command_to_texinfo),
+	tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal),
+	tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_to_normalized_internal), tp/ext/epub3.pm (epub_finish),
+	tp/init/chm.pm (chm_init): update conversion code for change in root
+	commands tree.
+
 2024-11-12  Patrice Dumas  <pertusus@free.fr>
 
 	use contents for definition lines instead of args

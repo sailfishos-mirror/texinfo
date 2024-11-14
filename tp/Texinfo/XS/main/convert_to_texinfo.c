@@ -373,9 +373,9 @@ root_heading_command_to_texinfo (const ELEMENT *element)
     {
       if ((data_cmd == CM_node
            || (builtin_command_data[data_cmd].flags & CF_sectioning_heading))
-          && element->e.c->args.number > 0
-          && element->e.c->args.list[0]->e.c->contents.number > 0)
-        tree = element->e.c->args.list[0];
+          && element->e.c->contents.list[0]->e.c->contents.list[0]
+                                              ->e.c->contents.number > 0)
+        tree = element->e.c->contents.list[0]->e.c->contents.list[0];
     }
   else
     return strdup ("Not a command");

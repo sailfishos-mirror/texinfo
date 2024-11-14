@@ -52,127 +52,130 @@ $result_trees{'node_on_index_entry_line'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'text' => 'a'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '('
-            },
-            {
-              'text' => 'm'
-            },
-            {
-              'text' => ')'
-            },
-            {
-              'text' => 'b'
-            }
-          ],
-          'extra' => {
-            'manual_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'b'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '('
-            },
-            {
-              'text' => 'm'
-            },
-            {
-              'text' => ')'
-            },
-            {
-              'text' => 'c'
-            }
-          ],
-          'extra' => {
-            'manual_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'c'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '('
-            },
-            {
-              'text' => 'h'
-            },
-            {
-              'text' => ')'
-            },
-            {
-              'text' => 'd'
-            }
-          ],
-          'extra' => {
-            'manual_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'd'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            },
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'node',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'a'
+                }
+              ],
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '('
+                },
+                {
+                  'text' => 'm'
+                },
+                {
+                  'text' => ')'
+                },
+                {
+                  'text' => 'b'
+                }
+              ],
+              'extra' => {
+                'manual_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'b'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '('
+                },
+                {
+                  'text' => 'm'
+                },
+                {
+                  'text' => ')'
+                },
+                {
+                  'text' => 'c'
+                }
+              ],
+              'extra' => {
+                'manual_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'c'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '('
+                },
+                {
+                  'text' => 'h'
+                },
+                {
+                  'text' => ')'
+                },
+                {
+                  'text' => 'd'
+                }
+              ],
+              'extra' => {
+                'manual_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'd'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                },
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -204,12 +207,12 @@ $result_trees{'node_on_index_entry_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[1]{'contents'}[1];
-$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[1]{'contents'}[3];
-$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[2]{'contents'}[1];
-$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[2]{'contents'}[3];
-$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'args'}[3]{'contents'}[3];
+$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[3];
+$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[3];
+$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'node_on_index_entry_line'}{'contents'}[1]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_on_index_entry_line'}{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[3];
 
 $result_texis{'node_on_index_entry_line'} = '
 @cindex entry @node a, (m)b, (m)c, (h)d

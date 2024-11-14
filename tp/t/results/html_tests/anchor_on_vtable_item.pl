@@ -11,23 +11,28 @@ $result_trees{'anchor_on_vtable_item'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -42,24 +47,27 @@ $result_trees{'anchor_on_vtable_item'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -77,23 +85,28 @@ $result_trees{'anchor_on_vtable_item'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chap'
@@ -108,24 +121,27 @@ $result_trees{'anchor_on_vtable_item'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Chap'
+              'contents' => [
+                {
+                  'text' => 'Chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -452,23 +468,28 @@ $result_trees{'anchor_on_vtable_item'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Idx'
+              'contents' => [
+                {
+                  'text' => 'Idx'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -484,24 +505,27 @@ $result_trees{'anchor_on_vtable_item'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Idx'
+              'contents' => [
+                {
+                  'text' => 'Idx'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -593,11 +617,11 @@ $result_trees{'anchor_on_vtable_item'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[3];
-$result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[3];
-$result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[3];
-$result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'anchor_on_vtable_item'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_on_vtable_item'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[3];
+$result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[3];
+$result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[3];
+$result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'anchor_on_vtable_item'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'anchor_on_vtable_item'}{'contents'}[6]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_on_vtable_item'}{'contents'}[6]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'anchor_on_vtable_item'} = '@node Top
 @top top

@@ -16,22 +16,27 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       "type" => "before_node_section"
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "Top"
+              "contents" => [
+                {
+                  "text" => "Top"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
+          "type" => "argument"
         }
       ],
-      "cmdname" => "node",
       "extra" => {
         "is_target" => 1,
         "normalized" => "Top"
@@ -47,23 +52,26 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "top",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "top"
+              "contents" => [
+                {
+                  "text" => "top"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "top",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -203,17 +211,22 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => " \r\n"
+          "contents" => [
+            {
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => " \r\n"
+                }
+              },
+              "type" => "line_arg"
             }
-          },
-          "type" => "line_arg"
+          ],
+          "type" => "argument"
         }
       ],
-      "cmdname" => "node",
       "extra" => {},
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
@@ -221,23 +234,26 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "chapter",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "CARRIAGE RETURN|\r|"
+              "contents" => [
+                {
+                  "text" => "CARRIAGE RETURN|\r|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "chapter",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -257,17 +273,22 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => " \t\f\n"
+          "contents" => [
+            {
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => " \t\f\n"
+                }
+              },
+              "type" => "line_arg"
             }
-          },
-          "type" => "line_arg"
+          ],
+          "type" => "argument"
         }
       ],
-      "cmdname" => "node",
       "extra" => {},
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
@@ -275,23 +296,26 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "chapter",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "CHARACTER TABULATION|\t| FORM FEED|\f|"
+              "contents" => [
+                {
+                  "text" => "CHARACTER TABULATION|\t| FORM FEED|\f|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "chapter",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"

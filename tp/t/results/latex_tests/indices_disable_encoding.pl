@@ -50,23 +50,28 @@ $result_trees{'indices_disable_encoding'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -81,24 +86,27 @@ $result_trees{'indices_disable_encoding'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top section'
+              'contents' => [
+                {
+                  'text' => 'top section'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -116,23 +124,28 @@ $result_trees{'indices_disable_encoding'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter'
+              'contents' => [
+                {
+                  'text' => 'chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -148,24 +161,27 @@ $result_trees{'indices_disable_encoding'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Index'
+              'contents' => [
+                {
+                  'text' => 'Index'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1096,20 +1112,20 @@ $result_trees{'indices_disable_encoding'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
-$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
-$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'args'}[0]{'contents'}[11] = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'seealso'};
-$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8];
-$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[9] = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'};
-$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[9]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[9]{'extra'}{'subentry'}{'args'}[0]{'contents'}[11] = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[9]{'extra'}{'seealso'};
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[9]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[9];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[10] = $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[9]{'extra'}{'subentry'};
 $result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
-$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[15]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
-$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[17]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[12]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[16]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
+$result_trees{'indices_disable_encoding'}{'contents'}[4]{'contents'}[18]{'extra'}{'element_node'} = $result_trees{'indices_disable_encoding'}{'contents'}[3];
 
 $result_texis{'indices_disable_encoding'} = '
 @set txiindexbackslashignore

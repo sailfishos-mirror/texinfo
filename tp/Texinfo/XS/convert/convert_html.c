@@ -843,7 +843,7 @@ html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
 }
 
 static const enum command_id fulltitle_cmds[] =
- {CM_settitle, CM_title, CM_shorttitlepage, CM_top, 0};
+ {CM_settitle, CM_title, CM_shorttitlepage, 0};
 
 
 int
@@ -900,6 +900,17 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
           fulltitle_tree = command->e.c->args.list[0];
           break;
         }
+    }
+
+  if (!fulltitle_tree
+      && self->document->global_commands.top)
+    {
+      const ELEMENT *argument
+       = self->document->global_commands.top->e.c->contents.list[0];
+      ELEMENT *line_arg = argument->e.c->contents.list[0];
+
+      if (line_arg->e.c->contents.number > 0)
+        fulltitle_tree = line_arg;
     }
 
   if (!fulltitle_tree
@@ -2855,9 +2866,11 @@ html_node_redirections (CONVERTER *self,
                     {
                       const ELEMENT *conflicting_section
                         = file_source_info->element;
+                      const ELEMENT *line_arg
+                        = conflicting_section->e.c->contents.list[0]
+                                    ->e.c->contents.list[0];
                       char *section_texi
-                        = convert_contents_to_texinfo
-                                    (conflicting_section->e.c->args.list[0]);
+                        = convert_contents_to_texinfo (line_arg);
                      pmessage_list_command_warn (&self->error_messages,
                                     self->conf, conflicting_section, 1,
            "conflict of redirection file with file based on section name",

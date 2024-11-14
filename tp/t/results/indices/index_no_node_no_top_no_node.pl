@@ -119,24 +119,27 @@ $result_trees{'index_no_node_no_top_no_node'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'unnumbered',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered'
+              'contents' => [
+                {
+                  'text' => 'unnumbered'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumbered',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'args' => [
             {
@@ -308,24 +311,27 @@ $result_trees{'index_no_node_no_top_no_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumbered',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top (chapter) section'
+              'contents' => [
+                {
+                  'text' => 'top (chapter) section'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumbered',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -658,24 +664,27 @@ $result_trees{'index_no_node_no_top_no_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'second'
+              'contents' => [
+                {
+                  'text' => 'second'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -846,24 +855,27 @@ $result_trees{'index_no_node_no_top_no_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Chapter'
+              'contents' => [
+                {
+                  'text' => 'Chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'args' => [
             {
@@ -1003,24 +1015,27 @@ $result_trees{'index_no_node_no_top_no_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Chapter 2'
+              'contents' => [
+                {
+                  'text' => 'Chapter 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',

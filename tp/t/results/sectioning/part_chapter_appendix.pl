@@ -18,24 +18,27 @@ $result_trees{'part_chapter_appendix'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'part',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Part 1'
+              'contents' => [
+                {
+                  'text' => 'Part 1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'part',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -53,24 +56,27 @@ $result_trees{'part_chapter_appendix'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter'
+              'contents' => [
+                {
+                  'text' => 'chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -91,23 +97,28 @@ $result_trees{'part_chapter_appendix'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'appendix',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Appendix'
+              'contents' => [
+                {
+                  'text' => 'Appendix'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'appendix',
       'extra' => {
         'section_number' => 'A'
       },

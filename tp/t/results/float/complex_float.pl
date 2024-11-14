@@ -16,23 +16,28 @@ $result_trees{'complex_float'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -47,24 +52,27 @@ $result_trees{'complex_float'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Test floats'
+              'contents' => [
+                {
+                  'text' => 'Test floats'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2196,23 +2204,28 @@ $result_trees{'complex_float'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter'
+              'contents' => [
+                {
+                  'text' => 'chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chapter'
@@ -2227,24 +2240,27 @@ $result_trees{'complex_float'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'A chapter'
+              'contents' => [
+                {
+                  'text' => 'A chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -3336,28 +3352,28 @@ $result_trees{'complex_float'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[5]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'complex_float'}{'contents'}[1];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[8]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[11]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[13]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[13]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[17]{'contents'}[0]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[17]{'contents'}[0]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[17]{'contents'}[0]{'contents'}[11]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'complex_float'}{'contents'}[1];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[17]{'contents'}[0]{'contents'}[14]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[17]{'contents'}[0]{'contents'}[14]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[17]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[17]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[17]{'extra'}{'float'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[20]{'extra'}{'float'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'extra'}{'caption'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[17];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'extra'}{'float_section'} = $result_trees{'complex_float'}{'contents'}[2];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'extra'}{'shortcaption'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[7]{'contents'}[20];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[8]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'complex_float'}{'contents'}[3];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[11]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'extra'}{'float'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'contents'}[4];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[1]{'extra'}{'float_section'} = $result_trees{'complex_float'}{'contents'}[4];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[5]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'complex_float'}{'contents'}[1];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[8]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[11]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[13]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[13]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'contents'}[0]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'contents'}[0]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'contents'}[0]{'contents'}[11]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'complex_float'}{'contents'}[1];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'contents'}[0]{'contents'}[14]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'contents'}[0]{'contents'}[14]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'extra'}{'float'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[20]{'extra'}{'float'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'extra'}{'caption'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'extra'}{'float_section'} = $result_trees{'complex_float'}{'contents'}[2];
+$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'extra'}{'shortcaption'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[20];
+$result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[8]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'complex_float'}{'contents'}[3];
+$result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[11]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'extra'}{'float'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[2];
+$result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'extra'}{'caption'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4];
+$result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'extra'}{'float_section'} = $result_trees{'complex_float'}{'contents'}[4];
+$result_trees{'complex_float'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'complex_float'} = '@node Top
 @top Test floats

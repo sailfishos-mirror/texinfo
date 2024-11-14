@@ -8,23 +8,28 @@ use utf8;
 $result_trees{'footnotestyle_separate_late'} = [
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -49,24 +54,27 @@ $result_trees{'footnotestyle_separate_late'} = [
       },
       {},
       {
-        'args' => [
+        'cmdname' => 'top',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'top'
+                'contents' => [
+                  {
+                    'text' => 'top'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'top',
-        'contents' => [
+            'type' => 'argument'
+          },
           {
             'text' => '
 ',
@@ -88,23 +96,28 @@ $result_trees{'footnotestyle_separate_late'} = [
   },
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap f'
+              'contents' => [
+                {
+                  'text' => 'chap f'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chap-f'
@@ -121,24 +134,27 @@ $result_trees{'footnotestyle_separate_late'} = [
     'unit_contents' => [
       {},
       {
-        'args' => [
+        'cmdname' => 'chapter',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'Chapter f'
+                'contents' => [
+                  {
+                    'text' => 'Chapter f'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'chapter',
-        'contents' => [
+            'type' => 'argument'
+          },
           {
             'text' => '
 ',
@@ -198,23 +214,28 @@ $result_trees{'footnotestyle_separate_late'} = [
   },
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap s'
+              'contents' => [
+                {
+                  'text' => 'chap s'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chap-s'
@@ -231,24 +252,27 @@ $result_trees{'footnotestyle_separate_late'} = [
     'unit_contents' => [
       {},
       {
-        'args' => [
+        'cmdname' => 'chapter',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'Chapter s'
+                'contents' => [
+                  {
+                    'text' => 'Chapter s'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'chapter',
-        'contents' => [
+            'type' => 'argument'
+          },
           {
             'text' => '
 ',

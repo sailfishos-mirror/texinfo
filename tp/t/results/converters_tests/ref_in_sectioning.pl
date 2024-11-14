@@ -32,23 +32,28 @@ $result_trees{'ref_in_sectioning'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -63,136 +68,139 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'for example '
-            },
-            {
-              'cmdname' => 'ref',
               'contents' => [
                 {
+                  'text' => 'for example '
+                },
+                {
+                  'cmdname' => 'ref',
                   'contents' => [
                     {
-                      'text' => 'node'
+                      'contents' => [
+                        {
+                          'text' => 'node'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
+                        'normalized' => 'node'
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'extra' => {
-                    'node_content' => {
+                  'source_info' => {
+                    'line_nr' => 4
+                  }
+                },
+                {
+                  'text' => ' ('
+                },
+                {
+                  'cmdname' => 'pxref',
+                  'contents' => [
+                    {
                       'contents' => [
-                        {}
-                      ]
+                        {
+                          'text' => 'node'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
+                        'normalized' => 'node'
+                      },
+                      'type' => 'brace_arg'
+                    }
+                  ],
+                  'source_info' => {
+                    'line_nr' => 4
+                  }
+                },
+                {
+                  'text' => ') ('
+                },
+                {
+                  'cmdname' => 'pxref',
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'Top'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        }
+                      },
+                      'type' => 'brace_arg'
                     },
-                    'normalized' => 'node'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ' ('
-            },
-            {
-              'cmdname' => 'pxref',
-              'contents' => [
-                {
-                  'contents' => [
                     {
-                      'text' => 'node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
+                      'type' => 'brace_arg'
                     },
-                    'normalized' => 'node'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ') ('
-            },
-            {
-              'cmdname' => 'pxref',
-              'contents' => [
-                {
-                  'contents' => [
                     {
-                      'text' => 'Top'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
+                      'type' => 'brace_arg'
+                    },
+                    {
                       'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
+                        {
+                          'text' => 'file'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
+                    },
                     {
-                      'text' => 'file'
+                      'contents' => [
+                        {
+                          'text' => 'Manual'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 4
+                  }
                 },
                 {
-                  'contents' => [
-                    {
-                      'text' => 'Manual'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'text' => ')'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ')'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -359,23 +367,28 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'node'
+              'contents' => [
+                {
+                  'text' => 'node'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'node'
@@ -390,84 +403,87 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'xref',
               'contents' => [
                 {
+                  'cmdname' => 'xref',
                   'contents' => [
                     {
-                      'text' => 'node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
                       'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
+                        {
+                          'text' => 'node'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        }
+                      },
+                      'type' => 'brace_arg'
+                    },
                     {
-                      'text' => 'title'
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'title'
+                        }
+                      ],
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'file name'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'Manual'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 12
+                  }
                 },
                 {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Manual'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'text' => '.'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 12
-              }
-            },
-            {
-              'text' => '.'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -487,23 +503,28 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chap'
@@ -518,48 +539,51 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'ref',
               'contents' => [
                 {
+                  'cmdname' => 'ref',
                   'contents' => [
                     {
-                      'text' => 'node'
+                      'contents' => [
+                        {
+                          'text' => 'node'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
+                        'normalized' => 'node'
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'node'
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 15
+                  }
+                },
+                {
+                  'text' => ' just node'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => ' just node'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -579,136 +603,139 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'for example '
-            },
-            {
-              'cmdname' => 'ref',
               'contents' => [
                 {
+                  'text' => 'for example '
+                },
+                {
+                  'cmdname' => 'ref',
                   'contents' => [
                     {
-                      'text' => 'node'
+                      'contents' => [
+                        {
+                          'text' => 'node'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
+                        'normalized' => 'node'
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'extra' => {
-                    'node_content' => {
+                  'source_info' => {
+                    'line_nr' => 17
+                  }
+                },
+                {
+                  'text' => ' ('
+                },
+                {
+                  'cmdname' => 'pxref',
+                  'contents' => [
+                    {
                       'contents' => [
-                        {}
-                      ]
+                        {
+                          'text' => 'node'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
+                        'normalized' => 'node'
+                      },
+                      'type' => 'brace_arg'
+                    }
+                  ],
+                  'source_info' => {
+                    'line_nr' => 17
+                  }
+                },
+                {
+                  'text' => ') ('
+                },
+                {
+                  'cmdname' => 'pxref',
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'Top'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        }
+                      },
+                      'type' => 'brace_arg'
                     },
-                    'normalized' => 'node'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 17
-              }
-            },
-            {
-              'text' => ' ('
-            },
-            {
-              'cmdname' => 'pxref',
-              'contents' => [
-                {
-                  'contents' => [
                     {
-                      'text' => 'node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
+                      'type' => 'brace_arg'
                     },
-                    'normalized' => 'node'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 17
-              }
-            },
-            {
-              'text' => ') ('
-            },
-            {
-              'cmdname' => 'pxref',
-              'contents' => [
-                {
-                  'contents' => [
                     {
-                      'text' => 'Top'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
+                      'type' => 'brace_arg'
+                    },
+                    {
                       'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
+                        {
+                          'text' => 'file'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
+                    },
                     {
-                      'text' => 'file'
+                      'contents' => [
+                        {
+                          'text' => 'Manual'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 17
+                  }
                 },
                 {
-                  'contents' => [
-                    {
-                      'text' => 'Manual'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'text' => ')'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 17
-              }
-            },
-            {
-              'text' => ')'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -728,61 +755,64 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'ref',
               'contents' => [
                 {
+                  'cmdname' => 'ref',
                   'contents' => [
                     {
-                      'text' => 'node'
+                      'contents' => [
+                        {
+                          'text' => 'node'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
+                        'normalized' => 'node'
+                      },
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'cross ref name'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'node'
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 19
+                  }
                 },
                 {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'text' => '  node, crossref arg2'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => '  node, crossref arg2'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -802,90 +832,93 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'ref',
               'contents' => [
                 {
+                  'cmdname' => 'ref',
                   'contents' => [
                     {
-                      'cmdname' => 'code',
                       'contents' => [
                         {
+                          'cmdname' => 'code',
                           'contents' => [
                             {
-                              'text' => 'node'
+                              'contents' => [
+                                {
+                                  'text' => 'node'
+                                }
+                              ],
+                              'type' => 'brace_container'
                             }
                           ],
-                          'type' => 'brace_container'
+                          'source_info' => {
+                            'line_nr' => 21
+                          }
                         }
                       ],
-                      'source_info' => {
-                        'line_nr' => 21
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
+                        'normalized' => 'node'
+                      },
+                      'type' => 'brace_arg'
                     },
-                    'normalized' => 'node'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
                     {
-                      'cmdname' => 'samp',
+                      'type' => 'brace_arg'
+                    },
+                    {
                       'contents' => [
                         {
+                          'cmdname' => 'samp',
                           'contents' => [
                             {
-                              'text' => 'title'
+                              'contents' => [
+                                {
+                                  'text' => 'title'
+                                }
+                              ],
+                              'type' => 'brace_container'
                             }
                           ],
-                          'type' => 'brace_container'
+                          'source_info' => {
+                            'line_nr' => 21
+                          }
                         }
                       ],
-                      'source_info' => {
-                        'line_nr' => 21
-                      }
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 21
+                  }
+                },
+                {
+                  'text' => '  code node, samptitle arg3'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => '  code node, samptitle arg3'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -905,79 +938,82 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'ref',
               'contents' => [
                 {
+                  'cmdname' => 'ref',
                   'contents' => [
                     {
-                      'cmdname' => 'code',
                       'contents' => [
                         {
+                          'cmdname' => 'code',
                           'contents' => [
                             {
-                              'text' => 'node'
+                              'contents' => [
+                                {
+                                  'text' => 'node'
+                                }
+                              ],
+                              'type' => 'brace_container'
                             }
                           ],
-                          'type' => 'brace_container'
+                          'source_info' => {
+                            'line_nr' => 23
+                          }
                         }
                       ],
-                      'source_info' => {
-                        'line_nr' => 23
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        }
+                      },
+                      'type' => 'brace_arg'
+                    },
                     {
-                      'text' => 'file name'
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'file name'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 23
+                  }
+                },
+                {
+                  'text' => ' code node, file name'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 23
-              }
-            },
-            {
-              'text' => ' code node, file name'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -997,72 +1033,75 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'ref',
               'contents' => [
                 {
+                  'cmdname' => 'ref',
                   'contents' => [
                     {
-                      'text' => 'node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
                       'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
+                        {
+                          'text' => 'node'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        }
+                      },
+                      'type' => 'brace_arg'
+                    },
                     {
-                      'text' => 'Manual'
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'Manual'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 25
+                  }
+                },
+                {
+                  'text' => ' node and manual'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 25
-              }
-            },
-            {
-              'text' => ' node and manual'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1082,72 +1121,75 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'ref',
               'contents' => [
                 {
+                  'cmdname' => 'ref',
                   'contents' => [
                     {
-                      'text' => 'Top'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
                       'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
+                        {
+                          'text' => 'Top'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        }
+                      },
+                      'type' => 'brace_arg'
+                    },
                     {
-                      'text' => 'Manual'
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'Manual'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 27
+                  }
+                },
+                {
+                  'text' => ' Top and manual'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 27
-              }
-            },
-            {
-              'text' => ' Top and manual'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1167,60 +1209,63 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'ref',
               'contents' => [
                 {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
+                  'cmdname' => 'ref',
                   'contents' => [
                     {
-                      'text' => 'Manual'
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'Manual'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 29
+                  }
+                },
+                {
+                  'text' => ' no node just manual'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 29
-              }
-            },
-            {
-              'text' => ' no node just manual'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1240,54 +1285,57 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'ref',
               'contents' => [
                 {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
+                  'cmdname' => 'ref',
                   'contents' => [
                     {
-                      'text' => 'file name'
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'file name'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 31
+                  }
+                },
+                {
+                  'text' => ' no node just file name'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 31
-              }
-            },
-            {
-              'text' => ' no node just file name'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1307,73 +1355,76 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'inforef',
               'contents' => [
                 {
+                  'cmdname' => 'inforef',
                   'contents' => [
                     {
-                      'text' => 'a'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
                       'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        }
+                      },
+                      'type' => 'brace_arg'
+                    },
                     {
-                      'text' => 'b'
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'c'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 33
+                  }
                 },
                 {
-                  'contents' => [
-                    {
-                      'text' => 'c'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'text' => ' inforef a b c'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 33
-              }
-            },
-            {
-              'text' => ' inforef a b c'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => ' 
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => ' 
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1393,80 +1444,83 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => '('
-            },
-            {
-              'cmdname' => 'pxref',
               'contents' => [
                 {
+                  'text' => '('
+                },
+                {
+                  'cmdname' => 'pxref',
                   'contents' => [
                     {
-                      'text' => 'Top'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
                       'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
+                        {
+                          'text' => 'Top'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        }
+                      },
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
                     {
-                      'text' => 'file name'
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'file name'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 35
+                  }
+                },
+                {
+                  'text' => ') pxref Top file name, spaces'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 35
-              }
-            },
-            {
-              'text' => ') pxref Top file name, spaces'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1486,60 +1540,63 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => '('
-            },
-            {
-              'cmdname' => 'pxref',
               'contents' => [
                 {
-                  'type' => 'brace_arg'
+                  'text' => '('
                 },
                 {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
+                  'cmdname' => 'pxref',
                   'contents' => [
                     {
-                      'text' => 'file name'
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'file name'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 37
+                  }
+                },
+                {
+                  'text' => ') pxref file name only, spaces'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 37
-              }
-            },
-            {
-              'text' => ') pxref file name only, spaces'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1559,61 +1616,64 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'xref',
               'contents' => [
                 {
+                  'cmdname' => 'xref',
                   'contents' => [
                     {
-                      'text' => 'Top'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
                       'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
+                        {
+                          'text' => 'Top'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        }
+                      },
+                      'type' => 'brace_arg'
+                    },
                     {
-                      'text' => 'filename'
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'filename'
+                        }
+                      ],
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 39
+                  }
+                },
+                {
+                  'text' => ', xref Top filename only, no spaces'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 39
-              }
-            },
-            {
-              'text' => ', xref Top filename only, no spaces'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1633,49 +1693,52 @@ $result_trees{'ref_in_sectioning'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'xref',
               'contents' => [
                 {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
+                  'cmdname' => 'xref',
                   'contents' => [
                     {
-                      'text' => 'filename'
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'filename'
+                        }
+                      ],
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 41
+                  }
+                },
+                {
+                  'text' => '. xref filename only, no spaces'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 41
-              }
-            },
-            {
-              'text' => '. xref filename only, no spaces'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1697,24 +1760,24 @@ $result_trees{'ref_in_sectioning'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ref_in_sectioning'}{'contents'}[2]{'args'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'args'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[2]{'args'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'args'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[2]{'args'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'args'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[7]{'args'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[7]{'args'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[7]{'args'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[7]{'args'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[7]{'args'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[7]{'args'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[8]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[8]{'args'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[9]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[9]{'args'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[10]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[10]{'args'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[11]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[11]{'args'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[12]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[12]{'args'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[15]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[15]{'args'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[16]{'args'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[16]{'args'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[18]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[18]{'args'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[9]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[9]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[10]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[10]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[12]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[12]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[15]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[15]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[16]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[16]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'ref_in_sectioning'}{'contents'}[18]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[18]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'ref_in_sectioning'} = '@contents
 

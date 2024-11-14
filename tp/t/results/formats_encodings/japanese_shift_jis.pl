@@ -165,23 +165,28 @@ $result_trees{'japanese_shift_jis'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -197,24 +202,27 @@ $result_trees{'japanese_shift_jis'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "GNU LilyPond --- \x{5b66}\x{7fd2}\x{30de}\x{30cb}\x{30e5}\x{30a2}\x{30eb}"
+              'contents' => [
+                {
+                  'text' => "GNU LilyPond --- \x{5b66}\x{7fd2}\x{30de}\x{30cb}\x{30e5}\x{30a2}\x{30eb}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -562,23 +570,28 @@ $result_trees{'japanese_shift_jis'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Preface'
+              'contents' => [
+                {
+                  'text' => 'Preface'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Preface'
@@ -594,24 +607,27 @@ $result_trees{'japanese_shift_jis'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Preface'
+              'contents' => [
+                {
+                  'text' => 'Preface'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -651,23 +667,28 @@ $result_trees{'japanese_shift_jis'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Introduction'
+              'contents' => [
+                {
+                  'text' => 'Introduction'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Introduction'
@@ -683,24 +704,27 @@ $result_trees{'japanese_shift_jis'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Introduction'
+              'contents' => [
+                {
+                  'text' => 'Introduction'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -747,8 +771,8 @@ $result_trees{'japanese_shift_jis'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[6]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[7]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'japanese_shift_jis'}{'contents'}[2]{'contents'}[7]{'contents'}[2]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'japanese_shift_jis'} = '\\input texinfo @c -*- coding: utf-8; mode: texinfo; -*-
 @documentencoding shift_jis

@@ -1062,9 +1062,18 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
      = (TARGET_FILENAME *) malloc (sizeof (TARGET_FILENAME));
   TEXT filename;
   char *normalized_file_name;
-  char *normalized_name
-    = normalize_transliterate_texinfo_contents (command->e.c->args.list[0],
+  char *normalized_name;
+  const ELEMENT *label_element;
+
+  if (builtin_command_data[command->e.c->cmd].flags & CF_root)
+    label_element = command->e.c->contents.list[0]->e.c->contents.list[0];
+  else
+    label_element = command->e.c->args.list[0];
+
+  normalized_name
+    = normalize_transliterate_texinfo_contents (label_element,
                                            (self->conf->TEST.o.integer > 0));
+
   normalized_file_name = strdup (normalized_name);
   id_to_filename (self, &normalized_file_name);
 

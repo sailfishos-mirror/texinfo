@@ -61,24 +61,27 @@ $result_trees{'text_before_line_command'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'LD Version Scripts'
+              'contents' => [
+                {
+                  'text' => 'LD Version Scripts'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'contents' => [
             {
@@ -102,24 +105,27 @@ $result_trees{'text_before_line_command'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'LD Version Scripts'
+              'contents' => [
+                {
+                  'text' => 'LD Version Scripts'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -267,8 +273,8 @@ $result_trees{'text_before_line_command'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'text_before_line_command'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'extra'}{'quotation'} = $result_trees{'text_before_line_command'}{'contents'}[2]{'contents'}[4];
-$result_trees{'text_before_line_command'}{'contents'}[2]{'contents'}[4]{'extra'}{'authors'}[0] = $result_trees{'text_before_line_command'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[1];
+$result_trees{'text_before_line_command'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'extra'}{'quotation'} = $result_trees{'text_before_line_command'}{'contents'}[2]{'contents'}[5];
+$result_trees{'text_before_line_command'}{'contents'}[2]{'contents'}[5]{'extra'}{'authors'}[0] = $result_trees{'text_before_line_command'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[1];
 
 $result_texis{'text_before_line_command'} = 'before title @title the title
 

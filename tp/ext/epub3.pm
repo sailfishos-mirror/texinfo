@@ -758,7 +758,8 @@ EOT
       } else {
         print $nav_fh "</li>\n";
       }
-      my $text = _epub_convert_tree_to_text($self, $section->{'args'}->[0]);
+      my $line_arg = $section->{'contents'}->[0]->{'contents'}->[0];
+      my $text = _epub_convert_tree_to_text($self, $line_arg);
       $text
         = Texinfo::Convert::Utils::add_heading_number($self, $section, $text,
                                           $self->get_conf('NUMBER_SECTIONS'));

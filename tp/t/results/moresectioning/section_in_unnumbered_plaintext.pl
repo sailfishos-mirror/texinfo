@@ -26,23 +26,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -58,24 +63,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Test section in unnumbered'
+              'contents' => [
+                {
+                  'text' => 'Test section in unnumbered'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -422,23 +430,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter'
+              'contents' => [
+                {
+                  'text' => 'chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chapter'
@@ -454,24 +467,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter'
+              'contents' => [
+                {
+                  'text' => 'chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -598,23 +614,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'section in chapter'
+              'contents' => [
+                {
+                  'text' => 'section in chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'section-in-chapter'
@@ -630,24 +651,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'section in chapter'
+              'contents' => [
+                {
+                  'text' => 'section in chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -668,23 +692,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered'
+              'contents' => [
+                {
+                  'text' => 'unnumbered'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumbered'
@@ -700,24 +729,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumbered',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered'
+              'contents' => [
+                {
+                  'text' => 'unnumbered'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumbered',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -842,23 +874,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'section in unnumbered'
+              'contents' => [
+                {
+                  'text' => 'section in unnumbered'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'section-in-unnumbered'
@@ -874,24 +911,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'section in unnumbered'
+              'contents' => [
+                {
+                  'text' => 'section in unnumbered'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -910,23 +950,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter 2'
+              'contents' => [
+                {
+                  'text' => 'chapter 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chapter-2'
@@ -942,24 +987,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter 2'
+              'contents' => [
+                {
+                  'text' => 'chapter 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1133,23 +1181,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumberedsec 2'
+              'contents' => [
+                {
+                  'text' => 'unnumberedsec 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumberedsec-2'
@@ -1165,24 +1218,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered section 2'
+              'contents' => [
+                {
+                  'text' => 'unnumbered section 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1448,23 +1504,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered sub 2'
+              'contents' => [
+                {
+                  'text' => 'unnumbered sub 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumbered-sub-2'
@@ -1480,24 +1541,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsubsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered subsection 2'
+              'contents' => [
+                {
+                  'text' => 'unnumbered subsection 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsubsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1516,23 +1580,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered sub 2'
+              'contents' => [
+                {
+                  'text' => 'numbered sub 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'numbered-sub-2'
@@ -1548,24 +1617,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered subsection 2'
+              'contents' => [
+                {
+                  'text' => 'numbered subsection 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1584,23 +1656,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered sub2 2'
+              'contents' => [
+                {
+                  'text' => 'unnumbered sub2 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumbered-sub2-2'
@@ -1616,24 +1693,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsubsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered subsection2 2'
+              'contents' => [
+                {
+                  'text' => 'unnumbered subsection2 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsubsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1652,23 +1732,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered sub2 2'
+              'contents' => [
+                {
+                  'text' => 'numbered sub2 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'numbered-sub2-2'
@@ -1684,24 +1769,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered subsection2 2'
+              'contents' => [
+                {
+                  'text' => 'numbered subsection2 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1720,23 +1808,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumberedsec 2-1'
+              'contents' => [
+                {
+                  'text' => 'unnumberedsec 2-1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumberedsec-2_002d1'
@@ -1752,24 +1845,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumberedsec 2-1'
+              'contents' => [
+                {
+                  'text' => 'unnumberedsec 2-1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1894,23 +1990,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered sub 2-1'
+              'contents' => [
+                {
+                  'text' => 'numbered sub 2-1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'numbered-sub-2_002d1'
@@ -1926,24 +2027,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered subsection 2-1'
+              'contents' => [
+                {
+                  'text' => 'numbered subsection 2-1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1967,23 +2071,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter 3'
+              'contents' => [
+                {
+                  'text' => 'chapter 3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chapter-3'
@@ -1999,24 +2108,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter 3'
+              'contents' => [
+                {
+                  'text' => 'chapter 3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2331,23 +2443,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumberedsec 3'
+              'contents' => [
+                {
+                  'text' => 'unnumberedsec 3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumberedsec-3'
@@ -2363,24 +2480,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered section 3'
+              'contents' => [
+                {
+                  'text' => 'unnumbered section 3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2646,23 +2766,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered sub 3'
+              'contents' => [
+                {
+                  'text' => 'unnumbered sub 3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumbered-sub-3'
@@ -2678,24 +2803,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsubsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered subsection 3'
+              'contents' => [
+                {
+                  'text' => 'unnumbered subsection 3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsubsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2714,23 +2842,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered sub 3'
+              'contents' => [
+                {
+                  'text' => 'numbered sub 3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'numbered-sub-3'
@@ -2746,24 +2879,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered subsection 3'
+              'contents' => [
+                {
+                  'text' => 'numbered subsection 3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2782,23 +2918,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered sub2 3'
+              'contents' => [
+                {
+                  'text' => 'unnumbered sub2 3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumbered-sub2-3'
@@ -2814,24 +2955,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsubsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered subsection2 3'
+              'contents' => [
+                {
+                  'text' => 'unnumbered subsection2 3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsubsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2850,23 +2994,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered sub2 3'
+              'contents' => [
+                {
+                  'text' => 'numbered sub2 3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'numbered-sub2-3'
@@ -2882,24 +3031,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered subsection2 3'
+              'contents' => [
+                {
+                  'text' => 'numbered subsection2 3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2918,23 +3070,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'section 3-1'
+              'contents' => [
+                {
+                  'text' => 'section 3-1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'section-3_002d1'
@@ -2950,24 +3107,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'section 3-1'
+              'contents' => [
+                {
+                  'text' => 'section 3-1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2988,23 +3148,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumberedsec 3-2'
+              'contents' => [
+                {
+                  'text' => 'unnumberedsec 3-2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumberedsec-3_002d2'
@@ -3020,24 +3185,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumberedsec 3-2'
+              'contents' => [
+                {
+                  'text' => 'unnumberedsec 3-2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -3162,23 +3330,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered sub 3-2'
+              'contents' => [
+                {
+                  'text' => 'numbered sub 3-2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'numbered-sub-3_002d2'
@@ -3194,24 +3367,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered subsection 3-2'
+              'contents' => [
+                {
+                  'text' => 'numbered subsection 3-2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -3230,23 +3406,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'section 3-3'
+              'contents' => [
+                {
+                  'text' => 'section 3-3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'section-3_002d3'
@@ -3262,24 +3443,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'section 3-3'
+              'contents' => [
+                {
+                  'text' => 'section 3-3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -3406,23 +3590,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'subsection 3-3'
+              'contents' => [
+                {
+                  'text' => 'subsection 3-3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'subsection-3_002d3'
@@ -3438,24 +3627,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'subsection 3-3'
+              'contents' => [
+                {
+                  'text' => 'subsection 3-3'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -3476,23 +3668,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumberedsec 3-4'
+              'contents' => [
+                {
+                  'text' => 'unnumberedsec 3-4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumberedsec-3_002d4'
@@ -3508,24 +3705,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumberedsec 3-4'
+              'contents' => [
+                {
+                  'text' => 'unnumberedsec 3-4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -3650,23 +3850,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered sub 3-4'
+              'contents' => [
+                {
+                  'text' => 'numbered sub 3-4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'numbered-sub-3_002d4'
@@ -3682,24 +3887,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered subsection 3-4'
+              'contents' => [
+                {
+                  'text' => 'numbered subsection 3-4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -3718,23 +3926,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered 4'
+              'contents' => [
+                {
+                  'text' => 'unnumbered 4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumbered-4'
@@ -3750,24 +3963,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumbered',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered  4'
+              'contents' => [
+                {
+                  'text' => 'unnumbered  4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumbered',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -3892,23 +4108,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumberedsec 4'
+              'contents' => [
+                {
+                  'text' => 'unnumberedsec 4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumberedsec-4'
@@ -3924,24 +4145,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered section 4'
+              'contents' => [
+                {
+                  'text' => 'unnumbered section 4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -4207,23 +4431,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered sub 4'
+              'contents' => [
+                {
+                  'text' => 'unnumbered sub 4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumbered-sub-4'
@@ -4239,24 +4468,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsubsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered subsection 4'
+              'contents' => [
+                {
+                  'text' => 'unnumbered subsection 4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsubsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -4275,23 +4507,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered sub 4'
+              'contents' => [
+                {
+                  'text' => 'numbered sub 4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'numbered-sub-4'
@@ -4307,24 +4544,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered subsection 4'
+              'contents' => [
+                {
+                  'text' => 'numbered subsection 4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'subsection',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -4343,23 +4583,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered sub2 4'
+              'contents' => [
+                {
+                  'text' => 'unnumbered sub2 4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'unnumbered-sub2-4'
@@ -4375,24 +4620,27 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumberedsubsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'unnumbered subsection2 4'
+              'contents' => [
+                {
+                  'text' => 'unnumbered subsection2 4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumberedsubsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -4411,23 +4659,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered sub2 4'
+              'contents' => [
+                {
+                  'text' => 'numbered sub2 4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'numbered-sub2-4'
@@ -4443,23 +4696,28 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'numbered subsection2 4'
+              'contents' => [
+                {
+                  'text' => 'numbered subsection2 4'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'subsection',
       'extra' => {},
       'info' => {
         'spaces_before_argument' => {
@@ -4474,37 +4732,37 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[5]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[5]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[5]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[5]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[5]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[5]{'contents'}[5]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[8]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[8]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[12]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[12]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[12]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[12]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[24]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[24]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[1]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[1]{'contents'}[5]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[42]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[42]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[46]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[46]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[50]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[50]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[54]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[54]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[6]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[6]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[6]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[6]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[6]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[6]{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[6]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[2]{'contents'}[6]{'contents'}[5]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[8]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[8]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[12]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[12]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[12]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[12]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[14]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[24]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[24]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[2]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[28]{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[30]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[42]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[42]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[46]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[46]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[50]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[50]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[54]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[54]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[56]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'section_in_unnumbered_plaintext'} = '
 @node Top

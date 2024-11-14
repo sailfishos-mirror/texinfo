@@ -8,24 +8,27 @@ use utf8;
 $result_trees{'two_nodes_at_the_end'} = [
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -247,23 +250,28 @@ $result_trees{'two_nodes_at_the_end'} = [
         'type' => 'before_node_section'
       },
       {
-        'args' => [
+        'cmdname' => 'node',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'Top'
+                'contents' => [
+                  {
+                    'text' => 'Top'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
+            'type' => 'argument'
           }
         ],
-        'cmdname' => 'node',
         'extra' => {
           'is_target' => 1,
           'normalized' => 'Top'
@@ -283,24 +291,27 @@ $result_trees{'two_nodes_at_the_end'} = [
   },
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter c1'
+              'contents' => [
+                {
+                  'text' => 'chapter c1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -321,84 +332,89 @@ $result_trees{'two_nodes_at_the_end'} = [
     },
     'unit_contents' => [
       {
-        'args' => [
+        'cmdname' => 'node',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'chapter 1'
-              }
-            ],
-            'type' => 'line_arg'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'node after chapter 1'
-              }
-            ],
-            'extra' => {
-              'node_content' => {
                 'contents' => [
-                  {}
-                ]
+                  {
+                    'text' => 'chapter 1'
+                  }
+                ],
+                'type' => 'line_arg'
               },
-              'normalized' => 'node-after-chapter-1'
-            },
-            'info' => {
-              'spaces_before_argument' => {
-                'text' => ' '
-              }
-            },
-            'type' => 'line_arg'
-          },
-          {
-            'contents' => [
               {
-                'text' => 'Top'
-              }
-            ],
-            'extra' => {
-              'node_content' => {
                 'contents' => [
-                  {}
-                ]
+                  {
+                    'text' => 'node after chapter 1'
+                  }
+                ],
+                'extra' => {
+                  'node_content' => {
+                    'contents' => [
+                      {}
+                    ]
+                  },
+                  'normalized' => 'node-after-chapter-1'
+                },
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
+                },
+                'type' => 'line_arg'
               },
-              'normalized' => 'Top'
-            },
-            'info' => {
-              'spaces_before_argument' => {
-                'text' => ' '
-              }
-            },
-            'type' => 'line_arg'
-          },
-          {
-            'contents' => [
               {
-                'text' => 'Top'
-              }
-            ],
-            'extra' => {
-              'node_content' => {
                 'contents' => [
-                  {}
-                ]
+                  {
+                    'text' => 'Top'
+                  }
+                ],
+                'extra' => {
+                  'node_content' => {
+                    'contents' => [
+                      {}
+                    ]
+                  },
+                  'normalized' => 'Top'
+                },
+                'info' => {
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
+                },
+                'type' => 'line_arg'
               },
-              'normalized' => 'Top'
-            },
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
+              {
+                'contents' => [
+                  {
+                    'text' => 'Top'
+                  }
+                ],
+                'extra' => {
+                  'node_content' => {
+                    'contents' => [
+                      {}
+                    ]
+                  },
+                  'normalized' => 'Top'
+                },
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
 '
-              },
-              'spaces_before_argument' => {
-                'text' => ' '
+                  },
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
+                },
+                'type' => 'line_arg'
               }
-            },
-            'type' => 'line_arg'
+            ],
+            'type' => 'argument'
           }
         ],
-        'cmdname' => 'node',
         'extra' => {
           'is_target' => 1,
           'normalized' => 'chapter-1'
@@ -414,24 +430,27 @@ $result_trees{'two_nodes_at_the_end'} = [
       },
       {},
       {
-        'args' => [
+        'cmdname' => 'node',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'node after chapter 1'
+                'contents' => [
+                  {
+                    'text' => 'node after chapter 1'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'contents' => [
+            'type' => 'argument'
+          },
           {
             'text' => '
 ',
@@ -466,23 +485,28 @@ $result_trees{'two_nodes_at_the_end'} = [
         }
       },
       {
-        'args' => [
+        'cmdname' => 'node',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'last node in chapter 1'
+                'contents' => [
+                  {
+                    'text' => 'last node in chapter 1'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
+            'type' => 'argument'
           }
         ],
-        'cmdname' => 'node',
         'extra' => {
           'is_target' => 1,
           'normalized' => 'last-node-in-chapter-1'
@@ -500,13 +524,13 @@ $result_trees{'two_nodes_at_the_end'} = [
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0];
 $result_trees{'two_nodes_at_the_end'}[0]{'unit_contents'}[2] = $result_trees{'two_nodes_at_the_end'}[0]{'unit_command'};
-$result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'args'}[2]{'contents'}[0];
-$result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'args'}[3]{'contents'}[0];
+$result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0];
 $result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[1] = $result_trees{'two_nodes_at_the_end'}[1]{'unit_command'};
 
 $result_texis{'two_nodes_at_the_end'} = '@node Top

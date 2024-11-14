@@ -65,23 +65,28 @@ $result_trees{'encoding_index_utf8'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -97,24 +102,27 @@ $result_trees{'encoding_index_utf8'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'encoding index utf8'
+              'contents' => [
+                {
+                  'text' => 'encoding index utf8'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -133,24 +141,27 @@ $result_trees{'encoding_index_utf8'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2621,7 +2632,6 @@ $result_trees{'encoding_index_utf8'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'encoding_index_utf8'}{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8'}{'contents'}[3];
 $result_trees{'encoding_index_utf8'}{'contents'}[3]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8'}{'contents'}[3];
 $result_trees{'encoding_index_utf8'}{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8'}{'contents'}[3];
 $result_trees{'encoding_index_utf8'}{'contents'}[3]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8'}{'contents'}[3];
@@ -2676,6 +2686,7 @@ $result_trees{'encoding_index_utf8'}{'contents'}[3]{'contents'}[52]{'extra'}{'el
 $result_trees{'encoding_index_utf8'}{'contents'}[3]{'contents'}[53]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8'}{'contents'}[3];
 $result_trees{'encoding_index_utf8'}{'contents'}[3]{'contents'}[54]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8'}{'contents'}[3];
 $result_trees{'encoding_index_utf8'}{'contents'}[3]{'contents'}[55]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8'}{'contents'}[3];
+$result_trees{'encoding_index_utf8'}{'contents'}[3]{'contents'}[56]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8'}{'contents'}[3];
 
 $result_texis{'encoding_index_utf8'} = '
 @documentencoding utf-8

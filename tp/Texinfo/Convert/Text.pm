@@ -712,22 +712,26 @@ sub _convert($$)
         chomp ($result);
         $result .= "\n" if ($result =~ /\S/);
       }
-    } elsif ($formatted_line_commands{$data_cmdname}
-             and $element->{'args'}) {
+    } elsif ($Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
+      my $line_arg;
+      if ($Texinfo::Commands::root_commands{$cmdname}) {
+        $line_arg = $element->{'contents'}->[0]->{'contents'}->[0];
+      } else {
+        $line_arg = $element->{'args'}->[0];
+      }
+      my $heading_text = _convert($options, $line_arg);
+      $result = _text_heading($element, $heading_text, $options->{'converter'},
+                               $options->{'NUMBER_SECTIONS'});
+    } elsif ($formatted_line_commands{$data_cmdname} and $element->{'args'}) {
       if ($cmdname ne 'node') {
         if ($cmdname eq 'page') {
           $result = '';
         } else {
           $result = _convert($options, $element->{'args'}->[0]);
         }
-        if ($Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
-          $result = _text_heading($element, $result, $options->{'converter'},
-                                 $options->{'NUMBER_SECTIONS'});
-        } else {
         # we always want an end of line even if is was eaten by a command
-          chomp($result);
-          $result .= "\n";
-        }
+        chomp($result);
+        $result .= "\n";
       }
     } elsif ($converted_formattable_line_commands{$cmdname}) {
       if ($def_commands{$cmdname}) {

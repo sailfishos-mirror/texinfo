@@ -18,23 +18,28 @@ $result_trees{'punctuation_in_line_commands'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'node! After punc'
+              'contents' => [
+                {
+                  'text' => 'node! After punc'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -50,24 +55,27 @@ $result_trees{'punctuation_in_line_commands'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top! After punc'
+              'contents' => [
+                {
+                  'text' => 'top! After punc'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -769,14 +777,14 @@ $result_trees{'punctuation_in_line_commands'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'extra'}{'float'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[5];
-$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'float_section'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2];
-$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'shortcaption'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[5]{'contents'}[2];
-$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[7]{'contents'}[2]{'extra'}{'float'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[7];
-$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[7]{'extra'}{'caption'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[7]{'contents'}[2];
-$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[7]{'extra'}{'float_section'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2];
-$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[1];
+$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[6]{'contents'}[2]{'extra'}{'float'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[6];
+$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[6]{'extra'}{'float_section'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2];
+$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[6]{'extra'}{'shortcaption'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[6]{'contents'}[2];
+$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[8]{'contents'}[2]{'extra'}{'float'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[8];
+$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[8]{'extra'}{'caption'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[8]{'contents'}[2];
+$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[8]{'extra'}{'float_section'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[2];
+$result_trees{'punctuation_in_line_commands'}{'contents'}[2]{'contents'}[12]{'extra'}{'element_node'} = $result_trees{'punctuation_in_line_commands'}{'contents'}[1];
 
 $result_texis{'punctuation_in_line_commands'} = '
 @node node! After punc

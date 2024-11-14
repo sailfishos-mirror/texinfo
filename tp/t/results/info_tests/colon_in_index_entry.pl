@@ -11,24 +11,27 @@ $result_trees{'colon_in_index_entry'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -572,11 +575,11 @@ $result_trees{'colon_in_index_entry'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'colon_in_index_entry'}{'contents'}[1]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'colon_in_index_entry'}{'contents'}[1];
-$result_trees{'colon_in_index_entry'}{'contents'}[1]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'colon_in_index_entry'}{'contents'}[1];
-$result_trees{'colon_in_index_entry'}{'contents'}[1]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'colon_in_index_entry'}{'contents'}[1]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'colon_in_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'colon_in_index_entry'}{'contents'}[1];
-$result_trees{'colon_in_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'colon_in_index_entry'}{'contents'}[1];
+$result_trees{'colon_in_index_entry'}{'contents'}[1]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'colon_in_index_entry'}{'contents'}[1];
+$result_trees{'colon_in_index_entry'}{'contents'}[1]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'colon_in_index_entry'}{'contents'}[1];
+$result_trees{'colon_in_index_entry'}{'contents'}[1]{'contents'}[6]{'extra'}{'command_as_argument'} = $result_trees{'colon_in_index_entry'}{'contents'}[1]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'colon_in_index_entry'}{'contents'}[1]{'contents'}[8]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'colon_in_index_entry'}{'contents'}[1];
+$result_trees{'colon_in_index_entry'}{'contents'}[1]{'contents'}[8]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'colon_in_index_entry'}{'contents'}[1];
 
 $result_texis{'colon_in_index_entry'} = '@node Top
 

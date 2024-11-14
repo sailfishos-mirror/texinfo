@@ -427,23 +427,28 @@ $result_trees{'sample_utf8'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -459,24 +464,27 @@ $result_trees{'sample_utf8'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "Texinfo\x{4e2d}\x{6587}\x{793a}\x{4f8b}"
+              'contents' => [
+                {
+                  'text' => "Texinfo\x{4e2d}\x{6587}\x{793a}\x{4f8b}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -762,23 +770,28 @@ $result_trees{'sample_utf8'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{7b2c}\x{4e00}\x{7ae0}\x{ff08}First Chapter\x{ff09}"
+              'contents' => [
+                {
+                  'text' => "\x{7b2c}\x{4e00}\x{7ae0}\x{ff08}First Chapter\x{ff09}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
@@ -794,24 +807,27 @@ $result_trees{'sample_utf8'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{7b2c}\x{4e00}\x{7ae0}\x{ff08}First Chapter\x{ff09}"
+              'contents' => [
+                {
+                  'text' => "\x{7b2c}\x{4e00}\x{7ae0}\x{ff08}First Chapter\x{ff09}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1138,23 +1154,28 @@ $result_trees{'sample_utf8'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "Second Chapter AE \x{104}\x{118} ae \x{105}\x{119}"
+              'contents' => [
+                {
+                  'text' => "Second Chapter AE \x{104}\x{118} ae \x{105}\x{119}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
@@ -1170,24 +1191,27 @@ $result_trees{'sample_utf8'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "Chapter 2 AE \x{104}\x{118} ae \x{105}\x{119}"
+              'contents' => [
+                {
+                  'text' => "Chapter 2 AE \x{104}\x{118} ae \x{105}\x{119}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1222,23 +1246,28 @@ $result_trees{'sample_utf8'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Index node'
+              'contents' => [
+                {
+                  'text' => 'Index node'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -1255,24 +1284,27 @@ $result_trees{'sample_utf8'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'unnumbered',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Index'
+              'contents' => [
+                {
+                  'text' => 'Index'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumbered',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1341,13 +1373,13 @@ $result_trees{'sample_utf8'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
-$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
-$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
-$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
+$result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
+$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
+$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
+$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'sample_utf8'}{'contents'}[3];
 
 $result_texis{'sample_utf8'} = '\\input texinfo   @c -*-texinfo-*-
 @c %**start of header

@@ -31,42 +31,47 @@ $result_trees{'unknown_node_direction_novalidate'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'one arg2'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'two arg'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => 'one arg2'
+                }
+              ],
+              'type' => 'line_arg'
             },
-            'normalized' => 'two-arg'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
+            {
+              'contents' => [
+                {
+                  'text' => 'two arg'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'two-arg'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
 '
-            },
-            'spaces_before_argument' => {
-              'text' => ' '
+                },
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
+          ],
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'one-arg2'
@@ -83,7 +88,7 @@ $result_trees{'unknown_node_direction_novalidate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'unknown_node_direction_novalidate'}{'contents'}[1]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'unknown_node_direction_novalidate'}{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'unknown_node_direction_novalidate'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'unknown_node_direction_novalidate'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'unknown_node_direction_novalidate'} = '@novalidate
 

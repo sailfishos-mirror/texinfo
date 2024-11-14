@@ -8,24 +8,27 @@ use utf8;
 $result_trees{'node_part_chapter_after_chapter'} = [
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -196,23 +199,28 @@ $result_trees{'node_part_chapter_after_chapter'} = [
         'type' => 'before_node_section'
       },
       {
-        'args' => [
+        'cmdname' => 'node',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'Top'
+                'contents' => [
+                  {
+                    'text' => 'Top'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
+            'type' => 'argument'
           }
         ],
-        'cmdname' => 'node',
         'extra' => {
           'is_target' => 1,
           'normalized' => 'Top'
@@ -232,24 +240,27 @@ $result_trees{'node_part_chapter_after_chapter'} = [
   },
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter node'
+              'contents' => [
+                {
+                  'text' => 'chapter node'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -270,24 +281,27 @@ $result_trees{'node_part_chapter_after_chapter'} = [
     },
     'unit_contents' => [
       {
-        'args' => [
+        'cmdname' => 'node',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'chapter node'
+                'contents' => [
+                  {
+                    'text' => 'chapter node'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'node',
-        'contents' => [
+            'type' => 'argument'
+          },
           {
             'text' => '
 ',
@@ -313,24 +327,27 @@ $result_trees{'node_part_chapter_after_chapter'} = [
   },
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter with part node'
+              'contents' => [
+                {
+                  'text' => 'chapter with part node'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -353,24 +370,27 @@ $result_trees{'node_part_chapter_after_chapter'} = [
       ],
       'extra' => {
         'associated_part' => {
-          'args' => [
+          'cmdname' => 'part',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'part'
+                  'contents' => [
+                    {
+                      'text' => 'part'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'part',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',
@@ -400,23 +420,28 @@ $result_trees{'node_part_chapter_after_chapter'} = [
     },
     'unit_contents' => [
       {
-        'args' => [
+        'cmdname' => 'node',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'part chapter node'
+                'contents' => [
+                  {
+                    'text' => 'part chapter node'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
+            'type' => 'argument'
           }
         ],
-        'cmdname' => 'node',
         'extra' => {
           'is_target' => 1,
           'normalized' => 'part-chapter-node'
@@ -436,8 +461,8 @@ $result_trees{'node_part_chapter_after_chapter'} = [
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'node_part_chapter_after_chapter'}[0]{'unit_command'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_part_chapter_after_chapter'}[0]{'unit_command'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'node_part_chapter_after_chapter'}[0]{'unit_command'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_part_chapter_after_chapter'}[0]{'unit_command'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'node_part_chapter_after_chapter'}[0]{'unit_command'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_part_chapter_after_chapter'}[0]{'unit_command'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'node_part_chapter_after_chapter'}[0]{'unit_command'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_part_chapter_after_chapter'}[0]{'unit_command'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'node_part_chapter_after_chapter'}[0]{'unit_contents'}[2] = $result_trees{'node_part_chapter_after_chapter'}[0]{'unit_command'};
 $result_trees{'node_part_chapter_after_chapter'}[1]{'unit_contents'}[1] = $result_trees{'node_part_chapter_after_chapter'}[1]{'unit_command'};
 $result_trees{'node_part_chapter_after_chapter'}[2]{'unit_contents'}[1] = $result_trees{'node_part_chapter_after_chapter'}[2]{'unit_command'}{'extra'}{'associated_part'};

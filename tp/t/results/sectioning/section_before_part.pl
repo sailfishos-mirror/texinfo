@@ -16,24 +16,27 @@ $result_trees{'section_before_part'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'section'
+              'contents' => [
+                {
+                  'text' => 'section'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => ' 
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => ' 
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -53,24 +56,27 @@ $result_trees{'section_before_part'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'part',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'part'
+              'contents' => [
+                {
+                  'text' => 'part'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'part',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',

@@ -11,24 +11,27 @@ $result_trees{'next_no_prev_to_node'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -198,67 +201,70 @@ $result_trees{'next_no_prev_to_node'} = {
       }
     },
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'text' => 'chap first node'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'no return'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'no-return'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Top'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'Top'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            },
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'node',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'chap first node'
+                }
+              ],
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => 'no return'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'no-return'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
+            },
+            {
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'Top'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                },
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -279,48 +285,53 @@ $result_trees{'next_no_prev_to_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'no return'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Top'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => 'no return'
+                }
+              ],
+              'type' => 'line_arg'
             },
-            'normalized' => 'Top'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => ' 
+            {
+              'type' => 'line_arg'
+            },
+            {
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'Top'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => ' 
 '
-            },
-            'spaces_before_argument' => {
-              'text' => ' '
+                },
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
+          ],
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'no-return'
@@ -337,11 +348,11 @@ $result_trees{'next_no_prev_to_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'next_no_prev_to_node'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'next_no_prev_to_node'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'next_no_prev_to_node'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'next_no_prev_to_node'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'next_no_prev_to_node'}{'contents'}[2]{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'next_no_prev_to_node'}{'contents'}[2]{'args'}[1]{'contents'}[0];
-$result_trees{'next_no_prev_to_node'}{'contents'}[2]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'next_no_prev_to_node'}{'contents'}[2]{'args'}[3]{'contents'}[0];
-$result_trees{'next_no_prev_to_node'}{'contents'}[3]{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'next_no_prev_to_node'}{'contents'}[3]{'args'}[3]{'contents'}[0];
+$result_trees{'next_no_prev_to_node'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'next_no_prev_to_node'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'next_no_prev_to_node'}{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'next_no_prev_to_node'}{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'next_no_prev_to_node'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'next_no_prev_to_node'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'next_no_prev_to_node'}{'contents'}[2]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'next_no_prev_to_node'}{'contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[0];
+$result_trees{'next_no_prev_to_node'}{'contents'}[3]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'next_no_prev_to_node'}{'contents'}[3]{'contents'}[0]{'contents'}[3]{'contents'}[0];
 
 $result_texis{'next_no_prev_to_node'} = '@node Top
 

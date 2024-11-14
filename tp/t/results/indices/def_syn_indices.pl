@@ -56,23 +56,28 @@ $result_trees{'def_syn_indices'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -87,24 +92,27 @@ $result_trees{'def_syn_indices'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -122,23 +130,28 @@ $result_trees{'def_syn_indices'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Chapter index'
+              'contents' => [
+                {
+                  'text' => 'Chapter index'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -154,24 +167,27 @@ $result_trees{'def_syn_indices'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Index'
+              'contents' => [
+                {
+                  'text' => 'Index'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1254,13 +1270,13 @@ $result_trees{'def_syn_indices'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
-$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
-$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[9]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
-$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[13]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
+$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
+$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
+$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
 $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[14]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
-$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[24]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
-$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[26]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
+$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[15]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
+$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[25]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
+$result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[27]{'extra'}{'element_node'} = $result_trees{'def_syn_indices'}{'contents'}[3];
 
 $result_texis{'def_syn_indices'} = '@syncodeindex cp fn
 

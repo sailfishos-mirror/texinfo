@@ -11,23 +11,28 @@ $result_trees{'top_no_argument_and_node'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'start'
+              'contents' => [
+                {
+                  'text' => 'start'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'start'
@@ -42,18 +47,23 @@ $result_trees{'top_no_argument_and_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
+          'contents' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
+          ],
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'top',
       'extra' => {},
       'source_info' => {
         'line_nr' => 2

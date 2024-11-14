@@ -8,23 +8,28 @@ use utf8;
 $result_trees{'transliterated_names_conflicts'} = [
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -65,24 +70,27 @@ $result_trees{'transliterated_names_conflicts'} = [
       },
       {},
       {
-        'args' => [
+        'cmdname' => 'top',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'Same transliterated names'
+                'contents' => [
+                  {
+                    'text' => 'Same transliterated names'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'top',
-        'contents' => [
+            'type' => 'argument'
+          },
           {
             'text' => '
 ',
@@ -105,23 +113,28 @@ $result_trees{'transliterated_names_conflicts'} = [
   },
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "Pr\x{e9}s"
+              'contents' => [
+                {
+                  'text' => "Pr\x{e9}s"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Pr_00e9s'
@@ -139,24 +152,27 @@ $result_trees{'transliterated_names_conflicts'} = [
     'unit_contents' => [
       {},
       {
-        'args' => [
+        'cmdname' => 'chapter',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => "Pr\x{e9}s"
+                'contents' => [
+                  {
+                    'text' => "Pr\x{e9}s"
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'chapter',
-        'contents' => [
+            'type' => 'argument'
+          },
           {
             'text' => '
 ',
@@ -181,23 +197,28 @@ $result_trees{'transliterated_names_conflicts'} = [
   },
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Other node'
+              'contents' => [
+                {
+                  'text' => 'Other node'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Other-node'
@@ -215,24 +236,27 @@ $result_trees{'transliterated_names_conflicts'} = [
     'unit_contents' => [
       {},
       {
-        'args' => [
+        'cmdname' => 'chapter',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'Other chapter'
+                'contents' => [
+                  {
+                    'text' => 'Other chapter'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'chapter',
-        'contents' => [
+            'type' => 'argument'
+          },
           {
             'text' => '
 ',
@@ -395,7 +419,7 @@ $result_trees{'transliterated_names_conflicts'} = [
 $result_trees{'transliterated_names_conflicts'}[0]{'unit_contents'}[1] = $result_trees{'transliterated_names_conflicts'}[0]{'unit_command'};
 $result_trees{'transliterated_names_conflicts'}[1]{'unit_contents'}[0] = $result_trees{'transliterated_names_conflicts'}[1]{'unit_command'};
 $result_trees{'transliterated_names_conflicts'}[2]{'unit_contents'}[0] = $result_trees{'transliterated_names_conflicts'}[2]{'unit_command'};
-$result_trees{'transliterated_names_conflicts'}[2]{'unit_contents'}[1]{'contents'}[4]{'extra'}{'float_section'} = $result_trees{'transliterated_names_conflicts'}[2]{'unit_contents'}[1];
+$result_trees{'transliterated_names_conflicts'}[2]{'unit_contents'}[1]{'contents'}[5]{'extra'}{'float_section'} = $result_trees{'transliterated_names_conflicts'}[2]{'unit_contents'}[1];
 
 $result_texis{'transliterated_names_conflicts'} = '\\input texinfo.tex
 

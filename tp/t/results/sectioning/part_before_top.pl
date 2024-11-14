@@ -8,30 +8,14 @@ use utf8;
 $result_trees{'part_before_top'} = [
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
-            }
-          ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'extra' => {
-        'associated_part' => {
-          'args' => [
-            {
               'contents' => [
                 {
-                  'text' => 'part'
+                  'text' => 'top'
                 }
               ],
               'info' => {
@@ -43,8 +27,32 @@ $result_trees{'part_before_top'} = [
               'type' => 'line_arg'
             }
           ],
+          'type' => 'argument'
+        }
+      ],
+      'extra' => {
+        'associated_part' => {
           'cmdname' => 'part',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'part'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',

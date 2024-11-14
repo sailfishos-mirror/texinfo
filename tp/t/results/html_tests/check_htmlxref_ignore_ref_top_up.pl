@@ -18,94 +18,99 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '('
-            },
-            {
-              'text' => '../there/no_existing_no_manual_direction'
-            },
-            {
-              'text' => ')'
-            }
-          ],
-          'extra' => {
-            'manual_content' => {
               'contents' => [
-                {}
-              ]
-            }
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'type' => 'line_arg'
+            },
             {
-              'text' => 'first'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => '('
+                },
+                {
+                  'text' => '../there/no_existing_no_manual_direction'
+                },
+                {
+                  'text' => ')'
+                }
+              ],
+              'extra' => {
+                'manual_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                }
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             },
-            'normalized' => 'first'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
             {
-              'text' => '('
-            },
-            {
-              'text' => 'dir'
-            },
-            {
-              'text' => ')'
-            }
-          ],
-          'extra' => {
-            'manual_content' => {
               'contents' => [
-                {}
-              ]
-            }
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
+                {
+                  'text' => 'first'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'first'
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '('
+                },
+                {
+                  'text' => 'dir'
+                },
+                {
+                  'text' => ')'
+                }
+              ],
+              'extra' => {
+                'manual_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                }
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
 '
-            },
-            'spaces_before_argument' => {
-              'text' => ' '
+                },
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
+          ],
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -120,24 +125,27 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -497,48 +505,51 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
       }
     },
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'text' => 'first'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '('
-            },
-            {
-              'text' => 'no_existing_no_manual.info'
-            },
-            {
-              'text' => ')'
-            }
-          ],
-          'extra' => {
-            'manual_content' => {
-              'contents' => [
-                {}
-              ]
-            }
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            },
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'node',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'first'
+                }
+              ],
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '('
+                },
+                {
+                  'text' => 'no_existing_no_manual.info'
+                },
+                {
+                  'text' => ')'
+                }
+              ],
+              'extra' => {
+                'manual_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                }
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                },
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -559,82 +570,87 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '('
-            },
-            {
-              'text' => 'chap_not_existing'
-            },
-            {
-              'text' => ')'
-            }
-          ],
-          'extra' => {
-            'manual_content' => {
               'contents' => [
-                {}
-              ]
-            }
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '('
+                {
+                  'text' => 'chapter'
+                }
+              ],
+              'type' => 'line_arg'
             },
             {
-              'text' => 'dir'
-            },
-            {
-              'text' => ')'
-            },
-            {
-              'text' => 'node in dir'
-            }
-          ],
-          'extra' => {
-            'manual_content' => {
               'contents' => [
-                {}
-              ]
+                {
+                  'text' => '('
+                },
+                {
+                  'text' => 'chap_not_existing'
+                },
+                {
+                  'text' => ')'
+                }
+              ],
+              'extra' => {
+                'manual_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                }
+              },
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             },
-            'node_content' => {
+            {
               'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'node-in-dir'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
+                {
+                  'text' => '('
+                },
+                {
+                  'text' => 'dir'
+                },
+                {
+                  'text' => ')'
+                },
+                {
+                  'text' => 'node in dir'
+                }
+              ],
+              'extra' => {
+                'manual_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'node-in-dir'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
 '
-            },
-            'spaces_before_argument' => {
-              'text' => ' '
+                },
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
+          ],
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chapter'
@@ -649,24 +665,27 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Chapter'
+              'contents' => [
+                {
+                  'text' => 'Chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -734,20 +753,20 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[1]{'args'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[1]{'args'}[1]{'contents'}[1];
-$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[1]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[1]{'args'}[2]{'contents'}[0];
-$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[3]{'args'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[3]{'args'}[1]{'contents'}[1];
-$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[4]{'args'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[4]{'args'}[1]{'contents'}[1];
-$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[4]{'args'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[4]{'args'}[2]{'contents'}[1];
-$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[4]{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[4]{'args'}[2]{'contents'}[3];
-$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[3];
+$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[1]{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0];
+$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[1];
+$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[2]{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[3]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[3]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[4]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[4]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[4]{'contents'}[0]{'contents'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[4]{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[4]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[4]{'contents'}[0]{'contents'}[2]{'contents'}[3];
+$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[5]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[5]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[5]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'check_htmlxref_ignore_ref_top_up'}{'contents'}[5]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[3];
 
 $result_texis{'check_htmlxref_ignore_ref_top_up'} = '
 @node Top, (../there/no_existing_no_manual_direction), first, (dir)

@@ -11,52 +11,55 @@ $result_trees{'ignored_text'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'before ignore'
-            }
-          ],
-          'info' => {
-            'spaces_after_argument' => {
-              'source_marks' => [
+              'contents' => [
                 {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'ifinfo',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'argument'
-                      }
-                    ],
-                    'source_info' => {
-                      'line_nr' => 1
-                    }
-                  },
-                  'position' => 1,
-                  'sourcemark_type' => 'ignored_conditional_block'
+                  'text' => 'before ignore'
                 }
               ],
-              'text' => ' '
+              'info' => {
+                'spaces_after_argument' => {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'element' => {
+                        'cmdname' => 'ifinfo',
+                        'contents' => [
+                          {
+                            'contents' => [
+                              {
+                                'info' => {
+                                  'spaces_after_argument' => {
+                                    'text' => '
+'
+                                  }
+                                },
+                                'type' => 'block_line_arg'
+                              }
+                            ],
+                            'type' => 'argument'
+                          }
+                        ],
+                        'source_info' => {
+                          'line_nr' => 1
+                        }
+                      },
+                      'position' => 1,
+                      'sourcemark_type' => 'ignored_conditional_block'
+                    }
+                  ],
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          ],
+          'type' => 'argument'
+        },
         {
           'contents' => [
             {

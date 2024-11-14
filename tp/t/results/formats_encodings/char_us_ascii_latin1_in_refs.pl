@@ -70,23 +70,28 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -103,24 +108,27 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'accented char in latin1 in refs'
+              'contents' => [
+                {
+                  'text' => 'accented char in latin1 in refs'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -471,23 +479,28 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{e4} \x{eb} \x{ef} \x{f6} \x{fc} \x{ff} \x{c4} \x{cb} \x{cf} \x{d6} \x{dc}"
+              'contents' => [
+                {
+                  'text' => "\x{e4} \x{eb} \x{ef} \x{f6} \x{fc} \x{ff} \x{c4} \x{cb} \x{cf} \x{d6} \x{dc}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
@@ -503,24 +516,27 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{e4} \x{eb} \x{ef} \x{f6} \x{fc} \x{ff} \x{c4} \x{cb} \x{cf} \x{d6} \x{dc}"
+              'contents' => [
+                {
+                  'text' => "\x{e4} \x{eb} \x{ef} \x{f6} \x{fc} \x{ff} \x{c4} \x{cb} \x{cf} \x{d6} \x{dc}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -541,23 +557,28 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{e9}"
+              'contents' => [
+                {
+                  'text' => "\x{e9}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => '_00e9'
@@ -573,24 +594,27 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{e9}"
+              'contents' => [
+                {
+                  'text' => "\x{e9}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -611,23 +635,28 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{e0} \x{e8} \x{f9}"
+              'contents' => [
+                {
+                  'text' => "\x{e0} \x{e8} \x{f9}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => '_00e0-_00e8-_00f9'
@@ -643,24 +672,27 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{e0} \x{e8} \x{f9}"
+              'contents' => [
+                {
+                  'text' => "\x{e0} \x{e8} \x{f9}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -681,23 +713,28 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{e2} \x{ea} \x{ee} \x{f4} \x{fb} \x{c2} \x{ca} \x{ce} \x{d4} \x{db}"
+              'contents' => [
+                {
+                  'text' => "\x{e2} \x{ea} \x{ee} \x{f4} \x{fb} \x{c2} \x{ca} \x{ce} \x{d4} \x{db}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
@@ -713,24 +750,27 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{e2} \x{ea} \x{ee} \x{f4} \x{fb} \x{c2} \x{ca} \x{ce} \x{d4} \x{db}"
+              'contents' => [
+                {
+                  'text' => "\x{e2} \x{ea} \x{ee} \x{f4} \x{fb} \x{c2} \x{ca} \x{ce} \x{d4} \x{db}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -751,23 +791,28 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{e7}"
+              'contents' => [
+                {
+                  'text' => "\x{e7}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => '_00e7'
@@ -783,24 +828,27 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{e7}"
+              'contents' => [
+                {
+                  'text' => "\x{e7}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1215,22 +1263,22 @@ $result_trees{'char_us_ascii_latin1_in_refs'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[3]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[3]{'contents'}[5]{'contents'}[1]{'contents'}[0];
-$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[0];
-$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'contents'}[0];
-$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[8]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[1]{'contents'}[8]{'contents'}[0]{'contents'}[0];
-$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[11];
+$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[4]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[4]{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[4]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[2]{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0];
+$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0];
+$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[0];
+$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[2]{'contents'}[6]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[0];
+$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[2]{'contents'}[8]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[2]{'contents'}[8]{'contents'}[0]{'contents'}[0];
 $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[11];
 $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[11];
 $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[11];
 $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[11];
 $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[11];
+$result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[12]{'contents'}[9]{'extra'}{'element_node'} = $result_trees{'char_us_ascii_latin1_in_refs'}{'contents'}[11];
 
 $result_texis{'char_us_ascii_latin1_in_refs'} = '\\input texinfo
 

@@ -11,24 +11,27 @@ $result_trees{'omit_def_space'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -49,24 +52,27 @@ $result_trees{'omit_def_space'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -400,8 +406,8 @@ $result_trees{'omit_def_space'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'omit_def_space'}{'contents'}[2];
-$result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'omit_def_space'}{'contents'}[2];
+$result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'omit_def_space'}{'contents'}[2];
+$result_trees{'omit_def_space'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'omit_def_space'}{'contents'}[2];
 
 $result_texis{'omit_def_space'} = '@node Top
 

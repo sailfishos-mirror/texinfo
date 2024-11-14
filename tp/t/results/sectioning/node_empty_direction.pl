@@ -11,25 +11,30 @@ $result_trees{'node_empty_direction'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'name'
+              'contents' => [
+                {
+                  'text' => 'name'
+                }
+              ],
+              'type' => 'line_arg'
+            },
+            {
+              'info' => {
+                'spaces_before_argument' => {
+                  'text' => ' '
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'type' => 'line_arg'
-        },
-        {
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'name'

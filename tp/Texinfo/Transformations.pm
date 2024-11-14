@@ -172,10 +172,13 @@ sub fill_gaps_in_sectioning($;$)
         };
         $new_section->{'info'} = {'spaces_before_argument' =>
                                               {'text' => ' ',}};
-        my $line_arg = {'type' => 'line_arg', 'parent' => $new_section,
+        my $argument = {'type' => 'argument', 'parent' => $new_section};
+
+        my $line_arg = {'type' => 'line_arg', 'parent' => $argument,
                         'info' => {'spaces_after_argument'
                                                  => {'text' => "\n",}}};
-        $new_section->{'args'} = [$line_arg];
+        $argument->{'contents'} = [$line_arg];
+
         my $line_content;
         if ($commands_heading_content) {
           $line_content
@@ -190,7 +193,8 @@ sub fill_gaps_in_sectioning($;$)
           $line_content = $asis_command;
         }
         $line_arg->{'contents'} = [$line_content];
-        $new_section->{'contents'} = [{'type' => 'empty_line',
+        $new_section->{'contents'} = [$argument,
+                                      {'type' => 'empty_line',
                                        'text' => "\n",
                                        'parent' => $new_section}];
         push @new_sections, $new_section;
@@ -372,8 +376,12 @@ sub _new_node($$;$)
 
     $node = {'cmdname' => 'node', 'extra' => {}};
     $node->{'info'} = {'spaces_before_argument' => {'text' => ' '}};
-    my $node_line_arg = {'type' => 'line_arg', 'parent' => $node};
-    $node->{'args'} = [$node_line_arg];
+
+    my $argument = {'type' => 'argument', 'parent' => $node};
+    $node->{'contents'} = [$argument];
+
+    my $node_line_arg = {'type' => 'line_arg', 'parent' => $argument};
+    $argument->{'contents'} = [$node_line_arg];
     $node_line_arg->{'info'} = {'spaces_after_argument' =>
                                      {'text' => $spaces_after_argument}};
     $node_line_arg->{'info'}->{'comment_at_end'} = $comment_at_end
@@ -471,8 +479,9 @@ sub insert_nodes_for_sectioning_commands($)
       if ($content->{'cmdname'} eq 'top') {
         $new_node_tree = {'contents' => [{'text' => 'Top'}]};
       } else {
+        my $line_arg = $content->{'contents'}->[0]->{'contents'}->[0];
         $new_node_tree
-         = Texinfo::ManipulateTree::copy_contentsNonXS($content->{'args'}->[0]);
+         = Texinfo::ManipulateTree::copy_contentsNonXS($line_arg);
       }
       my $new_node = _new_node($new_node_tree, $document,
                                $customization_information);
@@ -602,7 +611,7 @@ sub _get_non_automatic_nodes_with_sections($)
   my @non_automatic_nodes;
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
-        and not ($content->{'args'} and scalar(@{$content->{'args'}}) > 1)
+        and not (scalar(@{$content->{'contents'}->[0]->{'contents'}}) > 1)
         and $content->{'extra'}
         and $content->{'extra'}->{'associated_section'}) {
       push @non_automatic_nodes, $content;

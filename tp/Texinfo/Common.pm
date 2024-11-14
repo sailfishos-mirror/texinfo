@@ -1395,6 +1395,8 @@ sub is_content_empty($;$)
         next;
       }
     }
+    next if ($content->{'type'}
+             and $content->{'type'} eq 'argument');
     if ($content->{'cmdname'}) {
       if ($content->{'type'} and $content->{'type'} eq 'index_entry_command') {
         if ($do_not_ignore_index_entries) {
@@ -1726,16 +1728,13 @@ sub get_label_element($)
 {
   my $current = shift;
   return undef if (!defined($current->{'cmdname'}));
-  if ($current->{'cmdname'} eq 'node'
-      and $current->{'args'} and scalar(@{$current->{'args'}})) {
-    return $current->{'args'}->[0];
+  if ($current->{'cmdname'} eq 'node') {
+    return $current->{'contents'}->[0]->{'contents'}->[0];
   } elsif ($current->{'cmdname'} eq 'anchor'
            and $current->{'contents'} and scalar(@{$current->{'contents'}})) {
     return $current->{'contents'}->[0];
   } elsif ($current->{'cmdname'} eq 'float'
-      and $current->{'contents'} and scalar(@{$current->{'contents'}})
-      and $current->{'contents'}->[0]->{'contents'}
-      and scalar(@{$current->{'contents'}->[0]->{'contents'}}) >= 2) {
+           and scalar(@{$current->{'contents'}->[0]->{'contents'}}) >= 2) {
     return $current->{'contents'}->[0]->{'contents'}->[1];
   }
   return undef;

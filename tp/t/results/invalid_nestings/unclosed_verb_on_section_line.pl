@@ -11,48 +11,53 @@ $result_trees{'unclosed_verb_on_section_line'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'in section '
-            },
-            {
-              'cmdname' => 'verb',
               'contents' => [
                 {
+                  'text' => 'in section '
+                },
+                {
+                  'cmdname' => 'verb',
                   'contents' => [
                     {
-                      'text' => 'ruc
+                      'contents' => [
+                        {
+                          'text' => 'ruc
 ',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => '
+                          'type' => 'raw'
+                        },
+                        {
+                          'text' => '
 ',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => 'Now text.
+                          'type' => 'raw'
+                        },
+                        {
+                          'text' => 'Now text.
 ',
-                      'type' => 'raw'
+                          'type' => 'raw'
+                        }
+                      ],
+                      'type' => 'brace_container'
                     }
                   ],
-                  'type' => 'brace_container'
+                  'info' => {
+                    'delimiter' => 'T'
+                  },
+                  'source_info' => {
+                    'line_nr' => 1
+                  }
                 }
               ],
-              'info' => {
-                'delimiter' => 'T'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
+              'type' => 'line_arg'
             }
           ],
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'section',
       'extra' => {
         'section_number' => '1'
       },

@@ -53,6 +53,7 @@ void
 new_block_command (ELEMENT *element)
 {
   ELEMENT *args = new_element (ET_block_line_arg);
+  ELEMENT *argument = new_element (ET_argument);
   ELEMENT *arg_spaces_after = new_text_element (ET_other_text);
   ELEMENT *end = new_command_element (ET_line_command, CM_end);
   ELEMENT *end_args = new_element (ET_line_arg);
@@ -63,7 +64,9 @@ new_block_command (ELEMENT *element)
 
   text_append (arg_spaces_after->e.text, "\n");
   args->elt_info[eit_spaces_after_argument] = arg_spaces_after;
-  add_to_element_args (element, args);
+  add_to_element_contents (argument, args);
+
+  insert_into_contents (element, argument, 0);
 
   add_extra_string_dup (end, AI_key_text_arg, command_name);
   text_append (end_spaces_before->e.text, " ");
@@ -672,7 +675,8 @@ check_nodes_are_referenced (DOCUMENT *document)
          the nodes appearing in the automatic menu are referenced.
          Note that the menu may not be actually setup, but
          it is better not to warn for nothing. */
-          int automatic_directions = (node->e.c->args.number <= 1);
+          const ELEMENT *argument = node->e.c->contents.list[0];
+          int automatic_directions = (argument->e.c->contents.number <= 1);
           if (automatic_directions)
             {
               CONST_ELEMENT_LIST *node_childs
@@ -1040,7 +1044,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
       const char *normalized = lookup_extra_string (node, AI_key_normalized);
       const ELEMENT * const *menu_directions = lookup_extra_directions (node,
                                                  AI_key_menu_directions);
-      int automatic_directions = (node->e.c->args.number <= 1);
+      const ELEMENT *argument = node->e.c->contents.list[0];
+      int automatic_directions = (argument->e.c->contents.number <= 1);
 
       if (automatic_directions)
         {
@@ -1334,6 +1339,7 @@ nodes_tree (DOCUMENT *document)
   for (i = 0; i < root->e.c->contents.number; i++)
     {
       ELEMENT *node = root->e.c->contents.list[i];
+      ELEMENT *argument;
       const char *normalized;
       int is_target;
       int automatic_directions;
@@ -1352,7 +1358,8 @@ nodes_tree (DOCUMENT *document)
       if (is_target && !strcmp (normalized, "Top"))
         top_node = node;
 
-      automatic_directions = (node->e.c->args.number <= 1);
+      argument = node->e.c->contents.list[0];
+      automatic_directions = (argument->e.c->contents.number <= 1);
 
       if (automatic_directions)
         if (!top_node || node != top_node)
@@ -1421,9 +1428,10 @@ nodes_tree (DOCUMENT *document)
       else /* explicit directions */
         {
           size_t i;
-          for (i = 1; i < node->e.c->args.number; i++)
+          for (i = 1; i < argument->e.c->contents.number; i++)
             {
-              const ELEMENT *direction_element = node->e.c->args.list[i];
+              const ELEMENT *direction_element
+                = argument->e.c->contents.list[i];
               int direction = (int) i - 1;
               const ELEMENT *manual_content
                             = lookup_extra_container (direction_element,
@@ -1695,7 +1703,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
   size_t i;
   int is_target = (node->flags & EF_is_target);
   if (is_target)
-    node_name_element = node->e.c->args.list[0];
+    node_name_element = node->e.c->contents.list[0]->e.c->contents.list[0];
 
   if (!node_name_element)
     return 0;
@@ -1707,7 +1715,8 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
       const ELEMENT *associated_section
         = lookup_extra_element (node, AI_key_associated_section);
       if (associated_section)
-        name_element = associated_section->e.c->args.list[0];
+        name_element = associated_section->e.c->contents.list[0]
+                                             ->e.c->contents.list[0];
       else
         name_element = node_name_element; /* shouldn't happen */
 
@@ -1891,12 +1900,13 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
                   const ELEMENT *associated_part
                     = lookup_extra_element (child_section,
                                             AI_key_associated_part);
-                  if (associated_part
-                      && associated_part->e.c->args.number > 0)
+                  if (associated_part)
                     {
+                      const ELEMENT *part_line_arg
+                        = associated_part->e.c->contents.list[0]
+                                             ->e.c->contents.list[0];
                       ELEMENT *part_title_copy
-                       = copy_contents (associated_part->e.c->args.list[0],
-                                        ET_NONE);
+                       = copy_contents (part_line_arg, ET_NONE);
                       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
                       ELEMENT *part_title;
@@ -2014,9 +2024,11 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
        = lookup_extra_element (node, AI_key_associated_section);
       int new_up_nodes = 0;
       if (associated_section)
-        node_name_element = associated_section->e.c->args.list[0];
+        node_name_element = associated_section->e.c->contents.list[0]
+                                                   ->e.c->contents.list[0];
       else
-        node_name_element = node->e.c->args.list[0];
+        node_name_element = node->e.c->contents.list[0]
+                                                ->e.c->contents.list[0];
 
       node_title_copy = copy_contents (node_name_element, ET_NONE);
 

@@ -36,24 +36,27 @@ $result_trees{'novalidate_empty_refs'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -152,18 +155,23 @@ $result_trees{'novalidate_empty_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => '
+              'contents' => [
+                {
+                  'cmdname' => '
 '
+                }
+              ],
+              'type' => 'line_arg'
             }
           ],
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -174,23 +182,28 @@ $result_trees{'novalidate_empty_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => ':'
+              'contents' => [
+                {
+                  'cmdname' => ':'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -201,36 +214,41 @@ $result_trees{'novalidate_empty_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'asis',
               'contents' => [
                 {
+                  'cmdname' => 'asis',
                   'contents' => [
                     {
-                      'text' => ' '
+                      'contents' => [
+                        {
+                          'text' => ' '
+                        }
+                      ],
+                      'type' => 'brace_container'
                     }
                   ],
-                  'type' => 'brace_container'
+                  'source_info' => {
+                    'line_nr' => 11
+                  }
                 }
               ],
-              'source_info' => {
-                'line_nr' => 11
-              }
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -243,8 +261,8 @@ $result_trees{'novalidate_empty_refs'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0];
+$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'novalidate_empty_refs'} = '
 @novalidate

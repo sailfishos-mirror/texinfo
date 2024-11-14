@@ -62,51 +62,54 @@ $result_trees{'one_node_counted_elements'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'text' => 'one node'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '('
-            },
-            {
-              'text' => 'dir'
-            },
-            {
-              'text' => ')'
-            }
-          ],
-          'extra' => {
-            'manual_content' => {
-              'contents' => [
-                {}
-              ]
-            }
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'node',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'one node'
+                }
+              ],
+              'type' => 'line_arg'
+            },
+            {
+              'type' => 'line_arg'
+            },
+            {
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '('
+                },
+                {
+                  'text' => 'dir'
+                },
+                {
+                  'text' => ')'
+                }
+              ],
+              'extra' => {
+                'manual_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                }
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'contents' => [
             {
@@ -412,10 +415,10 @@ $result_trees{'one_node_counted_elements'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'one_node_counted_elements'}{'contents'}[1];
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'one_node_counted_elements'}{'contents'}[1];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'contents'}[1];
+$result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'one_node_counted_elements'}{'contents'}[1]{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'one_node_counted_elements'} = 'Garbage
 @cindex before nodes

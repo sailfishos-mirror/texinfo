@@ -31,23 +31,28 @@ $result_trees{'index_entries_relate_to_item_no_transformation'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -63,24 +68,27 @@ $result_trees{'index_entries_relate_to_item_no_transformation'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -99,23 +107,28 @@ $result_trees{'index_entries_relate_to_item_no_transformation'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -132,24 +145,27 @@ $result_trees{'index_entries_relate_to_item_no_transformation'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Chapter'
+              'contents' => [
+                {
+                  'text' => 'Chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -597,10 +613,10 @@ $result_trees{'index_entries_relate_to_item_no_transformation'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[3];
-$result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[3];
-$result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[3];
-$result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[3];
+$result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[3];
+$result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[3];
+$result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[4]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'index_entries_relate_to_item_no_transformation'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'index_entries_relate_to_item_no_transformation'} = '\\input texinfo @c -*-texinfo-*-
 

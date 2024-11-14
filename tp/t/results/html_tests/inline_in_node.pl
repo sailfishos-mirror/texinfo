@@ -106,23 +106,28 @@ $result_trees{'inline_in_node'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -137,19 +142,22 @@ $result_trees{'inline_in_node'} = {
       }
     },
     {
-      'args' => [
-        {
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'top',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -162,79 +170,84 @@ $result_trees{'inline_in_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'inlineraw',
               'contents' => [
                 {
+                  'cmdname' => 'inlineraw',
                   'contents' => [
                     {
-                      'text' => 'html'
+                      'contents' => [
+                        {
+                          'text' => 'html'
+                        }
+                      ],
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => '<code class="tnode">'
+                        }
+                      ],
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'type' => 'brace_arg'
+                  'extra' => {
+                    'expand_index' => 1,
+                    'format' => 'html'
+                  },
+                  'source_info' => {
+                    'line_nr' => 6
+                  }
                 },
                 {
-                  'contents' => [
-                    {
-                      'text' => '<code class="tnode">'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'html'
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => 'One'
-            },
-            {
-              'cmdname' => 'inlineraw',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'type' => 'brace_arg'
+                  'text' => 'One'
                 },
                 {
+                  'cmdname' => 'inlineraw',
                   'contents' => [
                     {
-                      'text' => '</code>'
+                      'contents' => [
+                        {
+                          'text' => 'html'
+                        }
+                      ],
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => '</code>'
+                        }
+                      ],
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'type' => 'brace_arg'
+                  'extra' => {
+                    'expand_index' => 1,
+                    'format' => 'html'
+                  },
+                  'source_info' => {
+                    'line_nr' => 6
+                  }
                 }
               ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'html'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
               },
-              'source_info' => {
-                'line_nr' => 6
-              }
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'htmlOnehtml'
@@ -249,80 +262,83 @@ $result_trees{'inline_in_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'inlineraw',
               'contents' => [
                 {
+                  'cmdname' => 'inlineraw',
                   'contents' => [
                     {
-                      'text' => 'html'
+                      'contents' => [
+                        {
+                          'text' => 'html'
+                        }
+                      ],
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => '<span class="test">'
+                        }
+                      ],
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'type' => 'brace_arg'
+                  'extra' => {
+                    'expand_index' => 1,
+                    'format' => 'html'
+                  },
+                  'source_info' => {
+                    'line_nr' => 7
+                  }
                 },
                 {
-                  'contents' => [
-                    {
-                      'text' => '<span class="test">'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'html'
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => 'One'
-            },
-            {
-              'cmdname' => 'inlineraw',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'type' => 'brace_arg'
+                  'text' => 'One'
                 },
                 {
+                  'cmdname' => 'inlineraw',
                   'contents' => [
                     {
-                      'text' => '</span>'
+                      'contents' => [
+                        {
+                          'text' => 'html'
+                        }
+                      ],
+                      'type' => 'brace_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'text' => '</span>'
+                        }
+                      ],
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'type' => 'brace_arg'
+                  'extra' => {
+                    'expand_index' => 1,
+                    'format' => 'html'
+                  },
+                  'source_info' => {
+                    'line_nr' => 7
+                  }
                 }
               ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'html'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
               },
-              'source_info' => {
-                'line_nr' => 7
-              }
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',

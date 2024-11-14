@@ -2664,23 +2664,28 @@ $result_trees{'bib_example'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -2696,24 +2701,27 @@ $result_trees{'bib_example'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2949,23 +2957,28 @@ $result_trees{'bib_example'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Introduction'
+              'contents' => [
+                {
+                  'text' => 'Introduction'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Introduction'
@@ -2981,24 +2994,27 @@ $result_trees{'bib_example'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Introduction'
+              'contents' => [
+                {
+                  'text' => 'Introduction'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -3378,37 +3394,42 @@ $result_trees{'bib_example'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'source_marks' => [
+              'contents' => [
                 {
-                  'counter' => 3,
-                  'position' => 10,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 7,
-                  'position' => 10,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
+                  'source_marks' => [
+                    {
+                      'counter' => 3,
+                      'position' => 10,
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'end'
+                    },
+                    {
+                      'counter' => 7,
+                      'position' => 10,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
+                  'text' => 'References'
                 }
               ],
-              'text' => 'References'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'References'
@@ -3463,24 +3484,27 @@ $result_trees{'bib_example'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'References'
+              'contents' => [
+                {
+                  'text' => 'References'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -3962,10 +3986,10 @@ $result_trees{'bib_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[0];
-$result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[6]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'bib_example'}{'contents'}[6]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'bib_example'} = '\\input texinfo   @c -*-texinfo-*-
 @c % Copyright (C) 2004  Aaron S. Hawley

@@ -35,23 +35,28 @@ $result_trees{'value_in_misc_commands'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -66,52 +71,55 @@ $result_trees{'value_in_misc_commands'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'source_marks' => [
+              'contents' => [
                 {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'element' => {
+                        'cmdname' => 'value',
                         'contents' => [
                           {
-                            'text' => 'text'
+                            'contents' => [
+                              {
+                                'text' => 'text'
+                              }
+                            ],
+                            'type' => 'brace_container'
                           }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => 'atext',
-                  'position' => 4,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 9,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
+                        ]
+                      },
+                      'line' => 'atext',
+                      'position' => 4,
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'start'
+                    },
+                    {
+                      'counter' => 1,
+                      'position' => 9,
+                      'sourcemark_type' => 'value_expansion',
+                      'status' => 'end'
+                    }
+                  ],
+                  'text' => 'top atext'
                 }
               ],
-              'text' => 'top atext'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -129,24 +137,27 @@ $result_trees{'value_in_misc_commands'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',

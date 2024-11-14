@@ -11,24 +11,27 @@ $result_trees{'simple_nested_linemacro_calls'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -606,7 +609,7 @@ $result_trees{'simple_nested_linemacro_calls'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'simple_nested_linemacro_calls'}{'contents'}[1]{'contents'}[5]{'contents'}[2]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'simple_nested_linemacro_calls'}{'contents'}[1];
+$result_trees{'simple_nested_linemacro_calls'}{'contents'}[1]{'contents'}[6]{'contents'}[2]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'simple_nested_linemacro_calls'}{'contents'}[1];
 
 $result_texis{'simple_nested_linemacro_calls'} = '@node Top
 

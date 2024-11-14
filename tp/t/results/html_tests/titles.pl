@@ -88,23 +88,28 @@ $result_trees{'titles'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -119,65 +124,68 @@ $result_trees{'titles'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top of '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'title '
-            },
-            {
-              'cmdname' => 'sc',
               'contents' => [
                 {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
+                  'text' => 'Top of '
+                },
                 {
+                  'cmdname' => '@'
+                },
+                {
+                  'text' => 'title '
+                },
+                {
+                  'cmdname' => 'sc',
                   'contents' => [
                     {
-                      'text' => 'test'
+                      'contents' => [
+                        {
+                          'text' => 'html'
+                        }
+                      ],
+                      'type' => 'brace_container'
                     }
                   ],
-                  'type' => 'brace_container'
+                  'source_info' => {
+                    'line_nr' => 5
+                  }
+                },
+                {
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => 'code',
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'test'
+                        }
+                      ],
+                      'type' => 'brace_container'
+                    }
+                  ],
+                  'source_info' => {
+                    'line_nr' => 5
+                  }
                 }
               ],
-              'source_info' => {
-                'line_nr' => 5
-              }
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',

@@ -16,23 +16,28 @@ $result_trees{'index_entry_in_footnote_sections'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -47,24 +52,27 @@ $result_trees{'index_entry_in_footnote_sections'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'index_entry_in_footnote'
+              'contents' => [
+                {
+                  'text' => 'index_entry_in_footnote'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -172,23 +180,28 @@ $result_trees{'index_entry_in_footnote_sections'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Index'
+              'contents' => [
+                {
+                  'text' => 'Index'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -204,24 +217,27 @@ $result_trees{'index_entry_in_footnote_sections'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'appendix',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'index'
+              'contents' => [
+                {
+                  'text' => 'index'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'appendix',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -275,7 +291,7 @@ $result_trees{'index_entry_in_footnote_sections'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'index_entry_in_footnote_sections'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entry_in_footnote_sections'}{'contents'}[1];
+$result_trees{'index_entry_in_footnote_sections'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entry_in_footnote_sections'}{'contents'}[1];
 
 $result_texis{'index_entry_in_footnote_sections'} = '@node Top
 @top index_entry_in_footnote

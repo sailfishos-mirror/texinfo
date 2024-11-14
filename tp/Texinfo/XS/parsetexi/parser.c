@@ -1234,6 +1234,7 @@ void
 check_valid_nesting (ELEMENT *current, enum command_id cmd)
 {
   enum command_id invalid_parent = 0;
+  const ELEMENT *parent_command;
 
   /* Check whether outer command can contain cmd.  Commands are
      classified according to what commands they can contain:
@@ -1245,9 +1246,17 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
 
   int ok = 0; /* Whether nesting is allowed. */
 
-  enum command_id outer = current->parent->e.c->cmd;
-  unsigned long outer_flags = command_data(outer).flags;
   unsigned long cmd_flags = command_data(cmd).flags;
+  enum command_id outer;
+  unsigned long outer_flags;
+
+  if (current->parent->type == ET_argument)
+    parent_command = current->parent->parent;
+  else
+    parent_command = current->parent;
+
+  outer = parent_command->e.c->cmd;
+  outer_flags = command_data(outer).flags;
 
   /* first three conditions check if in the main contents of the commands
      or in the arguments where there is checking of nesting */
@@ -1335,7 +1344,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
 
   if (!ok)
     {
-      invalid_parent = current->parent->e.c->cmd;
+      invalid_parent = parent_command->e.c->cmd;
       if (!invalid_parent)
         {
           /* current_context () == ct_def.  Find def block containing
@@ -2523,7 +2532,15 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                       &count_remaining_args, current->parent->parent) > 0))
         current = handle_comma (current, &line);
       else if (current->type == ET_line_arg
-               && current->parent->e.c->cmd == CM_node)
+              /* this avoids detecting the comma in @cindex as being on the
+                 node line in the following case:
+                 @node some node
+
+                 @cindex a, b
+               */
+               && !current->parent->e.c->cmd
+               && current->parent->parent
+               && current->parent->parent->e.c->cmd == CM_node)
         line_warn ("superfluous arguments for node");
       else
         current = merge_text (current, ",", 1, 0);

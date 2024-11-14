@@ -8,24 +8,27 @@ use utf8;
 $result_trees{'unnumbered_before_node_top_top'} = [
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'unnumbered',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'before nodes'
+              'contents' => [
+                {
+                  'text' => 'before nodes'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'unnumbered',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -66,24 +69,27 @@ $result_trees{'unnumbered_before_node_top_top'} = [
   },
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top section'
+              'contents' => [
+                {
+                  'text' => 'top section'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'contents' => [
             {
@@ -106,23 +112,28 @@ $result_trees{'unnumbered_before_node_top_top'} = [
     },
     'unit_contents' => [
       {
-        'args' => [
+        'cmdname' => 'node',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'Top'
+                'contents' => [
+                  {
+                    'text' => 'Top'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
+            'type' => 'argument'
           }
         ],
-        'cmdname' => 'node',
         'extra' => {
           'is_target' => 1,
           'normalized' => 'Top'

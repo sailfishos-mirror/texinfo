@@ -16,23 +16,28 @@ $result_trees{'setfilename_on_top_and_after_node_epub'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -47,48 +52,51 @@ $result_trees{'setfilename_on_top_and_after_node_epub'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'In top '
-            },
-            {
-              'args' => [
+              'contents' => [
                 {
-                  'contents' => [
+                  'text' => 'In top '
+                },
+                {
+                  'args' => [
                     {
-                      'text' => 'very badly placed setfilename'
+                      'contents' => [
+                        {
+                          'text' => 'very badly placed setfilename'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'line_arg'
                     }
                   ],
+                  'cmdname' => 'setfilename',
+                  'extra' => {
+                    'text_arg' => 'very badly placed setfilename'
+                  },
                   'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
+                    'spaces_before_argument' => {
+                      'text' => ' '
                     }
                   },
-                  'type' => 'line_arg'
+                  'source_info' => {
+                    'line_nr' => 2
+                  }
                 }
               ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'text_arg' => 'very badly placed setfilename'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
+              'type' => 'line_arg'
             }
           ],
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',

@@ -18,23 +18,28 @@ $result_trees{'protected_node_parentheses'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'first'
+              'contents' => [
+                {
+                  'text' => 'first'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'first'
@@ -49,24 +54,27 @@ $result_trees{'protected_node_parentheses'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -204,40 +212,43 @@ $result_trees{'protected_node_parentheses'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'asis',
               'contents' => [
                 {
+                  'cmdname' => 'asis',
                   'contents' => [
                     {
-                      'text' => '('
+                      'contents' => [
+                        {
+                          'text' => '('
+                        }
+                      ],
+                      'type' => 'brace_container'
                     }
                   ],
-                  'type' => 'brace_container'
+                  'source_info' => {
+                    'line_nr' => 9
+                  }
+                },
+                {
+                  'text' => 'manual) name'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => 'manual) name'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -356,10 +367,10 @@ $result_trees{'protected_node_parentheses'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'protected_node_parentheses'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1];
+$result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'protected_node_parentheses'}{'contents'}[3]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 
 $result_texis{'protected_node_parentheses'} = '
 @node first

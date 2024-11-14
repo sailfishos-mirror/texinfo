@@ -45,24 +45,27 @@ $result_trees{'section_on_xtable_line'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'first'
+              'contents' => [
+                {
+                  'text' => 'first'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -125,24 +128,27 @@ $result_trees{'section_on_xtable_line'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'second'
+              'contents' => [
+                {
+                  'text' => 'second'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -199,24 +205,27 @@ $result_trees{'section_on_xtable_line'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'third'
+              'contents' => [
+                {
+                  'text' => 'third'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -279,23 +288,28 @@ $result_trees{'section_on_xtable_line'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'fourth'
+              'contents' => [
+                {
+                  'text' => 'fourth'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'section',
       'extra' => {
         'section_number' => '4'
       },
@@ -312,9 +326,9 @@ $result_trees{'section_on_xtable_line'} = {
   'type' => 'document_root'
 };
 $result_trees{'section_on_xtable_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'section_on_xtable_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'section_on_xtable_line'}{'contents'}[1]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'section_on_xtable_line'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'section_on_xtable_line'}{'contents'}[2]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'section_on_xtable_line'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'section_on_xtable_line'}{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'section_on_xtable_line'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'section_on_xtable_line'}{'contents'}[1]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'section_on_xtable_line'}{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'section_on_xtable_line'}{'contents'}[2]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'section_on_xtable_line'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'section_on_xtable_line'}{'contents'}[3]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'section_on_xtable_line'}{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'section_on_xtable_line'} = '@vtable @section first
 

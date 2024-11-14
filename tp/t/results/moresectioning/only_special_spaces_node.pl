@@ -25,22 +25,27 @@ $result_trees{'only_special_spaces_node'} = {
       "type" => "before_node_section"
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "Top"
+              "contents" => [
+                {
+                  "text" => "Top"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
+          "type" => "argument"
         }
       ],
-      "cmdname" => "node",
       "extra" => {
         "is_target" => 1,
         "normalized" => "Top"
@@ -56,23 +61,26 @@ $result_trees{'only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "top",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "top"
+              "contents" => [
+                {
+                  "text" => "top"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "top",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -90,22 +98,27 @@ $result_trees{'only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "\x{2000}\x{2001}\x{2002}"
+              "contents" => [
+                {
+                  "text" => "\x{2000}\x{2001}\x{2002}"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
+          "type" => "argument"
         }
       ],
-      "cmdname" => "node",
       "extra" => {
         "is_target" => 1,
         "normalized" => "_2002_2003_2002"
@@ -121,23 +134,26 @@ $result_trees{'only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "chapter",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "EN QUAD|\x{2000}| EM QUAD|\x{2001}| EN SPACE|\x{2002}|"
+              "contents" => [
+                {
+                  "text" => "EN QUAD|\x{2000}| EM QUAD|\x{2001}| EN SPACE|\x{2002}|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "chapter",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -157,17 +173,22 @@ $result_trees{'only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => " \t\f\13\n"
+          "contents" => [
+            {
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => " \t\f\13\n"
+                }
+              },
+              "type" => "line_arg"
             }
-          },
-          "type" => "line_arg"
+          ],
+          "type" => "argument"
         }
       ],
-      "cmdname" => "node",
       "extra" => {},
       "source_info" => {
         "file_name" => "only_special_spaces_node.texi",
@@ -175,23 +196,26 @@ $result_trees{'only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "chapter",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "CHARACTER TABULATION|\t| FORM FEED|\f| LINE TABULATION|\13|"
+              "contents" => [
+                {
+                  "text" => "CHARACTER TABULATION|\t| FORM FEED|\f| LINE TABULATION|\13|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "chapter",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -211,17 +235,22 @@ $result_trees{'only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => " \r\n"
+          "contents" => [
+            {
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => " \r\n"
+                }
+              },
+              "type" => "line_arg"
             }
-          },
-          "type" => "line_arg"
+          ],
+          "type" => "argument"
         }
       ],
-      "cmdname" => "node",
       "extra" => {},
       "source_info" => {
         "file_name" => "only_special_spaces_node.texi",
@@ -229,23 +258,26 @@ $result_trees{'only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "chapter",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "CARRIAGE RETURN|\r|"
+              "contents" => [
+                {
+                  "text" => "CARRIAGE RETURN|\r|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "chapter",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -265,22 +297,27 @@ $result_trees{'only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "\x{85}\x{a0}\x{1680}"
+              "contents" => [
+                {
+                  "text" => "\x{85}\x{a0}\x{1680}"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
+          "type" => "argument"
         }
       ],
-      "cmdname" => "node",
       "extra" => {
         "is_target" => 1,
         "normalized" => "_0085_00a0_1680"
@@ -296,23 +333,26 @@ $result_trees{'only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "chapter",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "NEXT LINE (NEL)|\x{85}| NO-BREAK SPACE|\x{a0}| OGHAM SPACE MARK|\x{1680}|"
+              "contents" => [
+                {
+                  "text" => "NEXT LINE (NEL)|\x{85}| NO-BREAK SPACE|\x{a0}| OGHAM SPACE MARK|\x{1680}|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "chapter",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -332,22 +372,27 @@ $result_trees{'only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "\x{180e}\x{2003}"
+              "contents" => [
+                {
+                  "text" => "\x{180e}\x{2003}"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
+          "type" => "argument"
         }
       ],
-      "cmdname" => "node",
       "extra" => {
         "is_target" => 1,
         "normalized" => "_180e_2003"
@@ -363,23 +408,26 @@ $result_trees{'only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "chapter",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "MONGOLIAN VOWEL SEPARATOR|\x{180e}| EM SPACE|\x{2003}|"
+              "contents" => [
+                {
+                  "text" => "MONGOLIAN VOWEL SEPARATOR|\x{180e}| EM SPACE|\x{2003}|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "chapter",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -399,22 +447,27 @@ $result_trees{'only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "\x{2004}\x{2005}\x{2006}\x{2007}\x{2008}\x{2009}\x{200a}\x{202f}\x{205f}\x{3000}"
+              "contents" => [
+                {
+                  "text" => "\x{2004}\x{2005}\x{2006}\x{2007}\x{2008}\x{2009}\x{200a}\x{202f}\x{205f}\x{3000}"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
+          "type" => "argument"
         }
       ],
-      "cmdname" => "node",
       "extra" => {
         "is_target" => 1,
         "normalized" => "_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000"
@@ -430,23 +483,26 @@ $result_trees{'only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "chapter",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "THREE-PER-EM SPACE|\x{2004}| FOUR-PER-EM SPACE|\x{2005}| SIX-PER-EM SPACE|\x{2006}| FIGURE SPACE|\x{2007}| PUNCTUATION SPACE|\x{2008}| THIN SPACE|\x{2009}| HAIR SPACE|\x{200a}| NARROW NO-BREAK SPACE|\x{202f}| MEDIUM MATHEMATICAL SPACE|\x{205f}| IDEOGRAPHIC SPACE|\x{3000}|"
+              "contents" => [
+                {
+                  "text" => "THREE-PER-EM SPACE|\x{2004}| FOUR-PER-EM SPACE|\x{2005}| SIX-PER-EM SPACE|\x{2006}| FIGURE SPACE|\x{2007}| PUNCTUATION SPACE|\x{2008}| THIN SPACE|\x{2009}| HAIR SPACE|\x{200a}| NARROW NO-BREAK SPACE|\x{202f}| MEDIUM MATHEMATICAL SPACE|\x{205f}| IDEOGRAPHIC SPACE|\x{3000}|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "chapter",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"

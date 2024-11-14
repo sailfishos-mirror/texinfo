@@ -1790,7 +1790,8 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
               if (command->e.c->cmd == CM_anchor)
                 label_element = command->e.c->contents.list[0];
               else
-                label_element = command->e.c->args.list[0];
+                label_element
+                  = command->e.c->contents.list[0]->e.c->contents.list[0];
               add_to_contents_as_array (root_code, label_element);
               tree->tree = root_code;
               add_tree_to_build (self, tree->tree);
@@ -1801,59 +1802,67 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
               tree->status = tree_added_status_new_tree;
               add_tree_to_build (self, tree->tree);
             }
-          else if (command->e.c->args.number <= 0
-                   || command->e.c->args.list[0]->e.c->contents.number <= 0)
-            { /* no argument, nothing to do */
-              tree->status = tree_added_status_no_tree;
-            }
           else
             {
-              const char *section_number
-                = lookup_extra_string (command, AI_key_section_number);
-              if (section_number && self->conf->NUMBER_SECTIONS.o.integer != 0)
+              ELEMENT *line_arg;
+
+              if (builtin_command_data[command->e.c->cmd].flags & CF_root)
+                line_arg
+                  = command->e.c->contents.list[0]->e.c->contents.list[0];
+              else
+                line_arg = command->e.c->args.list[0];
+
+              if (line_arg->e.c->contents.number > 0)
                 {
-                  NAMED_STRING_ELEMENT_LIST *replaced_substrings
-                    = new_named_string_element_list ();
-                  ELEMENT *e_number = new_text_element (ET_normal_text);
-                  ELEMENT *section_title_copy
-                     = copy_tree (command->e.c->args.list[0]);
+                  const char *section_number;
+                  section_number
+                    = lookup_extra_string (command, AI_key_section_number);
 
-                  add_element_to_named_string_element_list (
-                              replaced_substrings, "section_title",
-                              section_title_copy);
-                  text_append (e_number->e.text, section_number);
-                  add_element_to_named_string_element_list (
-                              replaced_substrings, "number", e_number);
-
-                  if (command->e.c->cmd == CM_appendix)
+                  if (section_number
+                      && self->conf->NUMBER_SECTIONS.o.integer != 0)
                     {
-                      int status;
-                      int section_level = lookup_extra_integer (command,
-                                               AI_key_section_level, &status);
-                      if (section_level == 1)
+                      NAMED_STRING_ELEMENT_LIST *replaced_substrings
+                        = new_named_string_element_list ();
+                      ELEMENT *e_number = new_text_element (ET_normal_text);
+                      ELEMENT *section_title_copy = copy_tree (line_arg);
+
+                      add_element_to_named_string_element_list (
+                                  replaced_substrings, "section_title",
+                                  section_title_copy);
+                      text_append (e_number->e.text, section_number);
+                      add_element_to_named_string_element_list (
+                                  replaced_substrings, "number", e_number);
+
+                      if (command->e.c->cmd == CM_appendix)
                         {
-                          tree->tree
-                            = html_cdt_tree (
+                          int status;
+                          int section_level = lookup_extra_integer (command,
+                                               AI_key_section_level, &status);
+                          if (section_level == 1)
+                            {
+                              tree->tree
+                                = html_cdt_tree (
                                         "Appendix {number} {section_title}",
                                         self, replaced_substrings, 0);
+                            }
                         }
+                      if (!tree->tree)
+                        /* TRANSLATORS: numbered section title */
+                        tree->tree = html_cdt_tree ("{number} {section_title}",
+                                                 self, replaced_substrings, 0);
+
+                      destroy_named_string_element_list (replaced_substrings);
+                      tree->status = tree_added_status_new_tree;
+                      add_tree_to_build (self, tree->tree);
                     }
-                  if (!tree->tree)
-                    /* TRANSLATORS: numbered section title */
-                    tree->tree = html_cdt_tree ("{number} {section_title}",
-                                             self, replaced_substrings, 0);
-
-                  destroy_named_string_element_list (replaced_substrings);
-                  tree->status = tree_added_status_new_tree;
-                  add_tree_to_build (self, tree->tree);
-                }
-              else
-                {
-                  tree->status = tree_added_status_reused_tree;
-                  tree->tree = command->e.c->args.list[0];
+                  else
+                    {
+                      tree->status = tree_added_status_reused_tree;
+                      tree->tree = line_arg;
+                    }
                 }
 
-              target_info->tree_nonumber.tree = command->e.c->args.list[0];
+              target_info->tree_nonumber.tree = line_arg;
               target_info->tree_nonumber.status = tree_added_status_reused_tree;
             }
         }
@@ -3696,9 +3705,10 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
             {
               const ELEMENT *associated_section
                 = lookup_extra_element (command, AI_key_associated_section);
-              if (associated_section && associated_section->e.c->args.number > 0)
+              if (associated_section)
                 {
-                  command_tree = associated_section->e.c->args.list[0];
+                  command_tree = associated_section->e.c->contents.list[0]
+                                                     ->e.c->contents.list[0];
                 }
             }
 
@@ -7162,7 +7172,8 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
             = lookup_extra_element (element, AI_key_associated_node);
           if (node)
             {
-              int automatic_directions = (node->e.c->args.number <= 1);
+              const ELEMENT *argument = node->e.c->contents.list[0];
+              int automatic_directions = (argument->e.c->contents.number <= 1);
               const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node,
                                                               AI_key_menus);
               if (!menus && automatic_directions)
@@ -10870,7 +10881,7 @@ html_open_quotation_command (CONVERTER *self, const enum command_id cmd,
   const char *cmdname = element_command_name (element);
   char *formatted_quotation_arg_to_prepend = 0;
   const ELEMENT *argument = element->e.c->contents.list[0];
-  const ELEMENT *block_line_args = argument->e.c->contents.list[0];
+  ELEMENT *block_line_args = argument->e.c->contents.list[0];
 
   if (block_line_args->e.c->contents.number > 0)
     {

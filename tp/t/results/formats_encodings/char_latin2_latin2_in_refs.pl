@@ -70,23 +70,28 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -103,24 +108,27 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'char latin2 latin2 in refs'
+              'contents' => [
+                {
+                  'text' => 'char latin2 latin2 in refs'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -332,23 +340,28 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{104} \x{105} \x{2db} \x{118} \x{119}"
+              'contents' => [
+                {
+                  'text' => "\x{104} \x{105} \x{2db} \x{118} \x{119}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => '_0104-_0105-_02db-_0118-_0119'
@@ -364,24 +377,27 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{104} \x{105} \x{2db} \x{118} \x{119}"
+              'contents' => [
+                {
+                  'text' => "\x{104} \x{105} \x{2db} \x{118} \x{119}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -456,9 +472,9 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'char_latin2_latin2_in_refs'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[3];
+$result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'char_latin2_latin2_in_refs'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[3];
 
 $result_texis{'char_latin2_latin2_in_refs'} = '\\input texinfo
 

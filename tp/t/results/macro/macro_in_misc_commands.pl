@@ -135,31 +135,36 @@ $result_trees{'macro_in_misc_commands'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'source_marks' => [
+              'contents' => [
                 {
-                  'counter' => 1,
-                  'position' => 3,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'position' => 3,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
+                  'text' => 'Top'
                 }
               ],
-              'text' => 'Top'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -193,49 +198,52 @@ $result_trees{'macro_in_misc_commands'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'source_marks' => [
+              'contents' => [
                 {
-                  'counter' => 2,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'text'
+                  'source_marks' => [
+                    {
+                      'counter' => 2,
+                      'element' => {
+                        'contents' => [
+                          {
+                            'type' => 'brace_arg'
+                          }
+                        ],
+                        'info' => {
+                          'command_name' => 'text'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'position' => 4,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
                     },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 4,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 2,
-                  'position' => 9,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
+                    {
+                      'counter' => 2,
+                      'position' => 9,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
+                  'text' => 'top atext'
                 }
               ],
-              'text' => 'top atext'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'args' => [
             {
@@ -4856,48 +4864,53 @@ $result_trees{'macro_in_misc_commands'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'source_marks' => [
+              'contents' => [
                 {
-                  'counter' => 48,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'text'
+                  'source_marks' => [
+                    {
+                      'counter' => 48,
+                      'element' => {
+                        'contents' => [
+                          {
+                            'type' => 'brace_arg'
+                          }
+                        ],
+                        'info' => {
+                          'command_name' => 'text'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'position' => 5,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
                     },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 5,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 48,
-                  'position' => 10,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
+                    {
+                      'counter' => 48,
+                      'position' => 10,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
+                  'text' => 'node atext'
                 }
               ],
-              'text' => 'node atext'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'node-atext'
@@ -4912,24 +4925,27 @@ $result_trees{'macro_in_misc_commands'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter'
+              'contents' => [
+                {
+                  'text' => 'chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'source_marks' => [
             {
@@ -5192,7 +5208,7 @@ $result_trees{'macro_in_misc_commands'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[124]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[124]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[125]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[125]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'macro_in_misc_commands'} = '@macro text 
 atext

@@ -11,23 +11,28 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -42,24 +47,27 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -77,23 +85,28 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -109,24 +122,27 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1231,9 +1247,9 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[3];
-$result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[20]{'extra'}{'element_node'} = $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[3];
-$result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[32]{'extra'}{'element_node'} = $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[3];
+$result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[12]{'extra'}{'element_node'} = $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[3];
+$result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[21]{'extra'}{'element_node'} = $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[3];
+$result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[4]{'contents'}[33]{'extra'}{'element_node'} = $result_trees{'macro_alias_definfoenclose_defindex'}{'contents'}[3];
 
 $result_texis{'macro_alias_definfoenclose_defindex'} = '@node Top
 @top top

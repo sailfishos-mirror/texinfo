@@ -280,7 +280,11 @@ sub _convert($)
                  or ($element->{'args'} and $element->{'args'}->[0]
                      and $element->{'args'}->[0]->{'type'}
                      and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
-                         or $element->{'args'}->[0]->{'type'} eq 'rawline_arg')))));
+                         or $element->{'args'}->[0]->{'type'} eq 'rawline_arg')
+                 or ($element->{'contents'}
+                     and $element->{'contents'}->[0]->{'contents'}
+             and $element->{'contents'}->[0]->{'contents'}->[0]->{'type'}
+   and $element->{'contents'}->[0]->{'contents'}->[0]->{'type'} eq 'line_arg')))));
   if ($element->{'cmdname'}) {
     my $cmdname = $element->{'cmdname'};
     if (defined($normalize_node_nobrace_symbol_text{$cmdname})) {

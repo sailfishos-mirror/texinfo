@@ -56,23 +56,28 @@ $result_trees{'same_index_entry_merged_indices'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -87,19 +92,22 @@ $result_trees{'same_index_entry_merged_indices'} = {
       }
     },
     {
-      'args' => [
-        {
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'top',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -112,23 +120,28 @@ $result_trees{'same_index_entry_merged_indices'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -144,24 +157,27 @@ $result_trees{'same_index_entry_merged_indices'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Chapter'
+              'contents' => [
+                {
+                  'text' => 'Chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -531,8 +547,8 @@ $result_trees{'same_index_entry_merged_indices'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[3];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[3];
+$result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[3];
+$result_trees{'same_index_entry_merged_indices'}{'contents'}[4]{'contents'}[6]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[3];
 
 $result_texis{'same_index_entry_merged_indices'} = '@syncodeindex vr fn
 

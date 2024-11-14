@@ -3531,7 +3531,7 @@ sub _convert($$)
             if (defined($self->get_conf('xrefautomaticsectiontitle'))
                 and $self->get_conf('xrefautomaticsectiontitle') eq 'on'
                 and $section_command) {
-              $name = $section_command->{'args'}->[0];
+              $name = $section_command->{'contents'}->[0]->{'contents'}->[0];
             } else {
               $name = {'contents' => $reference_node_content};
             }
@@ -3970,7 +3970,8 @@ sub _convert($$)
         if (!$element->{'extra'}
             or not $element->{'extra'}->{'associated_section'}) {
           my $node_label
-            = _tree_anchor_label($element->{'args'}->[0]->{'contents'});
+            = _tree_anchor_label(
+                $element->{'contents'}->[0]->{'contents'}->[0]->{'contents'});
           $result .= "\\label{$node_label}%\n";
         }
       } else {
@@ -3980,7 +3981,13 @@ sub _convert($$)
         }
         if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
           my $heading = '';
-          if ($element->{'args'}->[0]->{'contents'}) {
+          my $line_arg;
+          if ($root_commands{$element->{'cmdname'}}) {
+            $line_arg = $element->{'contents'}->[0]->{'contents'}->[0];
+          } else {
+            $line_arg = $element->{'args'}->[0];
+          }
+          if ($line_arg->{'contents'}) {
             # It is useful to know that this is a heading formatting as
             # the formatted heading is in the table of content, and some
             # formatting may be different for that case, for instance with
@@ -3988,7 +3995,7 @@ sub _convert($$)
             $self->{'formatting_context'}->[-1]
                                   ->{'in_sectioning_command_heading'} = 1;
             $heading = $self->_convert(
-                        {'contents' => $element->{'args'}->[0]->{'contents'}});
+                        {'contents' => $line_arg->{'contents'}});
             $self->{'formatting_context'}->[-1]
                                   ->{'in_sectioning_command_heading'} = 0;
           }
@@ -4010,7 +4017,8 @@ sub _convert($$)
         if ($element->{'extra'} and $element->{'extra'}->{'associated_node'}) {
           my $associated_node = $element->{'extra'}->{'associated_node'};
           my $node_label
-            = _tree_anchor_label($associated_node->{'args'}->[0]->{'contents'});
+            = _tree_anchor_label(
+             $associated_node->{'contents'}->[0]->{'contents'}->[0]->{'contents'});
           $result .= "\\label{$node_label}%\n";
         }
       }

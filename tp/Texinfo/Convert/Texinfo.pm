@@ -170,15 +170,15 @@ sub root_heading_command_to_texinfo($)
   if ($element->{'cmdname'}) {
     if (($element->{'cmdname'} eq 'node'
          or $sectioning_heading_commands{$element->{'cmdname'}})
-        and $element->{'args'}->[0]->{'contents'}) {
-      $tree = $element->{'args'}->[0]->{'contents'};
+        and $element->{'contents'}->[0]->{'contents'}->[0]->{'contents'}) {
+      $tree = $element->{'contents'}->[0]->{'contents'}->[0];
     }
   } else {
     return "Not a command";
   }
   if ($tree) {
     return '@'.$element->{'cmdname'}.' '
-                .convert_to_texinfo({'contents' => $tree});
+                .convert_to_texinfo({'contents' => $tree->{'contents'}});
   } else {
     return '@'.$element->{'cmdname'};
   }

@@ -16,23 +16,28 @@ $result_trees{'printindex_between_node_section'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -47,24 +52,27 @@ $result_trees{'printindex_between_node_section'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -231,23 +239,28 @@ $result_trees{'printindex_between_node_section'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'node chap1'
+              'contents' => [
+                {
+                  'text' => 'node chap1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'node-chap1'
@@ -262,24 +275,27 @@ $result_trees{'printindex_between_node_section'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter 1'
+              'contents' => [
+                {
+                  'text' => 'chapter 1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -376,24 +392,27 @@ $result_trees{'printindex_between_node_section'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'node sec1'
+              'contents' => [
+                {
+                  'text' => 'node sec1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'args' => [
             {
@@ -442,23 +461,28 @@ $result_trees{'printindex_between_node_section'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'section1'
+              'contents' => [
+                {
+                  'text' => 'section1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'section',
       'extra' => {
         'section_number' => '1.1'
       },
@@ -474,12 +498,12 @@ $result_trees{'printindex_between_node_section'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'printindex_between_node_section'}{'contents'}[1];
 $result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'printindex_between_node_section'}{'contents'}[1];
 $result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'printindex_between_node_section'}{'contents'}[1];
 $result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'printindex_between_node_section'}{'contents'}[1];
-$result_trees{'printindex_between_node_section'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'printindex_between_node_section'}{'contents'}[3];
+$result_trees{'printindex_between_node_section'}{'contents'}[2]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'printindex_between_node_section'}{'contents'}[1];
 $result_trees{'printindex_between_node_section'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'printindex_between_node_section'}{'contents'}[3];
+$result_trees{'printindex_between_node_section'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'printindex_between_node_section'}{'contents'}[3];
 
 $result_texis{'printindex_between_node_section'} = '@node Top
 @top top

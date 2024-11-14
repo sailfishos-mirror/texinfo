@@ -658,9 +658,15 @@ sub normalized_sectioning_command_filename($$)
   $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
                         and !$self->get_conf('USE_UNIDECODE'));
 
+  my $label_element;
+  if ($Texinfo::Commands::root_commands{$command->{'cmdname'}}) {
+    $label_element = $command->{'contents'}->[0]->{'contents'}->[0];
+  } else {
+    $label_element = $command->{'args'}->[0];
+  }
   my $normalized_name
     = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-         {'contents' => $command->{'args'}->[0]->{'contents'}},
+         {'contents' => $label_element->{'contents'}},
                   $no_unidecode);
 
   my $filename = $self->_id_to_filename($normalized_name);
@@ -939,7 +945,7 @@ sub set_output_units_files($$$$$$)
               $node_filename
                = $self->node_information_filename(
                                $root_command->{'extra'}->{'normalized'},
-                               $root_command->{'args'}->[0]);
+                       $root_command->{'contents'}->[0]->{'contents'}->[0]);
             }
             $node_filename .= $extension;
             $self->set_file_path($node_filename,$destination_directory);
@@ -1338,7 +1344,8 @@ sub format_comment_or_return_end_line($$)
   if ($element->{'args'}) {
     $arguments_list = $element->{'args'};
   } elsif ($element->{'contents'} and scalar(@{$element->{'contents'}})
-           and $element->{'contents'}->[0]->{'contents'}) {
+           and $element->{'contents'}->[0]->{'type'}
+           and $element->{'contents'}->[0]->{'type'} eq 'argument') {
     $arguments_list = $element->{'contents'}->[0]->{'contents'};
   }
 
@@ -1712,12 +1719,12 @@ sub sort_element_counts($$;$$)
     my $name;
     if ($output_unit->{'unit_command'}) {
       my $command = $output_unit->{'unit_command'};
-      if ($command->{'args'}
-          and $command->{'args'}->[0]->{'contents'}) {
+      my $line_arg = $command->{'contents'}->[0]->{'contents'}->[0];
+      if ($line_arg->{'contents'}) {
         # convert contents to avoid outputting end of lines
         $name = "\@$command->{'cmdname'} "
           .Texinfo::Convert::Texinfo::convert_to_texinfo(
-               {'contents' => $command->{'args'}->[0]->{'contents'}});
+               {'contents' => $line_arg->{'contents'}});
       }
     }
     $name = 'UNNAMED output unit' if (!defined($name));

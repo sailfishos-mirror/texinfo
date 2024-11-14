@@ -1272,7 +1272,7 @@ sub process_footnotes($;$)
       $node_element = $element->{'unit_command'};
       if ($node_element->{'extra'}
           and defined($node_element->{'extra'}->{'normalized'})) {
-        $label_element = $node_element->{'args'}->[0];
+        $label_element = $node_element->{'contents'}->[0]->{'contents'}->[0];
       }
     }
 
@@ -1291,7 +1291,8 @@ sub process_footnotes($;$)
                'contents' => [$label_element, {'text' => '-Footnotes'}]};
       my $footnotes_node = {
         'cmdname' => 'node',
-        'args' => [$footnotes_node_arg],
+        'contents' => [{'type' => 'argument',
+                        'contents' => [$footnotes_node_arg],}],
         'extra' => {'is_target' => 1,
                 'normalized'
                   => $node_element->{'extra'}->{'normalized'}.'-Footnotes',
@@ -1528,6 +1529,8 @@ sub format_contents($$$)
     my $section = $top_section;
  SECTION:
     while ($section) {
+      my $argument = $section->{'contents'}->[0];
+      my $line_arg = $argument->{'contents'}->[0];
       my $section_title_tree;
       if (defined($section->{'extra'}->{'section_number'})
           and ($self->get_conf('NUMBER_SECTIONS')
@@ -1537,15 +1540,15 @@ sub format_contents($$$)
           $section_title_tree = $self->cdt('Appendix {number} {section_title}',
                {'number' => {'text'
                                => $section->{'extra'}->{'section_number'}},
-                'section_title' => $section->{'args'}->[0]});
+                'section_title' => $line_arg});
         } else {
           $section_title_tree = $self->cdt('{number} {section_title}',
                {'number' => {'text'
                                => $section->{'extra'}->{'section_number'}},
-                'section_title' => $section->{'args'}->[0]});
+                'section_title' => $line_arg});
         }
       } else {
-        $section_title_tree = $section->{'args'}->[0];
+        $section_title_tree = $line_arg;
       }
       my $repeat_count
         = 2 * ($section->{'extra'}->{'section_level'} - ($root_level+1));
@@ -3196,7 +3199,7 @@ sub _convert($$)
              'contents' => [
                {'type' => 'brace_arg',
                 'contents' => [
-                   $self->{'current_node'}->{'args'}->[0],
+                   $self->{'current_node'}->{'contents'}->[0]->{'contents'}->[0],
                    {'text' => "-Footnote-$self->{'footnote_index'}"}
                 ]
                }
@@ -3528,10 +3531,14 @@ sub _convert($$)
       # use settitle for empty @top
       # ignore @part
       my $heading_element;
-      if ($element->{'args'}
-          and $element->{'args'}->[0]->{'contents'}
-          and $cmdname ne 'part') {
-        $heading_element = $element->{'args'}->[0];
+      my $line_arg;
+      if ($root_commands{$cmdname}) {
+        $line_arg = $element->{'contents'}->[0]->{'contents'}->[0];
+      } else {
+        $line_arg = $element->{'args'}->[0];
+      }
+      if ($cmdname ne 'part' and $line_arg->{'contents'}) {
+        $heading_element = $line_arg;
       } elsif ($cmdname eq 'top') {
         my $global_commands;
         if ($self->{'document'}) {

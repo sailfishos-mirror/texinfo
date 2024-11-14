@@ -8,43 +8,51 @@ use utf8;
 $result_trees{'part_before_section'} = [
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'section'
-            }
-          ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => ' 
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'extra' => {
-        'associated_part' => {
-          'args' => [
-            {
               'contents' => [
                 {
-                  'text' => 'part'
+                  'text' => 'section'
                 }
               ],
               'info' => {
                 'spaces_after_argument' => {
-                  'text' => '
+                  'text' => ' 
 '
                 }
               },
               'type' => 'line_arg'
             }
           ],
+          'type' => 'argument'
+        }
+      ],
+      'extra' => {
+        'associated_part' => {
           'cmdname' => 'part',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'part'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',

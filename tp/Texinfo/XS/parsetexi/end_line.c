@@ -111,30 +111,36 @@ parse_line_command_args (ELEMENT *line_command)
     add_string (string, line_args); \
 } while (0)
 
-  ELEMENT *arg = line_command->e.c->args.list[0];
+  ELEMENT *line_arg;
   STRING_LIST *line_args;
   enum command_id cmd;
   const char *line;
 
   cmd = line_command->e.c->cmd;
-  if (arg->e.c->contents.number == 0)
+
+  if (command_data(cmd).flags & CF_root)
+    line_arg = line_command->e.c->contents.list[0]->e.c->contents.list[0];
+  else
+    line_arg = line_command->e.c->args.list[0];
+
+  if (line_arg->e.c->contents.number == 0)
    {
      command_error (line_command, "@%s missing argument", command_name(cmd));
      return 0;
    }
 
-  if (arg->e.c->contents.number > 1
-      || arg->e.c->contents.list[0]->type != ET_normal_text)
+  if (line_arg->e.c->contents.number > 1
+      || line_arg->e.c->contents.list[0]->type != ET_normal_text)
     {
       line_error ("superfluous argument to @%s", command_name (cmd));
     }
-  if (arg->e.c->contents.list[0]->type != ET_normal_text
-      || arg->e.c->contents.list[0]->e.text->end == 0)
+  if (line_arg->e.c->contents.list[0]->type != ET_normal_text
+      || line_arg->e.c->contents.list[0]->e.text->end == 0)
     return 0;
 
   /* put in extra "misc_args" */
   line_args = new_string_list ();
-  line = arg->e.c->contents.list[0]->e.text->text;
+  line = line_arg->e.c->contents.list[0]->e.text->text;
 
   switch (cmd)
     {
@@ -1233,12 +1239,37 @@ end_line_misc_line (ELEMENT *current)
   enum command_id end_id = CM_NONE;
   int included_file = 0;
   SOURCE_MARK *include_source_mark = 0;
+  ELEMENT *command_element;
+  ELEMENT *line_arg = 0;
 
-  data_cmd = cmd = current->parent->e.c->cmd;
+  if (current->parent->type == ET_argument)
+    {
+      command_element = current->parent->parent;
+      line_arg = command_element->e.c->contents.list[0]->e.c->contents.list[0];
+    }
+  else
+    {
+      command_element = current->parent;
+      if (command_data(command_element->e.c->cmd).flags & CF_def)
+        line_arg = command_element->e.c->contents.list[0];
+      else
+        line_arg = command_element->e.c->args.list[0];
+    }
+
+  data_cmd = cmd = command_element->e.c->cmd;
+
   /* we are in a command line context, so the @item command information is
      associated to CM_item_LINE */
   if (cmd == CM_item)
     data_cmd = CM_item_LINE;
+
+  if (! line_arg)
+    {
+      if (command_data(data_cmd).flags & CF_def)
+        line_arg = command_element->e.c->contents.list[0];
+      else
+        line_arg = command_element->e.c->args.list[0];
+    }
 
   if (command_data(data_cmd).flags & CF_contain_basic_inline)
     (void) pop_command (&nesting_context.basic_inline_stack_on_line);
@@ -1247,7 +1278,7 @@ end_line_misc_line (ELEMENT *current)
   if (current->parent->flags & EF_def_line)
     return end_line_def_line (current);
 
-  current = current->parent;
+  current = command_element;
   misc_cmd = current;
 
   arg_spec = command_data(data_cmd).data;
@@ -1576,11 +1607,12 @@ end_line_misc_line (ELEMENT *current)
   else if (current->e.c->cmd == CM_node)
     {
       size_t i;
+      ELEMENT *argument = current->e.c->contents.list[0];
       ELEMENT *label_element;
 
-      for (i = 1; i < current->e.c->args.number && i < 4; i++)
+      for (i = 1; i < argument->e.c->contents.number && i < 4; i++)
         {
-          ELEMENT * arg = current->e.c->args.list[i];
+          ELEMENT * arg = argument->e.c->contents.list[i];
           NODE_SPEC_EXTRA *direction_label_info = parse_node_manual (arg, 1);
           if (direction_label_info->node_content)
             {
@@ -1604,7 +1636,7 @@ end_line_misc_line (ELEMENT *current)
         }
 
       /* Now take care of the node itself */
-      label_element = current->e.c->args.list[0];
+      label_element = argument->e.c->contents.list[0];
       if (label_element->e.c->contents.number == 0)
         {
           line_error_ext (MSG_error, 0, &current->e.c->source_info,
@@ -1639,7 +1671,7 @@ end_line_misc_line (ELEMENT *current)
         }
       /* All the other "line" commands. Check they have an argument. Empty
          @top is allowed. */
-      if (current->e.c->args.list[0]->e.c->contents.number == 0
+      if (line_arg->e.c->contents.number == 0
           && current->e.c->cmd != CM_top)
         {
           command_warn (current, "@%s missing argument",

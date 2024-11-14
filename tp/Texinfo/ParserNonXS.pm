@@ -1509,7 +1509,7 @@ sub _close_brace_command($$$;$$$)
 
   # args are always set except in cases of bogus brace @-commands
   # without argument, maybe only at the end of a document.
-  #die ("$current->{'cmdname'} no args\n") if (!$current->{'args'});
+  #die ("$current->{'cmdname'} no args\n") if (!$current->{'contents'});
 
   if ($self->{'basic_inline_commands'}
       and $self->{'basic_inline_commands'}->{$current->{'cmdname'}}) {
@@ -3672,7 +3672,21 @@ sub _end_line_misc_line($$$)
 
   my $document = $self->{'document'};
 
-  my $command = $current->{'parent'}->{'cmdname'};
+  my $command_element;
+  my $line_arg;
+  if ($current->{'parent'}->{'type'}
+      and $current->{'parent'}->{'type'} eq 'argument') {
+    $command_element = $current->{'parent'}->{'parent'};
+    $line_arg = $command_element->{'contents'}->[0]->{'contents'}->[0];
+  } else {
+    $command_element = $current->{'parent'};
+    if ($def_commands{$command_element->{'cmdname'}}) {
+      $line_arg = $command_element->{'contents'}->[0];
+    } else {
+      $line_arg = $command_element->{'args'}->[0];
+    }
+  }
+  my $command = $command_element->{'cmdname'};
   my $data_cmdname = $command;
 
   # we are in a command line context, so the @item command information is
@@ -3693,7 +3707,7 @@ sub _end_line_misc_line($$$)
 
   _pop_context($self, ['ct_line'], $source_info, $current, 'in line_arg');
 
-  $current = $current->{'parent'};
+  $current = $command_element;
   my $misc_cmd = $current;
   my $end_command;
   my $included_file;
@@ -3875,8 +3889,9 @@ sub _end_line_misc_line($$$)
                      $command, $texi_line);
     }
   } elsif ($command eq 'node') {
-    for (my $i = 1; $i < scalar(@{$current->{'args'}}); $i++) {
-      my $arg = $current->{'args'}->[$i];
+    my $argument = $current->{'contents'}->[0];
+    for (my $i = 1; $i < scalar(@{$argument->{'contents'}}); $i++) {
+      my $arg = $argument->{'contents'}->[$i];
       my $arg_label_manual_info
         = Texinfo::Common::parse_node_manual($arg, 1);
       if (defined($arg_label_manual_info)) {
@@ -3894,7 +3909,7 @@ sub _end_line_misc_line($$$)
         }
       }
     }
-    my $label_element = $current->{'args'}->[0];
+    my $label_element = $argument->{'contents'}->[0];
     if (not $label_element or not $label_element->{'contents'}) {
       $self->_line_error(
         sprintf(__("empty argument in \@%s"),
@@ -3928,7 +3943,7 @@ sub _end_line_misc_line($$$)
     }
     # Handle all the other 'line' commands.  Here just check that they
     # have an argument.  Empty @top is allowed
-    if (!$current->{'args'}->[0]->{'contents'} and $command ne 'top') {
+    if (!$line_arg->{'contents'} and $command ne 'top') {
       $self->_command_warn($current,
              __("\@%s missing argument"), $command);
     } else {
@@ -5068,28 +5083,35 @@ sub _check_valid_nesting {
   # error messages for forbidden constructs, like @node in @r,
   # block command on line command, @xref in @anchor or node...
   if ($current->{'parent'}) {
-    if ($current->{'parent'}->{'cmdname'}) {
+    my $parent_command;
+    if ($current->{'parent'}->{'type'}
+        and $current->{'parent'}->{'type'} eq 'argument') {
+      $parent_command = $current->{'parent'}->{'parent'};
+    } else {
+      $parent_command = $current->{'parent'};
+    }
+    if ($parent_command->{'cmdname'}) {
       if (defined($self->{'valid_nestings'}
-                                   ->{$current->{'parent'}->{'cmdname'}})
+                                   ->{$parent_command->{'cmdname'}})
           and !$self->{'valid_nestings'}
-                             ->{$current->{'parent'}->{'cmdname'}}->{$command}
+                             ->{$parent_command->{'cmdname'}}->{$command}
           # we make sure that we are on a root @-command line and
           # not in contents
-          and (!$root_commands{$current->{'parent'}->{'cmdname'}}
+          and (!$root_commands{$parent_command->{'cmdname'}}
                or ($current->{'type'}
                    and $current->{'type'} eq 'line_arg'))
           # we make sure that we are on a block @-command line and
           # not in contents
-          and (!defined($block_commands{$current->{'parent'}->{'cmdname'}})
+          and (!defined($block_commands{$parent_command->{'cmdname'}})
                or ($current->{'type'}
                    and $current->{'type'} eq 'block_line_arg'))
           # we make sure that we are on an @item/@itemx line and
           # not in an @enumerate, @multitable or @itemize @item.
-          and (($current->{'parent'}->{'cmdname'} ne 'itemx'
-                and $current->{'parent'}->{'cmdname'} ne 'item')
+          and (($parent_command->{'cmdname'} ne 'itemx'
+                and $parent_command->{'cmdname'} ne 'item')
                or ($current->{'type'}
                         and $current->{'type'} eq 'line_arg'))) {
-        $invalid_parent = $current->{'parent'}->{'cmdname'};
+        $invalid_parent = $parent_command->{'cmdname'};
       }
     }
   }
@@ -5977,6 +5999,11 @@ sub _handle_line_command($$$$$$)
     if ($def_commands{$data_cmdname}) {
       $current->{'contents'} = [{ 'type' => 'line_arg',
                                   'parent' => $current }];
+    } elsif ($root_commands{$data_cmdname}) {
+      my $argument = {'type' => 'argument', 'parent' => $current};
+      $current->{'contents'} = [$argument];
+      $argument->{'contents'} = [{ 'type' => 'line_arg',
+                                  'parent' => $argument }];
     } else {
       $current->{'args'} = [{ 'type' => 'line_arg',
                               'parent' => $current }];
@@ -6038,6 +6065,9 @@ sub _handle_line_command($$$$$$)
 
     if ($def_commands{$data_cmdname}) {
       $current = $current->{'contents'}->[-1];
+    } elsif ($root_commands{$data_cmdname}) {
+      $current = $current->{'contents'}->[0]->{'contents'}->[-1];
+      $self->_push_context('ct_line', $command);
     } else {
       $current = $current->{'args'}->[-1];
       $self->_push_context('ct_line', $command);
@@ -7627,8 +7657,15 @@ sub _process_remaining_on_line($$$$)
          = _handle_comma($self, $current, $line, $source_info);
     } elsif ($current->{'type'}
              and $current->{'type'} eq 'line_arg'
-             and $current->{'parent'}->{'cmdname'}
-             and $current->{'parent'}->{'cmdname'} eq 'node') {
+             # this avoids detecting the comma in @cindex as being on the
+             # node line in the following case:
+             # @node some node
+             #
+             # @cindex a, b
+             and !$current->{'parent'}->{'cmdname'}
+             and $current->{'parent'}->{'parent'}
+             and $current->{'parent'}->{'parent'}->{'cmdname'}
+             and $current->{'parent'}->{'parent'}->{'cmdname'} eq 'node') {
       $self->_line_warn(__("superfluous arguments for node"), $source_info);
     } else {
       $current = _merge_text($self, $current, $comma);
@@ -7966,7 +8003,12 @@ sub _parse_line_command_args($$$)
   my $args;
 
   my $command = $line_command->{'cmdname'};
-  my $arg = $line_command->{'args'}->[0];
+  my $line_arg;
+  if ($root_commands{$command}) {
+    $line_arg = $line_command->{'contents'}->[0]->{'contents'}->[0];
+  } else {
+    $line_arg = $line_command->{'args'}->[0];
+  }
 
   # Not in XS parser.  Could be added if deemded interesting, but
   # arguments are already checked below.
@@ -7982,20 +8024,20 @@ sub _parse_line_command_args($$$)
   #  }
   #}
 
-  if (!$arg->{'contents'}) {
+  if (!$line_arg->{'contents'}) {
     $self->_command_error($line_command,
                __("\@%s missing argument"), $command);
     return undef;
   }
 
-  if (scalar(@{$arg->{'contents'}}) > 1
-         or (!defined($arg->{'contents'}->[0]->{'text'}))) {
+  if (scalar(@{$line_arg->{'contents'}}) > 1
+         or (!defined($line_arg->{'contents'}->[0]->{'text'}))) {
     $self->_line_error(sprintf(__("superfluous argument to \@%s"),
        $command), $source_info);
   }
-  return undef if (!defined($arg->{'contents'}->[0]->{'text'}));
+  return undef if (!defined($line_arg->{'contents'}->[0]->{'text'}));
 
-  my $line = $arg->{'contents'}->[0]->{'text'};
+  my $line = $line_arg->{'contents'}->[0]->{'text'};
 
   if ($command eq 'alias') {
     # REMACRO

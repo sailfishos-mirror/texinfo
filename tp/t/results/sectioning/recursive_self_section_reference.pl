@@ -16,23 +16,28 @@ $result_trees{'recursive_self_section_reference'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'sharp'
+              'contents' => [
+                {
+                  'text' => 'sharp'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'sharp'
@@ -47,47 +52,52 @@ $result_trees{'recursive_self_section_reference'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'ref',
               'contents' => [
                 {
+                  'cmdname' => 'ref',
                   'contents' => [
                     {
-                      'text' => 'sharp'
+                      'contents' => [
+                        {
+                          'text' => 'sharp'
+                        }
+                      ],
+                      'extra' => {
+                        'node_content' => {
+                          'contents' => [
+                            {}
+                          ]
+                        },
+                        'normalized' => 'sharp'
+                      },
+                      'type' => 'brace_arg'
                     }
                   ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'sharp'
-                  },
-                  'type' => 'brace_arg'
+                  'source_info' => {
+                    'line_nr' => 2
+                  }
+                },
+                {
+                  'text' => ' tuple'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => ' tuple'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'chapter',
       'extra' => {
         'section_number' => '1'
       },
@@ -103,7 +113,7 @@ $result_trees{'recursive_self_section_reference'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'recursive_self_section_reference'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'recursive_self_section_reference'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'recursive_self_section_reference'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'recursive_self_section_reference'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'recursive_self_section_reference'} = '@node sharp
 @chapter @ref{sharp} tuple

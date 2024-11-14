@@ -26,23 +26,28 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -58,24 +63,27 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -94,23 +102,28 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "\x{2000}\x{2001}\x{2002}"
+              'contents' => [
+                {
+                  'text' => "\x{2000}\x{2001}\x{2002}"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => '_2002_2003_2002'
@@ -126,24 +139,27 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => "EN QUAD|\x{2000}| EM QUAD|\x{2001}| EN SPACE|\x{2002}|"
+              'contents' => [
+                {
+                  'text' => "EN QUAD|\x{2000}| EM QUAD|\x{2001}| EN SPACE|\x{2002}|"
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -221,37 +237,42 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'code',
               'contents' => [
                 {
+                  'cmdname' => 'code',
                   'contents' => [
                     {
-                      'text' => "\x{2000}\x{2001}\x{2002}"
+                      'contents' => [
+                        {
+                          'text' => "\x{2000}\x{2001}\x{2002}"
+                        }
+                      ],
+                      'type' => 'brace_container'
                     }
                   ],
-                  'type' => 'brace_container'
+                  'source_info' => {
+                    'file_name' => 'reference_to_only_special_spaces_node.texi',
+                    'line_nr' => 10
+                  }
                 }
               ],
-              'source_info' => {
-                'file_name' => 'reference_to_only_special_spaces_node.texi',
-                'line_nr' => 10
-              }
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'normalized' => '_2002_2003_2002'
       },
@@ -266,38 +287,41 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'code',
               'contents' => [
                 {
+                  'cmdname' => 'code',
                   'contents' => [
                     {
-                      'text' => "EN QUAD|\x{2000}| EM QUAD|\x{2001}| EN SPACE|\x{2002}|"
+                      'contents' => [
+                        {
+                          'text' => "EN QUAD|\x{2000}| EM QUAD|\x{2001}| EN SPACE|\x{2002}|"
+                        }
+                      ],
+                      'type' => 'brace_container'
                     }
                   ],
-                  'type' => 'brace_container'
+                  'source_info' => {
+                    'file_name' => 'reference_to_only_special_spaces_node.texi',
+                    'line_nr' => 11
+                  }
                 }
               ],
-              'source_info' => {
-                'file_name' => 'reference_to_only_special_spaces_node.texi',
-                'line_nr' => 11
-              }
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -415,8 +439,8 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'reference_to_only_special_spaces_node'} = '
 @node Top

@@ -11,176 +11,181 @@ $result_trees{'at_commands_in_node'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'A '
-            },
-            {
-              'cmdname' => 'sc',
               'contents' => [
                 {
-                  'contents' => [
-                    {
-                      'text' => 'sc'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' node '
-            },
-            {
-              'cmdname' => '"',
-              'contents' => [
+                  'text' => 'A '
+                },
                 {
+                  'cmdname' => 'sc',
                   'contents' => [
                     {
-                      'text' => 'i'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '"',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'dotless',
                       'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'i'
-                            }
-                          ],
-                          'type' => 'brace_container'
+                          'text' => 'sc'
                         }
                       ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
+                      'type' => 'brace_container'
                     }
                   ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '`',
-              'contents' => [
+                  'source_info' => {
+                    'line_nr' => 1
+                  }
+                },
                 {
+                  'text' => ' node '
+                },
+                {
+                  'cmdname' => '"',
                   'contents' => [
                     {
-                      'cmdname' => '=',
                       'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'E'
-                            }
-                          ],
-                          'type' => 'following_arg'
+                          'text' => 'i'
                         }
                       ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
+                      'type' => 'following_arg'
                     }
                   ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'l',
-              'contents' => [
+                  'source_info' => {
+                    'line_nr' => 1
+                  }
+                },
                 {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => ',',
-              'contents' => [
+                  'text' => ' '
+                },
                 {
+                  'cmdname' => '"',
                   'contents' => [
                     {
-                      'cmdname' => '\'',
                       'contents' => [
                         {
+                          'cmdname' => 'dotless',
                           'contents' => [
                             {
-                              'text' => 'C'
+                              'contents' => [
+                                {
+                                  'text' => 'i'
+                                }
+                              ],
+                              'type' => 'brace_container'
                             }
                           ],
-                          'type' => 'following_arg'
+                          'source_info' => {
+                            'line_nr' => 1
+                          }
                         }
                       ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
+                      'type' => 'brace_container'
                     }
                   ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'exclamdown',
-              'contents' => [
+                  'source_info' => {
+                    'line_nr' => 1
+                  }
+                },
                 {
-                  'type' => 'brace_container'
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => '`',
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'cmdname' => '=',
+                          'contents' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'E'
+                                }
+                              ],
+                              'type' => 'following_arg'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 1
+                          }
+                        }
+                      ],
+                      'type' => 'brace_container'
+                    }
+                  ],
+                  'source_info' => {
+                    'line_nr' => 1
+                  }
+                },
+                {
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => 'l',
+                  'contents' => [
+                    {
+                      'type' => 'brace_container'
+                    }
+                  ],
+                  'source_info' => {
+                    'line_nr' => 1
+                  }
+                },
+                {
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => ',',
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'cmdname' => '\'',
+                          'contents' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'C'
+                                }
+                              ],
+                              'type' => 'following_arg'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 1
+                          }
+                        }
+                      ],
+                      'type' => 'brace_container'
+                    }
+                  ],
+                  'source_info' => {
+                    'line_nr' => 1
+                  }
+                },
+                {
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => 'exclamdown',
+                  'contents' => [
+                    {
+                      'type' => 'brace_container'
+                    }
+                  ],
+                  'source_info' => {
+                    'line_nr' => 1
+                  }
                 }
               ],
-              'source_info' => {
-                'line_nr' => 1
-              }
+              'type' => 'line_arg'
             }
           ],
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'A-sc-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'

@@ -8,51 +8,54 @@ use utf8;
 $result_trees{'nodes_no_node_top_explicit_directions'} = [
   {
     'unit_command' => {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'text' => 'first'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '('
-            },
-            {
-              'text' => 'dir'
-            },
-            {
-              'text' => ')'
-            }
-          ],
-          'extra' => {
-            'manual_content' => {
-              'contents' => [
-                {}
-              ]
-            }
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'node',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'first'
+                }
+              ],
+              'type' => 'line_arg'
+            },
+            {
+              'type' => 'line_arg'
+            },
+            {
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => '('
+                },
+                {
+                  'text' => 'dir'
+                },
+                {
+                  'text' => ')'
+                }
+              ],
+              'extra' => {
+                'manual_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                }
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'contents' => [
             {
@@ -194,59 +197,62 @@ $result_trees{'nodes_no_node_top_explicit_directions'} = [
   },
   {
     'unit_command' => {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'text' => 'second node'
-            }
-          ],
-          'type' => 'line_arg'
-        },
-        {
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'first'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'first'
-          },
-          'type' => 'line_arg'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'first'
-            }
-          ],
-          'extra' => {
-            'node_content' => {
-              'contents' => [
-                {}
-              ]
-            },
-            'normalized' => 'first'
-          },
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'node',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'second node'
+                }
+              ],
+              'type' => 'line_arg'
+            },
+            {
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => 'first'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'first'
+              },
+              'type' => 'line_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => 'first'
+                }
+              ],
+              'extra' => {
+                'node_content' => {
+                  'contents' => [
+                    {}
+                  ]
+                },
+                'normalized' => 'first'
+              },
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'contents' => [
             {
@@ -276,11 +282,11 @@ $result_trees{'nodes_no_node_top_explicit_directions'} = [
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_command'}{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_command'}{'args'}[3]{'contents'}[1];
-$result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_command'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_command'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_command'}{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_command'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_command'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_command'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_contents'}[1] = $result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_command'};
-$result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_command'}{'args'}[2]{'contents'}[0];
-$result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_command'}{'args'}[3]{'contents'}[0];
+$result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_command'}{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_command'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_command'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
 $result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_contents'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_command'};
 
 $result_texis{'nodes_no_node_top_explicit_directions'} = '@node first,,,(dir)

@@ -16,23 +16,28 @@ $result_trees{'seeentry'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -47,19 +52,22 @@ $result_trees{'seeentry'} = {
       }
     },
     {
-      'args' => [
-        {
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'top',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -72,23 +80,28 @@ $result_trees{'seeentry'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter index'
+              'contents' => [
+                {
+                  'text' => 'chapter index'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -104,24 +117,27 @@ $result_trees{'seeentry'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Index'
+              'contents' => [
+                {
+                  'text' => 'Index'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -445,14 +461,14 @@ $result_trees{'seeentry'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'seeentry'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'seeentry'}{'contents'}[3];
-$result_trees{'seeentry'}{'contents'}[4]{'contents'}[1]{'extra'}{'seeentry'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'seeentry'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'seeentry'}{'contents'}[3];
-$result_trees{'seeentry'}{'contents'}[4]{'contents'}[2]{'extra'}{'seealso'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'seeentry'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'seeentry'}{'contents'}[3];
-$result_trees{'seeentry'}{'contents'}[4]{'contents'}[4]{'extra'}{'seeentry'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[2];
+$result_trees{'seeentry'}{'contents'}[4]{'contents'}[2]{'extra'}{'seeentry'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[2];
+$result_trees{'seeentry'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'seeentry'}{'contents'}[3];
+$result_trees{'seeentry'}{'contents'}[4]{'contents'}[3]{'extra'}{'seealso'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'seeentry'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'seeentry'}{'contents'}[3];
-$result_trees{'seeentry'}{'contents'}[4]{'contents'}[5]{'extra'}{'seealso'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0];
+$result_trees{'seeentry'}{'contents'}[4]{'contents'}[5]{'extra'}{'seeentry'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[2];
+$result_trees{'seeentry'}{'contents'}[4]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'seeentry'}{'contents'}[3];
+$result_trees{'seeentry'}{'contents'}[4]{'contents'}[6]{'extra'}{'seealso'} = $result_trees{'seeentry'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'}[0];
 
 $result_texis{'seeentry'} = '@node Top
 @top

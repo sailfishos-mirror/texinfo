@@ -913,10 +913,12 @@ sub _convert($$;$)
           $result .= $self->txi_markup_open_element('node',
                           [['name', $nodename], _leading_spaces_arg($element)]);
           push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
+          my $argument = $element->{'contents'}->[0];
+          my $line_arg = $argument->{'contents'}->[0];
           $result .= $self->txi_markup_open_element('nodename',
-                               [_trailing_spaces_arg($element->{'args'}->[0])]);
+                               [_trailing_spaces_arg($line_arg)]);
           $result .= $self->_convert({'contents'
-                                  => $element->{'args'}->[0]->{'contents'}})
+                                  => $line_arg->{'contents'}})
             if ($nodename ne '');
           $result .= $self->txi_markup_close_element('nodename');
           # first arg is the node name, directions start at 1.
@@ -930,16 +932,15 @@ sub _convert($$;$)
                   = $element->{'extra'}->{'node_directions'}->{lc($direction)};
               my $node_name = '';
               my $attributes = [];
-              if ($element->{'args'} and $element->{'args'}->[$direction_index]) {
+              if ($argument->{'contents'}->[$direction_index]) {
                 push @$attributes, _leading_trailing_spaces_arg(
-                                 $element->{'args'}->[$direction_index]);
+                                 $argument->{'contents'}->[$direction_index]);
               }
-              if (!$element->{'args'}
-                  or scalar(@{$element->{'args'}}) < $direction_index +1
-                  or !defined($element->{'args'}->[$direction_index]->{'extra'})
-                  or !(defined($element->{'args'}->[$direction_index]
+              if (scalar(@{$argument->{'contents'}}) < $direction_index +1
+                  or !defined($argument->{'contents'}->[$direction_index]->{'extra'})
+                  or !(defined($argument->{'contents'}->[$direction_index]
                                                     ->{'extra'}->{'manual_node'}
-                       or defined($element->{'args'}->[$direction_index]
+                       or defined($argument->{'contents'}->[$direction_index]
                                                      ->{'extra'}->{'normalized'})))) {
                 push @$attributes, ['automatic', 'on'];
 
@@ -952,7 +953,7 @@ sub _convert($$;$)
                 }
               } else {
                 $node_name
-                  = $self->_convert($element->{'args'}->[$direction_index]);
+                  = $self->_convert($argument->{'contents'}->[$direction_index]);
               }
               $result .= "$pending_empty_directions".
                 $self->txi_markup_open_element($format_element, $attributes)
@@ -960,11 +961,11 @@ sub _convert($$;$)
                 $self->txi_markup_close_element($format_element);
               $pending_empty_directions = '';
             } else {
-              if ($element->{'args'}->[$direction_index]) {
+              if ($argument->{'contents'}->[$direction_index]) {
                 $pending_empty_directions .=
                   $self->txi_markup_open_element($format_element,
                     [_leading_trailing_spaces_arg(
-                                 $element->{'args'}->[$direction_index])])
+                                 $argument->{'contents'}->[$direction_index])])
                             .$self->txi_markup_close_element($format_element);
               }
             }
@@ -992,16 +993,12 @@ sub _convert($$;$)
             $closed_section_element = '';
           }
 
-          if ($element->{'args'} and $element->{'args'}->[0]) {
-            my ($arg, $end_space, $end_line)
-               = $self->_convert_argument_and_end_line($element);
-            $result .= $self->txi_markup_open_element('sectiontitle')
-                      .$arg.$end_space
-                      .$self->txi_markup_close_element('sectiontitle')
-                      .$closed_section_element.$end_line;
-          } else {
-            $result .= $closed_section_element;
-          }
+          my ($arg, $end_space, $end_line)
+             = $self->_convert_argument_and_end_line($element);
+          $result .= $self->txi_markup_open_element('sectiontitle')
+                    .$arg.$end_space
+                    .$self->txi_markup_close_element('sectiontitle')
+                    .$closed_section_element.$end_line;
         } elsif ($Texinfo::Commands::def_commands{$cmdname}) {
           $result .= _convert_def_line($self, $element);
           return $result;

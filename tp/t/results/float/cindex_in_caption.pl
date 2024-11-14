@@ -16,23 +16,28 @@ $result_trees{'cindex_in_caption'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -47,24 +52,27 @@ $result_trees{'cindex_in_caption'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -319,9 +327,9 @@ $result_trees{'cindex_in_caption'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'cindex_in_caption'}{'contents'}[2];
-$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'extra'}{'float'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3];
-$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[3]{'contents'}[2];
+$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'cindex_in_caption'}{'contents'}[2];
+$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'extra'}{'float'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[4];
+$result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[4]{'extra'}{'caption'} = $result_trees{'cindex_in_caption'}{'contents'}[2]{'contents'}[4]{'contents'}[2];
 
 $result_texis{'cindex_in_caption'} = '@node Top
 @node chap

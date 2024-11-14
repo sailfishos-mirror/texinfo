@@ -8,24 +8,27 @@ use utf8;
 $result_trees{'chapter_before_and_after_part'} = [
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter'
+              'contents' => [
+                {
+                  'text' => 'chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -59,24 +62,27 @@ $result_trees{'chapter_before_and_after_part'} = [
   },
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter 2'
+              'contents' => [
+                {
+                  'text' => 'chapter 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -99,24 +105,27 @@ $result_trees{'chapter_before_and_after_part'} = [
       ],
       'extra' => {
         'associated_part' => {
-          'args' => [
+          'cmdname' => 'part',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'part'
+                  'contents' => [
+                    {
+                      'text' => 'part'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'part',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',

@@ -11,23 +11,28 @@ $result_trees{'backslash_in_arg'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -42,24 +47,27 @@ $result_trees{'backslash_in_arg'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -459,10 +467,10 @@ $result_trees{'backslash_in_arg'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'backslash_in_arg'}{'contents'}[2];
 $result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'backslash_in_arg'}{'contents'}[2];
 $result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'backslash_in_arg'}{'contents'}[2];
 $result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'backslash_in_arg'}{'contents'}[2];
+$result_trees{'backslash_in_arg'}{'contents'}[2]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'backslash_in_arg'}{'contents'}[2];
 
 $result_texis{'backslash_in_arg'} = '@node Top
 @node chap

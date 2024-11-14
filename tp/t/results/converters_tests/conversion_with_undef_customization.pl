@@ -16,23 +16,28 @@ $result_trees{'conversion_with_undef_customization'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -47,24 +52,27 @@ $result_trees{'conversion_with_undef_customization'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -115,39 +123,44 @@ $result_trees{'conversion_with_undef_customization'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
-            },
-            {
-              'cmdname' => '^',
               'contents' => [
                 {
+                  'text' => 'chap'
+                },
+                {
+                  'cmdname' => '^',
                   'contents' => [
                     {
-                      'text' => 'e'
+                      'contents' => [
+                        {
+                          'text' => 'e'
+                        }
+                      ],
+                      'type' => 'following_arg'
                     }
                   ],
-                  'type' => 'following_arg'
+                  'source_info' => {
+                    'line_nr' => 7
+                  }
                 }
               ],
-              'source_info' => {
-                'line_nr' => 7
-              }
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chap_00ea'
@@ -162,40 +175,43 @@ $result_trees{'conversion_with_undef_customization'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Chap'
-            },
-            {
-              'cmdname' => '^',
               'contents' => [
                 {
+                  'text' => 'Chap'
+                },
+                {
+                  'cmdname' => '^',
                   'contents' => [
                     {
-                      'text' => 'e'
+                      'contents' => [
+                        {
+                          'text' => 'e'
+                        }
+                      ],
+                      'type' => 'following_arg'
                     }
                   ],
-                  'type' => 'following_arg'
+                  'source_info' => {
+                    'line_nr' => 8
+                  }
                 }
               ],
-              'source_info' => {
-                'line_nr' => 8
-              }
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -311,23 +327,28 @@ $result_trees{'conversion_with_undef_customization'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'sec'
+              'contents' => [
+                {
+                  'text' => 'sec'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -343,24 +364,27 @@ $result_trees{'conversion_with_undef_customization'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'section',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Section'
+              'contents' => [
+                {
+                  'text' => 'Section'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'section',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -614,8 +638,8 @@ $result_trees{'conversion_with_undef_customization'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'conversion_with_undef_customization'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'conversion_with_undef_customization'}{'contents'}[3];
-$result_trees{'conversion_with_undef_customization'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'conversion_with_undef_customization'}{'contents'}[5];
+$result_trees{'conversion_with_undef_customization'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'conversion_with_undef_customization'}{'contents'}[3];
+$result_trees{'conversion_with_undef_customization'}{'contents'}[6]{'contents'}[4]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'conversion_with_undef_customization'}{'contents'}[5];
 
 $result_texis{'conversion_with_undef_customization'} = '@node Top
 @top top

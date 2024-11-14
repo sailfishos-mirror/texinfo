@@ -11,24 +11,27 @@ $result_trees{'float_long_captions'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -307,10 +310,10 @@ $result_trees{'float_long_captions'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'float'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1];
-$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'float'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3];
-$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'float'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[2];
+$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[2]{'extra'}{'caption'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[2]{'contents'}[1];
+$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'extra'}{'float'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[4];
+$result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[4]{'extra'}{'caption'} = $result_trees{'float_long_captions'}{'contents'}[1]{'contents'}[4]{'contents'}[1];
 
 $result_texis{'float_long_captions'} = '@node Top
 

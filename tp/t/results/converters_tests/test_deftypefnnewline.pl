@@ -85,23 +85,28 @@ $result_trees{'test_deftypefnnewline'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -116,24 +121,27 @@ $result_trees{'test_deftypefnnewline'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -151,23 +159,28 @@ $result_trees{'test_deftypefnnewline'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter'
+              'contents' => [
+                {
+                  'text' => 'chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chapter'
@@ -182,24 +195,27 @@ $result_trees{'test_deftypefnnewline'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2993,20 +3009,20 @@ $result_trees{'test_deftypefnnewline'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
-$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
-$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
-$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
-$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
-$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
-$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
-$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
-$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
-$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
-$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
-$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[25]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
-$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[27]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
-$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[29]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
+$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
+$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
+$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[6]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
+$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[8]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
+$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[10]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
+$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[12]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
+$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[14]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
+$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[18]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
+$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[20]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
+$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
+$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
+$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
+$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
+$result_trees{'test_deftypefnnewline'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_deftypefnnewline'}{'contents'}[3];
 
 $result_texis{'test_deftypefnnewline'} = '@setfilename test_deftypefnnewline.info
 

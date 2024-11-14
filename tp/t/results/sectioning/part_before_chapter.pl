@@ -8,30 +8,14 @@ use utf8;
 $result_trees{'part_before_chapter'} = [
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter'
-            }
-          ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'extra' => {
-        'associated_part' => {
-          'args' => [
-            {
               'contents' => [
                 {
-                  'text' => 'part'
+                  'text' => 'chapter'
                 }
               ],
               'info' => {
@@ -43,8 +27,32 @@ $result_trees{'part_before_chapter'} = [
               'type' => 'line_arg'
             }
           ],
+          'type' => 'argument'
+        }
+      ],
+      'extra' => {
+        'associated_part' => {
           'cmdname' => 'part',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'part'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',

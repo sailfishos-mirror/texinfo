@@ -11,24 +11,27 @@ $result_trees{'form_feeds'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -49,24 +52,27 @@ $result_trees{'form_feeds'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapnode'
+              'contents' => [
+                {
+                  'text' => 'chapnode'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1355,13 +1361,13 @@ $result_trees{'form_feeds'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[31]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'form_feeds'}{'contents'}[2];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[31]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'form_feeds'}{'contents'}[2];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'contents'}[2]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'contents'}[5]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'extra'}{'caption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'contents'}[2];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'extra'}{'shortcaption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[33]{'contents'}[5];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[32]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'form_feeds'}{'contents'}[2];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[32]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'form_feeds'}{'contents'}[2];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[34]{'contents'}[2]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[34];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[34]{'contents'}[5]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[34];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[34]{'extra'}{'caption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[34]{'contents'}[2];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[34]{'extra'}{'shortcaption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[34]{'contents'}[5];
 
 $result_texis{'form_feeds'} = '@node Top
 

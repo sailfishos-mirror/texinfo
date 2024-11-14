@@ -40,23 +40,28 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -71,19 +76,22 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
       }
     },
     {
-      'args' => [
-        {
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'top',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -96,24 +104,27 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -343,10 +354,10 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3];
 $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3];
 $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3];
 $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3];
+$result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'ignored_sort_char_empty_entries'}{'contents'}[3];
 
 $result_texis{'ignored_sort_char_empty_entries'} = '@set txiindexhyphenignore
 

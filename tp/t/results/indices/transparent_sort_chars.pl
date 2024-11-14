@@ -40,23 +40,28 @@ $result_trees{'transparent_sort_chars'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -71,19 +76,22 @@ $result_trees{'transparent_sort_chars'} = {
       }
     },
     {
-      'args' => [
-        {
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'top',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -96,24 +104,27 @@ $result_trees{'transparent_sort_chars'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -317,9 +328,9 @@ $result_trees{'transparent_sort_chars'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
+$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
 
 $result_texis{'transparent_sort_chars'} = '@set txiindexhyphenignore
 

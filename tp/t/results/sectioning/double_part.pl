@@ -9,24 +9,27 @@ $result_trees{'double_part'} = [
   {
     'first_in_page' => {},
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -156,23 +159,28 @@ $result_trees{'double_part'} = [
         'type' => 'before_node_section'
       },
       {
-        'args' => [
+        'cmdname' => 'node',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'Top'
+                'contents' => [
+                  {
+                    'text' => 'Top'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
+            'type' => 'argument'
           }
         ],
-        'cmdname' => 'node',
         'extra' => {
           'is_target' => 1,
           'normalized' => 'Top'
@@ -193,24 +201,27 @@ $result_trees{'double_part'} = [
   {
     'first_in_page' => {},
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'part',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'part first'
+              'contents' => [
+                {
+                  'text' => 'part first'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'part',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -244,37 +255,14 @@ $result_trees{'double_part'} = [
   {
     'first_in_page' => {},
     'unit_command' => {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'text' => 'chapter after 2 parts'
-            }
-          ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'associated_part' => {
-          'args' => [
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'part second'
+                  'text' => 'chapter after 2 parts'
                 }
               ],
               'info' => {
@@ -286,8 +274,37 @@ $result_trees{'double_part'} = [
               'type' => 'line_arg'
             }
           ],
+          'type' => 'argument'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'associated_part' => {
           'cmdname' => 'part',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'part second'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -327,23 +344,28 @@ $result_trees{'double_part'} = [
     'unit_contents' => [
       {},
       {
-        'args' => [
+        'cmdname' => 'node',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'node chapter'
+                'contents' => [
+                  {
+                    'text' => 'node chapter'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
+            'type' => 'argument'
           }
         ],
-        'cmdname' => 'node',
         'extra' => {
           'is_target' => 1,
           'normalized' => 'node-chapter'
@@ -363,7 +385,7 @@ $result_trees{'double_part'} = [
   }
 ];
 $result_trees{'double_part'}[0]{'first_in_page'} = $result_trees{'double_part'}[0];
-$result_trees{'double_part'}[0]{'unit_command'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_part'}[0]{'unit_command'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'double_part'}[0]{'unit_command'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_part'}[0]{'unit_command'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'double_part'}[0]{'unit_contents'}[2] = $result_trees{'double_part'}[0]{'unit_command'};
 $result_trees{'double_part'}[1]{'first_in_page'} = $result_trees{'double_part'}[1];
 $result_trees{'double_part'}[1]{'unit_contents'}[0] = $result_trees{'double_part'}[1]{'unit_command'};

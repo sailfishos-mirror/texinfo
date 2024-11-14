@@ -11,23 +11,28 @@ $result_trees{'test_index'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -42,24 +47,27 @@ $result_trees{'test_index'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Element top'
+              'contents' => [
+                {
+                  'text' => 'Element top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -950,23 +958,28 @@ $result_trees{'test_index'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'name'
+              'contents' => [
+                {
+                  'text' => 'name'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'name'
@@ -981,24 +994,27 @@ $result_trees{'test_index'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'A chapter'
+              'contents' => [
+                {
+                  'text' => 'A chapter'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2351,23 +2367,28 @@ $result_trees{'test_index'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
+              'contents' => [
+                {
+                  'text' => 'name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -2383,24 +2404,27 @@ $result_trees{'test_index'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'appendix',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Index'
+              'contents' => [
+                {
+                  'text' => 'Index'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'appendix',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2603,24 +2627,27 @@ $result_trees{'test_index'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'appendixsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'appendixsec'
+              'contents' => [
+                {
+                  'text' => 'appendixsec'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'appendixsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2640,24 +2667,27 @@ $result_trees{'test_index'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'appendixsubsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'appendixsubsec'
+              'contents' => [
+                {
+                  'text' => 'appendixsubsec'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'appendixsubsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2677,24 +2707,27 @@ $result_trees{'test_index'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'appendixsubsubsec',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'appendixsubsubsec'
+              'contents' => [
+                {
+                  'text' => 'appendixsubsubsec'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'appendixsubsubsec',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2747,24 +2780,27 @@ $result_trees{'test_index'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'centerchap',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'centerchap'
+              'contents' => [
+                {
+                  'text' => 'centerchap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'centerchap',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2782,24 +2818,27 @@ $result_trees{'test_index'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter end'
+              'contents' => [
+                {
+                  'text' => 'chapter end'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -2902,27 +2941,27 @@ $result_trees{'test_index'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[7]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[7]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'test_index'}{'contents'}[2]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[9]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'test_index'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[3];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[8]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[8]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[1];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[8]{'extra'}{'command_as_argument'} = $result_trees{'test_index'}{'contents'}[2]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[10]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[10]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'test_index'}{'contents'}[2]{'contents'}[10]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'test_index'}{'contents'}[2]{'contents'}[10]{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'test_index'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[3];
-$result_trees{'test_index'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[3];
-$result_trees{'test_index'}{'contents'}[4]{'contents'}[16]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[3];
-$result_trees{'test_index'}{'contents'}[4]{'contents'}[168]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[3];
-$result_trees{'test_index'}{'contents'}[6]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[5];
-$result_trees{'test_index'}{'contents'}[6]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[5];
-$result_trees{'test_index'}{'contents'}[11]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[5];
+$result_trees{'test_index'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[3];
+$result_trees{'test_index'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[3];
+$result_trees{'test_index'}{'contents'}[4]{'contents'}[17]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[3];
+$result_trees{'test_index'}{'contents'}[4]{'contents'}[169]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[3];
+$result_trees{'test_index'}{'contents'}[6]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[5];
+$result_trees{'test_index'}{'contents'}[6]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[5];
+$result_trees{'test_index'}{'contents'}[11]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'test_index'}{'contents'}[5];
 
 $result_texis{'test_index'} = '@node Top
 @top Element top

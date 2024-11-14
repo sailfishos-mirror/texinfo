@@ -11,18 +11,23 @@ $result_trees{'unnumbered_no_argument'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'unnumbered',
+      'contents' => [
         {
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
+          'contents' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
 '
+                }
+              },
+              'type' => 'line_arg'
             }
-          },
-          'type' => 'line_arg'
+          ],
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'unnumbered',
       'extra' => {},
       'source_info' => {
         'line_nr' => 1

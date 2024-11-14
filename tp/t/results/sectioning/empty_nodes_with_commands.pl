@@ -18,25 +18,28 @@ $result_trees{'empty_nodes_with_commands'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
-        {
-          'info' => {
-            'comment_at_end' => {
-              'args' => [
-                {
-                  'text' => ' comment
-',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'cmdname' => 'c'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'node',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'info' => {
+                'comment_at_end' => {
+                  'args' => [
+                    {
+                      'text' => ' comment
+',
+                      'type' => 'rawline_arg'
+                    }
+                  ],
+                  'cmdname' => 'c'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -53,18 +56,23 @@ $result_trees{'empty_nodes_with_commands'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => '
+              'contents' => [
+                {
+                  'cmdname' => '
 '
+                }
+              ],
+              'type' => 'line_arg'
             }
           ],
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -75,23 +83,28 @@ $result_trees{'empty_nodes_with_commands'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => ':'
+              'contents' => [
+                {
+                  'cmdname' => ':'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '
@@ -102,36 +115,41 @@ $result_trees{'empty_nodes_with_commands'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'asis',
               'contents' => [
                 {
+                  'cmdname' => 'asis',
                   'contents' => [
                     {
-                      'text' => ' '
+                      'contents' => [
+                        {
+                          'text' => ' '
+                        }
+                      ],
+                      'type' => 'brace_container'
                     }
                   ],
-                  'type' => 'brace_container'
+                  'source_info' => {
+                    'line_nr' => 6
+                  }
                 }
               ],
-              'source_info' => {
-                'line_nr' => 6
-              }
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'info' => {
         'spaces_before_argument' => {
           'text' => ' '

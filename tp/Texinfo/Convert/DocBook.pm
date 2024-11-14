@@ -499,9 +499,10 @@ sub conversion_output_begin($;$$)
     # if there is a legalnotice, we really want to have a title
     # preceding it, so we also use @top
     my $command = $global_commands->{'top'};
+    my $line_arg
+      = $global_commands->{'top'}->{'contents'}->[0]->{'contents'}->[0];
     $fulltitle_command = $command
-      unless (!$command->{'args'}
-              or !$command->{'args'}->[0]->{'contents'});
+      if ($line_arg->{'contents'});
   }
 
   my $title_info = '';
@@ -700,7 +701,13 @@ sub _convert_argument_and_end_line($$)
   my $self = shift;
   my $element = shift;
 
-  my $converted = $self->convert_tree($element->{'args'}->[-1]);
+  my $line_arg;
+  if ($element->{'args'}) {
+    $line_arg = $element->{'args'}->[-1];
+  } else {
+    $line_arg = $element->{'contents'}->[0]->{'contents'}->[-1];
+  }
+  my $converted = $self->convert_tree($line_arg);
   my $end_line = $self->format_comment_or_return_end_line($element);
   return ($converted, $end_line);
 }
@@ -1028,13 +1035,12 @@ sub _convert($$;$)
             }
             push @{$self->{'lang_stack'}}, $language;
             $result .= "<$docbook_sectioning_element${section_attribute}>\n";
-            if ($opened_element->{'args'}) {
-              my ($arg, $end_line)
-                = _convert_argument_and_end_line($self, $opened_element);
-              $result .= "<title>$arg</title>$end_line";
-              chomp ($result);
-              $result .= "\n";
-            }
+            my ($arg, $end_line)
+              = _convert_argument_and_end_line($self, $opened_element);
+            $result .= "<title>$arg</title>$end_line";
+            chomp ($result);
+            $result .= "\n";
+
             # if associated with a sectioning element, the part is opened
             # before the sectioning element, such that the part content
             # appears after the sectioning command opening, no need for

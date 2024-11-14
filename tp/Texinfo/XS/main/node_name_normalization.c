@@ -77,7 +77,11 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
              /* here ignore the line commands */
               || (e->e.c->args.number > 0
                   && (e->e.c->args.list[0]->type == ET_line_arg
-                      || e->e.c->args.list[0]->type == ET_rawline_arg)))))
+                      || e->e.c->args.list[0]->type == ET_rawline_arg))
+              || (e->e.c->contents.number > 0
+                  && e->e.c->contents.list[0]->e.c->contents.number > 0
+                  && e->e.c->contents.list[0]->e.c->contents.list[0]->type
+                                                   == ET_line_arg))))
     return;
 
   if (e->e.c->cmd)

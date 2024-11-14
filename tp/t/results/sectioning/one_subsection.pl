@@ -16,23 +16,28 @@ $result_trees{'one_subsection'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'subsection',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'The subsection'
+              'contents' => [
+                {
+                  'text' => 'The subsection'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'subsection',
       'extra' => {
         'section_number' => '1'
       },

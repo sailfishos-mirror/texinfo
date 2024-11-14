@@ -16,23 +16,28 @@ $result_trees{'subentries_and_comments'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -47,19 +52,22 @@ $result_trees{'subentries_and_comments'} = {
       }
     },
     {
-      'args' => [
-        {
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'top',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -72,23 +80,28 @@ $result_trees{'subentries_and_comments'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter one'
+              'contents' => [
+                {
+                  'text' => 'chapter one'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -104,24 +117,27 @@ $result_trees{'subentries_and_comments'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'one'
+              'contents' => [
+                {
+                  'text' => 'one'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -329,12 +345,12 @@ $result_trees{'subentries_and_comments'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'subentries_and_comments'}{'contents'}[3];
-$result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[1];
-$result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[2] = $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'};
-$result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'subentries_and_comments'}{'contents'}[3];
-$result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[3];
-$result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[4] = $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[3]{'extra'}{'subentry'};
+$result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'subentries_and_comments'}{'contents'}[3];
+$result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[2]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[2];
+$result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[3] = $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[2]{'extra'}{'subentry'};
+$result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'subentries_and_comments'}{'contents'}[3];
+$result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[4]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[4];
+$result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[5] = $result_trees{'subentries_and_comments'}{'contents'}[4]{'contents'}[4]{'extra'}{'subentry'};
 
 $result_texis{'subentries_and_comments'} = '@node Top
 @top

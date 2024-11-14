@@ -11,23 +11,28 @@ $result_trees{'nodedescription_descriptions'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -42,24 +47,27 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'test of nodedescription used in menu'
+              'contents' => [
+                {
+                  'text' => 'test of nodedescription used in menu'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -495,23 +503,28 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'toto'
+              'contents' => [
+                {
+                  'text' => 'toto'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'node_description' => {
@@ -638,24 +651,27 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Toto'
+              'contents' => [
+                {
+                  'text' => 'Toto'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -681,23 +697,28 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'titi'
+              'contents' => [
+                {
+                  'text' => 'titi'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'node_description' => {
@@ -742,24 +763,27 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Titi'
+              'contents' => [
+                {
+                  'text' => 'Titi'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -785,23 +809,28 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'other'
+              'contents' => [
+                {
+                  'text' => 'other'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'node_description' => {
@@ -846,24 +875,27 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Other'
+              'contents' => [
+                {
+                  'text' => 'Other'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -889,23 +921,28 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'last'
+              'contents' => [
+                {
+                  'text' => 'last'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'node_description' => {
@@ -950,24 +987,27 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Last'
+              'contents' => [
+                {
+                  'text' => 'Last'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -993,23 +1033,28 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'a somewhat long node without description nor following space'
+              'contents' => [
+                {
+                  'text' => 'a somewhat long node without description nor following space'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'node_description' => {
@@ -1054,24 +1099,27 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Somewhat long'
+              'contents' => [
+                {
+                  'text' => 'Somewhat long'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1097,23 +1145,28 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'a very long node without description with very little space left for'
+              'contents' => [
+                {
+                  'text' => 'a very long node without description with very little space left for'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'node_description' => {
@@ -1158,24 +1211,27 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Very long'
+              'contents' => [
+                {
+                  'text' => 'Very long'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1201,23 +1257,28 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'very very long node extending past the max columns and without description'
+              'contents' => [
+                {
+                  'text' => 'very very long node extending past the max columns and without description'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'node_description' => {
@@ -1262,24 +1323,27 @@ $result_trees{'nodedescription_descriptions'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Past max columns'
+              'contents' => [
+                {
+                  'text' => 'Past max columns'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1302,27 +1366,27 @@ $result_trees{'nodedescription_descriptions'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[3]{'contents'}[0];
-$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[5]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[5]{'contents'}[3]{'contents'}[0];
-$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[6]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[8]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[1]{'contents'}[8]{'contents'}[1]{'contents'}[0];
+$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[3]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[3]{'contents'}[3]{'contents'}[0];
+$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'contents'}[3]{'contents'}[0];
+$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[6]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[0];
+$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[7]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[7]{'contents'}[1]{'contents'}[0];
+$result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[8]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescription_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[8]{'contents'}[1]{'contents'}[0];
 $result_trees{'nodedescription_descriptions'}{'contents'}[3]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescription_descriptions'}{'contents'}[3];
-$result_trees{'nodedescription_descriptions'}{'contents'}[4]{'contents'}[1] = $result_trees{'nodedescription_descriptions'}{'contents'}[3]{'extra'}{'node_description'};
+$result_trees{'nodedescription_descriptions'}{'contents'}[4]{'contents'}[2] = $result_trees{'nodedescription_descriptions'}{'contents'}[3]{'extra'}{'node_description'};
 $result_trees{'nodedescription_descriptions'}{'contents'}[5]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescription_descriptions'}{'contents'}[5];
-$result_trees{'nodedescription_descriptions'}{'contents'}[6]{'contents'}[1] = $result_trees{'nodedescription_descriptions'}{'contents'}[5]{'extra'}{'node_description'};
+$result_trees{'nodedescription_descriptions'}{'contents'}[6]{'contents'}[2] = $result_trees{'nodedescription_descriptions'}{'contents'}[5]{'extra'}{'node_description'};
 $result_trees{'nodedescription_descriptions'}{'contents'}[7]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescription_descriptions'}{'contents'}[7];
-$result_trees{'nodedescription_descriptions'}{'contents'}[8]{'contents'}[1] = $result_trees{'nodedescription_descriptions'}{'contents'}[7]{'extra'}{'node_description'};
+$result_trees{'nodedescription_descriptions'}{'contents'}[8]{'contents'}[2] = $result_trees{'nodedescription_descriptions'}{'contents'}[7]{'extra'}{'node_description'};
 $result_trees{'nodedescription_descriptions'}{'contents'}[9]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescription_descriptions'}{'contents'}[9];
-$result_trees{'nodedescription_descriptions'}{'contents'}[10]{'contents'}[1] = $result_trees{'nodedescription_descriptions'}{'contents'}[9]{'extra'}{'node_description'};
+$result_trees{'nodedescription_descriptions'}{'contents'}[10]{'contents'}[2] = $result_trees{'nodedescription_descriptions'}{'contents'}[9]{'extra'}{'node_description'};
 $result_trees{'nodedescription_descriptions'}{'contents'}[11]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescription_descriptions'}{'contents'}[11];
-$result_trees{'nodedescription_descriptions'}{'contents'}[12]{'contents'}[1] = $result_trees{'nodedescription_descriptions'}{'contents'}[11]{'extra'}{'node_description'};
+$result_trees{'nodedescription_descriptions'}{'contents'}[12]{'contents'}[2] = $result_trees{'nodedescription_descriptions'}{'contents'}[11]{'extra'}{'node_description'};
 $result_trees{'nodedescription_descriptions'}{'contents'}[13]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescription_descriptions'}{'contents'}[13];
-$result_trees{'nodedescription_descriptions'}{'contents'}[14]{'contents'}[1] = $result_trees{'nodedescription_descriptions'}{'contents'}[13]{'extra'}{'node_description'};
+$result_trees{'nodedescription_descriptions'}{'contents'}[14]{'contents'}[2] = $result_trees{'nodedescription_descriptions'}{'contents'}[13]{'extra'}{'node_description'};
 $result_trees{'nodedescription_descriptions'}{'contents'}[15]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescription_descriptions'}{'contents'}[15];
-$result_trees{'nodedescription_descriptions'}{'contents'}[16]{'contents'}[1] = $result_trees{'nodedescription_descriptions'}{'contents'}[15]{'extra'}{'node_description'};
+$result_trees{'nodedescription_descriptions'}{'contents'}[16]{'contents'}[2] = $result_trees{'nodedescription_descriptions'}{'contents'}[15]{'extra'}{'node_description'};
 
 $result_texis{'nodedescription_descriptions'} = '@node Top
 @top test of nodedescription used in menu

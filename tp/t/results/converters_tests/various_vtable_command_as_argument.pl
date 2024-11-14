@@ -11,23 +11,28 @@ $result_trees{'various_vtable_command_as_argument'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -42,24 +47,27 @@ $result_trees{'various_vtable_command_as_argument'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -77,23 +85,28 @@ $result_trees{'various_vtable_command_as_argument'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chap'
@@ -108,24 +121,27 @@ $result_trees{'various_vtable_command_as_argument'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Chap'
+              'contents' => [
+                {
+                  'text' => 'Chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1282,23 +1298,28 @@ $result_trees{'various_vtable_command_as_argument'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Indices'
+              'contents' => [
+                {
+                  'text' => 'Indices'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -1314,24 +1335,27 @@ $result_trees{'various_vtable_command_as_argument'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'appendix',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Print the index'
+              'contents' => [
+                {
+                  'text' => 'Print the index'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'appendix',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -1385,28 +1409,28 @@ $result_trees{'various_vtable_command_as_argument'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[9]{'extra'}{'command_as_argument'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[11]{'extra'}{'command_as_argument'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
-$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[13]{'extra'}{'command_as_argument'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[6]{'extra'}{'command_as_argument'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[8]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[8]{'extra'}{'command_as_argument'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[10]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[10]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[10]{'extra'}{'command_as_argument'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[12]{'extra'}{'command_as_argument'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[12]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[14]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[14]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[3];
+$result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[14]{'extra'}{'command_as_argument'} = $result_trees{'various_vtable_command_as_argument'}{'contents'}[4]{'contents'}[14]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'various_vtable_command_as_argument'} = '@node Top
 @top top

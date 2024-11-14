@@ -459,23 +459,28 @@ $result_trees{'value_in_index_commands'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -490,24 +495,27 @@ $result_trees{'value_in_index_commands'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'source_marks' => [
             {
@@ -1020,10 +1028,10 @@ $result_trees{'value_in_index_commands'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'value_in_index_commands'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'value_in_index_commands'}{'contents'}[2];
-$result_trees{'value_in_index_commands'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'value_in_index_commands'}{'contents'}[2];
-$result_trees{'value_in_index_commands'}{'contents'}[2]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'value_in_index_commands'}{'contents'}[2];
+$result_trees{'value_in_index_commands'}{'contents'}[2]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'value_in_index_commands'}{'contents'}[2];
+$result_trees{'value_in_index_commands'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'value_in_index_commands'}{'contents'}[2];
 $result_trees{'value_in_index_commands'}{'contents'}[2]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'value_in_index_commands'}{'contents'}[2];
+$result_trees{'value_in_index_commands'}{'contents'}[2]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'value_in_index_commands'}{'contents'}[2];
 
 $result_texis{'value_in_index_commands'} = '@set cp cp
 @set fn fn

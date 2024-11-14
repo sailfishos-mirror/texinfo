@@ -37,23 +37,28 @@ $result_trees{'error_in_sectioning_command'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -68,24 +73,27 @@ $result_trees{'error_in_sectioning_command'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top section'
+              'contents' => [
+                {
+                  'text' => 'top section'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -103,62 +111,67 @@ $result_trees{'error_in_sectioning_command'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'code',
               'contents' => [
                 {
+                  'cmdname' => 'code',
                   'contents' => [
                     {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'error'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'cmdname' => '}'
+                      'contents' => [
+                        {
+                          'cmdname' => '@'
+                        },
+                        {
+                          'text' => 'error'
+                        },
+                        {
+                          'cmdname' => '{'
+                        },
+                        {
+                          'cmdname' => '}'
+                        }
+                      ],
+                      'type' => 'brace_container'
                     }
                   ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => ' ('
-            },
-            {
-              'cmdname' => 'error',
-              'contents' => [
+                  'source_info' => {
+                    'line_nr' => 6
+                  }
+                },
                 {
-                  'type' => 'brace_container'
+                  'text' => ' ('
+                },
+                {
+                  'cmdname' => 'error',
+                  'contents' => [
+                    {
+                      'type' => 'brace_container'
+                    }
+                  ],
+                  'source_info' => {
+                    'line_nr' => 6
+                  }
+                },
+                {
+                  'text' => '): Indicating an Error Message'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '): Indicating an Error Message'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => '_0040error_007b_007d-_0028error_002d_002d_003e_0029_003a-Indicating-an-Error-Message'
@@ -173,63 +186,66 @@ $result_trees{'error_in_sectioning_command'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => 'code',
               'contents' => [
                 {
+                  'cmdname' => 'code',
                   'contents' => [
                     {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'error'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'cmdname' => '}'
+                      'contents' => [
+                        {
+                          'cmdname' => '@'
+                        },
+                        {
+                          'text' => 'error'
+                        },
+                        {
+                          'cmdname' => '{'
+                        },
+                        {
+                          'cmdname' => '}'
+                        }
+                      ],
+                      'type' => 'brace_container'
                     }
                   ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => ' ('
-            },
-            {
-              'cmdname' => 'error',
-              'contents' => [
+                  'source_info' => {
+                    'line_nr' => 7
+                  }
+                },
                 {
-                  'type' => 'brace_container'
+                  'text' => ' ('
+                },
+                {
+                  'cmdname' => 'error',
+                  'contents' => [
+                    {
+                      'type' => 'brace_container'
+                    }
+                  ],
+                  'source_info' => {
+                    'line_nr' => 7
+                  }
+                },
+                {
+                  'text' => '): Indicating an Error Message'
                 }
               ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '): Indicating an Error Message'
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',

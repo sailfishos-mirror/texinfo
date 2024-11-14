@@ -25,22 +25,27 @@ $result_trees{'special_spaces_in_nodes'} = {
       "type" => "before_node_section"
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "Top\x{2000}"
+              "contents" => [
+                {
+                  "text" => "Top\x{2000}"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => " \n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => " \n"
-            }
-          },
-          "type" => "line_arg"
+          "type" => "argument"
         }
       ],
-      "cmdname" => "node",
       "extra" => {
         "is_target" => 1,
         "normalized" => "Top_2002"
@@ -56,23 +61,26 @@ $result_trees{'special_spaces_in_nodes'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "top",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "top"
+              "contents" => [
+                {
+                  "text" => "top"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "top",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -90,22 +98,27 @@ $result_trees{'special_spaces_in_nodes'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "EN QUAD|\x{2000}| EM QUAD|\x{2001}| EN SPACE|\x{2002}|"
+              "contents" => [
+                {
+                  "text" => "EN QUAD|\x{2000}| EM QUAD|\x{2001}| EN SPACE|\x{2002}|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
+          "type" => "argument"
         }
       ],
-      "cmdname" => "node",
       "extra" => {
         "is_target" => 1,
         "normalized" => "EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c"
@@ -121,23 +134,26 @@ $result_trees{'special_spaces_in_nodes'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "chapter",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "chap"
+              "contents" => [
+                {
+                  "text" => "chap"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "chapter",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -585,23 +601,26 @@ $result_trees{'special_spaces_in_nodes'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "CHARACTER TABULATION|\t| FORM FEED|\f| LINE TABULATION|\13|"
+              "contents" => [
+                {
+                  "text" => "CHARACTER TABULATION|\t| FORM FEED|\f| LINE TABULATION|\13|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "node",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -622,23 +641,26 @@ $result_trees{'special_spaces_in_nodes'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "CARRIAGE RETURN|\r|"
+              "contents" => [
+                {
+                  "text" => "CARRIAGE RETURN|\r|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "node",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -659,23 +681,26 @@ $result_trees{'special_spaces_in_nodes'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "NEXT LINE (NEL)|\x{85}| NO-BREAK SPACE|\x{a0}| OGHAM SPACE MARK|\x{1680}|"
+              "contents" => [
+                {
+                  "text" => "NEXT LINE (NEL)|\x{85}| NO-BREAK SPACE|\x{a0}| OGHAM SPACE MARK|\x{1680}|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "node",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -696,23 +721,26 @@ $result_trees{'special_spaces_in_nodes'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "MONGOLIAN VOWEL SEPARATOR|\x{180e}| EM SPACE|\x{2003}|"
+              "contents" => [
+                {
+                  "text" => "MONGOLIAN VOWEL SEPARATOR|\x{180e}| EM SPACE|\x{2003}|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "node",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -733,23 +761,26 @@ $result_trees{'special_spaces_in_nodes'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "THREE-PER-EM SPACE|\x{2004}| FOUR-PER-EM SPACE|\x{2005}| SIX-PER-EM SPACE|\x{2006}|"
+              "contents" => [
+                {
+                  "text" => "THREE-PER-EM SPACE|\x{2004}| FOUR-PER-EM SPACE|\x{2005}| SIX-PER-EM SPACE|\x{2006}|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "node",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -770,23 +801,26 @@ $result_trees{'special_spaces_in_nodes'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "FIGURE SPACE|\x{2007}| PUNCTUATION SPACE|\x{2008}| THIN SPACE|\x{2009}|"
+              "contents" => [
+                {
+                  "text" => "FIGURE SPACE|\x{2007}| PUNCTUATION SPACE|\x{2008}| THIN SPACE|\x{2009}|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "node",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -807,23 +841,26 @@ $result_trees{'special_spaces_in_nodes'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "HAIR SPACE|\x{200a}| LINE SEPARATOR|\x{2028}| PARAGRAPH SEPARATOR|\x{2029}|"
+              "contents" => [
+                {
+                  "text" => "HAIR SPACE|\x{200a}| LINE SEPARATOR|\x{2028}| PARAGRAPH SEPARATOR|\x{2029}|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "node",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -844,23 +881,26 @@ $result_trees{'special_spaces_in_nodes'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "node",
+      "contents" => [
         {
           "contents" => [
             {
-              "text" => "NARROW NO-BREAK SPACE|\x{202f}| MEDIUM MATHEMATICAL SPACE|\x{205f}| IDEOGRAPHIC SPACE|\x{3000}|"
+              "contents" => [
+                {
+                  "text" => "NARROW NO-BREAK SPACE|\x{202f}| MEDIUM MATHEMATICAL SPACE|\x{205f}| IDEOGRAPHIC SPACE|\x{3000}|"
+                }
+              ],
+              "info" => {
+                "spaces_after_argument" => {
+                  "text" => "\n"
+                }
+              },
+              "type" => "line_arg"
             }
           ],
-          "info" => {
-            "spaces_after_argument" => {
-              "text" => "\n"
-            }
-          },
-          "type" => "line_arg"
-        }
-      ],
-      "cmdname" => "node",
-      "contents" => [
+          "type" => "argument"
+        },
         {
           "text" => "\n",
           "type" => "empty_line"
@@ -929,15 +969,15 @@ $result_trees{'special_spaces_in_nodes'} = {
   ],
   "type" => "document_root"
 };
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[1]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[1]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[2]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[2]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[3]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[3]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[4]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[4]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[5]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[5]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[6]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[6]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[7]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[7]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[8]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[8]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[12]{"contents"}[1]{"contents"}[0]{"contents"}[0]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[12]{"contents"}[1]{"contents"}[0]{"contents"}[0]{"contents"}[0];
+$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[1]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[1]{"contents"}[1]{"contents"}[0];
+$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[2]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[2]{"contents"}[1]{"contents"}[0];
+$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[3]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[3]{"contents"}[1]{"contents"}[0];
+$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[4]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[4]{"contents"}[1]{"contents"}[0];
+$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[5]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[5]{"contents"}[1]{"contents"}[0];
+$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[6]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[6]{"contents"}[1]{"contents"}[0];
+$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[7]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[7]{"contents"}[1]{"contents"}[0];
+$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[8]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[8]{"contents"}[1]{"contents"}[0];
+$result_trees{'special_spaces_in_nodes'}{"contents"}[12]{"contents"}[2]{"contents"}[0]{"contents"}[0]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[12]{"contents"}[2]{"contents"}[0]{"contents"}[0]{"contents"}[0];
 
 $result_texis{'special_spaces_in_nodes'} = '
 @node Top  

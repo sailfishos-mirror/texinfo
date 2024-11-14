@@ -8,24 +8,27 @@ use utf8;
 $result_trees{'transliterated_split_equivalent_nodes'} = [
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -281,36 +284,41 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
   },
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => '~',
               'contents' => [
                 {
+                  'cmdname' => '~',
                   'contents' => [
                     {
-                      'text' => 'a'
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
+                      'type' => 'following_arg'
                     }
                   ],
-                  'type' => 'following_arg'
+                  'source_info' => {
+                    'line_nr' => 9
+                  }
                 }
               ],
-              'source_info' => {
-                'line_nr' => 9
-              }
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => '_00e3'
@@ -327,37 +335,40 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
     'unit_contents' => [
       {},
       {
-        'args' => [
+        'cmdname' => 'unnumbered',
+        'contents' => [
           {
             'contents' => [
               {
-                'cmdname' => '~',
                 'contents' => [
                   {
+                    'cmdname' => '~',
                     'contents' => [
                       {
-                        'text' => 'a'
+                        'contents' => [
+                          {
+                            'text' => 'a'
+                          }
+                        ],
+                        'type' => 'following_arg'
                       }
                     ],
-                    'type' => 'following_arg'
+                    'source_info' => {
+                      'line_nr' => 10
+                    }
                   }
                 ],
-                'source_info' => {
-                  'line_nr' => 10
-                }
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'unnumbered',
-        'contents' => [
+            'type' => 'argument'
+          },
           {
             'text' => '
 ',
@@ -379,24 +390,27 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
   },
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'n'
+              'contents' => [
+                {
+                  'text' => 'n'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -423,36 +437,41 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
   },
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'cmdname' => '^',
               'contents' => [
                 {
+                  'cmdname' => '^',
                   'contents' => [
                     {
-                      'text' => 'a'
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
+                      'type' => 'following_arg'
                     }
                   ],
-                  'type' => 'following_arg'
+                  'source_info' => {
+                    'line_nr' => 14
+                  }
                 }
               ],
-              'source_info' => {
-                'line_nr' => 14
-              }
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => '_00e2'
@@ -472,9 +491,9 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'transliterated_split_equivalent_nodes'}[0]{'unit_command'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[0]{'unit_command'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'transliterated_split_equivalent_nodes'}[0]{'unit_command'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[0]{'unit_command'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'transliterated_split_equivalent_nodes'}[0]{'unit_command'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[0]{'unit_command'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'transliterated_split_equivalent_nodes'}[0]{'unit_command'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[0]{'unit_command'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'transliterated_split_equivalent_nodes'}[0]{'unit_command'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[0]{'unit_command'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'transliterated_split_equivalent_nodes'}[0]{'unit_command'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[0]{'unit_command'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0];
 $result_trees{'transliterated_split_equivalent_nodes'}[0]{'unit_contents'}[1] = $result_trees{'transliterated_split_equivalent_nodes'}[0]{'unit_command'};
 $result_trees{'transliterated_split_equivalent_nodes'}[1]{'unit_contents'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[1]{'unit_command'};
 $result_trees{'transliterated_split_equivalent_nodes'}[2]{'unit_contents'}[0] = $result_trees{'transliterated_split_equivalent_nodes'}[2]{'unit_command'};

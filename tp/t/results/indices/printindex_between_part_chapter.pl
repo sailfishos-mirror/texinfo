@@ -16,23 +16,28 @@ $result_trees{'printindex_between_part_chapter'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'isindex' => 1,
@@ -48,24 +53,27 @@ $result_trees{'printindex_between_part_chapter'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'top',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'top'
+              'contents' => [
+                {
+                  'text' => 'top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'top',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -232,24 +240,27 @@ $result_trees{'printindex_between_part_chapter'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'part',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Part 1'
+              'contents' => [
+                {
+                  'text' => 'Part 1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'part',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -304,23 +315,28 @@ $result_trees{'printindex_between_part_chapter'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'node chap1'
+              'contents' => [
+                {
+                  'text' => 'node chap1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'node-chap1'
@@ -335,24 +351,27 @@ $result_trees{'printindex_between_part_chapter'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter 1'
+              'contents' => [
+                {
+                  'text' => 'chapter 1'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -373,23 +392,28 @@ $result_trees{'printindex_between_part_chapter'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'node chap2'
+              'contents' => [
+                {
+                  'text' => 'node chap2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'node-chap2'
@@ -404,24 +428,27 @@ $result_trees{'printindex_between_part_chapter'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'chapter',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chapter 2'
+              'contents' => [
+                {
+                  'text' => 'chapter 2'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'chapter',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -520,13 +547,13 @@ $result_trees{'printindex_between_part_chapter'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[1];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[1];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[1];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[1];
+$result_trees{'printindex_between_part_chapter'}{'contents'}[2]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[1];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[5]{'extra'}{'associated_part'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[3];
-$result_trees{'printindex_between_part_chapter'}{'contents'}[7]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[6];
 $result_trees{'printindex_between_part_chapter'}{'contents'}[7]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[6];
+$result_trees{'printindex_between_part_chapter'}{'contents'}[7]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'printindex_between_part_chapter'}{'contents'}[6];
 
 $result_texis{'printindex_between_part_chapter'} = '@node Top
 @top top

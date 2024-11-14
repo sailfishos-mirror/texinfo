@@ -16,23 +16,28 @@ $result_trees{'explicit_sort_key'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -47,19 +52,22 @@ $result_trees{'explicit_sort_key'} = {
       }
     },
     {
-      'args' => [
-        {
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
       'cmdname' => 'top',
       'contents' => [
+        {
+          'contents' => [
+            {
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -72,24 +80,27 @@ $result_trees{'explicit_sort_key'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [
+          'type' => 'argument'
+        },
         {
           'text' => '
 ',
@@ -573,10 +584,10 @@ $result_trees{'explicit_sort_key'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
 $result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
+$result_trees{'explicit_sort_key'}{'contents'}[3]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'explicit_sort_key'}{'contents'}[3];
 
 $result_texis{'explicit_sort_key'} = '@node Top
 @top

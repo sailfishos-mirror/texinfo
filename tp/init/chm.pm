@@ -350,7 +350,8 @@ sub chm_init($)
           $level--;
         }
       }
-      my $text = _chm_convert_tree_to_text($self, $section->{'args'}->[0]);
+      my $line_arg = $section->{'contents'}->[0]->{'contents'}->[0];
+      my $text = _chm_convert_tree_to_text($self, $line_arg);
       # should not be needed as end of lines are not converted, end of line
       # can be added with invalid nestings.
       chomp($text);

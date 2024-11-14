@@ -8,23 +8,28 @@ use utf8;
 $result_trees{'top_node_up_url'} = [
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'Top'
+              'contents' => [
+                {
+                  'text' => 'Top'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'Top'
@@ -44,24 +49,27 @@ $result_trees{'top_node_up_url'} = [
       },
       {},
       {
-        'args' => [
+        'cmdname' => 'top',
+        'contents' => [
           {
             'contents' => [
               {
-                'text' => 'internal top node up'
+                'contents' => [
+                  {
+                    'text' => 'internal top node up'
+                  }
+                ],
+                'info' => {
+                  'spaces_after_argument' => {
+                    'text' => '
+'
+                  }
+                },
+                'type' => 'line_arg'
               }
             ],
-            'info' => {
-              'spaces_after_argument' => {
-                'text' => '
-'
-              }
-            },
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'top',
-        'contents' => [
+            'type' => 'argument'
+          },
           {
             'text' => '
 ',
@@ -186,23 +194,28 @@ $result_trees{'top_node_up_url'} = [
   },
   {
     'unit_command' => {
-      'args' => [
+      'cmdname' => 'node',
+      'contents' => [
         {
           'contents' => [
             {
-              'text' => 'chap'
+              'contents' => [
+                {
+                  'text' => 'chap'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
             }
           ],
-          'info' => {
-            'spaces_after_argument' => {
-              'text' => '
-'
-            }
-          },
-          'type' => 'line_arg'
+          'type' => 'argument'
         }
       ],
-      'cmdname' => 'node',
       'extra' => {
         'is_target' => 1,
         'normalized' => 'chap'
@@ -223,7 +236,7 @@ $result_trees{'top_node_up_url'} = [
   }
 ];
 $result_trees{'top_node_up_url'}[0]{'unit_contents'}[1] = $result_trees{'top_node_up_url'}[0]{'unit_command'};
-$result_trees{'top_node_up_url'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'top_node_up_url'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'top_node_up_url'}[0]{'unit_contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'top_node_up_url'}[0]{'unit_contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'top_node_up_url'}[1]{'unit_contents'}[0] = $result_trees{'top_node_up_url'}[1]{'unit_command'};
 
 $result_texis{'top_node_up_url'} = '@node Top
