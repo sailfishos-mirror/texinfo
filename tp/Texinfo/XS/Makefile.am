@@ -465,15 +465,9 @@ libxs_in_libtexinfo_convert_la_CFLAGS = $(XSLIBS_CFLAGS)
 libxs_in_libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
 libxs_in_libtexinfo_convert_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
-XS_libtexinfo_convert_sources = \
-                       convert/build_html_perl_info.h \
-                       convert/build_html_perl_info.c \
-                       convert/get_converter_perl_info.c \
-                       convert/get_converter_perl_info.h
 
 libtexinfo_convert_la_SOURCES = \
-   $(C_libtexinfo_convert_sources) \
-   $(XS_libtexinfo_convert_sources)
+   $(C_libtexinfo_convert_sources)
 
 # locate include files under out-of-source builds.
 # parsetexi is only needed for texinfo.c
@@ -483,6 +477,28 @@ libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la libxs_in_libtexinfo
 libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 # example to trigger errors associated with no undefined
 #libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_PERL_LINK) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+
+
+################################# common Perl C code used to call
+# libtexinfo-convert from Perl XS *.xs interfaces shared library
+
+if HAVE_ICONV
+xs_LTLIBRARIES += libtexinfo-convertxs.la
+endif
+
+libtexinfo_convertxs_la_SOURCES = \
+                       convert/build_html_perl_info.h \
+                       convert/build_html_perl_info.c \
+                       convert/get_converter_perl_info.c \
+                       convert/get_converter_perl_info.h
+
+# locate include files under out-of-source builds.
+libtexinfo_convertxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+libtexinfo_convertxs_la_CFLAGS = $(XSLIBS_CFLAGS)
+libtexinfo_convertxs_la_LIBADD = libtexinfo-convert.la libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
+# example to trigger errors associated with no undefined
+#libtexinfo_convertxs_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(PERL_LIBS) $(LTLIBINTL)
+libtexinfo_convertxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL)
 
 
 ########################## Parsetexi XS parser
@@ -559,7 +575,7 @@ EXTRA_DIST += main/IndicesXS.xs
 # locate include files under out-of-source builds.
 IndicesXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 IndicesXS_la_CFLAGS = $(XSLIBS_CFLAGS)
-IndicesXS_la_LIBADD = libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
+IndicesXS_la_LIBADD = libtexinfo-convertxs.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
 IndicesXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
 #IndicesXS_la_LDFLAGS = -Wl,--no-undefined $(XSLIBS_LDFLAGS) $(perl_conf_PERL_LINK) $(LTLIBICONV) $(LTLIBUNISTRING)
 
@@ -581,7 +597,7 @@ EXTRA_DIST += convert/ConvertXS.xs
 # To locate include files under out-of-source builds.
 ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 ConvertXS_la_CFLAGS = $(XSLIBS_CFLAGS)
-ConvertXS_la_LIBADD = libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
+ConvertXS_la_LIBADD = libtexinfo-convertxs.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
 ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 

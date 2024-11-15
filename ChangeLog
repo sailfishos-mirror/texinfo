@@ -1,21 +1,18 @@
-2024-11-15  Gavin Smith <gavinsmith0123@gmail.com>
+2024-11-15  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/t/formats_encodings.t (accented_character_in_file_name):
-	remove test
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES)
+	(xs_LTLIBRARIES, libtexinfo_convertxs_la_SOURCES)
+	(libtexinfo_convertxs_la_CPPFLAGS)
+	(libtexinfo_convertxs_la_CFLAGS, libtexinfo_convertxs_la_LIBADD)
+	(libtexinfo_convertxs_la_LDFLAGS, IndicesXS_la_LIBADD)
+	(ConvertXS_la_LIBADD): add the libtexinfo-convertxs.la shared library
+	with code common for XS interfaces used to call libtexinfo-convert.
+	Remove XS_libtexinfo_convert_sources.
 
-2024-11-15  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* tp/tests/input/non_ascii: New directory to centralise location
-	of files with non-ASCII names
-
-	* tp/tests/run_parser_all.sh: specify -I $srcdir/input/non_ascii
-	on texi2any command line
-
-2024-11-15  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* tp/tests/many_input_files/Makefile.am:
-	Remove use of LONG_TESTS variable (same change made in
-	tp/tests/Makefile.am on 2016-10-23 but this file was missed).
+	* tp/Texinfo/XS/convert/build_html_perl_info.c,
+	tp/Texinfo/XS/convert/get_converter_perl_info.c: remove config.h
+	include, the Perl C files do not need Gnulib function nor autoconf
+	defines.
 
 2024-11-15  Patrice Dumas  <pertusus@free.fr>
 
@@ -64,6 +61,25 @@
 
 	* tp/Texinfo/XS/convert/build_html_perl_state.c: make
 	build_html_translated_names static.
+
+2024-11-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/t/formats_encodings.t (accented_character_in_file_name):
+	remove test
+
+2024-11-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/tests/input/non_ascii: New directory to centralise location
+	of files with non-ASCII names
+
+	* tp/tests/run_parser_all.sh: specify -I $srcdir/input/non_ascii
+	on texi2any command line
+
+2024-11-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/tests/many_input_files/Makefile.am:
+	Remove use of LONG_TESTS variable (same change made in
+	tp/tests/Makefile.am on 2016-10-23 but this file was missed).
 
 2024-11-15  Patrice Dumas  <pertusus@free.fr>
 
