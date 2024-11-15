@@ -426,9 +426,9 @@ js/package-lock.json
 js/info.min.js
 
 Pod-Simple-Texinfo/pod2texi
-Pod-Simple-Texinfo/*.log
-Pod-Simple-Texinfo/*.tmp
-Pod-Simple-Texinfo/*.trs
+Pod-Simple-Texinfo/t/*.log
+Pod-Simple-Texinfo/t/*.tmp
+Pod-Simple-Texinfo/t/*.trs
 Pod-Simple-Texinfo/test_scripts/*.log
 Pod-Simple-Texinfo/test_scripts/*.tmp
 Pod-Simple-Texinfo/test_scripts/*.trs
