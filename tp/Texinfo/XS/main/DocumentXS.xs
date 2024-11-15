@@ -13,8 +13,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#include <config.h>
-
 #include <stddef.h>
 
 /* Avoid namespace conflicts. */
@@ -32,10 +30,6 @@
 #include "document_types.h"
 /* non_perl_* */
 #include "xs_utils.h"
-#include "extra.h"
-/* needed?
-#include "utils.h"
- */
 #include "customization_options.h"
 /* for clear_error_message_list */
 #include "errors.h"

@@ -23,7 +23,6 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "types_data.h"
-#include "extra.h"
 #include "debug.h"
 #include "builtin_commands.h"
 

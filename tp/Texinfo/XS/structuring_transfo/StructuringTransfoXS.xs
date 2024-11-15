@@ -13,18 +13,12 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#include <config.h>
-
 /* Avoid namespace conflicts. */
 #define context perl_context
 
 #define PERL_NO_GET_CONTEXT
 #include "EXTERN.h"
 #include "perl.h"
-#if defined _WIN32 && !defined __CYGWIN__
-/* See comment in Parsetexi.xs for why we #undef free. */
-# undef free
-#endif
 #include "XSUB.h"
 
 #undef context
@@ -133,7 +127,7 @@ move_index_entries_after_items_in_tree (SV *tree_in)
             document->modified_information |= F_DOCM_tree;
           }
 
-# The perl function returns a tree, as the
+# The Perl function returns a tree, as the
 # argument could be modified.  Here, tree_in is always a container
 # that is not modified, so there is no need to return a tree.
 void
@@ -146,7 +140,7 @@ reference_to_arg_in_tree (SV *tree_in, SV *document_in=0)
           = get_sv_tree_document (tree_in, "reference_to_arg_in_tree");
         /* in general will be the same as tree_document, in case it is not,
            perhaps if the tree_in is a subtree of document_in tree,
-           so here the document is found independently if document_in is set.
+           the document is found independently if document_in is set.
            NOTE if the document is different from tree_document, setting
            the F_DOCM_tree in reference_to_arg_internal
            may not lead to a rebuild of the modified tree in Perl.  Getting
@@ -298,7 +292,7 @@ insert_nodes_for_sectioning_commands (SV *document_in)
             destroy_list (added_nodes);
           }
 
-# The perl function returns a list of nodes, but it is only used
+# The Perl function returns a list of nodes, but it is only used
 # to register in the document.  It is better to reserve the return
 # value for a return status, if it becomes needed.
 void
@@ -313,7 +307,7 @@ nodes_tree (SV *document_in)
             register_document_nodes_list (document, nodes_list);
           }
 
-# For the next functions, the perl function returns a tree, as the
+# For the next functions, the Perl function returns a tree, as the
 # argument could be modified.  Here, tree_in is always a container
 # that is not modified, so there is no need to return a tree.
 void
@@ -440,10 +434,10 @@ rebuild_output_units (SV *document_in, SV *output_units_in)
      CODE:
         document = get_sv_document_document (document_in,
                                              "rebuild_output_units");
-      /* This may be called in Texinfo::Convert::Converter::output on
-         converters that may or may not have XS information, so no warning */
         if (document)
           {
+            /* This may be called in converters that may not have
+               XS information set on output units, so no warning */
             output_units_descriptor
              = get_sv_output_units_descriptor (output_units_in, 0, 0);
             if (output_units_descriptor)

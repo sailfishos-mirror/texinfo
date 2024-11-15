@@ -24,8 +24,9 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "types_data.h"
-#include "extra.h"
+/* debug_element_command_name */
 #include "builtin_commands.h"
+/* for ai_key_names */
 #include "tree.h"
 /* for directions_length and direction_names */
 #include "utils.h"

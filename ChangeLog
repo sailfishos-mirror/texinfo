@@ -1,3 +1,27 @@
+2024-11-15  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (StructuringTransfoXS_la_CPPFLAGS)
+	(IndicesXS_la_CPPFLAGS, ConvertXS_la_CPPFLAGS): remove
+	$(GNULIB_CPPFLAGS) as there is no Gnulib code used in XS interfaces
+	code.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs,
+	tp/Texinfo/XS/convert/get_html_perl_info.c,
+	tp/Texinfo/XS/main/DocumentXS.xs, tp/Texinfo/XS/main/IndicesXS.xs,
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs,
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs: do not
+	include config.h as no Gnulib code is used and there is no need for
+	autoconf defines.
+
+	* tp/Texinfo/XS/main/manipulate_indices.h: add missing options_data.h
+	include.
+
+	Minor improvements in included headers.
+
+2024-11-15  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/api_to_perl.c (get_refcount): call dTHX.
+
 2024-11-15  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Escape non-ASCII file names in many_input_files tests
@@ -15,10 +39,6 @@
 
 	* tp/tests/many_input_files/Makefile.am: update rules to
 	copy output directories in their escaped form.
-
-2024-11-15  Patrice Dumas  <pertusus@free.fr>
-
-	* tp/Texinfo/XS/main/api_to_perl.c (get_refcount): call dTHX.
 
 2024-11-15  Patrice Dumas  <pertusus@free.fr>
 

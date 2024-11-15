@@ -256,7 +256,7 @@ libtexinfo_la_SOURCES = \
 noinst_LTLIBRARIES += libxs_in_libtexinfo.la
 
 # api_to_perl.c and call_perl_function.c functions are called in other
-# parts of the code and need to be linked against Perl
+# parts of the libtexinfo code and need to be linked against Perl
 libxs_in_libtexinfo_la_SOURCES = \
 		      main/api_to_perl.c \
 		      main/api_to_perl.h \
@@ -523,7 +523,7 @@ CLEANFILES += \
 EXTRA_DIST += structuring_transfo/StructuringTransfoXS.xs
 
 # locate include files under out-of-source builds.
-StructuringTransfoXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+StructuringTransfoXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 StructuringTransfoXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 StructuringTransfoXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
 StructuringTransfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
@@ -543,7 +543,7 @@ CLEANFILES += \
 EXTRA_DIST += main/IndicesXS.xs
 
 # locate include files under out-of-source builds.
-IndicesXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+IndicesXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 IndicesXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 IndicesXS_la_LIBADD = libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
 IndicesXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
@@ -565,7 +565,7 @@ ConvertXS_la_SOURCES = \
 EXTRA_DIST += convert/ConvertXS.xs
 
 # To locate include files under out-of-source builds.
-ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/convert $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 ConvertXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 ConvertXS_la_LIBADD = libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
 ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)

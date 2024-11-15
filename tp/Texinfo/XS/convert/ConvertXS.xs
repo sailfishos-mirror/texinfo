@@ -13,8 +13,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#include <config.h>
-
 #include <stdlib.h>
 
 /* Avoid namespace conflicts. */
@@ -25,10 +23,6 @@
 #define PERL_NO_GET_CONTEXT
 #include "EXTERN.h"
 #include "perl.h"
-#if defined _WIN32 && !defined __CYGWIN__
-/* See comment in Parsetexi.xs for why we #undef free. */
-# undef free
-#endif
 #include "XSUB.h"
 #include "ppport.h"
 

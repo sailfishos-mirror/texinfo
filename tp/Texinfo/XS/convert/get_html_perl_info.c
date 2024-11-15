@@ -13,7 +13,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-#include <config.h>
+#include <string.h>
+#include <stdio.h>
 
 /* Avoid namespace conflicts. */
 #define context perl_context
@@ -21,10 +22,6 @@
 #define PERL_NO_GET_CONTEXT
 #include "EXTERN.h"
 #include "perl.h"
-#if defined _WIN32 && !defined __CYGWIN__
-/* See comment in Parsetexi.xs for why we #undef free. */
-  #undef free
-#endif
 #include "XSUB.h"
 
 #include "ppport.h"
@@ -41,12 +38,15 @@
    html_conversion_context_type_names html_stage_handler_stage_type_names
  */
 #include "html_converter_types.h"
-/* also for non_perl_* */
+/* clear_strings_list html_button_direction_names index_number_index_by_name
+   ... */
 #include "utils.h"
 #include "builtin_commands.h"
+/* could be used for debugging
 #include "debug.h"
 #include "convert_to_texinfo.h"
-#include "output_unit.h"
+ */
+/* default_special_unit_varieties */
 #include "converter.h"
 #include "html_conversion_state.h"
 /* new_directions_strings_type initialize_js_categories_list
@@ -59,7 +59,6 @@
  */
 #include "format_html.h"
 #include "get_perl_info.h"
-#include "get_converter_perl_info.h"
 /* for newSVpv_utf8 */
 #include "build_perl_info.h"
 #include "get_converter_perl_info.h"

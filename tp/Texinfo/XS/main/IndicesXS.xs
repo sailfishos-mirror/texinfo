@@ -13,8 +13,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-#include <config.h>
-
 /* Avoid namespace conflicts. */
 #define context perl_context
 
@@ -29,10 +27,7 @@
 #include "document_types.h"
 /* non_perl_* */
 #include "xs_utils.h"
-/*
-#include "utils.h"
-#include "tree.h"
- */
+/* register_document_convert_index_text_options */
 #include "document.h"
 #include "manipulate_indices.h"
 #include "get_perl_info.h"

@@ -46,7 +46,7 @@
  */
 #include "utils.h"
 #include "debug.h"
-/* for newSVpv_utf8 build_texinfo_tree */
+/* for newSVpv_utf8 build_tree_to_build */
 #include "build_perl_info.h"
 /* build_html_formatting_state build_html_command_formatted_args */
 #include "build_html_perl_state.h"

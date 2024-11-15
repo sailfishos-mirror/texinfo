@@ -4,6 +4,7 @@
 
 #include "tree_types.h"
 #include "document_types.h"
+#include "options_data.h"
 /* for TEXT_OPTIONS
 #include "convert_to_text.h"
  */

@@ -61,9 +61,8 @@
 #include "converter_types.h"
 /* non_perl_* */
 #include "xs_utils.h"
-/* for new_element */
+/* for ai_key_names elt_info_names */
 #include "tree.h"
-#include "extra.h"
 /* for element_command_name */
 #include "builtin_commands.h"
 /* for xasprintf get_encoding_conversion output_conversions fatal
