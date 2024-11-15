@@ -44,7 +44,7 @@ raw_outdir=$raw_output_dir/$basename
 mkdir $basename
 : > $basename/$stdout_file
 
-cmd="$prepended_command $PERL -I $srcdir/../.. -w $srcdir/../../texi2any.pl --html --no-split --set-customization-variable 'TEST 1' -I $srcdir/input_files/dir_înclùde --conf-dir $srcdir/../../init --out $basename/ $srcdir/input_files/simple_including_file.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
+cmd="$prepended_command $PERL -I $srcdir/../.. -w $srcdir/../../texi2any.pl --html --no-split --set-customization-variable 'TEST 1' -I $srcdir/../input/non_ascii/dir_înclùde --conf-dir $srcdir/../../init --out $basename/ $srcdir/input_files/simple_including_file.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 

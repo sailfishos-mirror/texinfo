@@ -86,4 +86,6 @@ EXTRA_DIST += \
  $(na)/an_ïmage.png \
  $(na)/txt_çimage.txt \
  $(na)/included_akçentêd.texi \
- $(na)/tex_encodé_utf8.texi
+ $(na)/tex_encodé_utf8.texi \
+ $(na)/dir_înclùde/file_image.png \
+ $(na)/dir_înclùde/included_file.texi

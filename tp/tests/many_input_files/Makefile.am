@@ -16,9 +16,7 @@ EXTRA_DIST = $(TESTS) \
   tex_l2h_output_dir_non_ascii_res \
   input_files/no_master_menu_fr.texi \
   input_files/no_master_menu_no_documentlanguage.texi \
-  input_files/simple_including_file.texi \
-  input_files/dir_înclùde/file_image.png \
-  input_files/dir_înclùde/included_file.texi
+  input_files/simple_including_file.texi
 
 TESTS = tex_l2h.sh tex_t4ht.sh \
   different_encodings.sh different_languages_gen_master_menu.sh \
