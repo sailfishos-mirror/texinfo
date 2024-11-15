@@ -448,8 +448,10 @@ C_libtexinfo_convert_sources = \
 
 # call_html_perl_function.c functions are called in other
 # parts of the code and need to be linked against Perl.
-# build_html_perl_info.c functions are called from call_html_perl_function.c.
+# build_html_perl_state.c functions are called from call_html_perl_function.c.
 XS_libtexinfo_convert_sources = \
+                       convert/build_html_perl_state.h \
+                       convert/build_html_perl_state.c \
                        convert/build_html_perl_info.h \
                        convert/build_html_perl_info.c \
                        convert/call_html_perl_function.h \

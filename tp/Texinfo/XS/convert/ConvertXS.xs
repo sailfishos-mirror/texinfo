@@ -51,6 +51,7 @@
 #include "converter.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
+#include "build_html_perl_state.h"
 #include "get_converter_perl_info.h"
 #include "build_html_perl_info.h"
 #include "html_conversion_state.h"

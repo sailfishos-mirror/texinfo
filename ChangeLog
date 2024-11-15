@@ -19,6 +19,16 @@
 
 2024-11-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (XS_libtexinfo_convert_sources),
+	tp/Texinfo/XS/convert/build_html_perl_state.h,
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_html_translated_names, build_html_formatting_state),
+	tp/Texinfo/XS/convert/build_html_perl_info.c: recreate
+	build_html_perl_state.c, moving build_html_translated_names and
+	build_html_formatting_state to the file.
+
+2024-11-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/build_html_perl_info.c,
 	tp/Texinfo/XS/convert/build_html_perl_info.h,
 	tp/Texinfo/XS/Makefile.am (XS_libtexinfo_convert_sources): rename

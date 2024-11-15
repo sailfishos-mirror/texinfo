@@ -43,8 +43,6 @@ void pass_html_global_units_directions (SV *converter_sv,
 void pass_html_elements_in_file_count (SV *converter_sv,
                    FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
-void build_html_formatting_state (CONVERTER *converter);
-
 SV *build_replaced_substrings (NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
 void build_pending_footnotes (AV *av, HTML_PENDING_FOOTNOTE_STACK *stack);

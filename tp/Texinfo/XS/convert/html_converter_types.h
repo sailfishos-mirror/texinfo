@@ -77,6 +77,7 @@ typedef struct COMMAND_ARGS_SPECIFICATION {
 
 /* in conversion_data.c */
 extern const TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
+extern const char *special_unit_info_type_names[SUI_type_heading + 1];
 
 /* in format_html.c */
 extern const char *direction_string_type_names[];
