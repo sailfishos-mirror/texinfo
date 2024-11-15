@@ -36,11 +36,8 @@ tests_dirs = different_encodings different_languages_gen_master_menu \
   for_nbspaces_different_encodings \
   input_dir_non_ascii output_dir_non_ascii output_dir_file_non_ascii
 
-long-checks: all
-	$(MAKE) $(AM_MAKEFLAGS) check LONG_TESTS=yes
-
 tex-html-checks: all
-	$(MAKE) $(AM_MAKEFLAGS) check LONG_TESTS=yes TEX_HTML_TESTS=yes
+	$(MAKE) $(AM_MAKEFLAGS) check TEX_HTML_TESTS=yes
 
 copy-tex-html:
 	for dir in $(tex_html_dirs); do \
