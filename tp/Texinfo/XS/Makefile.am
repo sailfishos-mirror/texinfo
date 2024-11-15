@@ -446,16 +446,28 @@ C_libtexinfo_convert_sources = \
                        convert/texinfo.c \
                        convert/texinfo.h
 
-# call_html_perl_function.c functions are called in other
-# parts of the code and need to be linked against Perl.
+# convenience library for C Perl called from libtexinfo-convert C code,
+# call_html_perl_function.c, to be able to have different flags from
+# libtexinfo-convert, to avoid Gnulib flags.
 # build_html_perl_state.c functions are called from call_html_perl_function.c.
-XS_libtexinfo_convert_sources = \
+if HAVE_ICONV
+noinst_LTLIBRARIES += libxs_in_libtexinfo_convert.la
+endif
+
+libxs_in_libtexinfo_convert_la_SOURCES = \
                        convert/build_html_perl_state.h \
                        convert/build_html_perl_state.c \
+                       convert/call_html_perl_function.h \
+                       convert/call_html_perl_function.c
+
+libxs_in_libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(XSLIBS_CPPFLAGS)
+libxs_in_libtexinfo_convert_la_CFLAGS = $(XSLIBS_CFLAGS)
+libxs_in_libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
+libxs_in_libtexinfo_convert_la_LDFLAGS = $(perl_conf_LDFLAGS)
+
+XS_libtexinfo_convert_sources = \
                        convert/build_html_perl_info.h \
                        convert/build_html_perl_info.c \
-                       convert/call_html_perl_function.h \
-                       convert/call_html_perl_function.c \
                        convert/get_converter_perl_info.c \
                        convert/get_converter_perl_info.h
 
@@ -467,7 +479,7 @@ libtexinfo_convert_la_SOURCES = \
 # parsetexi is only needed for texinfo.c
 libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 libtexinfo_convert_la_CFLAGS = $(XSLIBS_CFLAGS)
-libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
+libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la libxs_in_libtexinfo_convert.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
 libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 # example to trigger errors associated with no undefined
 #libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_PERL_LINK) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)

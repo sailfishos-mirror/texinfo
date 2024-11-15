@@ -19,6 +19,24 @@
 
 2024-11-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (XS_libtexinfo_convert_sources)
+	(noinst_LTLIBRARIES, libxs_in_libtexinfo_convert_la_SOURCES)
+	(libxs_in_libtexinfo_convert_la_CPPFLAGS)
+	(libxs_in_libtexinfo_convert_la_CFLAGS)
+	(libxs_in_libtexinfo_convert_la_LIBADD)
+	(libxs_in_libtexinfo_convert_la_LDFLAGS)
+	(libtexinfo_convert_la_LIBADD): add the libxs_in_libtexinfo_convert.la
+	convenience internal library to be able to compile the C code calling
+	Perl from libtexinfo_convert code with different flags, to avoid
+	Gnulib flags.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c,
+	tp/Texinfo/XS/convert/call_html_perl_function.c: remove config.h
+	include, there is no use of Gnulib functions nor use of autoconf
+	defines in the Perl C codes.
+
+2024-11-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (XS_libtexinfo_convert_sources),
 	tp/Texinfo/XS/convert/build_html_perl_state.h,
 	tp/Texinfo/XS/convert/build_html_perl_state.c
