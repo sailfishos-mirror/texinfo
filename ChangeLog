@@ -1,5 +1,11 @@
 2024-11-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/html_prepare_converter.c
+	(check_targets_order): use the PRIuPTR macro from inttypes.h
+	for uintptr_t type printf format.
+
+2024-11-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (StructuringTransfoXS_la_CPPFLAGS)
 	(IndicesXS_la_CPPFLAGS, ConvertXS_la_CPPFLAGS): remove
 	$(GNULIB_CPPFLAGS) as there is no Gnulib code used in XS interfaces

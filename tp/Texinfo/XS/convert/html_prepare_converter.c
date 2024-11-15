@@ -20,6 +20,7 @@
 #include <stddef.h>
 #include <string.h>
 #include <errno.h>
+#include <inttypes.h>
 /* for euidaccess.  Not portable, use gnulib */
 #include <unistd.h>
 
@@ -4447,7 +4448,7 @@ check_targets_order (enum command_id cmd, HTML_TARGET_LIST *element_targets)
       if (compare_element_target (&element_targets->list[i-1],
                                   &element_targets->list[i]) > 0)
         {
-          fprintf (stderr, "no %s %zu %ld %p %s %zu %ld %p %s\n",
+          fprintf (stderr, "no %s %zu %"PRIuPTR" %p %s %zu %"PRIuPTR" %p %s\n",
            builtin_command_name (cmd), i-1,
            (uintptr_t)element_targets->list[i-1].element,
            element_targets->list[i-1].element, element_targets->list[i-1].target,
