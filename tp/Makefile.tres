@@ -544,9 +544,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formats_encodings/accent.pl \
   t/results/formats_encodings/accent_argument_non_ascii.pl \
   t/results/formats_encodings/accent_enable_encoding.pl \
-  t/results/formats_encodings/accented_character_in_file_name.pl \
-  t/results/formats_encodings/accented_character_in_file_name/res_html \
-  t/results/formats_encodings/accented_character_in_file_name/res_info \
   t/results/formats_encodings/accentenc.pl \
   t/results/formats_encodings/accentenc_enable_encoding.pl \
   t/results/formats_encodings/at_commands_in_refs.pl \
