@@ -1,5 +1,10 @@
 2024-11-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/t/formats_encodings.t (accented_character_in_file_name):
+	remove test
+
+2024-11-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/tests/input/non_ascii: New directory to centralise location
 	of files with non-ASCII names
 
