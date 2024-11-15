@@ -1,5 +1,13 @@
 2024-11-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/tests/input/non_ascii: New directory to centralise location
+	of files with non-ASCII names
+
+	* tp/tests/run_parser_all.sh: specify -I $srcdir/input/non_ascii
+	on texi2any command line
+
+2024-11-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/tests/many_input_files/Makefile.am:
 	Remove use of LONG_TESTS variable (same change made in
 	tp/tests/Makefile.am on 2016-10-23 but this file was missed).

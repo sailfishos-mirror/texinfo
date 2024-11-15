@@ -73,5 +73,16 @@ distclean-local:
 	rm -rf input_file_names_recoded_stamp.txt built_input
 
 EXTRA_DIST = run_parser_all.sh parser_tests.sh escape_file_names.pl \
- $(one_test_files_generated_list) coverage_macro.texi included_akçentêd.texi \
+ $(one_test_files_generated_list) coverage_macro.texi \
  input/included_latin1.texi
+
+# Files with non-ASCII file names
+na=input/non_ascii
+EXTRA_DIST += \
+ $(na)/osé_utf8.texi \
+ $(na)/osé_utf8_no_setfilename.texi \
+ $(na)/çss.css \
+ $(na)/cêss.css \
+ $(na)/an_ïmage.png \
+ $(na)/txt_çimage.txt \
+ $(na)/included_akçentêd.texi
