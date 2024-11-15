@@ -84,7 +84,6 @@ extern const char *direction_string_context_names[];
 
 /* in convert_html.c */
 extern const char *html_conversion_context_type_names[];
-extern const char *html_argument_formatting_type_names[];
 extern const char *html_stage_handler_stage_type_names[];
 
 extern COMMAND_ARGS_SPECIFICATION html_command_args_flags[BUILTIN_CMD_NUMBER];

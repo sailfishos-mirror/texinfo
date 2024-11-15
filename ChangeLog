@@ -19,6 +19,19 @@
 
 2024-11-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/build_html_perl_state.c,
+	tp/Texinfo/XS/convert/call_html_perl_function.c
+	(html_argument_formatting_type_names)
+	(build_html_command_formatted_args),
+	tp/Texinfo/XS/convert/convert_html.c: move
+	html_argument_formatting_type_names and
+	build_html_command_formatted_args to call_html_perl_function.c.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c: make
+	build_html_translated_names static.
+
+2024-11-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/html_prepare_converter.c
 	(check_targets_order): use the PRIuPTR macro from inttypes.h
 	for uintptr_t type printf format.

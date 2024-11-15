@@ -48,7 +48,7 @@
 #include "debug.h"
 /* for newSVpv_utf8 build_tree_to_build */
 #include "build_perl_info.h"
-/* build_html_formatting_state build_html_command_formatted_args */
+/* build_html_formatting_state */
 #include "build_html_perl_state.h"
 #include "call_html_perl_function.h"
 
@@ -1903,6 +1903,55 @@ call_types_open (CONVERTER *self, const enum element_type type,
 
   FREETMPS;
   LEAVE;
+}
+
+static const char *html_argument_formatting_type_names[] = {
+  #define html_aft_type(name) #name,
+   HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE
+  #undef html_aft_type
+};
+
+static SV *
+build_html_command_formatted_args (const HTML_ARGS_FORMATTED *args_formatted)
+{
+  AV *av;
+  size_t i;
+
+  dTHX;
+
+  if (!args_formatted)
+    return newSV (0);
+
+  av = newAV ();
+
+  for (i = 0; i < args_formatted->number; i++)
+    {
+      const HTML_ARG_FORMATTED *arg_formatted = &args_formatted->args[i];
+      if (arg_formatted->arg_tree)
+        {
+          int j;
+          HV *arg_formated_hv = newHV ();
+          av_push (av, newRV_noinc ((SV *) arg_formated_hv));
+
+          hv_store (arg_formated_hv, "arg_tree", strlen ("arg_tree"),
+                    newRV_inc ((SV *) arg_formatted->arg_tree->hv), 0);
+
+          for (j = 0; j < AFT_type_raw+1; j++)
+            {
+              if (arg_formatted->formatted[j])
+                {
+                  const char *format_name
+                     = html_argument_formatting_type_names[j];
+                  hv_store (arg_formated_hv, format_name, strlen (format_name),
+                            newSVpv_utf8 (arg_formatted->formatted[j], 0), 0);
+                }
+            }
+        }
+      else
+        av_push (av, newSV(0));
+    }
+
+  return newRV_noinc ((SV *) av);
 }
 
 void

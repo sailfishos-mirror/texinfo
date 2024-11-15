@@ -41,6 +41,8 @@
 #include "customization_options.h"
 #include "convert_to_text.h"
 #include "get_perl_info.h"
+/* retrieve_converter find_perl_converter_class_converter_format
+   new_converter converter_set_document new_converter_initialization_info */
 #include "converter.h"
 #include "get_converter_perl_info.h"
 

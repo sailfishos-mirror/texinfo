@@ -13,7 +13,6 @@
 void html_pass_xtmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list, SV *converter_sv);
 
 HV *build_html_target (const HTML_TARGET *html_target);
-void build_html_translated_names (HV *hv, CONVERTER *converter);
 
 void html_pass_conversion_initialization (CONVERTER *converter,
                                      SV *converter_sv, SV *document_in);
@@ -46,8 +45,6 @@ void pass_html_elements_in_file_count (SV *converter_sv,
 
 void build_html_formatting_state (CONVERTER *converter);
 
-SV *build_html_command_formatted_args
-           (const HTML_ARGS_FORMATTED *args_formatted);
 SV *build_replaced_substrings (NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
 void build_pending_footnotes (AV *av, HTML_PENDING_FOOTNOTE_STACK *stack);

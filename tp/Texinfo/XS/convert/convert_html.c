@@ -72,12 +72,6 @@ const char *html_conversion_context_type_names[] = {
   #undef cctx_type
 };
 
-const char *html_argument_formatting_type_names[] = {
-  #define html_aft_type(name) #name,
-   HTML_ARGUMENTS_FORMATTED_FORMAT_TYPE
-  #undef html_aft_type
-};
-
 const char *html_stage_handler_stage_type_names[] = {
   #define html_hsht_type(name) #name,
    HTML_STAGE_HANDLER_STAGE_TYPE

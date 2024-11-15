@@ -31,6 +31,7 @@
 #include "document.h"
 #include "manipulate_indices.h"
 #include "get_perl_info.h"
+/* get_sv_converter copy_sv_options_for_convert_text */
 #include "get_converter_perl_info.h"
 /* for newSVpv_utf8 */
 #include "build_perl_info.h"

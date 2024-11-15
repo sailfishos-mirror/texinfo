@@ -15,6 +15,9 @@
 
 #include <config.h>
 
+#include <string.h>
+#include <stdio.h>
+
 /* Avoid namespace conflicts. */
 #define context perl_context
 
@@ -36,10 +39,11 @@
 #include "builtin_commands.h"
 /* for fatal HMSF_* */
 #include "utils.h"
-#include "extra.h"
-/* for debugging */
+/* next two could be interesting for debugging */
+/*
 #include "debug.h"
 #include "convert_to_texinfo.h"
+ */
 #include "output_unit.h"
 #include "command_stack.h"
 /* for call_common_set_output_perl_encoding */
@@ -56,8 +60,6 @@
    htmlxref_split_type_names html_setup_global_units_direction_names */
 #include "html_prepare_converter.h"
 #include "build_html_perl_state.h"
-
-#define LOCALEDIR DATADIR "/locale"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
@@ -622,7 +624,7 @@ html_pass_output_units_global_targets (CONVERTER *self, SV *output_units_sv,
     }
 }
 
-void
+static void
 build_html_translated_names (HV *hv, CONVERTER *converter)
 {
   int j;
@@ -781,49 +783,6 @@ build_html_formatting_state (CONVERTER *converter)
     build_html_translated_names (hv, converter);
 
   converter->modified_state = 0;
-}
-
-SV *
-build_html_command_formatted_args (const HTML_ARGS_FORMATTED *args_formatted)
-{
-  AV *av;
-  size_t i;
-
-  dTHX;
-
-  if (!args_formatted)
-    return newSV (0);
-
-  av = newAV ();
-
-  for (i = 0; i < args_formatted->number; i++)
-    {
-      const HTML_ARG_FORMATTED *arg_formatted = &args_formatted->args[i];
-      if (arg_formatted->arg_tree)
-        {
-          int j;
-          HV *arg_formated_hv = newHV ();
-          av_push (av, newRV_noinc ((SV *) arg_formated_hv));
-
-          hv_store (arg_formated_hv, "arg_tree", strlen ("arg_tree"),
-                    newRV_inc ((SV *) arg_formatted->arg_tree->hv), 0);
-
-          for (j = 0; j < AFT_type_raw+1; j++)
-            {
-              if (arg_formatted->formatted[j])
-                {
-                  const char *format_name
-                     = html_argument_formatting_type_names[j];
-                  hv_store (arg_formated_hv, format_name, strlen (format_name),
-                            newSVpv_utf8 (arg_formatted->formatted[j], 0), 0);
-                }
-            }
-        }
-      else
-        av_push (av, newSV(0));
-    }
-
-  return newRV_noinc ((SV *) av);
 }
 
 SV *

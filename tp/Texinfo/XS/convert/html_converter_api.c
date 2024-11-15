@@ -22,6 +22,7 @@
 #include <stdio.h>
 
 #include "document_types.h"
+/* converter_set_document */
 #include "converter.h"
 #include "html_conversion_api.h"
 #include "html_converter_api.h"
