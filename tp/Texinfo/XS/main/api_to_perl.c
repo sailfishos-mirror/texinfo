@@ -42,6 +42,8 @@
 int
 get_refcount (void *sv)
 {
+  dTHX;
+
   return SvREFCNT ((SV *) sv);
 }
 
