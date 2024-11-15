@@ -401,7 +401,7 @@ libtexinfoxs_la_SOURCES= \
 		      main/options_get_perl.c
 
 # locate include files under out-of-source builds.
-libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfoxs_la_LIBADD = libtexinfo.la libxsutils.la $(platform_PERL_LIBADD)
 # example to trigger errors associated with no undefined
