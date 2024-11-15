@@ -85,4 +85,5 @@ EXTRA_DIST += \
  $(na)/cêss.css \
  $(na)/an_ïmage.png \
  $(na)/txt_çimage.txt \
- $(na)/included_akçentêd.texi
+ $(na)/included_akçentêd.texi \
+ $(na)/tex_encodé_utf8.texi
