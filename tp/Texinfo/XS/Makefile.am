@@ -386,9 +386,8 @@ $(srcdir)/main/html_conversion_data.c $(srcdir)/main/html_conversion_data.h: mai
 MAINTAINERCLEANFILES += main/html_conversion_data.c main/html_conversion_data.h
 
 
-########################## shared perl XS library for texinfo XS codes
-# it is separate from libtexinfo because of different dependencies; it
-# does not depend on gnulib.  Both libraries are used by following XS.
+################################# common Perl C code used to call
+# libtexinfo from Perl XS *.xs interfaces and other Perl C codes shared library
 
 if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfoxs.la
@@ -408,6 +407,63 @@ libtexinfoxs_la_LIBADD = libtexinfo.la libxsutils.la $(platform_PERL_LIBADD)
 # example to trigger errors associated with no undefined
 #libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(PERL_LIBS) $(LTLIBINTL)
 libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL)
+
+########################## Parsetexi XS parser
+
+converterdatadir = $(datadir)/$(CONVERTER)
+modulesdir = $(converterdatadir)/Texinfo/XS/parsetexi
+dist_modules_DATA = parsetexi/Parsetexi.pm
+
+if HAVE_ICONV
+xs_LTLIBRARIES += Parsetexi.la
+endif
+
+nodist_Parsetexi_la_SOURCES = parsetexi/Parsetexi.c
+CLEANFILES += parsetexi/Parsetexi.c
+
+EXTRA_DIST += parsetexi/Parsetexi.xs
+
+# To locate include files under out-of-source builds.
+Parsetexi_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+Parsetexi_la_CFLAGS = $(XSLIBS_CFLAGS)
+Parsetexi_la_LIBADD = libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
+Parsetexi_la_LDFLAGS = $(XSLIBS_LDFLAGS)
+
+########################## Document XS
+
+if HAVE_ICONV
+xs_LTLIBRARIES += DocumentXS.la
+endif
+
+nodist_DocumentXS_la_SOURCES = main/DocumentXS.c
+CLEANFILES += main/DocumentXS.c
+
+EXTRA_DIST += main/DocumentXS.xs
+
+# locate include files under out-of-source builds.
+DocumentXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+DocumentXS_la_CFLAGS = $(XSLIBS_CFLAGS)
+DocumentXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
+DocumentXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
+
+########################## StructuringTransfo XS
+
+if HAVE_ICONV
+xs_LTLIBRARIES += StructuringTransfoXS.la
+endif
+
+nodist_StructuringTransfoXS_la_SOURCES = \
+                    structuring_transfo/StructuringTransfoXS.c
+CLEANFILES += \
+                    structuring_transfo/StructuringTransfoXS.c
+
+EXTRA_DIST += structuring_transfo/StructuringTransfoXS.xs
+
+# locate include files under out-of-source builds.
+StructuringTransfoXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+StructuringTransfoXS_la_CFLAGS = $(XSLIBS_CFLAGS)
+StructuringTransfoXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
+StructuringTransfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 
 ########################## shared C library for conversion
@@ -478,7 +534,6 @@ libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(EUIDA
 # example to trigger errors associated with no undefined
 #libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_PERL_LINK) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
-
 ################################# common Perl C code used to call
 # libtexinfo-convert from Perl XS *.xs interfaces shared library
 
@@ -500,63 +555,6 @@ libtexinfo_convertxs_la_LIBADD = libtexinfo-convert.la libtexinfoxs.la libtexinf
 #libtexinfo_convertxs_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(PERL_LIBS) $(LTLIBINTL)
 libtexinfo_convertxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL)
 
-
-########################## Parsetexi XS parser
-
-converterdatadir = $(datadir)/$(CONVERTER)
-modulesdir = $(converterdatadir)/Texinfo/XS/parsetexi
-dist_modules_DATA = parsetexi/Parsetexi.pm
-
-if HAVE_ICONV
-xs_LTLIBRARIES += Parsetexi.la
-endif
-
-nodist_Parsetexi_la_SOURCES = parsetexi/Parsetexi.c
-CLEANFILES += parsetexi/Parsetexi.c
-
-EXTRA_DIST += parsetexi/Parsetexi.xs
-
-# To locate include files under out-of-source builds.
-Parsetexi_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-Parsetexi_la_CFLAGS = $(XSLIBS_CFLAGS)
-Parsetexi_la_LIBADD = libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
-Parsetexi_la_LDFLAGS = $(XSLIBS_LDFLAGS)
-
-########################## Document XS
-
-if HAVE_ICONV
-xs_LTLIBRARIES += DocumentXS.la
-endif
-
-nodist_DocumentXS_la_SOURCES = main/DocumentXS.c
-CLEANFILES += main/DocumentXS.c
-
-EXTRA_DIST += main/DocumentXS.xs
-
-# locate include files under out-of-source builds.
-DocumentXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-DocumentXS_la_CFLAGS = $(XSLIBS_CFLAGS)
-DocumentXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
-DocumentXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
-
-########################## StructuringTransfo XS
-
-if HAVE_ICONV
-xs_LTLIBRARIES += StructuringTransfoXS.la
-endif
-
-nodist_StructuringTransfoXS_la_SOURCES = \
-                    structuring_transfo/StructuringTransfoXS.c
-CLEANFILES += \
-                    structuring_transfo/StructuringTransfoXS.c
-
-EXTRA_DIST += structuring_transfo/StructuringTransfoXS.xs
-
-# locate include files under out-of-source builds.
-StructuringTransfoXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-StructuringTransfoXS_la_CFLAGS = $(XSLIBS_CFLAGS)
-StructuringTransfoXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
-StructuringTransfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 ########################## IndicesXS
 

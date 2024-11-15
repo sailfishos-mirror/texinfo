@@ -1,5 +1,10 @@
 2024-11-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am: move XS interfaces that do not need
+	libtexinfo-convert before libtexinfo-convert.
+
+2024-11-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES)
 	(xs_LTLIBRARIES, libtexinfo_convertxs_la_SOURCES)
 	(libtexinfo_convertxs_la_CPPFLAGS)
