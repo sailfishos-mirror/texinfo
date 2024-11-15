@@ -122,6 +122,9 @@ libxsutils_la_SOURCES = \
 		main/xs_utils.c \
 		main/xs_utils.h
 
+libxsutils_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
+libxsutils_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
+
 ########################## shared common library and parser library
 
 if HAVE_ICONV
@@ -267,7 +270,7 @@ libxs_in_libtexinfo_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
 # locate include files under out-of-source builds.
 libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
-libtexinfo_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la libxs_in_libtexinfo.la $(platform_PERL_LIBADD)
+libtexinfo_la_LIBADD = libxs_in_libtexinfo.la $(platform_PERL_LIBADD)
 libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 #libtexinfo_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(PERL_LIBS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 

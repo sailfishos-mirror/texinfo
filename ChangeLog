@@ -1,3 +1,12 @@
+2024-11-15  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (libxsutils_la_CPPFLAGS)
+	(libxsutils_la_LIBADD, libtexinfo_la_LIBADD),
+	tp/Texinfo/XS/main/xs_utils.c: include config.h in xs_utils.c as
+	vasprintf may come from Gnulib.  Add Gnulib flags and library for
+	libxsutils.la and remove from libtexinfo.la to avoid doubly defined
+	symbols.
+
 2024-11-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/build_perl_info.c,

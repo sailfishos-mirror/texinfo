@@ -13,6 +13,9 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+/* needed for vasprintf which may come from Gnulib */
+#include <config.h>
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
