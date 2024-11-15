@@ -59,7 +59,7 @@
 /* for special_unit_info_type_names html_global_unit_direction_names
    htmlxref_split_type_names html_setup_global_units_direction_names */
 #include "html_prepare_converter.h"
-#include "build_html_perl_state.h"
+#include "build_html_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */

@@ -49,7 +49,7 @@
 /* for newSVpv_utf8 build_tree_to_build */
 #include "build_perl_info.h"
 /* build_html_formatting_state */
-#include "build_html_perl_state.h"
+#include "build_html_perl_info.h"
 #include "call_html_perl_function.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
