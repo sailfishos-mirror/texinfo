@@ -55,6 +55,7 @@ if [ $ret != 0 ]; then
 else
   outdir=$basename
   cp -pr $outdir $raw_output_dir
+  find "${outdir}" | ${srcdir}/../escape_file_names.pl
     
   dir=$basename
   if [ -d "$srcdir/${dir}_res" ]; then

@@ -1,3 +1,21 @@
+2024-11-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Escape non-ASCII file names in many_input_files tests
+
+	* tp/tests/many_input_files/different_encodings.sh,
+	* tp/tests/many_input_files/different_languages_gen_master_menu.sh,
+	* tp/tests/many_input_files/for_nbspaces_different_encodings.sh,
+	* tp/tests/many_input_files/input_dir_non_ascii.sh,
+	* tp/tests/many_input_files/output_dir_file_non_ascii.sh,
+	* tp/tests/many_input_files/output_dir_non_ascii.sh,
+	* tp/tests/many_input_files/tex_l2h_output_dir_non_ascii.sh,
+	* tp/tests/many_input_files/tex_t4ht.sh,
+	* tp/tests/many_input_files/tex_t4ht_output_dir_non_ascii.sh:
+	Run escape_file_names.pl on output directory.
+
+	* tp/tests/many_input_files/Makefile.am: update rules to
+	copy output directories in their escaped form.
+
 2024-11-15  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/Makefile.am (libxsutils_la_CPPFLAGS)

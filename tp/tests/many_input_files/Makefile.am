@@ -56,8 +56,8 @@ copy-tex-html:
 			echo "No dir $$dir/"; \
 		fi; \
 	done
-	cp -fpR tex_t4ht_output_dir_non_ascii/encodé/ "${srcdir}/tex_t4ht_output_dir_non_ascii_res/"
-	cp -fpR tex_l2h_output_dir_non_ascii/encodé/ "${srcdir}/tex_l2h_output_dir_non_ascii_res/"
+	cp -fpR tex_t4ht_output_dir_non_ascii/encod%c3%a9/ "${srcdir}/tex_t4ht_output_dir_non_ascii_res/"
+	cp -fpR tex_l2h_output_dir_non_ascii/encod%c3%a9/ "${srcdir}/tex_l2h_output_dir_non_ascii_res/"
 
 copy-tests:
 	for dir in $(tests_dirs); do \
@@ -72,8 +72,8 @@ copy-tests:
 			echo "No dir $$dir/"; \
 		fi; \
 	done
-	cp -fpR output_dir_non_ascii/encodé/ "${srcdir}/output_dir_non_ascii_res/"
-	cp -fpR output_dir_file_non_ascii/encodé/ "${srcdir}/output_dir_file_non_ascii_res/"
+	cp -fpR output_dir_non_ascii/encod%c3%a9/ "${srcdir}/output_dir_non_ascii_res/"
+	cp -fpR output_dir_file_non_ascii/encod%c3%a9/ "${srcdir}/output_dir_file_non_ascii_res/"
 
 DISTCLEANFILES = *.log
 

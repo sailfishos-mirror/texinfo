@@ -95,6 +95,7 @@ else
     filename=`basename "$file"`
     sed -e 's/^# LaTeX2HTML.*/# LaTeX2HTML/' "$file" > "$destination_outdir/$filename"
   done
+  find $outdir | $srcdir/../escape_file_names.pl
 
   dir=$basename
   if [ -d "$srcdir/${dir}_res" ]; then
