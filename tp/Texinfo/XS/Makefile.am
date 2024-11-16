@@ -446,7 +446,7 @@ EXTRA_DIST += main/DocumentXS.xs
 DocumentXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 DocumentXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 DocumentXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
-DocumentXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
+DocumentXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ########################## StructuringTransfo XS
 

@@ -1,5 +1,11 @@
 2024-11-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (DocumentXS_la_LDFLAGS): remove
+	$(LTLIBICONV) $(LTLIBUNISTRING) from XS link flags when the XS object
+	does not use libunistring or iconv.
+
+2024-11-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am: rename libxsparagraph as libparagraph,
 	libxsutils as libperlcall_utils, libxs_in_libtexinfo as
 	libcallperl_libtexinfo and libxs_in_libtexinfo_convert as
