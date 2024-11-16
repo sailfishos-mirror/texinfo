@@ -1,5 +1,11 @@
 2024-11-16  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/tests/many_input_files/tex_l2h_output_dir_non_ascii.sh,
+	* tp/tests/many_input_files/tex_t4ht_output_dir_non_ascii.sh:
+	fix path of tex_encodé_utf8.texi.
+
+2024-11-16  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Eliminate non-ASCII file names from tarball
 
 	* tp/tests/Makefile.am (input/non_ascii.tar): Rule to create
