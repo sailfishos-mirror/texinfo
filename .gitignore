@@ -275,7 +275,6 @@ tp/tests/test_scripts/*.log
 tp/tests/test_scripts/*.trs
 tp/tests/input_file_names_recoded_stamp.txt
 tp/tests/built_input
-tp/tests/input/non_ascii.tar
 
 tp/tests/many_input_files/different_encodings
 tp/tests/many_input_files/different_languages_gen_master_menu

@@ -1,5 +1,11 @@
 2024-11-16  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* autogen.sh: regenerate tp/tests/input/non_ascii.tar.  Suggestion
+	from Patrice.
+	* tp/tests/Makefile.am: update a comment
+
+2024-11-16  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/tests/README: mention that input/non_ascii.tar needs
 	to be deleted manually.
 	* tp/tests/Makefile.am (input/non_ascii.tar): add comment.

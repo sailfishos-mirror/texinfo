@@ -25,6 +25,11 @@ cmd="(cd tp/tests && ../maintain/regenerate_cmd_tests.sh Makefile.onetst . -base
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 
+# Same rule in tp/tests/Makefile.am
+cmd="(cd tp/tests/input && tar -c -f non_ascii.tar non_ascii)"
+echo "  $cmd"
+$chicken eval $cmd || exit 1
+
 # missing texi2any_internals.texi stops automake.  Set up a fake
 # texi2any_internals.texi with a file timestamp set in the past,
 # if texi2any_internals.texi is not present
