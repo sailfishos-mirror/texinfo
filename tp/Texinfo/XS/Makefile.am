@@ -108,7 +108,7 @@ XSParagraph_la_SOURCES = ppport.h
 XSParagraph_la_CFLAGS = $(XSLIBS_CFLAGS)
 XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 XSParagraph_la_LIBADD = libxsparagraph.la $(platform_PERL_LIBADD)
-XSParagraph_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)
+XSParagraph_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 EXTRA_DIST += XSParagraph.xs MiscXS.xs
 
@@ -405,8 +405,8 @@ libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfoxs_la_LIBADD = libtexinfo.la libxsutils.la $(platform_PERL_LIBADD)
 # example to trigger errors associated with no undefined
-#libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(PERL_LIBS) $(LTLIBINTL)
-libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL)
+#libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(PERL_LIBS)
+libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS)
 
 ########################## Parsetexi XS parser
 
@@ -443,7 +443,7 @@ EXTRA_DIST += main/DocumentXS.xs
 # locate include files under out-of-source builds.
 DocumentXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 DocumentXS_la_CFLAGS = $(XSLIBS_CFLAGS)
-DocumentXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
+DocumentXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
 DocumentXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 ########################## StructuringTransfo XS
@@ -462,8 +462,8 @@ EXTRA_DIST += structuring_transfo/StructuringTransfoXS.xs
 # locate include files under out-of-source builds.
 StructuringTransfoXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 StructuringTransfoXS_la_CFLAGS = $(XSLIBS_CFLAGS)
-StructuringTransfoXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
-StructuringTransfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
+StructuringTransfoXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
+StructuringTransfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 
 ########################## shared C library for conversion
@@ -532,7 +532,7 @@ libtexinfo_convert_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la libxs_in_libtexinfo_convert.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
 libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 # example to trigger errors associated with no undefined
-#libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_PERL_LINK) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+#libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 ################################# common Perl C code used to call
 # libtexinfo-convert from Perl XS *.xs interfaces shared library
@@ -553,7 +553,7 @@ libtexinfo_convertxs_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfo_convertxs_la_LIBADD = libtexinfo-convert.la libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
 # example to trigger errors associated with no undefined
 #libtexinfo_convertxs_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(PERL_LIBS) $(LTLIBINTL)
-libtexinfo_convertxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL)
+libtexinfo_convertxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS)
 
 
 ########################## IndicesXS
@@ -573,9 +573,9 @@ EXTRA_DIST += main/IndicesXS.xs
 # locate include files under out-of-source builds.
 IndicesXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 IndicesXS_la_CFLAGS = $(XSLIBS_CFLAGS)
-IndicesXS_la_LIBADD = libtexinfo-convertxs.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
-IndicesXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
-#IndicesXS_la_LDFLAGS = -Wl,--no-undefined $(XSLIBS_LDFLAGS) $(perl_conf_PERL_LINK) $(LTLIBICONV) $(LTLIBUNISTRING)
+IndicesXS_la_LIBADD = libtexinfo-convertxs.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(platform_PERL_LIBADD)
+IndicesXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
+#IndicesXS_la_LDFLAGS = -Wl,--no-undefined $(XSLIBS_LDFLAGS)
 
 ########################## ConvertXS
 
@@ -595,8 +595,8 @@ EXTRA_DIST += convert/ConvertXS.xs
 # To locate include files under out-of-source builds.
 ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 ConvertXS_la_CFLAGS = $(XSLIBS_CFLAGS)
-ConvertXS_la_LIBADD = libtexinfo-convertxs.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
-ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
+ConvertXS_la_LIBADD = libtexinfo-convertxs.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(platform_PERL_LIBADD)
+ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 
 ############################################### demonstrator of the API
