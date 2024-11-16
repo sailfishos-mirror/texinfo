@@ -1217,7 +1217,7 @@ html_converter_get_customization_sv (SV *converter_sv,
               AV *stage_av = (AV *)SvRV (stage_sv);
               HTML_STAGE_HANDLER_INFO_LIST *stage_handler_list
                 = &converter->html_stage_handlers[stage];
-              SSize_t stage_handlers_info_nr = av_top_index (stage_av) +1;
+              SSize_t stage_handlers_info_nr = AvFILL (stage_av) +1;
 
               if (stage_handlers_info_nr == 0)
                 continue;
@@ -1240,7 +1240,7 @@ html_converter_get_customization_sv (SV *converter_sv,
                       SV **handler_sv;
                       SV **priority_sv;
 
-                      SSize_t stage_info_nr = av_top_index (stage_info_av) +1;
+                      SSize_t stage_info_nr = AvFILL (stage_info_av) +1;
                       if (stage_info_nr != 2)
                         {
                           fprintf (stderr,
@@ -1539,7 +1539,7 @@ html_get_jslicenses_sv (SV *jslicenses_sv, CONVERTER *converter)
                 = &jslicences_files_info->list[j];
               jslicense_file_info->filename = non_perl_strdup (filename);
 
-              file_info_nr = av_top_index (file_info_av) +1;
+              file_info_nr = AvFILL (file_info_av) +1;
               if (file_info_nr != 3)
                 {
                   fprintf (stderr,

@@ -221,7 +221,7 @@ parser_store_INCLUDE_DIRECTORIES (SV *directories)
           {
             SSize_t i;
             AV *directories_av = (AV *)SvRV (directories);
-            SSize_t directories_nr = av_top_index (directories_av) +1;
+            SSize_t directories_nr = AvFILL (directories_av) +1;
 
             for (i = 0; i < directories_nr; i++)
               {
@@ -245,7 +245,7 @@ parser_store_EXPANDED_FORMATS (SV *expanded_formats)
           {
             SSize_t i;
             AV *expanded_formats_av = (AV *)SvRV (expanded_formats);
-            SSize_t expanded_formats_nr = av_top_index (expanded_formats_av) +1;
+            SSize_t expanded_formats_nr = AvFILL (expanded_formats_av) +1;
 
             for (i = 0; i < expanded_formats_nr; i++)
               {

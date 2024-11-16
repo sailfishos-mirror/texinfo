@@ -188,7 +188,7 @@ get_sv_output_units_descriptor (SV *output_units_in, char *warn_string,
     }
 
   av_in = (AV *)SvRV (output_units_in);
-  output_units_nr = av_top_index (av_in) +1;
+  output_units_nr = AvFILL (av_in) +1;
 
   if (output_units_nr > 0)
     {
@@ -327,7 +327,7 @@ add_svav_to_string_list (const SV *sv, STRING_LIST *string_list,
     return;
 
   AV *av = (AV *)SvRV (sv);
-  strings_nr = av_top_index (av) +1;
+  strings_nr = AvFILL (av) +1;
   for (i = 0; i < strings_nr; i++)
     {
       SV **string_sv = av_fetch (av, i, 0);
@@ -715,7 +715,7 @@ get_sv_index_entries_sorted_by_letter (INDEX_LIST *indices_info,
           fatal (msg);
         }
       av = (AV *)SvRV (sorted_by_letter_sv);
-      letter_entries_nr = av_top_index (av) +1;
+      letter_entries_nr = AvFILL (av) +1;
 
       index_index_letters = &indices_entries_by_letter[j];
       index_index_letters->name = non_perl_strdup (idx_name);
@@ -752,7 +752,7 @@ get_sv_index_entries_sorted_by_letter (INDEX_LIST *indices_info,
               letter_entries->letter = non_perl_strdup (letter_string);
 
               entries_av = (AV *) SvRV (*entries_sv);
-              entries_nr = av_top_index (entries_av) +1;
+              entries_nr = AvFILL (entries_av) +1;
               letter_entries->entries_number = entries_nr;
               letter_entries->entries =
                 (INDEX_ENTRY **) malloc (entries_nr * sizeof (INDEX_ENTRY *));
@@ -891,7 +891,7 @@ html_get_button_specification_list (const CONVERTER *converter,
 
   buttons_av = (AV *)SvRV (buttons_sv);
 
-  buttons_nr = av_top_index (buttons_av) +1;
+  buttons_nr = AvFILL (buttons_av) +1;
 
   if (buttons_nr == 0)
     return 0;

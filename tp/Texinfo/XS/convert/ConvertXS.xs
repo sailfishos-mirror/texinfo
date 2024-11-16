@@ -423,7 +423,7 @@ converter_set_global_document_commands (SV *converter_in, char *commands_locatio
             int command_location = -1;
             int i;
             AV *selected_commands_av = (AV *) SvRV (selected_commands);
-            SSize_t in_commands_nr = av_top_index (selected_commands_av) +1;
+            SSize_t in_commands_nr = AvFILL (selected_commands_av) +1;
             enum command_id *cmd_list = (enum command_id *) malloc
                           ((in_commands_nr+1) * sizeof (enum command_id));
             /* actual command index/number without unknown commands */
