@@ -14,6 +14,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 /* Avoid namespace conflicts. */
 #define context perl_context
@@ -37,7 +38,7 @@
 #include "debug.h"
 #include "convert_to_texinfo.h"
  */
-/* newSVpv_utf8 element_to_perl_hash perl_only_* wrappers */
+/* newSVpv_utf8 element_to_perl_hash */
 #include "build_perl_info.h"
 /* for html_conversion_context_type_names translated_special_unit_info
    special_unit_info_type_names */
@@ -82,11 +83,11 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
       const char *type_name = special_unit_info_type_names[string_type];
       char *key;
       HV *special_unit_hv = newHV ();
-      key = perl_only_malloc (strlen (type_name) + strlen ("_tree") + 1);
+      key = malloc (strlen (type_name) + strlen ("_tree") + 1);
       sprintf (key, "%s_tree", type_name);
       hv_store (special_unit_info_hv, key, strlen (key),
                 newRV_noinc ((SV *) special_unit_hv), 0);
-      perl_only_free (key);
+      free (key);
     }
 
   /* pass all the information for each context for translated commands */

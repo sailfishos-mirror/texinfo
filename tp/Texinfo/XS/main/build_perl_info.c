@@ -96,25 +96,37 @@
 
    /* Functions defined in files with Gnulib definition should therefore
       be used to allocate or free to match with the functions used to
-      free or allocate in files using Gnulib definitions.
-
-      To be sure to use Perl defined functions, wrappers
-      can be used, from build_perl_info.h:
-       perl_only_free, perl_only_strdup, perl_only_strndup, perl_only_malloc.
+      free or allocate in other files using Gnulib definitions.
 
       To be sure to use non Perl defined functions, constructors and wrappers
-      can be used, from utils.h:
+      must be used, from xs_utils.h:
        non_perl_free, non_perl_malloc, non_perl_strdup, non_perl_strndup,
        non_perl_xvasprintf, non_perl_xasprintf.
+
+      This is often needed, when memory is allocated or free'd in
+      'pure' C code (code that does not include Perl headers), as it is
+      safer to assume that Gnulib is always used in 'pure' C code.
+
+      To be sure to use Perl defined functions in files that include
+      both Gnulib and Perl headers, wrappers can be used, from
+      build_perl_info.h:
+       perl_only_free, perl_only_strdup, perl_only_strndup, perl_only_malloc.
+
+      In November 2024, no file is compiled with both Perl and Gnulib
+      headers as it lead to many errors on MS-Windows, therefore the
+      perl_only_* wrappers are currently unused.
+
     */
 
 /* wrappers to be sure to use Perl defined functions */
+/* NB this function does not appear to be used currently. */
 void
 perl_only_free (void *ptr)
 {
   free (ptr);
 }
 
+/* NB this function does not appear to be used currently. */
 void *
 perl_only_malloc (size_t size)
 {

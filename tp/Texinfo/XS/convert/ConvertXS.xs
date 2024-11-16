@@ -2302,7 +2302,7 @@ html_set_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
         if (args_nr > 0)
           {
             int i;
-            args_sv = (SV **) perl_only_malloc (args_nr * sizeof (SV *));
+            args_sv = (SV **) malloc (args_nr * sizeof (SV *));
             for (i = 0; i < args_nr; i++)
               {
                 args_sv[i] = ST(i+3);
@@ -2310,7 +2310,7 @@ html_set_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
           }
         html_set_shared_conversion_state (self, converter_in,
                                cmdname, state_name, args_nr, args_sv);
-        perl_only_free (args_sv);
+        free (args_sv);
 
 SV *
 html_get_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
@@ -2327,7 +2327,7 @@ html_get_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
         if (args_nr > 0)
           {
             int i;
-            args_sv = (SV **) perl_only_malloc (args_nr * sizeof (SV *));
+            args_sv = (SV **) malloc (args_nr * sizeof (SV *));
             for (i = 0; i < args_nr; i++)
               {
                 args_sv[i] = ST(i+3);
@@ -2335,7 +2335,7 @@ html_get_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
           }
         RETVAL = html_get_shared_conversion_state (self, converter_in,
                                     cmdname, state_name, args_nr, args_sv);
-        perl_only_free (args_sv);
+        free (args_sv);
     OUTPUT:
         RETVAL
 
