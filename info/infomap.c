@@ -252,7 +252,7 @@ static int default_emacs_like_info_keys[] =
   KEY_RIGHT_ARROW, NUL,         A_info_forward_char,
   KEY_LEFT_ARROW, NUL,          A_info_backward_char,
   KEY_DELETE, NUL,              A_info_scroll_backward,
-  
+
   ESC, KEY_PAGE_UP, NUL,        A_info_scroll_other_window_backward,
   ESC, KEY_PAGE_DOWN, NUL,      A_info_scroll_other_window,
   ESC, KEY_UP_ARROW, NUL,       A_info_prev_line,
@@ -260,7 +260,7 @@ static int default_emacs_like_info_keys[] =
   ESC, KEY_RIGHT_ARROW, NUL,    A_info_forward_word,
   ESC, KEY_LEFT_ARROW, NUL,     A_info_backward_word,
   KEY_BACK_TAB, NUL,            A_info_move_to_prev_xref,
-  
+
 };
 
 
@@ -478,7 +478,7 @@ static int default_vi_like_info_keys[] =
   ESC, KEY_LEFT_ARROW, NUL,     A_info_beginning_of_node,
   CONTROL('x'), KEY_DELETE, NUL, A_ea_backward_kill_line,
   KEY_BACK_TAB, NUL,            A_info_move_to_prev_xref,
-  
+
 };
 
 
@@ -529,7 +529,7 @@ static int default_vi_like_ea_keys[] =
   LFD, NUL,                       A_ea_newline,
   RET, NUL,                       A_ea_newline,
   TAB, NUL,                       A_ea_complete,
-  
+
   KEY_RIGHT_ARROW, NUL,         A_ea_forward,
   KEY_LEFT_ARROW, NUL,          A_ea_backward,
   KEY_HOME, NUL,                A_ea_beg_of_line,
@@ -553,9 +553,9 @@ static int sup_info, sup_ea;
 
 /* MS-DOS doesn't allow leading dots in file names.  */
 #ifdef __MSDOS__
-#define DOT_INFOKEY_FILE		"_infokey"
+#define DOT_INFOKEY_FILE                "_infokey"
 #else
-#define DOT_INFOKEY_FILE		".infokey"
+#define DOT_INFOKEY_FILE                ".infokey"
 #endif
 
 
@@ -719,44 +719,44 @@ section_to_keymaps (Keymap map, int *table, unsigned int len)
   int *p;
   int *seq;
   enum { getseq, gotseq, getaction } state = getseq;
-  
+
   for (p = table; (unsigned int) (p - table) < len; p++)
     {
       switch (state)
-	{
-	case getseq:
-	  if (*p)
-	    {
-	      seq = p;
-	      state = gotseq;
-	    }
-	  break;
-	  
-	case gotseq:
-	  if (!*p)
+        {
+        case getseq:
+          if (*p)
+            {
+              seq = p;
+              state = gotseq;
+            }
+          break;
+
+        case gotseq:
+          if (!*p)
             state = getaction;
-	  break;
-	  
-	case getaction:
-	  {
-	    unsigned int action = *p;
-	    KEYMAP_ENTRY ke;
-	    
-	    state = getseq;
+          break;
+
+        case getaction:
+          {
+            unsigned int action = *p;
+            KEYMAP_ENTRY ke;
+
+            state = getseq;
 
             ke.type = ISFUNC;
             ke.value.function = action < A_NCOMMANDS ?
                                 &function_doc_array[action]
                                 : NULL;
             keymap_bind_keyseq (map, seq, &ke);
-	  }
-	  break;
-	}
+          }
+          break;
+        }
     }
   if (state != getseq)
     abort ();
 
-  /* Go through map and bind ESC x to the same function as M-x if it is not 
+  /* Go through map and bind ESC x to the same function as M-x if it is not
      bound already. */
   if (!map[ESC].value.function)
     {

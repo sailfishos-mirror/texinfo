@@ -141,7 +141,7 @@ ansi_escape (mbi_iterator_t iter, int *plen)
           ITER_SETBYTES (iter, 1);
           mbi_advance (iter);
           if (isdigit (*mbi_cur_ptr (iter)) && mbi_avail (iter))
-            {	
+            {
               ITER_SETBYTES (iter, 1);
               mbi_advance (iter);
               if (*mbi_cur_ptr (iter) == 'm')
@@ -162,7 +162,7 @@ ansi_escape (mbi_iterator_t iter, int *plen)
             }
         }
     }
-                
+
   return 0;
 }
 
@@ -170,9 +170,9 @@ static struct text_buffer printed_rep = { 0 };
 
 /* Return pointer to string that is the printed representation of character
    (or other logical unit) at ITER if it were printed at screen column
-   PL_CHARS.  Use ITER_SETBYTES (util.h) on ITER if we need to advance 
-   past a unit that the multibyte iteractor doesn't know about (like an ANSI 
-   escape sequence).  If ITER points at an end-of-line character, set *DELIM to 
+   PL_CHARS.  Use ITER_SETBYTES (util.h) on ITER if we need to advance
+   past a unit that the multibyte iteractor doesn't know about (like an ANSI
+   escape sequence).  If ITER points at an end-of-line character, set *DELIM to
    this character.  *PCHARS gets the number of screen columns taken up by
    outputting the return value, and *PBYTES the number of bytes in returned
    string.  Return value is not null-terminated.  Return value must not be
@@ -216,7 +216,7 @@ printed_representation (mbi_iterator_t *iter, int *delim, size_t pl_chars,
         }
       else if (ansi_escape (*iter, &cur_len))
         {
-          *pchars = 0; 
+          *pchars = 0;
           *pbytes = cur_len;
           ITER_SETBYTES (*iter, cur_len);
 
@@ -265,10 +265,10 @@ printed_representation (mbi_iterator_t *iter, int *delim, size_t pl_chars,
     }
   else
     {
-      /* Original byte was not recognized as anything.  Display its octal 
+      /* Original byte was not recognized as anything.  Display its octal
          value.  This could happen in the C locale for bytes above 128,
-         or for bytes 128-159 in an ISO-8859-1 locale.  Don't output the bytes 
-         as they are, because they could have special meaning to the 
+         or for bytes 128-159 in an ISO-8859-1 locale.  Don't output the bytes
+         as they are, because they could have special meaning to the
          terminal. */
       *pchars = 4;
       *pbytes = 4;
@@ -300,31 +300,31 @@ text_buffer_vprintf (struct text_buffer *buf, const char *format, va_list ap)
   if (!buf->base)
     {
       if (buf->size == 0)
-	buf->size = MIN_TEXT_BUF_ALLOC; /* Initial allocation */
-      
+        buf->size = MIN_TEXT_BUF_ALLOC; /* Initial allocation */
+
       buf->base = xmalloc (buf->size);
     }
-  
+
   for (;;)
     {
       va_copy (ap_copy, ap);
       n = vsnprintf (buf->base + buf->off, buf->size - buf->off,
-		     format, ap_copy);
+                     format, ap_copy);
       va_end (ap_copy);
       if (n < 0 || buf->off + n >= buf->size ||
-	  !memchr (buf->base + buf->off, '\0', buf->size - buf->off + 1))
-	{
-	  size_t newlen = buf->size * 2;
-	  if (newlen < buf->size)
-	    xalloc_die ();
-	  buf->size = newlen;
-	  buf->base = xrealloc (buf->base, buf->size);
-	}
+          !memchr (buf->base + buf->off, '\0', buf->size - buf->off + 1))
+        {
+          size_t newlen = buf->size * 2;
+          if (newlen < buf->size)
+            xalloc_die ();
+          buf->size = newlen;
+          buf->base = xrealloc (buf->base, buf->size);
+        }
       else
-	{
-	  buf->off += n;
-	  break;
-	}
+        {
+          buf->off += n;
+          break;
+        }
     }
   return n;
 }
@@ -337,7 +337,7 @@ text_buffer_alloc (struct text_buffer *buf, size_t len)
     {
       buf->size = buf->off + len;
       if (buf->size < MIN_TEXT_BUF_ALLOC)
-	buf->size = MIN_TEXT_BUF_ALLOC;
+        buf->size = MIN_TEXT_BUF_ALLOC;
       buf->base = xrealloc (buf->base, buf->size);
     }
 }
@@ -401,13 +401,13 @@ text_buffer_fill (struct text_buffer *buf, int c, size_t len)
 {
   char *p;
   size_t i;
-  
+
   text_buffer_alloc (buf, len);
-  
+
   for (i = 0, p = buf->base + buf->off; i < len; i++)
     *p++ = c;
   buf->off += len;
-  
+
   return len;
 }
 
@@ -423,7 +423,7 @@ text_buffer_printf (struct text_buffer *buf, const char *format, ...)
 {
   va_list ap;
   size_t n;
-  
+
   va_start (ap, format);
   n = text_buffer_vprintf (buf, format, ap);
   va_end (ap);
@@ -439,10 +439,10 @@ fncmp (const char *fn1, const char *fn2)
   const char *s1 = fn1, *s2 = fn2;
 
   while (tolower (*s1) == tolower (*s2)
-	 || (IS_SLASH (*s1) && IS_SLASH (*s2)))
+         || (IS_SLASH (*s1) && IS_SLASH (*s2)))
     {
       if (*s1 == 0)
-	return 0;
+        return 0;
       s1++;
       s2++;
     }

@@ -1,3 +1,9 @@
+2024-11-16  Patrice Dumas  <pertusus@free.fr>
+
+	* info/indices.c, info/infodoc.c, info/infomap.c, info/man.c,
+	info/search.c, info/session.c, info/util.c: replace tabs by spaces.
+	Changes in spacing.
+
 2024-11-16  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* autogen.sh: regenerate tp/tests/input/non_ascii.tar.  Suggestion

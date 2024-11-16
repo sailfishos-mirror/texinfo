@@ -506,7 +506,7 @@ DECLARE_INFO_COMMAND (describe_key, _("Print documentation for KEY"))
               if (map[lowerkey].value.function == NULL)
                 {
                   message_in_echo_area (_("%s is undefined"),
-					pretty_keyseq (keys));
+                                        pretty_keyseq (keys));
                   return;
                 }
             }

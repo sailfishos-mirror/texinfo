@@ -150,7 +150,7 @@ get_manpage_node (char *pagename)
       add_pointer_to_array (node, manpage_node_index,
                             manpage_nodes,
                             manpage_node_slots, 100);
-    } 
+    }
 
   /* Node wasn't found, or its contents were freed since last time. */
   if (!node->contents)
@@ -213,18 +213,18 @@ executable_file_in_path (char *filename, char *path)
       free (temp_dirname);
 
       /* Look for FILENAME, possibly with any of the extensions
-	 in EXEC_EXTENSIONS[].  */
+         in EXEC_EXTENSIONS[].  */
       for (i = 0; exec_extensions[i]; i++)
-	{
-	  if (exec_extensions[i][0])
-	    strcpy (temp_end, exec_extensions[i]);
-	  statable = (stat (temp, &finfo) == 0);
+        {
+          if (exec_extensions[i][0])
+            strcpy (temp_end, exec_extensions[i]);
+          statable = (stat (temp, &finfo) == 0);
 
-	  /* If we have found a regular executable file, then use it. */
-	  if ((statable) && (S_ISREG (finfo.st_mode)) &&
-	      (access (temp, X_OK) == 0))
-	    return temp;
-	}
+          /* If we have found a regular executable file, then use it. */
+          if ((statable) && (S_ISREG (finfo.st_mode)) &&
+              (access (temp, X_OK) == 0))
+            return temp;
+        }
 
       free (temp);
     }
@@ -293,7 +293,7 @@ clean_manpage (char *manpage)
   char *newpage = xmalloc (len + 1);
   char *np = newpage;
   int prev_len = 0;
-  
+
   for (mbi_init (iter, manpage, len);
        mbi_avail (iter);
        mbi_advance (iter))
@@ -302,30 +302,30 @@ clean_manpage (char *manpage)
       int cur_len = mb_len (mbi_cur (iter));
 
       if (cur_len == 1)
-	{
-	  if (*cur_ptr == '\b' || *cur_ptr == '\f')
-	    {
-	      if (np >= newpage + prev_len)
-		np -= prev_len;
-	    }
-	  else if (ansi_escape (iter, &cur_len))
-	    {
-	      memcpy (np, cur_ptr, cur_len);
-	      np += cur_len;
-	      ITER_SETBYTES (iter, cur_len);
-	    }
-	  else if (show_malformed_multibyte_p || mbi_cur (iter).wc_valid)
-	    *np++ = *cur_ptr;
-	}
+        {
+          if (*cur_ptr == '\b' || *cur_ptr == '\f')
+            {
+              if (np >= newpage + prev_len)
+                np -= prev_len;
+            }
+          else if (ansi_escape (iter, &cur_len))
+            {
+              memcpy (np, cur_ptr, cur_len);
+              np += cur_len;
+              ITER_SETBYTES (iter, cur_len);
+            }
+          else if (show_malformed_multibyte_p || mbi_cur (iter).wc_valid)
+            *np++ = *cur_ptr;
+        }
       else
-	{
-	  memcpy (np, cur_ptr, cur_len);
-	  np += cur_len;
-	}
+        {
+          memcpy (np, cur_ptr, cur_len);
+          np += cur_len;
+        }
       prev_len = cur_len;
     }
   *np = 0;
-  
+
   strcpy (manpage, newpage);
   free (newpage);
 }
@@ -435,7 +435,7 @@ get_manpage_from_formatter (char *formatter_args[])
     if (fd_err > 2)
       dup2 (fd_err, fileno (stderr)); /* Don't print errors. */
     sprintf (cmdline, "\"%s\" %s %s",
-	     formatter_args[0], formatter_args[1], formatter_args[2]);
+             formatter_args[0], formatter_args[1], formatter_args[2]);
     fpipe = popen (cmdline, "r");
     free (cmdline);
     if (fd_err > 2)
@@ -454,12 +454,12 @@ get_manpage_from_formatter (char *formatter_args[])
   /* We could check the exit status of "man -a" to see if it successfully
      output a man page  However:
       * It is possible for "man -a" to output a man page and still to exit with
-        a non-zero status.  This was found to happen when duplicate man pages 
+        a non-zero status.  This was found to happen when duplicate man pages
         were found.
       * "man" was found to exit with a zero status on Solaris 10 even when
         it found nothing.
-     Hence, treat it as a success if more than three lines were output.  (A 
-     small amount of output could be error messages that were sent to standard 
+     Hence, treat it as a success if more than three lines were output.  (A
+     small amount of output could be error messages that were sent to standard
      output.) */
   {
     int i;

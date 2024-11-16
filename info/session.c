@@ -32,9 +32,9 @@
 #endif
 #ifdef __MINGW32__
 # undef read
-# define read(f,b,s)	w32_read(f,b,s)
+# define read(f,b,s)        w32_read(f,b,s)
 # undef _read
-# define _read(f,b,s)	w32_read(f,b,s)
+# define _read(f,b,s)        w32_read(f,b,s)
 extern ssize_t w32_read (int, void *, size_t);
 #endif
 
@@ -76,7 +76,7 @@ allfiles_create_node (char *term, REFERENCE **fref)
 {
   int i;
   struct text_buffer text;
-  
+
   text_buffer_init (&text);
 
   text_buffer_printf (&text,
@@ -186,8 +186,8 @@ display_startup_message (void)
   char *format;
 
   format = replace_in_documentation
-  /* TRANSLATORS: Try to keep this message (when "expanded") at most 79 
-     characters; anything after the 79th character will not actually be 
+  /* TRANSLATORS: Try to keep this message (when "expanded") at most 79
+     characters; anything after the 79th character will not actually be
      displayed on an 80-column terminal. */
 (_("Welcome to Info version %s.  Type \\[get-help-window] for help, \\[get-info-help-node] for tutorial."),
      0);
@@ -252,7 +252,7 @@ info_read_and_dispatch (void)
 
           (*cmd) (active_window, count);
 
-          /* Don't change the goal column when going up and down.  This 
+          /* Don't change the goal column when going up and down.  This
              means we can go from a long line to a short line and back to
              a long line and end back in the same column. */
           if (!(cmd == &info_next_line || cmd == &info_prev_line))
@@ -437,7 +437,7 @@ info_gather_typeahead (int wait)
       char c;
       /* Wait until there is a byte waiting, and then stuff it into the input
          buffer. */
-      if (read (tty, &c, 1) <= 0) 
+      if (read (tty, &c, 1) <= 0)
         return 0;
 
       if (info_dribble_file)
@@ -579,7 +579,7 @@ int
 get_input_key (void)
 {
   int ret = -1;
-  
+
   while (ret == -1)
     {
       ret = get_input_key_internal ();
@@ -676,7 +676,7 @@ get_input_key_internal (void)
     {
       /* If the sequence was incomplete, return the first byte.
              Also return the first byte for sequences with ESC that are at
-         least three bytes long if 'key_time' is 0, to give some support for 
+         least three bytes long if 'key_time' is 0, to give some support for
          specifying byte sequences in infokey for those sent by unrecognized
          special keys (which would otherwise be skipped below). */
       pop_index = pop_start;
@@ -1023,7 +1023,7 @@ static int forward_move_node_structure (WINDOW *window, int behaviour);
 static int backward_move_node_structure (WINDOW *window, int behaviour);
 
 /* Controls whether scroll-behavior affects line movement commands */
-int cursor_movement_scrolls_p = 1; 
+int cursor_movement_scrolls_p = 1;
 
 /* Variable controlling redisplay of scrolled windows.  If non-zero,
    it is the desired number of lines to scroll the window in order to
@@ -1120,7 +1120,7 @@ looking_at_newline (WINDOW *win, long point)
 {
   mbi_iterator_t iter;
   mbi_init (iter, win->node->contents + point,
-	    win->node->nodelen - point);
+            win->node->nodelen - point);
 
   if (!mbi_avail (iter))
     return 0;
@@ -1134,7 +1134,7 @@ looking_at_alnum (WINDOW *win)
 {
   mbi_iterator_t iter;
   mbi_init (iter, win->node->contents + win->point,
-	    win->node->nodelen - win->point);
+            win->node->nodelen - win->point);
 
   if (!mbi_avail (iter))
     return 0;
@@ -1197,11 +1197,11 @@ point_forward_word (WINDOW *win)
   while (1)
     {
       for (; col < win->line_map.used; col++)
-	{
+        {
           win->point = win->line_map.map[col];
           if (looking_at_alnum (win))
             goto skipped_whitespace;
-	}
+        }
       if (!point_next_line (win))
         return;
       col = 0;
@@ -1211,11 +1211,11 @@ point_forward_word (WINDOW *win)
   while (1)
     {
       for (; col < win->line_map.used; col++)
-	{
+        {
           win->point = win->line_map.map[col];
-	  if (!looking_at_alnum (win))
+          if (!looking_at_alnum (win))
             return;
-	}
+        }
       if (!point_next_line (win))
         return;
       col = 0;
@@ -1233,7 +1233,7 @@ point_backward_word (WINDOW *win)
         goto back_to_word_start;
     }
 
-back_to_word_start:
+ back_to_word_start:
   while (point_backward_char (win))
     {
       if (!looking_at_alnum (win))
@@ -1358,13 +1358,13 @@ DECLARE_INFO_COMMAND (info_beginning_of_line, _("Move to the start of the line")
 {
   int old_point = window->point;
   int point;
-  
+
   while (1)
     {
       point = window->line_map.map[0];
       if (point == window->line_starts[0]
           || looking_at_newline (window, point-1))
-	break;
+        break;
       if (!point_prev_line (window))
         break;
     }
@@ -1743,7 +1743,7 @@ gc_file_buffers_and_nodes (void)
             {
               FILE_BUFFER *fb = info_loaded_files[fb_index];
 
-              /* Each node should match at most one file, either a subfile or a 
+              /* Each node should match at most one file, either a subfile or a
                  non-split file. */
               if (fb->flags & F_Subfile)
                 {
@@ -1786,7 +1786,7 @@ gc_file_buffers_and_nodes (void)
           if ((fb->flags & F_IsCompressed) && !gc_compressed_files)
             continue;
 
-          /* Don't free file buffers corresponding to files that aren't there 
+          /* Don't free file buffers corresponding to files that aren't there
              any more, because a node may still refer to them. */
           if (fb->flags & F_Gone)
             continue;
@@ -2064,7 +2064,7 @@ info_select_reference (WINDOW *window, REFERENCE *entry)
   NODE *node;
   char *file_system_error = NULL;
 
-  /* We need to copy everything from entry because the call to 
+  /* We need to copy everything from entry because the call to
      info_get_node_with_defaults can free it if it came from
      the tag table of a file. */
   char *filename = entry->filename;
@@ -2211,7 +2211,7 @@ menu_digit (WINDOW *window, int key)
   /* Check if there is a menu in this node. */
   if (references)
     {
-      int i; 
+      int i;
       for (i = 0; references[i]; i++)
         if (references[i]->type == REFERENCE_MENU_ITEM)
           goto has_menu;
@@ -2219,7 +2219,7 @@ menu_digit (WINDOW *window, int key)
 
   info_error ("%s", msg_no_menu_node);
   return;
-has_menu:
+ has_menu:
 
   if ((entry = select_menu_digit (window, key)))
     info_select_reference (window, entry);
@@ -2277,7 +2277,7 @@ info_menu_or_ref_item (WINDOW *window, int menu_item, int xref, int ask_p)
 
   int which, closest = -1;
 
-  reference_bool_fn exclude; 
+  reference_bool_fn exclude;
 
   if (!refs)
     return;
@@ -2443,7 +2443,7 @@ DECLARE_INFO_COMMAND (info_menu_item, _("Read a menu item and select its node"))
   if (window->node->references)
     {
       REFERENCE **r;
-      
+
       /* Check if there is a menu in this node. */
       for (r = window->node->references; *r; r++)
         if ((*r)->type == REFERENCE_MENU_ITEM)
@@ -2468,7 +2468,7 @@ DECLARE_INFO_COMMAND
   if (window->node->references)
     {
       REFERENCE **r;
-      
+
       /* Check if there is a cross-reference in this node. */
       for (r = window->node->references; *r; r++)
         if ((*r)->type == REFERENCE_XREF)
@@ -2535,7 +2535,7 @@ DECLARE_INFO_COMMAND (info_visit_menu,
   if (!menu)
     {
       info_error ("%s", msg_no_menu_node);
-      return; 
+      return;
     }
 
   for (i = 0; (entry = menu[i]); i++)
@@ -2664,7 +2664,7 @@ DECLARE_INFO_COMMAND (info_move_to_prev_xref,
                   count--;
                   continue;
                 }
-                
+
               info_error ("%s", msg_no_xref_node);
               return;
             }
@@ -2724,7 +2724,7 @@ DECLARE_INFO_COMMAND (info_move_to_next_xref,
                   count--;
                   continue;
                 }
-                
+
               info_error ("%s", msg_no_xref_node);
               return;
             }
@@ -2768,7 +2768,7 @@ DECLARE_INFO_COMMAND (info_select_reference_this_line,
    return null.  This function frees INITIAL_NODE. */
 NODE *
 info_follow_menus (NODE *initial_node, char **menus, char **error,
-		   int strict)
+                   int strict)
 {
   NODE *node = NULL;
 
@@ -2778,7 +2778,7 @@ info_follow_menus (NODE *initial_node, char **menus, char **error,
       char *arg = *menus; /* Remember the name of the menu entry we want. */
 
       debug (3, ("looking for %s in %s:%s", arg, initial_node->fullpath,
-		 initial_node->nodename));
+                 initial_node->nodename));
 
       if (!initial_node->references)
         {
@@ -2821,14 +2821,14 @@ info_follow_menus (NODE *initial_node, char **menus, char **error,
         }
 
       debug (3, ("entry: %s, %s", entry->filename, entry->nodename));
-      
+
       /* Try to find this node.  */
       node = info_get_node_with_defaults (entry->filename, entry->nodename,
                                           initial_node);
       if (!node)
         {
-	  debug (3, ("no matching node found"));
-	  if (error)
+          debug (3, ("no matching node found"));
+          if (error)
             {
               free (*error);
               xasprintf (error,
@@ -2846,7 +2846,7 @@ info_follow_menus (NODE *initial_node, char **menus, char **error,
         }
 
       debug (3, ("node: %s, %s", node->fullpath, node->nodename));
-      
+
       /* Success.  Go round the loop again.  */
       free_history_node (initial_node);
       initial_node = node;
@@ -3183,11 +3183,11 @@ forward_move_node_structure (WINDOW *window, int behaviour)
                       info_error ("%s",
                                   _("No more nodes within this document"));
                       return 1;
-                      
+
                     case SLN_Top:
                       info_parse_and_select ("Top", window);
                       return 0;
-                      
+
                     default:
                       abort ();
                     }
@@ -3374,7 +3374,7 @@ DECLARE_INFO_COMMAND (info_goto_node, _("Read a node name and select it"))
                              fb->filename, fb->tags[i]->nodename);
                   }
 
-                add_pointer_to_array (entry, items_index, items, 
+                add_pointer_to_array (entry, items_index, items,
                                       items_slots, 100);
               }
           }
@@ -3431,7 +3431,7 @@ find_invocation_node_by_nodename (FILE_BUFFER *fb, char *program)
 /* Find the node in the file with name FILE that is the best candidate to
    list the PROGRAM's invocation info and its command-line options, by looking
    for menu items and chains of menu items with characteristic names.  This
-   function frees NODE.  Return value should be freed by caller with 
+   function frees NODE.  Return value should be freed by caller with
    info_reference_free.  */
 REFERENCE *
 info_intuit_options_node (NODE *node, char *program)
@@ -3463,10 +3463,10 @@ info_intuit_options_node (NODE *node, char *program)
   char *filename = node->fullpath;
   if (!strcmp ("Top", node->nodename))
     {
-      /* Look through the list of nodes (and anchors) in the file for a node to 
-         start at.  There may be an invocation node that is not listed in the 
-         top-level menu (this is the case for the Bash 4.2 manual), or it may 
-         be referred to with an anchor ("Invoking makeinfo" in Texinfo 
+      /* Look through the list of nodes (and anchors) in the file for a node to
+         start at.  There may be an invocation node that is not listed in the
+         top-level menu (this is the case for the Bash 4.2 manual), or it may
+         be referred to with an anchor ("Invoking makeinfo" in Texinfo
          manual).  */
       FILE_BUFFER *fb;
       NODE *n;
@@ -3513,7 +3513,7 @@ info_intuit_options_node (NODE *node, char *program)
       if (!entry)
         break;
 
-      /* Go down into menu, and repeat. */ 
+      /* Go down into menu, and repeat. */
 
       if (!entry->filename)
         entry->filename = xstrdup (filename);
@@ -3536,8 +3536,8 @@ info_intuit_options_node (NODE *node, char *program)
   }
 }
 
-/* Given a name of an Info file, find the name of the package it describes by 
-   removing the leading directories and extensions.  Return value should be 
+/* Given a name of an Info file, find the name of the package it describes by
+   removing the leading directories and extensions.  Return value should be
    freed by caller. */
 char *
 program_name_from_file_name (char *file_name)
@@ -3644,7 +3644,7 @@ DECLARE_INFO_COMMAND (info_dir_node, _("Select the node '(dir)'"))
 }
 
 DECLARE_INFO_COMMAND (info_display_file_info,
-		      _("Show full file name of node being displayed"))
+                      _("Show full file name of node being displayed"))
 {
   if (window->node->fullpath && *window->node->fullpath)
     {
@@ -3654,7 +3654,7 @@ DECLARE_INFO_COMMAND (info_display_file_info,
                                    ? window->node->subfile
                                    : window->node->fullpath,
                                    line, window->line_count,
-				   line * 100 / window->line_count);
+                                   line * 100 / window->line_count);
     }
   else
     window_message_in_echo_area ("Internal node");
@@ -3759,7 +3759,7 @@ dump_nodes_to_file (REFERENCE **references,
 {
   int i;
   FILE *output_stream;
-  
+
   if (!references)
     return;
 
@@ -3797,13 +3797,13 @@ dump_nodes_to_file (REFERENCE **references,
         nodename = "Top";
       if (dump_node_to_stream (file_buffer, nodename,
                                output_stream, dump_subnodes) == DUMP_SYS_ERROR)
-	{
-	  info_error (_("error writing to %s: %s"), output_filename,
+        {
+          info_error (_("error writing to %s: %s"), output_filename,
                       strerror (errno));
-	  exit (EXIT_FAILURE);
-	}
+          exit (EXIT_FAILURE);
+        }
     }
-  
+
   if (output_stream != stdout)
     fclose (output_stream);
 
@@ -3826,7 +3826,7 @@ initialize_dumping (void)
 static int
 dump_node_to_stream (FILE_BUFFER *file_buffer,
                      char *nodename,
-		     FILE *stream, int dump_subnodes)
+                     FILE *stream, int dump_subnodes)
 {
   register int i;
   NODE *node;
@@ -3996,7 +3996,7 @@ info_search_in_node_internal (WINDOW *window, NODE *node,
   long new_point;
 
   MATCH_STATE matches;
-    
+
   /* Check if we need to calculate new results. */
   if (!matches_ready (&window->matches)
       || strcmp (window->search_string, string)
@@ -4014,7 +4014,7 @@ info_search_in_node_internal (WINDOW *window, NODE *node,
       matches = window->matches;
       result = search_success;
     }
-  
+
   if (result != search_success)
     return result;
 
@@ -4051,7 +4051,7 @@ info_search_in_node_internal (WINDOW *window, NODE *node,
     start1 = node->body_start;
   if (end1 < node->body_start)
     end1 = node->body_start;
-  
+
   result = match_in_match_list (&matches, start1, end1, dir, &match_index);
   if (result != search_success)
     return result;
@@ -4088,7 +4088,7 @@ info_search_in_node_internal (WINDOW *window, NODE *node,
    Return non-zero if the search fails. */
 static int
 info_search_internal (char *string, WINDOW *window,
-		      int dir, int case_sensitive,
+                      int dir, int case_sensitive,
                       long *start_off)
 {
   register int i;
@@ -4102,7 +4102,7 @@ info_search_internal (char *string, WINDOW *window,
   TAG *tag;
   char *msg = 0;
   int first_time = 1;
-  
+
   /* If this node isn't part of a larger file, search this node only. */
   file_buffer = file_buffer_of_window (window);
   if (!file_buffer || !file_buffer->tags
@@ -4131,7 +4131,7 @@ info_search_internal (char *string, WINDOW *window,
 
   /* Set starting position of search. */
   start = *start_off;
-  
+
   /* Search through subsequent nodes, wrapping around to the top
      of the Info file until we find the string or return to this
      window's node and point. */
@@ -4163,12 +4163,12 @@ info_search_internal (char *string, WINDOW *window,
 
  search_next_node:
       /* If we've searched our starting node twice, there are no matches.
-         Bail out.  (We searched the second time in case there were matches 
+         Bail out.  (We searched the second time in case there were matches
          before the starting offset.) */
       if (current_tag == starting_tag && !first_time)
         break;
       first_time = 0;
-  
+
       /* Find the next tag that isn't an anchor.  */
       for (i = current_tag + dir; ; i += dir)
         {
@@ -4182,7 +4182,7 @@ info_search_internal (char *string, WINDOW *window,
               msg = N_("Search continued from the beginning of the document");
               i = 0;
             }
-          
+
           tag = file_buffer->tags[i];
           if (!(tag->flags & T_IsAnchor))
             break;
@@ -4239,14 +4239,14 @@ info_search_internal (char *string, WINDOW *window,
   if (!echo_area_is_active)
     info_error ("%s", _("Search failed"));
 
-funexit:
+ funexit:
   return -1;
 }
 
 /* Minimal length of a search string */
 int min_search_length = 1;
 
-/* Read a string from the user, storing the result in SEARCH_STRING.  Return 0 
+/* Read a string from the user, storing the result in SEARCH_STRING.  Return 0
    if the user aborted. */
 static int
 ask_for_search_string (int case_sensitive, int use_regex, int direction)
@@ -4298,7 +4298,7 @@ ask_for_search_string (int case_sensitive, int use_regex, int direction)
    WINDOW           The window to search in
    COUNT            The sign of this argument defines the search
                     direction (negative for searching backwards);
-		    its absolute value gives number of repetitions.
+                    its absolute value gives number of repetitions.
    CASE_SENSITIVE   Whether the search is case-sensitive or not.
 */
 static void
@@ -4329,7 +4329,7 @@ info_search_1 (WINDOW *window, int count, int case_sensitive)
   window->node->active_menu = 0;
 
   start_off = window->point + direction;
-  
+
   /* If the search string includes upper-case letters, make the search
      case-sensitive.  */
   if (case_sensitive == 0)
@@ -4346,7 +4346,7 @@ info_search_1 (WINDOW *window, int count, int case_sensitive)
   for (result = 0; result == 0 && count--; )
     result = info_search_internal (search_string,
                                    active_window, direction, case_sensitive,
-				   &start_off);
+                                   &start_off);
 
   window_adjust_pagetop (window);
 
@@ -4379,7 +4379,7 @@ tag_of_reference (REFERENCE *r, WINDOW *window, FILE_BUFFER **fb, TAG ***t)
     if (!strcmp (nodename, (**t)->nodename))
       goto found_tag;
   return 0;
-found_tag: ;
+ found_tag: ;
   return 1;
 }
 
@@ -4409,7 +4409,7 @@ tree_search_check_node (WINDOW *window)
   string = xstrdup (window->search_string);
   goto check_node;
 
-check_node:
+ check_node:
   result = info_search_in_node_internal (window, window->node,
                                   string,
                                   window->point + 1,
@@ -4429,9 +4429,9 @@ check_node:
   goto check_menus;
 
   /* At this juncture, window->node->active_menu is the index of the last
-     reference in the node to have been checked, plus one.  BEFORE_MENU is a 
+     reference in the node to have been checked, plus one.  BEFORE_MENU is a
      special code to say that none of them have been checked. */
-check_menus:
+ check_menus:
   if (!(window->node->flags & N_IsIndex)) /* Don't go down menus in index  */
     {                               /* nodes, because this leads to loops. */
       REFERENCE *r;
@@ -4465,7 +4465,7 @@ check_menus:
     }
   goto go_up;
 
-go_up:
+ go_up:
   /* If no more menu entries, try going back. */
   if (window->hist_index >= 2
       && window->hist[window->hist_index - 2]->node->active_menu != 0)
@@ -4508,7 +4508,7 @@ go_up:
     }
   info_error (previous_match ?  _("No more matches") : _("Search failed"));
 
-funexit:
+ funexit:
   free (string);
 } /*********** end tree_search_check_node *************/
 
@@ -4527,7 +4527,7 @@ tree_search_check_node_backwards (WINDOW *window)
   string = xstrdup (window->search_string);
   goto check_node;
 
-check_node:
+ check_node:
   result = info_search_in_node_internal (window, window->node,
                                   string,
                                   window->point - 1,
@@ -4545,9 +4545,9 @@ check_node:
 
   /* Check through menus in current node, in reverse order.
      At this juncture, window->node->active_menu is the index of the last
-     reference in the node to have been checked, plus one.  BEFORE_MENU is a 
+     reference in the node to have been checked, plus one.  BEFORE_MENU is a
      special code to say that none of them have been checked. */
-check_menus:
+ check_menus:
   if (!(window->node->flags & N_IsIndex)) /* Don't go down menus in index  */
     {                               /* nodes, because this leads to loops. */
       REFERENCE *r;
@@ -4568,8 +4568,8 @@ check_menus:
               if (!tag_of_reference (r, window, &file_buffer, &tag))
                 continue;
 
-              /* This inverts what is done for the forwards search.  It's 
-                 possible that we will visit the nodes in a different order if 
+              /* This inverts what is done for the forwards search.  It's
+                 possible that we will visit the nodes in a different order if
                  there is more than one reference to a node. */
               if (!((*tag)->flags & T_SeenBySearch))
                 continue;
@@ -4596,7 +4596,7 @@ check_menus:
   goto check_node;
 
   /* Try going back. */
-go_up:
+ go_up:
   if (window->hist_index >= 2
       && window->hist[window->hist_index - 2]->node->active_menu != 0)
     {
@@ -4621,7 +4621,7 @@ go_up:
   /* Otherwise, no result. */
   info_error (previous_match ?  _("No more matches") : _("Search failed"));
 
-funexit:
+ funexit:
   free (string);
 } /*********** end tree_search_check_node_backwards *************/
 
@@ -4735,16 +4735,16 @@ DECLARE_INFO_COMMAND (info_search_next,
       /* Find window bottom */
       long n = window->height + window->pagetop;
       if (n < window->line_count)
-	start_off = window->line_starts[n];
+        start_off = window->line_starts[n];
       else
-	start_off = window->node->nodelen;
+        start_off = window->node->nodelen;
     }
 
   for (result = 0; result == 0 && count--; )
     result = info_search_internal (search_string,
                                    active_window, 1,
                                    last_search_case_sensitive,
-				   &start_off);
+                                   &start_off);
 
   if (result == 0 && window->node == starting_node && search_skip_screen_p)
     {
@@ -4791,7 +4791,7 @@ DECLARE_INFO_COMMAND (info_search_previous,
     result = info_search_internal (search_string,
                                    active_window, -1,
                                    last_search_case_sensitive,
-				   &start_off);
+                                   &start_off);
 
   if (result == 0 && window->node == starting_node && search_skip_screen_p)
     {
@@ -5109,7 +5109,7 @@ incremental_search (WINDOW *window, int count)
           key = get_input_key ();
         }
       }
-gotfunc:
+ gotfunc:
 
       if (func == &ea_quoted_insert)
         {
@@ -5156,7 +5156,7 @@ gotfunc:
               while (isearch_string_index > 0
                 && (long) mbrlen (isearch_string + isearch_string_index,
                                   end - isearch_string_index, NULL) <= 0);
-               
+
               isearch_string[isearch_string_index] = '\0';
 
               if (isearch_string_index == 0)
@@ -5263,7 +5263,7 @@ gotfunc:
         }
 
       /* Show the new search string in the prompt. */
-      show_isearch_prompt (dir, (unsigned char *) isearch_string, 
+      show_isearch_prompt (dir, (unsigned char *) isearch_string,
                            search_result);
 
       /* Make the search case-sensitive only if the search string includes
@@ -5314,8 +5314,8 @@ gotfunc:
   /* Free the memory used to remember each search state. */
   free_isearch_states ();
 
-  /* Alter the window history so that we have added at most one node in the 
-     incremental search, so that going back once with "l" goes to where we 
+  /* Alter the window history so that we have added at most one node in the
+     incremental search, so that going back once with "l" goes to where we
      started the incremental search if the match was in a different node. */
   {
     int i = window->hist_index - 1;
@@ -5525,7 +5525,7 @@ get_another_input_key (void)
           timer.tv_sec = 1;
           timer.tv_usec = 750;
           ready = select (fileno(info_input_stream)+1, &readfds,
-			  NULL, NULL, &timer);
+                          NULL, NULL, &timer);
 #else
           ready = 0;
 #endif /* FD_SET */
@@ -5549,14 +5549,14 @@ int ea_explicit_arg = 0;
 void info_universal_argument (WINDOW *, int count);
 void info_add_digit_to_numeric_arg (WINDOW *, int count);
 
-/* Read a key sequence and look up its command in MAP.  Handle C-u style 
-   numeric args, as well as M--, and M-digits.  Return argument in COUNT if it 
+/* Read a key sequence and look up its command in MAP.  Handle C-u style
+   numeric args, as well as M--, and M-digits.  Return argument in COUNT if it
    is non-null.
 
    Some commands can be executed directly, in which case null is returned
    instead:
 
-   If MENU, call info_menu_digit on ACTIVE_WINDOW if a number key was 
+   If MENU, call info_menu_digit on ACTIVE_WINDOW if a number key was
    pressed.
 
    If MOUSE, call mouse_event_handler if a mouse event occurred.
@@ -5612,7 +5612,7 @@ read_key_sequence (Keymap map, int menu, int mouse,
       if (active_window != the_echo_area)
         display_cursor_at_point (active_window);
 
-      /* If reading a universal argument, both <digit> and M-<digit> help form 
+      /* If reading a universal argument, both <digit> and M-<digit> help form
          the argument.  Don't look up the pressed key in the key map. */
       if (reading_universal_argument)
         {
@@ -5691,7 +5691,7 @@ read_key_sequence (Keymap map, int menu, int mouse,
       else if (func == &info_universal_argument)
         {
           /* Multiply by 4. */
-          /* TODO: Maybe C-u should also terminate the universal argument 
+          /* TODO: Maybe C-u should also terminate the universal argument
              sequence, as in Emacs. (C-u 6 4 C-u 1 inserts 64 1's.) */
           if (!*which_explicit_arg)
             numeric_arg *= 4;
@@ -5717,9 +5717,9 @@ read_key_sequence (Keymap map, int menu, int mouse,
         }
       else if (func)
         {
-          /* Don't update the key sequence if we have finished reading a key 
-             sequence in the echo area.  This means that a key sequence like 
-             "C-u 2 Left" appears to take effect immediately, instead of there 
+          /* Don't update the key sequence if we have finished reading a key
+             sequence in the echo area.  This means that a key sequence like
+             "C-u 2 Left" appears to take effect immediately, instead of there
              being a delay while the message is displayed. */
           if (!echo_area_is_active && info_keyseq_displayed_p)
             display_info_keyseq (0);
@@ -5727,8 +5727,8 @@ read_key_sequence (Keymap map, int menu, int mouse,
           if (count)
             *count = numeric_arg * numeric_arg_sign;
 
-          /* *which_explicit_arg has not been set yet if only a sequence of 
-             C-u's was typed (each of which has multiplied the argument by 
+          /* *which_explicit_arg has not been set yet if only a sequence of
+             C-u's was typed (each of which has multiplied the argument by
              four).  */
           if (*count != 1 && !*which_explicit_arg)
             *which_explicit_arg = 1;

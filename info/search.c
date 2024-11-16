@@ -174,7 +174,7 @@ extend_matches (MATCH_STATE *state)
   state->match_count = match_count;
 }
 
-/* Search BUFFER for REGEXP.  If matches are found, pass back the list of 
+/* Search BUFFER for REGEXP.  If matches are found, pass back the list of
    matches in MATCH_STATE. */
 enum search_result
 regexp_search (const char *regexp, int is_literal, int is_insensitive,
@@ -273,7 +273,7 @@ search_forward (const char *string, const SEARCH_BINDING *binding, long *poff)
           if (binding->flags & S_SkipDest)
             buff += len;
           *poff = buff - binding->buffer;
-	  return search_success;
+          return search_success;
         }
 
       buff++;
@@ -345,7 +345,7 @@ search_backward (const char *input_string, const SEARCH_BINDING *binding,
           if (binding->flags & S_SkipDest)
             buff -= len;
           *poff = 1 + buff - binding->buffer;
-	  return search_success;
+          return search_success;
         }
 
       buff--;
@@ -367,7 +367,7 @@ string_in_line (const char *string, char *line)
   register size_t end;
   SEARCH_BINDING binding;
   long offset;
-  
+
   /* Find the end of the line. */
   for (end = 0; line[end] && line[end] != '\n'; end++);
 
@@ -396,7 +396,7 @@ looking_at (const char *string, const SEARCH_BINDING *binding)
   return search_end == binding->start;
 }
 
-/* Return non-zero if POINTER is looking at the text at STRING before an 
+/* Return non-zero if POINTER is looking at the text at STRING before an
    end-of-line. */
 int
 looking_at_line (const char *string, const char *pointer)
@@ -596,7 +596,7 @@ skip_non_whitespace (const char *string)
 /* **************************************************************** */
 
 /* Return the absolute position of the first occurence of a node separator
-   starting in BINDING->buffer between BINDING->start and BINDING->end 
+   starting in BINDING->buffer between BINDING->start and BINDING->end
    inclusive.  Return -1 if no node separator was found. */
 long
 find_node_separator (const SEARCH_BINDING *binding)
@@ -736,7 +736,7 @@ find_node_in_binding (const char *nodename, const SEARCH_BINDING *binding)
         continue;
 
       s.start += offset;
-      s.start += skip_whitespace (s.buffer + s.start); 
+      s.start += skip_whitespace (s.buffer + s.start);
       nodename_start = s.buffer + s.start;
       read_quoted_string (nodename_start, "\n\r\t,", 0, &read_nodename);
       if (!read_nodename)
