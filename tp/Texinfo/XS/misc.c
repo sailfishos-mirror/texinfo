@@ -259,14 +259,14 @@ void xs_parse_command_name (char *text,
   *command = 0;
   *is_single_letter = 0;
 
-  if (isalnum(text[0]))
+  if (isalnum ((unsigned char) text[0]))
     {
       char *p, *q;
       static char *s;
 
       p = text;
       q = text + 1;
-      while (isalnum (*q) || *q == '-' || *q == '_')
+      while (isalnum ((unsigned char) *q) || *q == '-' || *q == '_')
         q++;
 
       s = realloc (s, q - p + 1);

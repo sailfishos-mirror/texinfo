@@ -1,6 +1,14 @@
 2024-11-16  Patrice Dumas  <pertusus@free.fr>
 
-	* nstall-info/install-info.c (split_entry): cast argument of isspace
+	* tp/Texinfo/XS/misc.c (xs_parse_command_name), tp/Texinfo/XS/xspara.c
+	(xspara__print_escaped_spaces): cast argument of isalnum and isspace
+	to unsigned char.  This is recommended as those functions expect
+	unsigned argument, and it avoids warnings with -Wchar-subscripts when
+	the functions are implemented with an array.
+
+2024-11-16  Patrice Dumas  <pertusus@free.fr>
+
+	* install-info/install-info.c (split_entry): cast argument of isspace
 	to unsigned char.  This is recommended as this function expects
 	unsigned argument, and it avoids warnings with -Wchar-subscripts when
 	the function is implemented with an array.

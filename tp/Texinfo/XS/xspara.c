@@ -121,7 +121,7 @@ xspara__print_escaped_spaces (char *string, size_t len)
         text_append_n (&t, "\\n", 2);
       else if (*p == '\f')
         text_append_n (&t, "\\f", 2);
-      else if (isspace(*p))
+      else if (isspace ((unsigned char) *p))
         {
           char protected_string[7];
           sprintf (protected_string, "\\x%04x", *p);
