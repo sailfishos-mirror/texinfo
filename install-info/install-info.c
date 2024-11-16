@@ -1620,7 +1620,7 @@ split_entry (const char *entry, char **name, size_t *name_len,
   while (ptr[0] != '\0')
     {
       /* Eat up the whitespace after the name, and at the start of a line. */
-      while (isspace(ptr[0]))
+      while (isspace ((unsigned char) ptr[0]))
         ptr++;
 
       /* Okay, we're at the start of the description. */
@@ -1651,7 +1651,7 @@ split_entry (const char *entry, char **name, size_t *name_len,
               /* *ENDPTR is the 2nd last character */
               if (*endptr == '.')
                 strcat (*description, "  ");
-              else if (!isspace (*endptr))
+              else if (!isspace ((unsigned char) *endptr))
                 strcat (*description, " ");
             }
         }
