@@ -3552,7 +3552,8 @@ program_name_from_file_name (char *file_name)
 #ifdef __MSDOS__
             || FILENAME_CMPN (program_name + i, ".i", 2) == 0
 #endif
-            || isdigit (program_name[i + 1]))) /* a man page foo.1 */
+                /* a man page foo.1 */
+            || isdigit ((unsigned char) program_name[i + 1])))
       {
         program_name[i] = 0;
         break;
@@ -4334,7 +4335,7 @@ info_search_1 (WINDOW *window, int count, int case_sensitive)
      case-sensitive.  */
   if (case_sensitive == 0)
     for (p = search_string; *p; p++)
-      if (isupper (*p))
+      if (isupper ((unsigned char) *p))
         {
           case_sensitive = 1;
           break;
@@ -5270,7 +5271,7 @@ incremental_search (WINDOW *window, int count)
          upper-case letters. */
       case_sensitive = 0;
       for (p = isearch_string; *p; p++)
-        if (isupper (*p))
+        if (isupper ((unsigned char) *p))
           {
             case_sensitive = 1;
             break;

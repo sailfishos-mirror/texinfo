@@ -93,7 +93,7 @@ make_footnotes_node (NODE *node)
                 && (strcmp (refs[i]->nodename, refname) == 0 ||
                  (strncmp (refs[i]->nodename, refname, reflen - 1) == 0 &&
                   refs[i]->nodename[reflen - 1] == '-' &&
-                  isdigit (refs[i]->nodename[reflen]))))
+                  isdigit ((unsigned char) refs[i]->nodename[reflen]))))
               {
                 footnotes_node = info_get_node (node->fullpath, refname);
                 if (footnotes_node)

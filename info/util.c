@@ -140,7 +140,8 @@ ansi_escape (mbi_iterator_t iter, int *plen)
         {
           ITER_SETBYTES (iter, 1);
           mbi_advance (iter);
-          if (isdigit (*mbi_cur_ptr (iter)) && mbi_avail (iter))
+          if (isdigit ((unsigned char) *mbi_cur_ptr (iter))
+              && mbi_avail (iter))
             {
               ITER_SETBYTES (iter, 1);
               mbi_advance (iter);
@@ -149,7 +150,8 @@ ansi_escape (mbi_iterator_t iter, int *plen)
                   *plen = 4;
                   return 1;
                 }
-              else if (isdigit (*mbi_cur_ptr (iter)) && mbi_avail (iter))
+              else if (isdigit ((unsigned char) *mbi_cur_ptr (iter))
+                       && mbi_avail (iter))
                 {
                   ITER_SETBYTES (iter, 1);
                   mbi_advance (iter);
@@ -249,7 +251,7 @@ printed_representation (mbi_iterator_t *iter, int *delim, size_t pl_chars,
     }
 
   /* Show CTRL-x as "^X".  */
-  if (iscntrl (*cur_ptr) && *(unsigned char *)cur_ptr < 127)
+  if (iscntrl ((unsigned char) *cur_ptr) && *(unsigned char *)cur_ptr < 127)
     {
       *pchars = 2;
       *pbytes = 2;

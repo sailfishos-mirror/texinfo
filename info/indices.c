@@ -294,7 +294,7 @@ index_entry_matches (REFERENCE *ent, const char *str, size_t len)
         {
           if (p[0] == '>' && p[1] == 0)
             return 1;
-          else if (!isdigit (*p))
+          else if (!isdigit ((unsigned char) *p))
             return 0;
         }
     }
@@ -430,7 +430,7 @@ report_index_match (int i, int match_offset)
 
       ls = strlen (index_search);
       start = match_offset - ls;
-      upper = isupper (match[start]) ? 1 : 0;
+      upper = isupper ((unsigned char) match[start]) ? 1 : 0;
 
       for (k = 0; k < ls; k++)
         if (upper)

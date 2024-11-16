@@ -246,9 +246,9 @@ search_forward (const char *string, const SEARCH_BINDING *binding, long *poff)
 
       for (i = 0; i < len; i++)
         {
-          if (islower (alternate[i]))
+          if (islower ((unsigned char) alternate[i]))
             alternate[i] = toupper (alternate[i]);
-          else if (isupper (alternate[i]))
+          else if (isupper ((unsigned char) alternate[i]))
             alternate[i] = tolower (alternate[i]);
         }
     }
@@ -316,9 +316,9 @@ search_backward (const char *input_string, const SEARCH_BINDING *binding,
 
       for (i = 0; i < len; i++)
         {
-          if (islower (alternate[i]))
+          if (islower ((unsigned char) alternate[i]))
             alternate[i] = toupper (alternate[i]);
-          else if (isupper (alternate[i]))
+          else if (isupper ((unsigned char) alternate[i]))
             alternate[i] = tolower (alternate[i]);
         }
     }

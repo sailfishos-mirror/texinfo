@@ -592,7 +592,7 @@ xrefs_of_manpage (NODE *node)
          page name. */
       for (; name > 0; name--)
         if (whitespace_or_newline (s.buffer[name])
-            || (!isalnum (s.buffer[name])
+            || (!isalnum ((unsigned char) s.buffer[name])
                 && s.buffer[name] != '_'
                 && s.buffer[name] != '.'
                 && s.buffer[name] != '-'
@@ -628,7 +628,7 @@ xrefs_of_manpage (NODE *node)
 
       /* Set name_end to the end of the name, but before any SGR sequence. */
       for (name_end = name; name_end < position; name_end++)
-        if (!isalnum (s.buffer[name_end])
+        if (!isalnum ((unsigned char) s.buffer[name_end])
             && s.buffer[name_end] != '_'
             && s.buffer[name_end] != '.'
             && s.buffer[name_end] != '-')
@@ -639,14 +639,14 @@ xrefs_of_manpage (NODE *node)
 
       /* Look for one or two characters within the brackets, the
          first of which must be a non-zero digit and the second a letter. */
-      if (!isdigit (s.buffer[section + 1])
+      if (!isdigit ((unsigned char) s.buffer[section + 1])
           || s.buffer[section + 1] == '0')
         ;
       else if (!s.buffer[section + 2])
         ; /* end of buffer */
       else if (s.buffer[section + 2] == ')')
         section_end = section + 3;
-      else if (!isalpha(s.buffer[section + 2]))
+      else if (!isalpha((unsigned char) s.buffer[section + 2]))
         ;
       else if (s.buffer[section + 3] == ')')
         section_end = section + 4;

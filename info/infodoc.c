@@ -661,14 +661,15 @@ replace_in_documentation (const char *string, int help_is_only_window_p)
             {
               if (string[++j] == '-')
                 j++;
-              if (isdigit(string[j]))
+              if (isdigit ((unsigned char) string[j]))
                 {
-                  while (isdigit(string[j]))
+                  while (isdigit ((unsigned char) string[j]))
                     j++;
-                  if (string[j] == '.' && isdigit(string[j + 1]))
+                  if (string[j] == '.'
+                      && isdigit ((unsigned char) string[j + 1]))
                     {
                       j += 1;
-                      while (isdigit(string[j]))
+                      while (isdigit ((unsigned char) string[j]))
                         j++;
                     }
                   fmt = xmalloc (j - i + 2);

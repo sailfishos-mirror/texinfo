@@ -922,11 +922,11 @@ window_make_modeline (WINDOW *window)
 
     /* But include any numbered version suffix in a file name
        like "automake-1.16.info". */
-    while (name[dot] == '.' && isdigit (name[dot+1]))
+    while (name[dot] == '.' && isdigit ((unsigned char) name[dot+1]))
       {
         do
           dot++;
-        while (isdigit (name[dot]));
+        while (isdigit ((unsigned char) name[dot]));
       }
 
     if (name && strcmp ("", name))

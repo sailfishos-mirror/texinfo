@@ -1,5 +1,18 @@
 2024-11-16  Patrice Dumas  <pertusus@free.fr>
 
+	* info/footnotes.c (make_footnotes_node), info/indices.c
+	(index_entry_matches, report_index_match), info/infodoc.c
+	(replace_in_documentation), info/man.c (xrefs_of_manpage),
+	info/search.c (search_forward, search_backward), info/session.c
+	(program_name_from_file_name, info_search_1, incremental_search),
+	info/util.c (ansi_escape, printed_representation), info/window.c
+	(window_make_modeline): cast argument of isdigit, isupper, isalnum,
+	islower and iscntrl to unsigned char.  This is recommended as those
+	functions expect unsigned argument, and it avoids warnings with
+	-Wchar-subscripts when the functions are implemented with an array.
+
+2024-11-16  Patrice Dumas  <pertusus@free.fr>
+
 	* info/indices.c, info/infodoc.c, info/infomap.c, info/man.c,
 	info/search.c, info/session.c, info/util.c: replace tabs by spaces.
 	Changes in spacing.
