@@ -1,5 +1,11 @@
 2024-11-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/many_input_files/tex_l2h_output_dir_non_ascii.sh,
+	tp/tests/many_input_files/tex_t4ht_output_dir_non_ascii.sh: fix path
+	of tex_encodé_utf8.texi.
+
+2024-11-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/tex_html/list-of-tests (tex_encoded_utf8_httex): fix path
 	of tex_encodé_utf8.texi.
 
