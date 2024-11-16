@@ -128,6 +128,14 @@ not accept invalid UTF-8, input_file_names_recoded_stamp.txt will contain
 FAILED, and the test requiring the files with recoded file names will
 be skipped.  The recoded files are generated in the built_input/ directory.
 
+Tests requiring other non-ASCII file names
+==========================================
+
+There are rules in Makefile.am to generate input/non_ascii.tar which
+contains test input files with non-ASCII characters in their names.
+This allows us to create a distribution tarball without such files.
+If these input files change, you may need to force regeneration of
+non_ascii.tar by deleting the file.
 
 TeX4ht and LaTeX2HTML tests
 ===========================

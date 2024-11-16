@@ -1,3 +1,11 @@
+2024-11-16  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/tests/README: mention that input/non_ascii.tar needs
+	to be deleted manually.
+	* tp/tests/Makefile.am (input/non_ascii.tar): add comment.
+
+	Report from Patrice.
+
 2024-11-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/ConvertXS.xs,

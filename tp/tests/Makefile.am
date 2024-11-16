@@ -86,7 +86,10 @@ non_ascii_input = \
  $(na)/dir_înclùde/file_image.png \
  $(na)/dir_înclùde/included_file.texi
 
-# tar archive should contain all files in a "non_ascii" directory
+# tar archive should contain all files in a "non_ascii" directory.  This
+# rule only works when run from the git repository, not from a tarball.
+# Note that this target does not depend on $(non_ascii_input), so
+# non_ascii.tar needs be deleted manually in case of any updates.
 $(srcdir)/input/non_ascii.tar:
 	cd $(srcdir)/input && \
 	tar -c -f non_ascii.tar non_ascii
