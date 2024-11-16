@@ -1,3 +1,27 @@
+2024-11-16  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Eliminate non-ASCII file names from tarball
+
+	* tp/tests/Makefile.am (input/non_ascii.tar): Rule to create
+	tar file of all files under input/non_ascii with non-ASCII
+	file names.
+
+	(check_DATA): Extract this tar file under built_input in build
+	directory.
+
+	(EXTRA_DIST): Distribute non_ascii.tar but not files used to
+	build it.
+
+	* tp/tests/run_parser_all.sh,
+	* tp/tests/encoded/list-of-tests,
+	* tp/tests/tex_html/list-of-tests,
+	* tp/tests/many_input_files/input_dir_non_ascii.sh: access
+	these files in new location under builddir.
+
+	Files with non-ASCII names can be difficult to handle on
+	unusual platforms, such as being difficult to delete on MS-Windows
+	(report from Eli).  They remain tracked in git.
+
 2024-11-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/ConvertXS.xs

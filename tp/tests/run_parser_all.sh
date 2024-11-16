@@ -378,7 +378,11 @@ while read line; do
   basename=`basename $file .texi`
   #remaining=`echo $line | sed 's/[a-zA-Z0-9_./-]*  *[a-zA-Z0-9_./-]* *//'`
   remaining=`echo $line | sed 's/[a-zA-Z0-9_é./-]*  *[a-zA-Z0-9_é./-]* *//'`
-  src_file="$srcdir/$testdir/$file"
+
+  case $file in
+      built_input/*) src_file="$file" ;;
+      *)             src_file="$srcdir/$testdir/$file" ;;
+  esac
 
   for command_dir in $commands; do
     format_option=
@@ -431,7 +435,7 @@ while read line; do
     mkdir "${outdir}$dir"
     remaining_out_dir=`echo $remaining | sed 's,@OUT_DIR@,'"${outdir}$dir/"',g'`
     echo "$command $dir -> ${outdir}$dir" >> $logfile
-    cmd="$prepended_command $PERL -w $command_run $format_option --force --conf-dir $srcdir/../t/init/ --conf-dir $srcdir/../init --conf-dir $srcdir/../ext -I $srcdir/$testdir -I $testdir/ -I $srcdir/ -I . -I built_input -I $srcdir/input/non_ascii --error-limit=1000 -c TEST=1 $l2h_flags --output ${outdir}$dir/ $remaining_out_dir $src_file > ${outdir}$dir/$basename.1 2>${outdir}$dir/$basename.2"
+    cmd="$prepended_command $PERL -w $command_run $format_option --force --conf-dir $srcdir/../t/init/ --conf-dir $srcdir/../init --conf-dir $srcdir/../ext -I $srcdir/$testdir -I $testdir/ -I $srcdir/ -I . -I built_input -I built_input/non_ascii --error-limit=1000 -c TEST=1 $l2h_flags --output ${outdir}$dir/ $remaining_out_dir $src_file > ${outdir}$dir/$basename.1 2>${outdir}$dir/$basename.2"
     echo "$cmd" >>$logfile
     eval $cmd
     ret=$?

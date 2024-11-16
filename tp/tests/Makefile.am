@@ -72,13 +72,9 @@ input_file_names_recoded_stamp.txt: $(srcdir)/input/included_latin1.texi
 distclean-local:
 	rm -rf input_file_names_recoded_stamp.txt built_input
 
-EXTRA_DIST = run_parser_all.sh parser_tests.sh escape_file_names.pl \
- $(one_test_files_generated_list) coverage_macro.texi \
- input/included_latin1.texi
-
 # Files with non-ASCII file names
 na=input/non_ascii
-EXTRA_DIST += \
+non_ascii_input = \
  $(na)/osé_utf8.texi \
  $(na)/osé_utf8_no_setfilename.texi \
  $(na)/çss.css \
@@ -89,3 +85,19 @@ EXTRA_DIST += \
  $(na)/tex_encodé_utf8.texi \
  $(na)/dir_înclùde/file_image.png \
  $(na)/dir_înclùde/included_file.texi
+
+# tar archive should contain all files in a "non_ascii" directory
+$(srcdir)/input/non_ascii.tar:
+	cd $(srcdir)/input && \
+	tar -c -f non_ascii.tar non_ascii
+
+check_DATA += built_input/non_ascii
+built_input/non_ascii: input/non_ascii.tar
+	rm -rf $@ && mkdir -p $@ && \
+	cd built_input && \
+	tar -xm -f "$(abs_srcdir)/input/non_ascii.tar"
+# tar -m discards file modification dates from the archive.
+
+EXTRA_DIST = run_parser_all.sh parser_tests.sh escape_file_names.pl \
+ $(one_test_files_generated_list) coverage_macro.texi \
+ input/included_latin1.texi input/non_ascii.tar

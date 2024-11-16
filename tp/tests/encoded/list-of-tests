@@ -18,23 +18,23 @@
 # for all the tests.
 
 # check non ascii in verbatiminclude file name
-#no_command_line_encoding ../input/non_ascii/osé_utf8.texi --html
+#no_command_line_encoding built_input/non_ascii/osé_utf8.texi --html
 
 # check non ascii command line arguments and css files
-non_ascii_command_line ../input/non_ascii/osé_utf8.texi -D 'needcommandlineunicode Need command-line unicode' --html --no-split -c DO_ABOUT=1 -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --split=Mekanïk --document-language=Destruktïw -c 'Kommandöh vâl' -D TÛT -D 'vùr ké' -U ôndef -c 'FORMAT_MENU mînù' --macro-expand=@OUT_DIR@osé-texinfo.texi --internal-links=@OUT_DIR@intérnal.txt --css-include çss.css --css-include cêss.css --css-ref=rëf --css-ref=öref
+non_ascii_command_line built_input/non_ascii/osé_utf8.texi -D 'needcommandlineunicode Need command-line unicode' --html --no-split -c DO_ABOUT=1 -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --split=Mekanïk --document-language=Destruktïw -c 'Kommandöh vâl' -D TÛT -D 'vùr ké' -U ôndef -c 'FORMAT_MENU mînù' --macro-expand=@OUT_DIR@osé-texinfo.texi --internal-links=@OUT_DIR@intérnal.txt --css-include çss.css --css-include cêss.css --css-ref=rëf --css-ref=öref
 
 # test for the copying of image with non ascii characters for epub
-non_ascii_test_epub ../input/non_ascii/osé_utf8.texi -D 'needcommandlineunicode Need command-line unicode' -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --init epub3.pm -c 'EPUB_CREATE_CONTAINER_FILE 0'
+non_ascii_test_epub built_input/non_ascii/osé_utf8.texi -D 'needcommandlineunicode Need command-line unicode' -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --init epub3.pm -c 'EPUB_CREATE_CONTAINER_FILE 0'
 
 # check that the output is right when based on @setfilename
-non_ascii_test_rawtext ../input/non_ascii/osé_utf8.texi -D 'needcommandlineunicode Need command-line unicode' -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 -c TEXINFO_OUTPUT_FORMAT=rawtext
+non_ascii_test_rawtext built_input/non_ascii/osé_utf8.texi -D 'needcommandlineunicode Need command-line unicode' -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 -c TEXINFO_OUTPUT_FORMAT=rawtext
 
 # check that the output is right when based on input file name
-non_ascii_no_setfilename_test_rawtext ../input/non_ascii/osé_utf8_no_setfilename.texi -D 'needcommandlineunicode Need command-line unicode' -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 -c TEXINFO_OUTPUT_FORMAT=rawtext
+non_ascii_no_setfilename_test_rawtext built_input/non_ascii/osé_utf8_no_setfilename.texi -D 'needcommandlineunicode Need command-line unicode' -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 -c TEXINFO_OUTPUT_FORMAT=rawtext
 
-non_ascii_test_info ../input/non_ascii/osé_utf8.texi -D 'needcommandlineunicode Need command-line unicode' -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 --info
+non_ascii_test_info built_input/non_ascii/osé_utf8.texi -D 'needcommandlineunicode Need command-line unicode' -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 --info
 
-non_ascii_test_latex ../input/non_ascii/osé_utf8.texi -D 'needcommandlineunicode Need command-line unicode' -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 --latex
+non_ascii_test_latex built_input/non_ascii/osé_utf8.texi -D 'needcommandlineunicode Need command-line unicode' -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 --latex
 
 # test of non utf8 encoded file name in non utf8 document
 # "Need recoded file names" string is used in test driving script
