@@ -227,7 +227,6 @@ esac
 AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
 AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
 AC_SUBST([platform_LDFLAGS], [$platform_LDFLAGS])
-AC_SUBST([perl_conf_PERL_LINK], [$perl_conf_PERL_LINK])
 AC_SUBST([platform_PERL_LIBADD], [$platform_PERL_LIBADD])
 AC_SUBST([PERL_LIBS], [$PERL_LIBS])
 
