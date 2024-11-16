@@ -395,7 +395,7 @@ available version, then run:
 Check that this results in a newer version.
 
 Check what changes ppport.h reports:
-  perl ppport.h --compat-version=5.8.1 *.xs */*.xs main/get_perl_info.* main/build_perl_info.* main/api_to_perl.* main/call_perl_function.* convert/call_html_perl_function.* convert/build_html_perl_state.* convert/get_converter_perl_info.* convert/get_html_perl_info.*
+  perl ppport.h --compat-version=5.8.1 *.xs */*.xs main/get_perl_info.* main/build_perl_info.* main/api_to_perl.* main/call_perl_function.* convert/call_html_perl_function.* convert/build_html_perl_info.* convert/build_html_perl_state.* convert/get_converter_perl_info.* convert/get_html_perl_info.*
 
 make po-check             # update po/POTFILES.in as needed
 make po_document-check    # update po_document/POTFILES.in as needed
