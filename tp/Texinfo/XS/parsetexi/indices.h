@@ -14,8 +14,6 @@ void enter_index_entry (enum command_id index_type_cmd,
                         ELEMENT *current);
 void set_non_ignored_space_in_index_before_command (ELEMENT *content);
 
-void forget_indices (void);
-
 void resolve_indices_merged_in (const INDEX_LIST *indices_info);
 void complete_indices (DOCUMENT *document, int debug_level);
 

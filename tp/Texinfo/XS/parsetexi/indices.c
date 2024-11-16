@@ -150,6 +150,9 @@ init_index_commands (void)
   INDEX *idx;
   INDEX_LIST *indices = &parsed_document->indices_info;
 
+  space_for_indices = 0;
+  num_index_commands = 0;
+
   struct def { char *name; int in_code;
                enum command_id cmd2; enum command_id cmd1;}
   *p, default_indices[] = {
@@ -348,13 +351,6 @@ set_non_ignored_space_in_index_before_command (ELEMENT *content)
 }
 
 
-
-void
-forget_indices (void)
-{
-  space_for_indices = 0;
-  num_index_commands = 0;
-}
 
 void
 resolve_indices_merged_in (const INDEX_LIST *indices_info)

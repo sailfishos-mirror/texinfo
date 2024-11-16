@@ -52,7 +52,7 @@
 #include "labels.h"
 /* MACRO lookup_macro new_macro handle_macro fetch_value */
 #include "macro.h"
-/* for forget_indices complete_indices */
+/* for complete_indices */
 #include "indices.h"
 /* handle_other_command handle_line_command
    handle_block_command handle_brace_command */
@@ -2811,7 +2811,6 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
                                    &document->listoffloats);
 
   parsed_document = 0;
-  forget_indices ();
 
   complete_indices (document, global_parser_conf.debug);
 

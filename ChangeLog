@@ -1,5 +1,15 @@
 2024-11-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/indices.c (init_index_commands),
+	tp/Texinfo/XS/parsetexi/parser.c (parse_texi): reinitialize static
+	variables related to indices numbers in init_index_commands, which is
+	called right after new_document in initialize_parsing in
+	parsetexi/api.c and therefore rigth after setting
+	parsed_document->indices_info to 0, instead of doing it at the end of
+	the parsing.  Remove forget_indices.
+
+2024-11-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/many_input_files/tex_l2h_output_dir_non_ascii.sh,
 	tp/tests/many_input_files/tex_t4ht_output_dir_non_ascii.sh: fix path
 	of tex_encodé_utf8.texi.
