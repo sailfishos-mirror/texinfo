@@ -181,7 +181,7 @@ post_process_output ()
 # ensure only ASCII filenames are used in output
 escape_file_names ()
 {
-    find "${outdir}${dir}" | ${srcdir}/escape_file_names.pl
+    find "${outdir}${dir}" | $PERL ${srcdir}/escape_file_names.pl
 }
 
 LC_ALL=C; export LC_ALL
