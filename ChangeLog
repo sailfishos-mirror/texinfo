@@ -1,5 +1,11 @@
 2024-11-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/many_input_files/Makefile.am (EXTRA_DIST, TESTS)
+	(tests_dirs), tp/tests/many_input_files/first_file_not_found.sh: add a
+	test with two files with the first one not existing.
+
+2024-11-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/indices.c (init_index_commands),
 	tp/Texinfo/XS/parsetexi/parser.c (parse_texi): reinitialize static
 	variables related to indices numbers in init_index_commands, which is

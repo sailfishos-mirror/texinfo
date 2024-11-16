@@ -10,7 +10,8 @@
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 EXTRA_DIST = $(TESTS) \
-  tex_l2h_res tex_t4ht_res different_encodings_res different_languages_gen_master_menu_res \
+  first_file_not_found_res tex_l2h_res tex_t4ht_res \
+  different_encodings_res different_languages_gen_master_menu_res \
   input_dir_non_ascii_res output_dir_non_ascii_res \
   output_dir_file_non_ascii_res tex_t4ht_output_dir_non_ascii_res \
   tex_l2h_output_dir_non_ascii_res \
@@ -18,7 +19,7 @@ EXTRA_DIST = $(TESTS) \
   input_files/no_master_menu_no_documentlanguage.texi \
   input_files/simple_including_file.texi
 
-TESTS = tex_l2h.sh tex_t4ht.sh \
+TESTS = first_file_not_found.sh tex_l2h.sh tex_t4ht.sh \
   different_encodings.sh different_languages_gen_master_menu.sh \
   for_nbspaces_different_encodings.sh \
   input_dir_non_ascii.sh output_dir_non_ascii.sh \
@@ -31,7 +32,7 @@ tex_html_dirs = tex_l2h tex_t4ht tex_t4ht_output_dir_non_ascii \
   tex_l2h_output_dir_non_ascii
 
 tests_dirs = different_encodings different_languages_gen_master_menu \
-  for_nbspaces_different_encodings \
+  first_file_not_found for_nbspaces_different_encodings \
   input_dir_non_ascii output_dir_non_ascii output_dir_file_non_ascii
 
 tex-html-checks: all
