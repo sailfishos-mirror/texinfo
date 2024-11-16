@@ -20,6 +20,8 @@
 #include "EXTERN.h"
 #include "perl.h"
 #include "XSUB.h"
+/* ppport.h suggests to remove its include, but we need it to
+   replace G_LIST by G_ARRAY if G_LIST is not defined */
 #include "ppport.h"
 
 #undef context

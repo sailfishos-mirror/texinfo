@@ -24,8 +24,6 @@
 #include "perl.h"
 #include "XSUB.h"
 
-#include "ppport.h"
-
 #undef context
 
 #include "html_conversion_data.h"
@@ -892,11 +890,6 @@ html_converter_get_customization_sv (SV *converter_sv,
         }
     }
 
-#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
-   /*
-  FETCH(htmlxref)
-    */
-
   /* Get htmlxref from Perl.
      this is always 0 as it is not fetch so this code is never run, htmlxref
      information is setup in C.
@@ -943,6 +936,8 @@ html_converter_get_customization_sv (SV *converter_sv,
             }
         }
     }
+
+#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
 
   FETCH(formatting_function);
 
