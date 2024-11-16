@@ -1,5 +1,12 @@
 2024-11-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am: rename libxsparagraph as libparagraph,
+	libxsutils as libperlcall_utils, libxs_in_libtexinfo as
+	libcallperl_libtexinfo and libxs_in_libtexinfo_convert as
+	libcallperl_libtexinfo_convert.
+
+2024-11-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/configure.ac: remove unset perl_conf_PERL_LINK, it has
 	been replaced by PERL_LIBS.
 

@@ -91,14 +91,15 @@ MiscXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 MiscXS_la_LIBADD = $(platform_PERL_LIBADD)
 MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
+
 # C only convenience library for XSParagraph solely used to set different
 # flags than the Perl part, requiring Gnulib but not Perl.
-noinst_LTLIBRARIES += libxsparagraph.la
-libxsparagraph_la_SOURCES = xspara.c xspara.h \
+noinst_LTLIBRARIES += libparagraph.la
+libparagraph_la_SOURCES = xspara.c xspara.h \
                          main/text.c main/text.h
-libxsparagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
-libxsparagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
-libxsparagraph_la_LDFLAGS = $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)
+libparagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
+libparagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
+libparagraph_la_LDFLAGS = $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)
 
 xs_LTLIBRARIES += XSParagraph.la
 nodist_XSParagraph_la_SOURCES = XSParagraph.c
@@ -107,23 +108,24 @@ CLEANFILES += XSParagraph.c
 XSParagraph_la_SOURCES = ppport.h
 XSParagraph_la_CFLAGS = $(XSLIBS_CFLAGS)
 XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-XSParagraph_la_LIBADD = libxsparagraph.la $(platform_PERL_LIBADD)
+XSParagraph_la_LIBADD = libparagraph.la $(platform_PERL_LIBADD)
 XSParagraph_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 EXTRA_DIST += XSParagraph.xs MiscXS.xs
 
-############ Convenience library used in XS code, separate to use different
-#            flags to be sure that Perl headers and Perl replacement functions
-#            are not used and libc functions are used.
 
-noinst_LTLIBRARIES += libxsutils.la
+############ Convenience library for code calling Perl from C and for XS
+# interfaces, separate to use different flags to be sure that Perl headers
+# are not used and Gnulib/libc functions are used.
 
-libxsutils_la_SOURCES = \
+noinst_LTLIBRARIES += libperlcall_utils.la
+
+libperlcall_utils_la_SOURCES = \
 		main/xs_utils.c \
 		main/xs_utils.h
 
-libxsutils_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
-libxsutils_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
+libperlcall_utils_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
+libperlcall_utils_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 
 ########################## shared common library and parser library
 
@@ -253,24 +255,24 @@ libtexinfo_la_SOURCES = \
 # convenience library separate from but only used in libtexinfo to have
 # different CPPFLAGS to make sure that gnulib header files are not used
 # in compilation.
-noinst_LTLIBRARIES += libxs_in_libtexinfo.la
+noinst_LTLIBRARIES += libcallperl_libtexinfo.la
 
 # api_to_perl.c and call_perl_function.c functions are called in other
-# parts of the libtexinfo code and need to be linked against Perl
-libxs_in_libtexinfo_la_SOURCES = \
+# parts of the libtexinfo code and need to be compiled against Perl
+libcallperl_libtexinfo_la_SOURCES = \
 		      main/api_to_perl.c \
 		      main/api_to_perl.h \
 		      main/call_perl_function.c \
 		      main/call_perl_function.h
 
-libxs_in_libtexinfo_la_CPPFLAGS = -I$(srcdir)/main $(XSLIBS_CPPFLAGS)
-libxs_in_libtexinfo_la_CFLAGS = $(XSLIBS_CFLAGS)
-libxs_in_libtexinfo_la_LIBADD = libxsutils.la $(platform_PERL_LIBADD)
-libxs_in_libtexinfo_la_LDFLAGS = $(perl_conf_LDFLAGS)
+libcallperl_libtexinfo_la_CPPFLAGS = -I$(srcdir)/main $(XSLIBS_CPPFLAGS)
+libcallperl_libtexinfo_la_CFLAGS = $(XSLIBS_CFLAGS)
+libcallperl_libtexinfo_la_LIBADD = libperlcall_utils.la $(platform_PERL_LIBADD)
+libcallperl_libtexinfo_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
 # locate include files under out-of-source builds.
 libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
-libtexinfo_la_LIBADD = libxs_in_libtexinfo.la $(platform_PERL_LIBADD)
+libtexinfo_la_LIBADD = libcallperl_libtexinfo.la $(platform_PERL_LIBADD)
 libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 #libtexinfo_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(PERL_LIBS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
@@ -386,8 +388,8 @@ $(srcdir)/main/html_conversion_data.c $(srcdir)/main/html_conversion_data.h: mai
 MAINTAINERCLEANFILES += main/html_conversion_data.c main/html_conversion_data.h
 
 
-################################# common Perl C code used to call
-# libtexinfo from Perl XS *.xs interfaces and other Perl C codes shared library
+################################# common Perl C code shared library used
+# to call libtexinfo from Perl XS *.xs interfaces and other Perl C codes
 
 if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfoxs.la
@@ -403,7 +405,7 @@ libtexinfoxs_la_SOURCES= \
 # locate include files under out-of-source builds.
 libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
-libtexinfoxs_la_LIBADD = libtexinfo.la libxsutils.la $(platform_PERL_LIBADD)
+libtexinfoxs_la_LIBADD = libtexinfo.la libperlcall_utils.la $(platform_PERL_LIBADD)
 libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS)
 # example to trigger errors associated with no undefined
 #libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(PERL_LIBS)
@@ -504,23 +506,22 @@ C_libtexinfo_convert_sources = \
 
 # convenience library for C Perl called from libtexinfo-convert C code,
 # call_html_perl_function.c, to be able to have different flags from
-# libtexinfo-convert, to avoid Gnulib flags.
+# libtexinfo-convert, to avoid Gnulib flags.  Internal for libtexinfo-convert.
 # build_html_perl_state.c functions are called from call_html_perl_function.c.
 if HAVE_ICONV
-noinst_LTLIBRARIES += libxs_in_libtexinfo_convert.la
+noinst_LTLIBRARIES += libcallperl_libtexinfo_convert.la
 endif
 
-libxs_in_libtexinfo_convert_la_SOURCES = \
+libcallperl_libtexinfo_convert_la_SOURCES = \
                        convert/build_html_perl_state.h \
                        convert/build_html_perl_state.c \
                        convert/call_html_perl_function.h \
                        convert/call_html_perl_function.c
 
-libxs_in_libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(XSLIBS_CPPFLAGS)
-libxs_in_libtexinfo_convert_la_CFLAGS = $(XSLIBS_CFLAGS)
-libxs_in_libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
-libxs_in_libtexinfo_convert_la_LDFLAGS = $(perl_conf_LDFLAGS)
-
+libcallperl_libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(XSLIBS_CPPFLAGS)
+libcallperl_libtexinfo_convert_la_CFLAGS = $(XSLIBS_CFLAGS)
+libcallperl_libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
+libcallperl_libtexinfo_convert_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
 libtexinfo_convert_la_SOURCES = \
    $(C_libtexinfo_convert_sources)
@@ -529,13 +530,13 @@ libtexinfo_convert_la_SOURCES = \
 # parsetexi is only needed for texinfo.c
 libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 libtexinfo_convert_la_CFLAGS = $(XSLIBS_CFLAGS)
-libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la libxs_in_libtexinfo_convert.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
+libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la libcallperl_libtexinfo_convert.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
 libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 # example to trigger errors associated with no undefined
 #libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(PERL_LIBS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
-################################# common Perl C code used to call
-# libtexinfo-convert from Perl XS *.xs interfaces shared library
+################################# common Perl C code shared library used
+# to call libtexinfo-convert from Perl XS *.xs interfaces
 
 if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfo-convertxs.la
