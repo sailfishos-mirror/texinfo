@@ -146,7 +146,6 @@ sub init {
   }
 
   my $dlname = undef;
-  my $dlpath = undef;
 
   my $fh;
   open $fh, $libtool_archive;
@@ -171,30 +170,31 @@ sub init {
   push @DynaLoader::dl_library_path, $libtool_dir;
   push @DynaLoader::dl_library_path, "$libtool_dir/.libs";
 
-  $dlpath = DynaLoader::dl_findfile($dlname);
-  if (!$dlpath) {
+  my @found_files = DynaLoader::dl_findfile($dlname);
+  if (scalar(@found_files) == 0) {
     _fatal("$module_name: couldn't find $dlname");
     goto FALLBACK;
   }
+  my $dlpath = $found_files[0];
 
   #my $flags = dl_load_flags $module; # This is 0 in DynaLoader
   my $flags = 0;
   my $libref = DynaLoader::dl_load_file($dlpath, $flags);
-  if (!$libref) {
+  if (!defined($libref)) {
     my $message = DynaLoader::dl_error();
     _fatal("$module_name: couldn't load file $dlpath: $message");
     goto FALLBACK;
   }
   _debug("$dlpath loaded");
   my @undefined_symbols = DynaLoader::dl_undef_symbols();
-  if ($#undefined_symbols+1 != 0) {
+  if (scalar(@undefined_symbols) != 0) {
     _fatal("$module_name: still have undefined symbols after dl_load_file");
   }
   my $bootname = "boot_$module";
   $bootname =~ s/:/_/g;
   _debug("looking for $bootname");
   my $symref = DynaLoader::dl_find_symbol($libref, $bootname);
-  if (!$symref) {
+  if (!defined($symref)) {
     _fatal("$module_name: couldn't find $bootname symbol");
     goto FALLBACK;
   }
@@ -202,7 +202,7 @@ sub init {
   my $boot_fn = DynaLoader::dl_install_xsub("${module}::bootstrap",
                                                   $symref, $dlname);
 
-  if (!$boot_fn) {
+  if (!defined($boot_fn)) {
     _fatal("$module_name: couldn't bootstrap");
     goto FALLBACK;
   }
