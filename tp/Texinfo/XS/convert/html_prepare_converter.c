@@ -4545,6 +4545,7 @@ ids_hashmap_predicted_values (CONVERTER *self)
   return special_units->number + associated_special_units->number
    + self->document->identifiers_target.number
    + 3 * sectioning_commands_nr
+   + heading_commands_nr
    + index_entries_nr
    + self->document->global_commands.footnotes.number * 2;
 }
