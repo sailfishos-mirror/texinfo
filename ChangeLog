@@ -1,5 +1,13 @@
 2024-11-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XSLoader.pm (init): add an argument for
+	@DynaLoader::dl_resolve_using additional libraries.
+
+	* tp/Texinfo/DocumentXS.pm (BEGIN), tp/Texinfo/Parser.pm (BEGIN): add
+	-ltexinfoxs and -ltexinfo as additional libraries.
+
+2024-11-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XSLoader.pm (init): follow the DynaLoader documentation
 	strictly on the return of dl_findfile, dl_load_file and
 	dl_find_symbol.  Cosmetic change for dl_undef_symbols return

@@ -108,6 +108,7 @@ sub init {
      $fallback_module,
      $module_name,
      $perl_extra_file,
+     $additional_libraries,
    ) = @_;
 
   # Possible values for TEXINFO_XS environment variable:
@@ -176,6 +177,12 @@ sub init {
     goto FALLBACK;
   }
   my $dlpath = $found_files[0];
+
+  if ($additional_libraries and scalar(@$additional_libraries)) {
+    my @found_additional_libraries
+      = DynaLoader::dl_findfile(@$additional_libraries);
+    push @DynaLoader::dl_resolve_using, @found_additional_libraries;
+  }
 
   #my $flags = dl_load_flags $module; # This is 0 in DynaLoader
   my $flags = 0;
