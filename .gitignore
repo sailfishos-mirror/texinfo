@@ -274,6 +274,7 @@ tp/tests/*.trs
 tp/tests/test_scripts/*.log
 tp/tests/test_scripts/*.trs
 tp/tests/input_file_names_recoded_stamp.txt
+tp/tests/non_ascii.tar
 tp/tests/non_ascii_extracted_stamp.txt
 tp/tests/built_input
 
