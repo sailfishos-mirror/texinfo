@@ -85,8 +85,8 @@ install-data-hook:
 xs_LTLIBRARIES += MiscXS.la
 nodist_MiscXS_la_SOURCES = MiscXS.c
 CLEANFILES += MiscXS.c
-MiscXS_la_SOURCES = misc.c miscxs.h ppport.h
-MiscXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+MiscXS_la_SOURCES = misc.c miscxs.h main/base_utils.c main/base_utils.h
+MiscXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS) -UHAVE_CONFIG_H
 MiscXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 MiscXS_la_LIBADD = $(platform_PERL_LIBADD)
 MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
@@ -105,7 +105,6 @@ xs_LTLIBRARIES += XSParagraph.la
 nodist_XSParagraph_la_SOURCES = XSParagraph.c
 CLEANFILES += XSParagraph.c
 # FIXME not included?
-XSParagraph_la_SOURCES = ppport.h
 XSParagraph_la_CFLAGS = $(XSLIBS_CFLAGS)
 XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 XSParagraph_la_LIBADD = libparagraph.la $(platform_PERL_LIBADD)
@@ -146,6 +145,8 @@ C_libtexinfo_sources = \
 		      main/tree.h \
 		      main/text.c \
 		      main/text.h \
+		      main/base_utils.c \
+		      main/base_utils.h \
 		      main/element_types.c \
 		      main/element_types.h \
 		      main/command_ids.h \

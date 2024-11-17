@@ -23,11 +23,11 @@
 #include "tree_types.h"
 #include "types_data.h"
 #include "text.h"
+/* for fatal */
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
-/* for fatal */
-#include "utils.h"
 #include "command_stack.h"
 #include "counter.h"
 #include "commands.h"

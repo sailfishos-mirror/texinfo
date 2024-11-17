@@ -14,6 +14,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -21,6 +22,8 @@
 #include "tree_types.h"
 #include "text.h"
 #include "types_data.h"
+/* for bug */
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 /* for whitespace_chars */

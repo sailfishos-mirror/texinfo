@@ -15,6 +15,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
@@ -25,10 +26,12 @@
 #include "tree_types.h"
 #include "types_data.h"
 #include "text.h"
+/* isascii_alnum fatal */
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
-/* for isascii_alnum whitespace_chars read_flag_len item_line_parent */
+/* for whitespace_chars read_flag_len item_line_parent */
 #include "utils.h"
 #include "command_stack.h"
 /* for global_parser_conf */

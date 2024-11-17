@@ -22,6 +22,8 @@
 #include <errno.h>
 
 #include "text.h"
+/* for fatal */
+#include "base_utils.h"
 /* for xasprintf and other */
 #include "utils.h"
 /* for global_parser_conf */

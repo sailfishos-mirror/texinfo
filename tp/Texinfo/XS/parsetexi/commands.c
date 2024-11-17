@@ -20,7 +20,8 @@
 
 #include "command_ids.h"
 #include "builtin_commands.h"
-#include "utils.h"
+/* fatal */
+#include "base_utils.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
 /* for lookup_macro and unset_macro_record */

@@ -14,6 +14,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -24,10 +25,12 @@
 #include "tree_types.h"
 #include "text.h"
 #include "types_data.h"
+/* fatal */
+#include "base_utils.h"
 #include "tree.h"
 #include "builtin_commands.h"
 #include "extra.h"
-/* for whitespace_chars fatal def_aliases */
+/* for whitespace_chars def_aliases */
 #include "utils.h"
 /* for relocate_source_marks */
 #include "manipulate_tree.h"

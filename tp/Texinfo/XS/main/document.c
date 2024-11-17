@@ -24,6 +24,8 @@
 #include "tree_types.h"
 #include "options_data.h"
 #include "document_types.h"
+/* fatal */
+#include "base_utils.h"
 #include "tree.h"
 #include "errors.h"
 #include "debug.h"

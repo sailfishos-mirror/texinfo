@@ -1,5 +1,20 @@
 2024-11-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (C_libtexinfo_sources),
+	tp/Texinfo/XS/main/base_utils.c, tp/Texinfo/XS/main/utils.c: move bug,
+	fatal, isascii_* functions to a new file main/base_utils.c out of
+	utils.c.
+
+	* tp/Texinfo/XS/Makefile.am (MiscXS_la_SOURCES, MiscXS_la_CPPFLAGS),
+	tp/Texinfo/XS/misc.c (xs_parse_command_name): use isascii_alnum in
+	xs_parse_command_name.  Otherwise in some cases (perl 5.40 on macos)
+	bytes part of UTF-8 strings are incorrectly considered to be alnum.
+	Set -UHAVE_CONFIG_H in MiscXS_la_CPPFLAGS such as not to include
+	config.h in base_utils.c as there is no need for config.h inclusion
+	for MiscXS since Gnulib is not used at all for this XS object.
+
+2024-11-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (isascii_alnum, isascii_alpha)
 	(isascii_digit, isascii_lower, isascii_upper): use unsigned char for
 	argument type, as it is the recommended type for isupper/islower...

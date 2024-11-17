@@ -21,7 +21,9 @@
 #include "tree_types.h"
 /* for new_list */
 #include "tree.h"
-/* for fatal and directions_length */
+/* for fatal */
+#include "base_utils.h"
+/* for directions_length */
 #include "utils.h"
 #include "debug.h"
 #include "extra.h"

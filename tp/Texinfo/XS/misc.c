@@ -16,8 +16,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
+/* isascii_alnum */
+#include "base_utils.h"
 #include "miscxs.h"
 
 const char *whitespace_chars = " \t\f\v\r\n";
@@ -259,14 +260,14 @@ void xs_parse_command_name (char *text,
   *command = 0;
   *is_single_letter = 0;
 
-  if (isalnum ((unsigned char) text[0]))
+  if (isascii_alnum (text[0]))
     {
       char *p, *q;
       static char *s;
 
       p = text;
       q = text + 1;
-      while (isalnum ((unsigned char) *q) || *q == '-' || *q == '_')
+      while (isascii_alnum (*q) || *q == '-' || *q == '_')
         q++;
 
       s = realloc (s, q - p + 1);

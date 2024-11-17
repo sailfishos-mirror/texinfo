@@ -17,6 +17,7 @@
    used in converters */
 
 #include <config.h>
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -26,11 +27,13 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "document_types.h"
+/* for fatal */
+#include "base_utils.h"
 #include "tree.h"
 #include "builtin_commands.h"
 #include "extra.h"
 #include "command_stack.h"
-/* for xasprintf fatal */
+/* for xasprintf */
 #include "utils.h"
 #include "debug.h"
 #include "targets.h"

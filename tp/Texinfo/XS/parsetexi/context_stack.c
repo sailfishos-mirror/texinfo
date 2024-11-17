@@ -14,11 +14,13 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+
 #include <stdlib.h>
 
 #include "command_ids.h"
 #include "tree_types.h"
-#include "utils.h"
+/* for fatal */
+#include "base_utils.h"
 #include "command_stack.h"
 #include "commands.h"
 #include "debug_parser.h"

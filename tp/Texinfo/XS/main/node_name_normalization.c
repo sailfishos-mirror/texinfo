@@ -28,10 +28,12 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "types_data.h"
+/* isascii_alnum bug */
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
-/* for xasprintf whitespace_chars, isascii_alnum and bug */
+/* for xasprintf whitespace_chars */
 #include "utils.h"
 #include "debug.h"
 #include "call_perl_function.h"

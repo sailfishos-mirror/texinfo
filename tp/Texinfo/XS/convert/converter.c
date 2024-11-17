@@ -16,6 +16,7 @@
 /* functions in this file correspond to Texinfo::Convert::Converter */
 
 #include <config.h>
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -41,6 +42,8 @@
 #include "converter_types.h"
 #include "options_defaults.h"
 #include "converters_options.h"
+/* fatal isascii_alnum isascii_alpha */
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 /* for COMMAND_OPTION_DEFAULT ACCENTS_STACK

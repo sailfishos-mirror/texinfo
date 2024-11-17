@@ -33,9 +33,12 @@
 #include "converter_types.h"
 /* non_perl_* */
 #include "xs_utils.h"
+/* fatal */
+#include "base_utils.h"
 #include "extra.h"
 #include "builtin_commands.h"
 #include "debug.h"
+/* add_include_directory add_string html_free_button_specification_list ... */
 #include "utils.h"
 #include "customization_options.h"
 #include "errors.h"

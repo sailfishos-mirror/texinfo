@@ -31,6 +31,8 @@
 #include "tree_types.h"
 #include "document_types.h"
 /* for fatal */
+#include "base_utils.h"
+/* for ENCODING_CONVERSION output_conversions get_encoding_conversion */
 #include "utils.h"
 #include "errors.h"
 

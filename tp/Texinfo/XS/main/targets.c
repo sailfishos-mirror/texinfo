@@ -22,12 +22,14 @@
 
 #include "tree_types.h"
 #include "document_types.h"
+/* fatal */
+#include "base_utils.h"
 #include "tree.h"
 #include "errors.h"
 #include "debug.h"
 #include "builtin_commands.h"
-/* for get_label_element and fatal */
 #include "extra.h"
+/* for get_label_element */
 #include "utils.h"
 #include "convert_to_texinfo.h"
 /* for retrieve_document */

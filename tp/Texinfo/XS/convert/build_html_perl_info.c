@@ -29,9 +29,11 @@
 #include "html_conversion_data.h"
 #include "tree_types.h"
 #include "converter_types.h"
+/* bug */
+#include "base_utils.h"
 /* for builtin_command_name */
 #include "builtin_commands.h"
-/* for fatal HMSF_* */
+/* for HMSF_* */
 #include "utils.h"
 /* next two could be interesting for debugging */
 /*

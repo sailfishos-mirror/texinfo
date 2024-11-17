@@ -14,6 +14,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -23,11 +24,11 @@
 #include "tree_types.h"
 #include "text.h"
 #include "types_data.h"
+/* for bug */
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
-/* for fatal */
-#include "utils.h"
 #include "command_stack.h"
 /* for parse_node_manual */
 #include "manipulate_tree.h"

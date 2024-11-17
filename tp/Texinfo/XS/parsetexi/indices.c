@@ -14,6 +14,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,6 +25,8 @@
 /* document used in complete_indices */
 #include "document_types.h"
 #include "types_data.h"
+/* fatal */
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"

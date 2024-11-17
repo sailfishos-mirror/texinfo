@@ -36,6 +36,8 @@
 #include "option_types.h"
 #include "types_data.h"
 #include "html_converter_types.h"
+/* fatal isascii_alnum isascii_alpha isascii_digit isascii_lower */
+#include "base_utils.h"
 #include "tree.h"
 #include "builtin_commands.h"
 #include "command_stack.h"

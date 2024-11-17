@@ -31,11 +31,13 @@
 #include "option_types.h"
 #include "types_data.h"
 #include "html_converter_types.h"
+/* fatal isascii_alpha */
+#include "base_utils.h"
 #include "tree.h"
 #include "builtin_commands.h"
 #include "command_stack.h"
 #include "errors.h"
-/* xasprintf get_label_element output_conversions ENCODING_CONVERSION fatal
+/* xasprintf get_label_element output_conversions ENCODING_CONVERSION
    encode_with_iconv output_unit_type_names get_cmd_global_uniq_command
    */
 #include "utils.h"

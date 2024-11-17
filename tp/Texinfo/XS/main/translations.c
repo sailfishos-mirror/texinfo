@@ -34,7 +34,10 @@
 #include "tree_types.h"
 #include "options_data.h"
 #include "types_data.h"
+/* isascii_lower isascii_upper fatal */
+#include "base_utils.h"
 #include "tree.h"
+/* read_flag_len */
 #include "utils.h"
 #include "api_to_perl.h"
 #include "debug.h"

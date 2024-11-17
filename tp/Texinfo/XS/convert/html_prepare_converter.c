@@ -30,6 +30,8 @@
 #include "tree_types.h"
 #include "converter_types.h"
 #include "html_conversion_data.h"
+/* bug fatal isascii_alnum isascii_alpha */
+#include "base_utils.h"
 /* new_element */
 #include "tree.h"
 #include "errors.h"

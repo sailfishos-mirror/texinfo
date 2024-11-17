@@ -19,10 +19,8 @@
 
 #include "tree_types.h"
 #include "command_ids.h"
-/*
-#include "commands.h"
- */
-#include "utils.h"
+/* fatal */
+#include "base_utils.h"
 #include "command_stack.h"
 
 /* Generic stack functions */

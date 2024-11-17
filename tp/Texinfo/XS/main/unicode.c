@@ -31,10 +31,12 @@
 #include "command_ids.h"
 #include "tree_types.h"
 #include "converter_types.h"
+/* for fatal */
+#include "base_utils.h"
 #include "errors.h"
 /* for element_builtin_cmd */
 #include "builtin_commands.h"
-/* for fatal xasprintf to_upper_or_lower_multibyte normalize_encoding_name */
+/* for xasprintf to_upper_or_lower_multibyte normalize_encoding_name */
 #include "utils.h"
 #include "unicode.h"
 

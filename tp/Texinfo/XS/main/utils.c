@@ -50,6 +50,8 @@
 #include "document_types.h"
 #include "converter_types.h"
 #include "types_data.h"
+/* isascii_alnum isascii_alpha isascii_upper */
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
@@ -195,47 +197,6 @@ xasprintf (char **ptr, const char *template, ...)
   ret = xvasprintf (ptr, template, v);
   va_end (v);
   return ret;
-}
-
-void bug (char *message)
-{
-  fprintf (stderr, "texi2any (XS): bug: %s\n", message);
-}
-
-void fatal (char *message)
-{
-  bug (message);
-  abort ();
-}
-
-int
-isascii_alnum (unsigned char c)
-{
-  return (((c & ~0x7f) == 0) && isalnum (c));
-}
-
-int
-isascii_alpha (unsigned char c)
-{
-  return (((c & ~0x7f) == 0) && isalpha (c));
-}
-
-int
-isascii_digit (unsigned char c)
-{
-  return (((c & ~0x7f) == 0) && isdigit (c));
-}
-
-int
-isascii_lower (unsigned char c)
-{
-  return (((c & ~0x7f) == 0) && islower (c));
-}
-
-int
-isascii_upper (unsigned char c)
-{
-  return (((c & ~0x7f) == 0) && isupper (c));
 }
 
 

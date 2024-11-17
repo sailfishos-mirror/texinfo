@@ -25,9 +25,11 @@
 #include "element_types.h"
 #include "converter_types.h"
 #include "html_converter_types.h"
+/* fatal */
+#include "base_utils.h"
 #include "command_stack.h"
 #include "builtin_commands.h"
-/* new_string_list add_string fatal */
+/* new_string_list add_string */
 #include "utils.h"
 #include "html_conversion_state.h"
 

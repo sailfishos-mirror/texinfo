@@ -14,6 +14,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
@@ -23,9 +24,11 @@
 #include "tree_types.h"
 /* for VALUE */
 #include "document_types.h"
+/* bug fatal isascii_alnum */
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
-/* for isascii_alnum whitespace_chars wipe_values */
+/* for whitespace_chars wipe_values */
 #include "utils.h"
 #include "convert_to_texinfo.h"
 /* for global_parser_conf */

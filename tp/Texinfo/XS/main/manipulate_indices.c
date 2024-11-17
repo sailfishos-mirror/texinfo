@@ -14,6 +14,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include <config.h>
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -28,9 +29,12 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
+/* whitespace_chars ultimate_index indices_info_index_by_name
+   to_upper_or_lower_multibyte */
 #include "utils.h"
 #include "errors.h"
 #include "debug.h"

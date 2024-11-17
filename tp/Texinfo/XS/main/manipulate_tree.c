@@ -27,11 +27,15 @@
 #include "command_ids.h"
 #include "types_data.h"
 #include "text.h"
+/* fatal */
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
 #include "debug.h"
 #include "targets.h"
+/* for directions_length new_string_list copy_strings count_multibyte
+   whitespace_chars */
 #include "utils.h"
 #include "manipulate_tree.h"
 #include "unicode.h"

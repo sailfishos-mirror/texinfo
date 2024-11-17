@@ -19,11 +19,13 @@
 #include <stdlib.h>
 
 #include "tree_types.h"
+/* fatal */
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 /* for element_command_name */
 #include "builtin_commands.h"
-/* for whitespace_chars and count_multibyte */
+/* for whitespace_chars count_multibyte */
 #include "utils.h"
 /* for parse_node_manual */
 #include "manipulate_tree.h"

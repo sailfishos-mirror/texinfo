@@ -61,11 +61,13 @@
 #include "converter_types.h"
 /* non_perl_* */
 #include "xs_utils.h"
+/* fatal */
+#include "base_utils.h"
 /* for ai_key_names elt_info_names */
 #include "tree.h"
 /* for element_command_name */
 #include "builtin_commands.h"
-/* for xasprintf get_encoding_conversion output_conversions fatal
+/* for xasprintf get_encoding_conversion output_conversions
    direction_names expanded_formats_number output_unit_type_names
    informative_command_value get_global_document_command */
 #include "utils.h"

@@ -15,6 +15,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
@@ -26,11 +27,13 @@
 #include "tree_types.h"
 #include "text.h"
 #include "types_data.h"
+/* for isascii_alnum fatal */
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
-/* for isascii_alnum whitespace_chars read_flag_len
-   indices_info_index_by_name ultimate_index fatal */
+/* for whitespace_chars read_flag_len
+   indices_info_index_by_name ultimate_index */
 #include "utils.h"
 /* for parse_float_type add_to_float_record_list */
 #include "floats.h"

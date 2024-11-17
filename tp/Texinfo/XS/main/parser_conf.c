@@ -20,7 +20,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* fatal clear_strings_list wipe_values ... */
+/* fatal */
+#include "base_utils.h"
+/* clear_strings_list wipe_values ... */
 #include "utils.h"
 #include "parser_conf.h"
 

@@ -16,6 +16,7 @@
 /* In sync with Texinfo::Structuring */
 
 #include <config.h>
+
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -27,6 +28,8 @@
 #include "global_commands_types.h"
 #include "options_data.h"
 #include "document_types.h"
+/* fatal */
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"

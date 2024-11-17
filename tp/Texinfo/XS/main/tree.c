@@ -22,6 +22,8 @@
 #include "tree_types.h"
 #include "types_data.h"
 /* for fatal */
+#include "base_utils.h"
+/* for destroy_strings_list */
 #include "utils.h"
 /* for debug
 #include "debug.h"

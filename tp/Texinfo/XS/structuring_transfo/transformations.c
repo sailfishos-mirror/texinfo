@@ -31,11 +31,15 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "types_data.h"
+/* fatal */
+#include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
 #include "errors.h"
 #include "debug.h"
+/* indices_info_index_by_name section_level whitespace_chars
+   parse_line_directive ... */
 #include "utils.h"
 /* for copy_contents normalized_menu_entry_internal_node modify_tree
    protect_colon_in_tree new_asis_command_with_text
