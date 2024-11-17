@@ -113,11 +113,11 @@ int xasprintf (char **ptr, const char *template, ...);
 void fatal (char *);
 void bug (char *);
 
-int isascii_alnum (int c);
-int isascii_alpha (int c);
-int isascii_digit (int c);
-int isascii_lower (int c);
-int isascii_upper (int c);
+int isascii_alnum (unsigned char c);
+int isascii_alpha (unsigned char c);
+int isascii_digit (unsigned char c);
+int isascii_lower (unsigned char c);
+int isascii_upper (unsigned char c);
 size_t count_multibyte (const char *text);
 char *to_upper_or_lower_multibyte (const char *text, int lower_or_upper);
 int width_multibyte (const char *text);

@@ -16,6 +16,7 @@
 /* code that does not fit anywhere else */
 
 #include <config.h>
+
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
@@ -208,31 +209,31 @@ void fatal (char *message)
 }
 
 int
-isascii_alnum (int c)
+isascii_alnum (unsigned char c)
 {
   return (((c & ~0x7f) == 0) && isalnum (c));
 }
 
 int
-isascii_alpha (int c)
+isascii_alpha (unsigned char c)
 {
   return (((c & ~0x7f) == 0) && isalpha (c));
 }
 
 int
-isascii_digit (int c)
+isascii_digit (unsigned char c)
 {
   return (((c & ~0x7f) == 0) && isdigit (c));
 }
 
 int
-isascii_lower (int c)
+isascii_lower (unsigned char c)
 {
   return (((c & ~0x7f) == 0) && islower (c));
 }
 
 int
-isascii_upper (int c)
+isascii_upper (unsigned char c)
 {
   return (((c & ~0x7f) == 0) && isupper (c));
 }
