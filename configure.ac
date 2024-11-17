@@ -158,7 +158,8 @@ if test "x$am_func_iconv" = "xyes" ; then
   }
   return result;
 ]])],
-          [texinfo_cv_sys_iconv_converts_euc_cn=yes], ,)
+          [texinfo_cv_sys_iconv_converts_euc_cn=yes], ,
+          [texinfo_cv_sys_iconv_converts_euc_cn="cross compile guess no"])
         test "$texinfo_cv_sys_iconv_converts_euc_cn" = no || break
       done
       LIBS="$euc_cn_save_LIBS"
