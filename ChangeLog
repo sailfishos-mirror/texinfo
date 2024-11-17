@@ -1,5 +1,10 @@
 2024-11-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XSLoader.pm (init): add debug call for
+	@found_additional_libraries.
+
+2024-11-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XSLoader.pm (init): add an argument for
 	@DynaLoader::dl_resolve_using additional libraries.
 

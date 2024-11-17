@@ -181,6 +181,8 @@ sub init {
   if ($additional_libraries and scalar(@$additional_libraries)) {
     my @found_additional_libraries
       = DynaLoader::dl_findfile(@$additional_libraries);
+    _debug("additional libraries: ".join('|', @$additional_libraries));
+    _debug("found additional: ".join('|', @found_additional_libraries));
     push @DynaLoader::dl_resolve_using, @found_additional_libraries;
   }
 
