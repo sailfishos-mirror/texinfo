@@ -25,6 +25,13 @@ else
   exit 77
 fi
 
+if sed 1q ../non_ascii_extracted_stamp.txt | grep 'OK' >/dev/null; then
+  :
+else
+  echo "S: (no non-ASCII file names) $basename"
+  exit 77
+fi
+
 # Need command-line unicode for this test, which is not reliable on Windows
 if test "z$HOST_IS_WINDOWS_VARIABLE" = 'zyes' ; then
   exit 77

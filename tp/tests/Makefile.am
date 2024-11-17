@@ -70,7 +70,7 @@ input_file_names_recoded_stamp.txt: $(srcdir)/input/included_latin1.texi
 	mkdir -p built_input ; if $(PERL) $(srcdir)/../maintain/copy_change_file_name_encoding.pl $(srcdir)/input/included_latin1.texi built_input ; then echo 'OK' > $@ ; else echo 'FAILED' > $@ ; fi
 
 distclean-local:
-	rm -rf input_file_names_recoded_stamp.txt built_input
+	rm -rf input_file_names_recoded_stamp.txt non_ascii_extracted_stamp.txt built_input
 
 # Files with non-ASCII file names
 na=input/non_ascii
@@ -95,11 +95,19 @@ $(srcdir)/input/non_ascii.tar:
 	cd $(srcdir)/input && \
 	tar cf non_ascii.tar non_ascii
 
-check_DATA += built_input/non_ascii
-built_input/non_ascii: input/non_ascii.tar
-	rm -rf $@ && mkdir -p $@ && \
+check_DATA += non_ascii_extracted_stamp.txt
+
+if ! HOST_IS_WINDOWS
+non_ascii_extracted_stamp.txt: input/non_ascii.tar
+	rm -rf built_input/non_ascii && mkdir -p built_input/non_ascii && \
 	cd built_input && \
-	tar xmf "$(abs_srcdir)/input/non_ascii.tar"
+	tar xmf "$(abs_srcdir)/input/non_ascii.tar" && \
+	echo OK > ../non_ascii_extracted_stamp.txt
+else
+non_ascii_extracted_stamp.txt:
+	echo FAIL > non_ascii_extracted_stamp.txt
+endif
+
 # tar m discards file modification dates from the archive.
 
 EXTRA_DIST = run_parser_all.sh parser_tests.sh escape_file_names.pl \

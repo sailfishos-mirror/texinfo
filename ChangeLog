@@ -1,3 +1,28 @@
+2024-11-17  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Skip tests for non-ASCII file names
+
+	* tp/tests/Makefile.am (non_ascii_extracted_stamp.txt)
+	(built_input/non_ascii): Use "stamp" file in check_DATA instead
+	of input files directory.  This allows these files not to
+	be created under given conditions.
+	(non_ascii_extracted_stamp.txt) [HOST_IS_WINDOWS]: do not extract
+	non_ascii.tar and record non-ASCII input files as unavailable.
+
+	* tp/tests/encoded/list-of-tests,
+	* tp/tests/tex_html/list-of-tests: mark some tests to skip with
+	-D 'neednonasciifilenames Need non-ASCII file names.
+
+	* tp/tests/run_parser_all.sh (check_need_non_ascii_file_names):
+	Add check for marker in tests specifications file.
+
+	* tp/tests/many_input_files/input_dir_non_ascii.sh,
+	* tp/tests/many_input_files/output_dir_file_non_ascii.sh,
+	* tp/tests/many_input_files/output_dir_non_ascii.sh,
+	* tp/tests/many_input_files/tex_l2h_output_dir_non_ascii.sh,
+	* tp/tests/many_input_files/tex_t4ht_output_dir_non_ascii.sh:
+	Add ad hoc code to skip tests.
+
 2024-11-17  Patrice Dumas  <pertusus@free.fr>
 
 	* configure.ac (texinfo_cv_sys_iconv_converts_euc_cn): set to "cross

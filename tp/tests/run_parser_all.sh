@@ -18,6 +18,17 @@ check_need_recoded_file_names ()
    return 0
 }
 
+check_need_non_ascii_file_names ()
+{
+   if echo "$remaining" | grep 'Need non-ASCII file names' >/dev/null; then
+     if [ "$no_non_ascii_file_names" = 'yes' ]; then
+       echo "S: (no non-ASCII file names) $current"
+       return 1
+     fi
+   fi
+   return 0
+}
+
 # Some tests use non-ASCII characters on their command line,
 # using UTF-8 to encode those characters in the source files.
 # Shell on Windows may consider those characters to be
@@ -275,6 +286,11 @@ if test "z$HOST_IS_WINDOWS_VARIABLE" = 'zyes' ; then
   no_recoded_file_names=yes
 fi
 
+no_non_ascii_file_names=yes
+if sed 1q non_ascii_extracted_stamp.txt | grep 'OK' >/dev/null; then
+  no_non_ascii_file_names=no
+fi
+
 one_test=no
 if test -n "$1"; then
   one_test=yes
@@ -419,6 +435,7 @@ while read line; do
 
     skipped_test=no
     check_need_recoded_file_names || skipped_test=yes
+    check_need_non_ascii_file_names || skipped_test=yes
     check_need_command_line_unicode || skipped_test=yes
     check_latex2html_and_tex4ht || skipped_test=yes
     check_unicode_collate_ok || skipped_test=yes
