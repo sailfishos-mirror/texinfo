@@ -107,6 +107,16 @@ else
 non_ascii_extracted_stamp.txt:
 	echo FAIL > non_ascii_extracted_stamp.txt
 endif
+# We skip some tests if we don't extract the non-ASCII input files.
+# This avoid issues with the creation of such files on MS-Windows.
+# This also avoids use by tests of non-ASCII characters on command lines
+# using UTF-8 to encode those characters in the source files.
+# Shell on Windows may consider those characters to be
+# encoded in the current codeset, passing them incorrectly to
+# the programs, and even if the shell passed them unchanged, native
+# Windows perl in most cases cannot cope with non-ASCII arguments
+# encoded in a different encoding than the current user codepage.
+
 
 # tar m discards file modification dates from the archive.
 

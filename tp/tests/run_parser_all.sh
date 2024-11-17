@@ -29,24 +29,6 @@ check_need_non_ascii_file_names ()
    return 0
 }
 
-# Some tests use non-ASCII characters on their command line,
-# using UTF-8 to encode those characters in the source files.
-# Shell on Windows may consider those characters to be
-# encoded in the current codeset, passing them incorrectly to
-# the programs, and even if the shell passed them unchanged, native
-# Windows perl in most cases cannot cope with non-ASCII arguments
-# encoded in a different encoding than the current user codepage.
-check_need_command_line_unicode ()
-{
-  if echo "$remaining" | grep 'Need command-line unicode' >/dev/null; then
-    if test "z$HOST_IS_WINDOWS_VARIABLE" = 'zyes' ; then
-      echo "S: (no reliable command-line Unicode) $current"
-      return 1
-    fi
-  fi
-  return 0
-}
-
 check_unicode_collate_ok ()
 {
   if echo "$remaining" | grep 'Need collation compatibility' >/dev/null; then
@@ -436,7 +418,6 @@ while read line; do
     skipped_test=no
     check_need_recoded_file_names || skipped_test=yes
     check_need_non_ascii_file_names || skipped_test=yes
-    check_need_command_line_unicode || skipped_test=yes
     check_latex2html_and_tex4ht || skipped_test=yes
     check_unicode_collate_ok || skipped_test=yes
     check_strxfrm_ok || skipped_test=yes
