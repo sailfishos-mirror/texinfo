@@ -26,7 +26,7 @@ echo "  $cmd"
 $chicken eval $cmd || exit 1
 
 # Same rule in tp/tests/Makefile.am
-cmd="(cd tp/tests/input && tar -c -f non_ascii.tar non_ascii)"
+cmd="(cd tp/tests/input && tar cf non_ascii.tar non_ascii)"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 
