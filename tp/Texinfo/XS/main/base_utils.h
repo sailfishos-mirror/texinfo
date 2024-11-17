@@ -24,6 +24,7 @@ int isascii_alnum (unsigned char c);
 int isascii_alpha (unsigned char c);
 int isascii_digit (unsigned char c);
 int isascii_lower (unsigned char c);
+int isascii_space (unsigned char c);
 int isascii_upper (unsigned char c);
 
 #endif

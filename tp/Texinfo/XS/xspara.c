@@ -28,7 +28,8 @@
 #include <unistr.h>
 #include <uchar.h>
 
-#include "main/text.h"
+#include "text.h"
+#include "base_utils.h"
 #include "xspara.h"
 
 static int debug = 0;
@@ -122,7 +123,7 @@ xspara__print_escaped_spaces (char *string, size_t len)
         text_append_n (&t, "\\n", 2);
       else if (*p == '\f')
         text_append_n (&t, "\\f", 2);
-      else if (isspace ((unsigned char) *p))
+      else if (isascii_space (*p))
         {
           char protected_string[7];
           sprintf (protected_string, "\\x%04x", *p);
@@ -637,7 +638,7 @@ xspara_add_text (char *text, int len)
             {
               next_type = type_finished;
             }
-          else if (isspace ((unsigned char) *q))
+          else if (isascii_space (*q))
             {
               next_type = type_spaces;
               next_len = 1;

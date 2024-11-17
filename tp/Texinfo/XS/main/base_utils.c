@@ -65,6 +65,12 @@ isascii_lower (unsigned char c)
 }
 
 int
+isascii_space (unsigned char c)
+{
+  return (((c & ~0x7f) == 0) && isspace (c));
+}
+
+int
 isascii_upper (unsigned char c)
 {
   return (((c & ~0x7f) == 0) && isupper (c));

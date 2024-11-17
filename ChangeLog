@@ -1,5 +1,17 @@
 2024-11-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/base_utils.c (isascii_space): add.
+
+	* tp/Texinfo/XS/Makefile.am (libparagraph_la_SOURCES),
+	tp/Texinfo/XS/xspara.c (xspara__print_escaped_spaces)
+	(xspara_add_text): use isascii_space.
+
+	* tp/Texinfo/XS/Makefile.am (libparagraph_la_CPPFLAGS),
+	tp/Texinfo/XS/xspara.c: do not include main/text.h, include text.h and
+	add -I.
+
+2024-11-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (C_libtexinfo_sources),
 	tp/Texinfo/XS/main/base_utils.c, tp/Texinfo/XS/main/utils.c: move bug,
 	fatal, isascii_* functions to a new file main/base_utils.c out of

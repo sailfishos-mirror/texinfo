@@ -96,8 +96,9 @@ MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 # flags than the Perl part, requiring Gnulib but not Perl.
 noinst_LTLIBRARIES += libparagraph.la
 libparagraph_la_SOURCES = xspara.c xspara.h \
+                         main/base_utils.c main/base_utils.h \
                          main/text.c main/text.h
-libparagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
+libparagraph_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libparagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
 libparagraph_la_LDFLAGS = $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)
 
