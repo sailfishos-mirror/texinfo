@@ -67,18 +67,18 @@ our $disable_XS;
 
 # For verbose information about what's being done
 sub _debug($) {
+  my $msg = shift;
   if ($TEXINFO_XS eq 'debug') {
-    my $msg = shift;
     warn $msg . "\n";
   }
 }
 
 # For messages to say that XS module couldn't be loaded
 sub _fatal($) {
+  my $msg = shift;
   if ($TEXINFO_XS eq 'debug'
       or $TEXINFO_XS eq 'required'
       or $TEXINFO_XS eq 'warn') {
-    my $msg = shift;
     warn $msg . "\n";
   }
 }
@@ -88,10 +88,10 @@ sub _fatal($) {
 sub _find_file($) {
   my $file = shift;
   for my $dir (@INC) {
-    next if ref($dir);
-    _debug "checking $dir/$file";
+    next if (ref($dir) ne '');
+    _debug("checking $dir/$file");
     if (-f "$dir/$file") {
-      _debug "found $dir/$file";
+      _debug("found $dir/$file");
       return ($dir, "$dir/$file");
     }
   }
@@ -131,7 +131,7 @@ sub init {
   }
 
   if ($disable_XS) {
-    _fatal "use of XS modules was disabled when Texinfo was built";
+    _fatal("use of XS modules was disabled when Texinfo was built");
     goto FALLBACK;
   }
 
@@ -141,7 +141,7 @@ sub init {
 
   my ($libtool_dir, $libtool_archive) = _find_file("$module_name.la");
   if (!$libtool_archive) {
-    _fatal "$module_name: couldn't find Libtool archive file";
+    _fatal("$module_name: couldn't find Libtool archive file");
     goto FALLBACK;
   }
 
@@ -151,7 +151,7 @@ sub init {
   my $fh;
   open $fh, $libtool_archive;
   if (!$fh) {
-    _fatal "$module_name: couldn't open Libtool archive file";
+    _fatal("$module_name: couldn't open Libtool archive file");
     goto FALLBACK;
   }
 
@@ -162,8 +162,8 @@ sub init {
       last;
     }
   }
-  if (!$dlname) {
-    _fatal "$module_name: couldn't find name of shared object";
+  if (!defined($dlname) or $dlname eq '') {
+    _fatal("$module_name: couldn't find name of shared object");
     goto FALLBACK;
   }
 
@@ -173,7 +173,7 @@ sub init {
 
   $dlpath = DynaLoader::dl_findfile($dlname);
   if (!$dlpath) {
-    _fatal "$module_name: couldn't find $dlname";
+    _fatal("$module_name: couldn't find $dlname");
     goto FALLBACK;
   }
 
@@ -182,31 +182,31 @@ sub init {
   my $libref = DynaLoader::dl_load_file($dlpath, $flags);
   if (!$libref) {
     my $message = DynaLoader::dl_error();
-    _fatal "$module_name: couldn't load file $dlpath: $message";
+    _fatal("$module_name: couldn't load file $dlpath: $message");
     goto FALLBACK;
   }
-  _debug "$dlpath loaded";
+  _debug("$dlpath loaded");
   my @undefined_symbols = DynaLoader::dl_undef_symbols();
   if ($#undefined_symbols+1 != 0) {
-    _fatal "$module_name: still have undefined symbols after dl_load_file";
+    _fatal("$module_name: still have undefined symbols after dl_load_file");
   }
   my $bootname = "boot_$module";
   $bootname =~ s/:/_/g;
-  _debug "looking for $bootname";
+  _debug("looking for $bootname");
   my $symref = DynaLoader::dl_find_symbol($libref, $bootname);
   if (!$symref) {
-    _fatal "$module_name: couldn't find $bootname symbol";
+    _fatal("$module_name: couldn't find $bootname symbol");
     goto FALLBACK;
   }
-  _debug "trying to call $bootname...";
+  _debug("trying to call $bootname...");
   my $boot_fn = DynaLoader::dl_install_xsub("${module}::bootstrap",
                                                   $symref, $dlname);
 
   if (!$boot_fn) {
-    _fatal "$module_name: couldn't bootstrap";
+    _fatal("$module_name: couldn't bootstrap");
     goto FALLBACK;
   }
-  _debug "  ...succeeded";
+  _debug("  ...succeeded");
 
   push @DynaLoader::dl_shared_objects, $dlpath; # record files loaded
 
@@ -230,7 +230,7 @@ sub init {
                                  $Texinfo::ModulePath::converterdatadir,
                                  $Texinfo::ModulePath::tp_builddir,
                                  $Texinfo::ModulePath::top_srcdir)) {
-    _fatal "$module_name: error initializing";
+    _fatal("$module_name: error initializing");
     goto FALLBACK;
   }
 
@@ -282,16 +282,16 @@ sub init {
 sub override {
   my ($target, $source) = @_;
 
-  _debug "attempting to override $target with $source...";
+  _debug("attempting to override $target with $source...");
 
   no strict 'refs'; # access modules and symbols by name.
   no warnings 'redefine'; # do not warn about redefining a function.
 
   if (defined &{"${source}"}) {
     *{"${target}"} = \&{"${source}"};
-    _debug "  ...succeeded";
+    _debug("  ...succeeded");
   } else {
-    _debug "  ...failed";
+    _debug("  ...failed");
   }
 }
 
