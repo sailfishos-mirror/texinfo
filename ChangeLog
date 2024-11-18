@@ -1,5 +1,10 @@
 2024-11-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/maintain/regenerate_non_ascii_tar_file.sh:
+	Do not use "if !" construct.
+
+2024-11-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	version check for GNU tar
 
 	* tp/maintain/regenerate_non_ascii_tar_file.sh: add version

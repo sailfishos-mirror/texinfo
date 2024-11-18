@@ -16,7 +16,7 @@ fi
 cd $tests_input
 
 input=non_ascii
-if ! test -d $input ; then
+if test -d $input ; then true ; else
     echo "$0: Input directory $input not found in $tests_input" 1>&2
     exit 1
 fi
