@@ -21,7 +21,8 @@ if test -d $input ; then true ; else
     exit 1
 fi
 
-if tar --version | grep "GNU tar" >/dev/null && tar --usage | grep [-]-sort
+if tar --version | grep "GNU tar" >/dev/null \
+   && tar --usage | grep [-]-sort >/dev/null
 then
   # Used with GNU tar to try to get a reproducible file.
   # See https://reproducible-builds.org/docs/archives/.
