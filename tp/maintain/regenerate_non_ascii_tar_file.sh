@@ -21,7 +21,8 @@ if test -d $input ; then true ; else
     exit 1
 fi
 
-if tar --version | grep "GNU tar" >/dev/null ; then
+if tar --version | grep "GNU tar" >/dev/null && tar --usage | grep [-]-sort
+then
   # Used with GNU tar to try to get a reproducible file.
   # See https://reproducible-builds.org/docs/archives/.
   TAR_BUNDLE_DATE=2024-11-18T00:00
@@ -29,6 +30,8 @@ if tar --version | grep "GNU tar" >/dev/null ; then
 else
   TAR_BUNDLE_FLAGS=
 fi
+
+#set -x
 
 tar cf non_ascii.tar $input $TAR_BUNDLE_FLAGS
 

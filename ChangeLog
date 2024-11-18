@@ -1,6 +1,12 @@
 2024-11-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/maintain/regenerate_non_ascii_tar_file.sh:
+	Check output of "tar --usage" in attempt to check if
+	tar --sort=name is supported.
+
+2024-11-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/maintain/regenerate_non_ascii_tar_file.sh:
 	Do not use "if !" construct.
 
 2024-11-18  Gavin Smith <gavinsmith0123@gmail.com>
