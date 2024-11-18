@@ -21,10 +21,14 @@ if ! test -d $input ; then
     exit 1
 fi
 
-# Used with GNU tar to try to get a reproducible file.
-# See https://reproducible-builds.org/docs/archives/.
-TAR_BUNDLE_DATE=2024-11-18T00:00
-TAR_BUNDLE_FLAGS="--sort=name --mtime=$TAR_BUNDLE_DATE --owner=0 --group=0 --numeric-owner --format=ustar"
+if tar --version | grep "GNU tar" >/dev/null ; then
+  # Used with GNU tar to try to get a reproducible file.
+  # See https://reproducible-builds.org/docs/archives/.
+  TAR_BUNDLE_DATE=2024-11-18T00:00
+  TAR_BUNDLE_FLAGS="--sort=name --mtime=$TAR_BUNDLE_DATE --owner=0 --group=0 --numeric-owner --format=ustar"
+else
+  TAR_BUNDLE_FLAGS=
+fi
 
 tar cf non_ascii.tar $input $TAR_BUNDLE_FLAGS
 
