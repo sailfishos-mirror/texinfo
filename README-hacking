@@ -284,6 +284,19 @@ find . \
 at the top level.  It's likely that the script doesn't find all the
 years that should be updated yet.
 
+
+- Note on "reproducible builds"
+
+Generation of Texinfo releases has not been checked to be fully
+reproducible (see https://reproducible-builds.org/).
+
+However, in the interests of a reproducible distribution, GNU tar is
+used with certain flags to generate a tar archive file containing input
+for texi2any tests (by maintain/regenerate_non_ascii_tar_file).  GNU tar
+will only be used with these flags if it is detected that it is available.
+If other tar programs are used, this archive file will be not bit-for-bit
+identical.
+
 
 
 - When close to making a release:
