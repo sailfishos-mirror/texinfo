@@ -157,6 +157,8 @@ sub load_libtool_library {
   return $libref;
 }
 
+our $loaded_additional_libraries = {};
+
 # Load module $MODULE, either from XS implementation in
 # Libtool file $MODULE_NAME and Perl file $PERL_EXTRA_FILE,
 # or non-XS implementation $FALLBACK_MODULE.
@@ -199,13 +201,19 @@ sub init {
     goto FALLBACK;
   }
 
-  # if ($additional_libraries and scalar(@$additional_libraries)) {
-  #   my @found_additional_libraries
-  #     = DynaLoader::dl_findfile(@$additional_libraries);
-  #   _debug("additional libraries: ".join('|', @$additional_libraries));
-  #   _debug("found additional: ".join('|', @found_additional_libraries));
-  #   push @DynaLoader::dl_resolve_using, @found_additional_libraries;
-  # }
+  if ($additional_libraries) {
+    for my $additional_library (@{$additional_libraries}) {
+      $additional_library =~ s/^-l/lib/;
+      if (!$loaded_additional_libraries->{$additional_library}) {
+        my $ref = load_libtool_library($additional_library);
+        if (!$ref) {
+          goto FALLBACK;
+        } else {
+          $loaded_additional_libraries->{$additional_library} = $ref;
+        }
+      }
+    }
+  }
 
   my $libref = load_libtool_library($module_name);
   if (!$libref) {

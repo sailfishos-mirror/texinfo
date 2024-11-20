@@ -1,5 +1,13 @@
 2024-11-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XSLoader.pm (init): Use additional libraries
+	argument to call load_libtool_library.  These means we locate
+	and load these libraries directly rather than relying on the
+	dynamic linker to locate the libraries as a dependency of
+	other libraries.
+
+2024-11-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XSLoader.pm (init, load_libtool_library):
 	Split out sub to handle everything up to loading the library
 	with dl_load_file, but not any further.  This could potentially
