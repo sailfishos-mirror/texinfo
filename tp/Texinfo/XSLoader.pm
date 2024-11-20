@@ -98,6 +98,65 @@ sub _find_file($) {
   return undef;
 }
 
+sub load_libtool_library {
+  my ($module_name) = @_;
+
+  my ($libtool_dir, $libtool_archive) = _find_file("$module_name.la");
+  if (!$libtool_archive) {
+    _fatal("$module_name: couldn't find Libtool archive file");
+    return 0;
+  }
+
+  my $dlname = undef;
+
+  my $fh;
+  open $fh, $libtool_archive;
+  if (!$fh) {
+    _fatal("$module_name: couldn't open Libtool archive file");
+    return 0;
+  }
+
+  # Look for the line in XS*.la giving the name of the loadable object.
+  while (my $line = <$fh>) {
+    if ($line =~ /^\s*dlname\s*=\s*'([^']+)'\s$/) {
+      $dlname = $1;
+      last;
+    }
+  }
+  if (!defined($dlname) or $dlname eq '') {
+    _fatal("$module_name: couldn't find name of shared object");
+    return 0;
+  }
+
+  # The *.so file is under .libs in the source directory.
+  push @DynaLoader::dl_library_path, $libtool_dir;
+  push @DynaLoader::dl_library_path, "$libtool_dir/.libs";
+
+  my @found_files = DynaLoader::dl_findfile($dlname);
+  if (scalar(@found_files) == 0) {
+    _fatal("$module_name: couldn't find $dlname");
+    return 0;
+  }
+  my $dlpath = $found_files[0];
+
+  #my $flags = dl_load_flags $module; # This is 0 in DynaLoader
+  my $flags = 0;
+  my $libref = DynaLoader::dl_load_file($dlpath, $flags);
+  if (!defined($libref)) {
+    my $message = DynaLoader::dl_error();
+    _fatal("$module_name: couldn't load file $dlpath: $message");
+    return 0;
+  }
+  _debug("$dlpath loaded");
+  push @DynaLoader::dl_shared_objects, $dlpath; # record files loaded
+
+  my @undefined_symbols = DynaLoader::dl_undef_symbols();
+  if (scalar(@undefined_symbols) != 0) {
+    _fatal("$module_name: still have undefined symbols after dl_load_file");
+  }
+  return $libref;
+}
+
 # Load module $MODULE, either from XS implementation in
 # Libtool file $MODULE_NAME and Perl file $PERL_EXTRA_FILE,
 # or non-XS implementation $FALLBACK_MODULE.
@@ -140,69 +199,19 @@ sub init {
     goto FALLBACK;
   }
 
-  my ($libtool_dir, $libtool_archive) = _find_file("$module_name.la");
-  if (!$libtool_archive) {
-    _fatal("$module_name: couldn't find Libtool archive file");
+  # if ($additional_libraries and scalar(@$additional_libraries)) {
+  #   my @found_additional_libraries
+  #     = DynaLoader::dl_findfile(@$additional_libraries);
+  #   _debug("additional libraries: ".join('|', @$additional_libraries));
+  #   _debug("found additional: ".join('|', @found_additional_libraries));
+  #   push @DynaLoader::dl_resolve_using, @found_additional_libraries;
+  # }
+
+  my $libref = load_libtool_library($module_name);
+  if (!$libref) {
     goto FALLBACK;
   }
 
-  my $dlname = undef;
-
-  my $fh;
-  open $fh, $libtool_archive;
-  if (!$fh) {
-    _fatal("$module_name: couldn't open Libtool archive file");
-    goto FALLBACK;
-  }
-
-  # Look for the line in XS*.la giving the name of the loadable object.
-  while (my $line = <$fh>) {
-    if ($line =~ /^\s*dlname\s*=\s*'([^']+)'\s$/) {
-      $dlname = $1;
-      last;
-    }
-  }
-  if (!defined($dlname) or $dlname eq '') {
-    _fatal("$module_name: couldn't find name of shared object");
-    goto FALLBACK;
-  }
-
-  # The *.so file is under .libs in the source directory.
-  push @DynaLoader::dl_library_path, $libtool_dir;
-  push @DynaLoader::dl_library_path, "$libtool_dir/.libs";
-
-  my @found_files = DynaLoader::dl_findfile($dlname);
-  if (scalar(@found_files) == 0) {
-    _fatal("$module_name: couldn't find $dlname");
-    goto FALLBACK;
-  }
-  my $dlpath = $found_files[0];
-
-  # After testing, it seems that putting libraries files in
-  # @DynaLoader::dl_resolve_using does not ensure that they are found when
-  # dlopen'ing.
-  #if ($additional_libraries and scalar(@$additional_libraries)) {
-  #  my @found_additional_libraries
-  #    = DynaLoader::dl_findfile(@$additional_libraries);
-  #  _debug("additional libraries: ".join('|', @$additional_libraries));
-  #  _debug("found additional: ".join('|', @found_additional_libraries));
-  #  push @DynaLoader::dl_resolve_using, @found_additional_libraries;
-  #}
-
-  #my $flags = dl_load_flags $module; # This is 0 in DynaLoader
-  my $flags = 0;
-  my $libref = DynaLoader::dl_load_file($dlpath, $flags);
-  if (!defined($libref)) {
-    # dl_error messages ends with a spurious NULL ^@
-    my $message = DynaLoader::dl_error();
-    _fatal("$module_name: couldn't load file $dlpath: $message");
-    goto FALLBACK;
-  }
-  _debug("$dlpath loaded");
-  my @undefined_symbols = DynaLoader::dl_undef_symbols();
-  if (scalar(@undefined_symbols) != 0) {
-    _fatal("$module_name: still have undefined symbols after dl_load_file");
-  }
   my $bootname = "boot_$module";
   $bootname =~ s/:/_/g;
   _debug("looking for $bootname");
@@ -213,15 +222,13 @@ sub init {
   }
   _debug("trying to call $bootname...");
   my $boot_fn = DynaLoader::dl_install_xsub("${module}::bootstrap",
-                                                  $symref, $dlname);
+                                                  $symref); #, $dlname);
 
   if (!defined($boot_fn)) {
     _fatal("$module_name: couldn't bootstrap");
     goto FALLBACK;
   }
   _debug("  ...succeeded");
-
-  push @DynaLoader::dl_shared_objects, $dlpath; # record files loaded
 
   # This is the module bootstrap function, which causes all the other
   # functions (XSUB's) provided by the module to become available to

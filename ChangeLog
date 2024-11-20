@@ -1,3 +1,12 @@
+2024-11-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XSLoader.pm (init, load_libtool_library):
+	Split out sub to handle everything up to loading the library
+	with dl_load_file, but not any further.  This could potentially
+	be used with library files that do not have an XS bootstrap
+	function (such as libtexinfo or libtexinfoxs).
+	(init): Comment out code handling additional libraries argument.
+
 2024-11-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XSLoader.pm (init), tp/Texinfo/DocumentXS.pm (BEGIN),
