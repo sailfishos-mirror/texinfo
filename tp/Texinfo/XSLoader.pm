@@ -108,7 +108,7 @@ sub init {
      $fallback_module,
      $module_name,
      $perl_extra_file,
-     $additional_libraries,
+     #$additional_libraries,
    ) = @_;
 
   # Possible values for TEXINFO_XS environment variable:
@@ -178,18 +178,22 @@ sub init {
   }
   my $dlpath = $found_files[0];
 
-  if ($additional_libraries and scalar(@$additional_libraries)) {
-    my @found_additional_libraries
-      = DynaLoader::dl_findfile(@$additional_libraries);
-    _debug("additional libraries: ".join('|', @$additional_libraries));
-    _debug("found additional: ".join('|', @found_additional_libraries));
-    push @DynaLoader::dl_resolve_using, @found_additional_libraries;
-  }
+  # After testing, it seems that putting libraries files in
+  # @DynaLoader::dl_resolve_using does not ensure that they are found when
+  # dlopen'ing.
+  #if ($additional_libraries and scalar(@$additional_libraries)) {
+  #  my @found_additional_libraries
+  #    = DynaLoader::dl_findfile(@$additional_libraries);
+  #  _debug("additional libraries: ".join('|', @$additional_libraries));
+  #  _debug("found additional: ".join('|', @found_additional_libraries));
+  #  push @DynaLoader::dl_resolve_using, @found_additional_libraries;
+  #}
 
   #my $flags = dl_load_flags $module; # This is 0 in DynaLoader
   my $flags = 0;
   my $libref = DynaLoader::dl_load_file($dlpath, $flags);
   if (!defined($libref)) {
+    # dl_error messages ends with a spurious NULL ^@
     my $message = DynaLoader::dl_error();
     _fatal("$module_name: couldn't load file $dlpath: $message");
     goto FALLBACK;
