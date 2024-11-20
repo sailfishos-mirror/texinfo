@@ -15,13 +15,6 @@
 	function (such as libtexinfo or libtexinfoxs).
 	(init): Comment out code handling additional libraries argument.
 
-2024-11-20  Patrice Dumas  <pertusus@free.fr>
-
-	* tp/Texinfo/XSLoader.pm (init), tp/Texinfo/DocumentXS.pm (BEGIN),
-	tp/Texinfo/Parser.pm (BEGIN): do not try to add libraries to
-	@DynaLoader::dl_resolve_using, in general they are not used when
-	loading XS object, only the paths registered in the objects are used.
-
 2024-11-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: add note about reproducibility of

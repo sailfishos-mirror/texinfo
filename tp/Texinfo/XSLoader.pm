@@ -169,7 +169,7 @@ sub init {
      $fallback_module,
      $module_name,
      $perl_extra_file,
-     #$additional_libraries,
+     $additional_libraries,
    ) = @_;
 
   # Possible values for TEXINFO_XS environment variable:
