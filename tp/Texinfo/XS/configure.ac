@@ -186,7 +186,7 @@ AM_MISSING_PROG([GAWK], [gawk])
 
 gl_INIT
 
-LT_INIT([disable-static])
+LT_INIT([disable-static dlopen])
 
 # Note that the above have to be outside the disable_xs block
 # otherwise it causes an error with configure.
