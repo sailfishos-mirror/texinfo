@@ -30,7 +30,7 @@ BEGIN {
       undef,
       "DocumentXS",
       undef,
-      ['-ltexinfoxs', '-ltexinfo'],
+      ['-ltexinfo', '-ltexinfoxs'],
   );
 }
 

@@ -1,5 +1,13 @@
 2024-11-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Load libtexinfo before libtexinfoxs
+
+	* tp/Texinfo/DocumentXS.pm,
+	* tp/Texinfo/Parser.pm: Swap order of -ltexinfoxs and -ltexinfo
+	as the former requires the latter to be loaded first.
+
+2024-11-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/configure.ac (LT_INIT): Add "dlopen" option,
 	as according the libtool manual it should be used when building
 	a library that can be dlopen'd.
