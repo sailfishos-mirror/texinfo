@@ -1,3 +1,9 @@
+2024-11-21  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XSLoader.pm (load_libtool_library);
+	Add directories where loadable objects are expected to
+	be found to front of search path rather than the end.
+
 2024-11-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XSLoader.pm (init): Use additional libraries

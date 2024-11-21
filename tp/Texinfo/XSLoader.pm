@@ -128,9 +128,12 @@ sub load_libtool_library {
     return 0;
   }
 
+  # Use unshift to place directories at start of search path.  This
+  # way we avoid accidentally loading the wrong library, e.g. if someone
+  # has some random /usr/lib/libtexinfo.so file.
   # The *.so file is under .libs in the source directory.
-  push @DynaLoader::dl_library_path, $libtool_dir;
-  push @DynaLoader::dl_library_path, "$libtool_dir/.libs";
+  unshift @DynaLoader::dl_library_path, "$libtool_dir/.libs";
+  unshift @DynaLoader::dl_library_path, $libtool_dir;
 
   my @found_files = DynaLoader::dl_findfile($dlname);
   if (scalar(@found_files) == 0) {
