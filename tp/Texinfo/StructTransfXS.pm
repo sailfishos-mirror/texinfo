@@ -32,6 +32,7 @@ BEGIN {
       undef,
       "StructuringTransfoXS",
       undef,
+      ['texinfo', 'texinfoxs'],
     );
   }
 }

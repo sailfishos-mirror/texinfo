@@ -1,5 +1,11 @@
 2024-11-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/ConvertXS.pm (BEGIN), tp/Texinfo/IndicesXS.pm
+	(BEGIN), tp/Texinfo/StructTransfXS.pm (BEGIN): add additional
+	libraries the XS modules depend on.
+
+2024-11-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/DocumentXS.pm (BEGIN), tp/Texinfo/Parser.pm (BEGIN),
 	tp/Texinfo/XSLoader.pm (init): remove leading -l for specified
 	additional libraries.

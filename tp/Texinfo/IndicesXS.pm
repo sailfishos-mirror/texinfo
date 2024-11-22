@@ -30,6 +30,7 @@ BEGIN {
       undef,
       "IndicesXS",
       undef,
+      ['texinfo', 'texinfoxs', 'libtexinfo-convert', 'libtexinfo-convertxs'],
     );
   }
 }
