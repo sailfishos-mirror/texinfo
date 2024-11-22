@@ -34,7 +34,7 @@ BEGIN {
       undef,
       "ConvertXS",
       undef,
-      ['texinfo', 'texinfoxs', 'libtexinfo-convert', 'libtexinfo-convertxs'],
+      ['texinfo', 'texinfoxs', 'texinfo-convert', 'texinfo-convertxs'],
     );
   }
 }
