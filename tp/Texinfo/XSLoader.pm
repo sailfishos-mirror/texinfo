@@ -205,8 +205,8 @@ sub init {
   }
 
   if ($additional_libraries) {
-    for my $additional_library (@{$additional_libraries}) {
-      $additional_library =~ s/^-l/lib/;
+    for my $additional_library_name (@{$additional_libraries}) {
+      my $additional_library = 'lib' . $additional_library_name;
       if (!$loaded_additional_libraries->{$additional_library}) {
         my $ref = load_libtool_library($additional_library);
         if (!$ref) {

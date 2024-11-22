@@ -34,7 +34,7 @@ BEGIN {
       "Texinfo::ParserNonXS",
       $shared_library_name,
       "Texinfo::XS::parsetexi::Parsetexi",
-      ['-ltexinfo', '-ltexinfoxs'],
+      ['texinfo', 'texinfoxs'],
   );
 }
 
