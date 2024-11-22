@@ -69,7 +69,7 @@ void
 text_append_n (TEXT *t, const char *s, size_t len)
 {
   text_alloc (t, len + 1);
-  memcpy (t->text + t->end, s, len);
+  memmove (t->text + t->end, s, len);
   t->end += len;
   t->text[t->end] = '\0';
 }
