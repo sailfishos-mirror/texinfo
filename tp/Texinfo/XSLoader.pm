@@ -132,7 +132,9 @@ sub load_libtool_library {
   # way we avoid accidentally loading the wrong library, e.g. if someone
   # has some random /usr/lib/libtexinfo.so file.
   # The *.so file is under .libs in the source directory.
-  unshift @DynaLoader::dl_library_path, "$libtool_dir/.libs";
+  if ($Texinfo::ModulePath::texinfo_uninstalled) {
+    unshift @DynaLoader::dl_library_path, "$libtool_dir/.libs";
+  }
   unshift @DynaLoader::dl_library_path, $libtool_dir;
 
   my @found_files = DynaLoader::dl_findfile($dlname);
