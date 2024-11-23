@@ -517,8 +517,15 @@ sub _convert($$)
   }
 
   my $cmdname;
+  my $data_cmdname;
   if (defined($element->{'cmdname'})) {
     $cmdname = $element->{'cmdname'};
+    if ($cmdname eq 'item' and $element->{'parent'}->{'type'}
+        and $element->{'parent'}->{'type'} eq 'table_term') {
+      $data_cmdname = 'item_LINE';
+    } else {
+      $data_cmdname = $cmdname;
+    }
   }
 
   return '' if (!($element->{'type'} and $element->{'type'} eq 'def_line')
@@ -549,7 +556,7 @@ sub _convert($$)
                      and $element->{'args'}->[0]->{'type'}
                      and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
                          or $element->{'args'}->[0]->{'type'} eq 'rawline_arg')
-                     and !$formatted_line_commands{$cmdname}
+                     and !$formatted_line_commands{$data_cmdname}
                      and !$converted_formattable_line_commands{$cmdname})))));
 
   my $result = '';
@@ -687,7 +694,7 @@ sub _convert($$)
         chomp ($result);
         $result .= "\n" if ($result =~ /\S/);
       }
-    } elsif ($formatted_line_commands{$cmdname}
+    } elsif ($formatted_line_commands{$data_cmdname}
              and $element->{'args'}) {
       if ($cmdname ne 'node') {
         if ($cmdname eq 'page') {

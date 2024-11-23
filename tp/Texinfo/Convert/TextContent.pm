@@ -121,6 +121,17 @@ sub _convert($$)
   my $self = shift;
   my $element = shift;
 
+  # determine name used to check command properties
+  my $data_cmdname;
+  if ($element->{'cmdname'}) {
+    if ($element->{'cmdname'} eq 'item' and $element->{'parent'}->{'type'}
+        and $element->{'parent'}->{'type'} eq 'table_term') {
+      $data_cmdname = 'item_LINE';
+    } else {
+      $data_cmdname = $element->{'cmdname'};
+    }
+  }
+
   return '' if (!($element->{'type'} and $element->{'type'} eq 'def_line')
      and (($element->{'type'} and $ignored_types{$element->{'type'}})
           or ($element->{'cmdname'}
@@ -137,10 +148,11 @@ sub _convert($$)
                      and $element->{'args'}->[0]->{'type'}
                      and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
                           or $element->{'args'}->[0]->{'type'} eq 'rawline_arg')
-                     and !$self->{'formatted_line_commands'}->{$element->{'cmdname'}})))));
+                     and !$self->{'formatted_line_commands'}->{$data_cmdname})))));
   if (defined($element->{'text'})) {
     return $element->{'text'};
   }
+
   if (defined($element->{'cmdname'})) {
     if (exists($Texinfo::Common::nobrace_symbol_text{$element->{'cmdname'}})) {
       return $Texinfo::Common::nobrace_symbol_text{$element->{'cmdname'}};

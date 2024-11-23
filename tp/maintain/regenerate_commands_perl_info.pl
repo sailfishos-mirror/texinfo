@@ -38,8 +38,6 @@ my %command_categories;
 my %flags_hashes;
 my %command_args_nr;
 
-my %multi_category_commands;
-
 while (<STDIN>) {
   if (not (/^#/ or /^ *$/)) {
     my ($command, $flags, $data, $args_nr) = split;
@@ -74,11 +72,6 @@ while (<STDIN>) {
             .": multiple categories: ".join('|',@categories)."\n";
       }
       $category = $categories[0];
-    }
-    # handle commands in multiple categories, for now @item
-    my $uc_category = uc($category);
-    if ($command =~ /^(.*)_$uc_category$/) {
-      $multi_category_commands{$command} = $1;
     }
 
     if (defined($args_nr) and $args_nr ne '') {
@@ -143,11 +136,6 @@ foreach my $hash_flag (sort(keys(%flags_hashes))) {
   print OUT "our %${hash_flag}_commands = (\n";
   foreach my $command (sort(@{$flags_hashes{$hash_flag}})) {
     print OUT '  '.sprintf('%-25s', '"'.$command.'"')." => 1,\n";
-    if ($multi_category_commands{$command}
-        and $converter_flag{$hash_flag}) {
-      print OUT '  '.sprintf('%-25s', '"'.$multi_category_commands{$command}
-                                                             .'"')." => 1,\n";
-    }
   }
   print OUT ");\n\n";
 }

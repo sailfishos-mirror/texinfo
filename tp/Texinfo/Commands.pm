@@ -853,7 +853,6 @@ our %formatted_line_commands = (
   "exdent"                  => 1,
   "heading"                 => 1,
   "item_LINE"               => 1,
-  "item"                    => 1,
   "itemx"                   => 1,
   "majorheading"            => 1,
   "node"                    => 1,

@@ -1,3 +1,12 @@
+2024-11-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Text.pm (_convert),
+	tp/Texinfo/Convert/TextContent.pm (_convert),
+	tp/maintain/regenerate_commands_perl_info.pl: do not put item in
+	Texinfo::Command %formatted_line_commands, to have the same setup as
+	in XS/C.  Update code to set $data_cmdname for item to item_LINE if in
+	a @table and similar.
+
 2024-11-22  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Change use of memcpy to memmove
