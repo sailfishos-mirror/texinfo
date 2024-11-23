@@ -10,7 +10,8 @@ $result_trees{'block_command_alias'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'block_command_alias'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               'lang',
@@ -71,7 +71,8 @@ $result_trees{'block_command_alias'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -87,7 +88,6 @@ $result_trees{'block_command_alias'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'lang'
                   },

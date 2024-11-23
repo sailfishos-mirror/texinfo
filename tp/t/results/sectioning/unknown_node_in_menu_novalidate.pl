@@ -10,14 +10,14 @@ $result_trees{'unknown_node_in_menu_novalidate'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'novalidate',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'novalidate',
           'source_info' => {
             'line_nr' => 1
           }
@@ -121,7 +121,8 @@ $result_trees{'unknown_node_in_menu_novalidate'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -137,7 +138,6 @@ $result_trees{'unknown_node_in_menu_novalidate'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

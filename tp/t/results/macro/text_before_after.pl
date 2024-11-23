@@ -32,7 +32,8 @@ $result_trees{'text_before_after'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -48,7 +49,6 @@ $result_trees{'text_before_after'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'macro after'
                   },

@@ -142,14 +142,14 @@ $result_trees{'defx_after_comment'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' comment
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 }
               ],
               'type' => 'inter_def_item'
@@ -250,7 +250,8 @@ $result_trees{'defx_after_comment'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -260,7 +261,6 @@ $result_trees{'defx_after_comment'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },

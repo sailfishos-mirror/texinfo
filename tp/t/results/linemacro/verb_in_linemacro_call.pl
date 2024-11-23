@@ -58,7 +58,8 @@ $result_trees{'verb_in_linemacro_call'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -74,7 +75,6 @@ $result_trees{'verb_in_linemacro_call'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'linemacro'
               },
@@ -356,7 +356,8 @@ $result_trees{'verb_in_linemacro_call'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -372,7 +373,6 @@ $result_trees{'verb_in_linemacro_call'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defblock'
               },

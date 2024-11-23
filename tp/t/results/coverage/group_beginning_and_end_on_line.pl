@@ -31,7 +31,8 @@ $result_trees{'group_beginning_and_end_on_line'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -47,7 +48,6 @@ $result_trees{'group_beginning_and_end_on_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'group'
               },

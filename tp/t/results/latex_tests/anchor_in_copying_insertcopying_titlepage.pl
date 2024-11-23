@@ -64,7 +64,8 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -80,7 +81,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'copying'
                   },
@@ -121,7 +121,8 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                   'type' => 'argument'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'title',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -137,7 +138,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'title',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -153,14 +153,14 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'page',
+                  'contents' => [
                     {
                       'text' => '
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'page'
+                  ]
                 },
                 {
                   'cmdname' => 'anchor',
@@ -191,21 +191,22 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                   'type' => 'spaces_after_close_brace'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'insertcopying',
+                  'contents' => [
                     {
                       'text' => '
 ',
                       'type' => 'rawline_arg'
                     }
                   ],
-                  'cmdname' => 'insertcopying',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 10
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -221,7 +222,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'titlepage'
                   },

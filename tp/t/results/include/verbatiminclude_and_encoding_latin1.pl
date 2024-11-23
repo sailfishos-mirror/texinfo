@@ -10,7 +10,8 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'iso-8859-1',
             'text_arg' => 'iso-8859-1'
@@ -46,7 +46,8 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'verbatiminclude',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -62,7 +63,6 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_encoding_name' => 'iso-8859-1',
             'text_arg' => 'verbatim_encoded_latin1.texi'

@@ -1562,14 +1562,14 @@ $result_trees{'accent'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' arg is command -- @dotless{i} is special-cased for HTML
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'contents' => [
@@ -1756,14 +1756,14 @@ $result_trees{'accent'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' arg is command -- @dotless{j}
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'contents' => [

@@ -62,14 +62,14 @@ $result_trees{'cpp_line_before_first_node'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

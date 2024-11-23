@@ -58,7 +58,8 @@ $result_trees{'close_paragraph_command'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -74,7 +75,6 @@ $result_trees{'close_paragraph_command'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '4'

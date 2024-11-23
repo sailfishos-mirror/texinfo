@@ -101,7 +101,8 @@ $result_trees{'node_referenced_in_ref'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -117,7 +118,6 @@ $result_trees{'node_referenced_in_ref'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

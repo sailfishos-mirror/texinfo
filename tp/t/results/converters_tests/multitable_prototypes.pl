@@ -231,7 +231,8 @@ $result_trees{'multitable_prototypes'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -247,7 +248,6 @@ $result_trees{'multitable_prototypes'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

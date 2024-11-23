@@ -15,13 +15,13 @@ $result_trees{'text_comment'} = {
               'text' => 'text'
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' comment',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             }
           ],
           'type' => 'paragraph'

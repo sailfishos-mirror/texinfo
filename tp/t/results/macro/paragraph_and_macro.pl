@@ -22,7 +22,8 @@ $result_trees{'paragraph_and_macro'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -38,7 +39,6 @@ $result_trees{'paragraph_and_macro'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -83,7 +83,8 @@ $result_trees{'paragraph_and_macro'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -99,7 +100,6 @@ $result_trees{'paragraph_and_macro'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -144,7 +144,8 @@ $result_trees{'paragraph_and_macro'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -160,7 +161,6 @@ $result_trees{'paragraph_and_macro'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },

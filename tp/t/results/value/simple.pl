@@ -10,7 +10,8 @@ $result_trees{'simple'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'a-_5b',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'simple'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' a-_5b the value @b{b} @c comment
 '

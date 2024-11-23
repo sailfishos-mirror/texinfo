@@ -101,7 +101,8 @@ $result_trees{'multitable_in_example_extraneous_item_tab'} = {
                   'type' => 'before_item'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -117,7 +118,6 @@ $result_trees{'multitable_in_example_extraneous_item_tab'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'multitable'
                   },
@@ -144,7 +144,8 @@ $result_trees{'multitable_in_example_extraneous_item_tab'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -160,7 +161,6 @@ $result_trees{'multitable_in_example_extraneous_item_tab'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

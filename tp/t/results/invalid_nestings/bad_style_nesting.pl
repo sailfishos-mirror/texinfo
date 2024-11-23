@@ -58,7 +58,8 @@ $result_trees{'bad_style_nesting'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -74,7 +75,6 @@ $result_trees{'bad_style_nesting'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

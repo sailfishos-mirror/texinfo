@@ -50,7 +50,8 @@ $result_trees{'expanded_tex'} = {
                   'type' => 'rawpreformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -66,7 +67,6 @@ $result_trees{'expanded_tex'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'tex'
                   },

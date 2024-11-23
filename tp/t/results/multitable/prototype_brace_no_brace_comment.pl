@@ -33,14 +33,14 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                   ],
                   'info' => {
                     'comment_at_end' => {
-                      'args' => [
+                      'cmdname' => 'comment',
+                      'contents' => [
                         {
                           'text' => ' cc
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'comment'
+                      ]
                     }
                   },
                   'type' => 'block_line_arg'
@@ -49,7 +49,8 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -65,7 +66,6 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

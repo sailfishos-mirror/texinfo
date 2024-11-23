@@ -196,7 +196,8 @@ $result_trees{'def_not_closed_in_menu_description'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -212,7 +213,6 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

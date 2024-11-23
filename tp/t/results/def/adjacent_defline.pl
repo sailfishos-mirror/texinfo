@@ -257,7 +257,8 @@ $result_trees{'adjacent_defline'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -273,7 +274,6 @@ $result_trees{'adjacent_defline'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defblock'
               },

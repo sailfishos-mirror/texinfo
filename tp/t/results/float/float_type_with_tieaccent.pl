@@ -125,7 +125,8 @@ $result_trees{'float_type_with_tieaccent'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -141,7 +142,6 @@ $result_trees{'float_type_with_tieaccent'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -175,7 +175,8 @@ $result_trees{'float_type_with_tieaccent'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -261,7 +262,6 @@ $result_trees{'float_type_with_tieaccent'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => "A 1\x{361}a \x{7b2c}\x{361}H \x{ea}\x{361}\x{4e00} and text"
           },

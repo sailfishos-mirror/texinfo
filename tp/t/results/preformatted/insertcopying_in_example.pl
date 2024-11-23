@@ -27,14 +27,14 @@ $result_trees{'insertcopying_in_example'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'insertcopying',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'insertcopying',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 2
@@ -50,7 +50,8 @@ $result_trees{'insertcopying_in_example'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -66,7 +67,6 @@ $result_trees{'insertcopying_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

@@ -248,7 +248,8 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -264,7 +265,6 @@ $result_trees{'index_table_chapter_no_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -366,7 +366,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -382,7 +383,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -414,7 +414,8 @@ $result_trees{'index_table_chapter_no_node'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -430,7 +431,6 @@ $result_trees{'index_table_chapter_no_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'element_node' => {},
                 'index_entry' => [
@@ -505,7 +505,8 @@ $result_trees{'index_table_chapter_no_node'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -521,7 +522,6 @@ $result_trees{'index_table_chapter_no_node'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -540,7 +540,8 @@ $result_trees{'index_table_chapter_no_node'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -556,7 +557,6 @@ $result_trees{'index_table_chapter_no_node'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -595,7 +595,8 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -611,7 +612,6 @@ $result_trees{'index_table_chapter_no_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -690,7 +690,8 @@ $result_trees{'index_table_chapter_no_node'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -706,7 +707,6 @@ $result_trees{'index_table_chapter_no_node'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -725,7 +725,8 @@ $result_trees{'index_table_chapter_no_node'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -741,7 +742,6 @@ $result_trees{'index_table_chapter_no_node'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -784,7 +784,8 @@ $result_trees{'index_table_chapter_no_node'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -800,7 +801,6 @@ $result_trees{'index_table_chapter_no_node'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -839,7 +839,8 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -855,7 +856,6 @@ $result_trees{'index_table_chapter_no_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'ftable'
               },
@@ -968,7 +968,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -984,7 +985,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'
@@ -1001,7 +1001,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1017,7 +1018,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'vr'
@@ -1034,7 +1034,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1050,7 +1051,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -1210,7 +1210,8 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1226,7 +1227,6 @@ $result_trees{'index_table_chapter_no_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -1247,7 +1247,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1263,7 +1264,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1284,7 +1284,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1300,7 +1301,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1321,7 +1321,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1337,7 +1338,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1358,7 +1358,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1374,7 +1375,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1395,7 +1395,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1411,7 +1412,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1432,7 +1432,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1448,7 +1449,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1469,7 +1469,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1485,7 +1486,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1506,7 +1506,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1522,7 +1523,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1543,7 +1543,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1559,7 +1560,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1580,7 +1580,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1596,7 +1597,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1617,7 +1617,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1633,7 +1634,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1654,7 +1654,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1670,7 +1671,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1691,7 +1691,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1707,7 +1708,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1728,7 +1728,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1744,7 +1745,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1765,7 +1765,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1781,7 +1782,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1802,7 +1802,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1818,7 +1819,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1839,7 +1839,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1855,7 +1856,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1876,7 +1876,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1892,7 +1893,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1913,7 +1913,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1929,7 +1930,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1950,7 +1950,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1966,7 +1967,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1987,7 +1987,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2003,7 +2004,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2024,7 +2024,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2040,7 +2041,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2061,7 +2061,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2077,7 +2078,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2098,7 +2098,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2114,7 +2115,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2135,7 +2135,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2151,7 +2152,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2172,7 +2172,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2188,7 +2189,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2209,7 +2209,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2225,7 +2226,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2246,7 +2246,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2262,7 +2263,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2283,7 +2283,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2299,7 +2300,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2320,7 +2320,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2336,7 +2337,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2357,7 +2357,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2373,7 +2374,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2394,7 +2394,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2410,7 +2411,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2431,7 +2431,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2447,7 +2448,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2468,7 +2468,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2484,7 +2485,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2505,7 +2505,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2521,7 +2522,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2542,7 +2542,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2558,7 +2559,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2579,7 +2579,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2595,7 +2596,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2616,7 +2616,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2632,7 +2633,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2653,7 +2653,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2669,7 +2670,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2690,7 +2690,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2706,7 +2707,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2727,7 +2727,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2743,7 +2744,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2764,7 +2764,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2780,7 +2781,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2801,7 +2801,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2817,7 +2818,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2838,7 +2838,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2854,7 +2855,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2875,7 +2875,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2891,7 +2892,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2912,7 +2912,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2928,7 +2929,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2949,7 +2949,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2965,7 +2966,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -2986,7 +2986,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3002,7 +3003,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3023,7 +3023,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3039,7 +3040,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3060,7 +3060,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3076,7 +3077,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3097,7 +3097,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3113,7 +3114,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3134,7 +3134,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3150,7 +3151,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3171,7 +3171,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3187,7 +3188,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3208,7 +3208,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3224,7 +3225,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3245,7 +3245,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3261,7 +3262,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3282,7 +3282,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3298,7 +3299,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3319,7 +3319,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3335,7 +3336,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3356,7 +3356,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3372,7 +3373,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3393,7 +3393,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3409,7 +3410,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3430,7 +3430,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3446,7 +3447,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3467,7 +3467,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3483,7 +3484,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3504,7 +3504,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3520,7 +3521,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3541,7 +3541,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3557,7 +3558,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3578,7 +3578,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3594,7 +3595,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3615,7 +3615,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3631,7 +3632,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3652,7 +3652,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3668,7 +3669,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3689,7 +3689,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3705,7 +3706,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3726,7 +3726,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3742,7 +3743,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3763,7 +3763,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3779,7 +3780,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3800,7 +3800,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3816,7 +3817,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3837,7 +3837,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3853,7 +3854,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3874,7 +3874,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3890,7 +3891,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3911,7 +3911,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3927,7 +3928,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3948,7 +3948,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3964,7 +3965,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -3985,7 +3985,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4001,7 +4002,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4022,7 +4022,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4038,7 +4039,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4059,7 +4059,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4075,7 +4076,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4096,7 +4096,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4112,7 +4113,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4133,7 +4133,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4149,7 +4150,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4170,7 +4170,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4186,7 +4187,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4207,7 +4207,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4223,7 +4224,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4244,7 +4244,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4260,7 +4261,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4281,7 +4281,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4297,7 +4298,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4318,7 +4318,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4334,7 +4335,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4355,7 +4355,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4371,7 +4372,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4392,7 +4392,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4408,7 +4409,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4429,7 +4429,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4445,7 +4446,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4466,7 +4466,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4482,7 +4483,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4503,7 +4503,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4519,7 +4520,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4540,7 +4540,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4556,7 +4557,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4577,7 +4577,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4593,7 +4594,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4614,7 +4614,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4630,7 +4631,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4651,7 +4651,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4667,7 +4668,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4688,7 +4688,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4704,7 +4705,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4725,7 +4725,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4741,7 +4742,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4762,7 +4762,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4778,7 +4779,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4799,7 +4799,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4815,7 +4816,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4836,7 +4836,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4852,7 +4853,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4873,7 +4873,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4889,7 +4890,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4910,7 +4910,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4926,7 +4927,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4947,7 +4947,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4963,7 +4964,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -4984,7 +4984,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5000,7 +5001,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5021,7 +5021,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5037,7 +5038,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5058,7 +5058,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5074,7 +5075,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5095,7 +5095,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5111,7 +5112,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5132,7 +5132,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5148,7 +5149,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5169,7 +5169,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5185,7 +5186,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5206,7 +5206,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5222,7 +5223,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5243,7 +5243,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5259,7 +5260,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5280,7 +5280,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5296,7 +5297,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5317,7 +5317,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5333,7 +5334,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5354,7 +5354,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5370,7 +5371,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5391,7 +5391,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5407,7 +5408,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5428,7 +5428,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5444,7 +5445,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5465,7 +5465,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5481,7 +5482,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5502,7 +5502,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5518,7 +5519,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5539,7 +5539,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5555,7 +5556,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5576,7 +5576,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5592,7 +5593,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5613,7 +5613,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5629,7 +5630,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5650,7 +5650,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5666,7 +5667,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5687,7 +5687,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5703,7 +5704,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5724,7 +5724,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5740,7 +5741,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5761,7 +5761,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5777,7 +5778,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5798,7 +5798,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5814,7 +5815,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5835,7 +5835,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5851,7 +5852,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5872,7 +5872,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5888,7 +5889,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5909,7 +5909,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5925,7 +5926,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5946,7 +5946,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -5962,7 +5963,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -5983,24 +5983,24 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' @printindex fn
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' @printindex vr
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'text' => '
@@ -6008,7 +6008,8 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -6024,7 +6025,6 @@ $result_trees{'index_table_chapter_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -6147,14 +6147,14 @@ $result_trees{'index_table_chapter_no_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'file_name' => 'index_table.texi',
@@ -6176,14 +6176,14 @@ $result_trees{'index_table_chapter_no_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

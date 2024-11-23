@@ -216,7 +216,8 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -232,7 +233,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

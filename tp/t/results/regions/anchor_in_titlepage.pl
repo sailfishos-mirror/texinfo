@@ -62,7 +62,8 @@ $result_trees{'anchor_in_titlepage'} = {
                   'type' => 'spaces_after_close_brace'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -78,7 +79,6 @@ $result_trees{'anchor_in_titlepage'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'titlepage'
                   },

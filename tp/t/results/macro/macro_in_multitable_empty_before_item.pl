@@ -22,7 +22,8 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -38,7 +39,6 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -73,7 +73,8 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -89,7 +90,6 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'extra' => {
                         'misc_args' => [
                           '0.4',
@@ -204,7 +204,8 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -220,7 +221,6 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

@@ -39,14 +39,16 @@ $result_trees{'set_in_item_missing_line'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => 'xx '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'set',
+                              'contents' => [
                                 {
                                   'text' => 'n',
                                   'type' => 'rawline_arg'
@@ -56,7 +58,6 @@ $result_trees{'set_in_item_missing_line'} = {
                                   'type' => 'rawline_arg'
                                 }
                               ],
-                              'cmdname' => 'set',
                               'info' => {
                                 'arg_line' => ' n
 '
@@ -66,7 +67,6 @@ $result_trees{'set_in_item_missing_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -87,7 +87,8 @@ $result_trees{'set_in_item_missing_line'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -103,7 +104,6 @@ $result_trees{'set_in_item_missing_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -120,7 +120,8 @@ $result_trees{'set_in_item_missing_line'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -136,7 +137,6 @@ $result_trees{'set_in_item_missing_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -197,14 +197,16 @@ $result_trees{'set_in_item_missing_line'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => 'cxx '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'set',
+                              'contents' => [
                                 {
                                   'text' => 'cn',
                                   'type' => 'rawline_arg'
@@ -214,7 +216,6 @@ $result_trees{'set_in_item_missing_line'} = {
                                   'type' => 'rawline_arg'
                                 }
                               ],
-                              'cmdname' => 'set',
                               'info' => {
                                 'arg_line' => ' cn@c
 '
@@ -224,7 +225,6 @@ $result_trees{'set_in_item_missing_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -245,7 +245,8 @@ $result_trees{'set_in_item_missing_line'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -261,7 +262,6 @@ $result_trees{'set_in_item_missing_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -278,7 +278,8 @@ $result_trees{'set_in_item_missing_line'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -294,7 +295,6 @@ $result_trees{'set_in_item_missing_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },

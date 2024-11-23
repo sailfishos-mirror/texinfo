@@ -33,7 +33,8 @@ $result_trees{'command_in_end_expanded_raw_one_char_not_in_command'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -65,7 +66,6 @@ $result_trees{'command_in_end_expanded_raw_one_char_not_in_command'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 't'
                   },

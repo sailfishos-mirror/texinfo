@@ -27,7 +27,8 @@ $result_trees{'punctuation_sc_accents_disable_encoding_usascii'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'punctuation_sc_accents_disable_encoding_usascii'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'us-ascii',
                 'text_arg' => 'US-ASCII'

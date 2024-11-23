@@ -149,7 +149,8 @@ $result_trees{'seeentry_no_braces'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -165,7 +166,6 @@ $result_trees{'seeentry_no_braces'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -186,7 +186,8 @@ $result_trees{'seeentry_no_braces'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -206,7 +207,6 @@ $result_trees{'seeentry_no_braces'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [

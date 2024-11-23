@@ -121,7 +121,8 @@ $result_trees{'space_at_menu_end'} = {
               'type' => 'menu_comment'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -137,7 +138,6 @@ $result_trees{'space_at_menu_end'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

@@ -15,14 +15,14 @@ $result_trees{'novalidate_empty_refs'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'novalidate',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'novalidate',
           'source_info' => {
             'line_nr' => 2
           }

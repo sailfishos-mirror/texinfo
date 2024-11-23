@@ -283,7 +283,8 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                           'type' => 'def_item'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -299,7 +300,6 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'deffn'
                           },

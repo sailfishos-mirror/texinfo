@@ -27,7 +27,8 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -101,7 +101,8 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -117,7 +118,6 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },

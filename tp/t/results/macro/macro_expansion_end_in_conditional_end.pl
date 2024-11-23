@@ -37,7 +37,8 @@ $result_trees{'macro_expansion_end_in_conditional_end'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -53,7 +54,6 @@ $result_trees{'macro_expansion_end_in_conditional_end'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -81,7 +81,8 @@ $result_trees{'macro_expansion_end_in_conditional_end'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'flag',
               'type' => 'rawline_arg'
@@ -91,7 +92,6 @@ $result_trees{'macro_expansion_end_in_conditional_end'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' flag 1
 '
@@ -167,7 +167,8 @@ $result_trees{'macro_expansion_end_in_conditional_end'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -191,7 +192,6 @@ $result_trees{'macro_expansion_end_in_conditional_end'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },

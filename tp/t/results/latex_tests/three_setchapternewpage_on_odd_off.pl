@@ -12,7 +12,8 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setchapternewpage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setchapternewpage',
               'extra' => {
                 'misc_args' => [
                   'on'
@@ -49,7 +49,8 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'setchapternewpage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -65,7 +66,6 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setchapternewpage',
               'extra' => {
                 'misc_args' => [
                   'odd'
@@ -86,7 +86,8 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'setchapternewpage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -102,7 +103,6 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setchapternewpage',
               'extra' => {
                 'misc_args' => [
                   'off'

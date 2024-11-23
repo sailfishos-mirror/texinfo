@@ -41,7 +41,8 @@ $result_trees{'spaces_info_lost'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -57,7 +58,6 @@ $result_trees{'spaces_info_lost'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'display'
               },
@@ -108,7 +108,8 @@ $result_trees{'spaces_info_lost'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -124,7 +125,6 @@ $result_trees{'spaces_info_lost'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },

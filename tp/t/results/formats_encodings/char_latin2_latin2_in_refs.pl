@@ -27,7 +27,8 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'iso-8859-2',
                 'text_arg' => 'ISO-8859-2'
@@ -174,7 +174,8 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -190,7 +191,6 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -212,14 +212,14 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' Aogonek(0xa1=0241) aogonek(0xb1=0261) standalone ogonek(0xca=0312) Eogonek(0xea=0352) eogonek
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'cmdname' => 'menu',
@@ -286,7 +286,8 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -302,7 +303,6 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -404,7 +404,8 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -420,7 +421,6 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -460,14 +460,14 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

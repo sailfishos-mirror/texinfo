@@ -21,7 +21,8 @@ $result_trees{'bad_argument'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -37,7 +38,6 @@ $result_trees{'bad_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -85,7 +85,8 @@ $result_trees{'bad_argument'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -101,7 +102,6 @@ $result_trees{'bad_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'rmacro'
               },
@@ -153,7 +153,8 @@ $result_trees{'bad_argument'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -169,7 +170,6 @@ $result_trees{'bad_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -211,7 +211,8 @@ $result_trees{'bad_argument'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -227,7 +228,6 @@ $result_trees{'bad_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },

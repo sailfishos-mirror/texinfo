@@ -293,7 +293,8 @@ $result_trees{'things_before_setfilename'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -309,7 +310,6 @@ $result_trees{'things_before_setfilename'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'float'
                   },
@@ -465,7 +465,8 @@ $result_trees{'things_before_setfilename'} = {
                   'type' => 'spaces_after_close_brace'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -481,7 +482,6 @@ $result_trees{'things_before_setfilename'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'float'
                   },
@@ -518,14 +518,14 @@ $result_trees{'things_before_setfilename'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'contents',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'contents',
               'extra' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename.texi',
@@ -602,7 +602,8 @@ $result_trees{'things_before_setfilename'} = {
                   'type' => 'menu_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -618,7 +619,6 @@ $result_trees{'things_before_setfilename'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'menu'
                   },
@@ -644,7 +644,8 @@ $result_trees{'things_before_setfilename'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -660,7 +661,6 @@ $result_trees{'things_before_setfilename'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'index_entry' => [
                   'cp',
@@ -685,7 +685,8 @@ $result_trees{'things_before_setfilename'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'printindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -701,7 +702,6 @@ $result_trees{'things_before_setfilename'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'printindex',
               'extra' => {
                 'misc_args' => [
                   'cp'
@@ -723,7 +723,8 @@ $result_trees{'things_before_setfilename'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'listoffloats',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -739,7 +740,6 @@ $result_trees{'things_before_setfilename'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'listoffloats',
               'extra' => {
                 'float_type' => 'Text'
               },
@@ -764,7 +764,8 @@ $result_trees{'things_before_setfilename'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -780,7 +781,6 @@ $result_trees{'things_before_setfilename'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'things_before_setfilename.info'
               },

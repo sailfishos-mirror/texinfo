@@ -12,14 +12,14 @@ $result_trees{'button_replacement_for_special_unit_direction'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'contents',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'contents',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 1

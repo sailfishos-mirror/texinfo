@@ -36,7 +36,8 @@ $result_trees{'consecutive_conditionals'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -52,7 +53,6 @@ $result_trees{'consecutive_conditionals'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifinfo'
                     },
@@ -97,7 +97,8 @@ $result_trees{'consecutive_conditionals'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -113,7 +114,6 @@ $result_trees{'consecutive_conditionals'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'iftex'
                     },
@@ -142,7 +142,8 @@ $result_trees{'consecutive_conditionals'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'b',
               'type' => 'rawline_arg'
@@ -152,7 +153,6 @@ $result_trees{'consecutive_conditionals'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' b
 '
@@ -190,7 +190,8 @@ $result_trees{'consecutive_conditionals'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -206,7 +207,6 @@ $result_trees{'consecutive_conditionals'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifclear'
                     },
@@ -262,7 +262,8 @@ $result_trees{'consecutive_conditionals'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -278,7 +279,6 @@ $result_trees{'consecutive_conditionals'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },

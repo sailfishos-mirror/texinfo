@@ -37,7 +37,8 @@ $result_trees{'macro_imbricated_with_beginning_command_name'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -53,7 +54,6 @@ $result_trees{'macro_imbricated_with_beginning_command_name'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },

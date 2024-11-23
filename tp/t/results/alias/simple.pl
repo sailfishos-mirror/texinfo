@@ -10,7 +10,8 @@ $result_trees{'simple'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'simple'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               'myalias',
@@ -48,7 +48,8 @@ $result_trees{'simple'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -57,14 +58,14 @@ $result_trees{'simple'} = {
               ],
               'info' => {
                 'comment_at_end' => {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' comment
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 },
                 'spaces_after_argument' => {
                   'text' => ' '
@@ -73,7 +74,6 @@ $result_trees{'simple'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               'o-theralias',

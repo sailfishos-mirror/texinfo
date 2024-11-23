@@ -10,7 +10,8 @@ $result_trees{'unclosed_verb_end_of_line_on_misc_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'setfilename',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -41,7 +42,6 @@ $result_trees{'unclosed_verb_end_of_line_on_misc_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'setfilename',
           'extra' => {
             'text_arg' => 'name '
           },

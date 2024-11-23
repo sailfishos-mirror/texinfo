@@ -20,14 +20,14 @@ $result_trees{'accent_no_closed_comment'} = {
                       'text' => 'e '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' comment
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     }
                   ],
                   'type' => 'brace_container'

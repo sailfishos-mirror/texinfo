@@ -51,7 +51,8 @@ $result_trees{'headitem_itemx_in_itemize'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'itemx',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -67,7 +68,6 @@ $result_trees{'headitem_itemx_in_itemize'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'itemx',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -99,7 +99,8 @@ $result_trees{'headitem_itemx_in_itemize'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -115,7 +116,6 @@ $result_trees{'headitem_itemx_in_itemize'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },

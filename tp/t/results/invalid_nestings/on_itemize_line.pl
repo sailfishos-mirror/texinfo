@@ -92,7 +92,8 @@ $result_trees{'on_itemize_line'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'exdent',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -108,7 +109,6 @@ $result_trees{'on_itemize_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'exdent',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -149,7 +149,8 @@ $result_trees{'on_itemize_line'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -165,7 +166,6 @@ $result_trees{'on_itemize_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -223,7 +223,8 @@ $result_trees{'on_itemize_line'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -239,7 +240,6 @@ $result_trees{'on_itemize_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },

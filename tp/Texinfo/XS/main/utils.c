@@ -1402,15 +1402,15 @@ informative_command_value (const ELEMENT *element)
          We handle this case with TEXT text, but do not free memory
          as should be, as this case should never happen.
        */
-      else if (element->e.c->args.number > 0)
+      else if (element->e.c->contents.number > 0)
         {
           TEXT text;
           size_t i;
           char *text_seen = 0;
-          for (i = 0; i < element->e.c->args.number; i++)
+          for (i = 0; i < element->e.c->contents.number; i++)
             {
               /* only text elements in lineraw args */
-              ELEMENT *arg = element->e.c->args.list[i];
+              ELEMENT *arg = element->e.c->contents.list[i];
               if (arg->e.text->end)
                 {
                   if (!text_seen)
@@ -1440,11 +1440,11 @@ informative_command_value (const ELEMENT *element)
     return misc_args->list[0];
   if (builtin_command_data[cmd].flags & CF_line
       && builtin_command_data[cmd].data == LINE_line
-      && element->e.c->args.number >= 1
-      && element->e.c->args.list[0]->e.c->contents.number >= 1
-      && element->e.c->args.list[0]->e.c->contents.list[0]->type == ET_normal_text
-      && element->e.c->args.list[0]->e.c->contents.list[0]->e.text->end > 0)
-    return element->e.c->args.list[0]->e.c->contents.list[0]->e.text->text;
+      && element->e.c->contents.number >= 1
+      && element->e.c->contents.list[0]->e.c->contents.number >= 1
+      && element->e.c->contents.list[0]->e.c->contents.list[0]->type == ET_normal_text
+      && element->e.c->contents.list[0]->e.c->contents.list[0]->e.text->end > 0)
+    return element->e.c->contents.list[0]->e.c->contents.list[0]->e.text->text;
 
   return 0;
 }

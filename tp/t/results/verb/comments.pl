@@ -37,14 +37,14 @@ $result_trees{'comments'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' comment
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             }
           ],
           'type' => 'paragraph'
@@ -83,13 +83,13 @@ $result_trees{'comments'} = {
               'text' => ' '
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' other comment',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             }
           ],
           'type' => 'paragraph'

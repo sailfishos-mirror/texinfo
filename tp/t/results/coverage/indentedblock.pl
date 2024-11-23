@@ -54,7 +54,8 @@ $result_trees{'indentedblock'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -70,7 +71,6 @@ $result_trees{'indentedblock'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'indentedblock'
               },

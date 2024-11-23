@@ -53,7 +53,8 @@ $result_trees{'ifset_in_command'} = {
                                 'type' => 'raw'
                               },
                               {
-                                'args' => [
+                                'cmdname' => 'end',
+                                'contents' => [
                                   {
                                     'contents' => [
                                       {
@@ -69,7 +70,6 @@ $result_trees{'ifset_in_command'} = {
                                     'type' => 'line_arg'
                                   }
                                 ],
-                                'cmdname' => 'end',
                                 'extra' => {
                                   'text_arg' => 'ifset'
                                 },
@@ -142,7 +142,8 @@ $result_trees{'ifset_in_command'} = {
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'end',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -158,7 +159,6 @@ $result_trees{'ifset_in_command'} = {
                                 'type' => 'line_arg'
                               }
                             ],
-                            'cmdname' => 'end',
                             'extra' => {
                               'text_arg' => 'ifclear'
                             },

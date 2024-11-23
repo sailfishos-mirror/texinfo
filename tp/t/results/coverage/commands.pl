@@ -264,7 +264,8 @@ $result_trees{'commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -291,7 +292,6 @@ $result_trees{'commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -315,7 +315,8 @@ $result_trees{'commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'majorheading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -347,7 +348,6 @@ $result_trees{'commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'majorheading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {

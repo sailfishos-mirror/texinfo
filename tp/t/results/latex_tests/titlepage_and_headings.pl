@@ -38,7 +38,8 @@ $result_trees{'titlepage_and_headings'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -54,7 +55,6 @@ $result_trees{'titlepage_and_headings'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'titlepage'
                   },

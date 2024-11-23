@@ -324,7 +324,8 @@ $result_trees{'complex'} = [
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -340,7 +341,6 @@ $result_trees{'complex'} = [
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -670,7 +670,8 @@ $result_trees{'complex'} = [
               'type' => 'menu_comment'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -686,7 +687,6 @@ $result_trees{'complex'} = [
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -1036,7 +1036,8 @@ $result_trees{'complex'} = [
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1052,7 +1053,6 @@ $result_trees{'complex'} = [
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -1552,7 +1552,8 @@ $result_trees{'complex'} = [
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1568,7 +1569,6 @@ $result_trees{'complex'} = [
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -2365,14 +2365,14 @@ $result_trees{'complex'} = [
             'type' => 'empty_line'
           },
           {
-            'args' => [
+            'cmdname' => 'contents',
+            'contents' => [
               {
                 'text' => '
 ',
                 'type' => 'rawline_arg'
               }
             ],
-            'cmdname' => 'contents',
             'extra' => {},
             'source_info' => {
               'file_name' => 'complex_sectioning_case.texi',
@@ -2395,14 +2395,14 @@ $result_trees{'complex'} = [
         }
       },
       {
-        'args' => [
+        'cmdname' => 'bye',
+        'contents' => [
           {
             'text' => '
 ',
             'type' => 'rawline_arg'
           }
-        ],
-        'cmdname' => 'bye'
+        ]
       }
     ],
     'unit_type' => 'unit'

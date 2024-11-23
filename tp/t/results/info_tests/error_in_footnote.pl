@@ -213,7 +213,8 @@ $result_trees{'error_in_footnote'} = {
               'type' => 'spaces_after_close_brace'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -229,7 +230,6 @@ $result_trees{'error_in_footnote'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -264,7 +264,8 @@ $result_trees{'error_in_footnote'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -280,7 +281,6 @@ $result_trees{'error_in_footnote'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => 'Text'
           },
@@ -299,7 +299,8 @@ $result_trees{'error_in_footnote'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -315,7 +316,6 @@ $result_trees{'error_in_footnote'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => 'Text'
           },

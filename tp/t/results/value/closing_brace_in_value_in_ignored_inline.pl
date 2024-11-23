@@ -10,7 +10,8 @@ $result_trees{'closing_brace_in_value_in_ignored_inline'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'closebrace',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'closing_brace_in_value_in_ignored_inline'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' closebrace }
 '

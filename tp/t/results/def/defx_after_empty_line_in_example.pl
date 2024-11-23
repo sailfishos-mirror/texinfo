@@ -166,24 +166,24 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                           'type' => 'empty_line'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' c
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'comment',
+                          'contents' => [
                             {
                               'text' => ' comment
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'comment'
+                          ]
                         },
                         {
                           'text' => '
@@ -292,7 +292,8 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -308,7 +309,6 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'deffn'
                   },
@@ -332,7 +332,8 @@ $result_trees{'defx_after_empty_line_in_example'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -348,7 +349,6 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

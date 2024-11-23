@@ -60,7 +60,8 @@ $result_trees{'format_in_titlepage'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -76,7 +77,6 @@ $result_trees{'format_in_titlepage'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'format'
                       },
@@ -100,7 +100,8 @@ $result_trees{'format_in_titlepage'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -116,7 +117,6 @@ $result_trees{'format_in_titlepage'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'titlepage'
                   },

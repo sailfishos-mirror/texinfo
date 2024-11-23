@@ -49,7 +49,8 @@ $result_trees{'macro_call_empty_middle_arg'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -65,7 +66,6 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },

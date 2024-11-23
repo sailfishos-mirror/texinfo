@@ -10,7 +10,8 @@ $result_trees{'out_of_multitable'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'columnfractions',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -20,7 +21,6 @@ $result_trees{'out_of_multitable'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'columnfractions',
           'extra' => {
             'misc_args' => [
               '0.6',

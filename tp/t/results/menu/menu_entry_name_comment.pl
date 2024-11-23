@@ -79,14 +79,14 @@ $result_trees{'menu_entry_name_comment'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' c
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         }
                       ],
                       'type' => 'preformatted'
@@ -158,14 +158,14 @@ $result_trees{'menu_entry_name_comment'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' c
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         }
                       ],
                       'type' => 'preformatted'
@@ -236,14 +236,14 @@ $result_trees{'menu_entry_name_comment'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' c
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         }
                       ],
                       'type' => 'preformatted'
@@ -314,14 +314,14 @@ $result_trees{'menu_entry_name_comment'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' c
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         }
                       ],
                       'type' => 'preformatted'
@@ -395,14 +395,14 @@ $result_trees{'menu_entry_name_comment'} = {
                           'text' => 'd'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' c
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         }
                       ],
                       'type' => 'preformatted'
@@ -417,7 +417,8 @@ $result_trees{'menu_entry_name_comment'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -433,7 +434,6 @@ $result_trees{'menu_entry_name_comment'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

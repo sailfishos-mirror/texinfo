@@ -15,7 +15,8 @@ $result_trees{'bad_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -31,7 +32,6 @@ $result_trees{'bad_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -47,7 +47,8 @@ $result_trees{'bad_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -79,7 +80,6 @@ $result_trees{'bad_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

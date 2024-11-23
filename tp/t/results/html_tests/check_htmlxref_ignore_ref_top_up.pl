@@ -454,7 +454,8 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -470,7 +471,6 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

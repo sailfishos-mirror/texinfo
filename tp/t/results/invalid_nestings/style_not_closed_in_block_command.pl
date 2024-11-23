@@ -52,7 +52,8 @@ $result_trees{'style_not_closed_in_block_command'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -68,7 +69,6 @@ $result_trees{'style_not_closed_in_block_command'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'cartouche'
               },

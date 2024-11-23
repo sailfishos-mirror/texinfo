@@ -39,7 +39,8 @@ $result_trees{'section_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -55,7 +56,6 @@ $result_trees{'section_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '

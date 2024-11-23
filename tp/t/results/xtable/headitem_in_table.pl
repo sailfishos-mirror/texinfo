@@ -76,7 +76,8 @@ $result_trees{'headitem_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -92,7 +93,6 @@ $result_trees{'headitem_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -109,7 +109,8 @@ $result_trees{'headitem_in_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -125,7 +126,6 @@ $result_trees{'headitem_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },

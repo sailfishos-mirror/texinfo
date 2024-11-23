@@ -12,7 +12,8 @@ $result_trees{'transparent_sort_chars'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'set',
+              'contents' => [
                 {
                   'text' => 'txiindexhyphenignore',
                   'type' => 'rawline_arg'
@@ -22,7 +23,6 @@ $result_trees{'transparent_sort_chars'} = {
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'set',
               'info' => {
                 'arg_line' => ' txiindexhyphenignore
 '
@@ -131,7 +131,8 @@ $result_trees{'transparent_sort_chars'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -179,7 +180,6 @@ $result_trees{'transparent_sort_chars'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -200,7 +200,8 @@ $result_trees{'transparent_sort_chars'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -216,7 +217,6 @@ $result_trees{'transparent_sort_chars'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -237,7 +237,8 @@ $result_trees{'transparent_sort_chars'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -253,7 +254,6 @@ $result_trees{'transparent_sort_chars'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -279,7 +279,8 @@ $result_trees{'transparent_sort_chars'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -295,7 +296,6 @@ $result_trees{'transparent_sort_chars'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

@@ -22,28 +22,28 @@ $result_trees{'customize_special_element'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'contents',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'contents',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 2
               }
             },
             {
-              'args' => [
+              'cmdname' => 'shortcontents',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'shortcontents',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 3
@@ -198,7 +198,8 @@ $result_trees{'customize_special_element'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -214,7 +215,6 @@ $result_trees{'customize_special_element'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'fr'
           },

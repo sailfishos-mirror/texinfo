@@ -49,7 +49,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -65,7 +66,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_region' => 'copying',
                     'index_entry' => [
@@ -180,7 +180,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                               'type' => 'empty_line'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'cindex',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -196,7 +197,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'cindex',
                               'extra' => {
                                 'element_region' => 'copying',
                                 'index_entry' => [
@@ -239,7 +239,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'printindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -255,7 +256,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'printindex',
                   'extra' => {
                     'misc_args' => [
                       'cp'
@@ -277,7 +277,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -293,7 +294,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'copying'
                   },
@@ -341,7 +341,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -357,7 +358,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_region' => 'titlepage',
                     'index_entry' => [
@@ -465,7 +465,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                               'type' => 'empty_line'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'cindex',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -481,7 +482,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'cindex',
                               'extra' => {
                                 'element_region' => 'titlepage',
                                 'index_entry' => [
@@ -524,14 +524,14 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'insertcopying',
+                  'contents' => [
                     {
                       'text' => '
 ',
                       'type' => 'rawline_arg'
                     }
                   ],
-                  'cmdname' => 'insertcopying',
                   'extra' => {},
                   'source_info' => {
                     'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -539,7 +539,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -555,7 +556,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'titlepage'
                   },
@@ -670,14 +670,14 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               ],
               'info' => {
                 'comment_at_end' => {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' note this chapter is not associated to a node
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 },
                 'spaces_after_argument' => {
                   'text' => '  '
@@ -694,14 +694,14 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' @insertcopying
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'text' => '
@@ -739,7 +739,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'findex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -755,7 +756,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -781,7 +781,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'info' => {
                 'spaces_after_argument' => {
@@ -792,7 +793,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'info' => {
             'command_name' => 'cindex'
           },
@@ -961,7 +961,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -977,7 +978,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },
@@ -1032,7 +1032,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'info' => {
                             'spaces_after_argument' => {
@@ -1043,7 +1044,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'source_info' => {
                         'file_name' => 'index_special_region_no_insertcopying.texi',
                         'line_nr' => 51
@@ -1060,7 +1060,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1076,7 +1077,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -1101,7 +1101,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1117,7 +1118,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'ftable'
               },
@@ -1210,7 +1210,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1226,7 +1227,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -1345,7 +1345,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'findex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1361,7 +1362,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1387,7 +1387,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1403,7 +1404,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1565,14 +1565,14 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' @insertcopying
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'text' => '
@@ -1580,7 +1580,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1596,7 +1597,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -1613,7 +1613,8 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           }
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1629,7 +1630,6 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'
@@ -1651,14 +1651,14 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'file_name' => 'index_special_region_no_insertcopying.texi',
@@ -1680,14 +1680,14 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

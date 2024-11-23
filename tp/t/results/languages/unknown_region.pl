@@ -12,7 +12,8 @@ $result_trees{'unknown_region'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentlanguage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'unknown_region'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentlanguage',
               'extra' => {
                 'text_arg' => 'fr_NOWHERE'
               },
@@ -289,7 +289,8 @@ $result_trees{'unknown_region'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -305,7 +306,6 @@ $result_trees{'unknown_region'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defivar'
               },

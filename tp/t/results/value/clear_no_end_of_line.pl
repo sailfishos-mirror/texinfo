@@ -10,13 +10,13 @@ $result_trees{'clear_no_end_of_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'clear',
+          'contents' => [
             {
               'text' => 'jj',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clear',
           'info' => {
             'arg_line' => ' jj'
           }

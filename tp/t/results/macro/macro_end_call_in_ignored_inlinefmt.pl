@@ -27,7 +27,8 @@ $result_trees{'macro_end_call_in_ignored_inlinefmt'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'macro_end_call_in_ignored_inlinefmt'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },

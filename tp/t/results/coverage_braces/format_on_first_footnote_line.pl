@@ -46,7 +46,8 @@ $result_trees{'format_on_first_footnote_line'} = {
                           'type' => 'paragraph'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -62,7 +63,6 @@ $result_trees{'format_on_first_footnote_line'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'quotation'
                           },
@@ -138,7 +138,8 @@ $result_trees{'format_on_first_footnote_line'} = {
                           'type' => 'preformatted'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -154,7 +155,6 @@ $result_trees{'format_on_first_footnote_line'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'example'
                           },

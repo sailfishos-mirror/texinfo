@@ -10,7 +10,8 @@ $result_trees{'footnote_in_center'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -86,7 +87,8 @@ $result_trees{'footnote_in_center'} = {
                                     {
                                       'contents' => [
                                         {
-                                          'args' => [
+                                          'cmdname' => 'item',
+                                          'contents' => [
                                             {
                                               'contents' => [
                                                 {
@@ -102,7 +104,6 @@ $result_trees{'footnote_in_center'} = {
                                               'type' => 'line_arg'
                                             }
                                           ],
-                                          'cmdname' => 'item',
                                           'info' => {
                                             'spaces_before_argument' => {
                                               'text' => ' '
@@ -133,7 +134,8 @@ $result_trees{'footnote_in_center'} = {
                                   'type' => 'table_entry'
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'end',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -149,7 +151,6 @@ $result_trees{'footnote_in_center'} = {
                                       'type' => 'line_arg'
                                     }
                                   ],
-                                  'cmdname' => 'end',
                                   'extra' => {
                                     'text_arg' => 'table'
                                   },
@@ -176,7 +177,8 @@ $result_trees{'footnote_in_center'} = {
                               }
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -192,7 +194,6 @@ $result_trees{'footnote_in_center'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'example'
                               },
@@ -232,7 +233,6 @@ $result_trees{'footnote_in_center'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -248,7 +248,7 @@ $result_trees{'footnote_in_center'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'footnote_in_center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'footnote_in_center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'footnote_in_center'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'footnote_in_center'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'footnote_in_center'} = '@center Centered text with a footnote@footnote{This footnote
 shows an important feature of the centered text.

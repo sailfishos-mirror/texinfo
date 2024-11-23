@@ -10,14 +10,14 @@ $result_trees{'ref_in_sectioning'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 1
@@ -316,7 +316,8 @@ $result_trees{'ref_in_sectioning'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -332,7 +333,6 @@ $result_trees{'ref_in_sectioning'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

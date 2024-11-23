@@ -235,7 +235,8 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -251,7 +252,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

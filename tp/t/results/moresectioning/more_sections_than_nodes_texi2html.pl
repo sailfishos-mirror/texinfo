@@ -234,7 +234,8 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -250,7 +251,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -628,7 +628,8 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -644,7 +645,6 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

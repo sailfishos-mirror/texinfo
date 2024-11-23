@@ -10,7 +10,8 @@ $result_trees{'not_only_characters'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => '-e_\'::;',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'not_only_characters'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' -e_\'::; hh
 '

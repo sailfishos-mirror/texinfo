@@ -199,14 +199,14 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' comment in itemize
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 }
               ],
               'type' => 'before_item'
@@ -220,7 +220,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -236,7 +237,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -275,7 +275,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -291,7 +292,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -362,7 +362,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -378,7 +379,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -424,7 +424,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -446,7 +447,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -485,7 +485,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -501,7 +502,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -562,14 +562,14 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' comment in itemize
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 },
                 {
                   'contents' => [
@@ -592,7 +592,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -608,7 +609,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -647,7 +647,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -663,7 +664,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -716,14 +716,14 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'comment',
+                  'contents' => [
                     {
                       'text' => ' comment before first item in enumerate
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'comment'
+                  ]
                 }
               ],
               'type' => 'before_item'
@@ -754,7 +754,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -770,7 +771,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -823,7 +823,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -839,7 +840,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -893,7 +893,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -909,7 +910,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -973,7 +973,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -989,7 +990,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -1028,7 +1028,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1044,7 +1045,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -1092,7 +1092,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1108,7 +1109,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -1162,7 +1162,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1178,7 +1179,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -1246,7 +1246,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1262,7 +1263,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -1301,7 +1301,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1317,7 +1318,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -1374,7 +1374,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1390,7 +1391,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -1411,17 +1411,18 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'index_entry_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'comment',
+                  'contents' => [
                     {
                       'text' => ' comment
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'comment'
+                  ]
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1437,7 +1438,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -1458,7 +1458,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'index_entry_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1474,7 +1475,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -1513,7 +1513,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1529,7 +1530,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -1588,17 +1588,18 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' comment in table
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1614,7 +1615,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -1653,7 +1653,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1669,7 +1670,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -1733,7 +1733,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1749,7 +1750,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -1770,20 +1770,21 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' comment between item and itemx
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         }
                       ],
                       'type' => 'inter_item'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1799,7 +1800,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -1838,7 +1838,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1854,7 +1855,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -1918,7 +1918,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1934,7 +1935,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -1955,7 +1955,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'cindex',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1971,7 +1972,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'cindex',
                           'extra' => {
                             'element_node' => {},
                             'index_entry' => [
@@ -1992,30 +1992,31 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'index_entry_command'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' and a comment
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'comment',
+                          'contents' => [
                             {
                               'text' => ' and another comment
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'comment'
+                          ]
                         }
                       ],
                       'type' => 'inter_item'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -2031,7 +2032,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -2074,7 +2074,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -2090,7 +2091,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -2116,14 +2116,14 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'empty_line'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' comment between lines
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         },
                         {
                           'text' => '
@@ -2134,7 +2134,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'inter_item'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -2150,7 +2151,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -2179,14 +2179,14 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'empty_line'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' comment at end
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     }
                   ],
                   'type' => 'table_definition'
@@ -2195,7 +2195,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2211,7 +2212,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'ftable'
               },
@@ -2275,7 +2275,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'cindex',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -2291,7 +2292,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -2312,17 +2312,18 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'index_entry_command'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' comment in table
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -2338,7 +2339,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -2370,7 +2370,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2386,7 +2387,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -2448,7 +2448,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -2464,7 +2465,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -2501,7 +2501,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -2517,7 +2518,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -2535,7 +2535,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2551,7 +2552,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -2615,7 +2615,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'cindex',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -2631,7 +2632,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -2652,17 +2652,18 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'index_entry_command'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' samp comment in table
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -2678,7 +2679,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -2710,7 +2710,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2726,7 +2727,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -2788,7 +2788,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -2804,7 +2805,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -2841,7 +2841,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -2857,7 +2858,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -2875,7 +2875,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2891,7 +2892,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -2958,7 +2958,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -2974,7 +2975,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -3007,7 +3007,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -3023,7 +3024,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -3041,7 +3041,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3057,7 +3058,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -3119,7 +3119,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -3135,7 +3136,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -3168,7 +3168,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -3184,7 +3185,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -3202,7 +3202,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3218,7 +3219,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -3292,7 +3292,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'cindex',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -3308,7 +3309,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -3329,7 +3329,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'index_entry_command'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -3345,7 +3346,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -3363,7 +3363,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3379,7 +3380,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -3443,7 +3443,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'cindex',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -3459,7 +3460,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -3480,17 +3480,18 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'index_entry_command'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' commant
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'cindex',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -3506,7 +3507,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -3527,7 +3527,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'index_entry_command'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'cindex',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -3543,7 +3544,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -3564,7 +3564,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                       'type' => 'index_entry_command'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -3580,7 +3581,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -3598,7 +3598,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3614,7 +3615,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -3727,7 +3727,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3743,7 +3744,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -3765,7 +3765,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3781,7 +3782,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'vr'
@@ -3803,7 +3803,8 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3819,7 +3820,6 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'
@@ -3855,14 +3855,14 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

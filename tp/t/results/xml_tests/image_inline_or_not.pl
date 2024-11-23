@@ -286,7 +286,8 @@ $result_trees{'image_inline_or_not'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -302,7 +303,6 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -387,7 +387,8 @@ $result_trees{'image_inline_or_not'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -403,7 +404,6 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -461,7 +461,8 @@ $result_trees{'image_inline_or_not'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -493,7 +494,6 @@ $result_trees{'image_inline_or_not'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -607,7 +607,8 @@ $result_trees{'image_inline_or_not'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -623,7 +624,6 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -895,7 +895,8 @@ $result_trees{'image_inline_or_not'} = {
               'type' => 'menu_comment'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -911,7 +912,6 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -1310,7 +1310,8 @@ $result_trees{'image_inline_or_not'} = {
               'type' => 'spaces_after_close_brace'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1326,7 +1327,6 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },

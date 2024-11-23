@@ -95,7 +95,8 @@ $result_trees{'backslash_in_arg'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -111,7 +112,6 @@ $result_trees{'backslash_in_arg'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -166,7 +166,8 @@ $result_trees{'backslash_in_arg'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'findex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -190,7 +191,6 @@ $result_trees{'backslash_in_arg'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -234,7 +234,8 @@ $result_trees{'backslash_in_arg'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'findex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -258,7 +259,6 @@ $result_trees{'backslash_in_arg'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -305,7 +305,8 @@ $result_trees{'backslash_in_arg'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'findex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -329,7 +330,6 @@ $result_trees{'backslash_in_arg'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -373,7 +373,8 @@ $result_trees{'backslash_in_arg'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'findex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -397,7 +398,6 @@ $result_trees{'backslash_in_arg'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -418,7 +418,8 @@ $result_trees{'backslash_in_arg'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -434,7 +435,6 @@ $result_trees{'backslash_in_arg'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'

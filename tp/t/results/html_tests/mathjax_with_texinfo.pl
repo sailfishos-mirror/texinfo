@@ -105,7 +105,8 @@ $result_trees{'mathjax_with_texinfo'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -121,7 +122,6 @@ $result_trees{'mathjax_with_texinfo'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'displaymath'
               },

@@ -12,14 +12,14 @@ $result_trees{'error_in_sectioning_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'contents',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'contents',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 1

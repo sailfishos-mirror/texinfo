@@ -59,7 +59,8 @@ $result_trees{'asis_as_itemize_argument'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -75,7 +76,6 @@ $result_trees{'asis_as_itemize_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },

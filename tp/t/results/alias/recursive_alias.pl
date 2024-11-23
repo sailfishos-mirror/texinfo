@@ -10,7 +10,8 @@ $result_trees{'recursive_alias'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'recursive_alias'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               'new',
@@ -48,7 +48,8 @@ $result_trees{'recursive_alias'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -64,7 +65,6 @@ $result_trees{'recursive_alias'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               'other',
@@ -86,7 +86,8 @@ $result_trees{'recursive_alias'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -102,7 +103,6 @@ $result_trees{'recursive_alias'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               'strong',

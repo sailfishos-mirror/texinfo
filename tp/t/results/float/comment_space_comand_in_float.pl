@@ -105,14 +105,14 @@ $result_trees{'comment_space_comand_in_float'} = {
                   ],
                   'info' => {
                     'comment_at_end' => {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' float
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     },
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -133,7 +133,8 @@ $result_trees{'comment_space_comand_in_float'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -149,7 +150,6 @@ $result_trees{'comment_space_comand_in_float'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -183,7 +183,8 @@ $result_trees{'comment_space_comand_in_float'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -195,20 +196,19 @@ $result_trees{'comment_space_comand_in_float'} = {
               ],
               'info' => {
                 'comment_at_end' => {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' listoffloats
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 }
               },
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => 'Text  '
           },

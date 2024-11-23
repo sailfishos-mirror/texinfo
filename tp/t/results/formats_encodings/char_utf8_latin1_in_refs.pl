@@ -27,7 +27,8 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'utf-8',
                 'text_arg' => 'utf-8'
@@ -135,7 +135,8 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -151,7 +152,6 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -425,7 +425,8 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -441,7 +442,6 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -1010,7 +1010,8 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1026,7 +1027,6 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1047,7 +1047,8 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1063,7 +1064,6 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1084,7 +1084,8 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1100,7 +1101,6 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1121,7 +1121,8 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1137,7 +1138,6 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1158,7 +1158,8 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1174,7 +1175,6 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1195,7 +1195,8 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1211,7 +1212,6 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1251,14 +1251,14 @@ $result_trees{'char_utf8_latin1_in_refs'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

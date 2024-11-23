@@ -202,14 +202,14 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' an example in the footnote
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     },
                     {
                       'text' => '
@@ -243,7 +243,8 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
                           'type' => 'preformatted'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -259,7 +260,6 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'example'
                           },
@@ -375,7 +375,8 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
                           'type' => 'argument'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'author',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -391,7 +392,6 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'author',
                           'extra' => {
                             'quotation' => {}
                           },
@@ -414,7 +414,8 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
                           'type' => 'paragraph'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -430,7 +431,6 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'quotation'
                           },

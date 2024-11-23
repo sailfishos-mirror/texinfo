@@ -80,7 +80,8 @@ $result_trees{'printindex_between_part_chapter'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -96,7 +97,6 @@ $result_trees{'printindex_between_part_chapter'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -116,7 +116,8 @@ $result_trees{'printindex_between_part_chapter'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -132,7 +133,6 @@ $result_trees{'printindex_between_part_chapter'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -152,7 +152,8 @@ $result_trees{'printindex_between_part_chapter'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -168,7 +169,6 @@ $result_trees{'printindex_between_part_chapter'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -188,7 +188,8 @@ $result_trees{'printindex_between_part_chapter'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -204,7 +205,6 @@ $result_trees{'printindex_between_part_chapter'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -267,7 +267,8 @@ $result_trees{'printindex_between_part_chapter'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -283,7 +284,6 @@ $result_trees{'printindex_between_part_chapter'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -455,7 +455,8 @@ $result_trees{'printindex_between_part_chapter'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -471,7 +472,6 @@ $result_trees{'printindex_between_part_chapter'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -491,7 +491,8 @@ $result_trees{'printindex_between_part_chapter'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -507,7 +508,6 @@ $result_trees{'printindex_between_part_chapter'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [

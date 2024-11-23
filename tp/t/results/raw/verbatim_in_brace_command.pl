@@ -54,7 +54,8 @@ $result_trees{'verbatim_in_brace_command'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -70,7 +71,6 @@ $result_trees{'verbatim_in_brace_command'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },

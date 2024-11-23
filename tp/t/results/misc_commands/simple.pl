@@ -10,7 +10,8 @@ $result_trees{'simple'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -20,7 +21,6 @@ $result_trees{'simple'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'idx'

@@ -153,7 +153,7 @@ sub _copy_tree($)
 
   #print STDERR "CTNEW $current ".debug_print_element($current)." $new\n";
 
-  foreach my $key ('args', 'contents') {
+  foreach my $key ('contents') {
     if ($current->{$key}) {
       if (ref($current->{$key}) ne 'ARRAY') {
         my $command_or_type = '';
@@ -207,7 +207,6 @@ sub _copy_tree($)
           if (not defined($value->{'cmdname'}) and not defined($value->{'type'})
               and not defined($value->{'text'}) and not defined($value->{'extra'})
               and not defined($value->{'contents'})
-              and not defined($value->{'args'})
               and scalar(keys(%$value))) {
             print STDERR "HASH NOT ELEMENT $info_type [$command_or_type]{$key}\n";
           }
@@ -248,7 +247,7 @@ sub _remove_element_copy_info($;$)
   #print STDERR (' ' x $level)
   #   .Texinfo::Common::debug_print_element($current).": $current\n";
 
-  foreach my $key ('args', 'contents') {
+  foreach my $key ('contents') {
     if ($current->{$key}) {
       my $index = 0;
       foreach my $child (@{$current->{$key}}) {
@@ -285,7 +284,6 @@ sub _remove_element_copy_info($;$)
           if (not defined($value->{'cmdname'}) and not defined($value->{'type'})
               and not defined($value->{'text'}) and not defined($value->{'extra'})
               and not defined($value->{'contents'})
-              and not defined($value->{'args'})
               and scalar(keys(%$value))) {
             print STDERR "HASH NOT ELEMENT $info_type [$command_or_type]{$key}\n";
           }
@@ -354,20 +352,6 @@ sub modify_tree($$;$)
     return undef;
   }
 
-  if ($tree->{'args'}) {
-    my $args_nr = scalar(@{$tree->{'args'}});
-    for (my $i = 0; $i < $args_nr; $i++) {
-      my $new_args = &$operation('arg', $tree->{'args'}->[$i], $argument);
-      if ($new_args) {
-        # replace by new content
-        splice(@{$tree->{'args'}}, $i, 1, @$new_args);
-        $i += scalar(@$new_args) -1;
-        $args_nr += scalar(@$new_args) -1;
-      } else {
-        modify_tree($tree->{'args'}->[$i], $operation, $argument);
-      }
-    }
-  }
   if ($tree->{'contents'}) {
     my $contents_nr = scalar(@{$tree->{'contents'}});
     for (my $i = 0; $i < $contents_nr; $i++) {
@@ -686,7 +670,7 @@ sub _relate_index_entries_to_table_items_in($$)
   return unless $table->{'contents'};
 
   foreach my $table_entry (@{$table->{'contents'}}) {
-    next unless $table_entry->{'contents'}
+    next unless $table_entry->{'contents'} and $table_entry->{'type'}
       and $table_entry->{'type'} eq 'table_entry';
 
     my $term = $table_entry->{'contents'}->[0];

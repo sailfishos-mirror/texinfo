@@ -50,7 +50,8 @@ $result_trees{'indent_in_quotation'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -66,7 +67,6 @@ $result_trees{'indent_in_quotation'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

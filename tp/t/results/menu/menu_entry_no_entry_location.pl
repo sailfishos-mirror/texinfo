@@ -196,7 +196,8 @@ $result_trees{'menu_entry_no_entry_location'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -212,7 +213,6 @@ $result_trees{'menu_entry_no_entry_location'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

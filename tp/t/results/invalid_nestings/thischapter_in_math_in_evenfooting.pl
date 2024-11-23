@@ -15,7 +15,8 @@ $result_trees{'thischapter_in_math_in_evenfooting'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'evenfooting',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -47,7 +48,6 @@ $result_trees{'thischapter_in_math_in_evenfooting'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'evenfooting',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

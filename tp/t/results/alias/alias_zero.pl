@@ -10,7 +10,8 @@ $result_trees{'alias_zero'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'alias_zero'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               '0',

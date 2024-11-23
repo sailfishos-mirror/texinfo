@@ -79,28 +79,28 @@ $result_trees{'conversion_with_undef_customization'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 4
           }
         },
         {
-          'args' => [
+          'cmdname' => 'shortcontents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'shortcontents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 5
@@ -273,7 +273,8 @@ $result_trees{'conversion_with_undef_customization'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -289,7 +290,6 @@ $result_trees{'conversion_with_undef_customization'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -391,7 +391,8 @@ $result_trees{'conversion_with_undef_customization'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -407,7 +408,6 @@ $result_trees{'conversion_with_undef_customization'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -583,7 +583,8 @@ $result_trees{'conversion_with_undef_customization'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -599,7 +600,6 @@ $result_trees{'conversion_with_undef_customization'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deftypefn'
               },

@@ -45,7 +45,8 @@ $result_trees{'multitable_bracketed_prototype_not_closed'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -61,7 +62,6 @@ $result_trees{'multitable_bracketed_prototype_not_closed'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

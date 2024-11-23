@@ -10,7 +10,8 @@ $result_trees{'value_in_invalid_documentencoding'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'badvalue',
               'type' => 'rawline_arg'
@@ -20,14 +21,14 @@ $result_trees{'value_in_invalid_documentencoding'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' badvalue bad
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -51,7 +52,6 @@ $result_trees{'value_in_invalid_documentencoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'text_arg' => 'bad'
           },

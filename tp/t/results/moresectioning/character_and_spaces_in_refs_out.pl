@@ -193,7 +193,8 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'type' => 'menu_entry'
               },
               {
-                'args' => [
+                'cmdname' => 'end',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -209,7 +210,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'end',
                 'extra' => {
                   'text_arg' => 'menu'
                 },
@@ -317,7 +317,8 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
             'type' => 'empty_line'
           },
           {
-            'args' => [
+            'cmdname' => 'subheading',
+            'contents' => [
               {
                 'contents' => [
                   {
@@ -333,7 +334,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'type' => 'line_arg'
               }
             ],
-            'cmdname' => 'subheading',
             'extra' => {},
             'info' => {
               'spaces_before_argument' => {
@@ -602,7 +602,8 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
             'type' => 'empty_line'
           },
           {
-            'args' => [
+            'cmdname' => 'subheading',
+            'contents' => [
               {
                 'contents' => [
                   {
@@ -618,7 +619,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'type' => 'line_arg'
               }
             ],
-            'cmdname' => 'subheading',
             'extra' => {},
             'info' => {
               'spaces_before_argument' => {
@@ -1075,7 +1075,8 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'type' => 'menu_entry'
               },
               {
-                'args' => [
+                'cmdname' => 'end',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1091,7 +1092,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'end',
                 'extra' => {
                   'text_arg' => 'menu'
                 },
@@ -1422,14 +1422,14 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
     'unit_contents' => [
       {},
       {
-        'args' => [
+        'cmdname' => 'bye',
+        'contents' => [
           {
             'text' => '
 ',
             'type' => 'rawline_arg'
           }
-        ],
-        'cmdname' => 'bye'
+        ]
       }
     ],
     'unit_type' => 'unit'

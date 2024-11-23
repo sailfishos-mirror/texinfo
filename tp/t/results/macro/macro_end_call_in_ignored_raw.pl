@@ -32,7 +32,8 @@ $result_trees{'macro_end_call_in_ignored_raw'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'macro_end_call_in_ignored_raw'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -134,7 +134,8 @@ $result_trees{'macro_end_call_in_ignored_raw'} = {
               'type' => 'elided_rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -150,7 +151,6 @@ $result_trees{'macro_end_call_in_ignored_raw'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'tex'
               },

@@ -112,14 +112,14 @@ $result_trees{'contents_at_end_document'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 6

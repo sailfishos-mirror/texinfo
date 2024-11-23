@@ -120,7 +120,8 @@ $result_trees{'w_argument'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -136,7 +137,6 @@ $result_trees{'w_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },

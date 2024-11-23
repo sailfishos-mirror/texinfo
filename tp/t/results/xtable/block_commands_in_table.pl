@@ -177,7 +177,8 @@ $result_trees{'block_commands_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -193,7 +194,6 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -204,7 +204,8 @@ $result_trees{'block_commands_in_table'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -220,7 +221,6 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -265,7 +265,8 @@ $result_trees{'block_commands_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -281,7 +282,6 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -332,7 +332,8 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'preformatted'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -348,7 +349,6 @@ $result_trees{'block_commands_in_table'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'example'
                           },
@@ -377,7 +377,8 @@ $result_trees{'block_commands_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -393,7 +394,6 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -433,7 +433,8 @@ $result_trees{'block_commands_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -449,7 +450,6 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -491,7 +491,8 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'paragraph'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -507,7 +508,6 @@ $result_trees{'block_commands_in_table'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'quotation'
                           },
@@ -541,7 +541,8 @@ $result_trees{'block_commands_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -557,7 +558,6 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -604,7 +604,8 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'paragraph'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -620,7 +621,6 @@ $result_trees{'block_commands_in_table'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'quotation'
                           },
@@ -645,7 +645,8 @@ $result_trees{'block_commands_in_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -661,7 +662,6 @@ $result_trees{'block_commands_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -722,7 +722,8 @@ $result_trees{'block_commands_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -738,7 +739,6 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -758,20 +758,21 @@ $result_trees{'block_commands_in_table'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' comment
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         }
                       ],
                       'type' => 'inter_item'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'vindex',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -787,7 +788,6 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'vindex',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -807,7 +807,8 @@ $result_trees{'block_commands_in_table'} = {
                       'type' => 'index_entry_command'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -823,7 +824,6 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -866,7 +866,8 @@ $result_trees{'block_commands_in_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -882,7 +883,6 @@ $result_trees{'block_commands_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -938,7 +938,8 @@ $result_trees{'block_commands_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -954,7 +955,6 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -982,7 +982,8 @@ $result_trees{'block_commands_in_table'} = {
                       'type' => 'inter_item'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -998,7 +999,6 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -1046,7 +1046,8 @@ $result_trees{'block_commands_in_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1062,7 +1063,6 @@ $result_trees{'block_commands_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -1132,7 +1132,8 @@ $result_trees{'block_commands_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1148,7 +1149,6 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -1183,7 +1183,8 @@ $result_trees{'block_commands_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1199,7 +1200,6 @@ $result_trees{'block_commands_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -1230,7 +1230,8 @@ $result_trees{'block_commands_in_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1246,7 +1247,6 @@ $result_trees{'block_commands_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },

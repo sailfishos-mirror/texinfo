@@ -125,7 +125,8 @@ $result_trees{'on_def_line'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'exdent',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -141,7 +142,6 @@ $result_trees{'on_def_line'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'exdent',
                               'info' => {
                                 'spaces_before_argument' => {
                                   'text' => ' '
@@ -312,7 +312,8 @@ $result_trees{'on_def_line'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'exdent',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -328,7 +329,6 @@ $result_trees{'on_def_line'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'exdent',
                               'info' => {
                                 'spaces_before_argument' => {
                                   'text' => ' '
@@ -390,7 +390,8 @@ $result_trees{'on_def_line'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -406,7 +407,6 @@ $result_trees{'on_def_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },

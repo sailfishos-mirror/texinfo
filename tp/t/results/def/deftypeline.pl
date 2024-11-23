@@ -252,7 +252,8 @@ $result_trees{'deftypeline'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -268,7 +269,6 @@ $result_trees{'deftypeline'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defblock'
               },

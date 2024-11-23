@@ -210,11 +210,6 @@ copy_tree_internal (ELEMENT* current)
     }
 
   /* the parent of new is set in add_to_element* */
-  for (i = 0; i < current->e.c->args.number; i++)
-    {
-      ELEMENT *added = copy_tree_internal (current->e.c->args.list[i]);
-      add_to_element_args (new, added);
-    }
   for (i = 0; i < current->e.c->contents.number; i++)
     {
       ELEMENT *added = copy_tree_internal (current->e.c->contents.list[i]);
@@ -350,8 +345,6 @@ remove_element_copy_info (ELEMENT *current)
 
   if (! (type_data[current->type].flags & TF_text))
     {
-      for (i = 0; i < current->e.c->args.number; i++)
-        remove_element_copy_info (current->e.c->args.list[i]);
       for (i = 0; i < current->e.c->contents.number; i++)
         remove_element_copy_info (current->e.c->contents.list[i]);
 
@@ -835,28 +828,6 @@ modify_tree (ELEMENT *tree,
              ELEMENT_LIST *(*operation)(const char *type, ELEMENT *element, void* argument),
              void *argument)
 {
-  if (tree->e.c->args.number > 0)
-    {
-      size_t i;
-      for (i = 0; i < tree->e.c->args.number; i++)
-        {
-          ELEMENT_LIST *new_args;
-          ELEMENT *content = tree->e.c->args.list[i];
-          new_args = (*operation) ("arg", content, argument);
-          if (new_args)
-            {
-              /* *operation should take care of destroying removed element */
-              remove_from_args (tree, i);
-              insert_list_slice_into_args (tree, i,
-                                           new_args, 0,
-                                           new_args->number);
-              i += new_args->number -1;
-              destroy_list (new_args);
-            }
-          else if (! (type_data[content->type].flags & TF_text))
-            modify_tree (content, operation, argument);
-        }
-    }
   if (tree->e.c->contents.number > 0)
     {
       size_t i;

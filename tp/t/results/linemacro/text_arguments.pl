@@ -39,7 +39,8 @@ $result_trees{'text_arguments'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -55,7 +56,6 @@ $result_trees{'text_arguments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'linemacro'
               },

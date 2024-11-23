@@ -126,7 +126,8 @@ $result_trees{'formats_in_menu'} = {
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'item',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -142,7 +143,6 @@ $result_trees{'formats_in_menu'} = {
                                       'type' => 'line_arg'
                                     }
                                   ],
-                                  'cmdname' => 'item',
                                   'info' => {
                                     'spaces_before_argument' => {
                                       'text' => ' '
@@ -173,7 +173,8 @@ $result_trees{'formats_in_menu'} = {
                           'type' => 'table_entry'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -189,7 +190,6 @@ $result_trees{'formats_in_menu'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'table'
                           },
@@ -309,7 +309,8 @@ $result_trees{'formats_in_menu'} = {
                           'type' => 'raw'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -325,7 +326,6 @@ $result_trees{'formats_in_menu'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'verbatim'
                           },
@@ -423,7 +423,8 @@ $result_trees{'formats_in_menu'} = {
                               'type' => 'rawpreformatted'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -439,7 +440,6 @@ $result_trees{'formats_in_menu'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'html'
                               },
@@ -587,7 +587,8 @@ $result_trees{'formats_in_menu'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -603,7 +604,6 @@ $result_trees{'formats_in_menu'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'example'
                       },
@@ -635,7 +635,8 @@ $result_trees{'formats_in_menu'} = {
               'type' => 'menu_comment'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -651,7 +652,6 @@ $result_trees{'formats_in_menu'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

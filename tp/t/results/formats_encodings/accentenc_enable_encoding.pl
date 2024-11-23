@@ -10,7 +10,8 @@ $result_trees{'accentenc_enable_encoding'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'accentenc_enable_encoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'iso-8859-1',
             'text_arg' => 'ISO-8859-1'
@@ -1595,14 +1595,14 @@ $result_trees{'accentenc_enable_encoding'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' arg is command -- @dotless{i} is special-cased for HTML
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'contents' => [
@@ -1789,14 +1789,14 @@ $result_trees{'accentenc_enable_encoding'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' arg is command -- @dotless{j}
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'contents' => [

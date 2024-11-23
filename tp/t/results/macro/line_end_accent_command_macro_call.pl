@@ -27,7 +27,8 @@ $result_trees{'line_end_accent_command_macro_call'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'line_end_accent_command_macro_call'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -90,7 +90,8 @@ $result_trees{'line_end_accent_command_macro_call'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -126,7 +127,6 @@ $result_trees{'line_end_accent_command_macro_call'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -173,7 +173,8 @@ $result_trees{'line_end_accent_command_macro_call'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -189,7 +190,6 @@ $result_trees{'line_end_accent_command_macro_call'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -236,7 +236,8 @@ $result_trees{'line_end_accent_command_macro_call'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -271,7 +272,6 @@ $result_trees{'line_end_accent_command_macro_call'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

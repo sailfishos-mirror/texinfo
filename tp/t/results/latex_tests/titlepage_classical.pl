@@ -38,7 +38,8 @@ $result_trees{'titlepage_classical'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -54,7 +55,6 @@ $result_trees{'titlepage_classical'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'copying'
                   },
@@ -95,7 +95,8 @@ $result_trees{'titlepage_classical'} = {
                   'type' => 'argument'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'title',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -111,7 +112,6 @@ $result_trees{'titlepage_classical'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'title',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -122,7 +122,8 @@ $result_trees{'titlepage_classical'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'subtitle',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -138,7 +139,6 @@ $result_trees{'titlepage_classical'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'subtitle',
                   'extra' => {},
                   'info' => {
                     'spaces_before_argument' => {
@@ -150,7 +150,8 @@ $result_trees{'titlepage_classical'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'subtitle',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -166,7 +167,6 @@ $result_trees{'titlepage_classical'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'subtitle',
                   'extra' => {},
                   'info' => {
                     'spaces_before_argument' => {
@@ -178,7 +178,8 @@ $result_trees{'titlepage_classical'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'author',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -194,7 +195,6 @@ $result_trees{'titlepage_classical'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'author',
                   'extra' => {
                     'titlepage' => {}
                   },
@@ -208,7 +208,8 @@ $result_trees{'titlepage_classical'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'author',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -224,7 +225,6 @@ $result_trees{'titlepage_classical'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'author',
                   'extra' => {
                     'titlepage' => {}
                   },
@@ -243,61 +243,62 @@ $result_trees{'titlepage_classical'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'page',
+                  'contents' => [
                     {
                       'text' => '
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'page'
+                  ]
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' The following two commands start the copyright page.
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'page',
+                  'contents' => [
                     {
                       'text' => '
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'page'
+                  ]
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'vskip',
+                  'contents' => [
                     {
                       'text' => ' 0pt plus 1filll
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'vskip'
+                  ]
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'insertcopying',
+                  'contents' => [
                     {
                       'text' => '
 ',
                       'type' => 'rawline_arg'
                     }
                   ],
-                  'cmdname' => 'insertcopying',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 16
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -313,7 +314,6 @@ $result_trees{'titlepage_classical'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'titlepage'
                   },

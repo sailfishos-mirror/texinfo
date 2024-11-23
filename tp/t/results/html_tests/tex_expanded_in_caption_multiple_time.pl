@@ -83,7 +83,8 @@ $result_trees{'tex_expanded_in_caption_multiple_time'} = {
                           'type' => 'rawpreformatted'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -99,7 +100,6 @@ $result_trees{'tex_expanded_in_caption_multiple_time'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'tex'
                           },
@@ -140,7 +140,8 @@ $result_trees{'tex_expanded_in_caption_multiple_time'} = {
               'type' => 'spaces_after_close_brace'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -156,7 +157,6 @@ $result_trees{'tex_expanded_in_caption_multiple_time'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -191,7 +191,8 @@ $result_trees{'tex_expanded_in_caption_multiple_time'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -207,7 +208,6 @@ $result_trees{'tex_expanded_in_caption_multiple_time'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => 'A'
           },

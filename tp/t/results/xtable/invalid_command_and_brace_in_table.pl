@@ -61,7 +61,8 @@ $result_trees{'invalid_command_and_brace_in_table'} = {
               'type' => 'before_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -77,7 +78,6 @@ $result_trees{'invalid_command_and_brace_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },

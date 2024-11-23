@@ -211,7 +211,8 @@ $result_trees{'double_node_anchor_float'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -227,7 +228,6 @@ $result_trees{'double_node_anchor_float'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -293,7 +293,8 @@ $result_trees{'double_node_anchor_float'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -309,7 +310,6 @@ $result_trees{'double_node_anchor_float'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -375,7 +375,8 @@ $result_trees{'double_node_anchor_float'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -391,7 +392,6 @@ $result_trees{'double_node_anchor_float'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },

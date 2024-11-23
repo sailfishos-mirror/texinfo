@@ -176,7 +176,8 @@ $result_trees{'on_node_line'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'exdent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -192,7 +193,6 @@ $result_trees{'on_node_line'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'exdent',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '

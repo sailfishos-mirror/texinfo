@@ -452,7 +452,8 @@ $result_trees{'form_feeds'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -468,7 +469,6 @@ $result_trees{'form_feeds'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -492,7 +492,8 @@ $result_trees{'form_feeds'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -508,7 +509,6 @@ $result_trees{'form_feeds'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => '  '
@@ -519,7 +519,8 @@ $result_trees{'form_feeds'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -535,7 +536,6 @@ $result_trees{'form_feeds'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -973,7 +973,8 @@ $result_trees{'form_feeds'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -989,7 +990,6 @@ $result_trees{'form_feeds'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },
@@ -1168,7 +1168,8 @@ $result_trees{'form_feeds'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1184,7 +1185,6 @@ $result_trees{'form_feeds'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -1260,7 +1260,8 @@ $result_trees{'form_feeds'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1276,7 +1277,6 @@ $result_trees{'form_feeds'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -1310,7 +1310,8 @@ $result_trees{'form_feeds'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1326,7 +1327,6 @@ $result_trees{'form_feeds'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => 'type'
           },

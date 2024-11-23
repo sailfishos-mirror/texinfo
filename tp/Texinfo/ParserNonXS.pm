@@ -1663,7 +1663,6 @@ sub _is_container_empty($)
 {
   my $current = shift;
   if (not $current->{'contents'}
-      and not $current->{'args'}
       and (not defined($current->{'text'}) or $current->{'text'} eq '')
       and not $current->{'info'}) {
     return 1;
@@ -3590,26 +3589,15 @@ sub _enter_index_entry($$$$)
   $element->{'extra'}->{'index_entry'} = [$index_name, $number];
 }
 
-sub _parse_float_type($)
+sub _parse_float_type($$)
 {
   my $current = shift;
-
-  my $arguments_list;
-  if ($current->{'args'}) {
-    # listoffloats
-    $arguments_list = $current->{'args'};
-  } elsif ($current->{'contents'} and scalar(@{$current->{'contents'}})
-           and $current->{'contents'}->[0]->{'contents'}) {
-    # float
-    $arguments_list = $current->{'contents'}->[0]->{'contents'};
-  }
+  my $element = shift;
 
   my $normalized = '';
-  if ($arguments_list and scalar(@{$arguments_list})) {
-    $normalized
+  $normalized
        = Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
-                                                       $arguments_list->[0]);
-  }
+                                                                  $element);
   $current->{'extra'} = {} if (!$current->{'extra'});
   $current->{'extra'}->{'float_type'} = $normalized;
   return $normalized;
@@ -3680,11 +3668,7 @@ sub _end_line_misc_line($$$)
     $line_arg = $command_element->{'contents'}->[0]->{'contents'}->[0];
   } else {
     $command_element = $current->{'parent'};
-    if ($def_commands{$command_element->{'cmdname'}}) {
-      $line_arg = $command_element->{'contents'}->[0];
-    } else {
-      $line_arg = $command_element->{'args'}->[0];
-    }
+    $line_arg = $command_element->{'contents'}->[0];
   }
   my $command = $command_element->{'cmdname'};
   my $data_cmdname = $command;
@@ -3726,7 +3710,7 @@ sub _end_line_misc_line($$$)
     }
   } elsif ($arg_spec eq 'text') {
     my ($text, $superfluous_arg)
-      = _text_contents_to_plain_text($current->{'args'}->[0]);
+      = _text_contents_to_plain_text($current->{'contents'}->[0]);
 
     if ($text eq '') {
       if (not $superfluous_arg) {
@@ -3880,7 +3864,8 @@ sub _end_line_misc_line($$$)
     }
     if ($superfluous_arg) {
       my $texi_line
-        = Texinfo::Convert::Texinfo::convert_to_texinfo($current->{'args'}->[0]);
+        = Texinfo::Convert::Texinfo::convert_to_texinfo(
+                                           $current->{'contents'}->[0]);
       $texi_line =~ s/^\s*//;
       $texi_line =~ s/\s*$//;
 
@@ -3934,7 +3919,7 @@ sub _end_line_misc_line($$$)
     }
     $self->{'current_node'} = $current;
   } elsif ($command eq 'listoffloats') {
-    _parse_float_type($current);
+    _parse_float_type($current, $current->{'contents'}->[0]);
   } else {
     if ($self->{'index_entry_commands'}->{$current->{'cmdname'}}) {
       $current->{'type'} = 'index_entry_command';
@@ -3963,7 +3948,7 @@ sub _end_line_misc_line($$$)
       # text after the brace command.
       if (_is_index_element($self, $current)) {
         _set_non_ignored_space_in_index_before_command(
-                                          $current->{'args'}->[0]);
+                                          $current->{'contents'}->[0]);
       }
     }
   }
@@ -4294,7 +4279,7 @@ sub _end_line_starting_block($$$)
                                            $current, $source_info);
     }
 
-    my $float_type = _parse_float_type($current);
+    my $float_type = _parse_float_type($current, $argument->{'contents'}->[0]);
     push @{$document->{'listoffloats_list'}->{$float_type}}, $current;
 
     if (defined($self->{'current_section'})) {
@@ -4990,7 +4975,7 @@ sub _register_command_as_argument($$)
 
   my $command_element = $cmd_as_arg->{'parent'}->{'parent'}->{'parent'};
 
-  print STDERR "FOR PARENT \@$command_element->{'parent'}->{'cmdname'} ".
+  print STDERR "FOR PARENT \@$command_element->{'cmdname'} ".
          "command_as_argument $cmd_as_arg->{'cmdname'}\n"
               if ($self->{'conf'}->{'DEBUG'});
   $command_element->{'extra'} = {}
@@ -5834,7 +5819,7 @@ sub _handle_line_command($$$$$$)
                             'parent' => $command_e,
                             'info' => {'spaces_after_argument'
                                    => {'text' => "\n",}}};
-      $command_e->{'args'} = [$misc_line_args];
+      $command_e->{'contents'} = [$misc_line_args];
       $misc_line_args->{'contents'} = [
         { 'text' => $arg,
           'parent' => $misc_line_args, },
@@ -5844,9 +5829,9 @@ sub _handle_line_command($$$$$$)
       if (!$ignored) {
         push @{$current->{'contents'}}, $command_e;
         if (scalar(@$args)) {
-          $command_e->{'args'} = [];
+          $command_e->{'contents'} = [];
           foreach my $arg (@$args) {
-            push @{$command_e->{'args'}},
+            push @{$command_e->{'contents'}},
               { 'type' => 'rawline_arg', 'text' => $arg,
                 'parent' => $current->{'contents'}->[-1] };
           }
@@ -5996,17 +5981,14 @@ sub _handle_line_command($$$$$$)
       }
     }
     $current = $current->{'contents'}->[-1];
-    if ($def_commands{$data_cmdname}) {
-      $current->{'contents'} = [{ 'type' => 'line_arg',
-                                  'parent' => $current }];
-    } elsif ($root_commands{$data_cmdname}) {
+    if ($root_commands{$data_cmdname}) {
       my $argument = {'type' => 'argument', 'parent' => $current};
       $current->{'contents'} = [$argument];
       $argument->{'contents'} = [{ 'type' => 'line_arg',
                                   'parent' => $argument }];
-    } else {
-      $current->{'args'} = [{ 'type' => 'line_arg',
-                              'parent' => $current }];
+    } else {# def or line command
+      $current->{'contents'} = [{ 'type' => 'line_arg',
+                                  'parent' => $current }];
     }
     if ($self->{'basic_inline_commands'}
         and $self->{'basic_inline_commands'}->{$data_cmdname}) {
@@ -6069,7 +6051,7 @@ sub _handle_line_command($$$$$$)
       $current = $current->{'contents'}->[0]->{'contents'}->[-1];
       $self->_push_context('ct_line', $command);
     } else {
-      $current = $current->{'args'}->[-1];
+      $current = $current->{'contents'}->[-1];
       $self->_push_context('ct_line', $command);
     }
     $line = _start_empty_line_after_command($self, $line, $current, $command_e);
@@ -6896,12 +6878,8 @@ sub _handle_comma($$$$)
   }
   my $new_arg = {'type' => $type, 'parent' => $argument,
                  'contents' => []};
-  if ($brace_commands{$command_element->{'cmdname'}}
-      or $argument ne $command_element) {
-    push @{$argument->{'contents'}}, $new_arg;
-  } else {
-    push @{$argument->{'args'}}, $new_arg;
-  }
+  push @{$argument->{'contents'}}, $new_arg;
+
   # internal_spaces_before_argument is a transient internal type,
   # which should end up in info spaces_before_argument.
   my $space_before = {'type' => 'internal_spaces_before_argument',
@@ -7346,7 +7324,7 @@ sub _process_remaining_on_line($$$$)
   # commands.
 
   # This condition can only happen immediately after the command opening,
-  # otherwise the current element is in the 'args' and not right in the
+  # otherwise the current element is in the 'contents' and not right in the
   # command container.
   if ($current->{'cmdname'}
         and defined($self->{'brace_commands'}->{$current->{'cmdname'}})
@@ -8007,7 +7985,7 @@ sub _parse_line_command_args($$$)
   if ($root_commands{$command}) {
     $line_arg = $line_command->{'contents'}->[0]->{'contents'}->[0];
   } else {
-    $line_arg = $line_command->{'args'}->[0];
+    $line_arg = $line_command->{'contents'}->[0];
   }
 
   # Not in XS parser.  Could be added if deemded interesting, but
@@ -8865,8 +8843,8 @@ For example
 leads to
 
  {'cmdname' => 'code',
-  'args' => [{'type' => 'brace_container',
-              'contents' => [{'text' => 'in code'}]}]}
+  'contents' => [{'type' => 'brace_container',
+                  'contents' => [{'text' => 'in code'}]}]}
 
 =item bracketed_arg
 

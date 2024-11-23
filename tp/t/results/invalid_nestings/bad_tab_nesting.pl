@@ -126,7 +126,8 @@ $result_trees{'bad_tab_nesting'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -142,7 +143,6 @@ $result_trees{'bad_tab_nesting'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

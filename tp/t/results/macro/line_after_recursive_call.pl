@@ -37,7 +37,8 @@ $result_trees{'line_after_recursive_call'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -53,7 +54,6 @@ $result_trees{'line_after_recursive_call'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },

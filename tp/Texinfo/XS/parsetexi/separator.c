@@ -824,11 +824,8 @@ handle_comma (ELEMENT *current, const char **line_inout)
     }
 
   new_arg = new_element (type);
-  if (command_flags(command_element) & CF_brace
-      || command_element != argument)
-    add_to_element_contents (argument, new_arg);
-  else
-    add_to_element_args (argument, new_arg);
+  add_to_element_contents (argument, new_arg);
+
   spaces_before_e = new_text_element (ET_internal_spaces_before_argument);
   add_to_element_contents (new_arg, spaces_before_e);
   internal_space_holder = new_arg;

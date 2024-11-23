@@ -49,7 +49,8 @@ $result_trees{'empty_main_def_arguments'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -65,7 +66,6 @@ $result_trees{'empty_main_def_arguments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },

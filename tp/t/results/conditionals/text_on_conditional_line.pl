@@ -41,7 +41,8 @@ $result_trees{'text_on_conditional_line'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -57,7 +58,6 @@ $result_trees{'text_on_conditional_line'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifnothtml'
                     },

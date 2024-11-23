@@ -99,7 +99,8 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -115,7 +116,6 @@ $result_trees{'line_passed_and_formats'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'quotation'
                   },
@@ -134,7 +134,8 @@ $result_trees{'line_passed_and_formats'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -150,7 +151,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -231,7 +231,8 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -247,7 +248,6 @@ $result_trees{'line_passed_and_formats'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'example'
                   },
@@ -266,7 +266,8 @@ $result_trees{'line_passed_and_formats'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -282,7 +283,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -358,7 +358,8 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -374,7 +375,6 @@ $result_trees{'line_passed_and_formats'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'quotation'
                   },
@@ -393,7 +393,8 @@ $result_trees{'line_passed_and_formats'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -409,7 +410,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -459,7 +459,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -475,7 +476,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -520,7 +520,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -536,7 +537,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -586,7 +586,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -602,7 +603,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -647,7 +647,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -663,7 +664,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -739,7 +739,8 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -755,7 +756,6 @@ $result_trees{'line_passed_and_formats'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'quotation'
                   },
@@ -783,7 +783,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -799,7 +800,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -875,7 +875,8 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -891,7 +892,6 @@ $result_trees{'line_passed_and_formats'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'quotation'
                   },
@@ -919,7 +919,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -935,7 +936,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -1011,7 +1011,8 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1027,7 +1028,6 @@ $result_trees{'line_passed_and_formats'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'example'
                   },
@@ -1055,7 +1055,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1071,7 +1072,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -1130,7 +1130,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1146,7 +1147,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -1214,7 +1214,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1230,7 +1231,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -1308,7 +1308,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1324,7 +1325,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -1402,7 +1402,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1418,7 +1419,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -1532,7 +1532,8 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1548,7 +1549,6 @@ $result_trees{'line_passed_and_formats'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'quotation'
                   },
@@ -1572,7 +1572,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1588,7 +1589,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -1669,7 +1669,8 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1685,7 +1686,6 @@ $result_trees{'line_passed_and_formats'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'quotation'
                   },
@@ -1709,7 +1709,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1725,7 +1726,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -1821,7 +1821,8 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1837,7 +1838,6 @@ $result_trees{'line_passed_and_formats'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'example'
                   },
@@ -1866,7 +1866,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1882,7 +1883,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -1968,7 +1968,8 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1984,7 +1985,6 @@ $result_trees{'line_passed_and_formats'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'example'
                   },
@@ -2013,7 +2013,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2029,7 +2030,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -2139,7 +2139,8 @@ $result_trees{'line_passed_and_formats'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2155,7 +2156,6 @@ $result_trees{'line_passed_and_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

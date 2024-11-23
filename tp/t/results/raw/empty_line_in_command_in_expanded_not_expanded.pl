@@ -72,7 +72,8 @@ $result_trees{'empty_line_in_command_in_expanded_not_expanded'} = {
               'type' => 'elided_rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -88,7 +89,6 @@ $result_trees{'empty_line_in_command_in_expanded_not_expanded'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'tex'
               },
@@ -201,7 +201,8 @@ $result_trees{'empty_line_in_command_in_expanded_not_expanded'} = {
               'type' => 'rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -217,7 +218,6 @@ $result_trees{'empty_line_in_command_in_expanded_not_expanded'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'html'
               },

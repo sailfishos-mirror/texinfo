@@ -33,7 +33,8 @@ $result_trees{'end_bad_end_argument_and_superfluous_arg'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -65,7 +66,6 @@ $result_trees{'end_bad_end_argument_and_superfluous_arg'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => ': '
                   },

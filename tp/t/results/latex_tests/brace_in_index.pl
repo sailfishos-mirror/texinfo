@@ -84,7 +84,8 @@ $result_trees{'brace_in_index'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -100,7 +101,6 @@ $result_trees{'brace_in_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'displaymath'
               },
@@ -124,7 +124,8 @@ $result_trees{'brace_in_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -140,7 +141,6 @@ $result_trees{'brace_in_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -164,7 +164,8 @@ $result_trees{'brace_in_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -193,7 +194,6 @@ $result_trees{'brace_in_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -217,7 +217,8 @@ $result_trees{'brace_in_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -246,7 +247,6 @@ $result_trees{'brace_in_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -400,7 +400,8 @@ $result_trees{'brace_in_index'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -416,7 +417,6 @@ $result_trees{'brace_in_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defun'
               },

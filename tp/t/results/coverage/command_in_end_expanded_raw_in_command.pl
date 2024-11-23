@@ -33,7 +33,8 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -62,7 +63,6 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '

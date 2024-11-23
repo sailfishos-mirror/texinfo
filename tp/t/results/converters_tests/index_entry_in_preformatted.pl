@@ -167,7 +167,8 @@ $result_trees{'index_entry_in_preformatted'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -183,7 +184,6 @@ $result_trees{'index_entry_in_preformatted'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -212,7 +212,8 @@ $result_trees{'index_entry_in_preformatted'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -221,14 +222,14 @@ $result_trees{'index_entry_in_preformatted'} = {
                       ],
                       'info' => {
                         'comment_at_end' => {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' comment
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         },
                         'spaces_after_argument' => {
                           'text' => ' '
@@ -237,7 +238,6 @@ $result_trees{'index_entry_in_preformatted'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -261,7 +261,8 @@ $result_trees{'index_entry_in_preformatted'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -277,7 +278,6 @@ $result_trees{'index_entry_in_preformatted'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -300,7 +300,8 @@ $result_trees{'index_entry_in_preformatted'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -316,7 +317,6 @@ $result_trees{'index_entry_in_preformatted'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

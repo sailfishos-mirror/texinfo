@@ -99,7 +99,8 @@ $result_trees{'itemize_long_item'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -115,7 +116,6 @@ $result_trees{'itemize_long_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'example'
                       },
@@ -211,7 +211,8 @@ $result_trees{'itemize_long_item'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -227,7 +228,6 @@ $result_trees{'itemize_long_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'example'
                       },
@@ -288,7 +288,8 @@ $result_trees{'itemize_long_item'} = {
                       'type' => 'paragraph'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -304,7 +305,6 @@ $result_trees{'itemize_long_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'quotation'
                       },
@@ -375,7 +375,8 @@ $result_trees{'itemize_long_item'} = {
                       'type' => 'paragraph'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -391,7 +392,6 @@ $result_trees{'itemize_long_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'quotation'
                       },
@@ -418,7 +418,8 @@ $result_trees{'itemize_long_item'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -434,7 +435,6 @@ $result_trees{'itemize_long_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },

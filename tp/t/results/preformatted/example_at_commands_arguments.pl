@@ -157,7 +157,8 @@ $result_trees{'example_at_commands_arguments'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -173,7 +174,6 @@ $result_trees{'example_at_commands_arguments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

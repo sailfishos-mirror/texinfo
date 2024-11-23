@@ -574,8 +574,8 @@ leads to
 
 @verbatim
  {'cmdname' => 'code',
-  'args' => [{'type' => 'brace_container',
-              'contents' => [{'text' => 'in code'}]}]}
+  'contents' => [{'type' => 'brace_container',
+                  'contents' => [{'text' => 'in code'}]}]}
 @end verbatim
 
 @item bracketed_arg

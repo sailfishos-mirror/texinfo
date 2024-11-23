@@ -126,7 +126,8 @@ $result_trees{'on_block_command_line'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -142,7 +143,6 @@ $result_trees{'on_block_command_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },
@@ -256,7 +256,8 @@ $result_trees{'on_block_command_line'} = {
                       'text' => ' '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'exdent',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -272,7 +273,6 @@ $result_trees{'on_block_command_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'exdent',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -289,7 +289,8 @@ $result_trees{'on_block_command_line'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -305,7 +306,6 @@ $result_trees{'on_block_command_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

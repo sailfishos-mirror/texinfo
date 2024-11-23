@@ -10,7 +10,8 @@ $result_trees{'empty_set_in_ifset'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'a',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'empty_set_in_ifset'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' a
 '
@@ -104,7 +104,8 @@ $result_trees{'empty_set_in_ifset'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -114,7 +115,6 @@ $result_trees{'empty_set_in_ifset'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },

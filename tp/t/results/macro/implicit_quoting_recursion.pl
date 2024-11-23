@@ -35,7 +35,8 @@ $result_trees{'implicit_quoting_recursion'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -51,7 +52,6 @@ $result_trees{'implicit_quoting_recursion'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'rmacro'
               },

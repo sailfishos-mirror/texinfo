@@ -234,7 +234,8 @@ $result_trees{'two_nodes_between_chapters_texi2html'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -250,7 +251,6 @@ $result_trees{'two_nodes_between_chapters_texi2html'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

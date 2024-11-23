@@ -41,7 +41,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               'type' => 'rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -57,7 +58,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'html'
               },
@@ -117,7 +117,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'rawpreformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -133,7 +134,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'html'
                   },
@@ -195,7 +195,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'rawpreformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -211,7 +212,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'html'
                   },
@@ -273,7 +273,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'rawpreformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -289,7 +290,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'html after the closing command.'
                   },
@@ -347,7 +347,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'rawpreformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -363,7 +364,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'html'
                   },
@@ -425,7 +425,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'rawpreformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -441,7 +442,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'html. A symbol after the closing command.'
                   },
@@ -494,7 +494,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               'type' => 'rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -510,7 +511,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'tex'
               },
@@ -566,7 +566,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'rawpreformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -582,7 +583,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'tex'
                   },
@@ -644,7 +644,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'rawpreformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -660,7 +661,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'tex'
                   },
@@ -722,7 +722,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'rawpreformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -738,7 +739,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'tex after the closing command.'
                   },
@@ -796,7 +796,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'rawpreformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -812,7 +813,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'tex'
                   },
@@ -874,7 +874,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'rawpreformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -890,7 +891,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'tex. A symbol after the closing command.'
                   },
@@ -939,7 +939,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -955,7 +956,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },
@@ -1010,7 +1010,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1026,7 +1027,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },
@@ -1089,7 +1089,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1105,7 +1106,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },
@@ -1168,7 +1168,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1184,7 +1185,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim after the closing command.'
               },
@@ -1238,7 +1238,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1254,7 +1255,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },
@@ -1317,7 +1317,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1333,7 +1334,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim. A symbol after the closing command.'
               },

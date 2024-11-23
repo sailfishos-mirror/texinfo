@@ -12,7 +12,8 @@ $result_trees{'custom_headings_and_comments'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'evenheading',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -70,7 +71,6 @@ $result_trees{'custom_headings_and_comments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'evenheading',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -81,7 +81,8 @@ $result_trees{'custom_headings_and_comments'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'evenfooting',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -133,14 +134,14 @@ $result_trees{'custom_headings_and_comments'} = {
                   ],
                   'info' => {
                     'comment_at_end' => {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' comment
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     },
                     'spaces_after_argument' => {
                       'text' => '  '
@@ -149,7 +150,6 @@ $result_trees{'custom_headings_and_comments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'evenfooting',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => '   '
@@ -308,14 +308,14 @@ $result_trees{'custom_headings_and_comments'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'text' => '
@@ -337,14 +337,14 @@ $result_trees{'custom_headings_and_comments'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'text' => '

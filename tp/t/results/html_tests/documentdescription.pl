@@ -187,7 +187,8 @@ $result_trees{'documentdescription'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -203,7 +204,6 @@ $result_trees{'documentdescription'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'documentdescription'
               },

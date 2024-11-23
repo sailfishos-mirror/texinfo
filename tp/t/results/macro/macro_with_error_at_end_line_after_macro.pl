@@ -31,7 +31,8 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -47,7 +48,6 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -99,7 +99,8 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'info' => {
                 'spaces_after_argument' => {
@@ -117,7 +118,6 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'source_info' => {
             'line_nr' => 5,
             'macro' => 'witherror'

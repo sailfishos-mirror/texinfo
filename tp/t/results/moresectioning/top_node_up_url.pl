@@ -139,7 +139,8 @@ $result_trees{'top_node_up_url'} = [
                 'type' => 'menu_entry'
               },
               {
-                'args' => [
+                'cmdname' => 'end',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -155,7 +156,6 @@ $result_trees{'top_node_up_url'} = [
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'end',
                 'extra' => {
                   'text_arg' => 'menu'
                 },

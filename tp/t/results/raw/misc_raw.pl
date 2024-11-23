@@ -40,7 +40,8 @@ $result_trees{'misc_raw'} = {
               'type' => 'rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -56,7 +57,6 @@ $result_trees{'misc_raw'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'html'
               },
@@ -102,7 +102,8 @@ $result_trees{'misc_raw'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -118,7 +119,6 @@ $result_trees{'misc_raw'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'tex'
               },
@@ -174,7 +174,8 @@ $result_trees{'misc_raw'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -190,7 +191,6 @@ $result_trees{'misc_raw'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },

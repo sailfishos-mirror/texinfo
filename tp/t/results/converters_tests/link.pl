@@ -134,7 +134,8 @@ $result_trees{'link'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'xrefautomaticsectiontitle',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -150,7 +151,6 @@ $result_trees{'link'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'xrefautomaticsectiontitle',
               'extra' => {
                 'misc_args' => [
                   'off'
@@ -269,7 +269,8 @@ $result_trees{'link'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'xrefautomaticsectiontitle',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -285,7 +286,6 @@ $result_trees{'link'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'xrefautomaticsectiontitle',
               'extra' => {
                 'misc_args' => [
                   'on'

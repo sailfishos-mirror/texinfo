@@ -10,7 +10,8 @@ $result_trees{'empty_value_in_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'myspace',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'empty_value_in_line'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' myspace
 '

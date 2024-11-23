@@ -227,7 +227,8 @@ $result_trees{'float_with_at_commands'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -243,7 +244,6 @@ $result_trees{'float_with_at_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -283,7 +283,8 @@ $result_trees{'float_with_at_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -318,7 +319,6 @@ $result_trees{'float_with_at_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => "entr\x{e9}e"
           },

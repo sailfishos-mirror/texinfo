@@ -161,14 +161,14 @@ $result_trees{'defx_after_comment_in_example'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' comment
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         }
                       ],
                       'type' => 'preformatted'
@@ -272,7 +272,8 @@ $result_trees{'defx_after_comment_in_example'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -288,7 +289,6 @@ $result_trees{'defx_after_comment_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'deffn'
                   },
@@ -312,7 +312,8 @@ $result_trees{'defx_after_comment_in_example'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -328,7 +329,6 @@ $result_trees{'defx_after_comment_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

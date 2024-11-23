@@ -2877,6 +2877,10 @@ sub _convert($$)
     $self->{'index_entries_line_location'}->{$element} = $location;
   }
 
+  if ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
+    return;
+  }
+
   my $cell;
   my $preformatted;
   if ($cmdname) {
@@ -3535,7 +3539,7 @@ sub _convert($$)
       if ($root_commands{$cmdname}) {
         $line_arg = $element->{'contents'}->[0]->{'contents'}->[0];
       } else {
-        $line_arg = $element->{'args'}->[0];
+        $line_arg = $element->{'contents'}->[0];
       }
       if ($cmdname ne 'part' and $line_arg->{'contents'}) {
         $heading_element = $line_arg;
@@ -3545,10 +3549,9 @@ sub _convert($$)
           $global_commands = $self->{'document'}->global_commands_information();
         }
         if ($global_commands and $global_commands->{'settitle'}
-            and $global_commands->{'settitle'}->{'args'}
-            and $global_commands->{'settitle'}->{'args'}->[0]->{'contents'}) {
+            and $global_commands->{'settitle'}->{'contents'}->[0]->{'contents'}) {
           $heading_element
-            = $global_commands->{'settitle'}->{'args'}->[0];
+            = $global_commands->{'settitle'}->{'contents'}->[0];
         }
       }
 
@@ -3568,13 +3571,14 @@ sub _convert($$)
         }
       }
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
+      return unless ($root_commands{$cmdname});
     } elsif (($cmdname eq 'item' or $cmdname eq 'itemx')
-             and $element->{'args'}
-             and $element->{'args'}->[0]->{'type'}
-             and $element->{'args'}->[0]->{'type'} eq 'line_arg') {
-      if ($element->{'args'}->[0]->{'contents'}) {
+             and $element->{'contents'}
+             and $element->{'contents'}->[0]->{'type'}
+             and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
+      if ($element->{'contents'}->[0]->{'contents'}) {
         my $table_item_tree = $self->table_item_content_tree($element);
-        $table_item_tree = $element->{'args'}->[0]
+        $table_item_tree = $element->{'contents'}->[0]
           if (!defined($table_item_tree));
         my $frenchspacing_element = {'type' => 'frenchspacing',
                                      'contents' => [$table_item_tree]};
@@ -3584,6 +3588,7 @@ sub _convert($$)
                    * $indent_length});
         _ensure_end_of_line($self);
       }
+      return;
     } elsif ($cmdname eq 'item' and $element->{'parent'}->{'cmdname'}
              and $block_commands{$element->{'parent'}->{'cmdname'}}
              and $block_commands{$element->{'parent'}->{'cmdname'}} eq 'item_container') {
@@ -3642,11 +3647,10 @@ sub _convert($$)
       #my ($counts, $new_locations);
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                                    'locations' => []};
-      if ($element->{'args'}->[0]
-          and $element->{'args'}->[0]->{'contents'}) {
+      if ($element->{'contents'}->[0]->{'contents'}) {
         $self->convert_line (
              {'type' => 'frenchspacing',
-              'contents' => [$element->{'args'}->[0]]},
+              'contents' => [$element->{'contents'}->[0]]},
              {'indent_length' => 0});
       }
       _ensure_end_of_line($self);
@@ -3662,8 +3666,7 @@ sub _convert($$)
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
       return $result;
     } elsif ($cmdname eq 'exdent') {
-      if ($element->{'args'}
-          and $element->{'args'}->[0]->{'contents'}) {
+      if ($element->{'contents'}->[0]->{'contents'}) {
         if ($default_preformatted_context_commands{$self->{'context'}->[-1]}) {
           my $formatter = $self->new_formatter('unfilled',
             {'indent_length' =>
@@ -3671,13 +3674,13 @@ sub _convert($$)
                   * $indent_length});
           $formatter->{'font_type_stack'}->[-1]->{'monospace'} = 1;
           push @{$self->{'formatters'}}, $formatter;
-          _convert($self, $element->{'args'}->[0]);
+          _convert($self, $element->{'contents'}->[0]);
           _stream_output($self,
             Texinfo::Convert::Paragraph::end($formatter->{'container'}),
             $formatter->{'container'});
           pop @{$self->{'formatters'}};
         } else {
-          $self->convert_line($element->{'args'}->[0],
+          $self->convert_line($element->{'contents'}->[0],
              {'indent_length' =>
                  ($self->{'format_context'}->[-1]->{'indent_level'} -1)
                    * $indent_length});
@@ -4099,7 +4102,7 @@ sub _convert($$)
               $description_para = $self->new_formatter('paragraph',
                   { 'indent_length' => $description_indent_length });
               push @{$self->{'formatters'}}, $description_para;
-              $formatted_elt = $description_element->{'args'}->[0];
+              $formatted_elt = $description_element->{'contents'}->[0];
             } else {
               push @{$self->{'format_context'}},
                { 'cmdname' => $description_element->{'cmdname'},
@@ -4383,26 +4386,23 @@ sub _convert($$)
     } elsif (($cmdname eq 'quotation' or $cmdname eq 'smallquotation')
              and $element->{'extra'} and $element->{'extra'}->{'authors'}) {
       foreach my $author (@{$element->{'extra'}->{'authors'}}) {
-        if ($author->{'args'}->[0]
-            and $author->{'args'}->[0]->{'contents'}) {
+        if ($author->{'contents'}->[0]->{'contents'}) {
           _convert($self,
             # TRANSLATORS: quotation author
             $self->cdt("\@center --- \@emph{{author}}",
-               {'author' => $author->{'args'}->[0]}));
+               {'author' => $author->{'contents'}->[0]}));
         }
       }
     } elsif ($cmdname eq 'multitable') {
       $self->{'document_context'}->[-1]->{'in_multitable'}--;
     } elsif ($root_commands{$cmdname}
              and $sectioning_heading_commands{$cmdname}
-             and $cmdname ne 'part') {
+             and $cmdname ne 'part'
+             and $self->{'current_node'}) {
       # add menu if missing
       my $node = $self->{'current_node'};
-      my $automatic_directions = 1;
-      if ($node and $node->{'args'} and scalar(@{$node->{'args'}}) > 1) {
-        $automatic_directions = 0;
-      }
-      if ($node and $automatic_directions and !$self->{'seenmenus'}->{$node}) {
+      my $automatic_directions = (scalar(@{$node->{'contents'}->[0]->{'contents'}}) <= 1);
+      if ($automatic_directions and !$self->{'seenmenus'}->{$node}) {
         my $identifiers_target;
         if ($self->{'document'}) {
           $identifiers_target = $self->{'document'}->labels_information();

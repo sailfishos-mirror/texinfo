@@ -33,7 +33,8 @@ $result_trees{'no_empty_line_between_headings'} = {
           'type' => 'argument'
         },
         {
-          'args' => [
+          'cmdname' => 'subheading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -49,7 +50,6 @@ $result_trees{'no_empty_line_between_headings'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'subheading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {

@@ -39,7 +39,8 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -55,7 +56,6 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'macro'
                   },
@@ -156,7 +156,8 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -172,7 +173,6 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -273,7 +273,8 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -289,7 +290,6 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -371,7 +371,8 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'hash',
               'type' => 'rawline_arg'
@@ -381,7 +382,6 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' hash #
 '

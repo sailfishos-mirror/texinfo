@@ -10,7 +10,8 @@ $result_trees{'item_tab_outside_of_table_lists'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'itemx',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'item_tab_outside_of_table_lists'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'itemx',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

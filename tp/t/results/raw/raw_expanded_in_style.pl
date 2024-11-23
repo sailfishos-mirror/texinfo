@@ -47,7 +47,8 @@ $result_trees{'raw_expanded_in_style'} = {
                           'type' => 'rawpreformatted'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -63,7 +64,6 @@ $result_trees{'raw_expanded_in_style'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'html'
                           },

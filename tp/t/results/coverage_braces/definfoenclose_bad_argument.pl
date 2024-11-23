@@ -10,7 +10,8 @@ $result_trees{'definfoenclose_bad_argument'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -20,7 +21,6 @@ $result_trees{'definfoenclose_bad_argument'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

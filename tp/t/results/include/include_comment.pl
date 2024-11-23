@@ -14,7 +14,8 @@ $result_trees{'include_comment'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -23,19 +24,18 @@ $result_trees{'include_comment'} = {
                     ],
                     'info' => {
                       'comment_at_end' => {
-                        'args' => [
+                        'cmdname' => 'c',
+                        'contents' => [
                           {
                             'text' => ' comment',
                             'type' => 'rawline_arg'
                           }
-                        ],
-                        'cmdname' => 'c'
+                        ]
                       }
                     },
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'inc_file.texi'
                 },

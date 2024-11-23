@@ -63,7 +63,8 @@ $result_trees{'nested_formats'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -79,7 +80,6 @@ $result_trees{'nested_formats'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'example'
                   },
@@ -98,7 +98,8 @@ $result_trees{'nested_formats'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -114,7 +115,6 @@ $result_trees{'nested_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'format'
               },
@@ -191,7 +191,8 @@ $result_trees{'nested_formats'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -207,7 +208,6 @@ $result_trees{'nested_formats'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'format'
                   },
@@ -226,7 +226,8 @@ $result_trees{'nested_formats'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -242,7 +243,6 @@ $result_trees{'nested_formats'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

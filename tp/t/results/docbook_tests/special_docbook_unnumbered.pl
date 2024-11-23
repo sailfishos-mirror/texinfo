@@ -289,7 +289,8 @@ $result_trees{'special_docbook_unnumbered'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -305,7 +306,6 @@ $result_trees{'special_docbook_unnumbered'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

@@ -10,7 +10,8 @@ $result_trees{'commands_in_settitle_with_title'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'settitle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -226,7 +227,6 @@ $result_trees{'commands_in_settitle_with_title'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'settitle',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

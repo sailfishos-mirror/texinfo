@@ -177,14 +177,14 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'comment',
+                  'contents' => [
                     {
                       'text' => ' comment before first item in enumerate
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'comment'
+                  ]
                 }
               ],
               'type' => 'before_item'
@@ -214,7 +214,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -230,7 +231,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -281,7 +281,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -297,7 +298,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -349,7 +349,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -365,7 +366,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -416,7 +416,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -432,7 +433,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -479,7 +479,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -495,7 +496,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -541,7 +541,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -557,7 +558,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -609,7 +609,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -625,7 +626,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -677,7 +677,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
 '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'cindex',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -693,7 +694,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -743,7 +743,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -759,7 +760,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -805,7 +805,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -821,7 +822,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -841,17 +841,18 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'type' => 'index_entry_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'comment',
+                  'contents' => [
                     {
                       'text' => ' comment
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'comment'
+                  ]
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -867,7 +868,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -887,7 +887,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'type' => 'index_entry_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -903,7 +904,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -950,7 +950,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -966,7 +967,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },

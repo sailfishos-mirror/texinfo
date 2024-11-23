@@ -10,7 +10,8 @@ $result_trees{'empty_documentencoding'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'info' => {
                 'spaces_after_argument' => {
@@ -21,7 +22,6 @@ $result_trees{'empty_documentencoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {},
           'source_info' => {
             'line_nr' => 1

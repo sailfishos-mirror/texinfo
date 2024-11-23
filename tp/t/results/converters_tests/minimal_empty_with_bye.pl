@@ -31,14 +31,14 @@ $result_trees{'minimal_empty_with_bye'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

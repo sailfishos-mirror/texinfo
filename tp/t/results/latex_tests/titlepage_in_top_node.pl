@@ -110,7 +110,8 @@ $result_trees{'titlepage_in_top_node'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'title',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -126,7 +127,6 @@ $result_trees{'titlepage_in_top_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'title',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -137,7 +137,8 @@ $result_trees{'titlepage_in_top_node'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -153,7 +154,6 @@ $result_trees{'titlepage_in_top_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'titlepage'
               },

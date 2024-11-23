@@ -10,7 +10,8 @@ $result_trees{'defindex_too_much_args'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -20,7 +21,6 @@ $result_trees{'defindex_too_much_args'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

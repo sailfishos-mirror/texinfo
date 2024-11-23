@@ -32,7 +32,8 @@ $result_trees{'ignore_spaces_and_comments'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'ignore_spaces_and_comments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'ignore'
               },
@@ -94,7 +94,8 @@ $result_trees{'ignore_spaces_and_comments'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -110,7 +111,6 @@ $result_trees{'ignore_spaces_and_comments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'ignore'
               },
@@ -141,14 +141,14 @@ $result_trees{'ignore_spaces_and_comments'} = {
                 {
                   'info' => {
                     'comment_at_end' => {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' no space comment
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     }
                   },
                   'type' => 'block_line_arg'
@@ -162,7 +162,8 @@ $result_trees{'ignore_spaces_and_comments'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -178,7 +179,6 @@ $result_trees{'ignore_spaces_and_comments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'ignore'
               },
@@ -209,14 +209,14 @@ $result_trees{'ignore_spaces_and_comments'} = {
                 {
                   'info' => {
                     'comment_at_end' => {
-                      'args' => [
+                      'cmdname' => 'comment',
+                      'contents' => [
                         {
                           'text' => ' space comment
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'comment'
+                      ]
                     }
                   },
                   'type' => 'block_line_arg'
@@ -230,7 +230,8 @@ $result_trees{'ignore_spaces_and_comments'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -246,7 +247,6 @@ $result_trees{'ignore_spaces_and_comments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'ignore'
               },
@@ -282,14 +282,14 @@ $result_trees{'ignore_spaces_and_comments'} = {
                 {
                   'info' => {
                     'comment_at_end' => {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => '
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     }
                   },
                   'type' => 'block_line_arg'
@@ -303,7 +303,8 @@ $result_trees{'ignore_spaces_and_comments'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -319,7 +320,6 @@ $result_trees{'ignore_spaces_and_comments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'ignore'
               },

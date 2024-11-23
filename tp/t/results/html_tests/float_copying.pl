@@ -32,7 +32,8 @@ $result_trees{'float_copying'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'float_copying'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'float_copying.info'
               },
@@ -204,7 +204,8 @@ $result_trees{'float_copying'} = {
                                           'type' => 'empty_line'
                                         },
                                         {
-                                          'args' => [
+                                          'cmdname' => 'cindex',
+                                          'contents' => [
                                             {
                                               'contents' => [
                                                 {
@@ -220,7 +221,6 @@ $result_trees{'float_copying'} = {
                                               'type' => 'line_arg'
                                             }
                                           ],
-                                          'cmdname' => 'cindex',
                                           'extra' => {
                                             'element_region' => 'copying',
                                             'index_entry' => [
@@ -241,7 +241,8 @@ $result_trees{'float_copying'} = {
                                           'type' => 'index_entry_command'
                                         },
                                         {
-                                          'args' => [
+                                          'cmdname' => 'findex',
+                                          'contents' => [
                                             {
                                               'contents' => [
                                                 {
@@ -257,7 +258,6 @@ $result_trees{'float_copying'} = {
                                               'type' => 'line_arg'
                                             }
                                           ],
-                                          'cmdname' => 'findex',
                                           'extra' => {
                                             'element_region' => 'copying',
                                             'index_entry' => [
@@ -382,7 +382,8 @@ $result_trees{'float_copying'} = {
                               'type' => 'spaces_after_close_brace'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'cindex',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -398,7 +399,6 @@ $result_trees{'float_copying'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'cindex',
                               'extra' => {
                                 'element_region' => 'copying',
                                 'index_entry' => [
@@ -419,7 +419,8 @@ $result_trees{'float_copying'} = {
                               'type' => 'index_entry_command'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'findex',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -435,7 +436,6 @@ $result_trees{'float_copying'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'findex',
                               'extra' => {
                                 'element_region' => 'copying',
                                 'index_entry' => [
@@ -473,7 +473,8 @@ $result_trees{'float_copying'} = {
                       'type' => 'spaces_after_close_brace'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -489,7 +490,6 @@ $result_trees{'float_copying'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'float'
                       },
@@ -521,7 +521,8 @@ $result_trees{'float_copying'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -537,7 +538,6 @@ $result_trees{'float_copying'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'copying'
                   },
@@ -633,7 +633,8 @@ $result_trees{'float_copying'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -649,7 +650,6 @@ $result_trees{'float_copying'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -759,14 +759,14 @@ $result_trees{'float_copying'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'file_name' => 'float_copying.texi',
@@ -843,7 +843,8 @@ $result_trees{'float_copying'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -859,7 +860,6 @@ $result_trees{'float_copying'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -1064,7 +1064,8 @@ $result_trees{'float_copying'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1080,7 +1081,6 @@ $result_trees{'float_copying'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1106,14 +1106,14 @@ $result_trees{'float_copying'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'file_name' => 'float_copying.texi',
@@ -1121,14 +1121,14 @@ $result_trees{'float_copying'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'file_name' => 'float_copying.texi',
@@ -1141,7 +1141,8 @@ $result_trees{'float_copying'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'subheading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1157,7 +1158,6 @@ $result_trees{'float_copying'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'subheading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {
@@ -1170,7 +1170,8 @@ $result_trees{'float_copying'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1186,7 +1187,6 @@ $result_trees{'float_copying'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => 'Copyright notice'
           },
@@ -1206,7 +1206,8 @@ $result_trees{'float_copying'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'subheading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1222,7 +1223,6 @@ $result_trees{'float_copying'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'subheading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {
@@ -1235,7 +1235,8 @@ $result_trees{'float_copying'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1251,7 +1252,6 @@ $result_trees{'float_copying'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -1268,7 +1268,8 @@ $result_trees{'float_copying'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1284,7 +1285,6 @@ $result_trees{'float_copying'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'
@@ -1320,14 +1320,14 @@ $result_trees{'float_copying'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

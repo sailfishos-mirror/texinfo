@@ -79,7 +79,8 @@ $result_trees{'cindex_in_caption'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -95,7 +96,6 @@ $result_trees{'cindex_in_caption'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => 'fl'
           },
@@ -167,7 +167,8 @@ $result_trees{'cindex_in_caption'} = {
 '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'cindex',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -183,7 +184,6 @@ $result_trees{'cindex_in_caption'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'cindex',
                           'extra' => {
                             'element_node' => {},
                             'index_entry' => [
@@ -222,7 +222,8 @@ $result_trees{'cindex_in_caption'} = {
               'type' => 'spaces_after_close_brace'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -238,7 +239,6 @@ $result_trees{'cindex_in_caption'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -273,7 +273,8 @@ $result_trees{'cindex_in_caption'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -289,7 +290,6 @@ $result_trees{'cindex_in_caption'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

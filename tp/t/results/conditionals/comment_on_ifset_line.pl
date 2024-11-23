@@ -10,7 +10,8 @@ $result_trees{'comment_on_ifset_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'x',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'comment_on_ifset_line'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' x
 '
@@ -43,14 +43,14 @@ $result_trees{'comment_on_ifset_line'} = {
                         ],
                         'info' => {
                           'comment_at_end' => {
-                            'args' => [
+                            'cmdname' => 'c',
+                            'contents' => [
                               {
                                 'text' => '
 ',
                                 'type' => 'rawline_arg'
                               }
-                            ],
-                            'cmdname' => 'c'
+                            ]
                           }
                         },
                         'type' => 'block_line_arg'
@@ -84,7 +84,8 @@ $result_trees{'comment_on_ifset_line'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -100,7 +101,6 @@ $result_trees{'comment_on_ifset_line'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -132,14 +132,14 @@ $result_trees{'comment_on_ifset_line'} = {
                             ],
                             'info' => {
                               'comment_at_end' => {
-                                'args' => [
+                                'cmdname' => 'c',
+                                'contents' => [
                                   {
                                     'text' => ' comm
 ',
                                     'type' => 'rawline_arg'
                                   }
-                                ],
-                                'cmdname' => 'c'
+                                ]
                               }
                             },
                             'type' => 'block_line_arg'
@@ -170,7 +170,8 @@ $result_trees{'comment_on_ifset_line'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -186,7 +187,6 @@ $result_trees{'comment_on_ifset_line'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -218,14 +218,14 @@ $result_trees{'comment_on_ifset_line'} = {
                             ],
                             'info' => {
                               'comment_at_end' => {
-                                'args' => [
+                                'cmdname' => 'c',
+                                'contents' => [
                                   {
                                     'text' => '@ggg
 ',
                                     'type' => 'rawline_arg'
                                   }
-                                ],
-                                'cmdname' => 'c'
+                                ]
                               }
                             },
                             'type' => 'block_line_arg'
@@ -256,7 +256,8 @@ $result_trees{'comment_on_ifset_line'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -272,7 +273,6 @@ $result_trees{'comment_on_ifset_line'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -304,14 +304,14 @@ $result_trees{'comment_on_ifset_line'} = {
                             ],
                             'info' => {
                               'comment_at_end' => {
-                                'args' => [
+                                'cmdname' => 'c',
+                                'contents' => [
                                   {
                                     'text' => '
 ',
                                     'type' => 'rawline_arg'
                                   }
-                                ],
-                                'cmdname' => 'c'
+                                ]
                               },
                               'spaces_after_argument' => {
                                 'text' => ' '
@@ -345,7 +345,8 @@ $result_trees{'comment_on_ifset_line'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -361,7 +362,6 @@ $result_trees{'comment_on_ifset_line'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -393,14 +393,14 @@ $result_trees{'comment_on_ifset_line'} = {
                             ],
                             'info' => {
                               'comment_at_end' => {
-                                'args' => [
+                                'cmdname' => 'c',
+                                'contents' => [
                                   {
                                     'text' => ' comm
 ',
                                     'type' => 'rawline_arg'
                                   }
-                                ],
-                                'cmdname' => 'c'
+                                ]
                               },
                               'spaces_after_argument' => {
                                 'text' => ' '
@@ -434,7 +434,8 @@ $result_trees{'comment_on_ifset_line'} = {
                 {
                   'counter' => 5,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -450,7 +451,6 @@ $result_trees{'comment_on_ifset_line'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -482,14 +482,14 @@ $result_trees{'comment_on_ifset_line'} = {
                             ],
                             'info' => {
                               'comment_at_end' => {
-                                'args' => [
+                                'cmdname' => 'c',
+                                'contents' => [
                                   {
                                     'text' => '@ggg
 ',
                                     'type' => 'rawline_arg'
                                   }
-                                ],
-                                'cmdname' => 'c'
+                                ]
                               },
                               'spaces_after_argument' => {
                                 'text' => ' '
@@ -523,7 +523,8 @@ $result_trees{'comment_on_ifset_line'} = {
                 {
                   'counter' => 6,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -539,7 +540,6 @@ $result_trees{'comment_on_ifset_line'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },

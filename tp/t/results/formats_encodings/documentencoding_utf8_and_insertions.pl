@@ -10,7 +10,8 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'utf-8',
             'text_arg' => 'utf-8'
@@ -162,7 +162,8 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -178,7 +179,6 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

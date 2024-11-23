@@ -41,7 +41,8 @@ $result_trees{'ifset_in_macro_set'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -57,7 +58,6 @@ $result_trees{'ifset_in_macro_set'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -168,7 +168,8 @@ $result_trees{'ifset_in_macro_set'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'end',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -192,7 +193,6 @@ $result_trees{'ifset_in_macro_set'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'end',
                 'extra' => {
                   'text_arg' => 'ifset'
                 },

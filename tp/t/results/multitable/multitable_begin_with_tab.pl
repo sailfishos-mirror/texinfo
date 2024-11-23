@@ -72,7 +72,8 @@ $result_trees{'multitable_begin_with_tab'} = {
               'type' => 'before_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -88,7 +89,6 @@ $result_trees{'multitable_begin_with_tab'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },
@@ -219,7 +219,8 @@ $result_trees{'multitable_begin_with_tab'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -235,7 +236,6 @@ $result_trees{'multitable_begin_with_tab'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

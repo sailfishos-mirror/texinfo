@@ -23,23 +23,10 @@
 #include "node_name_normalization.h"
 
 char *
-parse_float_type (ELEMENT *current)
+parse_float_type (ELEMENT *current, ELEMENT *element)
 {
   char *normalized;
-  if (current->e.c->args.number > 0)
-    /* listoffloats */
-    normalized = convert_to_normalized (current->e.c->args.list[0]);
-  else if (current->e.c->contents.number > 0
-           /* FIXME useful? */
-           && current->e.c->contents.list[0]->type == ET_argument
-           && current->e.c->contents.list[0]->e.c->contents.number > 0)
-    {
-      /* float */
-      normalized = convert_to_normalized (
-        current->e.c->contents.list[0]->e.c->contents.list[0]);
-    }
-  else
-    normalized = strdup ("");
+  normalized = convert_to_normalized (element);
   add_extra_string (current, AI_key_float_type, normalized);
   return normalized;
 }

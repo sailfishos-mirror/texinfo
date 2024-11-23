@@ -15,7 +15,8 @@ $result_trees{'end_ifset_in_format'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'notset',
               'type' => 'rawline_arg'
@@ -25,7 +26,6 @@ $result_trees{'end_ifset_in_format'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' notset
 '
@@ -99,7 +99,8 @@ $result_trees{'end_ifset_in_format'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -115,7 +116,6 @@ $result_trees{'end_ifset_in_format'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'ignore'
               },
@@ -140,7 +140,8 @@ $result_trees{'end_ifset_in_format'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -156,7 +157,6 @@ $result_trees{'end_ifset_in_format'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -248,7 +248,8 @@ $result_trees{'end_ifset_in_format'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -264,7 +265,6 @@ $result_trees{'end_ifset_in_format'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },
@@ -285,7 +285,8 @@ $result_trees{'end_ifset_in_format'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'end',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -301,7 +302,6 @@ $result_trees{'end_ifset_in_format'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'end',
                 'extra' => {
                   'text_arg' => 'ifset'
                 },
@@ -397,7 +397,8 @@ $result_trees{'end_ifset_in_format'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -413,7 +414,6 @@ $result_trees{'end_ifset_in_format'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },

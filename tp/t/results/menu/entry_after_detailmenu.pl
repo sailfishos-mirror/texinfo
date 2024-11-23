@@ -118,7 +118,8 @@ $result_trees{'entry_after_detailmenu'} = {
                   'type' => 'menu_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -134,7 +135,6 @@ $result_trees{'entry_after_detailmenu'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'detailmenu'
                   },
@@ -302,7 +302,8 @@ $result_trees{'entry_after_detailmenu'} = {
                   'type' => 'menu_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -318,7 +319,6 @@ $result_trees{'entry_after_detailmenu'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'detailmenu'
                   },
@@ -384,7 +384,8 @@ $result_trees{'entry_after_detailmenu'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -400,7 +401,6 @@ $result_trees{'entry_after_detailmenu'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

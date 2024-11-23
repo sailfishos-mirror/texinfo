@@ -37,7 +37,8 @@ $result_trees{'macro_in_value'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -53,7 +54,6 @@ $result_trees{'macro_in_value'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -81,7 +81,8 @@ $result_trees{'macro_in_value'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'flagab',
               'type' => 'rawline_arg'
@@ -91,7 +92,6 @@ $result_trees{'macro_in_value'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' flagab @ab
 '

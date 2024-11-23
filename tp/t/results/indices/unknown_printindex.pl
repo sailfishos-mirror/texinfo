@@ -10,7 +10,8 @@ $result_trees{'unknown_printindex'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -20,7 +21,6 @@ $result_trees{'unknown_printindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {

@@ -10,7 +10,8 @@ $result_trees{'alias_of_definfoenclose_before_definfoenclose'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'alias_of_definfoenclose_before_definfoenclose'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               'new',
@@ -48,7 +48,8 @@ $result_trees{'alias_of_definfoenclose_before_definfoenclose'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -64,7 +65,6 @@ $result_trees{'alias_of_definfoenclose_before_definfoenclose'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'phoo',

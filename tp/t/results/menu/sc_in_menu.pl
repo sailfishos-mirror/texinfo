@@ -307,7 +307,8 @@ $result_trees{'sc_in_menu'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -323,7 +324,6 @@ $result_trees{'sc_in_menu'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'example'
                       },
@@ -345,7 +345,8 @@ $result_trees{'sc_in_menu'} = {
               'type' => 'menu_comment'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -361,7 +362,6 @@ $result_trees{'sc_in_menu'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -622,7 +622,8 @@ $result_trees{'sc_in_menu'} = {
                   'type' => 'menu_comment'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -638,7 +639,6 @@ $result_trees{'sc_in_menu'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'menu'
                   },
@@ -657,7 +657,8 @@ $result_trees{'sc_in_menu'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -673,7 +674,6 @@ $result_trees{'sc_in_menu'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

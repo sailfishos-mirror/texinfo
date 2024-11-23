@@ -32,7 +32,8 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -131,7 +131,8 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -147,7 +148,6 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },

@@ -256,7 +256,8 @@ $result_trees{'regenerate_master_menu_with_menu_comment'} = {
                   'type' => 'menu_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -272,7 +273,6 @@ $result_trees{'regenerate_master_menu_with_menu_comment'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'detailmenu'
                   },
@@ -285,7 +285,8 @@ $result_trees{'regenerate_master_menu_with_menu_comment'} = {
               ]
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -301,7 +302,6 @@ $result_trees{'regenerate_master_menu_with_menu_comment'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

@@ -16,7 +16,8 @@ $result_trees{'test_two_include'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'include',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -32,7 +33,6 @@ $result_trees{'test_two_include'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'include',
                     'extra' => {
                       'text_arg' => 'version.texi'
                     },
@@ -54,7 +54,8 @@ $result_trees{'test_two_include'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'set',
+              'contents' => [
                 {
                   'text' => 'UPDATED',
                   'type' => 'rawline_arg'
@@ -64,14 +65,14 @@ $result_trees{'test_two_include'} = {
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'set',
               'info' => {
                 'arg_line' => ' UPDATED 28 March 2002
 '
               }
             },
             {
-              'args' => [
+              'cmdname' => 'set',
+              'contents' => [
                 {
                   'text' => 'UPDATED-MONTH',
                   'type' => 'rawline_arg'
@@ -81,14 +82,14 @@ $result_trees{'test_two_include'} = {
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'set',
               'info' => {
                 'arg_line' => ' UPDATED-MONTH March 2002
 '
               }
             },
             {
-              'args' => [
+              'cmdname' => 'set',
+              'contents' => [
                 {
                   'text' => 'EDITION',
                   'type' => 'rawline_arg'
@@ -98,14 +99,14 @@ $result_trees{'test_two_include'} = {
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'set',
               'info' => {
                 'arg_line' => ' EDITION 4.2
 '
               }
             },
             {
-              'args' => [
+              'cmdname' => 'set',
+              'contents' => [
                 {
                   'text' => 'VERSION',
                   'type' => 'rawline_arg'
@@ -115,7 +116,6 @@ $result_trees{'test_two_include'} = {
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'set',
               'info' => {
                 'arg_line' => ' VERSION 4.2
 '
@@ -130,7 +130,8 @@ $result_trees{'test_two_include'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'VERSION_DATE',
               'type' => 'rawline_arg'
@@ -140,14 +141,14 @@ $result_trees{'test_two_include'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' VERSION_DATE October 2002
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'SHORT_VERSION',
               'type' => 'rawline_arg'
@@ -157,14 +158,14 @@ $result_trees{'test_two_include'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' SHORT_VERSION 2-0
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'RPM_VERSION',
               'type' => 'rawline_arg'
@@ -174,7 +175,6 @@ $result_trees{'test_two_include'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' RPM_VERSION 2.0.4
 '
@@ -199,7 +199,8 @@ $result_trees{'test_two_include'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'include',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -215,7 +216,6 @@ $result_trees{'test_two_include'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'include',
                     'extra' => {
                       'text_arg' => 'inc_file.texi'
                     },

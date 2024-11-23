@@ -46,7 +46,8 @@ $result_trees{'quotation_author_in_example'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'author',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -62,7 +63,6 @@ $result_trees{'quotation_author_in_example'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'author',
                       'extra' => {
                         'quotation' => {}
                       },
@@ -83,7 +83,8 @@ $result_trees{'quotation_author_in_example'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -99,7 +100,6 @@ $result_trees{'quotation_author_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'quotation'
                   },
@@ -123,7 +123,8 @@ $result_trees{'quotation_author_in_example'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -139,7 +140,6 @@ $result_trees{'quotation_author_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

@@ -32,14 +32,14 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' comment
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             },
             {
               'text' => '
@@ -129,14 +129,14 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

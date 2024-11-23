@@ -122,8 +122,6 @@ print_element_debug_parser (const ELEMENT *e, int print_parent)
     {
       if (e->e.c->cmd)
         text_printf (&text, "@%s", debug_parser_command_name (e->e.c->cmd));
-      if (e->e.c->args.number)
-        text_printf (&text, "[A%d]", e->e.c->args.number);
       if (e->e.c->contents.number)
         text_printf (&text, "[C%d]", e->e.c->contents.number);
     }

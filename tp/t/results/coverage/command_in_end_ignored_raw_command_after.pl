@@ -37,7 +37,8 @@ $result_trees{'command_in_end_ignored_raw_command_after'} = {
               'type' => 'elided_rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -69,7 +70,6 @@ $result_trees{'command_in_end_ignored_raw_command_after'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'html'
               },

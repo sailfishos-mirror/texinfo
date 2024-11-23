@@ -56,7 +56,8 @@ $result_trees{'enumerate_above_ten'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -72,7 +73,6 @@ $result_trees{'enumerate_above_ten'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },

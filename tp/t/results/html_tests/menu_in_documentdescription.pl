@@ -168,7 +168,8 @@ $result_trees{'menu_in_documentdescription'} = {
                   'type' => 'menu_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -184,7 +185,6 @@ $result_trees{'menu_in_documentdescription'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'menu'
                   },
@@ -203,7 +203,8 @@ $result_trees{'menu_in_documentdescription'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -219,7 +220,6 @@ $result_trees{'menu_in_documentdescription'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'documentdescription'
               },

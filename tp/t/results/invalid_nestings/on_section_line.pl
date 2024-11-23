@@ -96,7 +96,8 @@ $result_trees{'on_section_line'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'exdent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -112,7 +113,6 @@ $result_trees{'on_section_line'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'exdent',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '

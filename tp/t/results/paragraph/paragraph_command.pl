@@ -147,7 +147,8 @@ $result_trees{'paragraph_command'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -163,7 +164,6 @@ $result_trees{'paragraph_command'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'foo',

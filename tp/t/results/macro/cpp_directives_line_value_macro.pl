@@ -39,7 +39,8 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -55,7 +56,6 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'macro'
                   },
@@ -143,7 +143,8 @@ $result_trees{'cpp_directives_line_value_macro'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -159,7 +160,6 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -248,7 +248,8 @@ $result_trees{'cpp_directives_line_value_macro'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -264,7 +265,6 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -338,7 +338,8 @@ $result_trees{'cpp_directives_line_value_macro'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'hash',
               'type' => 'rawline_arg'
@@ -348,7 +349,6 @@ $result_trees{'cpp_directives_line_value_macro'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' hash #
 '

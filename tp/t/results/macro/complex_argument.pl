@@ -31,7 +31,8 @@ $result_trees{'complex_argument'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -47,7 +48,6 @@ $result_trees{'complex_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -107,7 +107,8 @@ $result_trees{'complex_argument'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -123,7 +124,6 @@ $result_trees{'complex_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -181,7 +181,8 @@ $result_trees{'complex_argument'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -197,7 +198,6 @@ $result_trees{'complex_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -297,17 +297,18 @@ macroseven defined
 '
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' @macrofour
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             },
             {
-              'args' => [
+              'cmdname' => 'pagesizes',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -342,7 +343,6 @@ macroseven defined
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'pagesizes',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -374,7 +374,8 @@ macroseven defined
 '
             },
             {
-              'args' => [
+              'cmdname' => 'headings',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -409,7 +410,6 @@ macroseven defined
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'headings',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -467,7 +467,8 @@ macroseven defined
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -483,7 +484,6 @@ macroseven defined
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },
@@ -526,7 +526,8 @@ macroseven defined
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -542,7 +543,6 @@ macroseven defined
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'ignore'
               },
@@ -584,7 +584,8 @@ macroseven defined
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -600,7 +601,6 @@ macroseven defined
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -653,7 +653,8 @@ macroseven defined
                         'type' => 'raw'
                       },
                       {
-                        'args' => [
+                        'cmdname' => 'end',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -669,7 +670,6 @@ macroseven defined
                             'type' => 'line_arg'
                           }
                         ],
-                        'cmdname' => 'end',
                         'extra' => {
                           'text_arg' => 'ifinfo'
                         },
@@ -717,7 +717,8 @@ macroseven defined
                         'type' => 'raw'
                       },
                       {
-                        'args' => [
+                        'cmdname' => 'end',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -733,7 +734,6 @@ macroseven defined
                             'type' => 'line_arg'
                           }
                         ],
-                        'cmdname' => 'end',
                         'extra' => {
                           'text_arg' => 'iftex'
                         },

@@ -113,7 +113,8 @@ $result_trees{'leading_space_in_def_arg'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -129,7 +130,6 @@ $result_trees{'leading_space_in_def_arg'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },

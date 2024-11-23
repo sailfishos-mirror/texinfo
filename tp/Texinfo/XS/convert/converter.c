@@ -1068,7 +1068,7 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
   if (builtin_command_data[command->e.c->cmd].flags & CF_root)
     label_element = command->e.c->contents.list[0]->e.c->contents.list[0];
   else
-    label_element = command->e.c->args.list[0];
+    label_element = command->e.c->contents.list[0];
 
   normalized_name
     = normalize_transliterate_texinfo_contents (label_element,
@@ -1337,7 +1337,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
   const ELEMENT *command_as_argument = lookup_extra_element (table_command,
                                                AI_key_command_as_argument);
 
-  if (element->e.c->args.number > 0 && command_as_argument)
+  if (command_as_argument)
     {
       TREE_ADDED_ELEMENTS *tree
         = new_tree_added_elements (tree_added_status_elements_added);
@@ -1383,24 +1383,25 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
           arg = new_element_added (tree, ET_brace_command_context);
           if (cmd == CM_math)
             {
-              add_to_contents_as_array (arg, element->e.c->args.list[0]);
+              add_to_contents_as_array (arg, element->e.c->contents.list[0]);
             }
           else
             {
               ELEMENT *paragraph = new_element_added (tree, ET_paragraph);
-              add_to_contents_as_array (paragraph, element->e.c->args.list[0]);
+              add_to_contents_as_array (paragraph,
+                                        element->e.c->contents.list[0]);
               add_to_element_contents (arg, paragraph);
             }
         }
       else if (builtin_command_data[data_cmd].data == BRACE_arguments)
         {
           arg = new_element_added (tree, ET_brace_arg);
-          add_to_contents_as_array (arg, element->e.c->args.list[0]);
+          add_to_contents_as_array (arg, element->e.c->contents.list[0]);
         }
       else
         {
           arg = new_element_added (tree, ET_brace_container);
-          add_to_contents_as_array (arg, element->e.c->args.list[0]);
+          add_to_contents_as_array (arg, element->e.c->contents.list[0]);
         }
       add_to_element_contents (command, arg);
       return tree;
@@ -1479,7 +1480,7 @@ comma_index_subentries_tree (const ELEMENT *current_entry,
           text_append (separator->e.text, subentry_separator);
           current_entry = subentry;
           add_to_element_list (result, separator);
-          add_to_element_list (result, current_entry->e.c->args.list[0]);
+          add_to_element_list (result, current_entry->e.c->contents.list[0]);
         }
       else
         break;

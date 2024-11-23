@@ -110,7 +110,8 @@ $result_trees{'automatic_menus'} = {
       'extra' => {
         'is_target' => 1,
         'node_description' => {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -126,7 +127,6 @@ $result_trees{'automatic_menus'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },
@@ -217,7 +217,8 @@ $result_trees{'automatic_menus'} = {
       'extra' => {
         'is_target' => 1,
         'node_description' => {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -233,7 +234,6 @@ $result_trees{'automatic_menus'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },

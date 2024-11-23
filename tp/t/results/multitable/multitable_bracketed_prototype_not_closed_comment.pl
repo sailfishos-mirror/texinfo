@@ -27,14 +27,14 @@ $result_trees{'multitable_bracketed_prototype_not_closed_comment'} = {
                           'text' => 'a'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' comment
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         }
                       ],
                       'source_info' => {
@@ -49,7 +49,8 @@ $result_trees{'multitable_bracketed_prototype_not_closed_comment'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -65,7 +66,6 @@ $result_trees{'multitable_bracketed_prototype_not_closed_comment'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

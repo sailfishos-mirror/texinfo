@@ -10,7 +10,8 @@ $result_trees{'paragraph_indent_asis'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'paragraphindent',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'paragraph_indent_asis'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'paragraphindent',
           'extra' => {
             'misc_args' => [
               'asis'
@@ -99,7 +99,8 @@ $result_trees{'paragraph_indent_asis'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -115,7 +116,6 @@ $result_trees{'paragraph_indent_asis'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

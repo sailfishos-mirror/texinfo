@@ -32,7 +32,8 @@ $result_trees{'simplest_no_node_section'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'simplest_no_node_section'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'simplest_no_node_section.info'
               },
@@ -94,14 +94,14 @@ $result_trees{'simplest_no_node_section'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

@@ -38,7 +38,8 @@ $result_trees{'colon_in_index_entry'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'synindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -54,7 +55,6 @@ $result_trees{'colon_in_index_entry'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'synindex',
           'extra' => {
             'misc_args' => [
               'vr',
@@ -76,7 +76,8 @@ $result_trees{'colon_in_index_entry'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -92,7 +93,6 @@ $result_trees{'colon_in_index_entry'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -146,7 +146,8 @@ $result_trees{'colon_in_index_entry'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -162,7 +163,6 @@ $result_trees{'colon_in_index_entry'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -186,7 +186,8 @@ $result_trees{'colon_in_index_entry'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -202,7 +203,6 @@ $result_trees{'colon_in_index_entry'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -481,7 +481,8 @@ $result_trees{'colon_in_index_entry'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -497,7 +498,6 @@ $result_trees{'colon_in_index_entry'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defvr'
               },
@@ -526,7 +526,8 @@ $result_trees{'colon_in_index_entry'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -542,7 +543,6 @@ $result_trees{'colon_in_index_entry'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

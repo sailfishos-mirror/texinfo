@@ -10,7 +10,8 @@ $result_trees{'value_node_directions'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'a--foo',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'value_node_directions'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' a--foo bar
 '

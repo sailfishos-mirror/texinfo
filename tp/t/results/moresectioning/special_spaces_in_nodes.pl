@@ -547,7 +547,8 @@ $result_trees{'special_spaces_in_nodes'} = {
               "type" => "menu_entry"
             },
             {
-              "args" => [
+              "cmdname" => "end",
+              "contents" => [
                 {
                   "contents" => [
                     {
@@ -562,7 +563,6 @@ $result_trees{'special_spaces_in_nodes'} = {
                   "type" => "line_arg"
                 }
               ],
-              "cmdname" => "end",
               "extra" => {
                 "text_arg" => "menu"
               },
@@ -958,13 +958,13 @@ $result_trees{'special_spaces_in_nodes'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "bye",
+      "contents" => [
         {
           "text" => "\n",
           "type" => "rawline_arg"
         }
-      ],
-      "cmdname" => "bye"
+      ]
     }
   ],
   "type" => "document_root"

@@ -41,7 +41,8 @@ $result_trees{'bad_ifset_argument'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -57,7 +58,6 @@ $result_trees{'bad_ifset_argument'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },

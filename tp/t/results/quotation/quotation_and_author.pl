@@ -41,7 +41,8 @@ $result_trees{'quotation_and_author'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'author',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -57,7 +58,6 @@ $result_trees{'quotation_and_author'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'author',
               'extra' => {
                 'quotation' => {}
               },
@@ -80,7 +80,8 @@ $result_trees{'quotation_and_author'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -96,7 +97,6 @@ $result_trees{'quotation_and_author'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -156,7 +156,8 @@ $result_trees{'quotation_and_author'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'author',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -172,7 +173,6 @@ $result_trees{'quotation_and_author'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'author',
               'extra' => {
                 'quotation' => {}
               },
@@ -195,7 +195,8 @@ $result_trees{'quotation_and_author'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -211,7 +212,6 @@ $result_trees{'quotation_and_author'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'smallquotation'
               },
@@ -262,7 +262,8 @@ $result_trees{'quotation_and_author'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'author',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -278,7 +279,6 @@ $result_trees{'quotation_and_author'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'author',
               'extra' => {
                 'quotation' => {}
               },
@@ -301,7 +301,8 @@ $result_trees{'quotation_and_author'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -317,7 +318,6 @@ $result_trees{'quotation_and_author'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

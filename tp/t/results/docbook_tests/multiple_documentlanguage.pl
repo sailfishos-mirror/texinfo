@@ -10,7 +10,8 @@ $result_trees{'multiple_documentlanguage'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'multiple_documentlanguage'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'ja'
           },
@@ -185,7 +185,8 @@ $result_trees{'multiple_documentlanguage'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -201,7 +202,6 @@ $result_trees{'multiple_documentlanguage'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'fr'
           },
@@ -291,7 +291,8 @@ $result_trees{'multiple_documentlanguage'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -307,7 +308,6 @@ $result_trees{'multiple_documentlanguage'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'pt'
           },
@@ -397,7 +397,8 @@ $result_trees{'multiple_documentlanguage'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -413,7 +414,6 @@ $result_trees{'multiple_documentlanguage'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'fr'
           },

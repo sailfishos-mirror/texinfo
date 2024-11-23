@@ -12,7 +12,8 @@ $result_trees{'fonttextsize'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'fonttextsize',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'fonttextsize'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'fonttextsize',
               'extra' => {
                 'misc_args' => [
                   '10'
@@ -281,7 +281,8 @@ $result_trees{'fonttextsize'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'fonttextsize',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -297,7 +298,6 @@ $result_trees{'fonttextsize'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'fonttextsize',
           'extra' => {
             'misc_args' => [
               '11'
@@ -367,7 +367,8 @@ $result_trees{'fonttextsize'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'fonttextsize',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -383,7 +384,6 @@ $result_trees{'fonttextsize'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'fonttextsize',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -448,7 +448,8 @@ $result_trees{'fonttextsize'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'fonttextsize',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -464,7 +465,6 @@ $result_trees{'fonttextsize'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'fonttextsize',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

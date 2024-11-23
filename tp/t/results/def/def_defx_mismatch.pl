@@ -338,7 +338,8 @@ $result_trees{'def_defx_mismatch'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -354,7 +355,6 @@ $result_trees{'def_defx_mismatch'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defun'
               },

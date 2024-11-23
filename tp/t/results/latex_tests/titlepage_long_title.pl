@@ -29,7 +29,8 @@ $result_trees{'titlepage_long_title'} = {
                   'type' => 'argument'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'title',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -51,7 +52,6 @@ $result_trees{'titlepage_long_title'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'title',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -67,7 +67,8 @@ $result_trees{'titlepage_long_title'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -83,7 +84,6 @@ $result_trees{'titlepage_long_title'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'titlepage'
                   },

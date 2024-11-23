@@ -71,7 +71,8 @@ $result_trees{'normal_font_in_monospace'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -87,7 +88,6 @@ $result_trees{'normal_font_in_monospace'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

@@ -25,14 +25,14 @@ $result_trees{'comment_on_quotation_line'} = {
                   ],
                   'info' => {
                     'comment_at_end' => {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' quotation 
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     }
                   },
                   'type' => 'block_line_arg'
@@ -50,7 +50,8 @@ $result_trees{'comment_on_quotation_line'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -66,7 +67,6 @@ $result_trees{'comment_on_quotation_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

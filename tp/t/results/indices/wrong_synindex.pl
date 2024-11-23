@@ -10,7 +10,8 @@ $result_trees{'wrong_synindex'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'wrong_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'aaa'
@@ -42,7 +42,8 @@ $result_trees{'wrong_synindex'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'synindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -52,7 +53,6 @@ $result_trees{'wrong_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'synindex',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

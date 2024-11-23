@@ -10,7 +10,8 @@ $result_trees{'empty_center'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'info' => {
                 'spaces_after_argument' => {
@@ -21,7 +22,6 @@ $result_trees{'empty_center'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'source_info' => {
             'line_nr' => 1
           }

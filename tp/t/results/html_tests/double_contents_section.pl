@@ -27,14 +27,14 @@ $result_trees{'double_contents_section'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'contents',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'contents',
               'extra' => {},
               'source_info' => {
                 'file_name' => 'double_contents.texi',
@@ -195,7 +195,8 @@ $result_trees{'double_contents_section'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -211,7 +212,6 @@ $result_trees{'double_contents_section'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -313,14 +313,14 @@ $result_trees{'double_contents_section'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'file_name' => 'double_contents.texi',
@@ -406,7 +406,8 @@ $result_trees{'double_contents_section'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -422,7 +423,6 @@ $result_trees{'double_contents_section'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -521,14 +521,14 @@ $result_trees{'double_contents_section'} = {
           'type' => 'argument'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'file_name' => 'double_contents.texi',
@@ -555,14 +555,14 @@ $result_trees{'double_contents_section'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

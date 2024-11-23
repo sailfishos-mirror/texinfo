@@ -67,7 +67,8 @@ $result_trees{'nested_ifset_ifclear'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -83,7 +84,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -111,7 +111,8 @@ $result_trees{'nested_ifset_ifclear'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'somevar',
               'type' => 'rawline_arg'
@@ -121,14 +122,14 @@ $result_trees{'nested_ifset_ifclear'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' somevar
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'anothervar',
               'type' => 'rawline_arg'
@@ -138,7 +139,6 @@ $result_trees{'nested_ifset_ifclear'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' anothervar
 '
@@ -245,7 +245,8 @@ $result_trees{'nested_ifset_ifclear'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -261,7 +262,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -309,7 +309,8 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'raw'
                       },
                       {
-                        'args' => [
+                        'cmdname' => 'end',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -325,7 +326,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                             'type' => 'line_arg'
                           }
                         ],
-                        'cmdname' => 'end',
                         'extra' => {
                           'text_arg' => 'ifclear'
                         },
@@ -356,7 +356,8 @@ $result_trees{'nested_ifset_ifclear'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -380,7 +381,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -411,7 +411,8 @@ $result_trees{'nested_ifset_ifclear'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'somevar',
               'type' => 'rawline_arg'
@@ -421,20 +422,19 @@ $result_trees{'nested_ifset_ifclear'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' somevar
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'clear',
+          'contents' => [
             {
               'text' => 'anothervar',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clear',
           'info' => {
             'arg_line' => ' anothervar
 '
@@ -524,7 +524,8 @@ $result_trees{'nested_ifset_ifclear'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -540,7 +541,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -614,7 +614,8 @@ $result_trees{'nested_ifset_ifclear'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -630,7 +631,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifclear'
                     },
@@ -651,7 +651,8 @@ $result_trees{'nested_ifset_ifclear'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -675,7 +676,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -706,20 +706,21 @@ $result_trees{'nested_ifset_ifclear'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'clear',
+          'contents' => [
             {
               'text' => 'somevar',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clear',
           'info' => {
             'arg_line' => ' somevar
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'anothervar',
               'type' => 'rawline_arg'
@@ -729,7 +730,6 @@ $result_trees{'nested_ifset_ifclear'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' anothervar
 '
@@ -806,7 +806,8 @@ $result_trees{'nested_ifset_ifclear'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -830,7 +831,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -865,26 +865,26 @@ $result_trees{'nested_ifset_ifclear'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'clear',
+          'contents' => [
             {
               'text' => 'somevar',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clear',
           'info' => {
             'arg_line' => ' somevar
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'clear',
+          'contents' => [
             {
               'text' => 'anothervar',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clear',
           'info' => {
             'arg_line' => ' anothervar
 '
@@ -961,7 +961,8 @@ $result_trees{'nested_ifset_ifclear'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -985,7 +986,6 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },

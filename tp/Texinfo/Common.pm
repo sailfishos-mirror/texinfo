@@ -774,7 +774,8 @@ sub relocate_source_marks($$$$)
 # $LABEL_CONTENTS_CONTAINER->{'contents'} is the Texinfo for the specification
 # of a node.  It is relevant in any situation when a label is expected,
 # @node, menu entry, float, anchor...  For the @node command, for instance,
-# $LABEL_CONTENTS_CONTAINER is typically $node->{'args'}->[0].
+# $LABEL_CONTENTS_CONTAINER is typically
+# $node->{'contents'}->[0]->{'contents'}->[0].
 #
 # Returned object is a hash with two fields:
 #
@@ -1121,8 +1122,8 @@ sub informative_command_value($)
   if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw') {
     if (not $Texinfo::Commands::commands_args_number{$cmdname}) {
       return 1;
-    } elsif ($element->{'args'}) {
-      return join(' ', map {$_->{'text'}} @{$element->{'args'}});
+    } elsif ($element->{'contents'}) {
+      return join(' ', map {$_->{'text'}} @{$element->{'contents'}});
     }
   } elsif ($element->{'extra'}
            and exists($element->{'extra'}->{'text_arg'})) {
@@ -1131,12 +1132,10 @@ sub informative_command_value($)
            and exists($element->{'extra'}->{'misc_args'}->[0])) {
     return $element->{'extra'}->{'misc_args'}->[0];
   } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line'
-           and $element->{'args'} and scalar(@{$element->{'args'}})
-           and $element->{'args'}->[0]
-           and $element->{'args'}->[0]->{'contents'}
-           and scalar(@{$element->{'args'}->[0]->{'contents'}})
-           and exists($element->{'args'}->[0]->{'contents'}->[0]->{'text'})) {
-    return $element->{'args'}->[0]->{'contents'}->[0]->{'text'};
+           and $element->{'contents'}->[0]->{'contents'}
+           and scalar(@{$element->{'contents'}->[0]->{'contents'}})
+           and exists($element->{'contents'}->[0]->{'contents'}->[0]->{'text'})) {
+    return $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
   }
   return undef;
 }
@@ -1545,7 +1544,7 @@ sub index_content_element($;$)
       return $element->{'extra'}->{'def_index_element'};
     }
   } else {
-    return $element->{'args'}->[0];
+    return $element->{'contents'}->[0];
   }
 }
 
@@ -1676,7 +1675,7 @@ sub _collect_commands_in_tree($$)
       and defined($commands_hash->{$current->{'cmdname'}})) {
     push @{$commands_hash->{$current->{'cmdname'}}}, $current;
   }
-  foreach my $key ('args', 'contents') {
+  foreach my $key ('contents') {
     if ($current->{$key}) {
       foreach my $child (@{$current->{$key}}) {
         _collect_commands_in_tree($child, $commands_hash);
@@ -1710,7 +1709,7 @@ sub _collect_commands_list_in_tree($$$)
       and defined($commands_hash->{$current->{'cmdname'}})) {
     push @{$collected_commands_list}, $current;
   }
-  foreach my $key ('args', 'contents') {
+  foreach my $key ('contents') {
     if ($current->{$key}) {
       foreach my $child (@{$current->{$key}}) {
         _collect_commands_list_in_tree($child, $commands_hash,
@@ -1824,7 +1823,6 @@ sub debug_print_element($;$)
     if (defined($current->{'cmdname'})) {
       $cmd = '@' . debug_command_name($current->{'cmdname'});
     }
-    $args = "[A".scalar(@{$current->{'args'}}).']' if $current->{'args'};
     $contents = "[C".scalar(@{$current->{'contents'}}).']'
        if $current->{'contents'};
   }
@@ -1936,7 +1934,7 @@ sub debug_hash
 # for debugging
 use Data::Dumper;
 
-my @kept_keys = ('contents', 'cmdname', 'type', 'text', 'args',
+my @kept_keys = ('contents', 'cmdname', 'type', 'text',
   'extra', 'info', 'spaces_before_argument',
   'spaces_after_argument', 'comment_at_end', 'index_entry'
 );
@@ -2310,7 +2308,7 @@ X<C<split_custom_heading_command_contents>>
 Split the I<$element> contents at C<@|> in at max three parts.
 Return an element containing the split parts in contents, or C<undef> if
 the I<$element> has no useful content.  The input I<$element>
-is supposed to be C<< $element->{'args'}->[0] >>
+is supposed to be C<< $element->{'contents'}->[0] >>
 of C<%Texinfo::Commands::heading_spec_commands> commands such as C<@everyheading>.
 
 =item $status = valid_customization_option($name)

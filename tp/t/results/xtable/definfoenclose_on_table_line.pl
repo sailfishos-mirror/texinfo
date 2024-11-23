@@ -10,7 +10,8 @@ $result_trees{'definfoenclose_on_table_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'definfoenclose_on_table_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'phi',
@@ -86,7 +86,8 @@ $result_trees{'definfoenclose_on_table_line'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -102,7 +103,6 @@ $result_trees{'definfoenclose_on_table_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -113,7 +113,8 @@ $result_trees{'definfoenclose_on_table_line'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -129,7 +130,6 @@ $result_trees{'definfoenclose_on_table_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -165,7 +165,8 @@ $result_trees{'definfoenclose_on_table_line'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -181,7 +182,6 @@ $result_trees{'definfoenclose_on_table_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },

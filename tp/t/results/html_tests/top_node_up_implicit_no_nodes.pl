@@ -151,7 +151,8 @@ $result_trees{'top_node_up_implicit_no_nodes'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -167,7 +168,6 @@ $result_trees{'top_node_up_implicit_no_nodes'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

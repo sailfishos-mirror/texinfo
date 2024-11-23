@@ -10,17 +10,18 @@ $result_trees{'invalid_documentencoding'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' this one is valid
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -47,7 +48,6 @@ $result_trees{'invalid_documentencoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'text_arg' => 'us-ascii'
           },
@@ -66,7 +66,8 @@ $result_trees{'invalid_documentencoding'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -98,7 +99,6 @@ $result_trees{'invalid_documentencoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'text_arg' => 'latin1'
           },
@@ -112,7 +112,8 @@ $result_trees{'invalid_documentencoding'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -128,7 +129,6 @@ $result_trees{'invalid_documentencoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'text_arg' => 'YS-ASCII'
           },
@@ -150,7 +150,8 @@ $result_trees{'invalid_documentencoding'} = {
               'text' => 'documentencoding '
             },
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -166,7 +167,6 @@ $result_trees{'invalid_documentencoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'text_arg' => 'bad encoding name'
               },
@@ -180,7 +180,8 @@ $result_trees{'invalid_documentencoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -196,7 +197,6 @@ $result_trees{'invalid_documentencoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'text_arg' => '1'
               },
@@ -210,7 +210,8 @@ $result_trees{'invalid_documentencoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -226,7 +227,6 @@ $result_trees{'invalid_documentencoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'text_arg' => '%'
               },
@@ -240,7 +240,8 @@ $result_trees{'invalid_documentencoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -256,7 +257,6 @@ $result_trees{'invalid_documentencoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'text_arg' => '@'
               },
@@ -270,7 +270,8 @@ $result_trees{'invalid_documentencoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -297,7 +298,6 @@ $result_trees{'invalid_documentencoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'text_arg' => 'AAA'
               },
@@ -311,7 +311,8 @@ $result_trees{'invalid_documentencoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -343,7 +344,6 @@ $result_trees{'invalid_documentencoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'text_arg' => 'BBB'
               },

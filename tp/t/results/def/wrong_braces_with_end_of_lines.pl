@@ -150,7 +150,8 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -166,7 +167,6 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },
@@ -346,7 +346,8 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -362,7 +363,6 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },

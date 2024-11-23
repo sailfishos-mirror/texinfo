@@ -31,7 +31,8 @@ $result_trees{'comment_in_one_argument_linemacro_call'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -47,7 +48,6 @@ $result_trees{'comment_in_one_argument_linemacro_call'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'linemacro'
               },
@@ -122,14 +122,14 @@ $result_trees{'comment_in_one_argument_linemacro_call'} = {
                       'text' => 'something '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'comment',
+                      'contents' => [
                         {
                           'text' => ' in} out d
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'comment'
+                      ]
                     }
                   ],
                   'type' => 'brace_container'

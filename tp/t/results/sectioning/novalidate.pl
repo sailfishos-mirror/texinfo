@@ -15,14 +15,14 @@ $result_trees{'novalidate'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'novalidate',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'novalidate',
           'source_info' => {
             'line_nr' => 2
           }
@@ -145,7 +145,8 @@ $result_trees{'novalidate'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -161,7 +162,6 @@ $result_trees{'novalidate'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

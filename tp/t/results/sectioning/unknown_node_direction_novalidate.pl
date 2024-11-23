@@ -10,14 +10,14 @@ $result_trees{'unknown_node_direction_novalidate'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'novalidate',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'novalidate',
           'source_info' => {
             'line_nr' => 1
           }

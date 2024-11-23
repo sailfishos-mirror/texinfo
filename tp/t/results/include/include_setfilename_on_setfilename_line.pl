@@ -10,21 +10,24 @@ $result_trees{'include_setfilename_on_setfilename_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'setfilename',
+          'contents' => [
             {
               'contents' => [
                 {
                   'text' => 'file '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'setfilename',
+                  'contents' => [
                     {
                       'contents' => [
                         {
                           'text' => 'other file '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'include',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -40,7 +43,6 @@ $result_trees{'include_setfilename_on_setfilename_line'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'include',
                           'extra' => {
                             'text_arg' => 'are you joking!'
                           },
@@ -57,7 +59,6 @@ $result_trees{'include_setfilename_on_setfilename_line'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'setfilename',
                   'extra' => {
                     'text_arg' => 'other file '
                   },
@@ -74,7 +75,6 @@ $result_trees{'include_setfilename_on_setfilename_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'setfilename',
           'extra' => {
             'text_arg' => 'file '
           },

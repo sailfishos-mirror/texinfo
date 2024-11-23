@@ -10,7 +10,8 @@ $result_trees{'raw_block_on_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -39,7 +40,6 @@ $result_trees{'raw_block_on_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',

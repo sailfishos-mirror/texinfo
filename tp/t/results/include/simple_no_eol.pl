@@ -14,7 +14,8 @@ $result_trees{'simple_no_eol'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -24,7 +25,6 @@ $result_trees{'simple_no_eol'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'inc_file.texi'
                 },

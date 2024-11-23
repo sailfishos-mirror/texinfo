@@ -27,7 +27,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -88,7 +88,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -104,7 +105,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -245,7 +245,8 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'argument'
         },
         {
-          'args' => [
+          'cmdname' => 'subheading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -286,7 +287,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'subheading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {
@@ -308,24 +308,24 @@ $result_trees{'macro_in_misc_commands'} = {
               'text' => 'Text line followed by a comment on the same line and another below '
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' comment @text{}
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' comment @text{}
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             }
           ],
           'type' => 'paragraph'
@@ -353,7 +353,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -369,7 +370,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -409,7 +409,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -425,7 +426,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -458,7 +458,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'text' => 'documentlanguage '
             },
             {
-              'args' => [
+              'cmdname' => 'documentlanguage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -482,7 +483,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentlanguage',
               'extra' => {
                 'text_arg' => 'en'
               },
@@ -548,7 +548,8 @@ $result_trees{'macro_in_misc_commands'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'documentlanguage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -564,7 +565,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentlanguage',
               'extra' => {
                 'text_arg' => 'en'
               },
@@ -615,7 +615,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -631,7 +632,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -676,7 +676,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -692,7 +693,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -720,7 +720,8 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'pagesizes',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -744,7 +745,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'pagesizes',
           'info' => {
             'spaces_before_argument' => {
               'source_marks' => [
@@ -797,21 +797,22 @@ $result_trees{'macro_in_misc_commands'} = {
           ]
         },
         {
-          'args' => [
+          'cmdname' => 'afourpaper',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'afourpaper',
           'source_info' => {
             'line_nr' => 38,
             'macro' => 'afourpapermacro'
           }
         },
         {
-          'args' => [
+          'cmdname' => 'headings',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -852,7 +853,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'headings',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {
@@ -864,7 +864,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'oddfooting',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -905,7 +906,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'oddfooting',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -916,7 +916,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'everyheading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -957,7 +958,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'everyheading',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -990,7 +990,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1006,7 +1007,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -1034,7 +1034,8 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'need',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1058,7 +1059,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'need',
           'extra' => {
             'misc_args' => [
               '0.1'
@@ -1115,7 +1115,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1131,7 +1132,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -1177,14 +1177,14 @@ $result_trees{'macro_in_misc_commands'} = {
           ]
         },
         {
-          'args' => [
+          'cmdname' => 'raisesections',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'raisesections'
+          ]
         },
         {
           'cmdname' => 'macro',
@@ -1204,7 +1204,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1220,7 +1221,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -1266,14 +1266,14 @@ $result_trees{'macro_in_misc_commands'} = {
           ]
         },
         {
-          'args' => [
+          'cmdname' => 'lowersections',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'lowersections'
+          ]
         },
         {
           'text' => '
@@ -1289,7 +1289,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'text' => 'definfoenclose phoo,//,\\\\  '
             },
             {
-              'args' => [
+              'cmdname' => 'definfoenclose',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1305,7 +1306,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'definfoenclose',
               'extra' => {
                 'misc_args' => [
                   'phoo',
@@ -1386,7 +1386,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1402,7 +1403,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -1425,7 +1425,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1449,7 +1450,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'phi',
@@ -1546,7 +1546,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1562,7 +1563,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -1602,7 +1602,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1618,7 +1619,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -1708,7 +1708,8 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1755,7 +1756,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'strong',
@@ -1912,7 +1912,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1928,7 +1929,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -1951,7 +1951,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'kbdinputstyle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1975,7 +1976,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'kbdinputstyle',
           'extra' => {
             'misc_args' => [
               'code'
@@ -2093,7 +2093,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2109,7 +2110,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -2150,7 +2150,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2166,7 +2167,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -2206,7 +2206,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2222,7 +2223,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -2262,7 +2262,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2278,7 +2279,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -2318,7 +2318,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2334,7 +2335,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -2374,7 +2374,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2390,7 +2391,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -2418,7 +2418,8 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'paragraphindent',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2442,7 +2443,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'paragraphindent',
           'extra' => {
             'misc_args' => [
               'asis'
@@ -2477,7 +2477,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'paragraphindent',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2501,7 +2502,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'paragraphindent',
           'extra' => {
             'misc_args' => [
               '0'
@@ -2536,7 +2536,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'paragraphindent',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2560,7 +2561,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'paragraphindent',
           'extra' => {
             'misc_args' => [
               'none'
@@ -2595,7 +2595,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'paragraphindent',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2619,7 +2620,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'paragraphindent',
           'extra' => {
             'misc_args' => [
               '4'
@@ -2654,7 +2654,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'firstparagraphindent',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2678,7 +2679,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'firstparagraphindent',
           'extra' => {
             'misc_args' => [
               'none'
@@ -2713,7 +2713,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'exampleindent',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2737,7 +2738,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'exampleindent',
           'extra' => {
             'misc_args' => [
               '6'
@@ -2794,7 +2794,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2810,7 +2811,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -2850,7 +2850,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2866,7 +2867,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -2889,7 +2889,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'footnotestyle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2913,7 +2914,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'footnotestyle',
           'extra' => {
             'misc_args' => [
               'end'
@@ -2948,7 +2948,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'footnotestyle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2972,7 +2973,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'footnotestyle',
           'extra' => {
             'misc_args' => [
               'separate'
@@ -3029,7 +3029,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3045,7 +3046,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -3085,7 +3085,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3101,7 +3102,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -3124,7 +3124,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'frenchspacing',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3148,7 +3149,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'frenchspacing',
           'extra' => {
             'misc_args' => [
               'on'
@@ -3183,7 +3183,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'frenchspacing',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3207,7 +3208,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'frenchspacing',
           'extra' => {
             'misc_args' => [
               'off'
@@ -3247,14 +3247,14 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' accepts 10 or 11
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'cmdname' => 'macro',
@@ -3274,7 +3274,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3290,7 +3291,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -3313,7 +3313,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'fonttextsize',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3337,7 +3338,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'fonttextsize',
           'extra' => {
             'misc_args' => [
               '10'
@@ -3372,14 +3372,14 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' accept false or true
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'cmdname' => 'macro',
@@ -3399,7 +3399,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3415,7 +3416,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -3455,7 +3455,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3471,7 +3472,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -3494,7 +3494,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'allowcodebreaks',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3518,7 +3519,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'allowcodebreaks',
           'extra' => {
             'misc_args' => [
               'false'
@@ -3558,7 +3558,8 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'allowcodebreaks',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -3582,7 +3583,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'allowcodebreaks',
           'extra' => {
             'misc_args' => [
               'true'
@@ -3639,7 +3639,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3655,7 +3656,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -3695,7 +3695,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3711,7 +3712,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -3751,7 +3751,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3767,7 +3768,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -3832,14 +3832,14 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => ' on page line
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'contents' => [
@@ -4095,14 +4095,14 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '         page at beginning of line
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'page',
           'source_marks' => [
             {
               'counter' => 40,
@@ -4128,14 +4128,14 @@ $result_trees{'macro_in_misc_commands'} = {
           ]
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'contents' => [
@@ -4189,14 +4189,14 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'contents' => [
@@ -4311,7 +4311,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4327,7 +4328,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -4373,14 +4373,14 @@ $result_trees{'macro_in_misc_commands'} = {
           ]
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 179,
@@ -4393,14 +4393,14 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'vskip',
+          'contents' => [
             {
               'text' => ' @atext{}
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'vskip'
+          ]
         },
         {
           'text' => '
@@ -4425,7 +4425,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4441,7 +4442,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -4482,7 +4482,8 @@ $result_trees{'macro_in_misc_commands'} = {
           ]
         },
         {
-          'args' => [
+          'cmdname' => 'exdent',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4498,7 +4499,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'exdent',
           'info' => {
             'spaces_before_argument' => {
               'source_marks' => [
@@ -4539,7 +4539,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4555,7 +4556,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -4578,7 +4578,8 @@ $result_trees{'macro_in_misc_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4602,7 +4603,6 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '2'
@@ -4659,7 +4659,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4675,7 +4676,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -4703,13 +4703,13 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'clickstyle',
+          'contents' => [
             {
               'text' => '@resultmacro',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clickstyle',
           'extra' => {},
           'info' => {
             'arg_line' => ' @resultmacro{}
@@ -4813,7 +4813,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4829,7 +4830,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -4977,14 +4977,14 @@ $result_trees{'macro_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 206,
@@ -5014,7 +5014,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -5030,7 +5031,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -5076,14 +5076,14 @@ $result_trees{'macro_in_misc_commands'} = {
           ]
         },
         {
-          'args' => [
+          'cmdname' => 'shortcontents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'shortcontents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 211,
@@ -5113,7 +5113,8 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -5129,7 +5130,6 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -5196,14 +5196,14 @@ $result_trees{'macro_in_misc_commands'} = {
       ]
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

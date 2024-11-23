@@ -32,7 +32,8 @@ $result_trees{'bad_enumerate_arguments'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'bad_enumerate_arguments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -102,7 +102,8 @@ $result_trees{'bad_enumerate_arguments'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -118,7 +119,6 @@ $result_trees{'bad_enumerate_arguments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -185,7 +185,8 @@ $result_trees{'bad_enumerate_arguments'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -201,7 +202,6 @@ $result_trees{'bad_enumerate_arguments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -258,7 +258,8 @@ $result_trees{'bad_enumerate_arguments'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -274,7 +275,6 @@ $result_trees{'bad_enumerate_arguments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -328,7 +328,8 @@ $result_trees{'bad_enumerate_arguments'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -344,7 +345,6 @@ $result_trees{'bad_enumerate_arguments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },

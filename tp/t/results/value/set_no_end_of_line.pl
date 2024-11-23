@@ -10,7 +10,8 @@ $result_trees{'set_no_end_of_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'arg',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'set_no_end_of_line'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' arg'
           }

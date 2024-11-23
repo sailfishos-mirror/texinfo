@@ -36,7 +36,8 @@ $result_trees{'command_in_end_expanded_raw_command_empty_after'} = {
               'type' => 'rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -63,7 +64,6 @@ $result_trees{'command_in_end_expanded_raw_command_empty_after'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'tex'
               },

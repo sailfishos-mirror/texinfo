@@ -21,14 +21,14 @@ $result_trees{'text_before_and_after_bye'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => ' on bye line
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     },
     {
       'contents' => [

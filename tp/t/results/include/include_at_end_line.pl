@@ -10,7 +10,8 @@ $result_trees{'include_at_end_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'include',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -24,7 +25,6 @@ $result_trees{'include_at_end_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'include',
           'extra' => {
             'text_arg' => 'inc_file.texi'
           },

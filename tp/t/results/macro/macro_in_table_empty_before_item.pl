@@ -22,7 +22,8 @@ $result_trees{'macro_in_table_empty_before_item'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -38,7 +39,6 @@ $result_trees{'macro_in_table_empty_before_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -126,7 +126,8 @@ $result_trees{'macro_in_table_empty_before_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -142,7 +143,6 @@ $result_trees{'macro_in_table_empty_before_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -159,7 +159,8 @@ $result_trees{'macro_in_table_empty_before_item'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -175,7 +176,6 @@ $result_trees{'macro_in_table_empty_before_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },

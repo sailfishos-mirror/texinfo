@@ -12,7 +12,8 @@ $result_trees{'empty_added_index_entry'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'defindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'empty_added_index_entry'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defindex',
               'extra' => {
                 'misc_args' => [
                   'my'
@@ -118,7 +118,8 @@ $result_trees{'empty_added_index_entry'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'myindex',
+          'contents' => [
             {
               'info' => {
                 'spaces_after_argument' => {
@@ -129,7 +130,6 @@ $result_trees{'empty_added_index_entry'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'myindex',
           'info' => {
             'command_name' => 'myindex'
           },

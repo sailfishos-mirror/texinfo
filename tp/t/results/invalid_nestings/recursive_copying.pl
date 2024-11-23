@@ -46,7 +46,8 @@ $result_trees{'recursive_copying'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -62,7 +63,6 @@ $result_trees{'recursive_copying'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'copying'
               },
@@ -86,14 +86,14 @@ $result_trees{'recursive_copying'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'line_nr' => 8

@@ -12,7 +12,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setchapternewpage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setchapternewpage',
               'extra' => {
                 'misc_args' => [
                   'odd'
@@ -44,7 +44,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'everyheading',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -97,7 +98,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'everyheading',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -182,14 +182,14 @@ $result_trees{'custom_heading_with_include_in_command'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 7
@@ -275,7 +275,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'do-top',
               'type' => 'rawline_arg'
@@ -285,7 +286,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' do-top
 '
@@ -294,7 +294,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -310,7 +311,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'section_file.texi'
                 },
@@ -334,14 +334,14 @@ $result_trees{'custom_heading_with_include_in_command'} = {
               'text' => '\\input texinfo '
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' -*-texinfo-*-
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             }
           ],
           'type' => 'paragraph'
@@ -403,7 +403,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -419,7 +420,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifclear'
                     },
@@ -599,7 +599,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -615,7 +616,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -783,7 +783,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -799,7 +800,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -954,7 +954,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -970,7 +971,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -1040,7 +1040,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -1056,7 +1057,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifclear'
                     },
@@ -1100,7 +1100,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1116,7 +1117,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'section_file_no_node.texi'
                 },
@@ -1293,7 +1293,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -1309,7 +1310,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -1360,7 +1360,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1376,7 +1377,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'section_file_no_node_include.texi'
                 },
@@ -1553,7 +1553,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -1569,7 +1570,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -1621,7 +1621,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
             {
               'counter' => 4,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1637,7 +1638,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'section_file_no_node.texi'
                 },
@@ -1815,7 +1815,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -1831,7 +1832,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -1895,7 +1895,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
             {
               'counter' => 5,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1911,7 +1912,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'section_file_no_node.texi'
                 },
@@ -2088,7 +2088,8 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -2104,7 +2105,6 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },

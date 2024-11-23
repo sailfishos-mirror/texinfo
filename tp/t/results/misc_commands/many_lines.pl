@@ -15,7 +15,8 @@ $result_trees{'many_lines'} = {
               'text' => 'pagesizes '
             },
             {
-              'args' => [
+              'cmdname' => 'pagesizes',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -37,7 +38,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'pagesizes',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -51,14 +51,14 @@ $result_trees{'many_lines'} = {
               'text' => 'afourpaper '
             },
             {
-              'args' => [
+              'cmdname' => 'afourpaper',
+              'contents' => [
                 {
                   'text' => ' on line following afourpaper
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'afourpaper',
               'source_info' => {
                 'line_nr' => 2
               }
@@ -67,14 +67,14 @@ $result_trees{'many_lines'} = {
               'text' => 'smallbook '
             },
             {
-              'args' => [
+              'cmdname' => 'smallbook',
+              'contents' => [
                 {
                   'text' => ' on line following smallbook
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'smallbook',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -83,7 +83,8 @@ $result_trees{'many_lines'} = {
               'text' => 'headings '
             },
             {
-              'args' => [
+              'cmdname' => 'headings',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -99,7 +100,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'headings',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -114,7 +114,8 @@ $result_trees{'many_lines'} = {
               'text' => 'oddfooting '
             },
             {
-              'args' => [
+              'cmdname' => 'oddfooting',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -130,7 +131,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'oddfooting',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -144,7 +144,8 @@ $result_trees{'many_lines'} = {
               'text' => 'everyheading '
             },
             {
-              'args' => [
+              'cmdname' => 'everyheading',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -160,7 +161,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'everyheading',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -174,7 +174,8 @@ $result_trees{'many_lines'} = {
               'text' => 'everyfooting '
             },
             {
-              'args' => [
+              'cmdname' => 'everyfooting',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -190,7 +191,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'everyfooting',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -204,7 +204,8 @@ $result_trees{'many_lines'} = {
               'text' => 'evenheading '
             },
             {
-              'args' => [
+              'cmdname' => 'evenheading',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -220,7 +221,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'evenheading',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -234,7 +234,8 @@ $result_trees{'many_lines'} = {
               'text' => 'evenfooting '
             },
             {
-              'args' => [
+              'cmdname' => 'evenfooting',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -250,7 +251,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'evenfooting',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -264,7 +264,8 @@ $result_trees{'many_lines'} = {
               'text' => 'oddheading '
             },
             {
-              'args' => [
+              'cmdname' => 'oddheading',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -280,7 +281,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'oddheading',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -297,7 +297,8 @@ $result_trees{'many_lines'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'need',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -313,7 +314,6 @@ $result_trees{'many_lines'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'need',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -332,7 +332,8 @@ $result_trees{'many_lines'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'need',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -348,7 +349,6 @@ $result_trees{'many_lines'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'need',
           'extra' => {
             'misc_args' => [
               '0.1'
@@ -369,7 +369,8 @@ $result_trees{'many_lines'} = {
               'text' => 'setchapternewpage '
             },
             {
-              'args' => [
+              'cmdname' => 'setchapternewpage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -385,7 +386,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setchapternewpage',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -399,33 +399,34 @@ $result_trees{'many_lines'} = {
               'text' => 'raisesections '
             },
             {
-              'args' => [
+              'cmdname' => 'raisesections',
+              'contents' => [
                 {
                   'text' => ' on line following raisesections
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'raisesections'
+              ]
             },
             {
               'text' => 'lowersections '
             },
             {
-              'args' => [
+              'cmdname' => 'lowersections',
+              'contents' => [
                 {
                   'text' => ' on line following lowersections
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'lowersections'
+              ]
             },
             {
               'text' => 'kbdinputstyle code '
             },
             {
-              'args' => [
+              'cmdname' => 'kbdinputstyle',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -441,7 +442,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'kbdinputstyle',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -456,14 +456,14 @@ $result_trees{'many_lines'} = {
               'text' => 'afourpaper '
             },
             {
-              'args' => [
+              'cmdname' => 'afourpaper',
+              'contents' => [
                 {
                   'text' => ' on line following afourpaper
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'afourpaper',
               'source_info' => {
                 'line_nr' => 17
               }
@@ -472,14 +472,14 @@ $result_trees{'many_lines'} = {
               'text' => 'afourlatex '
             },
             {
-              'args' => [
+              'cmdname' => 'afourlatex',
+              'contents' => [
                 {
                   'text' => ' on line following afourlatex
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'afourlatex',
               'source_info' => {
                 'line_nr' => 18
               }
@@ -488,14 +488,14 @@ $result_trees{'many_lines'} = {
               'text' => 'afourwide '
             },
             {
-              'args' => [
+              'cmdname' => 'afourwide',
+              'contents' => [
                 {
                   'text' => ' on line following afourwide
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'afourwide',
               'source_info' => {
                 'line_nr' => 19
               }
@@ -504,7 +504,8 @@ $result_trees{'many_lines'} = {
               'text' => 'paragraphindent asis '
             },
             {
-              'args' => [
+              'cmdname' => 'paragraphindent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -520,7 +521,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'paragraphindent',
               'extra' => {
                 'misc_args' => [
                   'asis'
@@ -539,7 +539,8 @@ $result_trees{'many_lines'} = {
               'text' => 'paragraphindent 0 '
             },
             {
-              'args' => [
+              'cmdname' => 'paragraphindent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -555,7 +556,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'paragraphindent',
               'extra' => {
                 'misc_args' => [
                   '0'
@@ -574,7 +574,8 @@ $result_trees{'many_lines'} = {
               'text' => 'paragraphindent none '
             },
             {
-              'args' => [
+              'cmdname' => 'paragraphindent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -590,7 +591,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'paragraphindent',
               'extra' => {
                 'misc_args' => [
                   'none'
@@ -609,7 +609,8 @@ $result_trees{'many_lines'} = {
               'text' => 'paragraphindent 4 '
             },
             {
-              'args' => [
+              'cmdname' => 'paragraphindent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -625,7 +626,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'paragraphindent',
               'extra' => {
                 'misc_args' => [
                   '4'
@@ -644,7 +644,8 @@ $result_trees{'many_lines'} = {
               'text' => 'firstparagraphindent insert '
             },
             {
-              'args' => [
+              'cmdname' => 'firstparagraphindent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -660,7 +661,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'firstparagraphindent',
               'extra' => {
                 'misc_args' => [
                   'insert'
@@ -679,7 +679,8 @@ $result_trees{'many_lines'} = {
               'text' => 'firstparagraphindent 3 '
             },
             {
-              'args' => [
+              'cmdname' => 'firstparagraphindent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -695,7 +696,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'firstparagraphindent',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -710,7 +710,8 @@ $result_trees{'many_lines'} = {
               'text' => 'exampleindent 6 '
             },
             {
-              'args' => [
+              'cmdname' => 'exampleindent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -726,7 +727,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'exampleindent',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -741,7 +741,8 @@ $result_trees{'many_lines'} = {
               'text' => 'exampleindent 6 '
             },
             {
-              'args' => [
+              'cmdname' => 'exampleindent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -757,7 +758,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'exampleindent',
               'extra' => {
                 'misc_args' => [
                   '6'
@@ -776,7 +776,8 @@ $result_trees{'many_lines'} = {
               'text' => 'footnotestyle '
             },
             {
-              'args' => [
+              'cmdname' => 'footnotestyle',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -792,7 +793,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'footnotestyle',
               'extra' => {
                 'misc_args' => [
                   'end'
@@ -811,7 +811,8 @@ $result_trees{'many_lines'} = {
               'text' => 'footnotestyle '
             },
             {
-              'args' => [
+              'cmdname' => 'footnotestyle',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -827,7 +828,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'footnotestyle',
               'extra' => {
                 'misc_args' => [
                   'separate'
@@ -846,7 +846,8 @@ $result_trees{'many_lines'} = {
               'text' => 'documentencoding '
             },
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -862,7 +863,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'text_arg' => 'US-ascii encoding name'
               },
@@ -876,7 +876,8 @@ $result_trees{'many_lines'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -892,7 +893,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'iso-8859-1',
                 'text_arg' => 'ISO-8859-1'
@@ -910,7 +910,8 @@ $result_trees{'many_lines'} = {
               'text' => 'frenchspacing '
             },
             {
-              'args' => [
+              'cmdname' => 'frenchspacing',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -926,7 +927,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'frenchspacing',
               'extra' => {
                 'misc_args' => [
                   'on'
@@ -945,7 +945,8 @@ $result_trees{'many_lines'} = {
               'text' => 'frenchspacing '
             },
             {
-              'args' => [
+              'cmdname' => 'frenchspacing',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -961,7 +962,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'frenchspacing',
               'extra' => {
                 'misc_args' => [
                   'off'
@@ -980,7 +980,8 @@ $result_trees{'many_lines'} = {
               'text' => 'fonttextsize '
             },
             {
-              'args' => [
+              'cmdname' => 'fonttextsize',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -996,7 +997,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'fonttextsize',
               'extra' => {
                 'misc_args' => [
                   '10'
@@ -1015,7 +1015,8 @@ $result_trees{'many_lines'} = {
               'text' => 'everyheadingmarks '
             },
             {
-              'args' => [
+              'cmdname' => 'everyheadingmarks',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1031,7 +1032,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'everyheadingmarks',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -1042,7 +1042,8 @@ $result_trees{'many_lines'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'allowcodebreaks',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1058,7 +1059,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'allowcodebreaks',
               'extra' => {
                 'misc_args' => [
                   'false'
@@ -1074,7 +1074,8 @@ $result_trees{'many_lines'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'allowcodebreaks',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1090,7 +1091,6 @@ $result_trees{'many_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'allowcodebreaks',
               'extra' => {
                 'misc_args' => [
                   'true'
@@ -1119,37 +1119,37 @@ $result_trees{'many_lines'} = {
               'text' => 'Text line followed by finalout on the same line and another below '
             },
             {
-              'args' => [
+              'cmdname' => 'finalout',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'finalout'
+              ]
             },
             {
-              'args' => [
+              'cmdname' => 'finalout',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'finalout'
+              ]
             },
             {
               'text' => 'Text line after the finalout followed by a fianlout '
             },
             {
-              'args' => [
+              'cmdname' => 'finalout',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'finalout'
+              ]
             },
             {
               'text' => 'Text line after the text line followed by the finalout.
@@ -1170,14 +1170,14 @@ $result_trees{'many_lines'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'finalout',
+              'contents' => [
                 {
                   'text' => ' a word after finalout
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'finalout'
+              ]
             },
             {
               'text' => 'Line after finalout

@@ -46,7 +46,8 @@ $result_trees{'nested_ifset_prepended_to_command_name'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -62,7 +63,6 @@ $result_trees{'nested_ifset_prepended_to_command_name'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },

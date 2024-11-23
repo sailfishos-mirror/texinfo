@@ -42,7 +42,8 @@ $result_trees{'second_level_lone_braces_in_html_not_expanded'} = {
               'type' => 'elided_rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -58,7 +59,6 @@ $result_trees{'second_level_lone_braces_in_html_not_expanded'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'html'
               },
@@ -119,7 +119,8 @@ $result_trees{'second_level_lone_braces_in_html_not_expanded'} = {
               'type' => 'elided_rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -135,7 +136,6 @@ $result_trees{'second_level_lone_braces_in_html_not_expanded'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'html'
               },

@@ -277,10 +277,10 @@ sub _convert($)
           or ($element->{'cmdname'}
              and ($ignored_brace_commands{$element->{'cmdname'}}
              # here ignore the line commands
-                 or ($element->{'args'} and $element->{'args'}->[0]
-                     and $element->{'args'}->[0]->{'type'}
-                     and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
-                         or $element->{'args'}->[0]->{'type'} eq 'rawline_arg')
+                 or ($element->{'contents'} and $element->{'contents'}->[0]
+                     and $element->{'contents'}->[0]->{'type'}
+                     and ($element->{'contents'}->[0]->{'type'} eq 'line_arg'
+                         or $element->{'contents'}->[0]->{'type'} eq 'rawline_arg')
                  or ($element->{'contents'}
                      and $element->{'contents'}->[0]->{'contents'}
              and $element->{'contents'}->[0]->{'contents'}->[0]->{'type'}
@@ -355,10 +355,10 @@ Texinfo::Convert::NodeNameNormalization - Normalize and transliterate Texinfo tr
   use Texinfo::Convert::NodeNameNormalization qw(convert_to_identifier
                                         normalize_transliterate_texinfo);
 
-  my $normalized = convert_to_identifier($node_element->{'args'}->[0]);
+  my $normalized = convert_to_identifier($node_element->{'contents'}->[0]);
 
   my $file_name
-    = normalize_transliterate_texinfo($section_element->{'args'}->[0]);
+    = normalize_transliterate_texinfo($section_element->{'contents'}->[0]);
 
 =head1 NOTES
 

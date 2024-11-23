@@ -272,7 +272,8 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -288,7 +289,6 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'deffn'
                   },
@@ -312,7 +312,8 @@ $result_trees{'defx_after_preformatted_with_text'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -328,7 +329,6 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

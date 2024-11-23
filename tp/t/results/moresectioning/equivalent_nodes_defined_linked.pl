@@ -146,7 +146,8 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -162,7 +163,6 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -282,7 +282,8 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -298,7 +299,6 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -331,7 +331,8 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -347,7 +348,6 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => 'Figure'
           },

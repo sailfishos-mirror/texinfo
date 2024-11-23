@@ -10,7 +10,8 @@ $result_trees{'settitle_and_empty_top'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'settitle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'settitle_and_empty_top'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'settitle',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

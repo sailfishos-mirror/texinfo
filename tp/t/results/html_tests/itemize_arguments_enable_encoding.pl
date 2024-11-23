@@ -69,7 +69,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -85,7 +86,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -160,7 +160,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -176,7 +177,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -283,7 +283,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -299,7 +300,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -374,7 +374,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -390,7 +391,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -465,7 +465,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -481,7 +482,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -556,7 +556,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -572,7 +573,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -664,7 +664,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -680,7 +681,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -834,7 +834,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -850,7 +851,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -947,7 +947,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -963,7 +964,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -1066,7 +1066,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1082,7 +1083,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -1160,7 +1160,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1176,7 +1177,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -1279,7 +1279,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1295,7 +1296,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -1376,7 +1376,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1392,7 +1393,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -1473,7 +1473,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1489,7 +1490,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -1570,7 +1570,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1586,7 +1587,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -1678,7 +1678,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1694,7 +1695,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -1781,7 +1781,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1797,7 +1798,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -1897,7 +1897,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1913,7 +1914,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -2010,7 +2010,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2026,7 +2027,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -2129,7 +2129,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2145,7 +2146,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -2242,7 +2242,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2258,7 +2259,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -2361,7 +2361,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2377,7 +2378,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -2548,7 +2548,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2564,7 +2565,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -2735,7 +2735,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2751,7 +2752,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -3050,7 +3050,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3066,7 +3067,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -3365,7 +3365,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3381,7 +3382,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -3662,7 +3662,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3678,7 +3679,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -3770,7 +3770,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3786,7 +3787,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -3892,7 +3892,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3908,7 +3909,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -4017,7 +4017,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4033,7 +4034,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -4062,13 +4062,13 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'clickstyle',
+          'contents' => [
             {
               'text' => '@result',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clickstyle',
           'extra' => {},
           'info' => {
             'arg_line' => ' @result
@@ -4158,7 +4158,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4174,7 +4175,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -4283,7 +4283,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4299,7 +4300,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -4396,7 +4396,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4412,7 +4413,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -4515,7 +4515,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4531,7 +4532,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -4560,7 +4560,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -4576,7 +4577,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'fr'
           },
@@ -4658,7 +4658,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4674,7 +4675,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -4777,7 +4777,8 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -4793,7 +4794,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },

@@ -108,7 +108,8 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -124,7 +125,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'copying'
                   },
@@ -222,14 +222,14 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'line_nr' => 14
@@ -241,14 +241,14 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'line_nr' => 16

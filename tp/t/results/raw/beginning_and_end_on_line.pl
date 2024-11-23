@@ -36,7 +36,8 @@ $result_trees{'beginning_and_end_on_line'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -52,7 +53,6 @@ $result_trees{'beginning_and_end_on_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'tex'
               },
@@ -102,7 +102,8 @@ $result_trees{'beginning_and_end_on_line'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -118,7 +119,6 @@ $result_trees{'beginning_and_end_on_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },
@@ -168,7 +168,8 @@ $result_trees{'beginning_and_end_on_line'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -184,7 +185,6 @@ $result_trees{'beginning_and_end_on_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'html'
               },

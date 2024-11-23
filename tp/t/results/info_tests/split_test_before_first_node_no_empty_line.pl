@@ -12,7 +12,8 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'split_test_before_first_node_no_empty_line.info'
               },
@@ -202,7 +202,8 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -218,7 +219,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

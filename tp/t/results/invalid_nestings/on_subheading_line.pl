@@ -10,7 +10,8 @@ $result_trees{'on_subheading_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'subheading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -92,7 +93,8 @@ $result_trees{'on_subheading_line'} = {
                   'text' => ' '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'exdent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -108,7 +110,6 @@ $result_trees{'on_subheading_line'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'exdent',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -122,7 +123,6 @@ $result_trees{'on_subheading_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'subheading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {

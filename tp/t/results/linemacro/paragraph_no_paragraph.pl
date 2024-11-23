@@ -39,7 +39,8 @@ $result_trees{'paragraph_no_paragraph'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -55,7 +56,6 @@ $result_trees{'paragraph_no_paragraph'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'linemacro'
               },

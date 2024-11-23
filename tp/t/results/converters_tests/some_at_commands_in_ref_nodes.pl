@@ -360,7 +360,8 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -376,7 +377,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

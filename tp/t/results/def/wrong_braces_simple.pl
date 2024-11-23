@@ -134,7 +134,8 @@ $result_trees{'wrong_braces_simple'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -150,7 +151,6 @@ $result_trees{'wrong_braces_simple'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },
@@ -320,7 +320,8 @@ $result_trees{'wrong_braces_simple'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -336,7 +337,6 @@ $result_trees{'wrong_braces_simple'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },
@@ -504,7 +504,8 @@ $result_trees{'wrong_braces_simple'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -520,7 +521,6 @@ $result_trees{'wrong_braces_simple'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },
@@ -696,7 +696,8 @@ $result_trees{'wrong_braces_simple'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -712,7 +713,6 @@ $result_trees{'wrong_braces_simple'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },
@@ -1424,7 +1424,8 @@ $result_trees{'wrong_braces_simple'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1440,7 +1441,6 @@ $result_trees{'wrong_braces_simple'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },

@@ -48,7 +48,8 @@ $result_trees{'ifnot_format_conditional'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -64,7 +65,6 @@ $result_trees{'ifnot_format_conditional'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifnottex'
                     },

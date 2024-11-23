@@ -22,7 +22,8 @@ $result_trees{'indices'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'set',
+              'contents' => [
                 {
                   'text' => 'txiindexbackslashignore',
                   'type' => 'rawline_arg'
@@ -32,7 +33,6 @@ $result_trees{'indices'} = {
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'set',
               'info' => {
                 'arg_line' => ' txiindexbackslashignore
 '
@@ -188,7 +188,8 @@ $result_trees{'indices'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -236,7 +237,6 @@ $result_trees{'indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -257,7 +257,8 @@ $result_trees{'indices'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -273,7 +274,6 @@ $result_trees{'indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -294,7 +294,8 @@ $result_trees{'indices'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -310,7 +311,6 @@ $result_trees{'indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -331,7 +331,8 @@ $result_trees{'indices'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -347,7 +348,6 @@ $result_trees{'indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -368,7 +368,8 @@ $result_trees{'indices'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -384,7 +385,6 @@ $result_trees{'indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -405,7 +405,8 @@ $result_trees{'indices'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -434,7 +435,6 @@ $result_trees{'indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -460,7 +460,8 @@ $result_trees{'indices'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -538,7 +539,6 @@ $result_trees{'indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -626,7 +626,8 @@ $result_trees{'indices'} = {
               }
             },
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -739,7 +740,6 @@ $result_trees{'indices'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'sortas' => 'a!"@b',
                 'subentry_level' => 1,
@@ -768,7 +768,8 @@ $result_trees{'indices'} = {
         },
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -784,7 +785,6 @@ $result_trees{'indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -805,7 +805,8 @@ $result_trees{'indices'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -841,7 +842,6 @@ $result_trees{'indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -868,13 +868,13 @@ $result_trees{'indices'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'clear',
+          'contents' => [
             {
               'text' => 'txiindexbackslashignore',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clear',
           'info' => {
             'arg_line' => ' txiindexbackslashignore
 '
@@ -886,7 +886,8 @@ $result_trees{'indices'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -911,14 +912,14 @@ $result_trees{'indices'} = {
               ],
               'info' => {
                 'comment_at_end' => {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' comment
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 },
                 'spaces_after_argument' => {
                   'text' => ' '
@@ -927,7 +928,6 @@ $result_trees{'indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -952,7 +952,8 @@ $result_trees{'indices'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'findex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1003,7 +1004,6 @@ $result_trees{'indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1028,7 +1028,8 @@ $result_trees{'indices'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1044,7 +1045,6 @@ $result_trees{'indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -1065,7 +1065,8 @@ $result_trees{'indices'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1081,7 +1082,6 @@ $result_trees{'indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'
@@ -1119,7 +1119,7 @@ $result_trees{'indices'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} 
 $result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'indices'}{'contents'}[3];
 $result_trees{'indices'}{'contents'}[4]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'indices'}{'contents'}[3];
 $result_trees{'indices'}{'contents'}[4]{'contents'}[9]{'extra'}{'element_node'} = $result_trees{'indices'}{'contents'}[3];
-$result_trees{'indices'}{'contents'}[4]{'contents'}[9]{'extra'}{'subentry'}{'args'}[0]{'contents'}[11] = $result_trees{'indices'}{'contents'}[4]{'contents'}[9]{'extra'}{'seealso'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[9]{'extra'}{'subentry'}{'contents'}[0]{'contents'}[11] = $result_trees{'indices'}{'contents'}[4]{'contents'}[9]{'extra'}{'seealso'};
 $result_trees{'indices'}{'contents'}[4]{'contents'}[9]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[9];
 $result_trees{'indices'}{'contents'}[4]{'contents'}[10] = $result_trees{'indices'}{'contents'}[4]{'contents'}[9]{'extra'}{'subentry'};
 $result_trees{'indices'}{'contents'}[4]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'indices'}{'contents'}[3];

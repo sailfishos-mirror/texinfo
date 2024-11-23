@@ -12,7 +12,8 @@ $result_trees{'non_break_spaces'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'non_break_spaces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'utf-8',
                 'text_arg' => 'utf-8'

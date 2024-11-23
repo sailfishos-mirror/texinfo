@@ -154,7 +154,8 @@ $result_trees{'double_seeentry_seealso'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -210,7 +211,6 @@ $result_trees{'double_seeentry_seealso'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -231,7 +231,8 @@ $result_trees{'double_seeentry_seealso'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -287,7 +288,6 @@ $result_trees{'double_seeentry_seealso'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -308,7 +308,8 @@ $result_trees{'double_seeentry_seealso'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -364,7 +365,6 @@ $result_trees{'double_seeentry_seealso'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -386,7 +386,8 @@ $result_trees{'double_seeentry_seealso'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -414,7 +415,6 @@ $result_trees{'double_seeentry_seealso'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -439,7 +439,8 @@ $result_trees{'double_seeentry_seealso'} = {
               }
             },
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -460,7 +461,6 @@ $result_trees{'double_seeentry_seealso'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -493,7 +493,8 @@ $result_trees{'double_seeentry_seealso'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -509,7 +510,6 @@ $result_trees{'double_seeentry_seealso'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -541,15 +541,15 @@ $result_trees{'double_seeentry_seealso'} = {
   'type' => 'document_root'
 };
 $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'double_seeentry_seealso'}{'contents'}[3];
-$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[2]{'extra'}{'seeentry'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[4];
+$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[2]{'extra'}{'seeentry'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[4];
 $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'double_seeentry_seealso'}{'contents'}[3];
-$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'extra'}{'seealso'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[4];
+$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'extra'}{'seealso'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[4];
 $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'double_seeentry_seealso'}{'contents'}[3];
-$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'seealso'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[4];
-$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'seeentry'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[2];
+$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'seealso'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[4];
+$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'extra'}{'seeentry'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[2];
 $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'double_seeentry_seealso'}{'contents'}[3];
-$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'extra'}{'seealso'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2] = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'extra'}{'seeentry'};
+$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'extra'}{'seealso'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[0];
+$result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'}{'contents'}[0]{'contents'}[2] = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'extra'}{'seeentry'};
 $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[5];
 $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[6] = $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'};
 

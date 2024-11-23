@@ -94,7 +94,8 @@ $result_trees{'tab_in_index'} = {
 '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'vindex',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -117,7 +118,6 @@ $result_trees{'tab_in_index'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'vindex',
                               'extra' => {
                                 'index_entry' => [
                                   'vr',
@@ -156,7 +156,8 @@ $result_trees{'tab_in_index'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -172,7 +173,6 @@ $result_trees{'tab_in_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

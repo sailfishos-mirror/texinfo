@@ -27,14 +27,14 @@ $result_trees{'page_in_example'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'page',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'page'
+              ]
             },
             {
               'contents' => [
@@ -46,7 +46,8 @@ $result_trees{'page_in_example'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -62,7 +63,6 @@ $result_trees{'page_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

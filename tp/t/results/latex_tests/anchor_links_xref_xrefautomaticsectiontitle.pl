@@ -391,7 +391,8 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'xrefautomaticsectiontitle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -407,7 +408,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'xrefautomaticsectiontitle',
           'extra' => {
             'misc_args' => [
               'on'
@@ -545,7 +545,8 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'xrefautomaticsectiontitle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -561,7 +562,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'xrefautomaticsectiontitle',
           'extra' => {
             'misc_args' => [
               'off'

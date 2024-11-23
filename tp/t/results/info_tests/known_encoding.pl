@@ -15,7 +15,8 @@ $result_trees{'known_encoding'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -31,7 +32,6 @@ $result_trees{'known_encoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'iso-8859-1',
             'text_arg' => 'latin1'

@@ -49,7 +49,8 @@ $result_trees{'formats_only_titles'} = {
               'type' => 'before_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -65,7 +66,6 @@ $result_trees{'formats_only_titles'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -123,7 +123,8 @@ $result_trees{'formats_only_titles'} = {
               'type' => 'before_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -139,7 +140,6 @@ $result_trees{'formats_only_titles'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -205,7 +205,8 @@ $result_trees{'formats_only_titles'} = {
               'type' => 'before_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -221,7 +222,6 @@ $result_trees{'formats_only_titles'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -292,7 +292,8 @@ $result_trees{'formats_only_titles'} = {
               'type' => 'before_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -308,7 +309,6 @@ $result_trees{'formats_only_titles'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -347,7 +347,8 @@ $result_trees{'formats_only_titles'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -363,7 +364,6 @@ $result_trees{'formats_only_titles'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'extra' => {
                         'misc_args' => [
                           '0.5',
@@ -400,7 +400,8 @@ $result_trees{'formats_only_titles'} = {
               'type' => 'before_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -416,7 +417,6 @@ $result_trees{'formats_only_titles'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

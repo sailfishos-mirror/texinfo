@@ -613,8 +613,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                   && !format_expanded_p (text_options->expanded_formats,
                                     builtin_command_name (data_cmd)))))
        /* here ignore most of the line commands */
-      || ((builtin_command_data[data_cmd].flags & CF_line
-           || element->type == ET_index_entry_command)
+      || element->type == ET_index_entry_command
+      || (builtin_command_data[data_cmd].flags & CF_line
           && !(builtin_command_data[data_cmd].other_flags
                                              & CF_formatted_line)
           && !(builtin_command_data[data_cmd].flags & CF_def)
@@ -866,88 +866,43 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                || data_cmd == CM_float
                || data_cmd == CM_cartouche)
         {
-          if (element->e.c->args.number > 0)
-            {
-              size_t i;
-              TEXT args_line;
-              text_init (&args_line);
-              for (i = 0; i < element->e.c->args.number; i++)
-                {
-                  const ELEMENT *arg = element->e.c->args.list[i];
-                  TEXT converted_arg;
-                  text_init (&converted_arg);
-                  convert_to_text_internal (arg, text_options, &converted_arg);
-                  if (converted_arg.end > 0)
-                    {
-                      int spaces_nr
-                        = strspn (converted_arg.text, whitespace_chars);
-                      if (converted_arg.text[spaces_nr])
-                        {
-                          if (args_line.end > 0 && i > 0)
-                            text_append (&args_line, ", ");
-                          text_append (&args_line, converted_arg.text);
-                        }
-                      free (converted_arg.text);
-                    }
-                }
-              /* remain 0, args_line.space 0 if all args are empty */
-              if (args_line.text)
-                {
-                  size_t spaces_nr;
-                  if (args_line.end > 0
-                      && args_line.text[args_line.end - 1] == '\n')
-                  args_line.text[--args_line.end] = '\0';
+          size_t i;
+          TEXT args_line;
+          ELEMENT *argument = element->e.c->contents.list[0];
 
-                  spaces_nr = strspn (args_line.text, whitespace_chars);
-                  if (args_line.text[spaces_nr] != '\0')
-                    text_append (&args_line, "\n");
-                  ADD(args_line.text);
-                  free (args_line.text);
+          text_init (&args_line);
+          for (i = 0; i < argument->e.c->contents.number; i++)
+            {
+              const ELEMENT *arg = argument->e.c->contents.list[i];
+              TEXT converted_arg;
+              text_init (&converted_arg);
+              convert_to_text_internal (arg, text_options, &converted_arg);
+              if (converted_arg.end > 0)
+                {
+                  int spaces_nr
+                    = strspn (converted_arg.text, whitespace_chars);
+                  if (converted_arg.text[spaces_nr])
+                    {
+                      if (args_line.end > 0 && i > 0)
+                        text_append (&args_line, ", ");
+                      text_append (&args_line, converted_arg.text);
+                    }
+                  free (converted_arg.text);
                 }
             }
-          else if (element->e.c->contents.number > 0
-                   /* FIXME useful? */
-                   && element->e.c->contents.list[0]->type == ET_argument
-                   && element->e.c->contents.list[0]->e.c->contents.number > 0)
+          /* remain 0, args_line.space 0 if all args are empty */
+          if (args_line.text)
             {
-              size_t i;
-              TEXT args_line;
-              ELEMENT *argument = element->e.c->contents.list[0];
+              size_t spaces_nr;
+              if (args_line.end > 0
+                  && args_line.text[args_line.end - 1] == '\n')
+              args_line.text[--args_line.end] = '\0';
 
-              text_init (&args_line);
-              for (i = 0; i < argument->e.c->contents.number; i++)
-                {
-                  const ELEMENT *arg = argument->e.c->contents.list[i];
-                  TEXT converted_arg;
-                  text_init (&converted_arg);
-                  convert_to_text_internal (arg, text_options, &converted_arg);
-                  if (converted_arg.end > 0)
-                    {
-                      int spaces_nr
-                        = strspn (converted_arg.text, whitespace_chars);
-                      if (converted_arg.text[spaces_nr])
-                        {
-                          if (args_line.end > 0 && i > 0)
-                            text_append (&args_line, ", ");
-                          text_append (&args_line, converted_arg.text);
-                        }
-                      free (converted_arg.text);
-                    }
-                }
-              /* remain 0, args_line.space 0 if all args are empty */
-              if (args_line.text)
-                {
-                  size_t spaces_nr;
-                  if (args_line.end > 0
-                      && args_line.text[args_line.end - 1] == '\n')
-                  args_line.text[--args_line.end] = '\0';
-
-                  spaces_nr = strspn (args_line.text, whitespace_chars);
-                  if (args_line.text[spaces_nr] != '\0')
-                    text_append (&args_line, "\n");
-                  ADD(args_line.text);
-                  free (args_line.text);
-                }
+              spaces_nr = strspn (args_line.text, whitespace_chars);
+              if (args_line.text[spaces_nr] != '\0')
+                text_append (&args_line, "\n");
+              ADD(args_line.text);
+              free (args_line.text);
             }
         }
       else if (builtin_command_data[data_cmd].flags & CF_sectioning_heading)
@@ -962,7 +917,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           if (builtin_command_data[data_cmd].flags & CF_root)
             line_arg = element->e.c->contents.list[0]->e.c->contents.list[0];
           else
-            line_arg = element->e.c->args.list[0];
+            line_arg = element->e.c->contents.list[0];
 
           convert_to_text_internal (line_arg, text_options, &text);
           heading
@@ -972,7 +927,10 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           ADD(heading);
           free (heading);
           free (text.text);
+          if (!(builtin_command_data[data_cmd].flags & CF_root))
+            return;
         }
+      /* TODO check if different from Perl and use similar code if not */
       else if (builtin_command_data[data_cmd].other_flags & CF_formatted_line)
         {
           if (data_cmd != CM_node)
@@ -981,12 +939,13 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               text_init (&text);
               text_append (&text, "");
               if (data_cmd != CM_page)
-                convert_to_text_internal (element->e.c->args.list[0],
+                convert_to_text_internal (element->e.c->contents.list[0],
                                           text_options, &text);
               if (!(text.end > 0 && text.text[text.end - 1] == '\n'))
                 text_append (&text, "\n");
               ADD(text.text);
               free (text.text);
+              return;
             }
         }
       else if (builtin_command_data[data_cmd].flags & CF_line
@@ -1009,6 +968,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                 for (i = 0; i < sp_nr; i++)
                   ADD("\n");
             }
+          return;
         }
       else if (data_cmd == CM_verbatiminclude)
         {
@@ -1040,6 +1000,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                                         text_options, result);
               destroy_element_and_children (verbatim_include_verbatim);
             }
+          return;
         }
       else if (element->e.c->cmd == CM_item
                && element->parent->e.c->cmd == CM_enumerate)

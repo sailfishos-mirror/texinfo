@@ -336,7 +336,8 @@ $result_trees{'transliterated_names_conflicts'} = [
                 'type' => 'paragraph'
               },
               {
-                'args' => [
+                'cmdname' => 'end',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -352,7 +353,6 @@ $result_trees{'transliterated_names_conflicts'} = [
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'end',
                 'extra' => {
                   'text_arg' => 'float'
                 },
@@ -403,14 +403,14 @@ $result_trees{'transliterated_names_conflicts'} = [
         }
       },
       {
-        'args' => [
+        'cmdname' => 'bye',
+        'contents' => [
           {
             'text' => '
 ',
             'type' => 'rawline_arg'
           }
-        ],
-        'cmdname' => 'bye'
+        ]
       }
     ],
     'unit_type' => 'unit'

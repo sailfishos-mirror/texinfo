@@ -10,7 +10,8 @@ $result_trees{'command_in_heading_footing'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'everyheading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -35,7 +36,6 @@ $result_trees{'command_in_heading_footing'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'everyheading',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

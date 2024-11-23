@@ -184,7 +184,8 @@ $result_trees{'menu'} = {
                           }
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -200,7 +201,6 @@ $result_trees{'menu'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'itemize'
                           },
@@ -250,7 +250,8 @@ $result_trees{'menu'} = {
                               'type' => 'rawpreformatted'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -266,7 +267,6 @@ $result_trees{'menu'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'html'
                               },
@@ -371,7 +371,8 @@ $result_trees{'menu'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -387,7 +388,6 @@ $result_trees{'menu'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'itemize'
                       },
@@ -442,7 +442,8 @@ $result_trees{'menu'} = {
                           'type' => 'rawpreformatted'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -458,7 +459,6 @@ $result_trees{'menu'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'html'
                           },
@@ -543,7 +543,8 @@ $result_trees{'menu'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -559,7 +560,6 @@ $result_trees{'menu'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'itemize'
                       },
@@ -888,7 +888,8 @@ $result_trees{'menu'} = {
                               }
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -904,7 +905,6 @@ $result_trees{'menu'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'itemize'
                               },
@@ -954,7 +954,8 @@ $result_trees{'menu'} = {
                                   'type' => 'rawpreformatted'
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'end',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -970,7 +971,6 @@ $result_trees{'menu'} = {
                                       'type' => 'line_arg'
                                     }
                                   ],
-                                  'cmdname' => 'end',
                                   'extra' => {
                                     'text_arg' => 'html'
                                   },
@@ -1075,7 +1075,8 @@ $result_trees{'menu'} = {
                           }
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1091,7 +1092,6 @@ $result_trees{'menu'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'itemize'
                           },
@@ -1146,7 +1146,8 @@ $result_trees{'menu'} = {
                               'type' => 'rawpreformatted'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1162,7 +1163,6 @@ $result_trees{'menu'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'html'
                               },
@@ -1247,7 +1247,8 @@ $result_trees{'menu'} = {
                           }
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1263,7 +1264,6 @@ $result_trees{'menu'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'itemize'
                           },
@@ -1484,7 +1484,8 @@ $result_trees{'menu'} = {
                   'type' => 'menu_comment'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1500,7 +1501,6 @@ $result_trees{'menu'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'detailmenu'
                   },
@@ -1520,7 +1520,8 @@ $result_trees{'menu'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1536,7 +1537,6 @@ $result_trees{'menu'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

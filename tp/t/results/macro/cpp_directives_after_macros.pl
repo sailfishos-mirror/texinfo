@@ -39,7 +39,8 @@ $result_trees{'cpp_directives_after_macros'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -55,7 +56,6 @@ $result_trees{'cpp_directives_after_macros'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'macro'
                   },
@@ -102,7 +102,8 @@ $result_trees{'cpp_directives_after_macros'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -118,7 +119,6 @@ $result_trees{'cpp_directives_after_macros'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'macro'
                   },

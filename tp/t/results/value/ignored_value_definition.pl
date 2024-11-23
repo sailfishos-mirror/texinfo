@@ -10,7 +10,8 @@ $result_trees{'ignored_value_definition'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'aa',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'ignored_value_definition'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' aa outside
 '

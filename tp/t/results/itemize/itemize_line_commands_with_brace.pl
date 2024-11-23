@@ -64,7 +64,8 @@ $result_trees{'itemize_line_commands_with_brace'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -80,7 +81,6 @@ $result_trees{'itemize_line_commands_with_brace'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -166,7 +166,8 @@ $result_trees{'itemize_line_commands_with_brace'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -182,7 +183,6 @@ $result_trees{'itemize_line_commands_with_brace'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },

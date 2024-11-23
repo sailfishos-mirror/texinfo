@@ -74,7 +74,8 @@ $result_trees{'empty_cindex_entry'} = {
           'type' => 'argument'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'info' => {
                 'spaces_after_argument' => {
@@ -85,7 +86,6 @@ $result_trees{'empty_cindex_entry'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'info' => {
             'command_name' => 'cindex'
           },

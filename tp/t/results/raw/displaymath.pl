@@ -59,7 +59,8 @@ $result_trees{'displaymath'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -75,7 +76,6 @@ $result_trees{'displaymath'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'displaymath'
               },
@@ -157,7 +157,8 @@ $result_trees{'displaymath'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -173,7 +174,6 @@ $result_trees{'displaymath'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'displaymath'
               },

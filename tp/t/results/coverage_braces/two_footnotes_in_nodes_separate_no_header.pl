@@ -12,7 +12,8 @@ $result_trees{'two_footnotes_in_nodes_separate_no_header'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'footnotestyle',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'two_footnotes_in_nodes_separate_no_header'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'footnotestyle',
               'extra' => {
                 'misc_args' => [
                   'separate'
@@ -282,7 +282,8 @@ $result_trees{'two_footnotes_in_nodes_separate_no_header'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -298,7 +299,6 @@ $result_trees{'two_footnotes_in_nodes_separate_no_header'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

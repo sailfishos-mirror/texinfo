@@ -12,7 +12,8 @@ $result_trees{'at_commands_in_refs_utf8'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'at_commands_in_refs_utf8.info'
               },
@@ -42,7 +42,8 @@ $result_trees{'at_commands_in_refs_utf8'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -58,7 +59,6 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'utf-8',
                 'text_arg' => 'utf-8'
@@ -3649,7 +3649,8 @@ $result_trees{'at_commands_in_refs_utf8'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3665,7 +3666,6 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -7764,7 +7764,8 @@ $result_trees{'at_commands_in_refs_utf8'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'end',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -7780,7 +7781,6 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'end',
                 'extra' => {
                   'text_arg' => 'ifnottex'
                 },
@@ -8236,7 +8236,8 @@ $result_trees{'at_commands_in_refs_utf8'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'end',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -8252,7 +8253,6 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'end',
                 'extra' => {
                   'text_arg' => 'ifnottex'
                 },
@@ -8412,7 +8412,8 @@ $result_trees{'at_commands_in_refs_utf8'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'cmdname' => 'end',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -8428,7 +8429,6 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'end',
                 'extra' => {
                   'text_arg' => 'ifnottex'
                 },
@@ -12225,7 +12225,8 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -12241,7 +12242,6 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifnottex'
                     },
@@ -12555,7 +12555,8 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                 {
                   'counter' => 5,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -12571,7 +12572,6 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifnottex'
                     },
@@ -13431,14 +13431,14 @@ $result_trees{'at_commands_in_refs_utf8'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

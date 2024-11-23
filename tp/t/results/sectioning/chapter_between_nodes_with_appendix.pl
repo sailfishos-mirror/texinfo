@@ -179,7 +179,8 @@ $result_trees{'chapter_between_nodes_with_appendix'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -195,7 +196,6 @@ $result_trees{'chapter_between_nodes_with_appendix'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

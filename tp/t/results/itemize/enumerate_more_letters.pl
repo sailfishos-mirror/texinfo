@@ -19280,7 +19280,8 @@ $result_trees{'enumerate_more_letters'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -19296,7 +19297,6 @@ $result_trees{'enumerate_more_letters'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },

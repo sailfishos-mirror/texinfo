@@ -173,7 +173,8 @@ $result_trees{'contents_in_middle_chapter_separate_element'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -189,7 +190,6 @@ $result_trees{'contents_in_middle_chapter_separate_element'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -300,14 +300,14 @@ $result_trees{'contents_in_middle_chapter_separate_element'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'file_name' => 'contents_in_middle_chapter.texi',
@@ -384,7 +384,8 @@ $result_trees{'contents_in_middle_chapter_separate_element'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -400,7 +401,6 @@ $result_trees{'contents_in_middle_chapter_separate_element'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -532,14 +532,14 @@ $result_trees{'contents_in_middle_chapter_separate_element'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

@@ -53,14 +53,14 @@ $result_trees{'top_node_and_bye'} = [
         }
       },
       {
-        'args' => [
+        'cmdname' => 'bye',
+        'contents' => [
           {
             'text' => '
 ',
             'type' => 'rawline_arg'
           }
-        ],
-        'cmdname' => 'bye'
+        ]
       }
     ],
     'unit_type' => 'unit'

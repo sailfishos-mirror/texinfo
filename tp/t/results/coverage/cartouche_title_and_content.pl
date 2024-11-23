@@ -61,7 +61,8 @@ $result_trees{'cartouche_title_and_content'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -77,7 +78,6 @@ $result_trees{'cartouche_title_and_content'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'cartouche'
               },

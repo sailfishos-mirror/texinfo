@@ -389,7 +389,7 @@ that it corresponds to @code{OUTPUT_ENCODING_NAME}.
 Split the @emph{$element} contents at @code{@@|} in at max three parts.
 Return an element containing the split parts in contents, or @code{undef} if
 the @emph{$element} has no useful content.  The input @emph{$element}
-is supposed to be @code{$element->@{'args'@}->[0]}
+is supposed to be @code{$element->@{'contents'@}->[0]}
 of @code{%Texinfo::Commands::heading_spec_commands} commands such as @code{@@everyheading}.
 
 @item $status = valid_customization_option($name)

@@ -15,7 +15,8 @@ $result_trees{'node_on_index_entry_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -30,7 +31,6 @@ $result_trees{'node_on_index_entry_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',

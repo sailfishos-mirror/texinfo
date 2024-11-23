@@ -10,7 +10,8 @@ $result_trees{'print_merged_index'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'syncodeindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'print_merged_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'syncodeindex',
           'extra' => {
             'misc_args' => [
               'fn',
@@ -104,7 +104,8 @@ $result_trees{'print_merged_index'} = {
           'type' => 'argument'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -114,7 +115,6 @@ $result_trees{'print_merged_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'

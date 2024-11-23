@@ -22,7 +22,8 @@ $result_trees{'documentation_examples'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'settitle',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -117,7 +118,6 @@ $result_trees{'documentation_examples'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'settitle',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -133,14 +133,14 @@ $result_trees{'documentation_examples'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'contents',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'contents',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 4
@@ -710,7 +710,8 @@ $result_trees{'documentation_examples'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -726,7 +727,6 @@ $result_trees{'documentation_examples'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'example'
                   },
@@ -745,7 +745,8 @@ $result_trees{'documentation_examples'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -761,7 +762,6 @@ $result_trees{'documentation_examples'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'indentedblock'
               },
@@ -833,7 +833,8 @@ $result_trees{'documentation_examples'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -849,7 +850,6 @@ $result_trees{'documentation_examples'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'display'
               },
@@ -963,7 +963,8 @@ $result_trees{'documentation_examples'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -979,7 +980,6 @@ $result_trees{'documentation_examples'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'displaymath'
               },
@@ -1003,7 +1003,8 @@ $result_trees{'documentation_examples'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1032,7 +1033,6 @@ $result_trees{'documentation_examples'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1052,7 +1052,8 @@ $result_trees{'documentation_examples'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1068,7 +1069,6 @@ $result_trees{'documentation_examples'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1093,7 +1093,8 @@ $result_trees{'documentation_examples'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'vindex',
+          'contents' => [
             {
               'info' => {
                 'spaces_after_argument' => {
@@ -1104,7 +1105,6 @@ $result_trees{'documentation_examples'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'vindex',
           'info' => {
             'command_name' => 'vindex'
           },
@@ -1119,7 +1119,8 @@ $result_trees{'documentation_examples'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1135,7 +1136,6 @@ $result_trees{'documentation_examples'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'fr'
           },
@@ -1204,14 +1204,14 @@ $result_trees{'documentation_examples'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 47
@@ -1299,7 +1299,8 @@ $result_trees{'documentation_examples'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1315,7 +1316,6 @@ $result_trees{'documentation_examples'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'pl'
           },
@@ -1461,7 +1461,8 @@ $result_trees{'documentation_examples'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1477,7 +1478,6 @@ $result_trees{'documentation_examples'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

@@ -10,14 +10,14 @@ $result_trees{'loweredheading'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'lowersections',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'lowersections'
+          ]
         }
       ],
       'type' => 'before_node_section'
@@ -45,7 +45,8 @@ $result_trees{'loweredheading'} = {
           'type' => 'argument'
         },
         {
-          'args' => [
+          'cmdname' => 'heading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -61,7 +62,6 @@ $result_trees{'loweredheading'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'heading',
           'extra' => {
             'level_modifier' => -1
           },
@@ -89,14 +89,14 @@ $result_trees{'loweredheading'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

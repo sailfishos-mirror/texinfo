@@ -27,7 +27,8 @@ $result_trees{'manual_simple_latin1_with_error'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'manual_simple_latin1_with_error'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'iso-8859-1',
                 'text_arg' => 'iso-8859-1'

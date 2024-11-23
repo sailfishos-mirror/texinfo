@@ -10,7 +10,8 @@ $result_trees{'recursive_expansion_in_set'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'V',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'recursive_expansion_in_set'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' V @value{V}
 '

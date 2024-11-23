@@ -32,7 +32,8 @@ $result_trees{'index_no_node'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'index_no_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'index_no_node'
               },
@@ -71,7 +71,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'preamble_before_content'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -87,7 +88,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -116,7 +116,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -132,7 +133,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -184,7 +184,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'argument'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -200,7 +201,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {
@@ -218,7 +218,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -234,7 +235,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -260,7 +260,8 @@ $result_trees{'index_no_node'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -276,7 +277,6 @@ $result_trees{'index_no_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'index_entry' => [
                   'cp',
@@ -304,7 +304,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -320,7 +321,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -381,7 +381,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -397,7 +398,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -417,7 +417,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -433,7 +434,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -453,7 +453,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -469,7 +470,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -489,7 +489,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -505,7 +506,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -525,7 +525,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -541,7 +542,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -561,7 +561,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -577,7 +578,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -611,7 +611,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -627,7 +628,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -649,7 +649,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -665,7 +666,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -734,7 +734,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -750,7 +751,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -767,7 +767,8 @@ $result_trees{'index_no_node'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -783,7 +784,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -809,7 +809,8 @@ $result_trees{'index_no_node'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -825,7 +826,6 @@ $result_trees{'index_no_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'index_entry' => [
                   'cp',
@@ -853,7 +853,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -869,7 +870,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -920,7 +920,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'argument'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -936,7 +937,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -961,7 +961,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -977,7 +978,6 @@ $result_trees{'index_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -1000,7 +1000,8 @@ $result_trees{'index_no_node'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1016,7 +1017,6 @@ $result_trees{'index_no_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'index_entry' => [
                   'cp',
@@ -1113,14 +1113,14 @@ $result_trees{'index_no_node'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

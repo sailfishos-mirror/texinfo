@@ -177,7 +177,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -193,7 +194,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -221,7 +221,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -237,7 +238,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -265,7 +265,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -281,7 +282,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -305,7 +305,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -321,7 +322,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -382,7 +382,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -398,7 +399,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -416,7 +416,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -432,7 +433,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -456,7 +456,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -472,7 +473,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -533,7 +533,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -549,7 +550,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -567,7 +567,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -583,7 +584,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -607,7 +607,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -623,7 +624,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -684,7 +684,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -700,7 +701,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -718,7 +718,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -734,7 +735,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -758,7 +758,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -774,7 +775,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -835,7 +835,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -851,7 +852,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -879,7 +879,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -911,7 +912,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -935,7 +935,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -951,7 +952,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -1012,7 +1012,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1028,7 +1029,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -1046,7 +1046,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1062,7 +1063,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -1086,7 +1086,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1102,7 +1103,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -1163,7 +1163,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1179,7 +1180,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -1197,7 +1197,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1213,7 +1214,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -1237,7 +1237,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1253,7 +1254,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -1362,7 +1362,8 @@ $result_trees{'various_vtable_command_as_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1378,7 +1379,6 @@ $result_trees{'various_vtable_command_as_argument'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'vr'

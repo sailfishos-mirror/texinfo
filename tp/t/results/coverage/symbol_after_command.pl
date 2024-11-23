@@ -39,7 +39,8 @@ $result_trees{'symbol_after_command'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -55,7 +56,6 @@ $result_trees{'symbol_after_command'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'source_info' => {
                         'line_nr' => 2
                       }
@@ -71,7 +71,8 @@ $result_trees{'symbol_after_command'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -87,7 +88,6 @@ $result_trees{'symbol_after_command'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'source_info' => {
                         'line_nr' => 3
                       }
@@ -103,7 +103,8 @@ $result_trees{'symbol_after_command'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -125,7 +126,6 @@ $result_trees{'symbol_after_command'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'source_info' => {
                         'line_nr' => 4
                       }
@@ -141,7 +141,8 @@ $result_trees{'symbol_after_command'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -163,7 +164,6 @@ $result_trees{'symbol_after_command'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'source_info' => {
                         'line_nr' => 5
                       }
@@ -179,7 +179,8 @@ $result_trees{'symbol_after_command'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -195,7 +196,6 @@ $result_trees{'symbol_after_command'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'source_info' => {
                         'line_nr' => 6
                       }
@@ -211,7 +211,8 @@ $result_trees{'symbol_after_command'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -227,7 +228,6 @@ $result_trees{'symbol_after_command'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'source_info' => {
                         'line_nr' => 7
                       }
@@ -243,7 +243,8 @@ $result_trees{'symbol_after_command'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -259,7 +260,6 @@ $result_trees{'symbol_after_command'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'source_info' => {
                         'line_nr' => 8
                       }
@@ -271,7 +271,8 @@ $result_trees{'symbol_after_command'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -287,7 +288,6 @@ $result_trees{'symbol_after_command'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },

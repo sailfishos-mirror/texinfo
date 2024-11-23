@@ -10,7 +10,8 @@ $result_trees{'definfoenclose_no_braces'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'definfoenclose_no_braces'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'phoo',

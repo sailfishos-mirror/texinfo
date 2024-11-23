@@ -22,14 +22,14 @@ $result_trees{'sample_utf8'} = {
               'type' => 'preamble_before_beginning'
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' %**start of header
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             }
           ],
           'type' => 'preamble_before_setfilename'
@@ -37,7 +37,8 @@ $result_trees{'sample_utf8'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -53,7 +54,6 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'sample_utf8.info'
               },
@@ -68,7 +68,8 @@ $result_trees{'sample_utf8'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'settitle',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -84,7 +85,6 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'settitle',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -96,7 +96,8 @@ $result_trees{'sample_utf8'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -112,7 +113,6 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'utf-8',
                 'text_arg' => 'UTF-8'
@@ -128,14 +128,14 @@ $result_trees{'sample_utf8'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' %**end of header
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             },
             {
               'text' => '
@@ -187,7 +187,8 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -203,7 +204,6 @@ $result_trees{'sample_utf8'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'copying'
                   },
@@ -246,7 +246,8 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'argument'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'title',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -262,7 +263,6 @@ $result_trees{'sample_utf8'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'title',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -274,14 +274,14 @@ $result_trees{'sample_utf8'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'page',
+                  'contents' => [
                     {
                       'text' => '
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'page'
+                  ]
                 },
                 {
                   'contents' => [
@@ -290,27 +290,27 @@ $result_trees{'sample_utf8'} = {
 "
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'vskip',
+                      'contents' => [
                         {
                           'text' => ' 0pt plus 1filll
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'vskip'
+                      ]
                     }
                   ],
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'insertcopying',
+                  'contents' => [
                     {
                       'text' => '
 ',
                       'type' => 'rawline_arg'
                     }
                   ],
-                  'cmdname' => 'insertcopying',
                   'extra' => {},
                   'source_info' => {
                     'file_name' => 'sample_utf8.texi',
@@ -318,7 +318,8 @@ $result_trees{'sample_utf8'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -334,7 +335,6 @@ $result_trees{'sample_utf8'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'titlepage'
                   },
@@ -360,24 +360,24 @@ $result_trees{'sample_utf8'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' Output the table of the contents at the beginning.
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             },
             {
-              'args' => [
+              'cmdname' => 'contents',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'contents',
               'extra' => {},
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
@@ -491,14 +491,14 @@ $result_trees{'sample_utf8'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'file_name' => 'sample_utf8.texi',
@@ -508,7 +508,8 @@ $result_trees{'sample_utf8'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'end',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -524,7 +525,6 @@ $result_trees{'sample_utf8'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'end',
                 'extra' => {
                   'text_arg' => 'ifnottex'
                 },
@@ -711,7 +711,8 @@ $result_trees{'sample_utf8'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -727,7 +728,6 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -834,7 +834,8 @@ $result_trees{'sample_utf8'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -850,7 +851,6 @@ $result_trees{'sample_utf8'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -882,7 +882,8 @@ $result_trees{'sample_utf8'} = {
 "
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -898,7 +899,6 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'element_node' => {},
                 'index_entry' => [
@@ -919,7 +919,8 @@ $result_trees{'sample_utf8'} = {
               'type' => 'index_entry_command'
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -935,7 +936,6 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'element_node' => {},
                 'index_entry' => [
@@ -956,7 +956,8 @@ $result_trees{'sample_utf8'} = {
               'type' => 'index_entry_command'
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -972,7 +973,6 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'element_node' => {},
                 'index_entry' => [
@@ -1095,7 +1095,8 @@ $result_trees{'sample_utf8'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1111,7 +1112,6 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -1311,7 +1311,8 @@ $result_trees{'sample_utf8'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1327,7 +1328,6 @@ $result_trees{'sample_utf8'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -1361,14 +1361,14 @@ $result_trees{'sample_utf8'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

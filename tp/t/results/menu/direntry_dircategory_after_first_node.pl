@@ -74,7 +74,8 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'dircategory',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -90,7 +91,6 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'dircategory',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -181,7 +181,8 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -197,7 +198,6 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'direntry'
               },

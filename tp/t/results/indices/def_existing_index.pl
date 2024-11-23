@@ -10,7 +10,8 @@ $result_trees{'def_existing_index'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'defcodeindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'def_existing_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defcodeindex',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

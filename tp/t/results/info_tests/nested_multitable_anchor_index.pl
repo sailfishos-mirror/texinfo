@@ -202,7 +202,8 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                               'type' => 'spaces_after_close_brace'
                                             },
                                             {
-                                              'args' => [
+                                              'cmdname' => 'cindex',
+                                              'contents' => [
                                                 {
                                                   'contents' => [
                                                     {
@@ -218,7 +219,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                                   'type' => 'line_arg'
                                                 }
                                               ],
-                                              'cmdname' => 'cindex',
                                               'extra' => {
                                                 'element_node' => {},
                                                 'index_entry' => [
@@ -258,7 +258,8 @@ $result_trees{'nested_multitable_anchor_index'} = {
                               'type' => 'multitable_body'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -274,7 +275,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'multitable'
                               },
@@ -405,7 +405,8 @@ $result_trees{'nested_multitable_anchor_index'} = {
                               'type' => 'spaces_after_close_brace'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'cindex',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -421,7 +422,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'cindex',
                               'extra' => {
                                 'element_node' => {},
                                 'index_entry' => [
@@ -461,7 +461,8 @@ $result_trees{'nested_multitable_anchor_index'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -477,7 +478,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },
@@ -509,7 +509,8 @@ $result_trees{'nested_multitable_anchor_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -525,7 +526,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

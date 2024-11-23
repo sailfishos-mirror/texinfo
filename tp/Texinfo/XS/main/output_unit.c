@@ -634,7 +634,8 @@ units_directions (const LABEL_LIST *identifiers_target,
             }
           else
             {
-              int automatic_directions = (node->e.c->args.number <= 1);
+              const ELEMENT *argument = node->e.c->contents.list[0];
+              int automatic_directions = (argument->e.c->contents.number <= 1);
               const ELEMENT *associated_section = lookup_extra_element (node,
                                                    AI_key_associated_section);
               const CONST_ELEMENT_LIST *section_childs = 0;

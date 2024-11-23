@@ -13,7 +13,8 @@ $result_trees{'vbar_in_index'} = {
           'type' => 'preamble_before_content'
         },
         {
-          'args' => [
+          'cmdname' => 'findex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -29,7 +30,6 @@ $result_trees{'vbar_in_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'findex',
           'extra' => {
             'index_entry' => [
               'fn',
@@ -48,7 +48,8 @@ $result_trees{'vbar_in_index'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -64,7 +65,6 @@ $result_trees{'vbar_in_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',

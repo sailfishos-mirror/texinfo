@@ -140,7 +140,8 @@ $result_trees{'menu_in_example'} = {
                               'type' => 'preformatted'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -156,7 +157,6 @@ $result_trees{'menu_in_example'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'cartouche'
                               },
@@ -222,7 +222,8 @@ $result_trees{'menu_in_example'} = {
                           'type' => 'preformatted'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -238,7 +239,6 @@ $result_trees{'menu_in_example'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'cartouche'
                           },
@@ -408,7 +408,8 @@ $result_trees{'menu_in_example'} = {
                   'type' => 'menu_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -424,7 +425,6 @@ $result_trees{'menu_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'menu'
                   },
@@ -443,7 +443,8 @@ $result_trees{'menu_in_example'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -459,7 +460,6 @@ $result_trees{'menu_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

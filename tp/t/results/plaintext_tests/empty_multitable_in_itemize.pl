@@ -70,7 +70,8 @@ $result_trees{'empty_multitable_in_itemize'} = {
                       'type' => 'argument'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -86,7 +87,6 @@ $result_trees{'empty_multitable_in_itemize'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'multitable'
                       },
@@ -121,7 +121,8 @@ $result_trees{'empty_multitable_in_itemize'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -137,7 +138,6 @@ $result_trees{'empty_multitable_in_itemize'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },

@@ -50,7 +50,8 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
 '
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'cindex',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -66,7 +67,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                                       'type' => 'line_arg'
                                     }
                                   ],
-                                  'cmdname' => 'cindex',
                                   'extra' => {
                                     'element_region' => 'copying',
                                     'index_entry' => [
@@ -121,7 +121,8 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'printindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -137,7 +138,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'printindex',
                   'extra' => {
                     'misc_args' => [
                       'cp'
@@ -158,7 +158,8 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -174,7 +175,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'copying'
                   },
@@ -276,14 +276,14 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'line_nr' => 17
@@ -358,7 +358,8 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -374,7 +375,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -472,14 +472,14 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'line_nr' => 26

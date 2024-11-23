@@ -510,14 +510,14 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               ],
               'info' => {
                 'comment_at_end' => {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' comment
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 },
                 'spaces_after_argument' => {
                   'text' => ' '

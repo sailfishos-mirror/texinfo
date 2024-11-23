@@ -17,7 +17,8 @@ $result_trees{'invalid'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -33,7 +34,6 @@ $result_trees{'invalid'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -50,7 +50,8 @@ $result_trees{'invalid'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -60,7 +61,6 @@ $result_trees{'invalid'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

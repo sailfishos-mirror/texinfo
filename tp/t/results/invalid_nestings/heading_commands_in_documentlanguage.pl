@@ -10,7 +10,8 @@ $result_trees{'heading_commands_in_documentlanguage'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -63,7 +64,6 @@ $result_trees{'heading_commands_in_documentlanguage'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => '    b'
           },

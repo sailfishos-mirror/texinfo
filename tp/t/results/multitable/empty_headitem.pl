@@ -17,7 +17,8 @@ $result_trees{'empty_headitem'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -33,7 +34,6 @@ $result_trees{'empty_headitem'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'extra' => {
                         'misc_args' => [
                           '.1',
@@ -239,7 +239,8 @@ $result_trees{'empty_headitem'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -255,7 +256,6 @@ $result_trees{'empty_headitem'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

@@ -82,7 +82,8 @@ $result_trees{'empty_multitable_with_cells'} = {
               'type' => 'before_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -98,7 +99,6 @@ $result_trees{'empty_multitable_with_cells'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

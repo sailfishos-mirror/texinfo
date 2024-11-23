@@ -597,7 +597,8 @@ $result_trees{'space_and_commands_in_menu_node'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -613,7 +614,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

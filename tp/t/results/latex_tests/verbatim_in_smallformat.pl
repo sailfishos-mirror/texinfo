@@ -52,7 +52,8 @@ $result_trees{'verbatim_in_smallformat'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -68,7 +69,6 @@ $result_trees{'verbatim_in_smallformat'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'verbatim'
                   },
@@ -87,7 +87,8 @@ $result_trees{'verbatim_in_smallformat'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -103,7 +104,6 @@ $result_trees{'verbatim_in_smallformat'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'smallformat'
               },

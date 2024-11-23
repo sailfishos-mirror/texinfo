@@ -39,19 +39,20 @@ $result_trees{'include_in_removed_before_item'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' source mark holder comment
 ',
                           'type' => 'rawline_arg'
                         }
                       ],
-                      'cmdname' => 'c',
                       'source_marks' => [
                         {
                           'counter' => 1,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'include',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -67,7 +68,6 @@ $result_trees{'include_in_removed_before_item'} = {
                                 'type' => 'line_arg'
                               }
                             ],
-                            'cmdname' => 'include',
                             'extra' => {
                               'text_arg' => 'only_comment.texi'
                             },
@@ -86,14 +86,14 @@ $result_trees{'include_in_removed_before_item'} = {
                       ]
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' in here
 ',
                           'type' => 'rawline_arg'
                         }
                       ],
-                      'cmdname' => 'c',
                       'source_marks' => [
                         {
                           'counter' => 1,
@@ -103,7 +103,8 @@ $result_trees{'include_in_removed_before_item'} = {
                       ]
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -119,7 +120,6 @@ $result_trees{'include_in_removed_before_item'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -136,7 +136,8 @@ $result_trees{'include_in_removed_before_item'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -152,7 +153,6 @@ $result_trees{'include_in_removed_before_item'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },

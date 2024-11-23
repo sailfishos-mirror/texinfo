@@ -113,7 +113,7 @@ sub _correct_level($$;$)
       push @{$parent->{'contents'}}, $element;
       my $rawline_arg = {'type' => 'rawline_arg', 'text' => "\n",
                          'parent' => $element};
-      push @{$element->{'args'}}, $rawline_arg;
+      push @{$element->{'contents'}}, $rawline_arg;
       $remaining_level--;
     }
   }

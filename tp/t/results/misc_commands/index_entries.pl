@@ -10,7 +10,8 @@ $result_trees{'index_entries'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'index_entries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -50,7 +50,8 @@ $result_trees{'index_entries'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -66,7 +67,6 @@ $result_trees{'index_entries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'truc'
@@ -87,7 +87,8 @@ $result_trees{'index_entries'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'trucindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -103,7 +104,6 @@ $result_trees{'index_entries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'trucindex',
           'extra' => {
             'index_entry' => [
               'truc',

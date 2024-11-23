@@ -190,7 +190,8 @@ $result_trees{'two_nodes_between_chapters'} = [
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -206,7 +207,6 @@ $result_trees{'two_nodes_between_chapters'} = [
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

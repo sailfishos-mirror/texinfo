@@ -40,7 +40,8 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -56,7 +57,6 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'linemacro'
               },
@@ -110,7 +110,8 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -126,7 +127,6 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -242,14 +242,14 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
               'text' => 'second ||'
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' in comment text
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             },
             {
               'source_marks' => [

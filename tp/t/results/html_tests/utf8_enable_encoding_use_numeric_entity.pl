@@ -10,7 +10,8 @@ $result_trees{'utf8_enable_encoding_use_numeric_entity'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'utf8_enable_encoding_use_numeric_entity'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'utf-8',
             'text_arg' => 'utf-8'

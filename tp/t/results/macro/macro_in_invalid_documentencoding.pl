@@ -27,7 +27,8 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -66,7 +66,8 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -90,7 +91,6 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'text_arg' => 'badm'
           },

@@ -662,7 +662,7 @@ sub normalized_sectioning_command_filename($$)
   if ($Texinfo::Commands::root_commands{$command->{'cmdname'}}) {
     $label_element = $command->{'contents'}->[0]->{'contents'}->[0];
   } else {
-    $label_element = $command->{'args'}->[0];
+    $label_element = $command->{'contents'}->[0];
   }
   my $normalized_name
     = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
@@ -1340,23 +1340,23 @@ sub format_comment_or_return_end_line($$)
 
   my $end_line;
 
-  my $arguments_list;
-  if ($element->{'args'}) {
-    $arguments_list = $element->{'args'};
-  } elsif ($element->{'contents'} and scalar(@{$element->{'contents'}})
-           and $element->{'contents'}->[0]->{'type'}
-           and $element->{'contents'}->[0]->{'type'} eq 'argument') {
-    $arguments_list = $element->{'contents'}->[0]->{'contents'};
+  my $line_arg;
+  if ($element->{'contents'}
+      and $element->{'contents'}->[0]->{'type'}
+      and $element->{'contents'}->[0]->{'type'} eq 'argument') {
+    $line_arg = $element->{'contents'}->[0]->{'contents'}->[-1];
+  } elsif ($element->{'contents'}) {
+    $line_arg = $element->{'contents'}->[-1];
   }
 
-  my $comment = $arguments_list->[-1]->{'info'}->{'comment_at_end'}
-    if $arguments_list and $arguments_list->[-1]->{'info'};
+  my $comment = $line_arg->{'info'}->{'comment_at_end'}
+    if ($line_arg and $line_arg->{'info'});
 
   if ($comment) {
     $end_line = $self->convert_tree($comment);
-  } elsif ($arguments_list and $arguments_list->[-1]->{'info'}
-      and $arguments_list->[-1]->{'info'}->{'spaces_after_argument'}) {
-    my $text = $arguments_list->[-1]
+  } elsif ($line_arg and $line_arg->{'info'}
+      and $line_arg->{'info'}->{'spaces_after_argument'}) {
+    my $text = $line_arg
                    ->{'info'}->{'spaces_after_argument'}->{'text'};
     if (chomp($text)) {
       $end_line = "\n";
@@ -1514,8 +1514,7 @@ sub table_item_content_tree($$)
   my $element = shift;
 
   my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
-  if ($element->{'args'}
-      and $table_command->{'extra'}
+  if ($table_command->{'extra'}
       and $table_command->{'extra'}->{'command_as_argument'}) {
     my $command_as_argument
       = $table_command->{'extra'}->{'command_as_argument'};
@@ -1546,21 +1545,21 @@ sub table_item_content_tree($$)
       $arg = {'type' => 'brace_command_context',
               'parent' => $command,};
       if ($Texinfo::Commands::math_commands{$builtin_cmdname}) {
-        $arg->{'contents'} = [$element->{'args'}->[0]];
+        $arg->{'contents'} = [$element->{'contents'}->[0]];
       } else {
         my $paragraph = {'type' => 'paragraph',
-                         'contents' => [$element->{'args'}->[0]],
+                         'contents' => [$element->{'contents'}->[0]],
                          'parent' => $arg};
         $arg->{'contents'} = [$paragraph];
       }
     } elsif ($Texinfo::Commands::brace_commands{$builtin_cmdname}
                                                    eq 'arguments') {
       $arg = {'type' => 'brace_arg',
-              'contents' => [$element->{'args'}->[0]],
+              'contents' => [$element->{'contents'}->[0]],
               'parent' => $command,};
     } else {
       $arg = {'type' => 'brace_container',
-              'contents' => [$element->{'args'}->[0]],
+              'contents' => [$element->{'contents'}->[0]],
               'parent' => $command,};
     }
     $command->{'contents'} = [$arg];
@@ -1615,7 +1614,7 @@ sub comma_index_subentries_tree {
   my @contents;
   while ($current_entry->{'extra'} and $current_entry->{'extra'}->{'subentry'}) {
     $current_entry = $current_entry->{'extra'}->{'subentry'};
-    push @contents, {'text' => $separator}, $current_entry->{'args'}->[0];
+    push @contents, {'text' => $separator}, $current_entry->{'contents'}->[0];
   }
   if (scalar(@contents)) {
     return {'contents' => \@contents};

@@ -15,7 +15,8 @@ $result_trees{'macro_in_ifset_set'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'a',
               'type' => 'rawline_arg'
@@ -25,7 +26,6 @@ $result_trees{'macro_in_ifset_set'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' a
 '
@@ -54,7 +54,8 @@ $result_trees{'macro_in_ifset_set'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -70,7 +71,6 @@ $result_trees{'macro_in_ifset_set'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -138,13 +138,13 @@ $result_trees{'macro_in_ifset_set'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'unmacro',
+          'contents' => [
             {
               'text' => 'truc',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'unmacro',
           'info' => {
             'arg_line' => ' truc
 '
@@ -168,7 +168,8 @@ $result_trees{'macro_in_ifset_set'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -184,7 +185,6 @@ $result_trees{'macro_in_ifset_set'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -209,7 +209,8 @@ $result_trees{'macro_in_ifset_set'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'end',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -225,7 +226,6 @@ $result_trees{'macro_in_ifset_set'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'end',
                 'extra' => {
                   'text_arg' => 'ifset'
                 },

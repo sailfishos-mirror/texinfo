@@ -22,7 +22,8 @@ $result_trees{'japanese_shift_jis'} = {
               'type' => 'preamble_before_beginning'
             },
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -38,7 +39,6 @@ $result_trees{'japanese_shift_jis'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'shift_jis',
                 'text_arg' => 'shift_jis'
@@ -59,7 +59,8 @@ $result_trees{'japanese_shift_jis'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -75,7 +76,6 @@ $result_trees{'japanese_shift_jis'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'japanese_shift_jis.info'
               },
@@ -90,7 +90,8 @@ $result_trees{'japanese_shift_jis'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'settitle',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -106,7 +107,6 @@ $result_trees{'japanese_shift_jis'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'settitle',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -123,7 +123,8 @@ $result_trees{'japanese_shift_jis'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'documentlanguage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -139,7 +140,6 @@ $result_trees{'japanese_shift_jis'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentlanguage',
               'extra' => {
                 'text_arg' => 'ja'
               },
@@ -344,7 +344,8 @@ $result_trees{'japanese_shift_jis'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -360,7 +361,6 @@ $result_trees{'japanese_shift_jis'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'copying'
               },
@@ -516,7 +516,8 @@ $result_trees{'japanese_shift_jis'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -532,7 +533,6 @@ $result_trees{'japanese_shift_jis'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -759,14 +759,14 @@ $result_trees{'japanese_shift_jis'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

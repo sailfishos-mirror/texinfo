@@ -10,7 +10,8 @@ $result_trees{'verbatiminclude_and_encoding'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'verbatiminclude_and_encoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'utf-8',
             'text_arg' => 'utf-8'
@@ -46,7 +46,8 @@ $result_trees{'verbatiminclude_and_encoding'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'verbatiminclude',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -62,7 +63,6 @@ $result_trees{'verbatiminclude_and_encoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_encoding_name' => 'utf-8',
             'text_arg' => 'verbatim_encoded.texi'

@@ -78,7 +78,8 @@ $result_trees{'enumerate_in_style_command'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -94,7 +95,6 @@ $result_trees{'enumerate_in_style_command'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },

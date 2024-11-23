@@ -74,7 +74,7 @@ new_block_command (ELEMENT *element)
 
   text_append (end_spaces_after->e.text, "\n");
   end_args->elt_info[eit_spaces_after_argument] = end_spaces_after;
-  add_to_element_args (end, end_args);
+  add_to_element_contents (end, end_args);
 
   text_append (command_name_text->e.text, command_name);
   add_to_element_contents (end_args, command_name_text);

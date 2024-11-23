@@ -42,7 +42,8 @@ $result_trees{'line_breaks'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -58,7 +59,6 @@ $result_trees{'line_breaks'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'documentdescription'
               },
@@ -82,7 +82,8 @@ $result_trees{'line_breaks'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'settitle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -104,7 +105,6 @@ $result_trees{'line_breaks'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'settitle',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -115,7 +115,8 @@ $result_trees{'line_breaks'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'title',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -137,7 +138,6 @@ $result_trees{'line_breaks'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'title',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -153,7 +153,8 @@ $result_trees{'line_breaks'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -175,7 +176,6 @@ $result_trees{'line_breaks'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -220,7 +220,8 @@ $result_trees{'line_breaks'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -242,7 +243,6 @@ $result_trees{'line_breaks'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -253,7 +253,8 @@ $result_trees{'line_breaks'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -275,7 +276,6 @@ $result_trees{'line_breaks'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -306,7 +306,8 @@ $result_trees{'line_breaks'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -322,7 +323,6 @@ $result_trees{'line_breaks'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -391,7 +391,8 @@ $result_trees{'line_breaks'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -407,7 +408,6 @@ $result_trees{'line_breaks'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

@@ -27,14 +27,14 @@ $result_trees{'defcondx_Ubar'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' test def*x in a conditional
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             },
             {
               'text' => '
@@ -42,24 +42,24 @@ $result_trees{'defcondx_Ubar'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' set this from the command line.
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' set bar
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             },
             {
               'text' => '
@@ -173,7 +173,8 @@ $result_trees{'defcondx_Ubar'} = {
                             'type' => 'raw'
                           },
                           {
-                            'args' => [
+                            'cmdname' => 'end',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
@@ -189,7 +190,6 @@ $result_trees{'defcondx_Ubar'} = {
                                 'type' => 'line_arg'
                               }
                             ],
-                            'cmdname' => 'end',
                             'extra' => {
                               'text_arg' => 'ifset'
                             },
@@ -245,7 +245,8 @@ $result_trees{'defcondx_Ubar'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -261,7 +262,6 @@ $result_trees{'defcondx_Ubar'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },
@@ -304,14 +304,14 @@ $result_trees{'defcondx_Ubar'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

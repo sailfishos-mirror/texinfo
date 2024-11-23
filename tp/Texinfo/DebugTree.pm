@@ -124,11 +124,6 @@ sub _print_tree($;$$)
     $result .= _print_tree($element->{'info'}->{'comment_at_end'},
                            $level +2);
   }
-  if ($element->{'args'}) {
-    foreach my $arg (@{$element->{'args'}}) {
-      $result .= _print_tree($arg, $level +1, 1);
-    }
-  }
   if ($element->{'contents'}) {
     foreach my $content (@{$element->{'contents'}}) {
       $result .= _print_tree($content, $level+1);

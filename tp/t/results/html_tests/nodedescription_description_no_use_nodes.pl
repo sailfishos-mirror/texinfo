@@ -115,7 +115,8 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
       'extra' => {
         'is_target' => 1,
         'node_description' => {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -213,7 +214,6 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },
@@ -253,7 +253,8 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -269,7 +270,6 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'nodedescriptionblock'
               },
@@ -405,7 +405,8 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -421,7 +422,6 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'nodedescriptionblock'
               },
@@ -526,7 +526,8 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
       'extra' => {
         'is_target' => 1,
         'node_description' => {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -542,7 +543,6 @@ $result_trees{'nodedescription_description_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },

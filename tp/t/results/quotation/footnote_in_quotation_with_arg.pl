@@ -66,7 +66,8 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -82,7 +83,6 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

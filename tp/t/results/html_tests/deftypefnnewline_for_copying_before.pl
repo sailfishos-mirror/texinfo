@@ -15,7 +15,8 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'deftypefnnewline',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -31,7 +32,6 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'deftypefnnewline',
           'extra' => {
             'misc_args' => [
               'on'
@@ -197,7 +197,8 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                   'type' => 'def_item'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -213,7 +214,6 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'deftypefun'
                   },
@@ -237,7 +237,8 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -253,7 +254,6 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'copying'
               },
@@ -545,7 +545,8 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -561,7 +562,6 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deftypefun'
               },

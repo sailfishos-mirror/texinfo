@@ -212,7 +212,8 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'cindex',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -228,7 +229,6 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -249,7 +249,8 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       'type' => 'index_entry_command'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'cindex',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -265,7 +266,6 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -286,7 +286,8 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       'type' => 'index_entry_command'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'cindex',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -302,7 +303,6 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -323,7 +323,8 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       'type' => 'index_entry_command'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -339,7 +340,6 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'associated_index_entry' => [
                           'cp',
@@ -357,7 +357,8 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -373,7 +374,6 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -385,7 +385,8 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -401,7 +402,6 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -447,7 +447,8 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -463,7 +464,6 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -505,7 +505,8 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -521,7 +522,6 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -555,7 +555,8 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -571,7 +572,6 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -607,14 +607,14 @@ $result_trees{'index_entries_relate_to_item_transformation'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

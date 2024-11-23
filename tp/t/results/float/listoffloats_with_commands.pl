@@ -13,7 +13,8 @@ $result_trees{'listoffloats_with_commands'} = {
           'type' => 'preamble_before_content'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -67,7 +68,6 @@ $result_trees{'listoffloats_with_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => "th\x{e9}or\x{e8}me"
           },

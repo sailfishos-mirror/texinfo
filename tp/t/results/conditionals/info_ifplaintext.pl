@@ -36,7 +36,8 @@ $result_trees{'info_ifplaintext'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -52,7 +53,6 @@ $result_trees{'info_ifplaintext'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifplaintext'
                     },

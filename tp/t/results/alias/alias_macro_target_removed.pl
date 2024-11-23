@@ -31,7 +31,8 @@ $result_trees{'alias_macro_target_removed'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -47,7 +48,6 @@ $result_trees{'alias_macro_target_removed'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -75,7 +75,8 @@ $result_trees{'alias_macro_target_removed'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -91,7 +92,6 @@ $result_trees{'alias_macro_target_removed'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               'new',
@@ -157,13 +157,13 @@ $result_trees{'alias_macro_target_removed'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'unmacro',
+          'contents' => [
             {
               'text' => 'mystrong',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'unmacro',
           'info' => {
             'arg_line' => ' mystrong
 '

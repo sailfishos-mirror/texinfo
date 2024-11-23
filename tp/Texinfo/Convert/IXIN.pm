@@ -622,8 +622,10 @@ sub output_ixin($$)
         $sectioning_tree .= $self->ixin_open_element('sectionentry',
                  \@attributes);
         $sectioning_tree .= $self->ixin_open_element('sectiontitle');
-        if ($section->{'args'} and $section->{'args'}->[0]) {
-          $sectioning_tree .= $self->convert_tree($section->{'args'}->[0]);
+        if ($section->{'contents'}->[0]->{'contents'}->[0]) {
+          $sectioning_tree
+            .= $self->convert_tree(
+                 $section->{'contents'}->[0]->{'contents'}->[0]);
         }
         $sectioning_tree .= $self->ixin_close_element('sectiontitle');
         # top is special and never considered to contain anything.  So
@@ -803,7 +805,7 @@ sub output_ixin($$)
       my $float_type = $listoffloats_element->{'extra'}->{'float_type'};
       if ($float_type ne '') {
         $floats_information{$float_type}->{'type'}
-          = $self->convert_tree($listoffloats_element->{'args'}->[0]);
+          = $self->convert_tree($listoffloats_element->{'contents'}->[0]);
       }
       push @{$floats_information{$float_type}->{'node_id'}}, $associated_node_id;
     }
@@ -836,11 +838,12 @@ sub output_ixin($$)
         } else {
           $float_text .= $self->ixin_none_element('floatlabel');
         }
-        if ($float->{'args'} and scalar(@{$float->{'args'}}) >= 2
-            and $float->{'args'}->[1]->{'contents'}) {
+        my $argument = $float->{'contents'}->[0];
+        if ($argument->{'contents'} and scalar(@{$argument->{'contents'}}) >= 2
+            and $argument->{'contents'}->[1]->{'contents'}) {
           $float_text .= $self->ixin_open_element('floatname');
           $float_text .= $self->convert_tree({'contents'
-                                 => $float->{'args'}->[1]->{'contents'}});
+                          => $argument->{'contents'}->[1]->{'contents'}});
           $float_text .= $self->ixin_close_element('floatname');
         } else {
           $float_text .= $self->ixin_none_element('floatname');
@@ -864,8 +867,9 @@ sub output_ixin($$)
       if (!defined($floats_information{$type}->{'type'})) {
         my $float_element = $floats->{$type}->[0];
         if ($float_element->{'extra'}->{'float_type'} ne '') {
+          my $argument = $float_element->{'contents'}->[0]:
           $floats_information{$type}->{'type'}
-            = $self->convert_tree($float_element->{'args'}->[0]);
+            = $self->convert_tree($argument->{'contents'}->[0]);
         }
       }
     }
@@ -912,15 +916,15 @@ sub output_ixin($$)
       my @extension;
       my $basefile;
       my $extension;
-      if (defined($command->{'args'}->[0])
-          and $command->{'args'}->[0]->{'contents'}
-          and @{$command->{'args'}->[0]->{'contents'}}) {
+      if (defined($command->{'contents'}->[0])
+          and $command->{'contents'}->[0]->{'contents'}
+          and @{$command->{'contents'}->[0]->{'contents'}}) {
         Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
         Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                   $self->{'convert_text_options'});
         $basefile = Texinfo::Convert::Text::convert_to_text(
-                                          $command->{'args'}->[0],
+                                          $command->{'contents'}->[0],
                                     $self->{'convert_text_options'});
         Texinfo::Convert::Text::reset_options_code(
                                  $self->{'convert_text_options'});
@@ -929,15 +933,15 @@ sub output_ixin($$)
       } else {
         next;
       }
-      if (defined($command->{'args'}->[4])
-          and $command->{'args'}->[4]->{'contents'}
-          and @{$command->{'args'}->[4]->{'contents'}}) {
+      if (defined($command->{'contents'}->[4])
+          and $command->{'contents'}->[4]->{'contents'}
+          and @{$command->{'contents'}->[4]->{'contents'}}) {
         Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
         Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                   $self->{'convert_text_options'});
         $extension = Texinfo::Convert::Text::convert_to_text(
-                                        $command->{'args'}->[4],
+                                        $command->{'contents'}->[4],
                                     $self->{'convert_text_options'});
         Texinfo::Convert::Text::reset_options_code(
                                  $self->{'convert_text_options'});

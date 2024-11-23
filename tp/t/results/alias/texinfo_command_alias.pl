@@ -31,7 +31,8 @@ $result_trees{'texinfo_command_alias'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -47,7 +48,6 @@ $result_trees{'texinfo_command_alias'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -75,7 +75,8 @@ $result_trees{'texinfo_command_alias'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -91,7 +92,6 @@ $result_trees{'texinfo_command_alias'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               'strong',
@@ -157,7 +157,8 @@ $result_trees{'texinfo_command_alias'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -173,7 +174,6 @@ $result_trees{'texinfo_command_alias'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'mystrong',

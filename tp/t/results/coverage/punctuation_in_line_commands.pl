@@ -111,7 +111,8 @@ $result_trees{'punctuation_in_line_commands'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -127,7 +128,6 @@ $result_trees{'punctuation_in_line_commands'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -144,7 +144,8 @@ $result_trees{'punctuation_in_line_commands'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -160,7 +161,6 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -223,7 +223,8 @@ $result_trees{'punctuation_in_line_commands'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'exdent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -239,7 +240,6 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'exdent',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -250,7 +250,8 @@ $result_trees{'punctuation_in_line_commands'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -266,7 +267,6 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -366,7 +366,8 @@ $result_trees{'punctuation_in_line_commands'} = {
               'type' => 'spaces_after_close_brace'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -382,7 +383,6 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -489,7 +489,8 @@ $result_trees{'punctuation_in_line_commands'} = {
               'type' => 'spaces_after_close_brace'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -505,7 +506,6 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -541,7 +541,8 @@ $result_trees{'punctuation_in_line_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -557,7 +558,6 @@ $result_trees{'punctuation_in_line_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => 'float type! After punc'
           },
@@ -576,7 +576,8 @@ $result_trees{'punctuation_in_line_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -592,7 +593,6 @@ $result_trees{'punctuation_in_line_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -617,7 +617,8 @@ $result_trees{'punctuation_in_line_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'heading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -633,7 +634,6 @@ $result_trees{'punctuation_in_line_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'heading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {
@@ -676,7 +676,8 @@ $result_trees{'punctuation_in_line_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -692,7 +693,6 @@ $result_trees{'punctuation_in_line_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -708,7 +708,8 @@ $result_trees{'punctuation_in_line_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -724,7 +725,6 @@ $result_trees{'punctuation_in_line_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -745,14 +745,14 @@ $result_trees{'punctuation_in_line_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 36

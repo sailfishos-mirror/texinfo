@@ -94,7 +94,8 @@ $result_trees{'enumerate_and_empty_lines'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -110,7 +111,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'example'
                       },
@@ -206,7 +206,8 @@ $result_trees{'enumerate_and_empty_lines'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -222,7 +223,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'example'
                       },
@@ -283,7 +283,8 @@ $result_trees{'enumerate_and_empty_lines'} = {
                       'type' => 'paragraph'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -299,7 +300,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'quotation'
                       },
@@ -370,7 +370,8 @@ $result_trees{'enumerate_and_empty_lines'} = {
                       'type' => 'paragraph'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -386,7 +387,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'quotation'
                       },
@@ -413,7 +413,8 @@ $result_trees{'enumerate_and_empty_lines'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -429,7 +430,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },
@@ -497,7 +497,8 @@ $result_trees{'enumerate_and_empty_lines'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -513,7 +514,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },

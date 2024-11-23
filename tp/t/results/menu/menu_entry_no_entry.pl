@@ -42,27 +42,27 @@ $result_trees{'menu_entry_no_entry'} = {
                       'text' => '* a1c:'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' c
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     },
                     {
                       'text' => '* a2c:  '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' c
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     },
                     {
                       'text' => '* a4'
@@ -110,14 +110,14 @@ $result_trees{'menu_entry_no_entry'} = {
                       'text' => ': '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' c
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     }
                   ],
                   'type' => 'preformatted'
@@ -126,7 +126,8 @@ $result_trees{'menu_entry_no_entry'} = {
               'type' => 'menu_comment'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -142,7 +143,6 @@ $result_trees{'menu_entry_no_entry'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

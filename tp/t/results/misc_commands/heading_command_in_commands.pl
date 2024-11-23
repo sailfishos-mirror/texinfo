@@ -26,7 +26,8 @@ $result_trees{'heading_command_in_commands'} = {
 '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'everyheading',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -42,7 +43,6 @@ $result_trees{'heading_command_in_commands'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'everyheading',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -92,7 +92,8 @@ $result_trees{'heading_command_in_commands'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'everyheading',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -108,7 +109,6 @@ $result_trees{'heading_command_in_commands'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'everyheading',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -122,7 +122,8 @@ $result_trees{'heading_command_in_commands'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -138,7 +139,6 @@ $result_trees{'heading_command_in_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -179,7 +179,8 @@ $result_trees{'heading_command_in_commands'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'everyheading',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -195,7 +196,6 @@ $result_trees{'heading_command_in_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'everyheading',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -206,7 +206,8 @@ $result_trees{'heading_command_in_commands'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -222,7 +223,6 @@ $result_trees{'heading_command_in_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

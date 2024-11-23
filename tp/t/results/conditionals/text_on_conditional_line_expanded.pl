@@ -58,7 +58,8 @@ $result_trees{'text_on_conditional_line_expanded'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -74,7 +75,6 @@ $result_trees{'text_on_conditional_line_expanded'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifnothtml'
                     },

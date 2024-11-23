@@ -43,7 +43,8 @@ $result_trees{'prototype_brace_no_brace'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -59,7 +60,6 @@ $result_trees{'prototype_brace_no_brace'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

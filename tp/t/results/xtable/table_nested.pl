@@ -127,7 +127,8 @@ $result_trees{'table_nested'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -143,7 +144,6 @@ $result_trees{'table_nested'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -245,7 +245,8 @@ $result_trees{'table_nested'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -261,7 +262,6 @@ $result_trees{'table_nested'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'extra' => {
                             'index_entry' => [
                               'vr',
@@ -279,7 +279,8 @@ $result_trees{'table_nested'} = {
                           }
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'itemx',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -295,7 +296,6 @@ $result_trees{'table_nested'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'itemx',
                           'extra' => {
                             'index_entry' => [
                               'vr',
@@ -347,7 +347,8 @@ $result_trees{'table_nested'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -363,7 +364,6 @@ $result_trees{'table_nested'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'extra' => {
                             'index_entry' => [
                               'vr',
@@ -415,7 +415,8 @@ $result_trees{'table_nested'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -431,7 +432,6 @@ $result_trees{'table_nested'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'extra' => {
                             'index_entry' => [
                               'vr',
@@ -455,7 +455,8 @@ $result_trees{'table_nested'} = {
                   'type' => 'table_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -471,7 +472,6 @@ $result_trees{'table_nested'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'vtable'
                   },
@@ -544,7 +544,8 @@ $result_trees{'table_nested'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -560,7 +561,6 @@ $result_trees{'table_nested'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -596,7 +596,8 @@ $result_trees{'table_nested'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -612,7 +613,6 @@ $result_trees{'table_nested'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -644,7 +644,8 @@ $result_trees{'table_nested'} = {
                   'type' => 'table_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -660,7 +661,6 @@ $result_trees{'table_nested'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'table'
                   },
@@ -706,7 +706,8 @@ $result_trees{'table_nested'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -722,7 +723,6 @@ $result_trees{'table_nested'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -823,7 +823,8 @@ $result_trees{'table_nested'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -839,7 +840,6 @@ $result_trees{'table_nested'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'extra' => {
                             'index_entry' => [
                               'vr',
@@ -857,7 +857,8 @@ $result_trees{'table_nested'} = {
                           }
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'itemx',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -873,7 +874,6 @@ $result_trees{'table_nested'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'itemx',
                           'extra' => {
                             'index_entry' => [
                               'vr',
@@ -925,7 +925,8 @@ $result_trees{'table_nested'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -941,7 +942,6 @@ $result_trees{'table_nested'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'extra' => {
                             'index_entry' => [
                               'vr',
@@ -993,7 +993,8 @@ $result_trees{'table_nested'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1009,7 +1010,6 @@ $result_trees{'table_nested'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'extra' => {
                             'index_entry' => [
                               'vr',
@@ -1033,7 +1033,8 @@ $result_trees{'table_nested'} = {
                   'type' => 'table_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1049,7 +1050,6 @@ $result_trees{'table_nested'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'vtable'
                   },
@@ -1122,7 +1122,8 @@ $result_trees{'table_nested'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1138,7 +1139,6 @@ $result_trees{'table_nested'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -1174,7 +1174,8 @@ $result_trees{'table_nested'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1190,7 +1191,6 @@ $result_trees{'table_nested'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -1222,7 +1222,8 @@ $result_trees{'table_nested'} = {
                   'type' => 'table_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1238,7 +1239,6 @@ $result_trees{'table_nested'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'table'
                   },
@@ -1284,7 +1284,8 @@ $result_trees{'table_nested'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1300,7 +1301,6 @@ $result_trees{'table_nested'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -1415,7 +1415,8 @@ $result_trees{'table_nested'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'item',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1431,7 +1432,6 @@ $result_trees{'table_nested'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'item',
                               'extra' => {
                                 'index_entry' => [
                                   'vr',
@@ -1449,7 +1449,8 @@ $result_trees{'table_nested'} = {
                               }
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'itemx',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1465,7 +1466,6 @@ $result_trees{'table_nested'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'itemx',
                               'extra' => {
                                 'index_entry' => [
                                   'vr',
@@ -1517,7 +1517,8 @@ $result_trees{'table_nested'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'item',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1533,7 +1534,6 @@ $result_trees{'table_nested'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'item',
                               'extra' => {
                                 'index_entry' => [
                                   'vr',
@@ -1585,7 +1585,8 @@ $result_trees{'table_nested'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'item',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1601,7 +1602,6 @@ $result_trees{'table_nested'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'item',
                               'extra' => {
                                 'index_entry' => [
                                   'vr',
@@ -1625,7 +1625,8 @@ $result_trees{'table_nested'} = {
                       'type' => 'table_entry'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1641,7 +1642,6 @@ $result_trees{'table_nested'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'vtable'
                       },
@@ -1714,7 +1714,8 @@ $result_trees{'table_nested'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'item',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1730,7 +1731,6 @@ $result_trees{'table_nested'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'item',
                               'info' => {
                                 'spaces_before_argument' => {
                                   'text' => ' '
@@ -1766,7 +1766,8 @@ $result_trees{'table_nested'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'item',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -1782,7 +1783,6 @@ $result_trees{'table_nested'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'item',
                               'info' => {
                                 'spaces_before_argument' => {
                                   'text' => ' '
@@ -1814,7 +1814,8 @@ $result_trees{'table_nested'} = {
                       'type' => 'table_entry'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1830,7 +1831,6 @@ $result_trees{'table_nested'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'table'
                       },
@@ -1876,7 +1876,8 @@ $result_trees{'table_nested'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1892,7 +1893,6 @@ $result_trees{'table_nested'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'quotation'
                   },
@@ -1911,7 +1911,8 @@ $result_trees{'table_nested'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1927,7 +1928,6 @@ $result_trees{'table_nested'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

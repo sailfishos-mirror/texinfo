@@ -118,7 +118,8 @@ $result_trees{'detailmenu_unknown_node'} = {
                   'type' => 'menu_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -134,7 +135,6 @@ $result_trees{'detailmenu_unknown_node'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'detailmenu'
                   },
@@ -154,7 +154,8 @@ $result_trees{'detailmenu_unknown_node'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -170,7 +171,6 @@ $result_trees{'detailmenu_unknown_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

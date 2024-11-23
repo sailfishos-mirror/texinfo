@@ -261,7 +261,8 @@ $result_trees{'detailmenu_on_subnodes'} = {
                   'type' => 'menu_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -277,7 +278,6 @@ $result_trees{'detailmenu_on_subnodes'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'detailmenu'
                   },
@@ -440,7 +440,8 @@ $result_trees{'detailmenu_on_subnodes'} = {
                   'type' => 'menu_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -456,7 +457,6 @@ $result_trees{'detailmenu_on_subnodes'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'detailmenu'
                   },
@@ -476,7 +476,8 @@ $result_trees{'detailmenu_on_subnodes'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -492,7 +493,6 @@ $result_trees{'detailmenu_on_subnodes'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -653,7 +653,8 @@ $result_trees{'detailmenu_on_subnodes'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -669,7 +670,6 @@ $result_trees{'detailmenu_on_subnodes'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -954,7 +954,8 @@ $result_trees{'detailmenu_on_subnodes'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -970,7 +971,6 @@ $result_trees{'detailmenu_on_subnodes'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

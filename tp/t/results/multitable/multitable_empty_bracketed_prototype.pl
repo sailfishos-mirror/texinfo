@@ -54,7 +54,8 @@ $result_trees{'multitable_empty_bracketed_prototype'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -70,7 +71,6 @@ $result_trees{'multitable_empty_bracketed_prototype'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

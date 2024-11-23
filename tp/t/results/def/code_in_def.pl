@@ -191,7 +191,8 @@ $result_trees{'code_in_def'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -207,7 +208,6 @@ $result_trees{'code_in_def'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deftypefn'
               },

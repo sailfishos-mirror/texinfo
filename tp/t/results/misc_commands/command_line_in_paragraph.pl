@@ -16,7 +16,8 @@ $result_trees{'command_line_in_paragraph'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'documentlanguage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -32,7 +33,6 @@ $result_trees{'command_line_in_paragraph'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentlanguage',
               'extra' => {
                 'text_arg' => 'en'
               },

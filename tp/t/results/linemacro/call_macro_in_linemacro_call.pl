@@ -40,7 +40,8 @@ $result_trees{'call_macro_in_linemacro_call'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -56,7 +57,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'linemacro'
               },
@@ -119,7 +119,8 @@ $result_trees{'call_macro_in_linemacro_call'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -135,7 +136,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -300,7 +300,8 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -316,7 +317,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => '    '
@@ -334,7 +334,8 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                   'type' => 'table_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -358,7 +359,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'table'
                   },
@@ -433,7 +433,8 @@ $result_trees{'call_macro_in_linemacro_call'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -449,7 +450,6 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

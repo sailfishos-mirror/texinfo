@@ -127,7 +127,8 @@ $result_trees{'inlineifsetifclearspaces'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'aaa',
               'type' => 'rawline_arg'
@@ -137,7 +138,6 @@ $result_trees{'inlineifsetifclearspaces'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' aaa
 '

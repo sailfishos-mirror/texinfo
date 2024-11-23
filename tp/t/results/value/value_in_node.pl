@@ -10,7 +10,8 @@ $result_trees{'value_in_node'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'node1',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'value_in_node'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' node1 Node 1
 '
@@ -269,7 +269,8 @@ $result_trees{'value_in_node'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -285,7 +286,6 @@ $result_trees{'value_in_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -456,7 +456,8 @@ $result_trees{'value_in_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'sec1',
               'type' => 'rawline_arg'
@@ -466,7 +467,6 @@ $result_trees{'value_in_node'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' sec1 Section 1.1
 '
@@ -568,7 +568,8 @@ $result_trees{'value_in_node'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -584,7 +585,6 @@ $result_trees{'value_in_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

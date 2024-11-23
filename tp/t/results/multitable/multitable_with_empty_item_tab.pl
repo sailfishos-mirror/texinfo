@@ -17,7 +17,8 @@ $result_trees{'multitable_with_empty_item_tab'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -33,7 +34,6 @@ $result_trees{'multitable_with_empty_item_tab'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'extra' => {
                         'misc_args' => [
                           '0.3',
@@ -196,7 +196,8 @@ $result_trees{'multitable_with_empty_item_tab'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -212,7 +213,6 @@ $result_trees{'multitable_with_empty_item_tab'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

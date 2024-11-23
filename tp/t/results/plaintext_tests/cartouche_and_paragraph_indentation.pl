@@ -231,7 +231,8 @@ $result_trees{'cartouche_and_paragraph_indentation'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -247,7 +248,6 @@ $result_trees{'cartouche_and_paragraph_indentation'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'cartouche'
               },
@@ -407,7 +407,8 @@ $result_trees{'cartouche_and_paragraph_indentation'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -423,7 +424,6 @@ $result_trees{'cartouche_and_paragraph_indentation'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'cartouche'
               },

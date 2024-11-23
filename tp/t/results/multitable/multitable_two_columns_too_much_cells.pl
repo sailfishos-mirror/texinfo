@@ -17,7 +17,8 @@ $result_trees{'multitable_two_columns_too_much_cells'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -33,7 +34,6 @@ $result_trees{'multitable_two_columns_too_much_cells'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'extra' => {
                         'misc_args' => [
                           '0.4',
@@ -251,7 +251,8 @@ $result_trees{'multitable_two_columns_too_much_cells'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -267,7 +268,6 @@ $result_trees{'multitable_two_columns_too_much_cells'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

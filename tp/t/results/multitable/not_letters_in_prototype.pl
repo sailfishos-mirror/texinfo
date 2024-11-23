@@ -62,7 +62,8 @@ $result_trees{'not_letters_in_prototype'} = {
               'type' => 'before_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -78,7 +79,6 @@ $result_trees{'not_letters_in_prototype'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

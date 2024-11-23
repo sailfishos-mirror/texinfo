@@ -12,7 +12,8 @@ $result_trees{'double_syncodeindex'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'syncodeindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'double_syncodeindex'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'syncodeindex',
               'extra' => {
                 'misc_args' => [
                   'cp',
@@ -45,7 +45,8 @@ $result_trees{'double_syncodeindex'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'syncodeindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -61,7 +62,6 @@ $result_trees{'double_syncodeindex'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'syncodeindex',
               'extra' => {
                 'misc_args' => [
                   'cp',
@@ -152,7 +152,8 @@ $result_trees{'double_syncodeindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -168,7 +169,6 @@ $result_trees{'double_syncodeindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -188,7 +188,8 @@ $result_trees{'double_syncodeindex'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'findex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -204,7 +205,6 @@ $result_trees{'double_syncodeindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -229,7 +229,8 @@ $result_trees{'double_syncodeindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -245,7 +246,6 @@ $result_trees{'double_syncodeindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'
@@ -261,7 +261,8 @@ $result_trees{'double_syncodeindex'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -277,7 +278,6 @@ $result_trees{'double_syncodeindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

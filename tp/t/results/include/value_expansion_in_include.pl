@@ -10,7 +10,8 @@ $result_trees{'value_expansion_in_include'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'testvar',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'value_expansion_in_include'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' testvar incl-incl.txi
 '
@@ -32,17 +32,18 @@ $result_trees{'value_expansion_in_include'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' test - in the variable name, and concatenation of text after.
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'test-var',
               'type' => 'rawline_arg'
@@ -52,7 +53,6 @@ $result_trees{'value_expansion_in_include'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' test-var incl-incl.tx
 '
@@ -64,17 +64,18 @@ $result_trees{'value_expansion_in_include'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' test - in the variable name, and concatenation of text before and after.
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'test_var',
               'type' => 'rawline_arg'
@@ -84,7 +85,6 @@ $result_trees{'value_expansion_in_include'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' test_var ncl-incl.tx
 '
@@ -173,7 +173,8 @@ $result_trees{'value_expansion_in_include'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'include',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -197,7 +198,6 @@ $result_trees{'value_expansion_in_include'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'include',
                     'extra' => {
                       'text_arg' => 'incl-incl.txi'
                     },
@@ -288,7 +288,8 @@ $result_trees{'value_expansion_in_include'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'verbatiminclude',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -312,7 +313,6 @@ $result_trees{'value_expansion_in_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_encoding_name' => 'utf-8',
             'text_arg' => 'incl-incl.txi'
@@ -365,7 +365,8 @@ $result_trees{'value_expansion_in_include'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'include',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -389,7 +390,6 @@ $result_trees{'value_expansion_in_include'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'include',
                     'extra' => {
                       'text_arg' => 'incl-incl.txi'
                     },
@@ -480,7 +480,8 @@ $result_trees{'value_expansion_in_include'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'verbatiminclude',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -504,7 +505,6 @@ $result_trees{'value_expansion_in_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_encoding_name' => 'utf-8',
             'text_arg' => 'incl-incl.txi'
@@ -557,7 +557,8 @@ $result_trees{'value_expansion_in_include'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'include',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -601,7 +602,6 @@ $result_trees{'value_expansion_in_include'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'include',
                     'extra' => {
                       'text_arg' => 'incl-incl.txi'
                     },
@@ -670,7 +670,8 @@ $result_trees{'value_expansion_in_include'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'verbatiminclude',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -714,7 +715,6 @@ $result_trees{'value_expansion_in_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_encoding_name' => 'utf-8',
             'text_arg' => 'incl-incl.txi'

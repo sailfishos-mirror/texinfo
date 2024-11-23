@@ -143,7 +143,8 @@ $result_trees{'sorted_subentries'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -158,7 +159,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -166,7 +166,8 @@ $result_trees{'sorted_subentries'} = {
               1
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -182,7 +183,6 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -210,7 +210,8 @@ $result_trees{'sorted_subentries'} = {
         },
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -225,7 +226,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -233,7 +233,8 @@ $result_trees{'sorted_subentries'} = {
               2
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -249,7 +250,6 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -277,7 +277,8 @@ $result_trees{'sorted_subentries'} = {
         },
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -292,7 +293,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -300,7 +300,8 @@ $result_trees{'sorted_subentries'} = {
               3
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -316,7 +317,6 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -344,7 +344,8 @@ $result_trees{'sorted_subentries'} = {
         },
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -359,7 +360,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -367,7 +367,8 @@ $result_trees{'sorted_subentries'} = {
               4
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -383,7 +384,6 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -416,7 +416,8 @@ $result_trees{'sorted_subentries'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -431,7 +432,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -439,7 +439,8 @@ $result_trees{'sorted_subentries'} = {
               5
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -454,10 +455,10 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry' => {
-                  'args' => [
+                  'cmdname' => 'subentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -473,7 +474,6 @@ $result_trees{'sorted_subentries'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'subentry',
                   'extra' => {
                     'subentry_level' => 2,
                     'subentry_parent' => {}
@@ -514,7 +514,8 @@ $result_trees{'sorted_subentries'} = {
         {},
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -529,7 +530,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -537,7 +537,8 @@ $result_trees{'sorted_subentries'} = {
               6
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -553,7 +554,6 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -581,7 +581,8 @@ $result_trees{'sorted_subentries'} = {
         },
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -597,7 +598,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -617,7 +617,8 @@ $result_trees{'sorted_subentries'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -632,7 +633,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -640,7 +640,8 @@ $result_trees{'sorted_subentries'} = {
               8
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -656,7 +657,6 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -684,7 +684,8 @@ $result_trees{'sorted_subentries'} = {
         },
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -699,7 +700,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -707,7 +707,8 @@ $result_trees{'sorted_subentries'} = {
               9
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -718,7 +719,6 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -741,7 +741,8 @@ $result_trees{'sorted_subentries'} = {
         },
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -757,7 +758,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -777,7 +777,8 @@ $result_trees{'sorted_subentries'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -792,7 +793,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -800,7 +800,8 @@ $result_trees{'sorted_subentries'} = {
               11
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -815,10 +816,10 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry' => {
-                  'args' => [
+                  'cmdname' => 'subentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -833,10 +834,10 @@ $result_trees{'sorted_subentries'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'subentry',
                   'extra' => {
                     'subentry' => {
-                      'args' => [
+                      'cmdname' => 'subentry',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -852,7 +853,6 @@ $result_trees{'sorted_subentries'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'subentry',
                       'extra' => {
                         'subentry_level' => 3,
                         'subentry_parent' => {}
@@ -983,7 +983,8 @@ $result_trees{'sorted_subentries'} = {
           'type' => 'argument'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -998,7 +999,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1006,7 +1006,8 @@ $result_trees{'sorted_subentries'} = {
               12
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1021,10 +1022,10 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry' => {
-                  'args' => [
+                  'cmdname' => 'subentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1040,7 +1041,6 @@ $result_trees{'sorted_subentries'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'subentry',
                   'extra' => {
                     'subentry_level' => 2,
                     'subentry_parent' => {}
@@ -1081,7 +1081,8 @@ $result_trees{'sorted_subentries'} = {
         {},
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1097,7 +1098,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1117,7 +1117,8 @@ $result_trees{'sorted_subentries'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1145,7 +1146,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1153,7 +1153,8 @@ $result_trees{'sorted_subentries'} = {
               14
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1169,7 +1170,6 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -1197,7 +1197,8 @@ $result_trees{'sorted_subentries'} = {
         },
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1225,7 +1226,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1233,7 +1233,8 @@ $result_trees{'sorted_subentries'} = {
               15
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1261,10 +1262,10 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry' => {
-                  'args' => [
+                  'cmdname' => 'subentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1301,7 +1302,6 @@ $result_trees{'sorted_subentries'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'subentry',
                   'extra' => {
                     'subentry_level' => 2,
                     'subentry_parent' => {}
@@ -1342,15 +1342,16 @@ $result_trees{'sorted_subentries'} = {
         {},
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1366,7 +1367,6 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -1394,7 +1394,8 @@ $result_trees{'sorted_subentries'} = {
         },
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1409,7 +1410,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1417,7 +1417,8 @@ $result_trees{'sorted_subentries'} = {
               16
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1432,10 +1433,10 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry' => {
-                  'args' => [
+                  'cmdname' => 'subentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1471,7 +1472,6 @@ $result_trees{'sorted_subentries'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'subentry',
                   'extra' => {
                     'sortas' => 'A',
                     'subentry_level' => 2,
@@ -1513,7 +1513,8 @@ $result_trees{'sorted_subentries'} = {
         {},
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1528,7 +1529,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1536,7 +1536,8 @@ $result_trees{'sorted_subentries'} = {
               17
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1551,10 +1552,10 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry' => {
-                  'args' => [
+                  'cmdname' => 'subentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1570,7 +1571,6 @@ $result_trees{'sorted_subentries'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'subentry',
                   'extra' => {
                     'subentry_level' => 2,
                     'subentry_parent' => {}
@@ -1611,7 +1611,8 @@ $result_trees{'sorted_subentries'} = {
         {},
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1626,7 +1627,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1634,7 +1634,8 @@ $result_trees{'sorted_subentries'} = {
               18
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1649,10 +1650,10 @@ $result_trees{'sorted_subentries'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry' => {
-                  'args' => [
+                  'cmdname' => 'subentry',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1668,7 +1669,6 @@ $result_trees{'sorted_subentries'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'subentry',
                   'extra' => {
                     'subentry_level' => 2,
                     'subentry_parent' => {}
@@ -1714,7 +1714,8 @@ $result_trees{'sorted_subentries'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1730,7 +1731,6 @@ $result_trees{'sorted_subentries'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

@@ -15,14 +15,14 @@ $result_trees{'comments_in_text'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' lone comment
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'text' => '
@@ -35,37 +35,37 @@ $result_trees{'comments_in_text'} = {
               'text' => 'Text line followed by a comment on the same line and another below '
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' comment
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' comment
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             },
             {
               'text' => 'Text line after the comment followed by a comment '
             },
             {
-              'args' => [
+              'cmdname' => 'comment',
+              'contents' => [
                 {
                   'text' => ' c
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'comment'
+              ]
             },
             {
               'text' => 'Text line after the text line followed by the comment.
@@ -85,14 +85,14 @@ $result_trees{'comments_in_text'} = {
               'text' => 'Comment at the end of the line '
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' comment
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             }
           ],
           'type' => 'paragraph'

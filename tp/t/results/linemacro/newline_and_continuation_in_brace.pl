@@ -44,7 +44,8 @@ $result_trees{'newline_and_continuation_in_brace'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -60,7 +61,6 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'linemacro'
               },
@@ -379,7 +379,8 @@ $result_trees{'newline_and_continuation_in_brace'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -395,7 +396,6 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defblock'
               },

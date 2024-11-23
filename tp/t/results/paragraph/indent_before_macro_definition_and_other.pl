@@ -26,7 +26,8 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
           'type' => 'ignorable_spaces_after_command'
         },
         {
-          'args' => [
+          'cmdname' => 'author',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -42,7 +43,6 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'author',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {
@@ -77,14 +77,14 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
 '
         },
         {
-          'args' => [
+          'cmdname' => 'vskip',
+          'contents' => [
             {
               'text' => ' 0pt plus 1filll
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'vskip'
+          ]
         },
         {
           'cmdname' => 'html',
@@ -113,7 +113,8 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
               'type' => 'rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -129,7 +130,6 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'html'
               },
@@ -172,7 +172,8 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -188,7 +189,6 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifnothtml'
                     },
@@ -211,7 +211,8 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
           ]
         },
         {
-          'args' => [
+          'cmdname' => 'setchapternewpage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -227,7 +228,6 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'setchapternewpage',
           'extra' => {
             'misc_args' => [
               'on'
@@ -268,7 +268,8 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
           'type' => 'spaces_after_close_brace'
         },
         {
-          'args' => [
+          'cmdname' => 'cpindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -284,7 +285,6 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cpindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -324,7 +324,8 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -340,7 +341,6 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },

@@ -12,7 +12,8 @@ $result_trees{'settitle_and_headings'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'settitle',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -34,7 +35,6 @@ $result_trees{'settitle_and_headings'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'settitle',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -50,7 +50,8 @@ $result_trees{'settitle_and_headings'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'headings',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -66,7 +67,6 @@ $result_trees{'settitle_and_headings'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'headings',
               'extra' => {
                 'misc_args' => [
                   'double'
@@ -120,14 +120,14 @@ $result_trees{'settitle_and_headings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'text' => '
@@ -149,14 +149,14 @@ $result_trees{'settitle_and_headings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'text' => '

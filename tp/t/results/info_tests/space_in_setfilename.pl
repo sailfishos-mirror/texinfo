@@ -10,7 +10,8 @@ $result_trees{'space_in_setfilename'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'setfilename',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -49,7 +50,6 @@ $result_trees{'space_in_setfilename'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'setfilename',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

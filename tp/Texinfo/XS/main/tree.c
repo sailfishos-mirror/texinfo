@@ -247,9 +247,8 @@ destroy_element (ELEMENT *e)
     {
       int i;
       int string_info_nr = 0;
-  /* Note the pointers in these lists are not themselves freed. */
+  /* Note the pointers in the list are not themselves freed. */
       free (e->e.c->contents.list);
-      free (e->e.c->args.list);
 
       destroy_associated_info (&e->e.c->extra_info);
 
@@ -288,8 +287,6 @@ destroy_element_and_children (ELEMENT *e)
     {
       for (i = 0; i < e->e.c->contents.number; i++)
         destroy_element_and_children (e->e.c->contents.list[i]);
-      for (i = 0; i < e->e.c->args.number; i++)
-        destroy_element_and_children (e->e.c->args.list[i]);
     }
 
   destroy_element (e);
@@ -369,14 +366,6 @@ add_to_contents_as_array (ELEMENT *parent, ELEMENT *e)
   add_to_element_list (list, e);
 }
 
-void
-add_to_element_args (ELEMENT *parent, ELEMENT *e)
-{
-  ELEMENT_LIST *list = &parent->e.c->args;
-  add_to_element_list (list, e);
-  e->parent = parent;
-}
-
 /* Add the element E into the LIST at index WHERE. */
 void
 insert_into_element_list (ELEMENT_LIST *list, ELEMENT *e, size_t where)
@@ -397,15 +386,6 @@ void
 insert_into_contents (ELEMENT *parent, ELEMENT *e, size_t where)
 {
   ELEMENT_LIST *list = &parent->e.c->contents;
-  insert_into_element_list (list, e, where);
-  e->parent = parent;
-}
-
-/* Add the element E into the arguments of PARENT at index WHERE. */
-void
-insert_into_args (ELEMENT *parent, ELEMENT *e, size_t where)
-{
-  ELEMENT_LIST *list = &parent->e.c->args;
   insert_into_element_list (list, e, where);
   e->parent = parent;
 }
@@ -440,16 +420,6 @@ insert_slice_into_contents (ELEMENT *to, size_t where, const ELEMENT *from,
 {
   insert_list_slice_into_list (&to->e.c->contents, where,
                                &from->e.c->contents, start, end);
-}
-
-/* Insert elements to the args of TO at position WHERE from FROM
-   from START inclusive to END exclusive. */
-void
-insert_list_slice_into_args (ELEMENT *to, size_t where,
-                             const ELEMENT_LIST *from,
-                             size_t start, size_t end)
-{
-  insert_list_slice_into_list (&to->e.c->args, where, from, start, end);
 }
 
 /* Insert elements to the contents of TO at position WHERE from FROM
@@ -520,13 +490,6 @@ remove_from_contents (ELEMENT *parent, size_t where)
 }
 
 ELEMENT *
-remove_from_args (ELEMENT *parent, size_t where)
-{
-  ELEMENT_LIST *list = &parent->e.c->args;
-  return remove_from_element_list (list, where);
-}
-
-ELEMENT *
 remove_element_from_list (ELEMENT_LIST *list, const ELEMENT *e)
 {
   size_t i;
@@ -573,14 +536,6 @@ remove_slice_from_contents (ELEMENT *parent, size_t start, size_t end)
 
 
 ELEMENT *
-pop_element_from_args (ELEMENT *parent)
-{
-  ELEMENT_LIST *list = &parent->e.c->args;
-
-  return list->list[--list->number];
-}
-
-ELEMENT *
 pop_element_from_contents (ELEMENT *parent)
 {
   ELEMENT_LIST *list = &parent->e.c->contents;
@@ -589,15 +544,6 @@ pop_element_from_contents (ELEMENT *parent)
   list->number--;
 
   return popped_element;
-}
-
-ELEMENT *
-last_args_child (const ELEMENT *current)
-{
-  if (current->e.c->args.number == 0)
-    return 0;
-
-  return current->e.c->args.list[current->e.c->args.number - 1];
 }
 
 ELEMENT *
@@ -616,15 +562,6 @@ contents_child_by_index (const ELEMENT *e, size_t index)
     return 0;
 
   return e->e.c->contents.list[index];
-}
-
-ELEMENT *
-args_child_by_index (const ELEMENT *e, size_t index)
-{
-  if (index >= e->e.c->args.number)
-    return 0;
-
-  return e->e.c->args.list[index];
 }
 
 int replace_element_in_list (ELEMENT_LIST *list, ELEMENT *removed,

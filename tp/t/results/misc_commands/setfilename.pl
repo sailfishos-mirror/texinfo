@@ -12,7 +12,8 @@ $result_trees{'setfilename'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -21,20 +22,19 @@ $result_trees{'setfilename'} = {
                   ],
                   'info' => {
                     'comment_at_end' => {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' comment
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     }
                   },
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'file_comment'
               },
@@ -48,7 +48,8 @@ $result_trees{'setfilename'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -64,7 +65,6 @@ $result_trees{'setfilename'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'file_and_spaces'
               },
@@ -78,7 +78,8 @@ $result_trees{'setfilename'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -87,14 +88,14 @@ $result_trees{'setfilename'} = {
                   ],
                   'info' => {
                     'comment_at_end' => {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' comment
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     },
                     'spaces_after_argument' => {
                       'text' => ' '
@@ -103,7 +104,6 @@ $result_trees{'setfilename'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'file_space_comment'
               },
@@ -117,7 +117,8 @@ $result_trees{'setfilename'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -156,7 +157,6 @@ $result_trees{'setfilename'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '

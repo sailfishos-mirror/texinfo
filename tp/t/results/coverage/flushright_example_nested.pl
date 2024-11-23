@@ -58,7 +58,8 @@ $result_trees{'flushright_example_nested'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -74,7 +75,6 @@ $result_trees{'flushright_example_nested'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'flushright'
                   },
@@ -93,7 +93,8 @@ $result_trees{'flushright_example_nested'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -109,7 +110,6 @@ $result_trees{'flushright_example_nested'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -185,7 +185,8 @@ $result_trees{'flushright_example_nested'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -201,7 +202,6 @@ $result_trees{'flushright_example_nested'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'example'
                   },
@@ -220,7 +220,8 @@ $result_trees{'flushright_example_nested'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -236,7 +237,6 @@ $result_trees{'flushright_example_nested'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'flushright'
               },

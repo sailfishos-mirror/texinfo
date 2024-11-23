@@ -10,7 +10,8 @@ $result_trees{'unknown_macro_on_line_command'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'setfilename',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -20,7 +21,6 @@ $result_trees{'unknown_macro_on_line_command'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'setfilename',
           'extra' => {
             'text_arg' => 'file'
           },

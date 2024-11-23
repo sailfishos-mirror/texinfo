@@ -62,7 +62,8 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -78,7 +79,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'copying'
                   },
@@ -245,14 +245,14 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'line_nr' => 11
@@ -327,7 +327,8 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -343,7 +344,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

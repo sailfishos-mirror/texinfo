@@ -28,14 +28,14 @@ $result_trees{'also_not_line'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => ' 
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'contents' => [
@@ -125,24 +125,24 @@ $result_trees{'also_not_line'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '         page at beginning of line
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'contents' => [
@@ -167,14 +167,14 @@ $result_trees{'also_not_line'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '   
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'contents' => [
@@ -205,14 +205,14 @@ $result_trees{'also_not_line'} = {
               'text' => 'novalidate '
             },
             {
-              'args' => [
+              'cmdname' => 'novalidate',
+              'contents' => [
                 {
                   'text' => ' something
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'novalidate',
               'source_info' => {
                 'line_nr' => 16
               }
@@ -226,7 +226,8 @@ $result_trees{'also_not_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'subheading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -242,7 +243,6 @@ $result_trees{'also_not_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'subheading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {
@@ -268,14 +268,14 @@ $result_trees{'also_not_line'} = {
               'text' => 'vskip '
             },
             {
-              'args' => [
+              'cmdname' => 'vskip',
+              'contents' => [
                 {
                   'text' => ' 
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'vskip'
+              ]
             }
           ],
           'type' => 'paragraph'
@@ -294,7 +294,8 @@ $result_trees{'also_not_line'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'exdent',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -310,7 +311,6 @@ $result_trees{'also_not_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'exdent',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

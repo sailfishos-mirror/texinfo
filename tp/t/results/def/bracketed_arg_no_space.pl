@@ -195,7 +195,8 @@ $result_trees{'bracketed_arg_no_space'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -211,7 +212,6 @@ $result_trees{'bracketed_arg_no_space'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },

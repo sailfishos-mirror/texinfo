@@ -17,7 +17,8 @@ $result_trees{'empty'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'info' => {
                             'spaces_after_argument' => {
@@ -28,7 +29,6 @@ $result_trees{'empty'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'source_info' => {
                         'line_nr' => 1
                       }
@@ -40,7 +40,8 @@ $result_trees{'empty'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -50,7 +51,6 @@ $result_trees{'empty'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

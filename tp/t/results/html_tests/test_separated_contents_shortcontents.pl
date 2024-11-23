@@ -12,14 +12,14 @@ $result_trees{'test_separated_contents_shortcontents'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'contents',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'contents',
               'extra' => {},
               'source_info' => {
                 'line_nr' => 1
@@ -250,14 +250,14 @@ $result_trees{'test_separated_contents_shortcontents'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'shortcontents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'shortcontents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 12

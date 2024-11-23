@@ -27,7 +27,8 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -71,7 +71,8 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'punct',
               'type' => 'rawline_arg'
@@ -81,7 +82,6 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' punct ,.
 '

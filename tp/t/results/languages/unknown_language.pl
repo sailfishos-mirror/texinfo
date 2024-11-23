@@ -12,7 +12,8 @@ $result_trees{'unknown_language'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentlanguage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'unknown_language'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentlanguage',
               'extra' => {
                 'text_arg' => 'unknown'
               },
@@ -231,7 +231,8 @@ $result_trees{'unknown_language'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -247,7 +248,6 @@ $result_trees{'unknown_language'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'another_UNKNOWN'
           },

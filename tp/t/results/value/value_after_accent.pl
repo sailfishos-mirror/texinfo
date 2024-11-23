@@ -10,7 +10,8 @@ $result_trees{'value_after_accent'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'a_letter',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'value_after_accent'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' a_letter a
 '

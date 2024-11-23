@@ -12,7 +12,8 @@ $result_trees{'two_setchapternewpage_on_odd'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setchapternewpage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'two_setchapternewpage_on_odd'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setchapternewpage',
               'extra' => {
                 'misc_args' => [
                   'on'
@@ -49,7 +49,8 @@ $result_trees{'two_setchapternewpage_on_odd'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'setchapternewpage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -65,7 +66,6 @@ $result_trees{'two_setchapternewpage_on_odd'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setchapternewpage',
               'extra' => {
                 'misc_args' => [
                   'odd'

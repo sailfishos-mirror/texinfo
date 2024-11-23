@@ -484,10 +484,9 @@ sub _info_header($$$)
     $self->{'ignored_commands'}->{'direntry'} = 0;
     foreach my $command (@{$global_commands->{'dircategory_direntry'}}) {
       if ($command->{'cmdname'} eq 'dircategory') {
-        if ($command->{'args'} and @{$command->{'args'}}
-            and defined($command->{'args'}->[0]->{'contents'})) {
+        if ($command->{'contents'}->[0]->{'contents'}) {
           my ($converted, undef) = $self->convert_line_new_context(
-             {'contents' => $command->{'args'}->[0]->{'contents'}});
+             {'contents' => $command->{'contents'}->[0]->{'contents'}});
           $self->_stream_output("INFO-DIR-SECTION " . $converted . "\n");
         }
       } elsif ($command->{'cmdname'} eq 'direntry') {

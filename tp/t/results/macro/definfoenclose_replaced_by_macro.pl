@@ -10,7 +10,8 @@ $result_trees{'definfoenclose_replaced_by_macro'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'definfoenclose_replaced_by_macro'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'phoo',
@@ -70,7 +70,8 @@ $result_trees{'definfoenclose_replaced_by_macro'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -86,7 +87,6 @@ $result_trees{'definfoenclose_replaced_by_macro'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },

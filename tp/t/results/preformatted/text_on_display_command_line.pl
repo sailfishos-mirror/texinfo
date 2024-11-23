@@ -32,7 +32,8 @@ $result_trees{'text_on_display_command_line'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'text_on_display_command_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'display'
               },
@@ -108,7 +108,8 @@ $result_trees{'text_on_display_command_line'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -124,7 +125,6 @@ $result_trees{'text_on_display_command_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'display'
               },
@@ -179,7 +179,8 @@ $result_trees{'text_on_display_command_line'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -195,7 +196,6 @@ $result_trees{'text_on_display_command_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'display text after end'
               },
@@ -253,7 +253,8 @@ $result_trees{'text_on_display_command_line'} = {
                   'type' => 'argument'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -269,7 +270,6 @@ $result_trees{'text_on_display_command_line'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'display text after end display nested in display'
                   },
@@ -288,7 +288,8 @@ $result_trees{'text_on_display_command_line'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -304,7 +305,6 @@ $result_trees{'text_on_display_command_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'display'
               },

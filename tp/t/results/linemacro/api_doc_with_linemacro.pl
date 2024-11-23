@@ -35,7 +35,8 @@ $result_trees{'api_doc_with_linemacro'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -51,7 +52,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'linemacro'
               },
@@ -99,7 +99,8 @@ $result_trees{'api_doc_with_linemacro'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -115,7 +116,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'linemacro'
               },
@@ -159,7 +159,8 @@ $result_trees{'api_doc_with_linemacro'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -175,7 +176,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'linemacro'
               },
@@ -203,7 +203,8 @@ $result_trees{'api_doc_with_linemacro'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'txidefnamenospace',
               'type' => 'rawline_arg'
@@ -213,20 +214,19 @@ $result_trees{'api_doc_with_linemacro'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' txidefnamenospace
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'clear',
+          'contents' => [
             {
               'text' => 'txicodevaristt',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clear',
           'info' => {
             'arg_line' => ' txicodevaristt
 '
@@ -1497,7 +1497,8 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'type' => 'def_item'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1513,7 +1514,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'defblock'
                       },
@@ -1540,7 +1540,8 @@ $result_trees{'api_doc_with_linemacro'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1556,7 +1557,6 @@ $result_trees{'api_doc_with_linemacro'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defblock'
               },

@@ -14,10 +14,24 @@ ok(1, "modules loading"); # If we made it this far, we're ok.
 # Note that this tree is not necessarily updated when the tree elements
 # change, so it generally uses obsolete constructs.
 my $manual_tree = { 'cmdname' => 'multitable',
-  'args' => [
+  'extra' => { 'max_columns' => 3, },
+  'info' => {
+      'spaces_before_argument' => {
+      'text' => ' '
+    },
+  },
+  'contents' => [
+     {'type' => 'argument',
+      'contents' => [
         { 'type' => 'block_line_arg',
+          'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+
           'contents' => [
-             { 'text' => ' ' },
              { 'type' => 'bracketed_arg',
                'contents' => [
                                {'text' => 'aaaa'},
@@ -39,11 +53,10 @@ my $manual_tree = { 'cmdname' => 'multitable',
                                }
                             ]
              },
-             {'text' => " ccc\n"},
+             {'text' => " ccc"},
           ],
        } ],
-  'extra' => { 'max_columns' => 3, },
-  'contents' => [
+     },
            { 'type' => 'before_item',
              'contents' => [
                              { 'type' => 'paragraph',
@@ -52,6 +65,7 @@ my $manual_tree = { 'cmdname' => 'multitable',
                                                 { 'cmdname' => 'verb',
                                                   'contents' => [ {
                                                                'contents' => [
+                                                                    # {
                                                                   { 'text' => ' in verb } ',
                                                                     'type' => 'raw' }
                                                                 ],
@@ -91,7 +105,7 @@ my $manual_tree = { 'cmdname' => 'multitable',
              'extra' => {
                          'text_arg' => 'multitable',
                         },
-             'args' => [
+             'contents' => [
                 {
                   'type' => 'line_arg',
                   'contents' => [

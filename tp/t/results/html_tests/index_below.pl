@@ -128,7 +128,8 @@ $result_trees{'index_below'} = [
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -144,7 +145,6 @@ $result_trees{'index_below'} = [
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',
@@ -163,7 +163,8 @@ $result_trees{'index_below'} = [
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -179,7 +180,6 @@ $result_trees{'index_below'} = [
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

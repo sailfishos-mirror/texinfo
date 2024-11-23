@@ -27,7 +27,8 @@ $result_trees{'cpp_lines'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'cpp_lines.info'
               },
@@ -214,7 +214,8 @@ $result_trees{'cpp_lines'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -230,7 +231,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },
@@ -273,7 +273,8 @@ $result_trees{'cpp_lines'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -289,7 +290,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -441,7 +441,8 @@ $result_trees{'cpp_lines'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -457,7 +458,6 @@ $result_trees{'cpp_lines'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -592,7 +592,8 @@ $result_trees{'cpp_lines'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -608,7 +609,6 @@ $result_trees{'cpp_lines'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'file_with_cpp_lines.texi'
                 },
@@ -1134,7 +1134,8 @@ $result_trees{'cpp_lines'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1150,7 +1151,6 @@ $result_trees{'cpp_lines'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => "l\x{e0}ng"
           },
@@ -1185,14 +1185,14 @@ $result_trees{'cpp_lines'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

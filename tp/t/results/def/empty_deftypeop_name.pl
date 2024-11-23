@@ -134,7 +134,8 @@ $result_trees{'empty_deftypeop_name'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -150,7 +151,6 @@ $result_trees{'empty_deftypeop_name'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deftypeop'
               },

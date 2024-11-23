@@ -452,7 +452,8 @@ $result_trees{'nodedescription_descriptions'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -468,7 +469,6 @@ $result_trees{'nodedescription_descriptions'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -528,7 +528,8 @@ $result_trees{'nodedescription_descriptions'} = {
       'extra' => {
         'is_target' => 1,
         'node_description' => {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -626,7 +627,6 @@ $result_trees{'nodedescription_descriptions'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },
@@ -722,7 +722,8 @@ $result_trees{'nodedescription_descriptions'} = {
       'extra' => {
         'is_target' => 1,
         'node_description' => {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -738,7 +739,6 @@ $result_trees{'nodedescription_descriptions'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },
@@ -834,7 +834,8 @@ $result_trees{'nodedescription_descriptions'} = {
       'extra' => {
         'is_target' => 1,
         'node_description' => {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -850,7 +851,6 @@ $result_trees{'nodedescription_descriptions'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },
@@ -946,7 +946,8 @@ $result_trees{'nodedescription_descriptions'} = {
       'extra' => {
         'is_target' => 1,
         'node_description' => {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -962,7 +963,6 @@ $result_trees{'nodedescription_descriptions'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },
@@ -1058,7 +1058,8 @@ $result_trees{'nodedescription_descriptions'} = {
       'extra' => {
         'is_target' => 1,
         'node_description' => {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1074,7 +1075,6 @@ $result_trees{'nodedescription_descriptions'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },
@@ -1170,7 +1170,8 @@ $result_trees{'nodedescription_descriptions'} = {
       'extra' => {
         'is_target' => 1,
         'node_description' => {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1186,7 +1187,6 @@ $result_trees{'nodedescription_descriptions'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },
@@ -1282,7 +1282,8 @@ $result_trees{'nodedescription_descriptions'} = {
       'extra' => {
         'is_target' => 1,
         'node_description' => {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1298,7 +1299,6 @@ $result_trees{'nodedescription_descriptions'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },

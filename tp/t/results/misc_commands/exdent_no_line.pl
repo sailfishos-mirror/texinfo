@@ -10,12 +10,12 @@ $result_trees{'exdent_no_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'exdent',
+          'contents' => [
             {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'exdent',
           'source_info' => {
             'line_nr' => 1
           }

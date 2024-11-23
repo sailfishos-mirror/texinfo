@@ -36,7 +36,8 @@ $result_trees{'symbol_after_block'} = {
               'type' => 'rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -52,7 +53,6 @@ $result_trees{'symbol_after_block'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'html. On the line.'
               },
@@ -102,7 +102,8 @@ $result_trees{'symbol_after_block'} = {
               'type' => 'rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -124,7 +125,6 @@ $result_trees{'symbol_after_block'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'html@ On the line.'
               },
@@ -184,7 +184,8 @@ $result_trees{'symbol_after_block'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -200,7 +201,6 @@ $result_trees{'symbol_after_block'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim;'
               },
@@ -246,7 +246,8 @@ $result_trees{'symbol_after_block'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -265,7 +266,6 @@ $result_trees{'symbol_after_block'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim@'
               },
@@ -332,7 +332,8 @@ $result_trees{'symbol_after_block'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -348,7 +349,6 @@ $result_trees{'symbol_after_block'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -379,7 +379,8 @@ $result_trees{'symbol_after_block'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -395,7 +396,6 @@ $result_trees{'symbol_after_block'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table+'
               },
@@ -456,7 +456,8 @@ $result_trees{'symbol_after_block'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -472,7 +473,6 @@ $result_trees{'symbol_after_block'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -503,7 +503,8 @@ $result_trees{'symbol_after_block'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -522,7 +523,6 @@ $result_trees{'symbol_after_block'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table@'
               },
@@ -617,7 +617,8 @@ $result_trees{'symbol_after_block'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -633,7 +634,6 @@ $result_trees{'symbol_after_block'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize\'\''
               },
@@ -714,7 +714,8 @@ $result_trees{'symbol_after_block'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -733,7 +734,6 @@ $result_trees{'symbol_after_block'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize@'
               },
@@ -786,7 +786,8 @@ $result_trees{'symbol_after_block'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -802,7 +803,6 @@ $result_trees{'symbol_after_block'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'extra' => {
                         'misc_args' => [
                           '6',
@@ -945,7 +945,8 @@ $result_trees{'symbol_after_block'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -961,7 +962,6 @@ $result_trees{'symbol_after_block'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable^'
               },
@@ -1001,7 +1001,8 @@ $result_trees{'symbol_after_block'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1017,7 +1018,6 @@ $result_trees{'symbol_after_block'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'extra' => {
                         'misc_args' => [
                           '6',
@@ -1160,7 +1160,8 @@ $result_trees{'symbol_after_block'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1179,7 +1180,6 @@ $result_trees{'symbol_after_block'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable{'
               },
@@ -1252,7 +1252,8 @@ $result_trees{'symbol_after_block'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1268,7 +1269,6 @@ $result_trees{'symbol_after_block'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'flushleft!'
               },
@@ -1318,7 +1318,8 @@ $result_trees{'symbol_after_block'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1337,7 +1338,6 @@ $result_trees{'symbol_after_block'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'flushleft@'
               },
@@ -1401,7 +1401,8 @@ $result_trees{'symbol_after_block'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1417,7 +1418,6 @@ $result_trees{'symbol_after_block'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'copying*'
               },
@@ -1467,7 +1467,8 @@ $result_trees{'symbol_after_block'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1486,7 +1487,6 @@ $result_trees{'symbol_after_block'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'copying@'
               },

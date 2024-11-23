@@ -44,7 +44,8 @@ $result_trees{'defblock_no_defline'} = {
               'type' => 'before_defline'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -60,7 +61,6 @@ $result_trees{'defblock_no_defline'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defblock'
               },

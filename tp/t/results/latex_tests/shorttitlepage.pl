@@ -12,7 +12,8 @@ $result_trees{'shorttitlepage'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'shorttitlepage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -34,7 +35,6 @@ $result_trees{'shorttitlepage'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'shorttitlepage',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '

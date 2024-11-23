@@ -156,7 +156,8 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -172,7 +173,6 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

@@ -45,7 +45,8 @@ $result_trees{'no_arg_brace_command_on_table_line'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -61,7 +62,6 @@ $result_trees{'no_arg_brace_command_on_table_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -78,7 +78,8 @@ $result_trees{'no_arg_brace_command_on_table_line'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -94,7 +95,6 @@ $result_trees{'no_arg_brace_command_on_table_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },

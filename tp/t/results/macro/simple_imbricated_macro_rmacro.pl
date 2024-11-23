@@ -42,7 +42,8 @@ $result_trees{'simple_imbricated_macro_rmacro'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -58,7 +59,6 @@ $result_trees{'simple_imbricated_macro_rmacro'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -127,7 +127,8 @@ $result_trees{'simple_imbricated_macro_rmacro'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -151,7 +152,6 @@ $result_trees{'simple_imbricated_macro_rmacro'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'rmacro'
                   },

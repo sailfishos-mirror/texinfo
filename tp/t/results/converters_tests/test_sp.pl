@@ -19,7 +19,8 @@ $result_trees{'test_sp'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -35,7 +36,6 @@ $result_trees{'test_sp'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '1'
@@ -75,7 +75,8 @@ $result_trees{'test_sp'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -91,7 +92,6 @@ $result_trees{'test_sp'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '1'
@@ -112,7 +112,8 @@ $result_trees{'test_sp'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -128,7 +129,6 @@ $result_trees{'test_sp'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '2'
@@ -167,7 +167,8 @@ $result_trees{'test_sp'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -183,7 +184,6 @@ $result_trees{'test_sp'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '2'
@@ -222,7 +222,8 @@ $result_trees{'test_sp'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -238,7 +239,6 @@ $result_trees{'test_sp'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '1'

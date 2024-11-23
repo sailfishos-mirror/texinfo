@@ -159,7 +159,8 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
               "type" => "menu_entry"
             },
             {
-              "args" => [
+              "cmdname" => "end",
+              "contents" => [
                 {
                   "contents" => [
                     {
@@ -174,7 +175,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
                   "type" => "line_arg"
                 }
               ],
-              "cmdname" => "end",
               "extra" => {
                 "text_arg" => "menu"
               },

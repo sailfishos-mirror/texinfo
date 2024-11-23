@@ -10,7 +10,8 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'verb',
@@ -44,7 +44,8 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -60,7 +61,6 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'TeX',
@@ -78,7 +78,8 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -94,7 +95,6 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'strong',
@@ -112,7 +112,8 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -128,7 +129,6 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'quotation',
@@ -268,7 +268,8 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -284,7 +285,6 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

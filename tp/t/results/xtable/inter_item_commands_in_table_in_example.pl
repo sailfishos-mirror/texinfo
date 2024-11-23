@@ -59,7 +59,8 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -75,7 +76,6 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -90,7 +90,8 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'cindex',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -106,7 +107,6 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                       'type' => 'line_arg'
                                     }
                                   ],
-                                  'cmdname' => 'cindex',
                                   'extra' => {
                                     'index_entry' => [
                                       'cp',
@@ -125,24 +125,24 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                   'type' => 'index_entry_command'
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'c',
+                                  'contents' => [
                                     {
                                       'text' => ' and a comment
 ',
                                       'type' => 'rawline_arg'
                                     }
-                                  ],
-                                  'cmdname' => 'c'
+                                  ]
                                 },
                                 {
-                                  'args' => [
+                                  'cmdname' => 'comment',
+                                  'contents' => [
                                     {
                                       'text' => ' and another comment
 ',
                                       'type' => 'rawline_arg'
                                     }
-                                  ],
-                                  'cmdname' => 'comment'
+                                  ]
                                 }
                               ],
                               'type' => 'preformatted'
@@ -151,7 +151,8 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                           'type' => 'inter_item'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'itemx',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -167,7 +168,6 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'itemx',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -193,7 +193,8 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                           'type' => 'inter_item'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'itemx',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -209,7 +210,6 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'itemx',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -244,7 +244,8 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -260,7 +261,6 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -277,7 +277,8 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                   'type' => 'table_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -293,7 +294,6 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'table'
                   },
@@ -320,7 +320,8 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -336,7 +337,6 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

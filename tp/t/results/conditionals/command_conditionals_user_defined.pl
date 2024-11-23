@@ -27,7 +27,8 @@ $result_trees{'command_conditionals_user_defined'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -71,7 +71,8 @@ $result_trees{'command_conditionals_user_defined'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -87,7 +88,6 @@ $result_trees{'command_conditionals_user_defined'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'auth'
@@ -108,7 +108,8 @@ $result_trees{'command_conditionals_user_defined'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -124,7 +125,6 @@ $result_trees{'command_conditionals_user_defined'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'infoencl',
@@ -147,7 +147,8 @@ $result_trees{'command_conditionals_user_defined'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -163,7 +164,6 @@ $result_trees{'command_conditionals_user_defined'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               'strongalias',
@@ -234,7 +234,8 @@ $result_trees{'command_conditionals_user_defined'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -250,7 +251,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifcommanddefined'
                     },
@@ -297,7 +297,8 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'type' => 'raw'
                       },
                       {
-                        'args' => [
+                        'cmdname' => 'end',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -313,7 +314,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                             'type' => 'line_arg'
                           }
                         ],
-                        'cmdname' => 'end',
                         'extra' => {
                           'text_arg' => 'ifcommandnotdefined'
                         },
@@ -404,7 +404,8 @@ $result_trees{'command_conditionals_user_defined'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -420,7 +421,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifcommanddefined'
                     },
@@ -467,7 +467,8 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'type' => 'raw'
                       },
                       {
-                        'args' => [
+                        'cmdname' => 'end',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -483,7 +484,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                             'type' => 'line_arg'
                           }
                         ],
-                        'cmdname' => 'end',
                         'extra' => {
                           'text_arg' => 'ifcommandnotdefined'
                         },
@@ -574,7 +574,8 @@ $result_trees{'command_conditionals_user_defined'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -590,7 +591,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifcommanddefined'
                     },
@@ -637,7 +637,8 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'type' => 'raw'
                       },
                       {
-                        'args' => [
+                        'cmdname' => 'end',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -653,7 +654,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                             'type' => 'line_arg'
                           }
                         ],
-                        'cmdname' => 'end',
                         'extra' => {
                           'text_arg' => 'ifcommandnotdefined'
                         },
@@ -744,7 +744,8 @@ $result_trees{'command_conditionals_user_defined'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -760,7 +761,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifcommanddefined'
                     },
@@ -807,7 +807,8 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'type' => 'raw'
                       },
                       {
-                        'args' => [
+                        'cmdname' => 'end',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -823,7 +824,6 @@ $result_trees{'command_conditionals_user_defined'} = {
                             'type' => 'line_arg'
                           }
                         ],
-                        'cmdname' => 'end',
                         'extra' => {
                           'text_arg' => 'ifcommandnotdefined'
                         },

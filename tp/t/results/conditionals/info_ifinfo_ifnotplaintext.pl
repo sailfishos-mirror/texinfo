@@ -75,7 +75,8 @@ $result_trees{'info_ifinfo_ifnotplaintext'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -91,7 +92,6 @@ $result_trees{'info_ifinfo_ifnotplaintext'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifnotplaintext'
                     },
@@ -111,7 +111,8 @@ $result_trees{'info_ifinfo_ifnotplaintext'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -127,7 +128,6 @@ $result_trees{'info_ifinfo_ifnotplaintext'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifinfo'
                     },

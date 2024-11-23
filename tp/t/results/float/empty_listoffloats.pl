@@ -13,7 +13,8 @@ $result_trees{'empty_listoffloats'} = {
           'type' => 'preamble_before_content'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'info' => {
                 'spaces_after_argument' => {
@@ -24,7 +25,6 @@ $result_trees{'empty_listoffloats'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => ''
           },

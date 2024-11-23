@@ -63,7 +63,8 @@ $result_trees{'empty_item_itemx'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -79,7 +80,6 @@ $result_trees{'empty_item_itemx'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'index_entry' => [
                           'vr',
@@ -96,7 +96,8 @@ $result_trees{'empty_item_itemx'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'info' => {
                             'spaces_after_argument' => {
@@ -107,13 +108,13 @@ $result_trees{'empty_item_itemx'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'source_info' => {
                         'line_nr' => 6
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -129,7 +130,6 @@ $result_trees{'empty_item_itemx'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'extra' => {
                         'index_entry' => [
                           'vr',
@@ -156,7 +156,8 @@ $result_trees{'empty_item_itemx'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'info' => {
                             'spaces_after_argument' => {
@@ -167,7 +168,6 @@ $result_trees{'empty_item_itemx'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'source_info' => {
                         'line_nr' => 8
                       }
@@ -183,7 +183,8 @@ $result_trees{'empty_item_itemx'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -199,7 +200,6 @@ $result_trees{'empty_item_itemx'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'index_entry' => [
                           'vr',
@@ -222,7 +222,8 @@ $result_trees{'empty_item_itemx'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -238,7 +239,6 @@ $result_trees{'empty_item_itemx'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },

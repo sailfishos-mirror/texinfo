@@ -156,28 +156,28 @@ $result_trees{'contents_in_html_text'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'shortcontents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'shortcontents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 9
           }
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 10

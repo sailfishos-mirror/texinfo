@@ -27,7 +27,8 @@ $result_trees{'test_accents_sc_enable_encoding_to_utf8_usascii'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'test_accents_sc_enable_encoding_to_utf8_usascii'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'us-ascii',
                 'text_arg' => 'US-ASCII'

@@ -56,7 +56,8 @@ $result_trees{'multitable_item_in_index'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'vindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -76,7 +77,6 @@ $result_trees{'multitable_item_in_index'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'vindex',
                   'extra' => {
                     'index_entry' => [
                       'vr',
@@ -98,7 +98,8 @@ $result_trees{'multitable_item_in_index'} = {
               'type' => 'before_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -114,7 +115,6 @@ $result_trees{'multitable_item_in_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

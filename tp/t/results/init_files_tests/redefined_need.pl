@@ -10,7 +10,8 @@ $result_trees{'redefined_need'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'need',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'redefined_need'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'need',
           'extra' => {
             'misc_args' => [
               '0.1'

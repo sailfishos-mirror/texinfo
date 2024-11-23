@@ -37,7 +37,8 @@ $result_trees{'macro_expansion_end_in_ignored_nested_conditional'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -53,7 +54,6 @@ $result_trees{'macro_expansion_end_in_ignored_nested_conditional'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -146,7 +146,8 @@ $result_trees{'macro_expansion_end_in_ignored_nested_conditional'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -162,7 +163,6 @@ $result_trees{'macro_expansion_end_in_ignored_nested_conditional'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },

@@ -23,7 +23,8 @@ $result_trees{'sp'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -39,7 +40,6 @@ $result_trees{'sp'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '1'
@@ -55,7 +55,8 @@ $result_trees{'sp'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -71,7 +72,6 @@ $result_trees{'sp'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '2'
@@ -95,7 +95,8 @@ $result_trees{'sp'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -111,7 +112,6 @@ $result_trees{'sp'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '1'
@@ -166,7 +166,8 @@ $result_trees{'sp'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -182,7 +183,6 @@ $result_trees{'sp'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -195,7 +195,8 @@ $result_trees{'sp'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'end',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -211,7 +212,6 @@ $result_trees{'sp'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'end',
                 'extra' => {
                   'text_arg' => 'ifnottex'
                 },

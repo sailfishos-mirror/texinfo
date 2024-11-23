@@ -109,7 +109,8 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'center',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -125,7 +126,6 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'center',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -147,7 +147,8 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -163,7 +164,6 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

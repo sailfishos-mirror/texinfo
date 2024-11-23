@@ -71,6 +71,7 @@ sub import {
 }
 
 my %brace_commands           = %Texinfo::Commands::brace_commands;
+my %root_commands            = %Texinfo::Commands::root_commands;
 my %block_commands           = %Texinfo::Commands::block_commands;
 my %def_commands             = %Texinfo::Commands::def_commands;
 
@@ -203,12 +204,83 @@ sub _convert_to_texinfo($)
     $result .= $element->{'text'};
   } else {
     if ($element->{'cmdname'}) {
-      $result .= _expand_cmd_args_to_texi($element);
-      if ($element->{'cmdname'}
-          and (exists($brace_commands{$element->{'cmdname'}})
-               or ($element->{'type'}
-                   and $element->{'type'} eq 'definfoenclose_command'))) {
+      my $cmdname;
+      if (! defined($element->{'cmdname'})) {
+        $cmdname = '';
+      } else {
+        $cmdname = $element->{'cmdname'};
+        $result .= '@'.$cmdname;
+
+        # this is done here otherwise for some constructs, there are
+        # no arguments and the space is not output.
+        if ($element->{'info'}
+            and $element->{'info'}->{'spaces_after_cmd_before_arg'}) {
+            $result
+             .= $element->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'};
+        }
+      }
+      # arg_line set for line_commands with type special and @macro
+      if ($element->{'info'} and defined($element->{'info'}->{'arg_line'})) {
+        $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'}
+          if $element->{'info'} and $element->{'info'}->{'spaces_before_argument'};
+        $result .= $element->{'info'}->{'arg_line'};
+        if (!$block_commands{$cmdname}) {
+          return $result;
+        }
+      } elsif ($element->{'contents'}
+               and (exists($brace_commands{$cmdname})
+                    or ($element->{'type'}
+                        and $element->{'type'} eq 'definfoenclose_command'))) {
+        my $braces = 1;
+        $braces = 0 if ($element->{'contents'}->[0]->{'type'} eq 'following_arg');
+        $result .= '{' if ($braces);
+        if ($cmdname eq 'verb') {
+          $result .= $element->{'info'}->{'delimiter'};
+        }
+        $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'}
+          if ($element->{'info'} and $element->{'info'}->{'spaces_before_argument'});
+        my $arg_nr = 0;
+        foreach my $arg (@{$element->{'contents'}}) {
+          next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
+          $result .= ',' if ($arg_nr);
+          $arg_nr++;
+          $result .= _convert_to_texinfo($arg);
+        }
+        if ($cmdname eq 'verb') {
+          $result .= $element->{'info'}->{'delimiter'};
+        }
+        $result .= '}' if ($braces);
         return $result;
+      } elsif ($element->{'contents'}
+               and ($element->{'contents'}->[0]->{'type'}
+                    and $element->{'contents'}->[0]->{'type'} eq 'argument')) {
+        $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'}
+          if $element->{'info'} and $element->{'info'}->{'spaces_before_argument'};
+        my $arg_nr = 0;
+        my $argument = $element->{'contents'}->[0];
+        foreach my $arg (@{$argument->{'contents'}}) {
+          next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
+          $result .= ',' if ($arg_nr);
+          $arg_nr++;
+          $result .= _convert_to_texinfo($arg);
+        }
+        # line commands that are not root commands
+      } elsif ($element->{'contents'}
+           and $element->{'contents'}->[0]->{'type'}
+           and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
+        $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'}
+           if ($element->{'info'} and $element->{'info'}->{'spaces_before_argument'});
+        my $arg_nr = 0;
+        foreach my $arg (@{$element->{'contents'}}) {
+          next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
+          $result .= ',' if ($arg_nr);
+          $arg_nr++;
+          $result .= _convert_to_texinfo($arg);
+        }
+        return $result;
+      } else {
+        $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'}
+          if $element->{'info'} and $element->{'info'}->{'spaces_before_argument'};
       }
     } else {
       if ($element->{'type'}
@@ -235,85 +307,6 @@ sub _convert_to_texinfo($)
     $result .= '}' if ($element->{'type'}
                        and ($element->{'type'} eq 'bracketed_arg'
                             or $element->{'type'} eq 'bracketed_linemacro_arg'));
-  }
-  return $result;
-}
-
-# expand a command argument as texinfo.
-sub _expand_cmd_args_to_texi($) {
-  my $cmd = shift;
-
-  my $cmdname = $cmd->{'cmdname'};
-  $cmdname = '' if (! defined($cmd->{'cmdname'}));
-  my $result = '';
-
-  if ($cmdname) {
-    $result = '@'.$cmdname;
-
-    # this is done here otherwise for some constructs, there are
-    # no arguments and the space is not output.
-    if ($cmd->{'info'}
-        and $cmd->{'info'}->{'spaces_after_cmd_before_arg'}) {
-      $result .= $cmd->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'};
-    }
-  }
-  # arg_line set for line_commands with type special and @macro
-  if ($cmd->{'info'} and defined($cmd->{'info'}->{'arg_line'})) {
-    $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
-      if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
-    $result .= $cmd->{'info'}->{'arg_line'};
-  } elsif ($cmd->{'args'}) {
-    $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
-       if ($cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'});
-    my $arg_nr = 0;
-    foreach my $arg (@{$cmd->{'args'}}) {
-      next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
-      $result .= ',' if ($arg_nr);
-      $arg_nr++;
-      $result .= _convert_to_texinfo($arg);
-    }
-   # TODO consider moving the braces command code to _convert_to_texinfo.
-   # Would require changing conditions on calling _expand_cmd_args_to_texi
-   # and adding commas for contents in _convert_to_texinfo
-  } elsif ($cmd->{'contents'}
-           and (exists($brace_commands{$cmdname})
-                or ($cmd->{'type'}
-                    and $cmd->{'type'} eq 'definfoenclose_command'))) {
-    my $braces = 1;
-    $braces = 0 if ($cmd->{'contents'}->[0]->{'type'} eq 'following_arg');
-    $result .= '{' if ($braces);
-    if ($cmdname eq 'verb') {
-      $result .= $cmd->{'info'}->{'delimiter'};
-    }
-    $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
-      if ($cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'});
-    my $arg_nr = 0;
-    foreach my $arg (@{$cmd->{'contents'}}) {
-      next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
-      $result .= ',' if ($arg_nr);
-      $arg_nr++;
-      $result .= _convert_to_texinfo($arg);
-    }
-    if ($cmdname eq 'verb') {
-      $result .= $cmd->{'info'}->{'delimiter'};
-    }
-    $result .= '}' if ($braces);
-  } elsif ($cmd->{'contents'}
-           and ($cmd->{'contents'}->[0]->{'type'}
-                and $cmd->{'contents'}->[0]->{'type'} eq 'argument')) {
-    $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
-      if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
-    my $arg_nr = 0;
-    my $argument = $cmd->{'contents'}->[0];
-    foreach my $arg (@{$argument->{'contents'}}) {
-      next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
-      $result .= ',' if ($arg_nr);
-      $arg_nr++;
-      $result .= _convert_to_texinfo($arg);
-    }
-  } else {
-    $result .= $cmd->{'info'}->{'spaces_before_argument'}->{'text'}
-      if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
   }
   return $result;
 }

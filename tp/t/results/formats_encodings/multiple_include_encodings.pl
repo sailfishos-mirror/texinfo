@@ -22,7 +22,8 @@ $result_trees{'multiple_include_encodings'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -38,7 +39,6 @@ $result_trees{'multiple_include_encodings'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'iso-8859-1',
                 'text_arg' => 'ISO-8859-1'
@@ -85,7 +85,8 @@ $result_trees{'multiple_include_encodings'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -101,7 +102,6 @@ $result_trees{'multiple_include_encodings'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'copying'
                   },
@@ -126,7 +126,8 @@ $result_trees{'multiple_include_encodings'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'include',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -142,7 +143,6 @@ $result_trees{'multiple_include_encodings'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'include',
                     'extra' => {
                       'text_arg' => 'documentdescription_EUC_CN.texi'
                     },
@@ -166,7 +166,8 @@ $result_trees{'multiple_include_encodings'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -182,7 +183,6 @@ $result_trees{'multiple_include_encodings'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'euc-cn',
                 'text_arg' => 'EUC-CN'
@@ -229,7 +229,8 @@ $result_trees{'multiple_include_encodings'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -245,7 +246,6 @@ $result_trees{'multiple_include_encodings'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'documentdescription'
                   },
@@ -278,7 +278,8 @@ $result_trees{'multiple_include_encodings'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -294,7 +295,6 @@ $result_trees{'multiple_include_encodings'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'iso-8859-1',
                 'text_arg' => 'ISO-8859-1'
@@ -384,7 +384,8 @@ $result_trees{'multiple_include_encodings'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -400,7 +401,6 @@ $result_trees{'multiple_include_encodings'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'verbatim_encoded_latin1.texi'
                 },
@@ -521,7 +521,8 @@ $result_trees{'multiple_include_encodings'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -537,7 +538,6 @@ $result_trees{'multiple_include_encodings'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'chapter_japanese_shift_jis.texi'
                 },
@@ -561,7 +561,8 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -577,7 +578,6 @@ $result_trees{'multiple_include_encodings'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'shift_jis',
             'text_arg' => 'shift_jis'
@@ -593,7 +593,8 @@ $result_trees{'multiple_include_encodings'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -609,7 +610,6 @@ $result_trees{'multiple_include_encodings'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'ja'
           },
@@ -849,7 +849,8 @@ $result_trees{'multiple_include_encodings'} = {
             {
               'counter' => 4,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -865,7 +866,6 @@ $result_trees{'multiple_include_encodings'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'chapter_char_latin2_latin2_in_refs.texi'
                 },
@@ -889,7 +889,8 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -905,7 +906,6 @@ $result_trees{'multiple_include_encodings'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'iso-8859-2',
             'text_arg' => 'ISO-8859-2'
@@ -1044,7 +1044,8 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1060,7 +1061,6 @@ $result_trees{'multiple_include_encodings'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -1082,14 +1082,14 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' Aogonek(0xa1=0241) aogonek(0xb1=0261) standalone ogonek(0xca=0312) Eogonek(0xea=0352) eogonek
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'cmdname' => 'menu',
@@ -1156,7 +1156,8 @@ $result_trees{'multiple_include_encodings'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1172,7 +1173,6 @@ $result_trees{'multiple_include_encodings'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -1276,7 +1276,8 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1292,7 +1293,6 @@ $result_trees{'multiple_include_encodings'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1330,7 +1330,8 @@ $result_trees{'multiple_include_encodings'} = {
             {
               'counter' => 5,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1346,7 +1347,6 @@ $result_trees{'multiple_include_encodings'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'chapter_chinese_mixed_with_en_EUC_CN.texi'
                 },
@@ -1370,7 +1370,8 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1386,7 +1387,6 @@ $result_trees{'multiple_include_encodings'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'euc-cn',
             'text_arg' => 'EUC-CN'
@@ -1655,31 +1655,32 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' need to finish with an encoding that can accept all the
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' codepoints used in the other encodings
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'source_marks' => [
             {
               'counter' => 6,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1695,7 +1696,6 @@ $result_trees{'multiple_include_encodings'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'chapter_chinese_mixed_with_en.texi'
                 },
@@ -1719,7 +1719,8 @@ $result_trees{'multiple_include_encodings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1735,7 +1736,6 @@ $result_trees{'multiple_include_encodings'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'utf-8',
             'text_arg' => 'utf-8'
@@ -2015,14 +2015,14 @@ $result_trees{'multiple_include_encodings'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     },
     {
       'contents' => [

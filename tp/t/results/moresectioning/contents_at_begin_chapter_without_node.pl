@@ -10,14 +10,14 @@ $result_trees{'contents_at_begin_chapter_without_node'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 1

@@ -135,7 +135,8 @@ $result_trees{'no_monolithic_only_toc_out'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -151,7 +152,6 @@ $result_trees{'no_monolithic_only_toc_out'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -241,7 +241,8 @@ $result_trees{'no_monolithic_only_toc_out'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -257,7 +258,6 @@ $result_trees{'no_monolithic_only_toc_out'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -374,14 +374,14 @@ $result_trees{'no_monolithic_only_toc_out'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'file_name' => 'no_monolithic.texi',
@@ -389,14 +389,14 @@ $result_trees{'no_monolithic_only_toc_out'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'shortcontents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'shortcontents',
           'extra' => {},
           'source_info' => {
             'file_name' => 'no_monolithic.texi',
@@ -409,7 +409,8 @@ $result_trees{'no_monolithic_only_toc_out'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -425,7 +426,6 @@ $result_trees{'no_monolithic_only_toc_out'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -456,14 +456,14 @@ $result_trees{'no_monolithic_only_toc_out'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

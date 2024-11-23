@@ -10,13 +10,13 @@ $result_trees{'clickstyle_no_end_of_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'clickstyle',
+          'contents' => [
             {
               'text' => '@result',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clickstyle',
           'extra' => {},
           'info' => {
             'arg_line' => ' @result'

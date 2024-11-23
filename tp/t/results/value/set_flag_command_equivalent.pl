@@ -10,7 +10,8 @@ $result_trees{'set_flag_command_equivalent'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'codequoteundirected',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'set_flag_command_equivalent'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'codequoteundirected',
           'extra' => {
             'misc_args' => [
               'on'
@@ -87,7 +87,8 @@ $result_trees{'set_flag_command_equivalent'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'codequoteundirected',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -103,7 +104,6 @@ $result_trees{'set_flag_command_equivalent'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'codequoteundirected',
           'extra' => {
             'misc_args' => [
               'off'

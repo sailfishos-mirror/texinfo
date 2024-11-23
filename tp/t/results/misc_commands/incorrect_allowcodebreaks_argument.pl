@@ -10,7 +10,8 @@ $result_trees{'incorrect_allowcodebreaks_argument'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'allowcodebreaks',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'incorrect_allowcodebreaks_argument'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'allowcodebreaks',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {

@@ -21,7 +21,8 @@ $result_trees{'non_ascii_in_macro_name'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -37,7 +38,6 @@ $result_trees{'non_ascii_in_macro_name'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },

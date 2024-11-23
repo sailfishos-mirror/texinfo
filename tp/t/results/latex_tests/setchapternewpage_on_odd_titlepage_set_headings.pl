@@ -12,7 +12,8 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setchapternewpage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setchapternewpage',
               'extra' => {
                 'misc_args' => [
                   'on'
@@ -49,7 +49,8 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'setchapternewpage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -65,7 +66,6 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setchapternewpage',
               'extra' => {
                 'misc_args' => [
                   'odd'
@@ -112,7 +112,8 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -128,7 +129,6 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'titlepage'
                   },
@@ -152,7 +152,8 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'headings',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -168,7 +169,6 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'headings',
               'extra' => {
                 'misc_args' => [
                   'off'

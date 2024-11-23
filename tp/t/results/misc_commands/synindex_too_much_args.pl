@@ -10,7 +10,8 @@ $result_trees{'synindex_too_much_args'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'syncodeindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'synindex_too_much_args'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'syncodeindex',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

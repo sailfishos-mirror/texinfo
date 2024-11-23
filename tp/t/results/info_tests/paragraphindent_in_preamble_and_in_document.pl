@@ -52,7 +52,8 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -68,7 +69,6 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'copying'
                   },
@@ -92,7 +92,8 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'paragraphindent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -108,7 +109,6 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'paragraphindent',
               'extra' => {
                 'misc_args' => [
                   '1'
@@ -246,7 +246,8 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'paragraphindent',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -262,7 +263,6 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'paragraphindent',
           'extra' => {
             'misc_args' => [
               '3'
@@ -308,14 +308,14 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     },
     {
       'contents' => [

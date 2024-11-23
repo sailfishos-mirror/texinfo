@@ -36,7 +36,8 @@ $result_trees{'ifset_nonalpha'} = {
                     'type' => 'argument'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -52,7 +53,6 @@ $result_trees{'ifset_nonalpha'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },

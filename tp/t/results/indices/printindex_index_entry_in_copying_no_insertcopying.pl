@@ -34,7 +34,8 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'findex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -50,7 +51,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'findex',
                   'extra' => {
                     'element_region' => 'copying',
                     'index_entry' => [
@@ -285,7 +285,8 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       'type' => 'def_item'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -301,7 +302,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'defun'
                       },
@@ -359,7 +359,8 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'item',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -375,7 +376,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'item',
                               'extra' => {
                                 'element_region' => 'copying',
                                 'index_entry' => [
@@ -393,7 +393,8 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               }
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'itemx',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -409,7 +410,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'itemx',
                               'extra' => {
                                 'element_region' => 'copying',
                                 'index_entry' => [
@@ -433,7 +433,8 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       'type' => 'table_entry'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -449,7 +450,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'ftable'
                       },
@@ -481,7 +481,8 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'printindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -497,7 +498,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'printindex',
                   'extra' => {
                     'misc_args' => [
                       'fn'
@@ -518,7 +518,8 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -534,7 +535,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'copying'
                   },
@@ -704,7 +704,8 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -720,7 +721,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -824,7 +824,8 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -840,7 +841,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'

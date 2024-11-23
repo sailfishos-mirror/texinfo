@@ -12,7 +12,8 @@ $result_trees{'multiple_documentlanguage'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentlanguage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'multiple_documentlanguage'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentlanguage',
               'extra' => {
                 'text_arg' => 'fr'
               },
@@ -262,7 +262,8 @@ $result_trees{'multiple_documentlanguage'} = {
                       'type' => 'def_item'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -278,7 +279,6 @@ $result_trees{'multiple_documentlanguage'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'defivar'
                       },
@@ -302,7 +302,8 @@ $result_trees{'multiple_documentlanguage'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -318,7 +319,6 @@ $result_trees{'multiple_documentlanguage'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'copying'
                   },
@@ -684,7 +684,8 @@ $result_trees{'multiple_documentlanguage'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -700,7 +701,6 @@ $result_trees{'multiple_documentlanguage'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defivar'
               },
@@ -729,7 +729,8 @@ $result_trees{'multiple_documentlanguage'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -745,7 +746,6 @@ $result_trees{'multiple_documentlanguage'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'de'
           },
@@ -764,14 +764,14 @@ $result_trees{'multiple_documentlanguage'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'line_nr' => 21
@@ -783,7 +783,8 @@ $result_trees{'multiple_documentlanguage'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -799,7 +800,6 @@ $result_trees{'multiple_documentlanguage'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'hr'
           },
@@ -1016,7 +1016,8 @@ $result_trees{'multiple_documentlanguage'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1032,7 +1033,6 @@ $result_trees{'multiple_documentlanguage'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defivar'
               },
@@ -1061,14 +1061,14 @@ $result_trees{'multiple_documentlanguage'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'line_nr' => 29
@@ -1080,7 +1080,8 @@ $result_trees{'multiple_documentlanguage'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1096,7 +1097,6 @@ $result_trees{'multiple_documentlanguage'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'vr'

@@ -10,7 +10,8 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'footnotestyle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'footnotestyle',
           'extra' => {
             'misc_args' => [
               'separate'

@@ -10,7 +10,8 @@ $result_trees{'definfoenclose_nestings'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'definfoenclose_nestings'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'phoo',
@@ -181,7 +181,8 @@ $result_trees{'definfoenclose_nestings'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -197,7 +198,6 @@ $result_trees{'definfoenclose_nestings'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

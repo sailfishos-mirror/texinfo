@@ -91,14 +91,14 @@ $result_trees{'no_empty_line_after_section'} = {
           'type' => 'argument'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' comment
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'text' => '
@@ -112,14 +112,14 @@ $result_trees{'no_empty_line_after_section'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'comment',
+              'contents' => [
                 {
                   'text' => ' c
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'comment'
+              ]
             }
           ],
           'type' => 'paragraph'
@@ -190,7 +190,8 @@ $result_trees{'no_empty_line_after_section'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -206,7 +207,6 @@ $result_trees{'no_empty_line_after_section'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '3'

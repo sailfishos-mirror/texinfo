@@ -67,7 +67,8 @@ $result_trees{'flushright_not_closed_and_format'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -83,7 +84,6 @@ $result_trees{'flushright_not_closed_and_format'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'quotation'
                   },

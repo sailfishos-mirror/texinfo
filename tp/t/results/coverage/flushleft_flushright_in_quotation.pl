@@ -62,7 +62,8 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -78,7 +79,6 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'flushleft'
                   },
@@ -132,7 +132,8 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -148,7 +149,6 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'flushright'
                   },
@@ -167,7 +167,8 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -183,7 +184,6 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

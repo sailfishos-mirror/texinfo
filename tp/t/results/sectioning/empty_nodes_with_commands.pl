@@ -25,14 +25,14 @@ $result_trees{'empty_nodes_with_commands'} = {
             {
               'info' => {
                 'comment_at_end' => {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' comment
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 }
               },
               'type' => 'line_arg'

@@ -33,7 +33,8 @@ $result_trees{'command_in_end'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -62,7 +63,6 @@ $result_trees{'command_in_end'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -104,7 +104,8 @@ $result_trees{'command_in_end'} = {
 '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -136,7 +137,6 @@ $result_trees{'command_in_end'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'q'
                       },
@@ -181,7 +181,8 @@ $result_trees{'command_in_end'} = {
 '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -213,7 +214,6 @@ $result_trees{'command_in_end'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'qu'
                           },
@@ -258,7 +258,8 @@ $result_trees{'command_in_end'} = {
 '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -293,7 +294,6 @@ $result_trees{'command_in_end'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'quotn'
                               },
@@ -341,7 +341,8 @@ $result_trees{'command_in_end'} = {
                               'type' => 'paragraph'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -371,7 +372,6 @@ $result_trees{'command_in_end'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'quotation'
                               },
@@ -421,7 +421,8 @@ $result_trees{'command_in_end'} = {
                               'type' => 'paragraph'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -451,7 +452,6 @@ $result_trees{'command_in_end'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'quotation'
                               },
@@ -501,7 +501,8 @@ $result_trees{'command_in_end'} = {
                               'type' => 'paragraph'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -531,7 +532,6 @@ $result_trees{'command_in_end'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'quotation'
                               },

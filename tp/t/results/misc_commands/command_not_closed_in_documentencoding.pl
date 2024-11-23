@@ -10,7 +10,8 @@ $result_trees{'command_not_closed_in_documentencoding'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -23,7 +24,6 @@ $result_trees{'command_not_closed_in_documentencoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {

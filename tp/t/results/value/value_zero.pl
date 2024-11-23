@@ -10,7 +10,8 @@ $result_trees{'value_zero'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'zero',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'value_zero'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' zero 0
 '

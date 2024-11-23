@@ -12,7 +12,8 @@ $result_trees{'translation_in_parser_in_translation'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentlanguage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'translation_in_parser_in_translation'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentlanguage',
               'extra' => {
                 'text_arg' => 'fr'
               },
@@ -383,7 +383,8 @@ $result_trees{'translation_in_parser_in_translation'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -399,7 +400,6 @@ $result_trees{'translation_in_parser_in_translation'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deftypeop'
               },

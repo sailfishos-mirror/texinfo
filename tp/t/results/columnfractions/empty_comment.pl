@@ -17,24 +17,24 @@ $result_trees{'empty_comment'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'info' => {
                             'comment_at_end' => {
-                              'args' => [
+                              'cmdname' => 'c',
+                              'contents' => [
                                 {
                                   'text' => '
 ',
                                   'type' => 'rawline_arg'
                                 }
-                              ],
-                              'cmdname' => 'c'
+                              ]
                             }
                           },
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -51,7 +51,8 @@ $result_trees{'empty_comment'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -61,7 +62,6 @@ $result_trees{'empty_comment'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

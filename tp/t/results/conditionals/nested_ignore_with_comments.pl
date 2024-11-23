@@ -167,7 +167,8 @@ $result_trees{'nested_ignore_with_comments'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -183,7 +184,6 @@ $result_trees{'nested_ignore_with_comments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'ignore'
               },

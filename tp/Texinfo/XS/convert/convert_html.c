@@ -771,10 +771,9 @@ html_prepare_simpletitle (CONVERTER *self)
       enum command_id cmd = simpletitle_cmds[i];
       const ELEMENT *command
         = get_cmd_global_uniq_command (&self->document->global_commands, cmd);
-      if (command && command->e.c->args.number > 0
-          && command->e.c->args.list[0]->e.c->contents.number > 0)
+      if (command  && command->e.c->contents.list[0]->e.c->contents.number > 0)
         {
-          self->simpletitle_tree = command->e.c->args.list[0];
+          self->simpletitle_tree = command->e.c->contents.list[0];
           self->simpletitle_cmd = cmd;
           break;
         }
@@ -894,10 +893,9 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       enum command_id cmd = fulltitle_cmds[i];
       const ELEMENT *command
         = get_cmd_global_uniq_command (&self->document->global_commands, cmd);
-      if (command && command->e.c->args.number > 0
-          && command->e.c->args.list[0]->e.c->contents.number > 0)
+      if (command && command->e.c->contents.list[0]->e.c->contents.number > 0)
         {
-          fulltitle_tree = command->e.c->args.list[0];
+          fulltitle_tree = command->e.c->contents.list[0];
           break;
         }
     }
@@ -1290,7 +1288,10 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
           text_append (&content_formatted, "");
 
           if (element->e.c->contents.number > 0
-              && !(builtin_command_data[data_cmd].flags & CF_brace))
+              && (builtin_command_data[data_cmd].flags & CF_root
+                  || builtin_command_data[data_cmd].flags & CF_block
+                  || data_cmd == CM_tab || data_cmd == CM_headitem
+                  || data_cmd == CM_item))
             {
 
               if (convert_to_latex)
@@ -1314,16 +1315,15 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                 }
               else
                 {
-                  size_t content_idx;
+                  size_t idx;
                   text_append (&content_formatted, "");
-                  for (content_idx = 0; content_idx < element->e.c->contents.number;
-                       content_idx++)
+                  for (idx = 0; idx < element->e.c->contents.number; idx++)
                     {
                       const ELEMENT *content
-                        = element->e.c->contents.list[content_idx];
+                        = element->e.c->contents.list[idx];
                       char *explanation;
                       xasprintf (&explanation, "%s c[%zu]", command_type.text,
-                                content_idx);
+                                idx);
                       html_convert_tree_append (self, content,
                                                 &content_formatted,
                                                 explanation);
@@ -1343,12 +1343,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
             {
               const ELEMENT_LIST *arguments_list = 0;
 
-              if (builtin_command_data[data_cmd].flags & CF_brace)
-                {
-                  if (element->e.c->contents.number > 0)
-                    arguments_list = &element->e.c->contents;
-                }
-              else if (element->e.c->contents.number > 0
+              if (element->e.c->contents.number > 0
                        && element->e.c->contents.list[0]->type == ET_argument)
                 {
                   const ELEMENT *argument = element->e.c->contents.list[0];
@@ -1358,8 +1353,8 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                 }
               else
                 {
-                  if (element->e.c->args.number > 0)
-                    arguments_list = &element->e.c->args;
+                  if (element->e.c->contents.number > 0)
+                    arguments_list = &element->e.c->contents;
                 }
 
               if (arguments_list)

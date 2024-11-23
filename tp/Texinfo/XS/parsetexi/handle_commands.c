@@ -91,7 +91,7 @@ check_no_text (const ELEMENT *current)
               ELEMENT *g = f->e.c->contents.list[j];
               if ((g->type == ET_normal_text
                    && g->e.text->end > 0
-                   && g->e.text->text[strspn 
+                   && g->e.text->text[strspn
                                        (g->e.text->text, whitespace_chars)])
                   /* empty_line text is possible */
                   || (!(type_data[g->type].flags & TF_text)
@@ -667,7 +667,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           command_e->e.c->source_info = current_source_info;
 
           line_args = new_element (ET_line_arg);
-          add_to_element_args (command_e, line_args);
+          add_to_element_contents (command_e, line_args);
           add_extra_misc_args (command_e, AI_key_misc_args, args_list);
           text_append (spaces_before->e.text, " ");
           command_e->elt_info[eit_spaces_before_argument] = spaces_before;
@@ -695,7 +695,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
             {
               args->list[i]->parent = command_e;
             }
-          insert_list_slice_into_args (command_e, 0, args, 0, args_nr);
+          insert_list_slice_into_contents (command_e, 0, args, 0, args_nr);
           args->number = 0;
         }
 
@@ -925,16 +925,15 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       /* change 'current' to its last child.  This is command_e.  */
       current = last_contents_child (current);
       arg = new_element (ET_line_arg);
-      if (command_data(data_cmd).flags & CF_def)
-        add_to_element_contents (current, arg);
-      else if (command_data(data_cmd).flags & CF_root)
+
+      if (command_data(data_cmd).flags & CF_root)
         {
           ELEMENT *argument = new_element (ET_argument);
           add_to_element_contents (current, argument);
           add_to_element_contents (argument, arg);
         }
-      else
-        add_to_element_args (current, arg);
+      else /* def or line command */
+        add_to_element_contents (current, arg);
 
       if (command_data(data_cmd).flags & CF_contain_basic_inline)
         push_command (&nesting_context.basic_inline_stack_on_line, cmd);
@@ -992,7 +991,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
         }
       else
         {
-          current = last_args_child (current);
+          current = last_contents_child (current);
       /* add 'line' to context_stack.  This will be the
          case while we read the argument on this line. */
           push_context (ct_line, cmd);

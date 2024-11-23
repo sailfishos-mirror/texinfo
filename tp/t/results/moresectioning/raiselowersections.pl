@@ -15,14 +15,14 @@ $result_trees{'raiselowersections'} = {
               'text' => '\\input texinfo '
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' -*-texinfo-*-
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             }
           ],
           'type' => 'paragraph'
@@ -198,7 +198,8 @@ $result_trees{'raiselowersections'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -214,7 +215,6 @@ $result_trees{'raiselowersections'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -400,7 +400,8 @@ $result_trees{'raiselowersections'} = {
                             {
                               'counter' => 1,
                               'element' => {
-                                'args' => [
+                                'cmdname' => 'end',
+                                'contents' => [
                                   {
                                     'contents' => [
                                       {
@@ -416,7 +417,6 @@ $result_trees{'raiselowersections'} = {
                                     'type' => 'line_arg'
                                   }
                                 ],
-                                'cmdname' => 'end',
                                 'extra' => {
                                   'text_arg' => 'ifclear'
                                 },
@@ -450,7 +450,8 @@ $result_trees{'raiselowersections'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -466,7 +467,6 @@ $result_trees{'raiselowersections'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -490,7 +490,8 @@ $result_trees{'raiselowersections'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'do-top',
               'type' => 'rawline_arg'
@@ -500,7 +501,6 @@ $result_trees{'raiselowersections'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' do-top
 '
@@ -512,14 +512,14 @@ $result_trees{'raiselowersections'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'lowersections',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'lowersections'
+          ]
         },
         {
           'source_marks' => [
@@ -564,7 +564,8 @@ $result_trees{'raiselowersections'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -580,7 +581,6 @@ $result_trees{'raiselowersections'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'section_file.texi'
                 },
@@ -608,14 +608,14 @@ $result_trees{'raiselowersections'} = {
               'text' => '\\input texinfo '
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' -*-texinfo-*-
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             }
           ],
           'type' => 'paragraph'
@@ -677,7 +677,8 @@ $result_trees{'raiselowersections'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -693,7 +694,6 @@ $result_trees{'raiselowersections'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifclear'
                     },
@@ -873,7 +873,8 @@ $result_trees{'raiselowersections'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -889,7 +890,6 @@ $result_trees{'raiselowersections'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -1058,7 +1058,8 @@ $result_trees{'raiselowersections'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1074,7 +1075,6 @@ $result_trees{'raiselowersections'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -1230,7 +1230,8 @@ $result_trees{'raiselowersections'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -1246,7 +1247,6 @@ $result_trees{'raiselowersections'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -1316,7 +1316,8 @@ $result_trees{'raiselowersections'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -1332,7 +1333,6 @@ $result_trees{'raiselowersections'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifclear'
                     },
@@ -1369,7 +1369,8 @@ $result_trees{'raiselowersections'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'end',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -1385,7 +1386,6 @@ $result_trees{'raiselowersections'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'end',
                 'extra' => {
                   'text_arg' => 'ifclear'
                 },
@@ -1408,14 +1408,14 @@ $result_trees{'raiselowersections'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'raisesections',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'raisesections'
+          ]
         },
         {
           'text' => '
@@ -1423,13 +1423,13 @@ $result_trees{'raiselowersections'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'clear',
+          'contents' => [
             {
               'text' => 'do-top',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clear',
           'info' => {
             'arg_line' => ' do-top
 '
@@ -1533,14 +1533,14 @@ $result_trees{'raiselowersections'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 35
@@ -1560,14 +1560,14 @@ $result_trees{'raiselowersections'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

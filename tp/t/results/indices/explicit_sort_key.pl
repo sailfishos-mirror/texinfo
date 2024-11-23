@@ -107,7 +107,8 @@ $result_trees{'explicit_sort_key'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -123,7 +124,6 @@ $result_trees{'explicit_sort_key'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'SK'
@@ -144,7 +144,8 @@ $result_trees{'explicit_sort_key'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'SKindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -180,7 +181,6 @@ $result_trees{'explicit_sort_key'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'SKindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -201,7 +201,8 @@ $result_trees{'explicit_sort_key'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'SKindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -237,7 +238,6 @@ $result_trees{'explicit_sort_key'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'SKindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -258,7 +258,8 @@ $result_trees{'explicit_sort_key'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'SKindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -294,7 +295,6 @@ $result_trees{'explicit_sort_key'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'SKindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -315,7 +315,8 @@ $result_trees{'explicit_sort_key'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'SKindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -360,7 +361,6 @@ $result_trees{'explicit_sort_key'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'SKindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -535,7 +535,8 @@ $result_trees{'explicit_sort_key'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -551,7 +552,6 @@ $result_trees{'explicit_sort_key'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'SK'

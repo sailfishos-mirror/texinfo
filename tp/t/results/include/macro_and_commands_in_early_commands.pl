@@ -27,7 +27,8 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -71,7 +71,8 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'setfilename',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -100,7 +101,6 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'setfilename',
           'extra' => {
             'text_arg' => 'macro_i--n_pass@texi_commands.info'
           },
@@ -155,7 +155,8 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -171,7 +172,6 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -199,7 +199,8 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -225,7 +226,6 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'iso-8859-1',
             'text_arg' => 'ISO-8859-1@'
@@ -286,7 +286,8 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -302,7 +303,6 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -433,7 +433,8 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -449,7 +450,6 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'macro_included.texi'
                 },
@@ -503,7 +503,8 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -519,7 +520,6 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -551,7 +551,8 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -581,7 +582,6 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'inc_@f--ile.texi'
                 },
@@ -661,7 +661,8 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'verbatiminclude',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -683,7 +684,6 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_encoding_name' => 'iso-8859-1',
             'text_arg' => 'inc_@f--ile.texi'

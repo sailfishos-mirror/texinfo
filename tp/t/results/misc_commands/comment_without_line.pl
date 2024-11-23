@@ -10,13 +10,13 @@ $result_trees{'comment_without_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'comment',
+          'contents' => [
             {
               'text' => '',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'comment'
+          ]
         }
       ],
       'type' => 'before_node_section'

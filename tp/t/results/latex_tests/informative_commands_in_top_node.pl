@@ -79,7 +79,8 @@ $result_trees{'informative_commands_in_top_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'paragraphindent',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -95,7 +96,6 @@ $result_trees{'informative_commands_in_top_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'paragraphindent',
           'extra' => {
             'misc_args' => [
               '5'
@@ -116,7 +116,8 @@ $result_trees{'informative_commands_in_top_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'evenfooting',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -175,7 +176,6 @@ $result_trees{'informative_commands_in_top_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'evenfooting',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -186,7 +186,8 @@ $result_trees{'informative_commands_in_top_node'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'paragraphindent',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -202,7 +203,6 @@ $result_trees{'informative_commands_in_top_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'paragraphindent',
           'extra' => {
             'misc_args' => [
               '2'

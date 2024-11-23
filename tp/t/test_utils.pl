@@ -320,7 +320,7 @@ sub new_test($;$$$)
 }
 
 # keys under 'info' are not needed here.
-my @contents_keys = ('contents', 'args', 'parent', 'source_info',
+my @contents_keys = ('contents', 'parent', 'source_info',
   'node_content', 'invalid_nesting', 'info', 'text_arg',
   'node_description', 'node_long_description', 'is_target',
   'unit_contents', 'global_command_number',

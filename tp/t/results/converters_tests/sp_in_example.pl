@@ -33,7 +33,8 @@ $result_trees{'sp_in_example'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'sp',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -49,7 +50,6 @@ $result_trees{'sp_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'sp',
                   'extra' => {
                     'misc_args' => [
                       '1'
@@ -84,7 +84,8 @@ $result_trees{'sp_in_example'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'sp',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -100,7 +101,6 @@ $result_trees{'sp_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'sp',
                   'extra' => {
                     'misc_args' => [
                       '1'
@@ -121,7 +121,8 @@ $result_trees{'sp_in_example'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'sp',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -137,7 +138,6 @@ $result_trees{'sp_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'sp',
                   'extra' => {
                     'misc_args' => [
                       '2'
@@ -166,7 +166,8 @@ $result_trees{'sp_in_example'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'sp',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -182,7 +183,6 @@ $result_trees{'sp_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'sp',
                   'extra' => {
                     'misc_args' => [
                       '2'
@@ -211,7 +211,8 @@ $result_trees{'sp_in_example'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'sp',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -227,7 +228,6 @@ $result_trees{'sp_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'sp',
                   'extra' => {
                     'misc_args' => [
                       '1'
@@ -246,7 +246,8 @@ $result_trees{'sp_in_example'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -262,7 +263,6 @@ $result_trees{'sp_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

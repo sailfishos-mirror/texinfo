@@ -33,7 +33,8 @@ $result_trees{'paragraphindent_asis_first'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'paragraphindent',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -49,7 +50,6 @@ $result_trees{'paragraphindent_asis_first'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'paragraphindent',
           'extra' => {
             'misc_args' => [
               'asis'

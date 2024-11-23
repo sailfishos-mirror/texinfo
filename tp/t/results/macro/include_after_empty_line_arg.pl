@@ -31,7 +31,8 @@ $result_trees{'include_after_empty_line_arg'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -47,7 +48,6 @@ $result_trees{'include_after_empty_line_arg'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -124,7 +124,8 @@ $result_trees{'include_after_empty_line_arg'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'include',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -140,7 +141,6 @@ $result_trees{'include_after_empty_line_arg'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'include',
                     'extra' => {
                       'text_arg' => 'inc_file.texi'
                     },

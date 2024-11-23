@@ -32,7 +32,8 @@ $result_trees{'glossary'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'glossary'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'glossary'
               },
@@ -85,7 +85,8 @@ $result_trees{'glossary'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -101,7 +102,6 @@ $result_trees{'glossary'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'macro'
                   },
@@ -158,7 +158,8 @@ $result_trees{'glossary'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -174,7 +175,6 @@ $result_trees{'glossary'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'macro'
                   },
@@ -313,7 +313,8 @@ $result_trees{'glossary'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -329,7 +330,6 @@ $result_trees{'glossary'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'macro'
                   },
@@ -493,7 +493,8 @@ $result_trees{'glossary'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -509,7 +510,6 @@ $result_trees{'glossary'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -658,7 +658,8 @@ $result_trees{'glossary'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -674,7 +675,6 @@ $result_trees{'glossary'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifhtml'
                     },
@@ -718,7 +718,8 @@ $result_trees{'glossary'} = {
                         'type' => 'raw'
                       },
                       {
-                        'args' => [
+                        'cmdname' => 'end',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -734,7 +735,6 @@ $result_trees{'glossary'} = {
                             'type' => 'line_arg'
                           }
                         ],
-                        'cmdname' => 'end',
                         'extra' => {
                           'text_arg' => 'ifnothtml'
                         },
@@ -764,13 +764,13 @@ $result_trees{'glossary'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'unmacro',
+              'contents' => [
                 {
                   'text' => 'expandglossary',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'unmacro',
               'info' => {
                 'arg_line' => ' expandglossary
 '
@@ -823,7 +823,8 @@ $result_trees{'glossary'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -839,7 +840,6 @@ $result_trees{'glossary'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'macro'
                   },
@@ -892,13 +892,13 @@ $result_trees{'glossary'} = {
               ]
             },
             {
-              'args' => [
+              'cmdname' => 'unmacro',
+              'contents' => [
                 {
                   'text' => 'glossarytext',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'unmacro',
               'info' => {
                 'arg_line' => ' glossarytext
 '
@@ -932,7 +932,8 @@ $result_trees{'glossary'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -956,7 +957,6 @@ $result_trees{'glossary'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'macro'
                   },
@@ -1112,7 +1112,8 @@ $result_trees{'glossary'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -1128,7 +1129,6 @@ $result_trees{'glossary'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifhtml'
                     },
@@ -1172,7 +1172,8 @@ $result_trees{'glossary'} = {
                         'type' => 'raw'
                       },
                       {
-                        'args' => [
+                        'cmdname' => 'end',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -1188,7 +1189,6 @@ $result_trees{'glossary'} = {
                             'type' => 'line_arg'
                           }
                         ],
-                        'cmdname' => 'end',
                         'extra' => {
                           'text_arg' => 'ifnothtml'
                         },
@@ -1218,13 +1218,13 @@ $result_trees{'glossary'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'unmacro',
+              'contents' => [
                 {
                   'text' => 'expandglossary',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'unmacro',
               'info' => {
                 'arg_line' => ' expandglossary
 '
@@ -1277,7 +1277,8 @@ $result_trees{'glossary'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1293,7 +1294,6 @@ $result_trees{'glossary'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'macro'
                   },
@@ -1346,13 +1346,13 @@ $result_trees{'glossary'} = {
               ]
             },
             {
-              'args' => [
+              'cmdname' => 'unmacro',
+              'contents' => [
                 {
                   'text' => 'glossarytext',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'unmacro',
               'info' => {
                 'arg_line' => ' glossarytext
 '
@@ -1386,7 +1386,8 @@ $result_trees{'glossary'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1410,7 +1411,6 @@ $result_trees{'glossary'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'macro'
                   },

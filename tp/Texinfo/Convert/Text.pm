@@ -114,6 +114,7 @@ my %accent_commands = %Texinfo::Commands::accent_commands;
 my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
 my %formatted_line_commands = %Texinfo::Commands::formatted_line_commands;
 my %def_commands = %Texinfo::Commands::def_commands;
+my %line_commands = %Texinfo::Commands::line_commands;
 # 'page' is a formatted_line_commands and therefore is replaced by an empty
 # line.
 
@@ -554,12 +555,13 @@ sub _convert($$)
                                   or !defined($element->{'extra'}
                                                          ->{'expand_index'})))))
              # here ignore most of the line commands
-                 or ($element->{'args'}
-                     and $element->{'args'}->[0]->{'type'}
-                     and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
-                         or $element->{'args'}->[0]->{'type'} eq 'rawline_arg')
+                 or ($element->{'type'}
+                     and $element->{'type'} eq 'index_entry_command')
+                 or ($line_commands{$data_cmdname}
                      and !$formatted_line_commands{$data_cmdname}
-                     and !$converted_formattable_line_commands{$cmdname})))));
+                     and !$def_commands{$data_cmdname}
+                     and ($data_cmdname ne 'sp'
+                          and $data_cmdname ne 'verbatiminclude'))))));
 
   my $result = '';
   if (defined($cmdname)) {
@@ -687,56 +689,44 @@ sub _convert($$)
              or $cmdname eq 'smallquotation'
              or $cmdname eq 'float'
              or $cmdname eq 'cartouche') {
-      # TODO the first condition is never true, the second can be
-      # simplified
-      if ($element->{'args'}) {
-        foreach my $arg (@{$element->{'args'}}) {
-          my $converted_arg = _convert($options, $arg);
-          if ($converted_arg =~ /\S/) {
-            $result .= $converted_arg.", ";
-          }
+      my $argument = $element->{'contents'}->[0];
+      foreach my $arg (@{$argument->{'contents'}}) {
+        my $converted_arg = _convert($options, $arg);
+        if ($converted_arg =~ /\S/) {
+          $result .= $converted_arg.", ";
         }
-        $result =~ s/, $//;
-        chomp ($result);
-        $result .= "\n" if ($result =~ /\S/);
-      } elsif ($element->{'contents'} and scalar(@{$element->{'contents'}})
-               and $element->{'contents'}->[0]->{'contents'}) {
-        my $argument = $element->{'contents'}->[0];
-        foreach my $arg (@{$argument->{'contents'}}) {
-          my $converted_arg = _convert($options, $arg);
-          if ($converted_arg =~ /\S/) {
-            $result .= $converted_arg.", ";
-          }
-        }
-        $result =~ s/, $//;
-        chomp ($result);
-        $result .= "\n" if ($result =~ /\S/);
       }
+      $result =~ s/, $//;
+      chomp ($result);
+      $result .= "\n" if ($result =~ /\S/);
     } elsif ($Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
       my $line_arg;
       if ($Texinfo::Commands::root_commands{$cmdname}) {
         $line_arg = $element->{'contents'}->[0]->{'contents'}->[0];
       } else {
-        $line_arg = $element->{'args'}->[0];
+        $line_arg = $element->{'contents'}->[0];
       }
       my $heading_text = _convert($options, $line_arg);
       $result = _text_heading($element, $heading_text, $options->{'converter'},
                                $options->{'NUMBER_SECTIONS'});
-    } elsif ($formatted_line_commands{$data_cmdname} and $element->{'args'}) {
+      unless ($Texinfo::Commands::root_commands{$cmdname}) {
+        return $result;
+      }
+    } elsif ($formatted_line_commands{$data_cmdname}) {
       if ($cmdname ne 'node') {
         if ($cmdname eq 'page') {
           $result = '';
         } else {
-          $result = _convert($options, $element->{'args'}->[0]);
+          $result = _convert($options, $element->{'contents'}->[0]);
         }
         # we always want an end of line even if is was eaten by a command
         chomp($result);
         $result .= "\n";
+        return $result;
       }
-    } elsif ($converted_formattable_line_commands{$cmdname}) {
+    } elsif ($converted_formattable_line_commands{$data_cmdname}) {
       if ($def_commands{$cmdname}) {
         $result = _convert_def_line($options, $element);
-        return $result;
       } elsif ($cmdname eq 'sp') {
         if ($element->{'extra'} and $element->{'extra'}->{'misc_args'}
             and $element->{'extra'}->{'misc_args'}->[0]) {
@@ -761,6 +751,7 @@ sub _convert($$)
           $result .= _convert($options, $verbatim_include_verbatim);
         }
       }
+      return $result;
     } elsif ($cmdname eq 'item'
             and $element->{'parent'}->{'cmdname'}
             and $element->{'parent'}->{'cmdname'} eq 'enumerate') {

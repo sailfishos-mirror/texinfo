@@ -53,7 +53,8 @@ $result_trees{'tex_expanded_in_copying'} = {
                   'type' => 'rawpreformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -69,7 +70,6 @@ $result_trees{'tex_expanded_in_copying'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'tex'
                   },
@@ -88,7 +88,8 @@ $result_trees{'tex_expanded_in_copying'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -104,7 +105,6 @@ $result_trees{'tex_expanded_in_copying'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'copying'
               },

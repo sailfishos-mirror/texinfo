@@ -290,7 +290,8 @@ $result_trees{'special_characters_in_float_type'} = {
               'type' => 'spaces_after_close_brace'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -306,7 +307,6 @@ $result_trees{'special_characters_in_float_type'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -342,7 +342,8 @@ $result_trees{'special_characters_in_float_type'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -380,7 +381,6 @@ $result_trees{'special_characters_in_float_type'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => 'A < " `` ` \' \' \\aaa . --- in var'
           },

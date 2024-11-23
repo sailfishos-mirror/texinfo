@@ -12,7 +12,8 @@ $result_trees{'documentlanguage_generated_master_menu'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentlanguage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'documentlanguage_generated_master_menu'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentlanguage',
               'extra' => {
                 'text_arg' => 'pt'
               },
@@ -47,7 +47,8 @@ $result_trees{'documentlanguage_generated_master_menu'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'documentlanguage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -63,7 +64,6 @@ $result_trees{'documentlanguage_generated_master_menu'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentlanguage',
               'extra' => {
                 'text_arg' => 'de'
               },
@@ -263,7 +263,8 @@ $result_trees{'documentlanguage_generated_master_menu'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -279,7 +280,6 @@ $result_trees{'documentlanguage_generated_master_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'fr'
           },
@@ -413,7 +413,8 @@ $result_trees{'documentlanguage_generated_master_menu'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -429,7 +430,6 @@ $result_trees{'documentlanguage_generated_master_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'hr'
           },

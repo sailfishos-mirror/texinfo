@@ -255,7 +255,8 @@ $result_trees{'defx_after_paragraph_end'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -265,7 +266,6 @@ $result_trees{'defx_after_paragraph_end'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },

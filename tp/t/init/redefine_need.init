@@ -26,8 +26,9 @@ sub my_need_formatting($$$)
                           $command->{'source_info'});
   }
   my $arg_text;
-  if ($command->{'args'} and $command->{'args'}->[0]) {
-    $arg_text = Texinfo::Convert::Text::convert_to_text($command->{'args'}->[0]);
+  if ($command->{'contents'} and $command->{'contents'}->[0]) {
+    $arg_text
+     = Texinfo::Convert::Text::convert_to_text($command->{'contents'}->[0]);
   } else {
     $arg_text = '';
   }

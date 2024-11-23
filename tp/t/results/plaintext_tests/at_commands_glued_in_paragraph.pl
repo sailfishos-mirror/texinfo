@@ -287,7 +287,8 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -303,7 +304,6 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '4'
@@ -351,7 +351,8 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
               'text' => 'index'
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -367,7 +368,6 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'index_entry' => [
                   'cp',

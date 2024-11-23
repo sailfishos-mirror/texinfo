@@ -476,8 +476,6 @@ substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 {
   if (tree->e.c->contents.number > 0)
     substitute_element_array (&tree->e.c->contents, replaced_substrings);
-  if (tree->e.c->args.number > 0)
-    substitute_element_array (&tree->e.c->args, replaced_substrings);
 
   return tree;
 }

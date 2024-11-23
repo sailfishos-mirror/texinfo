@@ -147,10 +147,10 @@ sub _convert($$)
                           or !$self->{'expanded_formats'}->{$element->{'extra'}->{'format'}}))
                  or ($element->{'cmdname'} eq 'menu' and $self->get_conf('FORMAT_MENU') eq 'nomenu')
              # here ignore most of the line commands
-                 or ($element->{'args'} and $element->{'args'}->[0]
-                     and $element->{'args'}->[0]->{'type'}
-                     and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
-                          or $element->{'args'}->[0]->{'type'} eq 'rawline_arg')
+                 or ($element->{'contents'} and $element->{'contents'}->[0]
+                     and $element->{'contents'}->[0]->{'type'}
+                     and ($element->{'contents'}->[0]->{'type'} eq 'line_arg'
+                          or $element->{'contents'}->[0]->{'type'} eq 'rawline_arg')
                      and !$self->{'formatted_line_commands'}->{$data_cmdname})))));
   if (defined($element->{'text'})) {
     return $element->{'text'};
@@ -176,11 +176,6 @@ sub _convert($$)
     }
   }
   my $result = '';
-  if ($element->{'args'}) {
-    foreach my $arg (@{$element->{'args'}}) {
-      $result .= _convert($self, $arg);
-    }
-  }
   if ($element->{'contents'}) {
     my $contents_nr = scalar(@{$element->{'contents'}});
 

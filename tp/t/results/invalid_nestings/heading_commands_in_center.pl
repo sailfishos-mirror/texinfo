@@ -10,7 +10,8 @@ $result_trees{'heading_commands_in_center'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -63,7 +64,6 @@ $result_trees{'heading_commands_in_center'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

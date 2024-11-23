@@ -14,7 +14,8 @@ $result_trees{'macro_definition_in_include'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -30,7 +31,6 @@ $result_trees{'macro_definition_in_include'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'macro_included.texi'
                 },
@@ -67,7 +67,8 @@ $result_trees{'macro_definition_in_include'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -83,7 +84,6 @@ $result_trees{'macro_definition_in_include'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },

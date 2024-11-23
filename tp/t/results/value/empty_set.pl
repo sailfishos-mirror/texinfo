@@ -10,7 +10,8 @@ $result_trees{'empty_set'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'myspace',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'empty_set'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' myspace
 '

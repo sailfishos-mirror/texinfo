@@ -32,7 +32,8 @@ $result_trees{'xml_protected_in_verb'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'xml_protected_in_verb'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },
@@ -106,7 +106,8 @@ $result_trees{'xml_protected_in_verb'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'verbatiminclude',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -122,7 +123,6 @@ $result_trees{'xml_protected_in_verb'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_encoding_name' => 'utf-8',
             'text_arg' => 'file_with_xml_chars.texi'

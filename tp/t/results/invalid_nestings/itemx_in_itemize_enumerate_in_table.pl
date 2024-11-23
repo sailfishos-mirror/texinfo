@@ -39,7 +39,8 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -55,7 +56,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -112,7 +112,8 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'itemx',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -128,7 +129,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'itemx',
                               'info' => {
                                 'spaces_before_argument' => {
                                   'text' => ' '
@@ -142,7 +142,8 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                           'type' => 'before_item'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -158,7 +159,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'itemize'
                           },
@@ -204,7 +204,8 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'itemx',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -220,7 +221,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'itemx',
                               'info' => {
                                 'spaces_before_argument' => {
                                   'text' => ' '
@@ -234,7 +234,8 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                           'type' => 'before_item'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -250,7 +251,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'enumerate'
                           },
@@ -283,7 +283,8 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -299,7 +300,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -410,10 +410,10 @@ $result_converted{'xml'}->{'itemx_in_itemize_enumerate_in_table'} = '<table comm
 </tableterm><tableitem>
 <para>In item, nested itemize
 </para><itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
-<beforefirstitem></beforefirstitem></itemize>
+<beforefirstitem>in nested itemize itemx</beforefirstitem></itemize>
 
 <enumerate first="1" endspaces=" ">
-<beforefirstitem></beforefirstitem></enumerate>
+<beforefirstitem>in nested enumerate itemx</beforefirstitem></enumerate>
 
 </tableitem></tableentry></table>
 ';

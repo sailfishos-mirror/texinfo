@@ -465,15 +465,10 @@ sub _end_line_spaces
 
   my $end_spaces = '';
   my $arguments_list;
-  if ($element->{'args'}) {
-    $arguments_list = $element->{'args'};
-  } elsif ($element->{'contents'} and scalar(@{$element->{'contents'}})
-           and $element->{'contents'}->[0]->{'type'}
-           and $element->{'contents'}->[0]->{'type'} eq 'argument') {
+  if ($element->{'contents'}->[0]->{'type'}
+      and $element->{'contents'}->[0]->{'type'} eq 'argument') {
     $arguments_list = $element->{'contents'}->[0]->{'contents'};
-  } elsif (($element->{'cmdname'}
-           and $Texinfo::Commands::def_commands{$element->{'cmdname'}})
-           or ($element->{'type'} and $element->{'type'} eq 'def_line')) {
+  } else {
     $arguments_list = $element->{'contents'};
   }
   if ($arguments_list->[-1]
@@ -535,12 +530,12 @@ sub _texinfo_line($$)
   my $self = shift;
   my $element = shift;
 
-  if ($element->{'args'}) {
-    my $line = Texinfo::Convert::Texinfo::convert_to_texinfo($element->{'args'}->[-1]);
-    chomp($line);
-    if ($line ne '') {
-      return ['line', $line];
-    }
+  my $line
+   = Texinfo::Convert::Texinfo::convert_to_texinfo(
+                                         $element->{'contents'}->[-1]);
+  chomp($line);
+  if ($line ne '') {
+    return ['line', $line];
   }
   return ();
 }
@@ -573,14 +568,14 @@ sub _convert_argument_and_end_line($$)
   my $self = shift;
   my $element = shift;
 
-  my $arguments_list;
-  if ($element->{'args'}) {
-    $arguments_list = $element->{'args'};
-  } elsif ($element->{'contents'} and scalar(@{$element->{'contents'}})
-           and $element->{'contents'}->[0]->{'contents'}) {
-    $arguments_list = $element->{'contents'}->[0]->{'contents'};
+  my $line_arg;
+  if ($element->{'contents'}->[0]->{'type'}
+      and $element->{'contents'}->[0]->{'type'} eq 'argument') {
+    $line_arg = $element->{'contents'}->[0]->{'contents'}->[-1];
+  } else {
+    $line_arg = $element->{'contents'}->[-1];
   }
-  my $converted = $self->convert_tree($arguments_list->[-1]);
+  my $converted = $self->convert_tree($line_arg);
   my $end_space = _end_line_spaces($self, $element);
   my $end_line = $self->format_comment_or_return_end_line($element);
   return ($converted, $end_space, $end_line);
@@ -1017,19 +1012,20 @@ sub _convert($$;$)
       } elsif ($type eq 'lineraw') {
         if ($cmdname eq 'c' or $cmdname eq 'comment') {
           return $self->txi_markup_comment(
-                         " $cmdname".$element->{'args'}->[0]->{'text'})
+                         " $cmdname".$element->{'contents'}->[0]->{'text'})
         } elsif ($cmdname eq 'clear' or $cmdname eq 'set') {
           my $attribute = [];
-          if ($element->{'args'} and $element->{'args'}->[0]
-              and defined($element->{'args'}->[0]->{'text'})) {
-            push @$attribute, ['name', $element->{'args'}->[0]->{'text'}];
+          if ($element->{'contents'} and $element->{'contents'}->[0]
+              and defined($element->{'contents'}->[0]->{'text'})) {
+            push @$attribute, ['name', $element->{'contents'}->[0]->{'text'}];
           }
           my $value = '';
-          if ($cmdname eq 'set' and $element->{'args'}
-              and $element->{'args'}->[1]
-              and defined($element->{'args'}->[1]->{'text'})) {
+          if ($cmdname eq 'set' and $element->{'contents'}
+              and $element->{'contents'}->[1]
+              and defined($element->{'contents'}->[1]->{'text'})) {
             $value
-              = $self->txi_markup_protect_text($element->{'args'}->[1]->{'text'});
+              = $self->txi_markup_protect_text(
+                                $element->{'contents'}->[1]->{'text'});
           }
           push @$attribute, $self->_arg_line($element);
           return $self->txi_markup_open_element($cmdname, $attribute)
@@ -1037,39 +1033,41 @@ sub _convert($$;$)
         } elsif ($cmdname eq 'clickstyle') {
           my $attribute = [$self->_arg_line($element)];
           my $value = '';
-          if ($element->{'args'} and $element->{'args'}->[0]
-              and defined($element->{'args'}->[0]->{'text'})) {
-            my $click_command = $element->{'args'}->[0]->{'text'};
+          if ($element->{'contents'} and $element->{'contents'}->[0]
+              and defined($element->{'contents'}->[0]->{'text'})) {
+            my $click_command = $element->{'contents'}->[0]->{'text'};
             $click_command =~ s/^\@//;
             unshift @$attribute, ['command', $click_command];
             $value
-              = $self->txi_markup_protect_text($element->{'args'}->[0]->{'text'});
+              = $self->txi_markup_protect_text(
+                                     $element->{'contents'}->[0]->{'text'});
           };
           return $self->txi_markup_open_element($cmdname, $attribute)
                          .$value.$self->txi_markup_close_element($cmdname)."\n";
         } elsif ($cmdname eq 'unmacro') {
           my $attribute = [$self->_arg_line($element)];
-          if ($element->{'args'} and $element->{'args'}->[0]
-              and defined($element->{'args'}->[0]->{'text'})) {
-            unshift @$attribute, ['name', $element->{'args'}->[0]->{'text'}];
+          if ($element->{'contents'} and $element->{'contents'}->[0]
+              and defined($element->{'contents'}->[0]->{'text'})) {
+            unshift @$attribute, ['name', $element->{'contents'}->[0]->{'text'}];
           }
           return $self->txi_markup_open_element($cmdname, $attribute)
                     .$self->txi_markup_close_element($cmdname)."\n";
         } elsif ($Texinfo::Commands::commands_args_number{$cmdname}) {
           my $value = '';
-          if ($element->{'args'} and $element->{'args'}->[0]
-              and defined($element->{'args'}->[0]->{'text'})) {
+          if ($element->{'contents'} and $element->{'contents'}->[0]
+              and defined($element->{'contents'}->[0]->{'text'})) {
             $value
-             = $self->txi_markup_protect_text($element->{'args'}->[0]->{'text'});
+             = $self->txi_markup_protect_text(
+                                  $element->{'contents'}->[0]->{'text'});
           }
           chomp ($value);
           return $self->txi_markup_open_element($cmdname).$value
                     .$self->txi_markup_close_element($cmdname)."\n";
         } else {
           my $attribute = [];
-          if ($element->{'args'} and $element->{'args'}->[0]
-              and defined($element->{'args'}->[0]->{'text'})) {
-            my $line = $element->{'args'}->[0]->{'text'};
+          if ($element->{'contents'} and $element->{'contents'}->[0]
+              and defined($element->{'contents'}->[0]->{'text'})) {
+            my $line = $element->{'contents'}->[0]->{'text'};
             chomp($line);
             $attribute = [['line', $line]]
                if ($line ne '');

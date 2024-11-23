@@ -329,7 +329,8 @@ $result_trees{'nested_itemize'} = {
                                       }
                                     },
                                     {
-                                      'args' => [
+                                      'cmdname' => 'end',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -345,7 +346,6 @@ $result_trees{'nested_itemize'} = {
                                           'type' => 'line_arg'
                                         }
                                       ],
-                                      'cmdname' => 'end',
                                       'extra' => {
                                         'text_arg' => 'itemize'
                                       },
@@ -375,7 +375,8 @@ $result_trees{'nested_itemize'} = {
                               }
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -391,7 +392,6 @@ $result_trees{'nested_itemize'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'itemize'
                               },
@@ -421,7 +421,8 @@ $result_trees{'nested_itemize'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -437,7 +438,6 @@ $result_trees{'nested_itemize'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'itemize'
                       },
@@ -467,7 +467,8 @@ $result_trees{'nested_itemize'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -483,7 +484,6 @@ $result_trees{'nested_itemize'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },

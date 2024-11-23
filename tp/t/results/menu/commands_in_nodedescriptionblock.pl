@@ -183,7 +183,8 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -199,7 +200,6 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -449,7 +449,8 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
 '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -465,7 +466,6 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -578,7 +578,8 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                   'type' => 'spaces_after_close_brace'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -594,7 +595,6 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'float'
                   },
@@ -680,7 +680,8 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -696,7 +697,6 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'nodedescriptionblock'
               },
@@ -860,14 +860,14 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' node1 again to test two nodescription expansions
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'cmdname' => 'menu',
@@ -933,7 +933,8 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -949,7 +950,6 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -973,7 +973,8 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -989,7 +990,6 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -1010,7 +1010,8 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1026,7 +1027,6 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => 'tfloat'
           },

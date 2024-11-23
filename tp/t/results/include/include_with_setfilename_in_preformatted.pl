@@ -31,7 +31,8 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'include',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -47,7 +48,6 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'include',
                     'extra' => {
                       'text_arg' => 'included_file_with_setfilename.texi'
                     },
@@ -66,7 +66,8 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'setfilename',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -82,7 +83,6 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'setfilename',
                     'extra' => {
                       'text_arg' => 'included_file.info'
                     },
@@ -128,7 +128,8 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -138,7 +139,6 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

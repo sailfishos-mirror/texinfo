@@ -109,7 +109,8 @@ $result_trees{'index_entry_in_footnote_sections_separate'} = {
 '
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'cindex',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -125,7 +126,6 @@ $result_trees{'index_entry_in_footnote_sections_separate'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'cindex',
                           'extra' => {
                             'element_node' => {},
                             'index_entry' => [
@@ -244,7 +244,8 @@ $result_trees{'index_entry_in_footnote_sections_separate'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -260,7 +261,6 @@ $result_trees{'index_entry_in_footnote_sections_separate'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

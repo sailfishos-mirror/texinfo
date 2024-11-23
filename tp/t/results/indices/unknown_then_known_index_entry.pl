@@ -20,7 +20,8 @@ $result_trees{'unknown_then_known_index_entry'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'defindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -36,7 +37,6 @@ $result_trees{'unknown_then_known_index_entry'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defindex',
               'extra' => {
                 'misc_args' => [
                   'some'
@@ -52,7 +52,8 @@ $result_trees{'unknown_then_known_index_entry'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'someindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -68,7 +69,6 @@ $result_trees{'unknown_then_known_index_entry'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'someindex',
               'extra' => {
                 'index_entry' => [
                   'some',

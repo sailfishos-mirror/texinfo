@@ -1003,10 +1003,9 @@ sub _prepare_conversion($;$)
 
   if ($global_commands and $global_commands->{'settitle'}) {
     my $settitle_root = $global_commands->{'settitle'};
-    if ($settitle_root->{'args'}->[0]
-        and $settitle_root->{'args'}->[0]->{'contents'}) {
+    if ($settitle_root->{'contents'}->[0]->{'contents'}) {
       $self->{'settitle_tree'} =
-         {'contents' => $settitle_root->{'args'}->[0]->{'contents'}};
+         {'contents' => $settitle_root->{'contents'}->[0]->{'contents'}};
     }
   }
   $self->_prepare_floats();
@@ -2323,10 +2322,10 @@ sub _title($$)
   my $self = shift;
   my $element = shift;
 
-  if ($element->{'args'} and $element->{'args'}->[0]->{'contents'}) {
+  if ($element->{'contents'}->[0]->{'contents'}) {
     # in Texinfo TeX seems a bit smaller, but LARGE seems too small
     my $result = "{\\huge \\bfseries ";
-    $result .= _convert($self, $element->{'args'}->[0]);
+    $result .= _convert($self, $element->{'contents'}->[0]);
     $result .= '}';
     return $result;
   }
@@ -2616,10 +2615,10 @@ sub _include_file_name($$)
   my $self = shift;
   my $source_mark = shift;
   my $file_name;
-  if ($source_mark->{'element'} and $source_mark->{'element'}->{'args'}
-      and scalar (@{$source_mark->{'element'}->{'args'}})) {
+  if ($source_mark->{'element'} and $source_mark->{'element'}->{'contents'}
+      and scalar (@{$source_mark->{'element'}->{'contents'}})) {
     _push_new_context($self, 'include');
-    $file_name = $self->_convert($source_mark->{'element'}->{'args'}->[0]);
+    $file_name = $self->_convert($source_mark->{'element'}->{'contents'}->[0]);
     _pop_context($self);
     $file_name = undef if ($file_name !~ /\S/);
   }
@@ -3952,6 +3951,7 @@ sub _convert($$)
           $result .= "\\begin{$latex_float_environment}\n";
         }
       }
+     # after block commands
     } elsif ($cmdname eq 'node' or $sectioning_heading_commands{$cmdname}) {
       my $node_element;
       if ($cmdname eq 'node') {
@@ -3985,7 +3985,7 @@ sub _convert($$)
           if ($root_commands{$element->{'cmdname'}}) {
             $line_arg = $element->{'contents'}->[0]->{'contents'}->[0];
           } else {
-            $line_arg = $element->{'args'}->[0];
+            $line_arg = $element->{'contents'}->[0];
           }
           if ($line_arg->{'contents'}) {
             # It is useful to know that this is a heading formatting as
@@ -4022,13 +4022,13 @@ sub _convert($$)
           $result .= "\\label{$node_label}%\n";
         }
       }
+      return $result unless ($root_commands{$element->{'cmdname'}});
     } elsif (($cmdname eq 'item' or $cmdname eq 'itemx')
-            and $element->{'args'} and $element->{'args'}->[0]
-            and $element->{'args'}->[0]->{'type'}
-            and $element->{'args'}->[0]->{'type'} eq 'line_arg') {
+             and $element->{'contents'}->[0]->{'type'}
+             and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
       # item in @*table
       my $last_item = 0;
-      if ($element->{'args'}->[0]->{'contents'}) {
+      if ($element->{'contents'}->[0]->{'contents'}) {
         my $code_style = 0;
         my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
         if ($table_command->{'extra'}
@@ -4042,7 +4042,7 @@ sub _convert($$)
         if ($code_style) {
           push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
         }
-        my $converted_arg = _convert($self, $element->{'args'}->[0]);
+        my $converted_arg = _convert($self, $element->{'contents'}->[0]);
         if ($code_style) {
           pop @{$self->{'formatting_context'}->[-1]->{'code'}};
         }
@@ -4064,6 +4064,7 @@ sub _convert($$)
         $result .= "\n";
       }
       $result .= $index_entry;
+      return $result;
     } elsif ($cmdname eq 'item' and $element->{'parent'}->{'cmdname'}
              and $block_commands{$element->{'parent'}->{'cmdname'}}
              and $block_commands{$element->{'parent'}->{'cmdname'}}
@@ -4075,22 +4076,22 @@ sub _convert($$)
       # nothing to do here.  The condition ensures that the commands are not
       # considered as unknown commands in the else below.
     } elsif ($cmdname eq 'center') {
-      if ($element->{'args'}->[0]->{'contents'}) {
+      if ($element->{'contents'}->[0]->{'contents'}) {
         $result .= "\\begin{center}\n";
         $result .= $self->_convert (
-                       {'contents' => $element->{'args'}->[0]->{'contents'}});
+                  {'contents' => $element->{'contents'}->[0]->{'contents'}});
         $result .= "\n\\end{center}\n";
       }
       return $result;
     } elsif ($cmdname eq 'exdent') {
-      if ($element->{'args'}->[0]->{'contents'}) {
+      if ($element->{'contents'}->[0]->{'contents'}) {
         # FIXME \leavevmode{} is added to avoid
         # ! LaTeX Error: There's no line here to end.
         # but it is not clearly correct
         $result .= "\\leavevmode{}\\\\\n";
         $result .= "\\hbox{\\kern -\\leftmargin}%\n";
         $result .= $self->_convert(
-                   {'contents' => $element->{'args'}->[0]->{'contents'}})."\n";
+            {'contents' => $element->{'contents'}->[0]->{'contents'}})."\n";
         $result .= "\\\\\n";
       }
       return $result;
@@ -4201,21 +4202,23 @@ sub _convert($$)
       # $self->{'titlepage_formatting'}->{'in_front_cover'}
       $self->{'titlepage_formatting'}->{'title'} = 1
          if ($self->{'titlepage_formatting'});
+      return $result;
     } elsif ($cmdname eq 'subtitle') {
-      if ($element->{'args'}->[0]->{'contents'}) {
+      if ($element->{'contents'}->[0]->{'contents'}) {
         my $subtitle_text = _convert($self,
-               {'contents' => $element->{'args'}->[0]->{'contents'}});
+               {'contents' => $element->{'contents'}->[0]->{'contents'}});
         # too much vertical spacing with flushright environment
         #$result .= "\\begin{flushright}\n";
         #$result .= $subtitle_text."\n";
         #$result .= "\\end{flushright}\n";
         $result .= "\\rightline{$subtitle_text}\n";
       }
+      return $result;
     } elsif ($cmdname eq 'author') {
       if (not $self->{'formatting_context'}->[-1]->{'in_quotation'}) {
-        if ($element->{'args'}->[0]->{'contents'}) {
+        if ($element->{'contents'}->[0]->{'contents'}) {
           my $author_name = _convert($self,
-                       {'contents' => $element->{'args'}->[0]->{'contents'}});
+              {'contents' => $element->{'contents'}->[0]->{'contents'}});
           if ($self->{'titlepage_formatting'}
               and $self->{'titlepage_formatting'}->{'in_front_cover'}) {
             if (not $self->{'titlepage_formatting'}->{'author'}) {
@@ -4232,13 +4235,13 @@ sub _convert($$)
             $result .= "{\\bfseries $author_name}%\n";
           }
         }
-        return $result;
       }
+      return $result;
     } elsif ($cmdname eq 'vskip') {
-      if ($element->{'args'}) {
+      if ($element->{'contents'}) {
         # no need for space in front and end of line they are in the
         # argument
-        $result .= "\\vskip$element->{'args'}->[0]->{'text'}";
+        $result .= "\\vskip$element->{'contents'}->[0]->{'text'}";
       }
       return $result;
     } elsif ($cmdname eq 'contents') {
@@ -4266,11 +4269,10 @@ sub _convert($$)
       }
       return $result;
     } elsif ($heading_spec_commands{$cmdname}) {
-      if ($element->{'args'} and $element->{'args'}->[0]
-          and $element->{'args'}->[0]->{'contents'}) {
+      if ($element->{'contents'}->[0]->{'contents'}) {
         my $custom_headings_specification
          = Texinfo::Common::split_custom_heading_command_contents(
-                                             $element->{'args'}->[0]);
+                                             $element->{'contents'}->[0]);
         $result .= _set_custom_headings($self, $cmdname,
                                         $custom_headings_specification);
       }
@@ -4314,6 +4316,7 @@ sub _convert($$)
 
     if ($element->{'type'} eq 'index_entry_command') {
       $result .= _index_entry($self, $element);
+      return $result;
     }
     if ($element->{'type'} eq 'def_line') {
       $result .= _convert_def_line($self, $element);
@@ -4502,11 +4505,11 @@ sub _convert($$)
         # does not take into account the preformatted environment.
         # Probably best.
         foreach my $author (@{$element->{'extra'}->{'authors'}}) {
-          if ($author->{'args'}->[0]->{'contents'}) {
+          if ($author->{'contents'}->[0]->{'contents'}) {
             $result .= _convert($self,
                  # TRANSLATORS: quotation author
                  $self->cdt('@center --- @emph{{author}}',
-                    {'author' => $author->{'args'}->[0]}));
+                    {'author' => $author->{'contents'}->[0]}));
           }
         }
       }

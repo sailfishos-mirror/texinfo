@@ -12,7 +12,8 @@ $result_trees{'sc_formatting_with_css'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'settitle',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -47,7 +48,6 @@ $result_trees{'sc_formatting_with_css'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'settitle',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -133,7 +133,8 @@ $result_trees{'sc_formatting_with_css'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -149,7 +150,6 @@ $result_trees{'sc_formatting_with_css'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

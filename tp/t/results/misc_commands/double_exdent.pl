@@ -62,11 +62,13 @@ $result_trees{'double_exdent'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'exdent',
+                  'contents' => [
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'exdent',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -82,7 +84,6 @@ $result_trees{'double_exdent'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'exdent',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -96,7 +97,6 @@ $result_trees{'double_exdent'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'exdent',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -107,7 +107,8 @@ $result_trees{'double_exdent'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -123,7 +124,6 @@ $result_trees{'double_exdent'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'example'
                   },
@@ -142,7 +142,8 @@ $result_trees{'double_exdent'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -158,7 +159,6 @@ $result_trees{'double_exdent'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

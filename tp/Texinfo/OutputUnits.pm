@@ -384,8 +384,9 @@ sub units_directions($$;$)
       }
       # Now do NodeForward which is something like the following node.
       my $associated_section;
+      my $argument = $node->{'contents'}->[0];
       my $automatic_directions
-        = (not ($node->{'args'} and scalar(@{$node->{'args'}}) > 1));
+        = (scalar(@{$argument->{'contents'}}) <= 1);
       if ($automatic_directions and $node->{'extra'}
           and $node->{'extra'}->{'associated_section'}) {
         $associated_section = $node->{'extra'}->{'associated_section'};

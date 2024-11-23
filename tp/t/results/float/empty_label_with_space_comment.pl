@@ -28,14 +28,14 @@ $result_trees{'empty_label_with_space_comment'} = {
                 {
                   'info' => {
                     'comment_at_end' => {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' comment
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     },
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -47,7 +47,8 @@ $result_trees{'empty_label_with_space_comment'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -63,7 +64,6 @@ $result_trees{'empty_label_with_space_comment'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },

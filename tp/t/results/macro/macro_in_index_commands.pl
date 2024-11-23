@@ -27,7 +27,8 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -43,7 +44,6 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -83,7 +83,8 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -99,7 +100,6 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -139,7 +139,8 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -155,7 +156,6 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -183,7 +183,8 @@ $result_trees{'macro_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'syncodeindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -230,7 +231,6 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'syncodeindex',
           'extra' => {
             'misc_args' => [
               'cp',
@@ -284,7 +284,8 @@ $result_trees{'macro_in_index_commands'} = {
           ]
         },
         {
-          'args' => [
+          'cmdname' => 'syncodeindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -300,7 +301,6 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'syncodeindex',
           'extra' => {
             'misc_args' => [
               'cp',
@@ -347,7 +347,8 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -363,7 +364,6 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -397,7 +397,8 @@ $result_trees{'macro_in_index_commands'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'defindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -421,7 +422,6 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defindex',
               'extra' => {
                 'misc_args' => [
                   'truc'
@@ -485,7 +485,8 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -501,7 +502,6 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -546,7 +546,8 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -562,7 +563,6 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -590,7 +590,8 @@ $result_trees{'macro_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'defcodeindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -614,7 +615,6 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defcodeindex',
           'extra' => {
             'misc_args' => [
               'codeidx'
@@ -671,7 +671,8 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -687,7 +688,6 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -800,7 +800,8 @@ $result_trees{'macro_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'trucindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -816,7 +817,6 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'trucindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -849,7 +849,8 @@ $result_trees{'macro_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'codeidxindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -943,7 +944,6 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'codeidxindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -987,7 +987,8 @@ $result_trees{'macro_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'kindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1011,7 +1012,6 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'kindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1050,7 +1050,8 @@ $result_trees{'macro_in_index_commands'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'pindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1091,7 +1092,6 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'pindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1125,7 +1125,8 @@ $result_trees{'macro_in_index_commands'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1149,7 +1150,6 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'truc'
@@ -1198,7 +1198,8 @@ $result_trees{'macro_in_index_commands'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1222,7 +1223,6 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

@@ -10,7 +10,8 @@ $result_trees{'spaces_before_value'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'var',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'spaces_before_value'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' var val
 '

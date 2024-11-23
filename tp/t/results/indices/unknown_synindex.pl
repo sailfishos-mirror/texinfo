@@ -10,7 +10,8 @@ $result_trees{'unknown_synindex'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'synindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -20,7 +21,6 @@ $result_trees{'unknown_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'synindex',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

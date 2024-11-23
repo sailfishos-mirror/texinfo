@@ -10,7 +10,8 @@ $result_trees{'author_outside_titlepage_quotation'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'author',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'author_outside_titlepage_quotation'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'author',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {

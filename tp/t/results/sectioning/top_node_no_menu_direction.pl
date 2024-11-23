@@ -147,7 +147,8 @@ $result_trees{'top_node_no_menu_direction'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -163,7 +164,6 @@ $result_trees{'top_node_no_menu_direction'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

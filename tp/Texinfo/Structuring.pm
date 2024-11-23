@@ -1300,7 +1300,7 @@ sub new_block_command($$)
                   'contents' => [],
                   'info' => {'spaces_after_argument' =>
                                         {'text' => "\n"}}};
-  $end->{'args'} = [$end_args];
+  $end->{'contents'} = [$end_args];
 
   my $command_name_text = {'text' => $command_name,
                            'parent' => $end_args};

@@ -12,7 +12,8 @@ $result_trees{'multiple_in_preamble_before_node'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentlanguage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentlanguage',
               'extra' => {
                 'text_arg' => 'fr'
               },
@@ -262,7 +262,8 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                       'type' => 'def_item'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -278,7 +279,6 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'defivar'
                       },
@@ -302,7 +302,8 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -318,7 +319,6 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'copying'
                   },
@@ -342,7 +342,8 @@ $result_trees{'multiple_in_preamble_before_node'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'documentlanguage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -358,7 +359,6 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentlanguage',
               'extra' => {
                 'text_arg' => 'hr'
               },
@@ -394,7 +394,8 @@ $result_trees{'multiple_in_preamble_before_node'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -410,7 +411,6 @@ $result_trees{'multiple_in_preamble_before_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'de'
           },
@@ -767,7 +767,8 @@ $result_trees{'multiple_in_preamble_before_node'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -783,7 +784,6 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defivar'
               },

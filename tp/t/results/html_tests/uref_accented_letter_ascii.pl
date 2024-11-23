@@ -10,7 +10,8 @@ $result_trees{'uref_accented_letter_ascii'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'uref_accented_letter_ascii'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'us-ascii',
             'text_arg' => 'US-ASCII'

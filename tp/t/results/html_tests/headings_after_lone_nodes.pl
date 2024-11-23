@@ -183,7 +183,8 @@ $result_trees{'headings_after_lone_nodes'} = {
           'type' => 'argument'
         },
         {
-          'args' => [
+          'cmdname' => 'subheading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -199,7 +200,6 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'subheading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {
@@ -301,7 +301,8 @@ $result_trees{'headings_after_lone_nodes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -317,7 +318,6 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },
@@ -336,14 +336,14 @@ $result_trees{'headings_after_lone_nodes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' comment
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         },
         {
           'text' => '
@@ -351,14 +351,14 @@ $result_trees{'headings_after_lone_nodes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 20
@@ -370,7 +370,8 @@ $result_trees{'headings_after_lone_nodes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'frenchspacing',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -386,7 +387,6 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'frenchspacing',
           'extra' => {
             'misc_args' => [
               'on'
@@ -434,7 +434,8 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'elided_rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -450,7 +451,6 @@ $result_trees{'headings_after_lone_nodes'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'tex'
               },
@@ -496,7 +496,8 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -512,7 +513,6 @@ $result_trees{'headings_after_lone_nodes'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'ignore'
               },
@@ -557,7 +557,8 @@ $result_trees{'headings_after_lone_nodes'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -573,7 +574,6 @@ $result_trees{'headings_after_lone_nodes'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'iftex'
                     },
@@ -605,7 +605,8 @@ $result_trees{'headings_after_lone_nodes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'subsubheading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -621,7 +622,6 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'subsubheading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {
@@ -694,7 +694,8 @@ $result_trees{'headings_after_lone_nodes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'heading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -710,7 +711,6 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'heading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {
@@ -794,7 +794,8 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -810,7 +811,6 @@ $result_trees{'headings_after_lone_nodes'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -834,7 +834,8 @@ $result_trees{'headings_after_lone_nodes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'heading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -850,7 +851,6 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'heading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {
@@ -934,7 +934,8 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -950,7 +951,6 @@ $result_trees{'headings_after_lone_nodes'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'html'
               },
@@ -974,7 +974,8 @@ $result_trees{'headings_after_lone_nodes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'heading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -990,7 +991,6 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'heading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {
@@ -1048,7 +1048,8 @@ $result_trees{'headings_after_lone_nodes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1064,7 +1065,6 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '2'
@@ -1085,7 +1085,8 @@ $result_trees{'headings_after_lone_nodes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'heading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1101,7 +1102,6 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'heading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {
@@ -1222,7 +1222,8 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1238,7 +1239,6 @@ $result_trees{'headings_after_lone_nodes'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -1262,7 +1262,8 @@ $result_trees{'headings_after_lone_nodes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'heading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1278,7 +1279,6 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'heading',
           'extra' => {},
           'info' => {
             'spaces_before_argument' => {

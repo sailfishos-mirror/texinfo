@@ -170,7 +170,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -186,7 +187,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -252,7 +252,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -268,7 +269,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'phooindex',
@@ -324,7 +324,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -340,7 +341,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               'phooindex',
@@ -390,7 +390,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -406,7 +407,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'phoo'
@@ -422,7 +422,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'phooindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -438,7 +439,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'phooindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -463,7 +463,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -479,7 +480,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'phooindex',
@@ -556,7 +556,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -572,7 +573,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -641,7 +641,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -657,7 +658,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'phoo'
@@ -673,7 +673,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'phooindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -689,7 +690,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'phooindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -735,7 +735,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -751,7 +752,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -820,7 +820,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -836,7 +837,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               'phooindex',
@@ -886,7 +886,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -902,7 +903,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'phoo',
@@ -958,7 +958,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -974,7 +975,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'phoo'
@@ -990,7 +990,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'phooindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1006,7 +1007,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'phooindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1031,7 +1031,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1047,7 +1048,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               'phooindex',
@@ -1118,7 +1118,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1134,7 +1135,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -1200,7 +1200,8 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1216,7 +1217,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'phoo'

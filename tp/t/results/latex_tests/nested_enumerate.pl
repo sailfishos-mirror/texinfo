@@ -297,7 +297,8 @@ $result_trees{'nested_enumerate'} = {
                                       }
                                     },
                                     {
-                                      'args' => [
+                                      'cmdname' => 'end',
+                                      'contents' => [
                                         {
                                           'contents' => [
                                             {
@@ -313,7 +314,6 @@ $result_trees{'nested_enumerate'} = {
                                           'type' => 'line_arg'
                                         }
                                       ],
-                                      'cmdname' => 'end',
                                       'extra' => {
                                         'text_arg' => 'enumerate'
                                       },
@@ -343,7 +343,8 @@ $result_trees{'nested_enumerate'} = {
                               }
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -359,7 +360,6 @@ $result_trees{'nested_enumerate'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'enumerate'
                               },
@@ -389,7 +389,8 @@ $result_trees{'nested_enumerate'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -405,7 +406,6 @@ $result_trees{'nested_enumerate'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'enumerate'
                       },
@@ -435,7 +435,8 @@ $result_trees{'nested_enumerate'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -451,7 +452,6 @@ $result_trees{'nested_enumerate'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'enumerate'
               },

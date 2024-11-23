@@ -177,7 +177,8 @@ $result_trees{'empty_deftype'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -193,7 +194,6 @@ $result_trees{'empty_deftype'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deftypefun'
               },
@@ -374,7 +374,8 @@ $result_trees{'empty_deftype'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -390,7 +391,6 @@ $result_trees{'empty_deftype'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defun'
               },
@@ -656,7 +656,8 @@ $result_trees{'empty_deftype'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -672,7 +673,6 @@ $result_trees{'empty_deftype'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deftypemethod'
               },
@@ -923,7 +923,8 @@ $result_trees{'empty_deftype'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -939,7 +940,6 @@ $result_trees{'empty_deftype'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defmethod'
               },

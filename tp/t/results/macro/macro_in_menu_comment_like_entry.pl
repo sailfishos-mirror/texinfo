@@ -32,7 +32,8 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -215,14 +215,14 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                       'text' => ': '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' c
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     }
                   ],
                   'type' => 'preformatted'
@@ -231,7 +231,8 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
               'type' => 'menu_comment'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -247,7 +248,6 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

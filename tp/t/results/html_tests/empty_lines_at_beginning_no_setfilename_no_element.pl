@@ -33,7 +33,8 @@ $result_trees{'empty_lines_at_beginning_no_setfilename_no_element'} = {
           'type' => 'preamble_before_content'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -49,7 +50,6 @@ $result_trees{'empty_lines_at_beginning_no_setfilename_no_element'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -83,14 +83,14 @@ $result_trees{'empty_lines_at_beginning_no_setfilename_no_element'} = {
       'type' => 'before_node_section'
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

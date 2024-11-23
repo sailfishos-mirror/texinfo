@@ -10,7 +10,8 @@ $result_trees{'nested_footnotes_separate'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'footnotestyle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'nested_footnotes_separate'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'footnotestyle',
           'extra' => {
             'misc_args' => [
               'separate'

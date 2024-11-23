@@ -181,7 +181,8 @@ $result_trees{'nested_multitable'} = {
                               'type' => 'multitable_body'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -197,7 +198,6 @@ $result_trees{'nested_multitable'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'multitable'
                               },
@@ -324,7 +324,8 @@ $result_trees{'nested_multitable'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -340,7 +341,6 @@ $result_trees{'nested_multitable'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

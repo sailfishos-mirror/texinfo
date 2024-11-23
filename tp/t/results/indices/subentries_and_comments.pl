@@ -144,7 +144,8 @@ $result_trees{'subentries_and_comments'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -159,7 +160,6 @@ $result_trees{'subentries_and_comments'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -167,7 +167,8 @@ $result_trees{'subentries_and_comments'} = {
               1
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -176,20 +177,19 @@ $result_trees{'subentries_and_comments'} = {
                   ],
                   'info' => {
                     'comment_at_end' => {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' comment
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     }
                   },
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -217,7 +217,8 @@ $result_trees{'subentries_and_comments'} = {
         },
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -232,7 +233,6 @@ $result_trees{'subentries_and_comments'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -240,7 +240,8 @@ $result_trees{'subentries_and_comments'} = {
               2
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -249,14 +250,14 @@ $result_trees{'subentries_and_comments'} = {
                   ],
                   'info' => {
                     'comment_at_end' => {
-                      'args' => [
+                      'cmdname' => 'comment',
+                      'contents' => [
                         {
                           'text' => ' comment
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'comment'
+                      ]
                     },
                     'spaces_after_argument' => {
                       'text' => ' '
@@ -265,7 +266,6 @@ $result_trees{'subentries_and_comments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -298,7 +298,8 @@ $result_trees{'subentries_and_comments'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -314,7 +315,6 @@ $result_trees{'subentries_and_comments'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

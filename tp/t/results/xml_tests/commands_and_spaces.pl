@@ -10,7 +10,8 @@ $result_trees{'commands_and_spaces'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'foo',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => '  foo   some @value
 '
@@ -32,7 +32,8 @@ $result_trees{'commands_and_spaces'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'setfilename',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -48,7 +49,6 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'setfilename',
           'extra' => {
             'text_arg' => 'commands_and_spaces.info'
           },
@@ -67,13 +67,13 @@ $result_trees{'commands_and_spaces'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'unmacro',
+          'contents' => [
             {
               'text' => 'ggg',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'unmacro',
           'info' => {
             'arg_line' => '  ggg
 '
@@ -85,13 +85,13 @@ $result_trees{'commands_and_spaces'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'clickstyle',
+          'contents' => [
             {
               'text' => '@arrow',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clickstyle',
           'extra' => {},
           'info' => {
             'arg_line' => '  @arrow
@@ -213,7 +213,8 @@ $result_trees{'commands_and_spaces'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -229,7 +230,6 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => '  '
@@ -531,7 +531,8 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -547,7 +548,6 @@ $result_trees{'commands_and_spaces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -698,7 +698,8 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -714,7 +715,6 @@ $result_trees{'commands_and_spaces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -757,7 +757,8 @@ $result_trees{'commands_and_spaces'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -773,7 +774,6 @@ $result_trees{'commands_and_spaces'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'extra' => {
                         'misc_args' => [
                           '0.4',
@@ -796,7 +796,8 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -812,7 +813,6 @@ $result_trees{'commands_and_spaces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },
@@ -916,7 +916,8 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -932,7 +933,6 @@ $result_trees{'commands_and_spaces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },
@@ -986,7 +986,8 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1002,7 +1003,6 @@ $result_trees{'commands_and_spaces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },
@@ -1052,7 +1052,8 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1068,7 +1069,6 @@ $result_trees{'commands_and_spaces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'tex'
               },
@@ -1118,7 +1118,8 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1134,7 +1135,6 @@ $result_trees{'commands_and_spaces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -1187,7 +1187,8 @@ $result_trees{'commands_and_spaces'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1203,7 +1204,6 @@ $result_trees{'commands_and_spaces'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => '  '
@@ -1220,7 +1220,8 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1236,7 +1237,6 @@ $result_trees{'commands_and_spaces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -1596,7 +1596,8 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1612,7 +1613,6 @@ $result_trees{'commands_and_spaces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },

@@ -10,7 +10,8 @@ $result_trees{'no_element'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'settitle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'no_element'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'settitle',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -37,7 +37,8 @@ $result_trees{'no_element'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'documentencoding',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -53,7 +54,6 @@ $result_trees{'no_element'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentencoding',
           'extra' => {
             'input_encoding_name' => 'iso-8859-1',
             'text_arg' => 'ISO-8859-1'
@@ -338,7 +338,8 @@ $result_trees{'no_element'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -354,7 +355,6 @@ $result_trees{'no_element'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },
@@ -493,7 +493,8 @@ $result_trees{'no_element'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -509,7 +510,6 @@ $result_trees{'no_element'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -533,7 +533,8 @@ $result_trees{'no_element'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -549,7 +550,6 @@ $result_trees{'no_element'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',

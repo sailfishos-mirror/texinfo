@@ -55,7 +55,8 @@ $result_trees{'raw_in_example'} = {
                       'type' => 'rawpreformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -71,7 +72,6 @@ $result_trees{'raw_in_example'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'html'
                       },
@@ -93,7 +93,8 @@ $result_trees{'raw_in_example'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -109,7 +110,6 @@ $result_trees{'raw_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -193,7 +193,8 @@ $result_trees{'raw_in_example'} = {
                       'type' => 'rawpreformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -209,7 +210,6 @@ $result_trees{'raw_in_example'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'html'
                       },
@@ -285,7 +285,8 @@ $result_trees{'raw_in_example'} = {
                       'type' => 'rawpreformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -301,7 +302,6 @@ $result_trees{'raw_in_example'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'tex'
                       },
@@ -328,7 +328,8 @@ $result_trees{'raw_in_example'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -344,7 +345,6 @@ $result_trees{'raw_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

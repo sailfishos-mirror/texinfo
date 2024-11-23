@@ -10,7 +10,8 @@ $result_trees{'nodedescription'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'nodedescription'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -144,7 +144,8 @@ $result_trees{'nodedescription'} = {
       'extra' => {
         'is_target' => 1,
         'node_description' => {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -176,7 +177,6 @@ $result_trees{'nodedescription'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },
@@ -234,7 +234,8 @@ $result_trees{'nodedescription'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -248,7 +249,6 @@ $result_trees{'nodedescription'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },

@@ -550,16 +550,14 @@ sub _idx_leading_text_or_command($$)
           } else {
             if (defined($content->{'extra'})
                 and defined($content->{'extra'}->{'expand_index'})) {
-              return _idx_leading_text_or_command($content->{'args'}
+              return _idx_leading_text_or_command($content->{'contents'}
                              ->[$content->{'extra'}->{'expand_index'}],
                                                   $ignore_chars);
             }
           }
         } elsif ($Texinfo::Commands::formatted_line_commands{$cmdname}
-                 and $cmdname ne 'page'
-                 and $content->{'args'}
-                 and scalar(@{$content->{'args'}})) {
-          return _idx_leading_text_or_command($content->{'args'}->[0],
+                 and $cmdname ne 'page') {
+          return _idx_leading_text_or_command($content->{'contents'}->[0],
                                               $ignore_chars);
         }
       }

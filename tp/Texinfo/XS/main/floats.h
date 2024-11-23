@@ -19,7 +19,7 @@
 
 #include "tree_types.h"
 
-char *parse_float_type (ELEMENT *current);
+char *parse_float_type (ELEMENT *current, ELEMENT *element);
 void float_list_to_listoffloats_list (const FLOAT_RECORD_LIST *floats_list,
                                  LISTOFFLOATS_TYPE_LIST *result);
 void add_to_float_record_list (FLOAT_RECORD_LIST *float_records,

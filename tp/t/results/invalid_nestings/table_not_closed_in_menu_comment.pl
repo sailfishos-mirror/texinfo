@@ -119,7 +119,8 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'item',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -135,7 +136,6 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'item',
                               'info' => {
                                 'spaces_before_argument' => {
                                   'text' => ' '
@@ -186,7 +186,8 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
               'type' => 'menu_comment'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -202,7 +203,6 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

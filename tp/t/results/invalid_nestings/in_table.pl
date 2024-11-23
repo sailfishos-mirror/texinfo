@@ -106,7 +106,8 @@ $result_trees{'in_table'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -122,7 +123,6 @@ $result_trees{'in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -183,7 +183,8 @@ $result_trees{'in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -262,7 +263,8 @@ $result_trees{'in_table'} = {
                               'text' => ' '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'exdent',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -278,7 +280,6 @@ $result_trees{'in_table'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'exdent',
                               'info' => {
                                 'spaces_before_argument' => {
                                   'text' => ' '
@@ -292,7 +293,6 @@ $result_trees{'in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -352,7 +352,8 @@ $result_trees{'in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -392,7 +393,6 @@ $result_trees{'in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -427,11 +427,13 @@ $result_trees{'in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'center',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -447,7 +449,6 @@ $result_trees{'in_table'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'center',
                               'info' => {
                                 'spaces_before_argument' => {
                                   'text' => ' '
@@ -461,7 +462,6 @@ $result_trees{'in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -482,11 +482,13 @@ $result_trees{'in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'cindex',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -502,7 +504,6 @@ $result_trees{'in_table'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'cindex',
                               'extra' => {
                                 'element_node' => {},
                                 'index_entry' => [
@@ -525,7 +526,6 @@ $result_trees{'in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -542,7 +542,8 @@ $result_trees{'in_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -558,7 +559,6 @@ $result_trees{'in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -619,11 +619,13 @@ $result_trees{'in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'cindex',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -639,7 +641,6 @@ $result_trees{'in_table'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'cindex',
                               'extra' => {
                                 'element_node' => {},
                                 'index_entry' => [
@@ -662,7 +663,6 @@ $result_trees{'in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -724,11 +724,13 @@ $result_trees{'in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'cindex',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -744,7 +746,6 @@ $result_trees{'in_table'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'cindex',
                               'extra' => {
                                 'element_node' => {},
                                 'index_entry' => [
@@ -767,7 +768,6 @@ $result_trees{'in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -825,7 +825,8 @@ $result_trees{'in_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -841,7 +842,6 @@ $result_trees{'in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'vtable'
               },
@@ -873,7 +873,8 @@ $result_trees{'in_table'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -889,7 +890,6 @@ $result_trees{'in_table'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'
@@ -910,7 +910,8 @@ $result_trees{'in_table'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -926,7 +927,6 @@ $result_trees{'in_table'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -960,11 +960,11 @@ $result_trees{'in_table'} = {
   'type' => 'document_root'
 };
 $result_trees{'in_table'}{'contents'}[2]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'in_table'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'in_table'}{'contents'}[2]{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'in_table'}{'contents'}[2];
+$result_trees{'in_table'}{'contents'}[2]{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'in_table'}{'contents'}[2];
 $result_trees{'in_table'}{'contents'}[2]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'in_table'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'in_table'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'in_table'}{'contents'}[2];
+$result_trees{'in_table'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'in_table'}{'contents'}[2];
 $result_trees{'in_table'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'in_table'}{'contents'}[2];
-$result_trees{'in_table'}{'contents'}[2]{'contents'}[6]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'in_table'}{'contents'}[2];
+$result_trees{'in_table'}{'contents'}[2]{'contents'}[6]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'in_table'}{'contents'}[2];
 $result_trees{'in_table'}{'contents'}[2]{'contents'}[6]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'in_table'}{'contents'}[2];
 $result_trees{'in_table'}{'contents'}[2]{'contents'}[6]{'extra'}{'command_as_argument'} = $result_trees{'in_table'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 

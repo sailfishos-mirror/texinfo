@@ -12,7 +12,8 @@ $result_trees{'nodes_before_after_top_xref'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'nodes_before_after_top_xref'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'nodes_before_after_top_xref.info'
               },
@@ -328,7 +328,8 @@ $result_trees{'nodes_before_after_top_xref'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'xrefautomaticsectiontitle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -344,7 +345,6 @@ $result_trees{'nodes_before_after_top_xref'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'xrefautomaticsectiontitle',
           'extra' => {
             'misc_args' => [
               'on'
@@ -426,7 +426,8 @@ $result_trees{'nodes_before_after_top_xref'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'xrefautomaticsectiontitle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -442,7 +443,6 @@ $result_trees{'nodes_before_after_top_xref'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'xrefautomaticsectiontitle',
           'extra' => {
             'misc_args' => [
               'off'

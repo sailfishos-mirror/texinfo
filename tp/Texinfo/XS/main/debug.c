@@ -105,8 +105,6 @@ print_element_debug (const ELEMENT *e, int print_parent)
     {
       if (e->e.c->cmd)
         text_printf (&text, "@%s", debug_element_command_name (e));
-      if (e->e.c->args.number)
-        text_printf (&text, "[A%d]", e->e.c->args.number);
       if (e->e.c->contents.number)
         text_printf (&text, "[C%d]", e->e.c->contents.number);
     }

@@ -96,7 +96,8 @@ $result_trees{'table_in_itemize'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'item',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -112,7 +113,6 @@ $result_trees{'table_in_itemize'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'item',
                               'info' => {
                                 'spaces_before_argument' => {
                                   'text' => ' '
@@ -161,7 +161,8 @@ $result_trees{'table_in_itemize'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'item',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -177,7 +178,6 @@ $result_trees{'table_in_itemize'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'item',
                               'info' => {
                                 'spaces_before_argument' => {
                                   'text' => ' '
@@ -222,7 +222,8 @@ $result_trees{'table_in_itemize'} = {
                       'type' => 'table_entry'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -238,7 +239,6 @@ $result_trees{'table_in_itemize'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'table'
                       },
@@ -297,7 +297,8 @@ $result_trees{'table_in_itemize'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -307,7 +308,6 @@ $result_trees{'table_in_itemize'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },

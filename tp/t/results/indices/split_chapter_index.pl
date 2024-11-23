@@ -32,7 +32,8 @@ $result_trees{'split_chapter_index'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'split_chapter_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'split_chapter_index'
               },
@@ -133,7 +133,8 @@ $result_trees{'split_chapter_index'} = {
           'type' => 'argument'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -149,7 +150,6 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -258,7 +258,8 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -274,7 +275,6 @@ $result_trees{'split_chapter_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -383,7 +383,8 @@ $result_trees{'split_chapter_index'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -399,7 +400,6 @@ $result_trees{'split_chapter_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'element_node' => {},
                 'index_entry' => [
@@ -420,7 +420,8 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'index_entry_command'
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -436,7 +437,6 @@ $result_trees{'split_chapter_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'element_node' => {},
                 'index_entry' => [
@@ -457,7 +457,8 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'index_entry_command'
             },
             {
-              'args' => [
+              'cmdname' => 'findex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -473,7 +474,6 @@ $result_trees{'split_chapter_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'findex',
               'extra' => {
                 'element_node' => {},
                 'index_entry' => [
@@ -494,7 +494,8 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'index_entry_command'
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -510,7 +511,6 @@ $result_trees{'split_chapter_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'element_node' => {},
                 'index_entry' => [
@@ -539,7 +539,8 @@ $result_trees{'split_chapter_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -555,7 +556,6 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -577,7 +577,8 @@ $result_trees{'split_chapter_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -593,7 +594,6 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -619,7 +619,8 @@ $result_trees{'split_chapter_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'findex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -635,7 +636,6 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -656,7 +656,8 @@ $result_trees{'split_chapter_index'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -672,7 +673,6 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -693,7 +693,8 @@ $result_trees{'split_chapter_index'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'findex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -709,7 +710,6 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -799,7 +799,8 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -815,7 +816,6 @@ $result_trees{'split_chapter_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -983,7 +983,8 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -999,7 +1000,6 @@ $result_trees{'split_chapter_index'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -1025,7 +1025,8 @@ $result_trees{'split_chapter_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1041,7 +1042,6 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1067,7 +1067,8 @@ $result_trees{'split_chapter_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1083,7 +1084,6 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1201,7 +1201,8 @@ $result_trees{'split_chapter_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1217,7 +1218,6 @@ $result_trees{'split_chapter_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -1257,14 +1257,14 @@ $result_trees{'split_chapter_index'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

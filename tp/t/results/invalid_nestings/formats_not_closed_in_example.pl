@@ -66,7 +66,8 @@ $result_trees{'formats_not_closed_in_example'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -82,7 +83,6 @@ $result_trees{'formats_not_closed_in_example'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -228,7 +228,8 @@ $result_trees{'formats_not_closed_in_example'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -244,7 +245,6 @@ $result_trees{'formats_not_closed_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

@@ -12,7 +12,8 @@ $result_trees{'syncodeindex_to_plain'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'syncodeindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'syncodeindex_to_plain'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'syncodeindex',
               'extra' => {
                 'misc_args' => [
                   'ky',
@@ -119,7 +119,8 @@ $result_trees{'syncodeindex_to_plain'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'kindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -135,7 +136,6 @@ $result_trees{'syncodeindex_to_plain'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'kindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -155,7 +155,8 @@ $result_trees{'syncodeindex_to_plain'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'vindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -171,7 +172,6 @@ $result_trees{'syncodeindex_to_plain'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'vindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -191,7 +191,8 @@ $result_trees{'syncodeindex_to_plain'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -207,7 +208,6 @@ $result_trees{'syncodeindex_to_plain'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -241,7 +241,8 @@ $result_trees{'syncodeindex_to_plain'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -257,7 +258,6 @@ $result_trees{'syncodeindex_to_plain'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -287,7 +287,8 @@ $result_trees{'syncodeindex_to_plain'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -303,7 +304,6 @@ $result_trees{'syncodeindex_to_plain'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'vr'

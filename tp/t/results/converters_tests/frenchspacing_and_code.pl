@@ -15,7 +15,8 @@ $result_trees{'frenchspacing_and_code'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'frenchspacing',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -31,7 +32,6 @@ $result_trees{'frenchspacing_and_code'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'frenchspacing',
           'extra' => {
             'misc_args' => [
               'on'
@@ -262,7 +262,8 @@ $result_trees{'frenchspacing_and_code'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -278,7 +279,6 @@ $result_trees{'frenchspacing_and_code'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -600,7 +600,8 @@ $result_trees{'frenchspacing_and_code'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -616,7 +617,6 @@ $result_trees{'frenchspacing_and_code'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deftypeop'
               },
@@ -923,7 +923,8 @@ $result_trees{'frenchspacing_and_code'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -939,7 +940,6 @@ $result_trees{'frenchspacing_and_code'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defop'
               },
@@ -968,7 +968,8 @@ $result_trees{'frenchspacing_and_code'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'frenchspacing',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -984,7 +985,6 @@ $result_trees{'frenchspacing_and_code'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'frenchspacing',
           'extra' => {
             'misc_args' => [
               'off'
@@ -1146,7 +1146,8 @@ $result_trees{'frenchspacing_and_code'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1162,7 +1163,6 @@ $result_trees{'frenchspacing_and_code'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -1484,7 +1484,8 @@ $result_trees{'frenchspacing_and_code'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1500,7 +1501,6 @@ $result_trees{'frenchspacing_and_code'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deftypeop'
               },
@@ -1807,7 +1807,8 @@ $result_trees{'frenchspacing_and_code'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1823,7 +1824,6 @@ $result_trees{'frenchspacing_and_code'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defop'
               },

@@ -67,7 +67,8 @@ $result_trees{'simple_nested_linemacro_calls'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -83,7 +84,6 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'linemacro'
               },
@@ -145,7 +145,8 @@ $result_trees{'simple_nested_linemacro_calls'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -161,7 +162,6 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'linemacro'
               },
@@ -510,7 +510,8 @@ $result_trees{'simple_nested_linemacro_calls'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -534,7 +535,6 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -558,7 +558,8 @@ $result_trees{'simple_nested_linemacro_calls'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -574,7 +575,6 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defblock'
               },

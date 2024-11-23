@@ -79,7 +79,8 @@ $result_trees{'anchor_in_caption'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -95,7 +96,6 @@ $result_trees{'anchor_in_caption'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => 'fl'
           },
@@ -205,7 +205,8 @@ $result_trees{'anchor_in_caption'} = {
               'type' => 'spaces_after_close_brace'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -221,7 +222,6 @@ $result_trees{'anchor_in_caption'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'float'
               },

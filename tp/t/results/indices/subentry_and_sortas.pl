@@ -144,7 +144,8 @@ $result_trees{'subentry_and_sortas'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -179,7 +180,6 @@ $result_trees{'subentry_and_sortas'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -188,7 +188,8 @@ $result_trees{'subentry_and_sortas'} = {
             ],
             'sortas' => 'A---S',
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -224,7 +225,6 @@ $result_trees{'subentry_and_sortas'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'sortas' => 'B---S1',
                 'subentry_level' => 1,
@@ -258,7 +258,8 @@ $result_trees{'subentry_and_sortas'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'findex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -293,7 +294,6 @@ $result_trees{'subentry_and_sortas'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -302,7 +302,8 @@ $result_trees{'subentry_and_sortas'} = {
             ],
             'sortas' => 'X---S',
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -338,7 +339,6 @@ $result_trees{'subentry_and_sortas'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'sortas' => 'X---S1',
                 'subentry_level' => 1,
@@ -372,7 +372,8 @@ $result_trees{'subentry_and_sortas'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -388,7 +389,6 @@ $result_trees{'subentry_and_sortas'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -404,7 +404,8 @@ $result_trees{'subentry_and_sortas'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -420,7 +421,6 @@ $result_trees{'subentry_and_sortas'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'

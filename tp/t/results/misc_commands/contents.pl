@@ -29,14 +29,14 @@ $result_trees{'contents'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => ' line following first content
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 2
@@ -57,14 +57,14 @@ $result_trees{'contents'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => ' line following second content
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 3
@@ -80,14 +80,14 @@ $result_trees{'contents'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 5
@@ -106,14 +106,14 @@ $result_trees{'contents'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'shortcontents',
+          'contents' => [
             {
               'text' => ' eol
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'shortcontents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 7
@@ -128,14 +128,14 @@ $result_trees{'contents'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'shortcontents',
+          'contents' => [
             {
               'text' => ' eol
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'shortcontents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 8
@@ -150,14 +150,14 @@ $result_trees{'contents'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'summarycontents',
+          'contents' => [
             {
               'text' => ' line following summarycontents
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'summarycontents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 9

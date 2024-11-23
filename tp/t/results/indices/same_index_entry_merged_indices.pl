@@ -12,7 +12,8 @@ $result_trees{'same_index_entry_merged_indices'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'syncodeindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'syncodeindex',
               'extra' => {
                 'misc_args' => [
                   'vr',
@@ -316,7 +316,8 @@ $result_trees{'same_index_entry_merged_indices'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -332,7 +333,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },
@@ -455,7 +455,8 @@ $result_trees{'same_index_entry_merged_indices'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -471,7 +472,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defvar'
               },
@@ -500,7 +500,8 @@ $result_trees{'same_index_entry_merged_indices'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -516,7 +517,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'

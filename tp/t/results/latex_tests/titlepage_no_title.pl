@@ -55,7 +55,8 @@ $result_trees{'titlepage_no_title'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'author',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -71,7 +72,6 @@ $result_trees{'titlepage_no_title'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'author',
                   'extra' => {
                     'titlepage' => {}
                   },
@@ -85,7 +85,8 @@ $result_trees{'titlepage_no_title'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -101,7 +102,6 @@ $result_trees{'titlepage_no_title'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'titlepage'
                   },

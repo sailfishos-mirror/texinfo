@@ -12,7 +12,8 @@ $result_trees{'syncode_index_print_both'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'syncodeindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'syncode_index_print_both'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'syncodeindex',
               'extra' => {
                 'misc_args' => [
                   'fn',
@@ -194,7 +194,8 @@ $result_trees{'syncode_index_print_both'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -210,7 +211,6 @@ $result_trees{'syncode_index_print_both'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -230,7 +230,8 @@ $result_trees{'syncode_index_print_both'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'findex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -246,7 +247,6 @@ $result_trees{'syncode_index_print_both'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -290,7 +290,8 @@ $result_trees{'syncode_index_print_both'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -306,7 +307,6 @@ $result_trees{'syncode_index_print_both'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'
@@ -341,7 +341,8 @@ $result_trees{'syncode_index_print_both'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -357,7 +358,6 @@ $result_trees{'syncode_index_print_both'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

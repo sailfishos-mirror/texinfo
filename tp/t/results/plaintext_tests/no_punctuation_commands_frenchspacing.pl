@@ -10,7 +10,8 @@ $result_trees{'no_punctuation_commands_frenchspacing'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'frenchspacing',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'no_punctuation_commands_frenchspacing'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'frenchspacing',
           'extra' => {
             'misc_args' => [
               'on'

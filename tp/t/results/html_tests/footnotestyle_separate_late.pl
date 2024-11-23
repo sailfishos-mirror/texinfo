@@ -315,7 +315,8 @@ $result_trees{'footnotestyle_separate_late'} = [
             'type' => 'empty_line'
           },
           {
-            'args' => [
+            'cmdname' => 'footnotestyle',
+            'contents' => [
               {
                 'contents' => [
                   {
@@ -331,7 +332,6 @@ $result_trees{'footnotestyle_separate_late'} = [
                 'type' => 'line_arg'
               }
             ],
-            'cmdname' => 'footnotestyle',
             'extra' => {
               'misc_args' => [
                 'separate'

@@ -10,7 +10,8 @@ $result_trees{'command_not_closed_on_center_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -37,7 +38,6 @@ $result_trees{'command_not_closed_on_center_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

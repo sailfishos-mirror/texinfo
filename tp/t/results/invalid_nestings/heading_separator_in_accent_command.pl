@@ -40,7 +40,8 @@ $result_trees{'heading_separator_in_accent_command'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'oddfooting',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -87,7 +88,6 @@ $result_trees{'heading_separator_in_accent_command'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'oddfooting',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

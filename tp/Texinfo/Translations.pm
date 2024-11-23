@@ -386,10 +386,6 @@ sub _substitute($$) {
     _substitute_element_array($tree->{'contents'}, $replaced_substrings);
   }
 
-  if ($tree->{'args'}) {
-    _substitute_element_array($tree->{'args'}, $replaced_substrings);
-  }
-
   return $tree;
 }
 

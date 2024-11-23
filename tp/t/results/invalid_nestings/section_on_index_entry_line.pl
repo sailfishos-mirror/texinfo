@@ -10,7 +10,8 @@ $result_trees{'section_on_index_entry_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -25,7 +26,6 @@ $result_trees{'section_on_index_entry_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => [
               'cp',

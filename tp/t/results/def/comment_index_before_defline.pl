@@ -32,17 +32,18 @@ $result_trees{'comment_index_before_defline'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' a comment
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -58,7 +59,6 @@ $result_trees{'comment_index_before_defline'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'index_entry' => [
                       'cp',
@@ -77,14 +77,14 @@ $result_trees{'comment_index_before_defline'} = {
                   'type' => 'index_entry_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'comment',
+                  'contents' => [
                     {
                       'text' => ' another
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'comment'
+                  ]
                 },
                 {
                   'text' => '
@@ -200,7 +200,8 @@ $result_trees{'comment_index_before_defline'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -216,7 +217,6 @@ $result_trees{'comment_index_before_defline'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defblock'
               },

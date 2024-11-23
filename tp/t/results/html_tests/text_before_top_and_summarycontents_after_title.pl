@@ -147,14 +147,14 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'summarycontents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'summarycontents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 11

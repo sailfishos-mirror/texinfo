@@ -91,7 +91,8 @@ $result_trees{'at_commands_in_raw'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -107,7 +108,6 @@ $result_trees{'at_commands_in_raw'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -286,7 +286,8 @@ $result_trees{'at_commands_in_raw'} = {
               'type' => 'rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -302,7 +303,6 @@ $result_trees{'at_commands_in_raw'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'html'
               },
@@ -610,7 +610,8 @@ $result_trees{'at_commands_in_raw'} = {
               'type' => 'elided_rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -626,7 +627,6 @@ $result_trees{'at_commands_in_raw'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'tex'
               },
@@ -785,7 +785,8 @@ $result_trees{'at_commands_in_raw'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'findex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -801,7 +802,6 @@ $result_trees{'at_commands_in_raw'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'findex',
               'extra' => {
                 'element_node' => {},
                 'index_entry' => [
@@ -847,7 +847,8 @@ $result_trees{'at_commands_in_raw'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -863,7 +864,6 @@ $result_trees{'at_commands_in_raw'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -879,7 +879,8 @@ $result_trees{'at_commands_in_raw'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -895,7 +896,6 @@ $result_trees{'at_commands_in_raw'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'
@@ -916,7 +916,8 @@ $result_trees{'at_commands_in_raw'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'listoffloats',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -932,7 +933,6 @@ $result_trees{'at_commands_in_raw'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'listoffloats',
           'extra' => {
             'float_type' => 'Figs'
           },

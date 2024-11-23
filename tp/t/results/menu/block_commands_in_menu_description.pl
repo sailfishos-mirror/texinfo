@@ -202,7 +202,8 @@ $result_trees{'block_commands_in_menu_description'} = {
                           }
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -218,7 +219,6 @@ $result_trees{'block_commands_in_menu_description'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'itemize'
                           },
@@ -284,7 +284,8 @@ $result_trees{'block_commands_in_menu_description'} = {
                             {
                               'contents' => [
                                 {
-                                  'args' => [
+                                  'cmdname' => 'item',
+                                  'contents' => [
                                     {
                                       'contents' => [
                                         {
@@ -300,7 +301,6 @@ $result_trees{'block_commands_in_menu_description'} = {
                                       'type' => 'line_arg'
                                     }
                                   ],
-                                  'cmdname' => 'item',
                                   'info' => {
                                     'spaces_before_argument' => {
                                       'text' => ' '
@@ -341,7 +341,8 @@ $result_trees{'block_commands_in_menu_description'} = {
                           'type' => 'table_entry'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -357,7 +358,6 @@ $result_trees{'block_commands_in_menu_description'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'table'
                           },
@@ -422,7 +422,8 @@ $result_trees{'block_commands_in_menu_description'} = {
                               'type' => 'rawpreformatted'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -438,7 +439,6 @@ $result_trees{'block_commands_in_menu_description'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'html'
                               },
@@ -482,7 +482,8 @@ $result_trees{'block_commands_in_menu_description'} = {
                           'type' => 'raw'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -498,7 +499,6 @@ $result_trees{'block_commands_in_menu_description'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'verbatim'
                           },
@@ -526,7 +526,8 @@ $result_trees{'block_commands_in_menu_description'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -542,7 +543,6 @@ $result_trees{'block_commands_in_menu_description'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

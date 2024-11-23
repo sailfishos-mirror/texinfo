@@ -10,14 +10,14 @@ $result_trees{'vskip'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'vskip',
+          'contents' => [
             {
               'text' => ' 0pt plus 1filll
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'vskip'
+          ]
         }
       ],
       'type' => 'before_node_section'

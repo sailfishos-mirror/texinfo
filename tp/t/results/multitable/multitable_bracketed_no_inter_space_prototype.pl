@@ -56,7 +56,8 @@ $result_trees{'multitable_bracketed_no_inter_space_prototype'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -72,7 +73,6 @@ $result_trees{'multitable_bracketed_no_inter_space_prototype'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

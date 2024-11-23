@@ -36,7 +36,8 @@ $result_trees{'exdent_and_commands'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'exdent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -50,7 +51,6 @@ $result_trees{'exdent_and_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'exdent',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -70,7 +70,8 @@ $result_trees{'exdent_and_commands'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'exdent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -98,7 +99,6 @@ $result_trees{'exdent_and_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'exdent',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -118,7 +118,8 @@ $result_trees{'exdent_and_commands'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -134,7 +135,6 @@ $result_trees{'exdent_and_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -184,7 +184,8 @@ $result_trees{'exdent_and_commands'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'exdent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -198,7 +199,6 @@ $result_trees{'exdent_and_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'exdent',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -218,7 +218,8 @@ $result_trees{'exdent_and_commands'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'exdent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -246,7 +247,6 @@ $result_trees{'exdent_and_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'exdent',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -266,7 +266,8 @@ $result_trees{'exdent_and_commands'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -282,7 +283,6 @@ $result_trees{'exdent_and_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

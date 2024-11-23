@@ -348,7 +348,8 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -364,7 +365,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -424,7 +424,8 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
       'extra' => {
         'is_target' => 1,
         'node_description' => {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -522,7 +523,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },
@@ -562,7 +562,8 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -578,7 +579,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'nodedescriptionblock'
               },
@@ -714,7 +714,8 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -730,7 +731,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'nodedescriptionblock'
               },
@@ -906,7 +906,8 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -922,7 +923,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'quotation'
                   },
@@ -941,7 +941,8 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -957,7 +958,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'nodedescriptionblock'
               },
@@ -1062,7 +1062,8 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
       'extra' => {
         'is_target' => 1,
         'node_description' => {
-          'args' => [
+          'cmdname' => 'nodedescription',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1078,7 +1079,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'nodedescription',
           'extra' => {
             'element_node' => {}
           },
@@ -1118,7 +1118,8 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1134,7 +1135,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'nodedescriptionblock'
               },
@@ -1270,7 +1270,8 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1286,7 +1287,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'nodedescriptionblock'
               },
@@ -1379,7 +1379,8 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1395,7 +1396,6 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'nodedescriptionblock'
               },

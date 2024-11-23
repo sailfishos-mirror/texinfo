@@ -40,7 +40,8 @@ $result_trees{'end_conditional_not_at_line_begining'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -56,7 +57,6 @@ $result_trees{'end_conditional_not_at_line_begining'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifhtml'
                     },

@@ -10,13 +10,13 @@ $result_trees{'clickstyle'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'clickstyle',
+          'contents' => [
             {
               'text' => '@result',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clickstyle',
           'extra' => {},
           'info' => {
             'arg_line' => ' @result
@@ -63,13 +63,13 @@ $result_trees{'clickstyle'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'clickstyle',
+          'contents' => [
             {
               'text' => '@equiv',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clickstyle',
           'extra' => {},
           'info' => {
             'arg_line' => '@equiv

@@ -22,7 +22,8 @@ $result_trees{'custom_headings'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'evenheading',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -80,7 +81,6 @@ $result_trees{'custom_headings'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'evenheading',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -91,7 +91,8 @@ $result_trees{'custom_headings'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'evenfooting',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -150,7 +151,6 @@ $result_trees{'custom_headings'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'evenfooting',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -309,14 +309,14 @@ $result_trees{'custom_headings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'text' => '
@@ -338,14 +338,14 @@ $result_trees{'custom_headings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'text' => '
@@ -447,7 +447,8 @@ $result_trees{'custom_headings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'everyheading',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -469,7 +470,6 @@ $result_trees{'custom_headings'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'everyheading',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -485,14 +485,14 @@ $result_trees{'custom_headings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'text' => '
@@ -514,14 +514,14 @@ $result_trees{'custom_headings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'text' => '
@@ -583,14 +583,14 @@ $result_trees{'custom_headings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'page',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'page'
+          ]
         },
         {
           'text' => '
@@ -598,7 +598,8 @@ $result_trees{'custom_headings'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'everyfooting',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -632,7 +633,6 @@ $result_trees{'custom_headings'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'everyfooting',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

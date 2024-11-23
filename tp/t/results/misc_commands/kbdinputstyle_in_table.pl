@@ -107,7 +107,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -123,7 +124,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -168,7 +168,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'kbdinputstyle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -184,7 +185,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'kbdinputstyle',
           'extra' => {
             'misc_args' => [
               'code'
@@ -257,7 +257,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -273,7 +274,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -291,7 +291,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -307,7 +308,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -380,7 +380,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -396,7 +397,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -414,7 +414,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -430,7 +431,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -524,7 +524,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -540,7 +541,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -558,7 +558,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'table_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -574,7 +575,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'table'
                   },
@@ -642,7 +642,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -658,7 +659,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -676,7 +676,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'table_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -692,7 +693,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'table'
                   },
@@ -722,7 +722,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -746,7 +747,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -789,7 +789,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'kbdinputstyle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -805,7 +806,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'kbdinputstyle',
           'extra' => {
             'misc_args' => [
               'example'
@@ -878,7 +878,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -894,7 +895,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -912,7 +912,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -928,7 +929,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -1001,7 +1001,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1017,7 +1018,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -1035,7 +1035,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1051,7 +1052,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -1142,7 +1142,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1158,7 +1159,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -1176,7 +1176,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'table_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1192,7 +1193,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'table'
                   },
@@ -1256,7 +1256,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1272,7 +1273,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -1290,7 +1290,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'table_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1306,7 +1307,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'table'
                   },
@@ -1335,7 +1335,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1359,7 +1360,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -1402,7 +1402,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'kbdinputstyle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1418,7 +1419,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'kbdinputstyle',
           'extra' => {
             'misc_args' => [
               'distinct'
@@ -1488,7 +1488,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1504,7 +1505,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -1522,7 +1522,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1538,7 +1539,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -1607,7 +1607,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -1623,7 +1624,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -1641,7 +1641,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1657,7 +1658,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -1747,7 +1747,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1763,7 +1764,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -1781,7 +1781,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'table_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1797,7 +1798,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'table'
                   },
@@ -1861,7 +1861,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'item',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1877,7 +1878,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'item',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -1895,7 +1895,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'table_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1911,7 +1912,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'table'
                   },
@@ -1940,7 +1940,8 @@ $result_trees{'kbdinputstyle_in_table'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1964,7 +1965,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

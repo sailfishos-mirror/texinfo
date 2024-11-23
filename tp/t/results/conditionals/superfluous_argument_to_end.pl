@@ -48,7 +48,8 @@ $result_trees{'superfluous_argument_to_end'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -64,7 +65,6 @@ $result_trees{'superfluous_argument_to_end'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifnothtml superfluous'
                     },

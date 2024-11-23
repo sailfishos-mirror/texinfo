@@ -10,7 +10,8 @@ $result_trees{'direntry_dircategory_and_commands'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'dircategory',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -45,7 +46,6 @@ $result_trees{'direntry_dircategory_and_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'dircategory',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -155,7 +155,8 @@ $result_trees{'direntry_dircategory_and_commands'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -171,7 +172,6 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'direntry'
               },
@@ -195,7 +195,8 @@ $result_trees{'direntry_dircategory_and_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'dircategory',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -211,7 +212,6 @@ $result_trees{'direntry_dircategory_and_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'dircategory',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -313,7 +313,8 @@ $result_trees{'direntry_dircategory_and_commands'} = {
               'type' => 'menu_comment'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -329,7 +330,6 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'direntry'
               },

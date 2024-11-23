@@ -15,7 +15,8 @@ $result_trees{'ifclear_in_ifset_set'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'a',
               'type' => 'rawline_arg'
@@ -25,7 +26,6 @@ $result_trees{'ifclear_in_ifset_set'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' a
 '
@@ -86,14 +86,14 @@ $result_trees{'ifclear_in_ifset_set'} = {
                         ],
                         'info' => {
                           'comment_at_end' => {
-                            'args' => [
+                            'cmdname' => 'c',
+                            'contents' => [
                               {
                                 'text' => ' - ok, ignored
 ',
                                 'type' => 'rawline_arg'
                               }
-                            ],
-                            'cmdname' => 'c'
+                            ]
                           },
                           'spaces_after_argument' => {
                             'text' => ' '
@@ -124,7 +124,8 @@ $result_trees{'ifclear_in_ifset_set'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'end',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -140,7 +141,6 @@ $result_trees{'ifclear_in_ifset_set'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'end',
           'extra' => {
             'text_arg' => 'junky   - ok, ignored'
           },
@@ -154,14 +154,14 @@ $result_trees{'ifclear_in_ifset_set'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' WRONG - missing @end ifset.
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         }
       ],
       'type' => 'before_node_section'

@@ -2123,7 +2123,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
      or following character association with an @-command, for accent
      commands */
   /* This condition can only happen immediately after the command opening,
-     otherwise the current element is in the 'args' and not right in the
+     otherwise the current element is in the 'contents' and not right in the
      command container. */
   if (command_flags(current) & CF_brace && *line != '{')
     {

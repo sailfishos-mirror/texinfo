@@ -36,7 +36,8 @@ $result_trees{'ifnotinfo_exception'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -52,7 +53,6 @@ $result_trees{'ifnotinfo_exception'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifnotinfo'
                     },

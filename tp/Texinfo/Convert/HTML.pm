@@ -1295,7 +1295,7 @@ sub _internal_command_tree($$$)
         if ($root_commands{$command->{'cmdname'}}) {
           $line_arg = $command->{'contents'}->[0]->{'contents'}->[0];
         } else {
-          $line_arg = $command->{'args'}->[0];
+          $line_arg = $command->{'contents'}->[0];
         }
         if ($line_arg->{'contents'}) {
           my $section_number;
@@ -1575,7 +1575,7 @@ sub command_description($$;$)
 
     my $description_element;
     if ($node_description->{'cmdname'} eq 'nodedescription') {
-      $description_element = $node_description->{'args'}->[0];
+      $description_element = $node_description->{'contents'}->[0];
     } else {
       $description_element = {'contents' => $node_description->{'contents'}};
     }
@@ -5456,11 +5456,10 @@ sub _convert_quotation_command($$$$$)
     # TODO there is no easy way to mark with a class the @author
     # @-command.  Add a span or a div (@center is in a div)?
     foreach my $author (@{$command->{'extra'}->{'authors'}}) {
-      if ($author->{'args'}->[0]
-          and $author->{'args'}->[0]->{'contents'}) {
+      if ($author->{'contents'}->[0]->{'contents'}) {
         # TRANSLATORS: quotation author
         my $centered_author = $self->cdt("\@center --- \@emph{{author}}",
-           {'author' => $author->{'args'}->[0]});
+           {'author' => $author->{'contents'}->[0]});
         $centered_author->{'parent'} = $command;
         $result .= $self->convert_tree($centered_author,
                                             'convert quotation author');
@@ -5682,8 +5681,7 @@ sub _convert_item_command($$$$$)
     }
   } elsif ($command->{'parent'}->{'type'}
            and $command->{'parent'}->{'type'} eq 'table_term') {
-    if ($command->{'args'} and scalar(@{$command->{'args'}})
-        and $command->{'args'}->[0]->{'contents'}) {
+    if ($command->{'contents'}->[0]->{'contents'}) {
 
       my $result = ($cmdname eq 'item') ? '' : '<dt>';
 
@@ -5710,7 +5708,7 @@ sub _convert_item_command($$$$$)
         }
       }
       my $table_item_tree = $self->table_item_content_tree($command);
-      $table_item_tree = $command->{'args'}->[0]
+      $table_item_tree = $command->{'contents'}->[0]
         if (!defined($table_item_tree));
       my $converted_item = $self->convert_tree($table_item_tree,
                                           'convert table_item_tree');
@@ -6232,9 +6230,8 @@ sub _convert_printindex_command($$$$)
              and $subentry_level <= $subentries_max_level) {
         $subentry = $subentry->{'extra'}->{'subentry'};
         my $subentry_tree;
-        if ($subentry->{'args'} and $subentry->{'args'}->[0]
-            and $subentry->{'args'}->[0]->{'contents'}) {
-          $subentry_tree = {'contents' => [$subentry->{'args'}->[0]]};
+        if ($subentry->{'contents'}->[0]->{'contents'}) {
+          $subentry_tree = {'contents' => [$subentry->{'contents'}->[0]]};
           $subentry_tree->{'type'} = '_code' if ($in_code);
         }
         if ($subentry_level >= $subentries_max_level) {
@@ -7422,7 +7419,7 @@ sub _convert_menu_entry_type($$$)
     if ($formatted_nodedescription_nr) {
       my $description_element;
       if ($node_description->{'cmdname'} eq 'nodedescription') {
-        $description_element = $node_description->{'args'}->[0];
+        $description_element = $node_description->{'contents'}->[0];
       } else {
         $description_element = {'contents' => $node_description->{'contents'}};
       }
@@ -7484,7 +7481,7 @@ sub _convert_menu_entry_type($$$)
   if ($formatted_nodedescription_nr) {
     my $description_element;
     if ($node_description->{'cmdname'} eq 'nodedescription') {
-      $description_element = $node_description->{'args'}->[0];
+      $description_element = $node_description->{'contents'}->[0];
     } else {
       $description_element = {'contents' => $node_description->{'contents'}};
     }
@@ -12232,11 +12229,9 @@ sub _prepare_simpletitle($)
       foreach my $simpletitle_command ('settitle', 'shorttitlepage') {
         if ($global_commands->{$simpletitle_command}) {
           my $command = $global_commands->{$simpletitle_command};
-          next if (!$command->{'args'} or !$command->{'args'}->[0]
-                    or !$command->{'args'}->[0]->{'contents'}
-                    or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
+          next if (!$command->{'contents'}->[0]->{'contents'});
           $self->{'converter_info'}->{'simpletitle_tree'}
-             = $command->{'args'}->[0];
+             = $command->{'contents'}->[0];
           $self->{'converter_info'}->{'simpletitle_command_name'}
              = $simpletitle_command;
           last;
@@ -12607,13 +12602,11 @@ sub _prepare_converted_output_info($$$$)
   my $fulltitle_tree;
   if ($global_commands) {
     foreach my $fulltitle_command ('settitle', 'title',
-                                   'shorttitlepage', 'top') {
+                                   'shorttitlepage') {
       if ($global_commands->{$fulltitle_command}) {
         my $command = $global_commands->{$fulltitle_command};
-        next if (!$command->{'args'} or !$command->{'args'}->[0]
-                 or !$command->{'args'}->[0]->{'contents'}
-                 or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
-        $fulltitle_tree = $command->{'args'}->[0];
+        next if (!$command->{'contents'}->[0]->{'contents'});
+        $fulltitle_tree = $command->{'contents'}->[0];
         last;
       }
     }
@@ -13556,6 +13549,16 @@ sub _convert($$;$)
             or ($element->{'type'}
                 and $element->{'type'} eq 'index_entry_command'))) {
     my $command_name = $element->{'cmdname'};
+
+    my $data_command_name;
+    if ($command_name eq 'item'
+        and $element->{'parent'}->{'type'}
+        and $element->{'parent'}->{'type'} eq 'table_term') {
+      $data_command_name = 'item_LINE';
+    } else {
+      $data_command_name = $command_name;
+    }
+
     if ($root_commands{$command_name}) {
       $self->{'current_root_command'} = $element;
     }
@@ -13568,7 +13571,11 @@ sub _convert($$;$)
                                                  $command_name, $element);
       }
       my $content_formatted = '';
-      if ($element->{'contents'} and !$brace_commands{$command_name}) {
+      if ($element->{'contents'}
+          and ($root_commands{$command_name}
+               or $block_commands{$command_name}
+               or $command_name eq 'tab' or $command_name eq 'headitem'
+               or $data_command_name eq 'item')) {
         if ($convert_to_latex) {
           # displaymath
           $content_formatted
@@ -13576,11 +13583,11 @@ sub _convert($$;$)
                                     {'contents' => $element->{'contents'}},
                                          $self->{'options_latex_math'});
         } else {
-          my $content_idx = 0;
-          foreach my $content (@{$element->{'contents'}}) {
+          my $contents_nr = scalar(@{$element->{'contents'}});
+          for (my $idx = 0; $idx < $contents_nr; $idx++) {
             $content_formatted
-                .= _convert($self, $content, "$command_type c[$content_idx]");
-            $content_idx++;
+                .= _convert($self, $element->{'contents'}->[$idx],
+                            "$command_type c[$idx]");
           }
         }
       }
@@ -13596,15 +13603,12 @@ sub _convert($$;$)
           or $command_name eq 'float'
           or $command_name eq 'cartouche') {
         my $arguments_list;
-        if ($brace_commands{$command_name}) {
-          $arguments_list = $element->{'contents'};
-        } elsif ($element->{'contents'}
-                 and scalar(@{$element->{'contents'}})
-                 and $element->{'contents'}->[0]->{'type'}
-                 and $element->{'contents'}->[0]->{'type'} eq 'argument') {
+        if ($element->{'contents'}
+            and $element->{'contents'}->[0]->{'type'}
+            and $element->{'contents'}->[0]->{'type'} eq 'argument') {
           $arguments_list = $element->{'contents'}->[0]->{'contents'};
         } else {
-          $arguments_list = $element->{'args'};
+          $arguments_list = $element->{'contents'};
         }
         if ($arguments_list) {
           $args_formatted = [];

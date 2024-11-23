@@ -54,7 +54,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -70,7 +71,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'macro'
                   },
@@ -195,7 +195,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -211,7 +212,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'macro'
                   },
@@ -578,7 +578,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -594,7 +595,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'example'
                       },
@@ -615,7 +615,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'codequoteundirected',
+                  'contents' => [
                     {
                       'info' => {
                         'spaces_after_argument' => {
@@ -626,7 +627,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'codequoteundirected',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 31,
@@ -634,7 +634,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'codequotebacktick',
+                  'contents' => [
                     {
                       'info' => {
                         'spaces_after_argument' => {
@@ -645,7 +646,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'codequotebacktick',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 31,
@@ -959,7 +959,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -975,7 +976,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'example'
                       },
@@ -996,7 +996,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'codequoteundirected',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1012,7 +1013,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'codequoteundirected',
                   'extra' => {
                     'misc_args' => [
                       'off'
@@ -1029,7 +1029,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'codequotebacktick',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1045,7 +1046,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'codequotebacktick',
                   'extra' => {
                     'misc_args' => [
                       'off'
@@ -1332,7 +1332,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1348,7 +1349,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'copying'
                   },
@@ -1393,21 +1393,22 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'insertcopying',
+                  'contents' => [
                     {
                       'text' => '
 ',
                       'type' => 'rawline_arg'
                     }
                   ],
-                  'cmdname' => 'insertcopying',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 35
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -1423,7 +1424,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'titlepage'
                   },
@@ -1917,7 +1917,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1933,7 +1934,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -1954,7 +1954,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'codequoteundirected',
+          'contents' => [
             {
               'info' => {
                 'spaces_after_argument' => {
@@ -1965,7 +1966,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'codequoteundirected',
           'extra' => {},
           'source_info' => {
             'line_nr' => 45,
@@ -1973,7 +1973,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'codequotebacktick',
+          'contents' => [
             {
               'info' => {
                 'spaces_after_argument' => {
@@ -1984,7 +1985,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'codequotebacktick',
           'extra' => {},
           'source_info' => {
             'line_nr' => 45,
@@ -2298,7 +2298,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2314,7 +2315,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -2335,7 +2335,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'codequoteundirected',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2351,7 +2352,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'codequoteundirected',
           'extra' => {
             'misc_args' => [
               'off'
@@ -2368,7 +2368,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'codequotebacktick',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2384,7 +2385,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'codequotebacktick',
           'extra' => {
             'misc_args' => [
               'off'
@@ -3015,7 +3015,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -3031,7 +3032,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'example'
                   },
@@ -3054,7 +3054,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'codequoteundirected',
+                  'contents' => [
                     {
                       'info' => {
                         'spaces_after_argument' => {
@@ -3065,7 +3066,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'codequoteundirected',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 48,
@@ -3073,7 +3073,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'codequotebacktick',
+                  'contents' => [
                     {
                       'info' => {
                         'spaces_after_argument' => {
@@ -3084,7 +3085,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'codequotebacktick',
                   'extra' => {},
                   'source_info' => {
                     'line_nr' => 48,
@@ -3396,7 +3396,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'preformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -3412,7 +3413,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'example'
                   },
@@ -3435,7 +3435,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'codequoteundirected',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -3451,7 +3452,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'codequoteundirected',
                   'extra' => {
                     'misc_args' => [
                       'off'
@@ -3468,7 +3468,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'codequotebacktick',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -3484,7 +3485,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'codequotebacktick',
                   'extra' => {
                     'misc_args' => [
                       'off'
@@ -3769,7 +3769,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -3785,7 +3786,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

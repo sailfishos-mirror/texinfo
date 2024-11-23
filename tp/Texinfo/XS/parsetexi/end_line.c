@@ -121,7 +121,7 @@ parse_line_command_args (ELEMENT *line_command)
   if (command_data(cmd).flags & CF_root)
     line_arg = line_command->e.c->contents.list[0]->e.c->contents.list[0];
   else
-    line_arg = line_command->e.c->args.list[0];
+    line_arg = line_command->e.c->contents.list[0];
 
   if (line_arg->e.c->contents.number == 0)
    {
@@ -897,7 +897,7 @@ end_line_starting_block (ELEMENT *current)
 
   if (command == CM_float)
     {
-      char *float_type;
+      char *float_type = 0;
 
       current->e.c->source_info = current_source_info;
       if (argument->e.c->contents.number >= 2)
@@ -906,7 +906,7 @@ end_line_starting_block (ELEMENT *current)
             = contents_child_by_index (argument, 1);
           check_register_target_element_label (float_label_element, current);
         }
-      float_type = parse_float_type (current);
+      float_type = parse_float_type (current, argument->e.c->contents.list[0]);
 
       /* add to global 'floats' array */
       add_to_float_record_list (&parsed_document->floats, float_type, current);
@@ -1250,10 +1250,7 @@ end_line_misc_line (ELEMENT *current)
   else
     {
       command_element = current->parent;
-      if (command_data(command_element->e.c->cmd).flags & CF_def)
-        line_arg = command_element->e.c->contents.list[0];
-      else
-        line_arg = command_element->e.c->args.list[0];
+      line_arg = command_element->e.c->contents.list[0];
     }
 
   data_cmd = cmd = command_element->e.c->cmd;
@@ -1262,14 +1259,6 @@ end_line_misc_line (ELEMENT *current)
      associated to CM_item_LINE */
   if (cmd == CM_item)
     data_cmd = CM_item_LINE;
-
-  if (! line_arg)
-    {
-      if (command_data(data_cmd).flags & CF_def)
-        line_arg = command_element->e.c->contents.list[0];
-      else
-        line_arg = command_element->e.c->args.list[0];
-    }
 
   if (command_data(data_cmd).flags & CF_contain_basic_inline)
     (void) pop_command (&nesting_context.basic_inline_stack_on_line);
@@ -1299,9 +1288,8 @@ end_line_misc_line (ELEMENT *current)
       char *text = 0;
       int superfluous_arg = 0;
 
-      if (current->e.c->args.number > 0)
-        text = text_contents_to_plain_text (current->e.c->args.list[0],
-                                            &superfluous_arg);
+      text = text_contents_to_plain_text (current->e.c->contents.list[0],
+                                          &superfluous_arg);
 
       if (!text || !strcmp (text, ""))
         {
@@ -1584,7 +1572,7 @@ end_line_misc_line (ELEMENT *current)
           const char *p;
           char *p1;
           char *texi_line
-            = convert_to_texinfo (args_child_by_index (current, 0));
+            = convert_to_texinfo (contents_child_by_index (current, 0));
 
           p = texi_line;
 
@@ -1660,7 +1648,7 @@ end_line_misc_line (ELEMENT *current)
     }
   else if (current->e.c->cmd == CM_listoffloats)
     {
-      parse_float_type (current);
+      parse_float_type (current, current->e.c->contents.list[0]);
     }
   else
     {
@@ -1700,7 +1688,7 @@ end_line_misc_line (ELEMENT *current)
                 || current->e.c->cmd == CM_subentry))
             {
               set_non_ignored_space_in_index_before_command (
-                                                     current->e.c->args.list[0]);
+                                     current->e.c->contents.list[0]);
             }
         }
     }

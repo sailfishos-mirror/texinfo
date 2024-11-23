@@ -32,7 +32,8 @@ $result_trees{'heading_in_quotation'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'heading',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -70,7 +71,6 @@ $result_trees{'heading_in_quotation'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'heading',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -87,7 +87,8 @@ $result_trees{'heading_in_quotation'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -103,7 +104,6 @@ $result_trees{'heading_in_quotation'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

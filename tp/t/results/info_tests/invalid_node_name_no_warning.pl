@@ -267,7 +267,8 @@ $result_trees{'invalid_node_name_no_warning'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -283,7 +284,6 @@ $result_trees{'invalid_node_name_no_warning'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

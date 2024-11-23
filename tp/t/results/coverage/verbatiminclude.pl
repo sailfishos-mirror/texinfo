@@ -15,7 +15,8 @@ $result_trees{'verbatiminclude'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'verbatiminclude',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -31,7 +32,6 @@ $result_trees{'verbatiminclude'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_encoding_name' => 'utf-8',
             'text_arg' => 'incl-incl.txi'

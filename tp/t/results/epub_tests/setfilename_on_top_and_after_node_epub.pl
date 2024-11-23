@@ -62,7 +62,8 @@ $result_trees{'setfilename_on_top_and_after_node_epub'} = {
                   'text' => 'In top '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'setfilename',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -78,7 +79,6 @@ $result_trees{'setfilename_on_top_and_after_node_epub'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'setfilename',
                   'extra' => {
                     'text_arg' => 'very badly placed setfilename'
                   },
@@ -103,7 +103,8 @@ $result_trees{'setfilename_on_top_and_after_node_epub'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'setfilename',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -119,7 +120,6 @@ $result_trees{'setfilename_on_top_and_after_node_epub'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'setfilename',
           'extra' => {
             'text_arg' => 'a bit too late'
           },

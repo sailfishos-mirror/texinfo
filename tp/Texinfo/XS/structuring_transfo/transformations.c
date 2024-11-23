@@ -188,7 +188,7 @@ correct_level (ELEMENT *section, ELEMENT *parent, int modifier)
 
           add_to_element_contents (parent, element);
           text_append (rawline_arg->e.text, "\n");
-          add_to_element_args (element, rawline_arg);
+          add_to_element_contents (element, rawline_arg);
           remaining_level--;
         }
     }

@@ -413,8 +413,7 @@ sub conversion_output_begin($;$$)
     foreach my $title_cmdname ('title', 'shorttitlepage') {
       if ($global_commands->{$title_cmdname}) {
         my $command = $global_commands->{$title_cmdname};
-        next if (!$command->{'args'}
-                 or !$command->{'args'}->[0]->{'contents'});
+        next if (!$command->{'contents'}->[0]->{'contents'});
         $fulltitle_command = $command;
         last;
       }
@@ -485,8 +484,7 @@ sub conversion_output_begin($;$$)
   if ($global_commands and $global_commands->{'settitle'}) {
     my $command = $global_commands->{'settitle'};
     $settitle_command = $command
-      unless (!$command->{'args'}
-              or !$command->{'args'}->[0]->{'contents'});
+      unless (!$command->{'contents'}->[0]->{'contents'});
   }
 
   my $titleabbrev_command;
@@ -648,7 +646,7 @@ sub _index_entry($$)
     while ($tmp->{'extra'}->{'subentry'}) {
       $result .= "<$level>";
       $tmp = $tmp->{'extra'}->{'subentry'};
-      $result .= _convert($self, $tmp->{'args'}->[0]);
+      $result .= _convert($self, $tmp->{'contents'}->[0]);
       $result .= "</$level>";
       $level = "tertiary";
     }
@@ -702,10 +700,11 @@ sub _convert_argument_and_end_line($$)
   my $element = shift;
 
   my $line_arg;
-  if ($element->{'args'}) {
-    $line_arg = $element->{'args'}->[-1];
-  } else {
+  if ($element->{'contents'}->[0]->{'type'}
+      and $element->{'contents'}->[0]->{'type'} eq 'argument') {
     $line_arg = $element->{'contents'}->[0]->{'contents'}->[-1];
+  } else {
+    $line_arg = $element->{'contents'}->[-1];
   }
   my $converted = $self->convert_tree($line_arg);
   my $end_line = $self->format_comment_or_return_end_line($element);
@@ -893,10 +892,9 @@ sub _convert($$;$)
 
         $result .= "<term>" if ($cmdname eq 'itemx');
         $result .= _index_entry($self, $element);
-        if ($element->{'args'}
-            and $element->{'args'}->[0]->{'contents'}) {
+        if ($element->{'contents'}->[0]->{'contents'}) {
           my $table_item_tree = $self->table_item_content_tree($element);
-          $table_item_tree = $element->{'args'}->[0]
+          $table_item_tree = $element->{'contents'}->[0]
             if (!defined($table_item_tree));
 
           $result .= _convert($self, $table_item_tree);
@@ -904,6 +902,7 @@ sub _convert($$;$)
         chomp ($result);
         $result .= "\n";
         $result .= "</term>";
+        return $result;
       } else {
         unless (($cmdname eq 'item'
                  or $cmdname eq 'headitem'
@@ -919,9 +918,7 @@ sub _convert($$;$)
     } elsif ($element->{'type'}
              and $element->{'type'} eq 'index_entry_command') {
       my $end_line;
-      if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}
-          # this condition is probably always true as extra index_entry is set
-          and $element->{'args'}) {
+      if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
         $end_line = $self->format_comment_or_return_end_line($element);
         if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
           chomp($end_line);
@@ -1054,9 +1051,9 @@ sub _convert($$;$)
           }
         }
       } elsif ($cmdname eq 'c' or $cmdname eq 'comment') {
-        return $self->xml_comment($element->{'args'}->[0]->{'text'})
+        return $self->xml_comment($element->{'contents'}->[0]->{'text'})
       } elsif ($Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
-        if ($element->{'args'}) {
+        if (!$Texinfo::Commands::root_commands{$cmdname}) {
           my ($arg, $end_line)
             = _convert_argument_and_end_line($self, $element);
           $result .=
@@ -1102,6 +1099,7 @@ sub _convert($$;$)
           = Texinfo::Convert::Utils::expand_verbatiminclude($self, $element);
         if (defined($verbatim_include_verbatim)) {
           $result .= _convert($self, $verbatim_include_verbatim);
+          return $result;
         } else {
           return '';
         }
@@ -1698,9 +1696,9 @@ sub _convert($$;$)
         if ($element->{'extra'}) {
           if ($element->{'extra'}->{'authors'}) {
             foreach my $author (@{$element->{'extra'}->{'authors'}}) {
-              if ($author->{'args'} and $author->{'args'}->[0]->{'contents'}) {
+              if ($author->{'contents'}->[0]->{'contents'}) {
                 $appended .= '<attribution>'.
-                       _convert($self, $author->{'args'}->[0])
+                       _convert($self, $author->{'contents'}->[0])
                            ."</attribution>\n";
               }
             }

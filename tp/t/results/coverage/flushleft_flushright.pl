@@ -63,7 +63,8 @@ $result_trees{'flushleft_flushright'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -79,7 +80,6 @@ $result_trees{'flushleft_flushright'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'flushleft'
               },
@@ -151,7 +151,8 @@ $result_trees{'flushleft_flushright'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -167,7 +168,6 @@ $result_trees{'flushleft_flushright'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'flushright'
               },

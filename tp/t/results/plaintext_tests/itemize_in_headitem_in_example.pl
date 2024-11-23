@@ -70,7 +70,8 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   'type' => 'before_item'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -86,7 +87,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'itemize'
                   },
@@ -180,7 +180,8 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -196,7 +197,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'itemize'
                   },
@@ -295,7 +295,8 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -311,7 +312,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'itemize'
                   },
@@ -429,7 +429,8 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -445,7 +446,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'itemize'
                   },
@@ -477,7 +477,8 @@ $result_trees{'itemize_in_headitem_in_example'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -493,7 +494,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

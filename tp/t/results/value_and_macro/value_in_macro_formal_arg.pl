@@ -10,7 +10,8 @@ $result_trees{'value_in_macro_formal_arg'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'argument',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'value_in_macro_formal_arg'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' argument arg 
 '
@@ -57,7 +57,8 @@ $result_trees{'value_in_macro_formal_arg'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -73,7 +74,6 @@ $result_trees{'value_in_macro_formal_arg'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },

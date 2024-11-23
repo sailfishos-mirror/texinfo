@@ -10,14 +10,14 @@ $result_trees{'ref_in_multitable'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'novalidate',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'novalidate',
           'source_info' => {
             'line_nr' => 1
           }
@@ -78,7 +78,8 @@ $result_trees{'ref_in_multitable'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -94,7 +95,6 @@ $result_trees{'ref_in_multitable'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'extra' => {
                         'misc_args' => [
                           '.35',
@@ -395,7 +395,8 @@ $result_trees{'ref_in_multitable'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -411,7 +412,6 @@ $result_trees{'ref_in_multitable'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

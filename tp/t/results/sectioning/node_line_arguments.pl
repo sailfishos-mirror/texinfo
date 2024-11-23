@@ -396,14 +396,14 @@ $result_trees{'node_line_arguments'} = {
               ],
               'info' => {
                 'comment_at_end' => {
-                  'args' => [
+                  'cmdname' => 'comment',
+                  'contents' => [
                     {
                       'text' => '
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'comment'
+                  ]
                 },
                 'spaces_after_argument' => {
                   'text' => ' '
@@ -527,14 +527,14 @@ $result_trees{'node_line_arguments'} = {
               },
               'info' => {
                 'comment_at_end' => {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' comma , end
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 },
                 'spaces_after_argument' => {
                   'text' => ' '

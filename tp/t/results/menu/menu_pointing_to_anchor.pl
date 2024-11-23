@@ -181,7 +181,8 @@ $result_trees{'menu_pointing_to_anchor'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -197,7 +198,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

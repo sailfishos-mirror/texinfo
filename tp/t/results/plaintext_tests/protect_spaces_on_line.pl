@@ -84,7 +84,8 @@ $result_trees{'protect_spaces_on_line'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'exdent',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -138,7 +139,6 @@ $result_trees{'protect_spaces_on_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'exdent',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -149,7 +149,8 @@ $result_trees{'protect_spaces_on_line'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -165,7 +166,6 @@ $result_trees{'protect_spaces_on_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

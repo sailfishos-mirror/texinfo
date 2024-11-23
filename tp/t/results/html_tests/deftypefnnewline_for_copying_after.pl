@@ -155,7 +155,8 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                   'type' => 'def_item'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -171,7 +172,6 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'deftypefun'
                   },
@@ -195,7 +195,8 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -211,7 +212,6 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'copying'
               },
@@ -235,14 +235,14 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'line_nr' => 7
@@ -254,7 +254,8 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'deftypefnnewline',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -270,7 +271,6 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'deftypefnnewline',
           'extra' => {
             'misc_args' => [
               'on'
@@ -291,14 +291,14 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'line_nr' => 11
@@ -578,7 +578,8 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -594,7 +595,6 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deftypefun'
               },

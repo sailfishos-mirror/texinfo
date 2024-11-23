@@ -20,7 +20,8 @@ $result_trees{'definfoenclose'} = {
               'text' => 'definfoenclose phoo,//,\\  '
             },
             {
-              'args' => [
+              'cmdname' => 'definfoenclose',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -36,7 +37,6 @@ $result_trees{'definfoenclose'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'definfoenclose',
               'extra' => {
                 'misc_args' => [
                   'phoo',
@@ -105,7 +105,8 @@ $result_trees{'definfoenclose'} = {
               'text' => 'definfoenclose phi,:,:  '
             },
             {
-              'args' => [
+              'cmdname' => 'definfoenclose',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -121,7 +122,6 @@ $result_trees{'definfoenclose'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'definfoenclose',
               'extra' => {
                 'misc_args' => [
                   'phi',
@@ -215,7 +215,8 @@ $result_trees{'definfoenclose'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'definfoenclose',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -231,7 +232,6 @@ $result_trees{'definfoenclose'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'definfoenclose',
           'extra' => {
             'misc_args' => [
               'strong',

@@ -99,7 +99,8 @@ $result_trees{'inlineifsetifclear'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'aaa',
               'type' => 'rawline_arg'
@@ -109,7 +110,6 @@ $result_trees{'inlineifsetifclear'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' aaa
 '

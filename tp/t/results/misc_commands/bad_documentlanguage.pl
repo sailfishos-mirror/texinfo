@@ -20,7 +20,8 @@ $result_trees{'bad_documentlanguage'} = {
               'text' => 'documentlanguage '
             },
             {
-              'args' => [
+              'cmdname' => 'documentlanguage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -36,7 +37,6 @@ $result_trees{'bad_documentlanguage'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentlanguage',
               'extra' => {
                 'text_arg' => 'en'
               },
@@ -58,14 +58,16 @@ $result_trees{'bad_documentlanguage'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
                   'text' => 'en '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'documentlanguage',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -81,7 +83,6 @@ $result_trees{'bad_documentlanguage'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'documentlanguage',
                   'extra' => {
                     'text_arg' => 'en'
                   },
@@ -98,7 +99,6 @@ $result_trees{'bad_documentlanguage'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'en '
           },
@@ -117,7 +117,8 @@ $result_trees{'bad_documentlanguage'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -133,7 +134,6 @@ $result_trees{'bad_documentlanguage'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'en  after documentlanguage'
           },

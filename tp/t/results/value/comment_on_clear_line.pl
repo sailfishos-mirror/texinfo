@@ -10,7 +10,8 @@ $result_trees{'comment_on_clear_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'x',
               'type' => 'rawline_arg'
@@ -20,14 +21,14 @@ $result_trees{'comment_on_clear_line'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' x
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'y',
               'type' => 'rawline_arg'
@@ -37,14 +38,14 @@ $result_trees{'comment_on_clear_line'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' y
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'z',
               'type' => 'rawline_arg'
@@ -54,14 +55,14 @@ $result_trees{'comment_on_clear_line'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' z g
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 't',
               'type' => 'rawline_arg'
@@ -71,7 +72,6 @@ $result_trees{'comment_on_clear_line'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' t a vv @comment@ggg
 '
@@ -83,26 +83,26 @@ $result_trees{'comment_on_clear_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'clear',
+          'contents' => [
             {
               'text' => 'x',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clear',
           'info' => {
             'arg_line' => ' x@c
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'clear',
+          'contents' => [
             {
               'text' => 'y',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'clear',
           'info' => {
             'arg_line' => ' y @c
 '

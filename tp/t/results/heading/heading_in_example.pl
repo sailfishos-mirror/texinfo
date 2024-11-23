@@ -27,7 +27,8 @@ $result_trees{'heading_in_example'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'heading',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -65,7 +66,6 @@ $result_trees{'heading_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'heading',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -77,7 +77,8 @@ $result_trees{'heading_in_example'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -93,7 +94,6 @@ $result_trees{'heading_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

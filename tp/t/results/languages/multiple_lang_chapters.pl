@@ -22,7 +22,8 @@ $result_trees{'multiple_lang_chapters'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -38,7 +39,6 @@ $result_trees{'multiple_lang_chapters'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'utf-8',
                 'text_arg' => 'utf-8'
@@ -58,14 +58,14 @@ $result_trees{'multiple_lang_chapters'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' @node Top is ignored in TeX and LaTeX, so switch here
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'c',
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -92,7 +92,8 @@ $result_trees{'multiple_lang_chapters'} = {
                         'type' => 'raw'
                       },
                       {
-                        'args' => [
+                        'cmdname' => 'end',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -108,7 +109,6 @@ $result_trees{'multiple_lang_chapters'} = {
                             'type' => 'line_arg'
                           }
                         ],
-                        'cmdname' => 'end',
                         'extra' => {
                           'text_arg' => 'iftex'
                         },
@@ -158,7 +158,8 @@ $result_trees{'multiple_lang_chapters'} = {
               ]
             },
             {
-              'args' => [
+              'cmdname' => 'documentlanguage',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -174,7 +175,6 @@ $result_trees{'multiple_lang_chapters'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentlanguage',
               'extra' => {
                 'text_arg' => 'ja'
               },
@@ -190,7 +190,8 @@ $result_trees{'multiple_lang_chapters'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -206,7 +207,6 @@ $result_trees{'multiple_lang_chapters'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'iflatex'
                     },
@@ -546,7 +546,8 @@ $result_trees{'multiple_lang_chapters'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -562,7 +563,6 @@ $result_trees{'multiple_lang_chapters'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -586,7 +586,8 @@ $result_trees{'multiple_lang_chapters'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -602,7 +603,6 @@ $result_trees{'multiple_lang_chapters'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'ja'
           },
@@ -899,7 +899,8 @@ $result_trees{'multiple_lang_chapters'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -915,7 +916,6 @@ $result_trees{'multiple_lang_chapters'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defivar'
               },
@@ -944,7 +944,8 @@ $result_trees{'multiple_lang_chapters'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -960,7 +961,6 @@ $result_trees{'multiple_lang_chapters'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'en'
           },
@@ -1259,7 +1259,8 @@ $result_trees{'multiple_lang_chapters'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1275,7 +1276,6 @@ $result_trees{'multiple_lang_chapters'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defivar'
               },
@@ -1304,7 +1304,8 @@ $result_trees{'multiple_lang_chapters'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1320,7 +1321,6 @@ $result_trees{'multiple_lang_chapters'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'fr_FR'
           },
@@ -1583,7 +1583,8 @@ $result_trees{'multiple_lang_chapters'} = {
               'type' => 'def_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1599,7 +1600,6 @@ $result_trees{'multiple_lang_chapters'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defivar'
               },
@@ -1628,7 +1628,8 @@ $result_trees{'multiple_lang_chapters'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1644,7 +1645,6 @@ $result_trees{'multiple_lang_chapters'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'de'
           },
@@ -1734,7 +1734,8 @@ $result_trees{'multiple_lang_chapters'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'documentlanguage',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1750,7 +1751,6 @@ $result_trees{'multiple_lang_chapters'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'documentlanguage',
           'extra' => {
             'text_arg' => 'pt_BR'
           },

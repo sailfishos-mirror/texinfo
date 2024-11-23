@@ -216,7 +216,8 @@ $result_trees{'fullwidth_in_prototype'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -232,7 +233,6 @@ $result_trees{'fullwidth_in_prototype'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

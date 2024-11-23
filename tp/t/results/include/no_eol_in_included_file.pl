@@ -16,7 +16,8 @@ $result_trees{'no_eol_in_included_file'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'include',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -32,7 +33,6 @@ $result_trees{'no_eol_in_included_file'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'include',
                     'extra' => {
                       'text_arg' => 'include_noeol.texi'
                     },

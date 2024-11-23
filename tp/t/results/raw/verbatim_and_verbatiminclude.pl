@@ -32,7 +32,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },
@@ -103,7 +103,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -119,7 +120,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },
@@ -205,7 +205,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -221,7 +222,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'verbatim'
                   },
@@ -240,7 +240,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -256,7 +257,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -311,7 +311,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -327,7 +328,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'verbatim'
               },
@@ -360,7 +360,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'verbatiminclude',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -376,7 +377,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_encoding_name' => 'utf-8',
             'text_arg' => 'verb.txt'
@@ -422,7 +422,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'verbatiminclude',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -438,7 +439,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'verbatiminclude',
               'extra' => {
                 'input_encoding_name' => 'utf-8',
                 'text_arg' => 'verb.txt'
@@ -453,7 +453,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -469,7 +470,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -502,7 +502,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'verbatiminclude',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -518,7 +519,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_encoding_name' => 'utf-8',
             'text_arg' => 'verb.txt'
@@ -605,7 +605,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -621,7 +622,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'verbatim'
                   },
@@ -650,7 +650,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -666,7 +667,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -748,7 +748,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -764,7 +765,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'verbatim'
                   },
@@ -788,7 +788,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -804,7 +805,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -881,7 +881,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'raw'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -897,7 +898,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'verbatim'
                   },
@@ -925,7 +925,8 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -941,7 +942,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

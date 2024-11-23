@@ -137,7 +137,8 @@ $result_trees{'regenerate_master_menu_no_need_for_master_menu'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -153,7 +154,6 @@ $result_trees{'regenerate_master_menu_no_need_for_master_menu'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

@@ -69,7 +69,8 @@ $result_trees{'leading_space_before_menu_star'} = {
               'type' => 'menu_comment'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -85,7 +86,6 @@ $result_trees{'leading_space_before_menu_star'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

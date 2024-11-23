@@ -44,7 +44,8 @@ $result_trees{'index_command_before_end_table'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -60,7 +61,6 @@ $result_trees{'index_command_before_end_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -71,7 +71,8 @@ $result_trees{'index_command_before_end_table'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'itemx',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -87,7 +88,6 @@ $result_trees{'index_command_before_end_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'itemx',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -117,7 +117,8 @@ $result_trees{'index_command_before_end_table'} = {
                       'type' => 'empty_line'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'vindex',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -133,7 +134,6 @@ $result_trees{'index_command_before_end_table'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'vindex',
                       'extra' => {
                         'index_entry' => [
                           'vr',
@@ -158,7 +158,8 @@ $result_trees{'index_command_before_end_table'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -174,7 +175,6 @@ $result_trees{'index_command_before_end_table'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },

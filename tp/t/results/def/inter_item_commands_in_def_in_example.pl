@@ -161,14 +161,14 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' comment before first deffnx
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         },
                         {
                           'text' => '
@@ -289,7 +289,8 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'cindex',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -305,7 +306,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'cindex',
                           'extra' => {
                             'index_entry' => [
                               'cp',
@@ -484,7 +484,8 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'cindex',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -500,7 +501,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'cindex',
                           'extra' => {
                             'index_entry' => [
                               'cp',
@@ -534,7 +534,8 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                   'type' => 'def_item'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -550,7 +551,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'deffn'
                   },
@@ -574,7 +574,8 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -590,7 +591,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

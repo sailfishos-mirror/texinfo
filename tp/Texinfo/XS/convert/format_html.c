@@ -1449,7 +1449,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
             }
 
           if (node_description->e.c->cmd == CM_nodedescription)
-            description_element = node_description->e.c->args.list[0];
+            description_element = node_description->e.c->contents.list[0];
           else
             {
               description_element = new_element (ET_NONE);
@@ -1810,7 +1810,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                 line_arg
                   = command->e.c->contents.list[0]->e.c->contents.list[0];
               else
-                line_arg = command->e.c->args.list[0];
+                line_arg = command->e.c->contents.list[0];
 
               if (line_arg->e.c->contents.number > 0)
                 {
@@ -8585,12 +8585,12 @@ html_convert_quotation_command (CONVERTER *self, const enum command_id cmd,
       for (i = 0; i < authors->number; i++)
         {
           const ELEMENT *author = authors->list[i];
-          if (author->e.c->args.number > 0
-              && author->e.c->args.list[0]->e.c->contents.number > 0)
+          if (author->e.c->contents.list[0]->e.c->contents.number > 0)
             {
               NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
-              ELEMENT *author_arg_copy = copy_tree (author->e.c->args.list[0]);
+              ELEMENT *author_arg_copy
+                = copy_tree (author->e.c->contents.list[0]);
               add_element_to_named_string_element_list (substrings,
                                       "author", author_arg_copy);
 
@@ -9227,8 +9227,7 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
     }
   else if (element->parent && element->parent->type == ET_table_term)
     {
-      if (element->e.c->args.number > 0
-          && element->e.c->args.list[0]->e.c->contents.number > 0)
+      if (element->e.c->contents.list[0]->e.c->contents.number > 0)
         {
           ELEMENT *converted_e;
           TREE_ADDED_ELEMENTS *tree;
@@ -9285,7 +9284,7 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
               converted_e = tree->tree;
             }
           else
-            converted_e = element->e.c->args.list[0];
+            converted_e = element->e.c->contents.list[0];
 
           html_convert_tree_append (self, converted_e, result,
                                     "convert table_item_tree");
@@ -9931,8 +9930,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
               subentry = new_subentry;
 
-              if (subentry->e.c->args.number > 0
-                  && subentry->e.c->args.list[0]->e.c->contents.number > 0)
+              if (subentry->e.c->contents.list[0]->e.c->contents.number > 0)
                 {
                   if (in_code)
                     subentry_tree = new_element (ET__code);
@@ -9940,7 +9938,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                     subentry_tree = new_element (ET_NONE);
 
                   add_to_contents_as_array (subentry_tree,
-                                            subentry->e.c->args.list[0]);
+                                            subentry->e.c->contents.list[0]);
                 }
 
               if (subentry_level >= SUBENTRIES_MAX_LEVEL)
@@ -11667,7 +11665,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
             }
 
           if (node_description->e.c->cmd == CM_nodedescription)
-            description_element = node_description->e.c->args.list[0];
+            description_element = node_description->e.c->contents.list[0];
           else
             {
               description_element = new_element (ET_NONE);
@@ -11816,7 +11814,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
             }
 
           if (node_description->e.c->cmd == CM_nodedescription)
-            description_element = node_description->e.c->args.list[0];
+            description_element = node_description->e.c->contents.list[0];
           else
             {
               description_element = new_element (ET_NONE);

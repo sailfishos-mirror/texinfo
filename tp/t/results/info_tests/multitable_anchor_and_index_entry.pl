@@ -45,7 +45,8 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -61,7 +62,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'extra' => {
                         'misc_args' => [
                           '0.4',
@@ -184,14 +184,14 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
 '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'c',
+                              'contents' => [
                                 {
                                   'text' => ' comment in multitable
 ',
                                   'type' => 'rawline_arg'
                                 }
-                              ],
-                              'cmdname' => 'c'
+                              ]
                             }
                           ],
                           'type' => 'paragraph'
@@ -249,7 +249,8 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
 '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'cindex',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -265,7 +266,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'cindex',
                               'extra' => {
                                 'element_node' => {},
                                 'index_entry' => [
@@ -362,7 +362,8 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -378,7 +379,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },
@@ -550,7 +550,8 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
 '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'cindex',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -566,7 +567,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'cindex',
                               'extra' => {
                                 'element_node' => {},
                                 'index_entry' => [
@@ -713,7 +713,8 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -729,7 +730,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },
@@ -761,7 +761,8 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -777,7 +778,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

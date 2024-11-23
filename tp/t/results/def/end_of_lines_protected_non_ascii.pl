@@ -275,7 +275,8 @@ $result_trees{'end_of_lines_protected_non_ascii'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -291,7 +292,6 @@ $result_trees{'end_of_lines_protected_non_ascii'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },

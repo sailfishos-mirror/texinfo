@@ -508,31 +508,31 @@ $result_trees{'only_special_spaces_node'} = {
           "type" => "empty_line"
         },
         {
-          "args" => [
+          "cmdname" => "c",
+          "contents" => [
             {
               "text" => " Perl and XS code give different width.\n",
               "type" => "rawline_arg"
             }
-          ],
-          "cmdname" => "c"
+          ]
         },
         {
-          "args" => [
+          "cmdname" => "c",
+          "contents" => [
             {
               "text" => " \@node \x{2028}\x{2029}\n",
               "type" => "rawline_arg"
             }
-          ],
-          "cmdname" => "c"
+          ]
         },
         {
-          "args" => [
+          "cmdname" => "c",
+          "contents" => [
             {
               "text" => " \@chapter LINE SEPARATOR|\x{2028}| PARAGRAPH SEPARATOR|\x{2029}|\n",
               "type" => "rawline_arg"
             }
-          ],
-          "cmdname" => "c"
+          ]
         },
         {
           "text" => "\n",
@@ -553,13 +553,13 @@ $result_trees{'only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "bye",
+      "contents" => [
         {
           "text" => "\n",
           "type" => "rawline_arg"
         }
-      ],
-      "cmdname" => "bye"
+      ]
     }
   ],
   "type" => "document_root"

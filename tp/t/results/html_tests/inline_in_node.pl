@@ -12,7 +12,8 @@ $result_trees{'inline_in_node'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'settitle',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -84,7 +85,6 @@ $result_trees{'inline_in_node'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'settitle',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '

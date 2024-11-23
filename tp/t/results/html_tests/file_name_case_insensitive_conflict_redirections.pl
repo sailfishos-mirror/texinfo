@@ -156,7 +156,8 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -172,7 +173,6 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -256,7 +256,8 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -272,7 +273,6 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -352,7 +352,8 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -368,7 +369,6 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },

@@ -1,3 +1,111 @@
+2024-11-23  Patrice Dumas  <pertusus@free.fr>
+
+	remove remaining args from line commands and from Texinfo tree
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_float_type),
+	tp/Texinfo/XS/main/floats.c (parse_float_type): let callers determine
+	the element with the Texinfo code corresponding to the float
+	identifier.  Update callers.
+
+	* tp/Texinfo/Common.pm (informative_command_value)
+	(index_content_element), tp/Texinfo/ParserNonXS.pm
+	(_is_container_empty, _end_line_misc_line, _end_line_starting_block)
+	(_handle_line_command, _handle_comma, _parse_line_command_args),
+	tp/Texinfo/Structuring.pm (new_block_command),
+	tp/Texinfo/Transformations.pm (_correct_level),
+	tp/Texinfo/XS/main/manipulate_indices.c (index_content_element),
+	tp/Texinfo/XS/main/utils.c (informative_command_value),
+	tp/Texinfo/XS/parsetexi/close.c (is_container_empty),
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args)
+	(end_line_starting_block, end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_comma),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (new_block_command),
+	tp/Texinfo/XS/structuring_transfo/transformations.c (correct_level):
+	use contents instead of args for non root line commands.
+
+	* tp/Texinfo/ManipulateTree.pm
+	(_relate_index_entries_to_table_items_in): avoid spurious
+	autovivification.
+
+	* tp/Texinfo/OutputUnits.pm (units_directions),
+	tp/Texinfo/XS/main/output_unit.c, (units_directions): use contents to
+	determine if a node has automatic directions.
+
+	* tp/Texinfo/Common.pm (_collect_commands_in_tree)
+	(_collect_commands_list_in_tree, debug_print_element, debug_hash),
+	tp/Texinfo/ManipulateTree.pm (_copy_tree, _remove_element_copy_info)
+	(modify_tree), tp/Texinfo/Translations.pm (_substitute),
+	tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash),
+	tp/Texinfo/XS/main/debug.c (print_element_debug),
+	tp/Texinfo/XS/main/manipulate_tree.c (copy_tree_internal)
+	(remove_element_copy_info, modify_tree),
+	tp/Texinfo/XS/main/translations.c (substitute),
+	tp/Texinfo/XS/main/tree.c (destroy_element)
+	(destroy_element_and_children), tp/Texinfo/XS/main/tree_types.h
+	(CONTAINER), tp/Texinfo/XS/parsetexi/debug_parser.c
+	(print_element_debug_parser), tp/t/test_utils.pl (@contents_keys):
+	remove code going through args as there are no args anymore.  Remove
+	add_to_element_args, insert_into_args, insert_list_slice_into_args,
+	remove_from_args, pop_element_from_args, last_args_child and
+	args_child_by_index from tree.c.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert),
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert), tp/Texinfo/Convert/Text.pm
+	(_convert), tp/Texinfo/XS/main/convert_to_text.c
+	(convert_to_text_internal): return right after a line command is
+	formatted.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert): add $data_command_name set
+	to item_LINE for @item in @*table, as in C.
+
+	* tp/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (convert_to_texinfo_internal):
+	reorganize code, inlining _expand_cmd_args_to_texi in
+	_convert_to_texinfo and updating for the change of args to contents
+	for line commands.
+
+	* tp/Texinfo/Convert/Converter.pm
+	(normalized_sectioning_command_filename)
+	(format_comment_or_return_end_line, table_item_content_tree)
+	(comma_index_subentries_tree), tp/Texinfo/Convert/DocBook.pm
+	(conversion_output_begin, _index_entry)
+	(_convert_argument_and_end_line, _convert), tp/Texinfo/Convert/HTML.pm
+	(_internal_command_tree, command_description)
+	(_convert_quotation_command, _convert_item_command)
+	(_convert_printindex_command, _convert_menu_entry_type)
+	(_prepare_simpletitle, _prepare_converted_output_info, _convert),
+	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/Info.pm (_info_header),
+	tp/Texinfo/Convert/LaTeX.pm (_prepare_conversion, _title)
+	(_include_file_name, _convert),
+	tp/Texinfo/Convert/NodeNameNormalization.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_end_line_spaces, _texinfo_line)
+	(_convert_argument_and_end_line, _convert), tp/Texinfo/Convert/Text.pm
+	(_convert), tp/Texinfo/Convert/TextContent.pm (_convert),
+	tp/Texinfo/DebugTree.pm (_print_tree), tp/Texinfo/Indices.pm
+	(_idx_leading_text_or_command), tp/Texinfo/XS/convert/convert_html.c
+	(html_prepare_simpletitle, html_prepare_converted_output_info)
+	(html_convert_tree_append), tp/Texinfo/XS/convert/converter.c
+	(normalized_sectioning_command_filename, table_item_content_tree)
+	(comma_index_subentries_tree), tp/Texinfo/XS/convert/format_html.c
+	(html_command_description, html_convert_quotation_command)
+	(html_convert_item_command, html_convert_printindex_command)
+	(html_convert_menu_entry_type), tp/Texinfo/XS/main/convert_to_text.c
+	(convert_to_text_internal), tp/Texinfo/XS/main/manipulate_indices.c
+	(idx_leading_text_or_command),
+	tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_to_normalized_internal), tp/ext/epub3.pm (epub_finish),
+	tp/init/documentation_examples.pm
+	(my_test_documentation_convert_index_entry_command_type),
+	tp/t/init/ignore_and_comments_output.init (convert_comment_command),
+	tp/t/init/redefine_need.init (my_need_formatting): update for
+	replacement of args by contents for line commands for conversion.
+
+	* tp/t/01use.t ($manual_tree): update for replacement of args by
+	contents.
+
 2024-11-14  Patrice Dumas  <pertusus@free.fr>
 
 	root line commands in 'argument' container in contents

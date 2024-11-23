@@ -132,7 +132,8 @@ $result_trees{'lowered_subsubsection'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -148,7 +149,6 @@ $result_trees{'lowered_subsubsection'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -304,7 +304,8 @@ $result_trees{'lowered_subsubsection'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -320,7 +321,6 @@ $result_trees{'lowered_subsubsection'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -483,7 +483,8 @@ $result_trees{'lowered_subsubsection'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -499,7 +500,6 @@ $result_trees{'lowered_subsubsection'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -708,7 +708,8 @@ $result_trees{'lowered_subsubsection'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -724,7 +725,6 @@ $result_trees{'lowered_subsubsection'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -824,14 +824,14 @@ $result_trees{'lowered_subsubsection'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'lowersections',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'lowersections'
+          ]
         }
       ],
       'extra' => {
@@ -973,7 +973,8 @@ $result_trees{'lowered_subsubsection'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -989,7 +990,6 @@ $result_trees{'lowered_subsubsection'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -1085,14 +1085,14 @@ $result_trees{'lowered_subsubsection'} = {
           'type' => 'argument'
         },
         {
-          'args' => [
+          'cmdname' => 'raisesections',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'raisesections'
+          ]
         },
         {
           'text' => '
@@ -1100,14 +1100,14 @@ $result_trees{'lowered_subsubsection'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 45
@@ -1128,14 +1128,14 @@ $result_trees{'lowered_subsubsection'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

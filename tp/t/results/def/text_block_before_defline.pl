@@ -237,7 +237,8 @@ $result_trees{'text_block_before_defline'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -253,7 +254,6 @@ $result_trees{'text_block_before_defline'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'example'
                       },
@@ -345,7 +345,8 @@ $result_trees{'text_block_before_defline'} = {
                       'type' => 'menu_entry'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -361,7 +362,6 @@ $result_trees{'text_block_before_defline'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'menu'
                       },
@@ -493,7 +493,8 @@ $result_trees{'text_block_before_defline'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -509,7 +510,6 @@ $result_trees{'text_block_before_defline'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defblock'
               },

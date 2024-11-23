@@ -17,7 +17,8 @@ $result_trees{'good_space_comment'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -26,14 +27,14 @@ $result_trees{'good_space_comment'} = {
                           ],
                           'info' => {
                             'comment_at_end' => {
-                              'args' => [
+                              'cmdname' => 'c',
+                              'contents' => [
                                 {
                                   'text' => ' space comment
 ',
                                   'type' => 'rawline_arg'
                                 }
-                              ],
-                              'cmdname' => 'c'
+                              ]
                             },
                             'spaces_after_argument' => {
                               'text' => '  '
@@ -42,7 +43,6 @@ $result_trees{'good_space_comment'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'extra' => {
                         'misc_args' => [
                           '0',
@@ -65,7 +65,8 @@ $result_trees{'good_space_comment'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -75,7 +76,6 @@ $result_trees{'good_space_comment'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

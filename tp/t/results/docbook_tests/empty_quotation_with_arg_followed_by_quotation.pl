@@ -32,7 +32,8 @@ $result_trees{'empty_quotation_with_arg_followed_by_quotation'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'empty_quotation_with_arg_followed_by_quotation'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },
@@ -103,7 +103,8 @@ $result_trees{'empty_quotation_with_arg_followed_by_quotation'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -119,7 +120,6 @@ $result_trees{'empty_quotation_with_arg_followed_by_quotation'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

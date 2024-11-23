@@ -14,7 +14,8 @@ $result_trees{'double_include'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -27,7 +28,8 @@ $result_trees{'double_include'} = {
                           {
                             'counter' => 1,
                             'element' => {
-                              'args' => [
+                              'cmdname' => 'include',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -43,7 +45,6 @@ $result_trees{'double_include'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'include',
                               'extra' => {
                                 'text_arg' => 'inc_file.texi'
                               },
@@ -67,7 +68,6 @@ $result_trees{'double_include'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'inc_file.texi'
                 },

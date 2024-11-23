@@ -129,7 +129,7 @@ close_all_style_commands (ELEMENT *current,
 }
 
 static int
-is_container_empty (ELEMENT *current)
+is_container_empty (const ELEMENT *current)
 {
   /* all kind of text elements, including other_text (in some args) */
   if (type_data[current->type].flags & TF_text)
@@ -137,8 +137,7 @@ is_container_empty (ELEMENT *current)
       if (current->e.text->end == 0)
         return 1;
     }
-  else if (current->e.c->contents.number == 0
-           && current->e.c->args.number == 0)
+  else if (current->e.c->contents.number == 0)
     return 1;
 
   return 0;

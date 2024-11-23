@@ -10,7 +10,8 @@ $result_trees{'empty_last_argument'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'defcodeindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'empty_last_argument'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defcodeindex',
           'extra' => {
             'misc_args' => [
               'BI'
@@ -72,7 +72,8 @@ $result_trees{'empty_last_argument'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -88,7 +89,6 @@ $result_trees{'empty_last_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'linemacro'
               },
@@ -175,7 +175,8 @@ $result_trees{'empty_last_argument'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'BIindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -191,7 +192,6 @@ $result_trees{'empty_last_argument'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'BIindex',
                   'extra' => {
                     'index_entry' => [
                       'BI',
@@ -328,7 +328,8 @@ $result_trees{'empty_last_argument'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'BIindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -344,7 +345,6 @@ $result_trees{'empty_last_argument'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'BIindex',
                   'extra' => {
                     'index_entry' => [
                       'BI',
@@ -495,7 +495,8 @@ $result_trees{'empty_last_argument'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'BIindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -511,7 +512,6 @@ $result_trees{'empty_last_argument'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'BIindex',
                   'extra' => {
                     'index_entry' => [
                       'BI',
@@ -629,7 +629,8 @@ $result_trees{'empty_last_argument'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -645,7 +646,6 @@ $result_trees{'empty_last_argument'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defblock'
               },

@@ -12,7 +12,8 @@ $result_trees{'pagesizes'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'pagesizes',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -28,7 +29,6 @@ $result_trees{'pagesizes'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'pagesizes',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -187,7 +187,8 @@ $result_trees{'pagesizes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'pagesizes',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -203,7 +204,6 @@ $result_trees{'pagesizes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'pagesizes',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -259,7 +259,8 @@ $result_trees{'pagesizes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'pagesizes',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -275,7 +276,6 @@ $result_trees{'pagesizes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'pagesizes',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -291,7 +291,8 @@ $result_trees{'pagesizes'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'pagesizes',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -307,7 +308,6 @@ $result_trees{'pagesizes'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'pagesizes',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

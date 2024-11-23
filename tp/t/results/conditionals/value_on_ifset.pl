@@ -10,7 +10,8 @@ $result_trees{'value_on_ifset'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'xval',
               'type' => 'rawline_arg'
@@ -20,14 +21,14 @@ $result_trees{'value_on_ifset'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' xval x
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'x',
               'type' => 'rawline_arg'
@@ -37,7 +38,6 @@ $result_trees{'value_on_ifset'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' x 1
 '
@@ -125,7 +125,8 @@ $result_trees{'value_on_ifset'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -141,7 +142,6 @@ $result_trees{'value_on_ifset'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -207,7 +207,8 @@ $result_trees{'value_on_ifset'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -223,7 +224,6 @@ $result_trees{'value_on_ifset'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },

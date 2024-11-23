@@ -39,11 +39,13 @@ $result_trees{'set_on_item_line'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'set',
+                              'contents' => [
                                 {
                                   'text' => 'ca',
                                   'type' => 'rawline_arg'
@@ -53,7 +55,6 @@ $result_trees{'set_on_item_line'} = {
                                   'type' => 'rawline_arg'
                                 }
                               ],
-                              'cmdname' => 'set',
                               'info' => {
                                 'arg_line' => ' ca b@c
 '
@@ -63,7 +64,6 @@ $result_trees{'set_on_item_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -102,14 +102,16 @@ $result_trees{'set_on_item_line'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => 'cjj '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'set',
+                              'contents' => [
                                 {
                                   'text' => 'cj',
                                   'type' => 'rawline_arg'
@@ -119,7 +121,6 @@ $result_trees{'set_on_item_line'} = {
                                   'type' => 'rawline_arg'
                                 }
                               ],
-                              'cmdname' => 'set',
                               'info' => {
                                 'arg_line' => ' cj@c
 '
@@ -129,7 +130,6 @@ $result_trees{'set_on_item_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -164,14 +164,16 @@ $result_trees{'set_on_item_line'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => 'cvvv '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'set',
+                              'contents' => [
                                 {
                                   'text' => 'cg',
                                   'type' => 'rawline_arg'
@@ -181,7 +183,6 @@ $result_trees{'set_on_item_line'} = {
                                   'type' => 'rawline_arg'
                                 }
                               ],
-                              'cmdname' => 'set',
                               'info' => {
                                 'arg_line' => ' cg@c
 '
@@ -191,7 +192,6 @@ $result_trees{'set_on_item_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -208,7 +208,8 @@ $result_trees{'set_on_item_line'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -224,7 +225,6 @@ $result_trees{'set_on_item_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -285,11 +285,13 @@ $result_trees{'set_on_item_line'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'set',
+                              'contents' => [
                                 {
                                   'text' => 'a',
                                   'type' => 'rawline_arg'
@@ -299,7 +301,6 @@ $result_trees{'set_on_item_line'} = {
                                   'type' => 'rawline_arg'
                                 }
                               ],
-                              'cmdname' => 'set',
                               'info' => {
                                 'arg_line' => ' a b
 '
@@ -309,7 +310,6 @@ $result_trees{'set_on_item_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -348,14 +348,16 @@ $result_trees{'set_on_item_line'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => 'jj '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'set',
+                              'contents' => [
                                 {
                                   'text' => 'j',
                                   'type' => 'rawline_arg'
@@ -365,7 +367,6 @@ $result_trees{'set_on_item_line'} = {
                                   'type' => 'rawline_arg'
                                 }
                               ],
-                              'cmdname' => 'set',
                               'info' => {
                                 'arg_line' => ' j
 '
@@ -375,7 +376,6 @@ $result_trees{'set_on_item_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -410,14 +410,16 @@ $result_trees{'set_on_item_line'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
                               'text' => 'vvv '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'set',
+                              'contents' => [
                                 {
                                   'text' => 'g',
                                   'type' => 'rawline_arg'
@@ -427,7 +429,6 @@ $result_trees{'set_on_item_line'} = {
                                   'type' => 'rawline_arg'
                                 }
                               ],
-                              'cmdname' => 'set',
                               'info' => {
                                 'arg_line' => ' g
 '
@@ -437,7 +438,6 @@ $result_trees{'set_on_item_line'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -454,7 +454,8 @@ $result_trees{'set_on_item_line'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -470,7 +471,6 @@ $result_trees{'set_on_item_line'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },

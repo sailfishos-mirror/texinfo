@@ -365,7 +365,7 @@ sub my_test_documentation_convert_index_entry_command_type($$$$)
     my $formatted_entry = "<td><tr>$hyperlink</tr>"
          ."<tr>$entry_root_link</tr></td>\n";
 
-    my $label_element = $target_element->{'args'}->[0];
+    my $label_element = $target_element->{'contents'}->[0];
     Texinfo::Convert::Text::set_options_code(
                               $converter->{'convert_text_options'});
     Texinfo::Convert::Text::set_options_encoding_if_not_ascii($converter,

@@ -154,7 +154,8 @@ $result_trees{'same_seealso_seeentry'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -190,7 +191,6 @@ $result_trees{'same_seealso_seeentry'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -211,7 +211,8 @@ $result_trees{'same_seealso_seeentry'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -247,7 +248,6 @@ $result_trees{'same_seealso_seeentry'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -273,7 +273,8 @@ $result_trees{'same_seealso_seeentry'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -309,7 +310,6 @@ $result_trees{'same_seealso_seeentry'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -330,7 +330,8 @@ $result_trees{'same_seealso_seeentry'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -366,7 +367,6 @@ $result_trees{'same_seealso_seeentry'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -392,7 +392,8 @@ $result_trees{'same_seealso_seeentry'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -428,7 +429,6 @@ $result_trees{'same_seealso_seeentry'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -449,7 +449,8 @@ $result_trees{'same_seealso_seeentry'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -485,7 +486,6 @@ $result_trees{'same_seealso_seeentry'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -511,7 +511,8 @@ $result_trees{'same_seealso_seeentry'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -527,7 +528,6 @@ $result_trees{'same_seealso_seeentry'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -552,7 +552,8 @@ $result_trees{'same_seealso_seeentry'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -568,7 +569,6 @@ $result_trees{'same_seealso_seeentry'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -600,17 +600,17 @@ $result_trees{'same_seealso_seeentry'} = {
   'type' => 'document_root'
 };
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'same_seealso_seeentry'}{'contents'}[3];
-$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[2]{'extra'}{'seealso'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[2];
+$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[2]{'extra'}{'seealso'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[2];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'same_seealso_seeentry'}{'contents'}[3];
-$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[3]{'extra'}{'seealso'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[2];
+$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[3]{'extra'}{'seealso'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'contents'}[2];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'same_seealso_seeentry'}{'contents'}[3];
-$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[5]{'extra'}{'seeentry'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[2];
+$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[5]{'extra'}{'seeentry'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[2];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'same_seealso_seeentry'}{'contents'}[3];
-$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[6]{'extra'}{'seeentry'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'}[2];
+$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[6]{'extra'}{'seeentry'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[6]{'contents'}[0]{'contents'}[2];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'same_seealso_seeentry'}{'contents'}[3];
-$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[8]{'extra'}{'seealso'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'}[2];
+$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[8]{'extra'}{'seealso'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[8]{'contents'}[0]{'contents'}[2];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[9]{'extra'}{'element_node'} = $result_trees{'same_seealso_seeentry'}{'contents'}[3];
-$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[9]{'extra'}{'seeentry'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[9]{'args'}[0]{'contents'}[2];
+$result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[9]{'extra'}{'seeentry'} = $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[2];
 $result_trees{'same_seealso_seeentry'}{'contents'}[4]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'same_seealso_seeentry'}{'contents'}[3];
 
 $result_texis{'same_seealso_seeentry'} = '@node Top

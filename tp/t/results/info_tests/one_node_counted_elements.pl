@@ -16,7 +16,8 @@ $result_trees{'one_node_counted_elements'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -32,7 +33,6 @@ $result_trees{'one_node_counted_elements'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'index_entry' => [
                   'cp',
@@ -117,7 +117,8 @@ $result_trees{'one_node_counted_elements'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -133,7 +134,6 @@ $result_trees{'one_node_counted_elements'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'element_node' => {},
                 'index_entry' => [
@@ -266,7 +266,8 @@ $result_trees{'one_node_counted_elements'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -282,7 +283,6 @@ $result_trees{'one_node_counted_elements'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -366,7 +366,8 @@ $result_trees{'one_node_counted_elements'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -382,7 +383,6 @@ $result_trees{'one_node_counted_elements'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

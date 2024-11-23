@@ -36,7 +36,8 @@ $result_trees{'additional_space_in_end_conditional'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -52,7 +53,6 @@ $result_trees{'additional_space_in_end_conditional'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifnothtml'
                     },

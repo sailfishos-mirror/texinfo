@@ -131,7 +131,8 @@ $result_trees{'no_documentencoding_and_insertions'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -147,7 +148,6 @@ $result_trees{'no_documentencoding_and_insertions'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

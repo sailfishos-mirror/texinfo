@@ -32,7 +32,8 @@ $result_trees{'heading_in_copying'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'heading',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -70,7 +71,6 @@ $result_trees{'heading_in_copying'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'heading',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -82,7 +82,8 @@ $result_trees{'heading_in_copying'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'cindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -98,7 +99,6 @@ $result_trees{'heading_in_copying'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'cindex',
               'extra' => {
                 'element_region' => 'copying',
                 'index_entry' => [
@@ -123,7 +123,8 @@ $result_trees{'heading_in_copying'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'subheading',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -161,7 +162,6 @@ $result_trees{'heading_in_copying'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subheading',
               'extra' => {},
               'info' => {
                 'spaces_before_argument' => {
@@ -173,7 +173,8 @@ $result_trees{'heading_in_copying'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -189,7 +190,6 @@ $result_trees{'heading_in_copying'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'copying'
               },
@@ -279,14 +279,14 @@ $result_trees{'heading_in_copying'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'insertcopying',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'insertcopying',
           'extra' => {},
           'source_info' => {
             'line_nr' => 12

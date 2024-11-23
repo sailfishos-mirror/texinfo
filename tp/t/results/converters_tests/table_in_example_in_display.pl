@@ -73,7 +73,8 @@ $result_trees{'table_in_example_in_display'} = {
                         {
                           'contents' => [
                             {
-                              'args' => [
+                              'cmdname' => 'item',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -89,7 +90,6 @@ $result_trees{'table_in_example_in_display'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'item',
                               'info' => {
                                 'spaces_before_argument' => {
                                   'text' => ' '
@@ -120,7 +120,8 @@ $result_trees{'table_in_example_in_display'} = {
                       'type' => 'table_entry'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -136,7 +137,6 @@ $result_trees{'table_in_example_in_display'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'table'
                       },
@@ -163,7 +163,8 @@ $result_trees{'table_in_example_in_display'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -179,7 +180,6 @@ $result_trees{'table_in_example_in_display'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'example'
                   },
@@ -198,7 +198,8 @@ $result_trees{'table_in_example_in_display'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -214,7 +215,6 @@ $result_trees{'table_in_example_in_display'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'display'
               },

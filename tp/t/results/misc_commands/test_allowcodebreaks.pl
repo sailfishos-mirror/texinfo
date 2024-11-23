@@ -125,7 +125,8 @@ $result_trees{'test_allowcodebreaks'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -141,7 +142,6 @@ $result_trees{'test_allowcodebreaks'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -201,7 +201,8 @@ $result_trees{'test_allowcodebreaks'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -217,7 +218,6 @@ $result_trees{'test_allowcodebreaks'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -638,7 +638,8 @@ $result_trees{'test_allowcodebreaks'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -662,7 +663,6 @@ $result_trees{'test_allowcodebreaks'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -688,7 +688,8 @@ $result_trees{'test_allowcodebreaks'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'allowcodebreaks',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -704,7 +705,6 @@ $result_trees{'test_allowcodebreaks'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'allowcodebreaks',
           'extra' => {
             'misc_args' => [
               'false'
@@ -1113,7 +1113,8 @@ $result_trees{'test_allowcodebreaks'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1137,7 +1138,6 @@ $result_trees{'test_allowcodebreaks'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -1567,7 +1567,8 @@ $result_trees{'test_allowcodebreaks'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1583,7 +1584,6 @@ $result_trees{'test_allowcodebreaks'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -1607,7 +1607,8 @@ $result_trees{'test_allowcodebreaks'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'allowcodebreaks',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1623,7 +1624,6 @@ $result_trees{'test_allowcodebreaks'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'allowcodebreaks',
           'extra' => {
             'misc_args' => [
               'true'
@@ -2032,7 +2032,8 @@ $result_trees{'test_allowcodebreaks'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -2056,7 +2057,6 @@ $result_trees{'test_allowcodebreaks'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

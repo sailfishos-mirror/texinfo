@@ -142,14 +142,14 @@ $result_trees{'inter_item_commands_in_def'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' comment before first deffnx
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 },
                 {
                   'text' => '
@@ -265,7 +265,8 @@ $result_trees{'inter_item_commands_in_def'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -281,7 +282,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'index_entry' => [
                       'cp',
@@ -455,7 +455,8 @@ $result_trees{'inter_item_commands_in_def'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -471,7 +472,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'index_entry' => [
                       'cp',
@@ -507,7 +507,8 @@ $result_trees{'inter_item_commands_in_def'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -523,7 +524,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'deffn'
               },

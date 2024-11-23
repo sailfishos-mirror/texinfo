@@ -19,7 +19,8 @@ $result_trees{'setfilename_in_paragraph'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'setfilename',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -35,7 +36,6 @@ $result_trees{'setfilename_in_paragraph'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'setfilename',
           'extra' => {
             'text_arg' => 'setfilename_in_paragraph.info'
           },

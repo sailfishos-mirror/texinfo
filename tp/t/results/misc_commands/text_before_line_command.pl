@@ -15,7 +15,8 @@ $result_trees{'text_before_line_command'} = {
               'text' => 'before title '
             },
             {
-              'args' => [
+              'cmdname' => 'title',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -31,7 +32,6 @@ $result_trees{'text_before_line_command'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'title',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -140,14 +140,14 @@ $result_trees{'text_before_line_command'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'contents',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'contents',
           'extra' => {},
           'source_info' => {
             'line_nr' => 6
@@ -181,7 +181,8 @@ $result_trees{'text_before_line_command'} = {
                   'text' => 'aaa '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'author',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -197,7 +198,6 @@ $result_trees{'text_before_line_command'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'author',
                   'extra' => {
                     'quotation' => {}
                   },
@@ -218,7 +218,8 @@ $result_trees{'text_before_line_command'} = {
               'type' => 'paragraph'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -234,7 +235,6 @@ $result_trees{'text_before_line_command'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'quotation'
               },

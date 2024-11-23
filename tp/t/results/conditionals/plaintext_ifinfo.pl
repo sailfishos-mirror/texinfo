@@ -51,7 +51,8 @@ $result_trees{'plaintext_ifinfo'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -67,7 +68,6 @@ $result_trees{'plaintext_ifinfo'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifinfo'
                     },

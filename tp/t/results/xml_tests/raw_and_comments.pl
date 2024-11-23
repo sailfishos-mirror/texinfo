@@ -17,14 +17,14 @@ $result_trees{'raw_and_comments'} = {
                 {
                   'info' => {
                     'comment_at_end' => {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' comment
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     }
                   },
                   'type' => 'block_line_arg'
@@ -42,7 +42,8 @@ $result_trees{'raw_and_comments'} = {
               'type' => 'rawpreformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -51,14 +52,14 @@ $result_trees{'raw_and_comments'} = {
                   ],
                   'info' => {
                     'comment_at_end' => {
-                      'args' => [
+                      'cmdname' => 'comment',
+                      'contents' => [
                         {
                           'text' => ' other comment
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'comment'
+                      ]
                     },
                     'spaces_after_argument' => {
                       'text' => '  '
@@ -67,7 +68,6 @@ $result_trees{'raw_and_comments'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'tex'
               },
@@ -109,14 +109,14 @@ $result_trees{'raw_and_comments'} = {
                     {
                       'info' => {
                         'comment_at_end' => {
-                          'args' => [
+                          'cmdname' => 'c',
+                          'contents' => [
                             {
                               'text' => ' in xml comment
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'c'
+                          ]
                         }
                       },
                       'type' => 'block_line_arg'
@@ -134,7 +134,8 @@ $result_trees{'raw_and_comments'} = {
                   'type' => 'rawpreformatted'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -143,14 +144,14 @@ $result_trees{'raw_and_comments'} = {
                       ],
                       'info' => {
                         'comment_at_end' => {
-                          'args' => [
+                          'cmdname' => 'comment',
+                          'contents' => [
                             {
                               'text' => ' end xml comment
 ',
                               'type' => 'rawline_arg'
                             }
-                          ],
-                          'cmdname' => 'comment'
+                          ]
                         },
                         'spaces_after_argument' => {
                           'text' => '  '
@@ -159,7 +160,6 @@ $result_trees{'raw_and_comments'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'xml'
                   },

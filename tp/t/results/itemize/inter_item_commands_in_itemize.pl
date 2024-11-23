@@ -180,17 +180,18 @@ $result_trees{'inter_item_commands_in_itemize'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' comment in itemize
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -206,7 +207,6 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -253,7 +253,8 @@ $result_trees{'inter_item_commands_in_itemize'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -269,7 +270,6 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -328,7 +328,8 @@ $result_trees{'inter_item_commands_in_itemize'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -344,7 +345,6 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -398,7 +398,8 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -420,7 +421,6 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'element_node' => {},
                     'index_entry' => [
@@ -457,7 +457,8 @@ $result_trees{'inter_item_commands_in_itemize'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -473,7 +474,6 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },
@@ -532,14 +532,14 @@ $result_trees{'inter_item_commands_in_itemize'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'c',
+                  'contents' => [
                     {
                       'text' => ' comment in itemize
 ',
                       'type' => 'rawline_arg'
                     }
-                  ],
-                  'cmdname' => 'c'
+                  ]
                 },
                 {
                   'contents' => [
@@ -548,7 +548,8 @@ $result_trees{'inter_item_commands_in_itemize'} = {
 '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'cindex',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -564,7 +565,6 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'cindex',
                       'extra' => {
                         'element_node' => {},
                         'index_entry' => [
@@ -614,7 +614,8 @@ $result_trees{'inter_item_commands_in_itemize'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -630,7 +631,6 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'itemize'
               },

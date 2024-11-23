@@ -14,7 +14,8 @@ $result_trees{'include_with_setfilename'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -30,7 +31,6 @@ $result_trees{'include_with_setfilename'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'included_file_with_setfilename.texi'
                 },
@@ -49,7 +49,8 @@ $result_trees{'include_with_setfilename'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'setfilename',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -65,7 +66,6 @@ $result_trees{'include_with_setfilename'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'setfilename',
                 'extra' => {
                   'text_arg' => 'included_file.info'
                 },
@@ -107,7 +107,8 @@ $result_trees{'include_with_setfilename'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'setfilename',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -123,7 +124,6 @@ $result_trees{'include_with_setfilename'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'setfilename',
           'extra' => {
             'text_arg' => 'include_with_setfilename.info'
           },

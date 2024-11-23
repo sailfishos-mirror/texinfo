@@ -156,7 +156,8 @@ $result_trees{'nodes_after_top_before_chapter_texi2html_use_nodes_chapter'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -172,7 +173,6 @@ $result_trees{'nodes_after_top_before_chapter_texi2html_use_nodes_chapter'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

@@ -154,7 +154,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'synindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -170,7 +171,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'synindex',
           'extra' => {
             'misc_args' => [
               'cp',
@@ -192,7 +192,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'synindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -208,7 +209,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'synindex',
           'extra' => {
             'misc_args' => [
               'vr',
@@ -230,7 +230,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -246,7 +247,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -271,7 +271,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'vindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -287,7 +288,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'vindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -312,7 +312,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'findex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -328,7 +329,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'findex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -353,7 +353,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'defcodeindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -369,7 +370,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defcodeindex',
           'extra' => {
             'misc_args' => [
               'cdi'
@@ -390,7 +390,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'synindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -406,7 +407,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'synindex',
           'extra' => {
             'misc_args' => [
               'cdi',
@@ -428,7 +428,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cdiindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -444,7 +445,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cdiindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -469,7 +469,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -485,7 +486,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'ddi'
@@ -506,7 +506,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'syncodeindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -522,7 +523,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'syncodeindex',
           'extra' => {
             'misc_args' => [
               'ddi',
@@ -544,7 +544,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'ddiindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -560,7 +561,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'ddiindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -585,7 +585,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -601,7 +602,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'fn'

@@ -14,7 +14,8 @@ $result_trees{'include_space_comment'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'include',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -23,13 +24,13 @@ $result_trees{'include_space_comment'} = {
                     ],
                     'info' => {
                       'comment_at_end' => {
-                        'args' => [
+                        'cmdname' => 'c',
+                        'contents' => [
                           {
                             'text' => ' comment',
                             'type' => 'rawline_arg'
                           }
-                        ],
-                        'cmdname' => 'c'
+                        ]
                       },
                       'spaces_after_argument' => {
                         'text' => ' '
@@ -38,7 +39,6 @@ $result_trees{'include_space_comment'} = {
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'include',
                 'extra' => {
                   'text_arg' => 'inc_file.texi'
                 },

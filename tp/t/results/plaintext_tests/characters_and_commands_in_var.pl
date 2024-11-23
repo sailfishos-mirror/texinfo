@@ -107,14 +107,14 @@ $result_trees{'characters_and_commands_in_var'} = {
                       'text' => 'somethingf  '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' ]
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     },
                     {
                       'text' => 'vvar'

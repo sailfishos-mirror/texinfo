@@ -22,7 +22,8 @@ $result_trees{'chinese_mixed_with_en_EUC_CN'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'documentencoding',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -38,7 +39,6 @@ $result_trees{'chinese_mixed_with_en_EUC_CN'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'documentencoding',
               'extra' => {
                 'input_encoding_name' => 'euc-cn',
                 'text_arg' => 'EUC-CN'
@@ -54,7 +54,8 @@ $result_trees{'chinese_mixed_with_en_EUC_CN'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'settitle',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -70,7 +71,6 @@ $result_trees{'chinese_mixed_with_en_EUC_CN'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'settitle',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -414,14 +414,14 @@ $result_trees{'chinese_mixed_with_en_EUC_CN'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

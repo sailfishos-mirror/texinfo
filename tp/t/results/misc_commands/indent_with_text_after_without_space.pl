@@ -10,7 +10,8 @@ $result_trees{'indent_with_text_after_without_space'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'myvalue',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'indent_with_text_after_without_space'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' myvalue a
 '

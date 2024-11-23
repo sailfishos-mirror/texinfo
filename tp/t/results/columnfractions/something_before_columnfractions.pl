@@ -20,7 +20,8 @@ $result_trees{'something_before_columnfractions'} = {
                       'text' => 'aaa '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -36,7 +37,6 @@ $result_trees{'something_before_columnfractions'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'extra' => {
                         'misc_args' => [
                           '0.3',
@@ -59,7 +59,8 @@ $result_trees{'something_before_columnfractions'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -69,7 +70,6 @@ $result_trees{'something_before_columnfractions'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

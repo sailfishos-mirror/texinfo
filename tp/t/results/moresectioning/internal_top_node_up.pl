@@ -139,7 +139,8 @@ $result_trees{'internal_top_node_up'} = [
                 'type' => 'menu_entry'
               },
               {
-                'args' => [
+                'cmdname' => 'end',
+                'contents' => [
                   {
                     'contents' => [
                       {
@@ -155,7 +156,6 @@ $result_trees{'internal_top_node_up'} = [
                     'type' => 'line_arg'
                   }
                 ],
-                'cmdname' => 'end',
                 'extra' => {
                   'text_arg' => 'menu'
                 },

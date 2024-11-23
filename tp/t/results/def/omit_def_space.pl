@@ -79,7 +79,8 @@ $result_trees{'omit_def_space'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'txidefnamenospace',
               'type' => 'rawline_arg'
@@ -89,7 +90,6 @@ $result_trees{'omit_def_space'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' txidefnamenospace
 '
@@ -350,7 +350,8 @@ $result_trees{'omit_def_space'} = {
               'type' => 'def_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -366,7 +367,6 @@ $result_trees{'omit_def_space'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'defun'
               },

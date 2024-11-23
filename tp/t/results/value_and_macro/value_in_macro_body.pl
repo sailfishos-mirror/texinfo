@@ -10,7 +10,8 @@ $result_trees{'value_in_macro_body'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'bodyarg',
               'type' => 'rawline_arg'
@@ -20,7 +21,6 @@ $result_trees{'value_in_macro_body'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' bodyarg \\arg\\ 
 '
@@ -53,7 +53,8 @@ $result_trees{'value_in_macro_body'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -69,7 +70,6 @@ $result_trees{'value_in_macro_body'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },

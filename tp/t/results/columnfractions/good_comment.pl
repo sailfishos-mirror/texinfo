@@ -17,7 +17,8 @@ $result_trees{'good_comment'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -26,20 +27,19 @@ $result_trees{'good_comment'} = {
                           ],
                           'info' => {
                             'comment_at_end' => {
-                              'args' => [
+                              'cmdname' => 'c',
+                              'contents' => [
                                 {
                                   'text' => ' comment
 ',
                                   'type' => 'rawline_arg'
                                 }
-                              ],
-                              'cmdname' => 'c'
+                              ]
                             }
                           },
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'extra' => {
                         'misc_args' => [
                           '0.4',
@@ -63,7 +63,8 @@ $result_trees{'good_comment'} = {
               'type' => 'argument'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -73,7 +74,6 @@ $result_trees{'good_comment'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

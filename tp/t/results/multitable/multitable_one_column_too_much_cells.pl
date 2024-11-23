@@ -257,7 +257,8 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -273,7 +274,6 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

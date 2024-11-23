@@ -10,7 +10,8 @@ $result_trees{'macro_defined_txiinternalvalue_in_translation'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'macro_defined_txiinternalvalue_in_translation'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '1'
@@ -47,7 +47,8 @@ $result_trees{'macro_defined_txiinternalvalue_in_translation'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -63,7 +64,6 @@ $result_trees{'macro_defined_txiinternalvalue_in_translation'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '2'

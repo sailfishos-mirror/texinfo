@@ -79,7 +79,8 @@ $result_trees{'seealso_duplicate'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -107,7 +108,6 @@ $result_trees{'seealso_duplicate'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -115,7 +115,8 @@ $result_trees{'seealso_duplicate'} = {
               1
             ],
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -131,7 +132,6 @@ $result_trees{'seealso_duplicate'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -159,7 +159,8 @@ $result_trees{'seealso_duplicate'} = {
         },
         {},
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -187,7 +188,6 @@ $result_trees{'seealso_duplicate'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -227,7 +227,8 @@ $result_trees{'seealso_duplicate'} = {
               }
             },
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -248,7 +249,6 @@ $result_trees{'seealso_duplicate'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -309,7 +309,8 @@ $result_trees{'seealso_duplicate'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -337,7 +338,6 @@ $result_trees{'seealso_duplicate'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -361,7 +361,8 @@ $result_trees{'seealso_duplicate'} = {
               }
             },
             'subentry' => {
-              'args' => [
+              'cmdname' => 'subentry',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -382,7 +383,6 @@ $result_trees{'seealso_duplicate'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'subentry',
               'extra' => {
                 'subentry_level' => 1,
                 'subentry_parent' => {}
@@ -415,7 +415,8 @@ $result_trees{'seealso_duplicate'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -431,7 +432,6 @@ $result_trees{'seealso_duplicate'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'
@@ -468,11 +468,11 @@ $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[2]{'extra'}{'eleme
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[2]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[2];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[3] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[2]{'extra'}{'subentry'};
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4]{'extra'}{'seealso'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4]{'extra'}{'subentry'}{'contents'}[0]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4]{'extra'}{'seealso'};
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[5] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[4]{'extra'}{'subentry'};
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'seealso_duplicate'}{'contents'}[2];
-$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11]{'extra'}{'seeentry'};
+$result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11]{'extra'}{'subentry'}{'contents'}[0]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11]{'extra'}{'seeentry'};
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11];
 $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[12] = $result_trees{'seealso_duplicate'}{'contents'}[2]{'contents'}[11]{'extra'}{'subentry'};
 

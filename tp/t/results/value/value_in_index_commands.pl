@@ -10,7 +10,8 @@ $result_trees{'value_in_index_commands'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'cp',
               'type' => 'rawline_arg'
@@ -20,14 +21,14 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' cp cp
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'fn',
               'type' => 'rawline_arg'
@@ -37,14 +38,14 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' fn fn
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'syncodeindex_command',
               'type' => 'rawline_arg'
@@ -54,7 +55,6 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' syncodeindex_command @syncodeindex
 '
@@ -66,7 +66,8 @@ $result_trees{'value_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'syncodeindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -116,7 +117,6 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'syncodeindex',
           'extra' => {
             'misc_args' => [
               'cp',
@@ -176,7 +176,8 @@ $result_trees{'value_in_index_commands'} = {
           ]
         },
         {
-          'args' => [
+          'cmdname' => 'syncodeindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -192,7 +193,6 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'syncodeindex',
           'extra' => {
             'misc_args' => [
               'cp',
@@ -221,7 +221,8 @@ $result_trees{'value_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'truc',
               'type' => 'rawline_arg'
@@ -231,7 +232,6 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' truc truc
 '
@@ -249,7 +249,8 @@ $result_trees{'value_in_index_commands'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'defindex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -273,7 +274,6 @@ $result_trees{'value_in_index_commands'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'defindex',
               'extra' => {
                 'misc_args' => [
                   'truc'
@@ -323,7 +323,8 @@ $result_trees{'value_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'trucindex_command',
               'type' => 'rawline_arg'
@@ -333,7 +334,6 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' trucindex_command @trucindex
 '
@@ -345,7 +345,8 @@ $result_trees{'value_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'codeidx',
               'type' => 'rawline_arg'
@@ -355,7 +356,6 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' codeidx codeidx
 '
@@ -367,7 +367,8 @@ $result_trees{'value_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'defcodeindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -391,7 +392,6 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defcodeindex',
           'extra' => {
             'misc_args' => [
               'codeidx'
@@ -434,7 +434,8 @@ $result_trees{'value_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'defcodeindex_entry',
               'type' => 'rawline_arg'
@@ -444,7 +445,6 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' defcodeindex_entry a @var{index entry} t@\'e @^{@dotless{i}}
 '
@@ -544,7 +544,8 @@ $result_trees{'value_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'trucindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -560,7 +561,6 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'trucindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -592,7 +592,8 @@ $result_trees{'value_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'codeidxindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -682,7 +683,6 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'codeidxindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -729,7 +729,8 @@ $result_trees{'value_in_index_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'kindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -753,7 +754,6 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'kindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -795,7 +795,8 @@ $result_trees{'value_in_index_commands'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'pindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -839,7 +840,6 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'pindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -873,7 +873,8 @@ $result_trees{'value_in_index_commands'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -897,7 +898,6 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'truc'
@@ -949,7 +949,8 @@ $result_trees{'value_in_index_commands'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -973,7 +974,6 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

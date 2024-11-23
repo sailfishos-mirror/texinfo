@@ -46,7 +46,8 @@ $result_trees{'ifclear_in_ifset'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -62,7 +63,6 @@ $result_trees{'ifclear_in_ifset'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -94,14 +94,14 @@ $result_trees{'ifclear_in_ifset'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'c',
+          'contents' => [
             {
               'text' => ' WRONG - missing @end ifset.
 ',
               'type' => 'rawline_arg'
             }
-          ],
-          'cmdname' => 'c'
+          ]
         }
       ],
       'type' => 'before_node_section'

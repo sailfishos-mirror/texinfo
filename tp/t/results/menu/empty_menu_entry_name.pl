@@ -166,7 +166,8 @@ $result_trees{'empty_menu_entry_name'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -182,7 +183,6 @@ $result_trees{'empty_menu_entry_name'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },

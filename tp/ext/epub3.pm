@@ -855,9 +855,9 @@ EOT
       my $command = $element->{'cmdname'};
       if ($command eq 'author') {
         if ($element->{'extra'}->{'titlepage'}
-             and $element->{'args'}->[0]->{'contents'}) {
+             and $element->{'contents'}->[0]->{'contents'}) {
           my $author_str = _epub_convert_tree_to_text($self,
-                                      $element->{'args'}->[0]);
+                                      $element->{'contents'}->[0]);
           if ($author_str =~ /\S/) {
             push @authors, $author_str;
           }

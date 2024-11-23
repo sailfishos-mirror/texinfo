@@ -82,14 +82,14 @@ $result_trees{'anchor_in_command'} = {
 '
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'c',
+                      'contents' => [
                         {
                           'text' => ' emph @emph{emph2 @anchor{anchor in emph} }}.
 ',
                           'type' => 'rawline_arg'
                         }
-                      ],
-                      'cmdname' => 'c'
+                      ]
                     },
                     {
                       'text' => 'emph '

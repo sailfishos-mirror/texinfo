@@ -301,7 +301,8 @@ $result_trees{'at_commands_glued_in_example'} = {
                   'text' => 'sp'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'sp',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -317,7 +318,6 @@ $result_trees{'at_commands_glued_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'sp',
                   'extra' => {
                     'misc_args' => [
                       '4'
@@ -363,7 +363,8 @@ $result_trees{'at_commands_glued_in_example'} = {
                   'text' => 'index'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -379,7 +380,6 @@ $result_trees{'at_commands_glued_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'index_entry' => [
                       'cp',
@@ -401,7 +401,8 @@ $result_trees{'at_commands_glued_in_example'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -417,7 +418,6 @@ $result_trees{'at_commands_glued_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

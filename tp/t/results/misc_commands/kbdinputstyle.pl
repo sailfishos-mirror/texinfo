@@ -82,7 +82,8 @@ $result_trees{'kbdinputstyle'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -98,7 +99,6 @@ $result_trees{'kbdinputstyle'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'macro'
               },
@@ -143,7 +143,8 @@ $result_trees{'kbdinputstyle'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'kbdinputstyle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -159,7 +160,6 @@ $result_trees{'kbdinputstyle'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'kbdinputstyle',
           'extra' => {
             'misc_args' => [
               'code'
@@ -565,7 +565,8 @@ $result_trees{'kbdinputstyle'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -589,7 +590,6 @@ $result_trees{'kbdinputstyle'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -632,7 +632,8 @@ $result_trees{'kbdinputstyle'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'kbdinputstyle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -648,7 +649,6 @@ $result_trees{'kbdinputstyle'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'kbdinputstyle',
           'extra' => {
             'misc_args' => [
               'example'
@@ -1045,7 +1045,8 @@ $result_trees{'kbdinputstyle'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1069,7 +1070,6 @@ $result_trees{'kbdinputstyle'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -1112,7 +1112,8 @@ $result_trees{'kbdinputstyle'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'kbdinputstyle',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1128,7 +1129,6 @@ $result_trees{'kbdinputstyle'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'kbdinputstyle',
           'extra' => {
             'misc_args' => [
               'distinct'
@@ -1516,7 +1516,8 @@ $result_trees{'kbdinputstyle'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1540,7 +1541,6 @@ $result_trees{'kbdinputstyle'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

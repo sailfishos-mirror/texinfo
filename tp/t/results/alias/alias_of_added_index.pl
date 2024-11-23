@@ -10,7 +10,8 @@ $result_trees{'alias_of_added_index'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -26,7 +27,6 @@ $result_trees{'alias_of_added_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'sli'
@@ -47,7 +47,8 @@ $result_trees{'alias_of_added_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'alias',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -63,7 +64,6 @@ $result_trees{'alias_of_added_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'alias',
           'extra' => {
             'misc_args' => [
               'new',
@@ -151,7 +151,8 @@ $result_trees{'alias_of_added_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sliindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -167,7 +168,6 @@ $result_trees{'alias_of_added_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sliindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -268,7 +268,8 @@ $result_trees{'alias_of_added_index'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -284,7 +285,6 @@ $result_trees{'alias_of_added_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'sli'

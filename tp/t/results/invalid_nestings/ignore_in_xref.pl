@@ -83,7 +83,8 @@ $result_trees{'ignore_in_xref'} = {
                           'type' => 'raw'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -99,7 +100,6 @@ $result_trees{'ignore_in_xref'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'ignore'
                           },

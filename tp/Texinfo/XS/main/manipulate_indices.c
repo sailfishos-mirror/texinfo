@@ -204,7 +204,7 @@ index_content_element (const ELEMENT *element, int prefer_reference_element)
    }
   else
    {
-     return element->e.c->args.list[0];
+     return element->e.c->contents.list[0];
    }
 }
 
@@ -1348,18 +1348,17 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
                                                &status);
                       if (expand_index > 0)
                         return idx_leading_text_or_command (
-                                         content->e.c->args.list[expand_index],
+                                   content->e.c->contents.list[expand_index],
                                                             ignore_chars);
 
                     }
                 }
               else if ((builtin_command_data[data_cmd].other_flags
                         & CF_formatted_line)
-                       && data_cmd != CM_page
-                       && content->e.c->args.number > 0)
+                       && data_cmd != CM_page)
                 {
                    return idx_leading_text_or_command (
-                                                   content->e.c->args.list[0],
+                                           content->e.c->contents.list[0],
                                                               ignore_chars);
                 }
             }

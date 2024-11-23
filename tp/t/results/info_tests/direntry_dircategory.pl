@@ -32,7 +32,8 @@ $result_trees{'direntry_dircategory'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'setfilename',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -48,7 +49,6 @@ $result_trees{'direntry_dircategory'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
                 'text_arg' => 'direntry_dircategory.info'
               },
@@ -68,7 +68,8 @@ $result_trees{'direntry_dircategory'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'dircategory',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -104,7 +105,6 @@ $result_trees{'direntry_dircategory'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'dircategory',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -217,7 +217,8 @@ $result_trees{'direntry_dircategory'} = {
                   'type' => 'menu_entry'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -233,7 +234,6 @@ $result_trees{'direntry_dircategory'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'direntry'
                   },
@@ -259,7 +259,8 @@ $result_trees{'direntry_dircategory'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'dircategory',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -275,7 +276,6 @@ $result_trees{'direntry_dircategory'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'dircategory',
               'info' => {
                 'spaces_before_argument' => {
                   'text' => ' '
@@ -379,7 +379,8 @@ $result_trees{'direntry_dircategory'} = {
                   'type' => 'menu_comment'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -395,7 +396,6 @@ $result_trees{'direntry_dircategory'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'direntry'
                   },
@@ -505,7 +505,8 @@ $result_trees{'direntry_dircategory'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'dircategory',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -521,7 +522,6 @@ $result_trees{'direntry_dircategory'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'dircategory',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -614,7 +614,8 @@ $result_trees{'direntry_dircategory'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -630,7 +631,6 @@ $result_trees{'direntry_dircategory'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'direntry'
               },
@@ -720,7 +720,8 @@ $result_trees{'direntry_dircategory'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -736,7 +737,6 @@ $result_trees{'direntry_dircategory'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -866,14 +866,14 @@ $result_trees{'direntry_dircategory'} = {
       }
     },
     {
-      'args' => [
+      'cmdname' => 'bye',
+      'contents' => [
         {
           'text' => '
 ',
           'type' => 'rawline_arg'
         }
-      ],
-      'cmdname' => 'bye'
+      ]
     }
   ],
   'type' => 'document_root'

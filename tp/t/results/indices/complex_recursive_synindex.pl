@@ -74,7 +74,8 @@ $result_trees{'complex_recursive_synindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -90,7 +91,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'aaa'
@@ -106,7 +106,8 @@ $result_trees{'complex_recursive_synindex'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -122,7 +123,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'bbb'
@@ -138,7 +138,8 @@ $result_trees{'complex_recursive_synindex'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -154,7 +155,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'ccc'
@@ -170,7 +170,8 @@ $result_trees{'complex_recursive_synindex'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -186,7 +187,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'ddd'
@@ -202,7 +202,8 @@ $result_trees{'complex_recursive_synindex'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'defindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -218,7 +219,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'defindex',
           'extra' => {
             'misc_args' => [
               'eee'
@@ -239,7 +239,8 @@ $result_trees{'complex_recursive_synindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'synindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -255,7 +256,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'synindex',
           'extra' => {
             'misc_args' => [
               'aaa',
@@ -272,7 +272,8 @@ $result_trees{'complex_recursive_synindex'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'synindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -288,7 +289,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'synindex',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -304,7 +304,8 @@ $result_trees{'complex_recursive_synindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'synindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -320,7 +321,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'synindex',
           'extra' => {
             'misc_args' => [
               'ccc',
@@ -337,7 +337,8 @@ $result_trees{'complex_recursive_synindex'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'synindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -353,7 +354,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'synindex',
           'extra' => {
             'misc_args' => [
               'ddd',
@@ -370,7 +370,8 @@ $result_trees{'complex_recursive_synindex'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'eeeindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -386,7 +387,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'eeeindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -411,7 +411,8 @@ $result_trees{'complex_recursive_synindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'synindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -427,7 +428,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'synindex',
           'extra' => {
             'misc_args' => [
               'eee',
@@ -444,7 +444,8 @@ $result_trees{'complex_recursive_synindex'} = {
           }
         },
         {
-          'args' => [
+          'cmdname' => 'synindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -460,7 +461,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'synindex',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -476,7 +476,8 @@ $result_trees{'complex_recursive_synindex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cccindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -492,7 +493,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cccindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -512,7 +512,8 @@ $result_trees{'complex_recursive_synindex'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'bbbindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -528,7 +529,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'bbbindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -548,7 +548,8 @@ $result_trees{'complex_recursive_synindex'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'aaaindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -564,7 +565,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'aaaindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -584,7 +584,8 @@ $result_trees{'complex_recursive_synindex'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'dddindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -600,7 +601,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'dddindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -620,7 +620,8 @@ $result_trees{'complex_recursive_synindex'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'eeeindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -636,7 +637,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'eeeindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -670,7 +670,8 @@ $result_trees{'complex_recursive_synindex'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -686,7 +687,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'bbb'
@@ -716,7 +716,8 @@ $result_trees{'complex_recursive_synindex'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -732,7 +733,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'aaa'
@@ -762,7 +762,8 @@ $result_trees{'complex_recursive_synindex'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -778,7 +779,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'ccc'
@@ -808,7 +808,8 @@ $result_trees{'complex_recursive_synindex'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -824,7 +825,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'ddd'
@@ -854,7 +854,8 @@ $result_trees{'complex_recursive_synindex'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -870,7 +871,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'eee'

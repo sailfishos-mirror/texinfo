@@ -10,7 +10,8 @@ $result_trees{'center'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -95,7 +96,6 @@ $result_trees{'center'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -111,14 +111,16 @@ $result_trees{'center'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
                   'text' => 'center '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'cindex',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -134,7 +136,6 @@ $result_trees{'center'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'cindex',
                   'extra' => {
                     'index_entry' => [
                       'cp',
@@ -156,7 +157,6 @@ $result_trees{'center'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -172,7 +172,8 @@ $result_trees{'center'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -201,7 +202,6 @@ $result_trees{'center'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -226,14 +226,16 @@ $result_trees{'center'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
                   'text' => 'center '
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'center',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -249,7 +251,6 @@ $result_trees{'center'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'center',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -263,7 +264,6 @@ $result_trees{'center'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -279,7 +279,8 @@ $result_trees{'center'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -303,7 +304,6 @@ $result_trees{'center'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -329,7 +329,8 @@ $result_trees{'center'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -349,7 +350,8 @@ $result_trees{'center'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'center',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -365,7 +367,6 @@ $result_trees{'center'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'center',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -379,7 +380,6 @@ $result_trees{'center'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -421,7 +421,8 @@ $result_trees{'center'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -437,7 +438,6 @@ $result_trees{'center'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -480,7 +480,8 @@ $result_trees{'center'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'center',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -503,7 +504,6 @@ $result_trees{'center'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'center',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -517,7 +517,8 @@ $result_trees{'center'} = {
               'type' => 'before_item'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -533,7 +534,6 @@ $result_trees{'center'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -594,7 +594,8 @@ $result_trees{'center'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'item',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -610,7 +611,6 @@ $result_trees{'center'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'item',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -626,7 +626,8 @@ $result_trees{'center'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'center',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -649,7 +650,6 @@ $result_trees{'center'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'center',
                       'info' => {
                         'spaces_before_argument' => {
                           'text' => ' '
@@ -666,7 +666,8 @@ $result_trees{'center'} = {
               'type' => 'table_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -682,7 +683,6 @@ $result_trees{'center'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'table'
               },
@@ -723,11 +723,13 @@ $result_trees{'center'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'center',
+                  'contents' => [
                     {
                       'info' => {
                         'spaces_after_argument' => {
@@ -738,7 +740,6 @@ $result_trees{'center'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'center',
                   'source_info' => {
                     'line_nr' => 31
                   }
@@ -747,7 +748,6 @@ $result_trees{'center'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -763,7 +763,8 @@ $result_trees{'center'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -783,7 +784,8 @@ $result_trees{'center'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'center',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -799,7 +801,6 @@ $result_trees{'center'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'center',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -813,7 +814,6 @@ $result_trees{'center'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -829,7 +829,8 @@ $result_trees{'center'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -847,7 +848,8 @@ $result_trees{'center'} = {
                   }
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'center',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -863,7 +865,6 @@ $result_trees{'center'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'center',
                   'info' => {
                     'spaces_before_argument' => {
                       'text' => ' '
@@ -877,7 +878,6 @@ $result_trees{'center'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -994,7 +994,8 @@ $result_trees{'center'} = {
                           'type' => 'paragraph'
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'center',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1021,7 +1022,6 @@ $result_trees{'center'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'center',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -1032,7 +1032,8 @@ $result_trees{'center'} = {
                           }
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'center',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -1052,7 +1053,6 @@ $result_trees{'center'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'center',
                           'info' => {
                             'spaces_before_argument' => {
                               'text' => ' '
@@ -1080,7 +1080,8 @@ $result_trees{'center'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -1096,7 +1097,6 @@ $result_trees{'center'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },
@@ -1128,7 +1128,8 @@ $result_trees{'center'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'center',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1176,7 +1177,6 @@ $result_trees{'center'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'center',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '
@@ -1229,7 +1229,7 @@ $result_trees{'center'} = {
 };
 $result_trees{'center'}{'contents'}[0]{'contents'}[20]{'extra'}{'command_as_argument'} = $result_trees{'center'}{'contents'}[0]{'contents'}[20]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'extra'}{'command_as_argument'} = $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'center'}{'contents'}[0]{'contents'}[35]{'args'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'center'}{'contents'}[0]{'contents'}[35]{'args'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'center'}{'contents'}[0]{'contents'}[35]{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'center'}{'contents'}[0]{'contents'}[35]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'center'} = '@center @indent @titlefont{in titlefont} @anchor{in anchor}@footnote{footnote}
 

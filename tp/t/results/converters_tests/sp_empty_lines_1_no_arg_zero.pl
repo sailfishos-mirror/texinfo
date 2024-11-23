@@ -33,7 +33,8 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -49,7 +50,6 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '1'
@@ -79,7 +79,8 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -95,7 +96,6 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '1'
@@ -125,7 +125,8 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -141,7 +142,6 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '1'
@@ -171,7 +171,8 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -187,7 +188,6 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '1'
@@ -217,7 +217,8 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -233,7 +234,6 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '0'
@@ -263,7 +263,8 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -279,7 +280,6 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '0'
@@ -309,7 +309,8 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -325,7 +326,6 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '0'
@@ -355,7 +355,8 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -371,7 +372,6 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'extra' => {
             'misc_args' => [
               '0'
@@ -401,7 +401,8 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'info' => {
                 'spaces_after_argument' => {
@@ -412,7 +413,6 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'source_info' => {
             'line_nr' => 28
           }
@@ -432,7 +432,8 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'info' => {
                 'spaces_after_argument' => {
@@ -443,7 +444,6 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'source_info' => {
             'line_nr' => 31
           }
@@ -463,7 +463,8 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'info' => {
                 'spaces_after_argument' => {
@@ -474,7 +475,6 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'source_info' => {
             'line_nr' => 34
           }
@@ -494,7 +494,8 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'sp',
+          'contents' => [
             {
               'info' => {
                 'spaces_after_argument' => {
@@ -505,7 +506,6 @@ $result_trees{'sp_empty_lines_1_no_arg_zero'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sp',
           'source_info' => {
             'line_nr' => 37
           }

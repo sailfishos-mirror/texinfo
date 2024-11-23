@@ -22,7 +22,8 @@ $result_trees{'multitable'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'columnfractions',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -38,7 +39,6 @@ $result_trees{'multitable'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'columnfractions',
                       'extra' => {
                         'misc_args' => [
                           '0.6',
@@ -161,14 +161,14 @@ $result_trees{'multitable'} = {
 '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'c',
+                              'contents' => [
                                 {
                                   'text' => ' comment in multitable
 ',
                                   'type' => 'rawline_arg'
                                 }
-                              ],
-                              'cmdname' => 'c'
+                              ]
                             }
                           ],
                           'type' => 'paragraph'
@@ -226,7 +226,8 @@ $result_trees{'multitable'} = {
 '
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'cindex',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -242,7 +243,6 @@ $result_trees{'multitable'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'cindex',
                               'extra' => {
                                 'index_entry' => [
                                   'cp',
@@ -313,7 +313,8 @@ $result_trees{'multitable'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -329,7 +330,6 @@ $result_trees{'multitable'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },
@@ -466,7 +466,8 @@ $result_trees{'multitable'} = {
               'type' => 'multitable_body'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -482,7 +483,6 @@ $result_trees{'multitable'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'multitable'
               },

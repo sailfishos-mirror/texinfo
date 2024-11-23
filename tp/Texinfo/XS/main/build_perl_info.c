@@ -177,7 +177,7 @@ void element_to_perl_hash (ELEMENT *e, int avoid_recursion);
    hash table, or create it if there is no parent element, indicating the
    element is not in the tree.
    Note that not having 'hv' set should be rare (actually never happen),
-   as the contents and args children are processed before the extra
+   as the contents children are processed before the extra
    information where build_perl_array is called.
  */
 static SV *
@@ -357,7 +357,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               /* For references to other parts of the tree, create the hash so
                  we can point to it. */
               /* Note that this does not happen much, as the contents
-                 and args are processed before the extra information.  It only
+                 are processed before the extra information.  It only
                  happens for root commands (sections, nodes) and associated
                  commands, and could also happen for subentry as it is not
                  a children of the associated index command */
@@ -376,7 +376,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               /*
                  Can be used for complex subtrees or special
                  out of tree elements, but must always be associated to only one
-                 element and must not refer to the tree through args or contents.
+                 element and must not refer to the tree through contents.
                */
                   /* f->hv should not already exist the first time the tree
                      is built, but can already exist if the tree is rebuilt
@@ -598,7 +598,6 @@ static U32 HSH_parent = 0;
 static U32 HSH_type = 0;
 static U32 HSH_cmdname = 0;
 static U32 HSH_contents = 0;
-static U32 HSH_args = 0;
 static U32 HSH_text = 0;
 static U32 HSH_extra = 0;
 static U32 HSH_info = 0;
@@ -697,7 +696,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       PERL_HASH(HSH_type, "type", strlen ("type"));
       PERL_HASH(HSH_cmdname, "cmdname", strlen ("cmdname"));
       PERL_HASH(HSH_contents, "contents", strlen ("contents"));
-      PERL_HASH(HSH_args, "args", strlen ("args"));
       PERL_HASH(HSH_text, "text", strlen ("text"));
       PERL_HASH(HSH_extra, "extra", strlen ("extra"));
       PERL_HASH(HSH_info, "info", strlen ("info"));
@@ -856,26 +854,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
          that contents.list[i]->hv still own a reference, which should only be
          released when the element is destroyed, by calling
          unregister_perl_tree_element */
-          sv = newRV_inc ((SV *) child->hv);
-          av_store (av, i, sv);
-        }
-    }
-
-  if (e->e.c->args.number > 0)
-    {
-      AV *av;
-      size_t i;
-
-      av = newAV ();
-      sv = newRV_noinc ((SV *) av);
-      av_unshift (av, e->e.c->args.number);
-
-      hv_store (e->hv, "args", strlen ("args"), sv, HSH_args);
-      for (i = 0; i < e->e.c->args.number; i++)
-        {
-          ELEMENT *child = e->e.c->args.list[i];
-          if (!child->hv || !avoid_recursion)
-            element_to_perl_hash (child, avoid_recursion);
           sv = newRV_inc ((SV *) child->hv);
           av_store (av, i, sv);
         }

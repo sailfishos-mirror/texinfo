@@ -10,7 +10,8 @@ $result_trees{'value_after_brace_command'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'bracedletter',
               'type' => 'rawline_arg'
@@ -20,14 +21,14 @@ $result_trees{'value_after_brace_command'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' bracedletter {a}
 '
           }
         },
         {
-          'args' => [
+          'cmdname' => 'set',
+          'contents' => [
             {
               'text' => 'unknowncmd',
               'type' => 'rawline_arg'
@@ -37,7 +38,6 @@ $result_trees{'value_after_brace_command'} = {
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'set',
           'info' => {
             'arg_line' => ' unknowncmd @unknown
 '

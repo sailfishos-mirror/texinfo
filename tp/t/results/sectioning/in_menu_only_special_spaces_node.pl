@@ -339,13 +339,13 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                           "text" => "\n"
                         },
                         {
-                          "args" => [
+                          "cmdname" => "c",
+                          "contents" => [
                             {
                               "text" => " * \x{2028}\x{2029}::\n",
                               "type" => "rawline_arg"
                             }
-                          ],
-                          "cmdname" => "c"
+                          ]
                         }
                       ],
                       "type" => "preformatted"
@@ -361,7 +361,8 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
               "type" => "menu_entry"
             },
             {
-              "args" => [
+              "cmdname" => "end",
+              "contents" => [
                 {
                   "contents" => [
                     {
@@ -376,7 +377,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                   "type" => "line_arg"
                 }
               ],
-              "cmdname" => "end",
               "extra" => {
                 "text_arg" => "menu"
               },
@@ -827,31 +827,31 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
           "type" => "empty_line"
         },
         {
-          "args" => [
+          "cmdname" => "c",
+          "contents" => [
             {
               "text" => " Perl and XS code give different width.\n",
               "type" => "rawline_arg"
             }
-          ],
-          "cmdname" => "c"
+          ]
         },
         {
-          "args" => [
+          "cmdname" => "c",
+          "contents" => [
             {
               "text" => " \@node \x{2028}\x{2029}\n",
               "type" => "rawline_arg"
             }
-          ],
-          "cmdname" => "c"
+          ]
         },
         {
-          "args" => [
+          "cmdname" => "c",
+          "contents" => [
             {
               "text" => " \@chapter LINE SEPARATOR|\x{2028}| PARAGRAPH SEPARATOR|\x{2029}|\n",
               "type" => "rawline_arg"
             }
-          ],
-          "cmdname" => "c"
+          ]
         },
         {
           "text" => "\n",
@@ -872,13 +872,13 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
       }
     },
     {
-      "args" => [
+      "cmdname" => "bye",
+      "contents" => [
         {
           "text" => "\n",
           "type" => "rawline_arg"
         }
-      ],
-      "cmdname" => "bye"
+      ]
     }
   ],
   "type" => "document_root"

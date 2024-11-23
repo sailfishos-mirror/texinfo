@@ -189,7 +189,8 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'type' => 'menu_entry'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -205,7 +206,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'menu'
               },
@@ -303,7 +303,8 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -319,7 +320,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -339,7 +339,8 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -355,7 +356,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -375,7 +375,8 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -391,7 +392,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -442,7 +442,8 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -458,7 +459,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },
@@ -482,7 +482,8 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -498,7 +499,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -518,7 +518,8 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -534,7 +535,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -554,7 +554,8 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
           'type' => 'index_entry_command'
         },
         {
-          'args' => [
+          'cmdname' => 'cindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -570,7 +571,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'cindex',
           'extra' => {
             'element_node' => {},
             'index_entry' => [
@@ -650,7 +650,8 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'printindex',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -666,7 +667,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'printindex',
           'extra' => {
             'misc_args' => [
               'cp'

@@ -127,7 +127,8 @@ $result_trees{'submenu_in_example'} = {
                       'type' => 'argument'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -143,7 +144,6 @@ $result_trees{'submenu_in_example'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'menu'
                       },
@@ -208,7 +208,8 @@ $result_trees{'submenu_in_example'} = {
                       'type' => 'menu_comment'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -224,7 +225,6 @@ $result_trees{'submenu_in_example'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'menu'
                       },
@@ -303,7 +303,8 @@ $result_trees{'submenu_in_example'} = {
                               'type' => 'preformatted'
                             },
                             {
-                              'args' => [
+                              'cmdname' => 'end',
+                              'contents' => [
                                 {
                                   'contents' => [
                                     {
@@ -319,7 +320,6 @@ $result_trees{'submenu_in_example'} = {
                                   'type' => 'line_arg'
                                 }
                               ],
-                              'cmdname' => 'end',
                               'extra' => {
                                 'text_arg' => 'quotation'
                               },
@@ -341,7 +341,8 @@ $result_trees{'submenu_in_example'} = {
                       'type' => 'menu_comment'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'end',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -357,7 +358,6 @@ $result_trees{'submenu_in_example'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'end',
                       'extra' => {
                         'text_arg' => 'menu'
                       },
@@ -388,7 +388,8 @@ $result_trees{'submenu_in_example'} = {
                       'type' => 'preformatted'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'subheading',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -404,7 +405,6 @@ $result_trees{'submenu_in_example'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'subheading',
                       'extra' => {},
                       'info' => {
                         'spaces_before_argument' => {
@@ -467,7 +467,8 @@ $result_trees{'submenu_in_example'} = {
                           }
                         },
                         {
-                          'args' => [
+                          'cmdname' => 'end',
+                          'contents' => [
                             {
                               'contents' => [
                                 {
@@ -483,7 +484,6 @@ $result_trees{'submenu_in_example'} = {
                               'type' => 'line_arg'
                             }
                           ],
-                          'cmdname' => 'end',
                           'extra' => {
                             'text_arg' => 'enumerate'
                           },
@@ -518,7 +518,8 @@ $result_trees{'submenu_in_example'} = {
                   'type' => 'menu_comment'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'end',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -534,7 +535,6 @@ $result_trees{'submenu_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'end',
                   'extra' => {
                     'text_arg' => 'menu'
                   },
@@ -553,7 +553,8 @@ $result_trees{'submenu_in_example'} = {
               }
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -569,7 +570,6 @@ $result_trees{'submenu_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

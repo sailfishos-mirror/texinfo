@@ -227,7 +227,6 @@ typedef struct SOURCE_MARK_LIST {
 struct OUTPUT_UNIT;
 
 typedef struct CONTAINER {
-    ELEMENT_LIST args;
     ELEMENT_LIST contents;
     SOURCE_INFO source_info;
 

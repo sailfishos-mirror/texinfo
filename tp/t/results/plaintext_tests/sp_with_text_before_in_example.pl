@@ -37,7 +37,8 @@ $result_trees{'sp_with_text_before_in_example'} = {
                   'text' => 'sp'
                 },
                 {
-                  'args' => [
+                  'cmdname' => 'sp',
+                  'contents' => [
                     {
                       'contents' => [
                         {
@@ -53,7 +54,6 @@ $result_trees{'sp_with_text_before_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'sp',
                   'extra' => {
                     'misc_args' => [
                       '4'
@@ -76,7 +76,8 @@ $result_trees{'sp_with_text_before_in_example'} = {
               'type' => 'preformatted'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -92,7 +93,6 @@ $result_trees{'sp_with_text_before_in_example'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'example'
               },

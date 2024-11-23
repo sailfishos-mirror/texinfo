@@ -29,7 +29,8 @@ $result_trees{'heading_in_footnote'} = {
                       'type' => 'paragraph'
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'heading',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -45,7 +46,6 @@ $result_trees{'heading_in_footnote'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'heading',
                       'extra' => {},
                       'info' => {
                         'spaces_before_argument' => {
@@ -57,7 +57,8 @@ $result_trees{'heading_in_footnote'} = {
                       }
                     },
                     {
-                      'args' => [
+                      'cmdname' => 'cindex',
+                      'contents' => [
                         {
                           'contents' => [
                             {
@@ -73,7 +74,6 @@ $result_trees{'heading_in_footnote'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'cmdname' => 'cindex',
                       'extra' => {
                         'index_entry' => [
                           'cp',

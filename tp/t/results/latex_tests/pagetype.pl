@@ -12,14 +12,14 @@ $result_trees{'pagetype'} = {
         {
           'contents' => [
             {
-              'args' => [
+              'cmdname' => 'afourpaper',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'afourpaper',
               'source_info' => {
                 'line_nr' => 1
               }
@@ -30,14 +30,14 @@ $result_trees{'pagetype'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'afourwide',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'afourwide',
               'source_info' => {
                 'line_nr' => 3
               }
@@ -191,14 +191,14 @@ $result_trees{'pagetype'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'smallbook',
+          'contents' => [
             {
               'text' => '
 ',
               'type' => 'rawline_arg'
             }
           ],
-          'cmdname' => 'smallbook',
           'source_info' => {
             'line_nr' => 11
           }
@@ -233,14 +233,14 @@ $result_trees{'pagetype'} = {
 '
             },
             {
-              'args' => [
+              'cmdname' => 'afourpaper',
+              'contents' => [
                 {
                   'text' => '
 ',
                   'type' => 'rawline_arg'
                 }
               ],
-              'cmdname' => 'afourpaper',
               'source_info' => {
                 'line_nr' => 16
               }

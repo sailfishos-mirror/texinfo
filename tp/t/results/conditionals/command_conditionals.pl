@@ -58,7 +58,8 @@ $result_trees{'command_conditionals'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -74,7 +75,6 @@ $result_trees{'command_conditionals'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifset'
                     },
@@ -130,7 +130,8 @@ $result_trees{'command_conditionals'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -146,7 +147,6 @@ $result_trees{'command_conditionals'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifcommanddefined'
                     },
@@ -228,7 +228,8 @@ $result_trees{'command_conditionals'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -244,7 +245,6 @@ $result_trees{'command_conditionals'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifcommandnotdefined'
                     },
@@ -326,7 +326,8 @@ $result_trees{'command_conditionals'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -342,7 +343,6 @@ $result_trees{'command_conditionals'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifcommanddefined'
                     },
@@ -389,7 +389,8 @@ $result_trees{'command_conditionals'} = {
                         'type' => 'raw'
                       },
                       {
-                        'args' => [
+                        'cmdname' => 'end',
+                        'contents' => [
                           {
                             'contents' => [
                               {
@@ -405,7 +406,6 @@ $result_trees{'command_conditionals'} = {
                             'type' => 'line_arg'
                           }
                         ],
-                        'cmdname' => 'end',
                         'extra' => {
                           'text_arg' => 'ifcommandnotdefined'
                         },
@@ -470,7 +470,8 @@ $result_trees{'command_conditionals'} = {
                     'type' => 'raw'
                   },
                   {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -486,7 +487,6 @@ $result_trees{'command_conditionals'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifcommanddefined'
                     },
@@ -568,7 +568,8 @@ $result_trees{'command_conditionals'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'end',
+                    'contents' => [
                       {
                         'contents' => [
                           {
@@ -584,7 +585,6 @@ $result_trees{'command_conditionals'} = {
                         'type' => 'line_arg'
                       }
                     ],
-                    'cmdname' => 'end',
                     'extra' => {
                       'text_arg' => 'ifcommandnotdefined'
                     },

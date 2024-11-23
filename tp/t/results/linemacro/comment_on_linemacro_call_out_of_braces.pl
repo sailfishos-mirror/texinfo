@@ -49,7 +49,8 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
               'type' => 'raw'
             },
             {
-              'args' => [
+              'cmdname' => 'end',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -65,7 +66,6 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
                 'text_arg' => 'linemacro'
               },
@@ -154,14 +154,14 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
               'text' => 'third ||'
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' comment {in braces}
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             }
           ],
           'type' => 'paragraph'
@@ -216,14 +216,14 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
               'text' => 'third ||'
             },
             {
-              'args' => [
+              'cmdname' => 'c',
+              'contents' => [
                 {
                   'text' => ' comment early n l m
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'c'
+              ]
             }
           ],
           'type' => 'paragraph'
@@ -313,14 +313,14 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
               'text' => 'third ||'
             },
             {
-              'args' => [
+              'cmdname' => 'comment',
+              'contents' => [
                 {
                   'text' => ' on second {line comment}
 ',
                   'type' => 'rawline_arg'
                 }
-              ],
-              'cmdname' => 'comment'
+              ]
             }
           ],
           'type' => 'paragraph'
