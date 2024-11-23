@@ -12,7 +12,7 @@ MODULE = TestXS PACKAGE = TestXS PREFIX = xstest_
 PROTOTYPES: ENABLE
 
 int
-xstest_init (int, SV *, SV *, SV *)
+xstest_init (SV *, SV *, SV *, SV *)
     CODE:
         puts ("message from XS module\n");
         RETVAL = 1;

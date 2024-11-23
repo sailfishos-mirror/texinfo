@@ -131,8 +131,12 @@ sub load_libtool_library {
   # Use unshift to place directories at start of search path.  This
   # way we avoid accidentally loading the wrong library, e.g. if someone
   # has some random /usr/lib/libtexinfo.so file.
-  # The *.so file is under .libs in the source directory.
-  if ($Texinfo::ModulePath::texinfo_uninstalled) {
+  # The *.so file is under .libs in the build directory.
+  # Consider that we are in the build directory if texinfo_uninstalled
+  # is set, or if Texinfo::ModulePath has not been called, as is the
+  # case when TestXS is called, as it is not called from a Perl script.
+  if (not defined($Texinfo::ModulePath::texinfo_uninstalled)
+      or $Texinfo::ModulePath::texinfo_uninstalled) {
     unshift @DynaLoader::dl_library_path, "$libtool_dir/.libs";
   }
   unshift @DynaLoader::dl_library_path, $libtool_dir;

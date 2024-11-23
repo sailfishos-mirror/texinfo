@@ -73,12 +73,15 @@ PROTOTYPES: ENABLE
 # Called from Texinfo::XSLoader.pm.
 # File paths are byte strings and can be in any encoding.
 int
-init (int texinfo_uninstalled, SV *converterdatadir_sv, SV *tp_builddir_sv, SV *top_srcdir_sv)
+init (SV *texinfo_uninstalled_sv, SV *converterdatadir_sv, SV *tp_builddir_sv, SV *top_srcdir_sv)
       PREINIT:
         const char *tp_builddir = 0;
         const char *top_srcdir = 0;
         const char *converterdatadir = 0;
+        int texinfo_uninstalled = 0;
       CODE:
+        if (SvOK (texinfo_uninstalled_sv))
+          texinfo_uninstalled = SvIV (texinfo_uninstalled_sv);
         if (texinfo_uninstalled)
           {
             if (SvOK (tp_builddir_sv))

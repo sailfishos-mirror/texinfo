@@ -20,7 +20,7 @@ use File::Spec;
 
 # Used as a flag to say whether to look for data files in uninstalled
 # locations.
-our $texinfo_uninstalled = 0;
+our $texinfo_uninstalled = undef;
 
 # uninstalled locations paths, if $Texinfo::ModulePath::texinfo_uninstalled
 # Pathname of the tp/ build directory.  Used to find the locale
@@ -93,6 +93,8 @@ sub init {
     }
 
   } else {
+    $texinfo_uninstalled = 0;
+
     # for the Texinfo modules
     if (defined($lib_dir)) {
       unshift @INC, $lib_dir;

@@ -66,7 +66,7 @@ PROTOTYPES: ENABLE
 # Called once from Texinfo::XSLoader.pm at loading time.
 # File paths (not used) are byte strings and can be in any encoding.
 int
-init (int texinfo_uninstalled, SV *converterdatadir, SV *tp_builddir, SV *top_srcdir)
+init (SV *texinfo_uninstalled, SV *converterdatadir, SV *tp_builddir, SV *top_srcdir)
     CODE:
         messages_and_encodings_setup ();
         RETVAL = 1;

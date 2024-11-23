@@ -1,5 +1,20 @@
 2024-11-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ModulePath.pm.in ($texinfo_uninstalled, init),
+	tp/Texinfo/XS/TestXS.xs (xstest_init),
+	tp/Texinfo/XS/convert/ConvertXS.xs (init),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (init): initialize
+	Texinfo::ModulePath $texinfo_uninstalled to undef, such that it is
+	possible to determine that Texinfo::ModulePath init has not been
+	called.
+
+	* tp/Texinfo/XSLoader.pm (load_libtool_library): add .libs directory
+	if Texinfo::ModulePath $texinfo_uninstalled is set or if it is undef
+	when Texinfo::ModulePath has not been called, as is the ase when
+	TestXS is called, as it is not called from a Perl script.
+
+2024-11-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Text.pm (_convert),
 	tp/Texinfo/Convert/TextContent.pm (_convert),
 	tp/maintain/regenerate_commands_perl_info.pl: do not put item in
