@@ -120,14 +120,6 @@ foreach my $category (sort(keys(%command_categories))) {
 print OUT "\n";
 print OUT "# flag hashes\n";
 
-# for those flags, the information of multi category commands is
-# duplicated.  So, for example, item_LINE has the formatted_line flag
-# associated, it will be associated to item.
-my %converter_flag = (
-  'formatted_line' => 1,
-  'formattable_line' => 1,
-);
-
 foreach my $hash_flag (sort(keys(%flags_hashes))) {
   # happens for 'txiinternalvalue', which is in internal category but also
   # has the brace flag set.  This information cannot be kept, this command

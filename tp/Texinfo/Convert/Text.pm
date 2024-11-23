@@ -118,17 +118,6 @@ my %line_commands = %Texinfo::Commands::line_commands;
 # 'page' is a formatted_line_commands and therefore is replaced by an empty
 # line.
 
-my %converted_formattable_line_commands;
-foreach my $command ('verbatiminclude', 'sp') {
-  $converted_formattable_line_commands{$command} = 1;
-}
-
-foreach my $command (keys(%def_commands)) {
-  if ($Texinfo::Commands::line_commands{$command}) {
-    $converted_formattable_line_commands{$command} = 1;
-  }
-}
-
 my %ignored_types;
 foreach my $type ('postamble_after_end',
             'preamble_before_beginning', 'argument') {
@@ -724,7 +713,7 @@ sub _convert($$)
         $result .= "\n";
         return $result;
       }
-    } elsif ($converted_formattable_line_commands{$data_cmdname}) {
+    } elsif ($line_commands{$data_cmdname}) {
       if ($def_commands{$cmdname}) {
         $result = _convert_def_line($options, $element);
       } elsif ($cmdname eq 'sp') {

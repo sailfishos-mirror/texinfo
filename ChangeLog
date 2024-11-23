@@ -1,5 +1,17 @@
 2024-11-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Text.pm (_convert): check line_commands instead
+	of converted_formattable_line_commands.  Remove
+	%converted_formattable_line_commands.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
+	modify code to be more similar to corresponding Perl code.
+
+	* tp/maintain/regenerate_commands_perl_info.pl: remove unused
+	%converter_flag variable.
+
+2024-11-23  Patrice Dumas  <pertusus@free.fr>
+
 	remove remaining args from line commands and from Texinfo tree
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_float_type),

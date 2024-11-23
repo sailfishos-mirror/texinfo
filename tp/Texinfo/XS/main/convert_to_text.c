@@ -930,7 +930,6 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           if (!(builtin_command_data[data_cmd].flags & CF_root))
             return;
         }
-      /* TODO check if different from Perl and use similar code if not */
       else if (builtin_command_data[data_cmd].other_flags & CF_formatted_line)
         {
           if (data_cmd != CM_node)
@@ -948,57 +947,58 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               return;
             }
         }
-      else if (builtin_command_data[data_cmd].flags & CF_line
-               && builtin_command_data[data_cmd].flags & CF_def)
+      else if (builtin_command_data[data_cmd].flags & CF_line)
         {
-          convert_def_line (element, text_options, result);
-          return;
-        }
-      else if (data_cmd == CM_sp)
-        {
-          const STRING_LIST *misc_args
-             = lookup_extra_misc_args (element, AI_key_misc_args);
-          /* misc_args can be 0 with invalid args */
-          if (misc_args && misc_args->number > 0)
+          if (builtin_command_data[data_cmd].flags & CF_def)
             {
-              const char *sp_arg = misc_args->list[0];
-              int sp_nr = strtoul (sp_arg, NULL, 10);
-              int i;
-              if (sp_nr > 0)
-                for (i = 0; i < sp_nr; i++)
-                  ADD("\n");
+              convert_def_line (element, text_options, result);
             }
-          return;
-        }
-      else if (data_cmd == CM_verbatiminclude)
-        {
-          ELEMENT *verbatim_include_verbatim = 0;
-          ERROR_MESSAGE_LIST *error_messages = 0;
-          if (text_options->converter)
-            error_messages = &text_options->converter->error_messages;
+          else if (data_cmd == CM_sp)
+            {
+              const STRING_LIST *misc_args
+                 = lookup_extra_misc_args (element, AI_key_misc_args);
+              /* misc_args can be 0 with invalid args */
+              if (misc_args && misc_args->number > 0)
+                {
+                  const char *sp_arg = misc_args->list[0];
+                  int sp_nr = strtoul (sp_arg, NULL, 10);
+                  int i;
+                  if (sp_nr > 0)
+                    for (i = 0; i < sp_nr; i++)
+                      ADD("\n");
+                }
+            }
+          else if (data_cmd == CM_verbatiminclude)
+            {
+              ELEMENT *verbatim_include_verbatim = 0;
+              ERROR_MESSAGE_LIST *error_messages = 0;
+              if (text_options->converter)
+                error_messages = &text_options->converter->error_messages;
 
-          if (text_options->other_converter_options) {
-            verbatim_include_verbatim
-             = expand_verbatiminclude (error_messages,
+              if (text_options->other_converter_options) {
+                verbatim_include_verbatim
+                 = expand_verbatiminclude (error_messages,
                                        text_options->other_converter_options,
                                        0, element);
-          } else {
-            GLOBAL_INFO *global_information = 0;
-            if (text_options->document_descriptor) {
-              DOCUMENT *document
-                = retrieve_document (text_options->document_descriptor);
-              if (document)
-                global_information = &document->global_info;
-            }
-            verbatim_include_verbatim
-              = expand_verbatiminclude (0, text_options->self_converter_options,
+              } else {
+                GLOBAL_INFO *global_information = 0;
+                if (text_options->document_descriptor) {
+                  DOCUMENT *document
+                    = retrieve_document (text_options->document_descriptor);
+                  if (document)
+                    global_information = &document->global_info;
+                }
+                verbatim_include_verbatim
+                  = expand_verbatiminclude (0,
+                                text_options->self_converter_options,
                                         global_information, element);
-          }
-          if (verbatim_include_verbatim)
-            {
-              convert_to_text_internal (verbatim_include_verbatim,
-                                        text_options, result);
-              destroy_element_and_children (verbatim_include_verbatim);
+              }
+              if (verbatim_include_verbatim)
+                {
+                  convert_to_text_internal (verbatim_include_verbatim,
+                                            text_options, result);
+                  destroy_element_and_children (verbatim_include_verbatim);
+                }
             }
           return;
         }
