@@ -1345,6 +1345,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
               || cmd == CM_cartouche)
             {
               const ELEMENT_LIST *arguments_list;
+              size_t arg_idx;
 
               if (element->e.c->contents.list[0]->type == ET_arguments_line)
                 arguments_list
@@ -1352,196 +1353,192 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
               else
                 arguments_list = &element->e.c->contents;
 
-              if (arguments_list)
+              TEXT formatted_arg;
+
+              text_init (&formatted_arg);
+
+              args_formatted = (HTML_ARGS_FORMATTED *)
+                                 malloc (sizeof (HTML_ARGS_FORMATTED));
+              args_formatted->number = arguments_list->number;
+              args_formatted->args = (HTML_ARG_FORMATTED *)
+              malloc (args_formatted->number * sizeof (HTML_ARG_FORMATTED));
+              memset (args_formatted->args, 0,
+                      args_formatted->number * sizeof (HTML_ARG_FORMATTED));
+
+              for (arg_idx = 0; arg_idx < arguments_list->number; arg_idx++)
                 {
-                  size_t arg_idx;
-                  TEXT formatted_arg;
+                  char *explanation;
+                  unsigned long arg_flags = 0;
+                  const ELEMENT *arg = arguments_list->list[arg_idx];
+                  HTML_ARG_FORMATTED *arg_formatted
+                     = &args_formatted->args[arg_idx];
 
-                  text_init (&formatted_arg);
-
-                  args_formatted = (HTML_ARGS_FORMATTED *)
-                    malloc (sizeof (HTML_ARGS_FORMATTED));
-                  args_formatted->number = arguments_list->number;
-                  args_formatted->args = (HTML_ARG_FORMATTED *)
-                  malloc (args_formatted->number * sizeof (HTML_ARG_FORMATTED));
-                  memset (args_formatted->args, 0,
-                        args_formatted->number * sizeof (HTML_ARG_FORMATTED));
-
-                  for (arg_idx = 0; arg_idx < arguments_list->number; arg_idx++)
+                  if (arg->e.c->contents.number <= 0)
                     {
-                      char *explanation;
-                      unsigned long arg_flags = 0;
-                      const ELEMENT *arg = arguments_list->list[arg_idx];
-                      HTML_ARG_FORMATTED *arg_formatted
-                         = &args_formatted->args[arg_idx];
-
-                      if (arg->e.c->contents.number <= 0)
-                        {
-                          continue;
-                        }
-                      /* NOTE that commands with F_AFT_none as only flag do not
-                         have their flag reset to F_AFT_normal here, such that
-                         their argument is not converter here */
-                      if (arg_idx < MAX_COMMAND_ARGS_NR
-                          /* could check html_command_args_flags[cmd].status,
-                             but it is probably faster not to */
-                          && html_command_args_flags[cmd].flags[arg_idx])
-                        arg_flags = html_command_args_flags[cmd].flags[arg_idx];
-                      else
-                        arg_flags = F_AFT_normal;
-
-                      arg_formatted->arg_tree = arg;
-
-                      if (arg_flags & F_AFT_normal)
-                        {
-                          text_reset (&formatted_arg);
-                          if (convert_to_latex)
-                            {
-                              char *latex_content
-                                = call_latex_convert_to_latex_math (self,
-                                                                    arg);
-                              if (latex_content)
-                                {
-                                  text_append (&formatted_arg, latex_content);
-                                  free (latex_content);
-                                }
-                            }
-                          else
-                            {
-                              xasprintf (&explanation, "%s A[%zu]normal",
-                                                   command_type.text, arg_idx);
-                              html_convert_tree_append (self, arg,
-                                                        &formatted_arg,
-                                                        explanation);
-                              free (explanation);
-                            }
-                          arg_formatted->formatted[AFT_type_normal]
-                            = strdup (formatted_arg.text);
-                        }
-                      if (arg_flags & F_AFT_monospace)
-                        {
-                          HTML_DOCUMENT_CONTEXT *top_document_ctx
-                            = html_top_document_context (self);
-                          text_reset (&formatted_arg);
-                          xasprintf (&explanation, "%s A[%zu]monospace",
-                                                   command_type.text, arg_idx);
-                          push_integer_stack_integer (
-                                          &top_document_ctx->monospace, 1);
-
-                          html_convert_tree_append (self, arg, &formatted_arg,
-                                                    explanation);
-                          pop_integer_stack
-                              (&top_document_ctx->monospace);
-
-                          free (explanation);
-                          arg_formatted->formatted[AFT_type_monospace]
-                           = strdup (formatted_arg.text);
-                        }
-                      if (arg_flags & F_AFT_string)
-                        {
-                          HTML_DOCUMENT_CONTEXT *string_document_ctx;
-                          text_reset (&formatted_arg);
-                          html_new_document_context (self, command_type.text,
-                                                     0, 0);
-                          string_document_ctx = html_top_document_context (self);
-                          string_document_ctx->string_ctx++;
-
-                          xasprintf (&explanation, "%s A[%zu]string",
-                                                   command_type.text, arg_idx);
-                          html_convert_tree_append (self, arg, &formatted_arg,
-                                                    explanation);
-
-                          free (explanation);
-
-                          html_pop_document_context (self);
-
-                          arg_formatted->formatted[AFT_type_string]
-                           = strdup (formatted_arg.text);
-                        }
-                      if (arg_flags & F_AFT_monospacestring)
-                        {
-                          HTML_DOCUMENT_CONTEXT *string_document_ctx;
-                          text_reset (&formatted_arg);
-                          html_new_document_context (self, command_type.text,
-                                                     0, 0);
-                          string_document_ctx = html_top_document_context (self);
-                          string_document_ctx->string_ctx++;
-                          push_integer_stack_integer (
-                               &string_document_ctx->monospace, 1);
-                          xasprintf (&explanation, "%s A[%zu]monospacestring",
-                                                   command_type.text, arg_idx);
-                          html_convert_tree_append (self, arg, &formatted_arg,
-                                                    explanation);
-
-                          free (explanation);
-                          pop_integer_stack
-                              (&string_document_ctx->monospace);
-                          html_pop_document_context (self);
-                          arg_formatted->formatted[AFT_type_monospacestring]
-                           = strdup (formatted_arg.text);
-                        }
-                      if (arg_flags & F_AFT_monospacetext)
-                        {
-                          char *text;
-
-                          self->convert_text_options->code_state++;
-                          text = convert_to_text (arg,
-                                                  self->convert_text_options);
-                          self->convert_text_options->code_state--;
-
-                          arg_formatted->formatted[AFT_type_monospacetext]
-                            = text;
-                        }
-                      if (arg_flags & F_AFT_filenametext)
-                        {
-                          char *text;
-                          self->convert_text_options->code_state++;
-                          /* Always use encoded characters for file names */
-                          text_set_options_encoding_if_not_ascii (self,
-                                              self->convert_text_options);
-                          text = convert_to_text (arg,
-                                                 self->convert_text_options);
-                          text_reset_options_encoding
-                                                (self->convert_text_options);
-                          self->convert_text_options->code_state--;
-
-                          arg_formatted->formatted[AFT_type_filenametext] = text;
-                        }
-                      if (arg_flags & F_AFT_url)
-                        {
-                          char *text;
-                          self->convert_text_options->code_state++;
-           /* set the encoding to UTF-8 to always have a string that is suitable
-              for percent encoding. */
-                          text_set_options_encoding (
-                               self->convert_text_options, "utf-8");
-                          text = convert_to_text (arg,
-                                                 self->convert_text_options);
-                          text_reset_options_encoding
-                                                (self->convert_text_options);
-                          self->convert_text_options->code_state--;
-
-                          arg_formatted->formatted[AFT_type_url] = text;
-                        }
-                      if (arg_flags & F_AFT_raw)
-                        {
-                          HTML_DOCUMENT_CONTEXT *top_document_ctx
-                            = html_top_document_context (self);
-                          text_reset (&formatted_arg);
-                          top_document_ctx->raw_ctx++;
-                          xasprintf (&explanation, "%s A[%zu]raw",
-                                                   command_type.text, arg_idx);
-                          html_convert_tree_append (self, arg, &formatted_arg,
-                                                    explanation);
-
-                          free (explanation);
-                          top_document_ctx->raw_ctx--;
-                          arg_formatted->formatted[AFT_type_raw]
-                            = strdup (formatted_arg.text);
-                        }
+                      continue;
                     }
-                  free (formatted_arg.text);
+                  /* NOTE that commands with F_AFT_none as only flag do not
+                     have their flag reset to F_AFT_normal here, such that
+                     their argument is not converter here */
+                  if (arg_idx < MAX_COMMAND_ARGS_NR
+                      /* could check html_command_args_flags[cmd].status,
+                         but it is probably faster not to */
+                      && html_command_args_flags[cmd].flags[arg_idx])
+                    arg_flags = html_command_args_flags[cmd].flags[arg_idx];
+                  else
+                    arg_flags = F_AFT_normal;
+
+                  arg_formatted->arg_tree = arg;
+
+                  if (arg_flags & F_AFT_normal)
+                    {
+                      text_reset (&formatted_arg);
+                      if (convert_to_latex)
+                        {
+                          char *latex_content
+                            = call_latex_convert_to_latex_math (self,
+                                                                arg);
+                          if (latex_content)
+                            {
+                              text_append (&formatted_arg, latex_content);
+                              free (latex_content);
+                            }
+                        }
+                      else
+                        {
+                          xasprintf (&explanation, "%s A[%zu]normal",
+                                               command_type.text, arg_idx);
+                          html_convert_tree_append (self, arg,
+                                                    &formatted_arg,
+                                                    explanation);
+                          free (explanation);
+                        }
+                      arg_formatted->formatted[AFT_type_normal]
+                        = strdup (formatted_arg.text);
+                    }
+                  if (arg_flags & F_AFT_monospace)
+                    {
+                      HTML_DOCUMENT_CONTEXT *top_document_ctx
+                        = html_top_document_context (self);
+                      text_reset (&formatted_arg);
+                      xasprintf (&explanation, "%s A[%zu]monospace",
+                                               command_type.text, arg_idx);
+                      push_integer_stack_integer (
+                                      &top_document_ctx->monospace, 1);
+
+                      html_convert_tree_append (self, arg, &formatted_arg,
+                                                explanation);
+                      pop_integer_stack
+                          (&top_document_ctx->monospace);
+
+                      free (explanation);
+                      arg_formatted->formatted[AFT_type_monospace]
+                       = strdup (formatted_arg.text);
+                    }
+                  if (arg_flags & F_AFT_string)
+                    {
+                      HTML_DOCUMENT_CONTEXT *string_document_ctx;
+                      text_reset (&formatted_arg);
+                      html_new_document_context (self, command_type.text,
+                                                 0, 0);
+                      string_document_ctx = html_top_document_context (self);
+                      string_document_ctx->string_ctx++;
+
+                      xasprintf (&explanation, "%s A[%zu]string",
+                                               command_type.text, arg_idx);
+                      html_convert_tree_append (self, arg, &formatted_arg,
+                                                explanation);
+
+                      free (explanation);
+
+                      html_pop_document_context (self);
+
+                      arg_formatted->formatted[AFT_type_string]
+                       = strdup (formatted_arg.text);
+                    }
+                  if (arg_flags & F_AFT_monospacestring)
+                    {
+                      HTML_DOCUMENT_CONTEXT *string_document_ctx;
+                      text_reset (&formatted_arg);
+                      html_new_document_context (self, command_type.text,
+                                                 0, 0);
+                      string_document_ctx = html_top_document_context (self);
+                      string_document_ctx->string_ctx++;
+                      push_integer_stack_integer (
+                           &string_document_ctx->monospace, 1);
+                      xasprintf (&explanation, "%s A[%zu]monospacestring",
+                                               command_type.text, arg_idx);
+                      html_convert_tree_append (self, arg, &formatted_arg,
+                                                explanation);
+
+                      free (explanation);
+                      pop_integer_stack
+                          (&string_document_ctx->monospace);
+                      html_pop_document_context (self);
+                      arg_formatted->formatted[AFT_type_monospacestring]
+                       = strdup (formatted_arg.text);
+                    }
+                  if (arg_flags & F_AFT_monospacetext)
+                    {
+                      char *text;
+
+                      self->convert_text_options->code_state++;
+                      text = convert_to_text (arg,
+                                              self->convert_text_options);
+                      self->convert_text_options->code_state--;
+
+                      arg_formatted->formatted[AFT_type_monospacetext]
+                        = text;
+                    }
+                  if (arg_flags & F_AFT_filenametext)
+                    {
+                      char *text;
+                      self->convert_text_options->code_state++;
+                      /* Always use encoded characters for file names */
+                      text_set_options_encoding_if_not_ascii (self,
+                                          self->convert_text_options);
+                      text = convert_to_text (arg,
+                                             self->convert_text_options);
+                      text_reset_options_encoding
+                                            (self->convert_text_options);
+                      self->convert_text_options->code_state--;
+
+                      arg_formatted->formatted[AFT_type_filenametext] = text;
+                    }
+                  if (arg_flags & F_AFT_url)
+                    {
+                      char *text;
+                      self->convert_text_options->code_state++;
+       /* set the encoding to UTF-8 to always have a string that is suitable
+          for percent encoding. */
+                      text_set_options_encoding (
+                           self->convert_text_options, "utf-8");
+                      text = convert_to_text (arg,
+                                             self->convert_text_options);
+                      text_reset_options_encoding
+                                            (self->convert_text_options);
+                      self->convert_text_options->code_state--;
+
+                      arg_formatted->formatted[AFT_type_url] = text;
+                    }
+                  if (arg_flags & F_AFT_raw)
+                    {
+                      HTML_DOCUMENT_CONTEXT *top_document_ctx
+                        = html_top_document_context (self);
+                      text_reset (&formatted_arg);
+                      top_document_ctx->raw_ctx++;
+                      xasprintf (&explanation, "%s A[%zu]raw",
+                                               command_type.text, arg_idx);
+                      html_convert_tree_append (self, arg, &formatted_arg,
+                                                explanation);
+
+                      free (explanation);
+                      top_document_ctx->raw_ctx--;
+                      arg_formatted->formatted[AFT_type_raw]
+                        = strdup (formatted_arg.text);
+                    }
                 }
+              free (formatted_arg.text);
             }
 
           html_convert_command_update_context (self, data_cmd);

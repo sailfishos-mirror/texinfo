@@ -13613,102 +13613,101 @@ sub _convert($$;$)
         } else {
           $arguments_list = $element->{'contents'};
         }
-        if ($arguments_list) {
-          $args_formatted = [];
-          my @args_specification;
-          @args_specification = @{$html_default_commands_args{$command_name}}
-            if (defined($html_default_commands_args{$command_name}));
-          my $spec_nr = scalar(@args_specification);
-          my $arg_idx = -1;
-          foreach my $arg (@{$arguments_list}) {
-            $arg_idx++;
-            my $arg_spec;
-            if ($arg_idx < $spec_nr) {
-              $arg_spec = $args_specification[$arg_idx];
-            }
-            if (!$arg->{'contents'} or !scalar(@{$arg->{'contents'}})) {
-              push @$args_formatted, undef;
-              next;
-            }
-            # NOTE here commands with empty array reference in array
-            # reference associated to command in html_default_commands_args
-            # do not have $arg_spec reset to normal, such that their argument
-            # is not converted here
-            $arg_spec = ['normal'] if (!defined($arg_spec));
-            my $arg_formatted = {'arg_tree' => $arg};
-            foreach my $arg_type (@$arg_spec) {
-              my $explanation = "$command_type A[$arg_idx]$arg_type";
-              if ($arg_type eq 'normal') {
-                if ($convert_to_latex) {
-                  $arg_formatted->{'normal'}
-                   = Texinfo::Convert::LaTeX::convert_to_latex_math(undef, $arg,
-                                                  $self->{'options_latex_math'});
-                } else {
-                  $arg_formatted->{'normal'}
-                    = $self->_convert($arg, $explanation);
-                }
-              } elsif ($arg_type eq 'monospace') {
-                _set_code_context($self, 1);
-                $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
-                _pop_code_context($self);
-              } elsif ($arg_type eq 'string') {
-                $self->_new_document_context($command_type);
-                _set_string_context($self);
-                $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
-                #_unset_string_context($self);
-                $self->_pop_document_context();
-              } elsif ($arg_type eq 'monospacestring') {
-                $self->_new_document_context($command_type);
-                _set_code_context($self, 1);
-                _set_string_context($self);
-                $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
-                #_unset_string_context($self);
-                _pop_code_context($self);
-                $self->_pop_document_context();
-              } elsif ($arg_type eq 'monospacetext') {
-                Texinfo::Convert::Text::set_options_code(
-                                              $self->{'convert_text_options'});
-                $arg_formatted->{$arg_type}
-                  = Texinfo::Convert::Text::convert_to_text($arg,
-                                              $self->{'convert_text_options'});
-                Texinfo::Convert::Text::reset_options_code(
-                                              $self->{'convert_text_options'});
-              } elsif ($arg_type eq 'filenametext') {
 
-                Texinfo::Convert::Text::set_options_code(
-                                              $self->{'convert_text_options'});
-                # Always use encoded characters for file names
-                Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
-                                              $self->{'convert_text_options'});
-                $arg_formatted->{$arg_type}
-                  = Texinfo::Convert::Text::convert_to_text($arg,
-                                              $self->{'convert_text_options'});
-                Texinfo::Convert::Text::reset_options_code(
-                                              $self->{'convert_text_options'});
-                Texinfo::Convert::Text::reset_options_encoding(
-                                              $self->{'convert_text_options'});
-              } elsif ($arg_type eq 'url') {
-                Texinfo::Convert::Text::set_options_code(
-                                              $self->{'convert_text_options'});
-                # set the encoding to UTF-8 to always have a string that
-                # is suitable for percent encoding.
-                Texinfo::Convert::Text::set_options_encoding(
-                                  $self->{'convert_text_options'}, 'utf-8');
-                $arg_formatted->{$arg_type}
-                   = Texinfo::Convert::Text::convert_to_text($arg,
-                                              $self->{'convert_text_options'});
-                Texinfo::Convert::Text::reset_options_code(
-                                              $self->{'convert_text_options'});
-                Texinfo::Convert::Text::reset_options_encoding(
-                                              $self->{'convert_text_options'});
-              } elsif ($arg_type eq 'raw') {
-                _set_raw_context($self);
-                $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
-                _unset_raw_context($self);
-              }
-            }
-            push @$args_formatted, $arg_formatted;
+        $args_formatted = [];
+        my @args_specification;
+        @args_specification = @{$html_default_commands_args{$command_name}}
+          if (defined($html_default_commands_args{$command_name}));
+        my $spec_nr = scalar(@args_specification);
+        my $arg_idx = -1;
+        foreach my $arg (@{$arguments_list}) {
+          $arg_idx++;
+          my $arg_spec;
+          if ($arg_idx < $spec_nr) {
+            $arg_spec = $args_specification[$arg_idx];
           }
+          if (!$arg->{'contents'} or !scalar(@{$arg->{'contents'}})) {
+            push @$args_formatted, undef;
+            next;
+          }
+          # NOTE here commands with empty array reference in array
+          # reference associated to command in html_default_commands_args
+          # do not have $arg_spec reset to normal, such that their argument
+          # is not converted here
+          $arg_spec = ['normal'] if (!defined($arg_spec));
+          my $arg_formatted = {'arg_tree' => $arg};
+          foreach my $arg_type (@$arg_spec) {
+            my $explanation = "$command_type A[$arg_idx]$arg_type";
+            if ($arg_type eq 'normal') {
+              if ($convert_to_latex) {
+                $arg_formatted->{'normal'}
+                 = Texinfo::Convert::LaTeX::convert_to_latex_math(undef, $arg,
+                                                $self->{'options_latex_math'});
+              } else {
+                $arg_formatted->{'normal'}
+                  = $self->_convert($arg, $explanation);
+              }
+            } elsif ($arg_type eq 'monospace') {
+              _set_code_context($self, 1);
+              $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
+              _pop_code_context($self);
+            } elsif ($arg_type eq 'string') {
+              $self->_new_document_context($command_type);
+              _set_string_context($self);
+              $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
+              #_unset_string_context($self);
+              $self->_pop_document_context();
+            } elsif ($arg_type eq 'monospacestring') {
+              $self->_new_document_context($command_type);
+              _set_code_context($self, 1);
+              _set_string_context($self);
+              $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
+              #_unset_string_context($self);
+              _pop_code_context($self);
+              $self->_pop_document_context();
+            } elsif ($arg_type eq 'monospacetext') {
+              Texinfo::Convert::Text::set_options_code(
+                                            $self->{'convert_text_options'});
+              $arg_formatted->{$arg_type}
+                = Texinfo::Convert::Text::convert_to_text($arg,
+                                            $self->{'convert_text_options'});
+              Texinfo::Convert::Text::reset_options_code(
+                                            $self->{'convert_text_options'});
+            } elsif ($arg_type eq 'filenametext') {
+
+              Texinfo::Convert::Text::set_options_code(
+                                            $self->{'convert_text_options'});
+              # Always use encoded characters for file names
+              Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
+                                            $self->{'convert_text_options'});
+              $arg_formatted->{$arg_type}
+                = Texinfo::Convert::Text::convert_to_text($arg,
+                                            $self->{'convert_text_options'});
+              Texinfo::Convert::Text::reset_options_code(
+                                            $self->{'convert_text_options'});
+              Texinfo::Convert::Text::reset_options_encoding(
+                                            $self->{'convert_text_options'});
+            } elsif ($arg_type eq 'url') {
+              Texinfo::Convert::Text::set_options_code(
+                                            $self->{'convert_text_options'});
+              # set the encoding to UTF-8 to always have a string that
+              # is suitable for percent encoding.
+              Texinfo::Convert::Text::set_options_encoding(
+                                $self->{'convert_text_options'}, 'utf-8');
+              $arg_formatted->{$arg_type}
+                 = Texinfo::Convert::Text::convert_to_text($arg,
+                                            $self->{'convert_text_options'});
+              Texinfo::Convert::Text::reset_options_code(
+                                            $self->{'convert_text_options'});
+              Texinfo::Convert::Text::reset_options_encoding(
+                                            $self->{'convert_text_options'});
+            } elsif ($arg_type eq 'raw') {
+              _set_raw_context($self);
+              $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
+              _unset_raw_context($self);
+            }
+          }
+          push @$args_formatted, $arg_formatted;
         }
       }
 
