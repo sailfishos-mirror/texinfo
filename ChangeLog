@@ -1,3 +1,10 @@
+2024-11-24  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (Syntax Highlighting): mandate HIGHLIGHT_SYNTAX to
+	be source-highlight to select source-highlight, it is better to keep
+	the possibility of using other values provided by the user for other
+	purposes as discussed on the mailing list.
+
 2024-11-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ModulePath.pm.in ($texinfo_uninstalled, init),

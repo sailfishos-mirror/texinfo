@@ -17507,7 +17507,7 @@ Use @command{highlight} from
 @url{http://www.andre-simon.de/doku/highlight/en/highlight.php};
 @item pygments
 Use @command{pygmentize} from @url{https://pygments.org/};
-@item anything else
+@item source-highlight
 Use @command{source-highlight} (@pxref{,,,source-highlight, GNU Source-highlight}).
 @end table
 
