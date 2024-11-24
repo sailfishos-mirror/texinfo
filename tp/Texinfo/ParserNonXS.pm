@@ -1337,40 +1337,41 @@ sub _parse_macro_command_line($$$$$;$)
     $self->_line_error(sprintf(
                     __("bad name for \@%s"), $command), $source_info);
     $macro->{'extra'} = {'invalid_syntax' => 1};
-  } else {
-    print STDERR "MACRO \@$command $macro_name\n"
+    return $macro;
+  }
+
+  print STDERR "MACRO \@$command $macro_name\n"
                            if ($self->{'conf'}->{'DEBUG'});
 
-    $macro->{'extra'} = {'macro_name' => $macro_name};
+  $macro->{'extra'} = {'macro_name' => $macro_name, 'misc_args' => []};
 
-    my $args_def = $line;
-    $args_def =~ s/^\s*//;
+  my $args_def = $line;
+  $args_def =~ s/^\s*//;
 
-    my @args;
-    if ($args_def =~ s/^{\s*(.*?)\s*}\s*//) {
-      @args = split(/\s*,\s*/, $1);
-    }
+  my @args;
+  if ($args_def =~ s/^{\s*(.*?)\s*}\s*//) {
+    @args = split(/\s*,\s*/, $1);
+  }
 
-    $macro->{'extra'}->{'misc_args'} = [];
-    foreach my $formal_arg (@args) {
-      push @{$macro->{'extra'}->{'misc_args'}}, $formal_arg;
-      if ($formal_arg !~ /^[\w\-]+$/) {
-        $self->_line_error(sprintf(__("bad or empty \@%s formal argument: %s"),
-                                   $command, $formal_arg), $source_info);
-        $macro->{'extra'}->{'invalid_syntax'} = 1;
-      }
-    }
-    # accept an @-command after the arguments in case there is a @c or
-    # @comment
-    if ($args_def =~ /^\s*[^\@]/) {
-      my $no_eol_args = $args_def;
-      chomp ($no_eol_args);
-      $self->_line_error(sprintf(__("bad syntax for \@%s argument: %s"),
-                                 $command, $no_eol_args),
-                         $source_info);
+  foreach my $formal_arg (@args) {
+    push @{$macro->{'extra'}->{'misc_args'}}, $formal_arg;
+    if ($formal_arg !~ /^[\w\-]+$/) {
+      $self->_line_error(sprintf(__("bad or empty \@%s formal argument: %s"),
+                                 $command, $formal_arg), $source_info);
       $macro->{'extra'}->{'invalid_syntax'} = 1;
     }
   }
+  # accept an @-command after the arguments in case there is a @c or
+  # @comment
+  if ($args_def =~ /^\s*[^\@]/) {
+    my $no_eol_args = $args_def;
+    chomp ($no_eol_args);
+    $self->_line_error(sprintf(__("bad syntax for \@%s argument: %s"),
+                               $command, $no_eol_args),
+                       $source_info);
+    $macro->{'extra'}->{'invalid_syntax'} = 1;
+  }
+
   return $macro;
 }
 
