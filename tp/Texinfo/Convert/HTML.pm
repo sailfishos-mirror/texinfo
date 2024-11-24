@@ -5679,8 +5679,9 @@ sub _convert_item_command($$$$$)
     } else {
       return '';
     }
-  } elsif ($command->{'parent'}->{'type'}
-           and $command->{'parent'}->{'type'} eq 'table_term') {
+  } elsif ($command->{'contents'}
+           and $command->{'contents'}->[0]->{'type'}
+           and $command->{'contents'}->[0]->{'type'} eq 'line_arg') {
     if ($command->{'contents'}->[0]->{'contents'}) {
 
       my $result = ($cmdname eq 'item') ? '' : '<dt>';
@@ -13552,8 +13553,9 @@ sub _convert($$;$)
 
     my $data_command_name;
     if ($command_name eq 'item'
-        and $element->{'parent'}->{'type'}
-        and $element->{'parent'}->{'type'} eq 'table_term') {
+        and $element->{'contents'}
+        and $element->{'contents'}->[0]->{'type'}
+        and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
       $data_command_name = 'item_LINE';
     } else {
       $data_command_name = $command_name;
@@ -13596,8 +13598,9 @@ sub _convert($$;$)
           or ($line_commands{$command_name}
               and $line_commands{$command_name} eq 'line')
           or (($command_name eq 'item' or $command_name eq 'itemx')
-               and ($element->{'parent'}->{'type'}
-                    and $element->{'parent'}->{'type'} eq 'table_term'))
+              and $element->{'contents'}
+              and $element->{'contents'}->[0]->{'type'}
+              and $element->{'contents'}->[0]->{'type'} eq 'line_arg')
           or ($command_name eq 'quotation'
               or $command_name eq 'smallquotation')
           or $command_name eq 'float'

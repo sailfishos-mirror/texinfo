@@ -410,10 +410,12 @@ $result_converted{'xml'}->{'itemx_in_itemize_enumerate_in_table'} = '<table comm
 </tableterm><tableitem>
 <para>In item, nested itemize
 </para><itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
-<beforefirstitem>in nested itemize itemx</beforefirstitem></itemize>
+<beforefirstitem><itemx spaces=" ">in nested itemize itemx</itemx>
+</beforefirstitem></itemize>
 
 <enumerate first="1" endspaces=" ">
-<beforefirstitem>in nested enumerate itemx</beforefirstitem></enumerate>
+<beforefirstitem><itemx spaces=" ">in nested enumerate itemx</itemx>
+</beforefirstitem></enumerate>
 
 </tableitem></tableentry></table>
 ';

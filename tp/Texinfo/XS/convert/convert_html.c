@@ -1336,7 +1336,8 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
               || (builtin_command_data[data_cmd].flags & CF_line
                   && builtin_command_data[data_cmd].data == LINE_line)
               || ((cmd == CM_item || cmd == CM_itemx)
-                  && element->parent->type == ET_table_term)
+                  && element->e.c->contents.number > 0
+                  && element->e.c->contents.list[0]->type == ET_line_arg)
               || (cmd == CM_quotation || cmd == CM_smallquotation)
               || cmd == CM_float
               || cmd == CM_cartouche)

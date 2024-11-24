@@ -9225,7 +9225,8 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
           text_printf (result, "<li> %s</li>", content);
         }
     }
-  else if (element->parent && element->parent->type == ET_table_term)
+  else if (element->e.c->contents.number > 0
+           && element->e.c->contents.list[0]->type == ET_line_arg)
     {
       if (element->e.c->contents.list[0]->e.c->contents.number > 0)
         {

@@ -124,8 +124,10 @@ sub _convert($$)
   # determine name used to check command properties
   my $data_cmdname;
   if ($element->{'cmdname'}) {
-    if ($element->{'cmdname'} eq 'item' and $element->{'parent'}->{'type'}
-        and $element->{'parent'}->{'type'} eq 'table_term') {
+    if ($element->{'cmdname'} eq 'item'
+        and $element->{'contents'}
+        and $element->{'contents'}->[0]->{'type'}
+        and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
       $data_cmdname = 'item_LINE';
     } else {
       $data_cmdname = $element->{'cmdname'};

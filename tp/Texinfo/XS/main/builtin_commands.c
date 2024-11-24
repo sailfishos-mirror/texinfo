@@ -121,7 +121,8 @@ enum command_id
 element_builtin_data_cmd (const ELEMENT *e)
 {
   if (e->e.c->cmd == CM_item
-      && e->parent->type == ET_table_term)
+      && e->e.c->contents.number > 0
+      && e->e.c->contents.list[0]->type == ET_line_arg)
     return CM_item_LINE;
 
   return element_builtin_cmd (e);

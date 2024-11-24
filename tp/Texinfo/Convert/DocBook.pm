@@ -887,9 +887,9 @@ sub _convert($$;$)
         push @close_format_elements, 'listitem';
       } elsif (($cmdname eq 'item'
                 or $cmdname eq 'itemx')
-               and $element->{'parent'}->{'type'}
-               and $element->{'parent'}->{'type'} eq 'table_term') {
-
+               and $element->{'contents'}
+               and $element->{'contents'}->[0]->{'type'}
+               and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
         $result .= "<term>" if ($cmdname eq 'itemx');
         $result .= _index_entry($self, $element);
         if ($element->{'contents'}->[0]->{'contents'}) {

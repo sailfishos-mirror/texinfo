@@ -1,5 +1,20 @@
 2024-11-24  Patrice Dumas  <pertusus@free.fr>
 
+	always use arguments being line_arg to determine if item in table
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert), tp/Texinfo/Convert/HTML.pm
+	(_convert_item_command, _convert), tp/Texinfo/Convert/TexinfoMarkup.pm
+	(_convert), tp/Texinfo/Convert/Text.pm (_convert),
+	tp/Texinfo/Convert/TextContent.pm (_convert),
+	tp/Texinfo/XS/convert/convert_html.c (html_convert_tree_append),
+	tp/Texinfo/XS/convert/format_html.c (html_convert_item_command),
+	tp/Texinfo/XS/main/builtin_commands.c (element_builtin_data_cmd):
+	always check that the argument is a line_arg to determine that an item
+	is to be considered a line command, in a @table or similar, instead of
+	using the type of the parent element,
+
+2024-11-24  Patrice Dumas  <pertusus@free.fr>
+
 	rename argument type as arguments_line
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line)

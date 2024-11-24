@@ -784,8 +784,9 @@ sub _convert($$;$)
         unshift @close_format_elements, 'listitem';
       } elsif (($element->{'cmdname'} eq 'item'
                 or $element->{'cmdname'} eq 'itemx')
-               and $element->{'parent'}->{'type'}
-               and $element->{'parent'}->{'type'} eq 'table_term') {
+               and $element->{'contents'}
+               and $element->{'contents'}->[0]->{'type'}
+               and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
         my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
         my $format_item_command;
         my $attribute = [];
