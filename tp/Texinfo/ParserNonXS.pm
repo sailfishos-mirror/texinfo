@@ -1146,32 +1146,6 @@ sub _bug_message($$;$$)
        $line_message.$message_context_stack.$current_element_message;
 }
 
-# for debugging
-# TODO probably useless now that args are contents
-sub _print_command_args_texi($)
-{
-  my $current = shift;
-  return '' if (!$current->{'cmdname'});
-  my $args = '';
-  my $with_brace;
-  if ($current->{'args'} and @{$current->{'args'}}) {
-    $with_brace
-        = ($current->{'args'}->[0]->{'type'} eq 'brace_container'
-           or $current->{'args'}->[0]->{'type'} eq 'brace_arg'
-           or $current->{'args'}->[0]->{'type'} eq 'brace_command_context');
-    $args .= '{' if ($with_brace);
-    foreach my $arg (@{$current->{'args'}}) {
-      $args .= Texinfo::Convert::Texinfo::convert_to_texinfo($arg).', ';
-    }
-    $args =~ s/, $//;
-  }
-  chomp($args);
-  if ($with_brace) {
-    $args .= '}';
-  }
-  return '@'.$current->{'cmdname'} .$args."\n";
-}
-
 sub _register_global_command {
   my ($self, $current, $source_info) = @_;
 

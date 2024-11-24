@@ -184,7 +184,7 @@ sub _convert($$)
     my $start = 0;
     if ($element->{'cmdname'}
         and $Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}) {
-      # TODO not sure that there is a test for that code
+      # TODO there is no test for that code
       $start = 1;
     }
     for (my $i = $start; $i < $contents_nr; $i++) {
