@@ -1332,7 +1332,9 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                 }
             }
 
-          if ((builtin_command_data[data_cmd].flags & CF_brace)
+          if ((builtin_command_data[data_cmd].flags & CF_brace
+               /* could be 0 for brace commands without braces */
+               && element->e.c->contents.number > 0)
               || (builtin_command_data[data_cmd].flags & CF_line
                   && builtin_command_data[data_cmd].data == LINE_line)
               || ((cmd == CM_item || cmd == CM_itemx)
@@ -1342,21 +1344,13 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
               || cmd == CM_float
               || cmd == CM_cartouche)
             {
-              const ELEMENT_LIST *arguments_list = 0;
+              const ELEMENT_LIST *arguments_list;
 
-              if (element->e.c->contents.number > 0
-                  && element->e.c->contents.list[0]->type == ET_arguments_line)
-                {
-                  const ELEMENT *argument = element->e.c->contents.list[0];
-                  /* TODO most likely always true */
-                  if (argument->e.c->contents.number > 0)
-                    arguments_list = &argument->e.c->contents;
-                }
+              if (element->e.c->contents.list[0]->type == ET_arguments_line)
+                arguments_list
+                    = &element->e.c->contents.list[0]->e.c->contents;
               else
-                {
-                  if (element->e.c->contents.number > 0)
-                    arguments_list = &element->e.c->contents;
-                }
+                arguments_list = &element->e.c->contents;
 
               if (arguments_list)
                 {
@@ -1369,7 +1363,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                     malloc (sizeof (HTML_ARGS_FORMATTED));
                   args_formatted->number = arguments_list->number;
                   args_formatted->args = (HTML_ARG_FORMATTED *)
-                 malloc (args_formatted->number * sizeof (HTML_ARG_FORMATTED));
+                  malloc (args_formatted->number * sizeof (HTML_ARG_FORMATTED));
                   memset (args_formatted->args, 0,
                         args_formatted->number * sizeof (HTML_ARG_FORMATTED));
 

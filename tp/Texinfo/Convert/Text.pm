@@ -77,12 +77,8 @@ sub import {
 }
 
 
-# this may not be needed for 'footnote', 'shortcaption', 'caption'
-# as they have no brace_container, see below.
-# FIXME check that the above sentence is still true now that the brace
-# commands have contents and not args
 my %ignored_brace_commands;
-foreach my $ignored_brace_command (#'xref','ref','pxref','inforef',
+foreach my $ignored_brace_command (
    'anchor', 'sortas', 'seealso', 'seeentry',
    'footnote', 'shortcaption', 'caption', 'hyphenation', 'errormsg') {
   $ignored_brace_commands{$ignored_brace_command} = 1;

@@ -13594,7 +13594,8 @@ sub _convert($$;$)
         }
       }
       my $args_formatted;
-      if ($brace_commands{$command_name}
+          # contents could be not set for brace commands without braces
+      if (($brace_commands{$command_name} and $element->{'contents'})
           or ($line_commands{$command_name}
               and $line_commands{$command_name} eq 'line')
           or (($command_name eq 'item' or $command_name eq 'itemx')
@@ -13606,8 +13607,7 @@ sub _convert($$;$)
           or $command_name eq 'float'
           or $command_name eq 'cartouche') {
         my $arguments_list;
-        if ($element->{'contents'}
-            and $element->{'contents'}->[0]->{'type'}
+        if ($element->{'contents'}->[0]->{'type'}
             and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
           $arguments_list = $element->{'contents'}->[0]->{'contents'};
         } else {
