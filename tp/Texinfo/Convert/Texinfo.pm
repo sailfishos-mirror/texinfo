@@ -74,6 +74,8 @@ my %brace_commands           = %Texinfo::Commands::brace_commands;
 my %root_commands            = %Texinfo::Commands::root_commands;
 my %block_commands           = %Texinfo::Commands::block_commands;
 my %def_commands             = %Texinfo::Commands::def_commands;
+my %nobrace_commands         = %Texinfo::Commands::nobrace_commands;
+my %line_commands            = %Texinfo::Commands::line_commands;
 
 # used in root_heading_command_to_texinfo
 my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
@@ -185,9 +187,26 @@ sub root_heading_command_to_texinfo($)
   }
 }
 
+sub _convert_to_texinfo($);
+
+# convert ELEMENT contents as comma separated arguments
+sub _convert_args($)
+{
+  my $element = shift;
+
+  my $result = '';
+  my $arg_nr = 0;
+  foreach my $arg (@{$element->{'contents'}}) {
+    next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
+    $result .= ',' if ($arg_nr);
+    $arg_nr++;
+    $result .= _convert_to_texinfo($arg);
+  }
+  return $result;
+}
+
 # Following subroutines deal with transforming a texinfo tree into texinfo
 # text.  Should give the text that was used parsed, except for a few cases.
-
 sub _convert_to_texinfo($)
 {
   my $element = shift;
@@ -203,49 +222,63 @@ sub _convert_to_texinfo($)
   if (defined($element->{'text'})) {
     $result .= $element->{'text'};
   } else {
-    if ($element->{'cmdname'}) {
-      my $cmdname;
-      if (! defined($element->{'cmdname'})) {
-        $cmdname = '';
+    if (defined($element->{'cmdname'})) {
+      my $cmdname = $element->{'cmdname'};
+      my $data_cmdname;
+      if ($cmdname eq 'item' and $element->{'contents'}
+          and $element->{'contents'}->[0]->{'type'}
+          and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
+        $data_cmdname = 'item_LINE';
       } else {
-        $cmdname = $element->{'cmdname'};
-        $result .= '@'.$cmdname;
-
-        # this is done here otherwise for some constructs, there are
-        # no arguments and the space is not output.
-        if ($element->{'info'}
-            and $element->{'info'}->{'spaces_after_cmd_before_arg'}) {
-            $result
-             .= $element->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'};
-        }
+        $data_cmdname = $cmdname;
       }
-      # arg_line set for line_commands with type special and @macro
-      if ($element->{'info'} and defined($element->{'info'}->{'arg_line'})) {
-        $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'}
-          if $element->{'info'} and $element->{'info'}->{'spaces_before_argument'};
+
+      $result .= '@'.$cmdname;
+
+      if ($element->{'info'}
+          and $element->{'info'}->{'spaces_after_cmd_before_arg'}) {
+          $result
+           .= $element->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'};
+      }
+
+      my $spc_before_arg = '';
+      if ($element->{'info'}
+          and $element->{'info'}->{'spaces_before_argument'}) {
+        $spc_before_arg
+          = $element->{'info'}->{'spaces_before_argument'}->{'text'};
+      }
+
+      if ($nobrace_commands{$data_cmdname}) {
+        # the spaces following a command are put in a text element in the
+        # tree, not associated to the command element.
+        # item, tab and headitem are nobrace commands with contents
+        return $result if (!$element->{'contents'});
+     # arg_line set for line_commands with type lineraw that have
+     # arguments and for @macro.
+     # if there is no arg_line, the end of line is in rawline_arg in contents
+     # so the lineraw command should be processed along with other
+     # line commands below
+      } elsif ($element->{'info'} and defined($element->{'info'}->{'arg_line'})) {
+        $result .= $spc_before_arg;
         $result .= $element->{'info'}->{'arg_line'};
         if (!$block_commands{$cmdname}) {
           return $result;
         }
-      } elsif ($element->{'contents'}
-               and (exists($brace_commands{$cmdname})
-                    or ($element->{'type'}
-                        and $element->{'type'} eq 'definfoenclose_command'))) {
+      } elsif (exists($brace_commands{$cmdname})
+               or ($element->{'type'}
+                   and $element->{'type'} eq 'definfoenclose_command')) {
+        # contents may not be set for a command without braces.  In that
+        # case it is better if the command is considered as a command without
+        # argument.
+        return $result if (!$element->{'contents'});
         my $braces = 1;
         $braces = 0 if ($element->{'contents'}->[0]->{'type'} eq 'following_arg');
         $result .= '{' if ($braces);
         if ($cmdname eq 'verb') {
           $result .= $element->{'info'}->{'delimiter'};
         }
-        $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'}
-          if ($element->{'info'} and $element->{'info'}->{'spaces_before_argument'});
-        my $arg_nr = 0;
-        foreach my $arg (@{$element->{'contents'}}) {
-          next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
-          $result .= ',' if ($arg_nr);
-          $arg_nr++;
-          $result .= _convert_to_texinfo($arg);
-        }
+        $result .= $spc_before_arg;
+        $result .= _convert_args($element);
         if ($cmdname eq 'verb') {
           $result .= $element->{'info'}->{'delimiter'};
         }
@@ -254,33 +287,21 @@ sub _convert_to_texinfo($)
       } elsif ($element->{'contents'}
                and ($element->{'contents'}->[0]->{'type'}
                     and $element->{'contents'}->[0]->{'type'} eq 'argument')) {
-        $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'}
-          if $element->{'info'} and $element->{'info'}->{'spaces_before_argument'};
-        my $arg_nr = 0;
-        my $argument = $element->{'contents'}->[0];
-        foreach my $arg (@{$argument->{'contents'}}) {
-          next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
-          $result .= ',' if ($arg_nr);
-          $arg_nr++;
-          $result .= _convert_to_texinfo($arg);
-        }
+        # root commands and block commands that are not def commands
+        $result .= $spc_before_arg;
+        $result .= _convert_args($element->{'contents'}->[0]);
+      } elsif ($line_commands{$data_cmdname}
+               or ($element->{'type'}
+                   and $element->{'type'} eq 'index_entry_command')) {
         # line commands that are not root commands
-      } elsif ($element->{'contents'}
-           and $element->{'contents'}->[0]->{'type'}
-           and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
-        $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'}
-           if ($element->{'info'} and $element->{'info'}->{'spaces_before_argument'});
-        my $arg_nr = 0;
-        foreach my $arg (@{$element->{'contents'}}) {
-          next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
-          $result .= ',' if ($arg_nr);
-          $arg_nr++;
-          $result .= _convert_to_texinfo($arg);
-        }
+        $result .= $spc_before_arg;
+        $result .= _convert_args($element);
         return $result;
+      } elsif ($def_commands{$data_cmdname}) {
+        # @def* commands (that are also block commands)
+        $result .= $spc_before_arg;
       } else {
-        $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'}
-          if $element->{'info'} and $element->{'info'}->{'spaces_before_argument'};
+        warn "BUG: Unknown command type to convert to texinfo: $cmdname\n";
       }
     } else {
       if ($element->{'type'}
@@ -293,11 +314,13 @@ sub _convert_to_texinfo($)
         $result .= $element->{'info'}->{'spaces_before_argument'}->{'text'};
       }
     }
+
     if (defined($element->{'contents'})) {
       foreach my $child (@{$element->{'contents'}}) {
         $result .= _convert_to_texinfo($child);
       }
     }
+
     if ($element->{'info'} and $element->{'info'}->{'spaces_after_argument'}) {
       $result .= $element->{'info'}->{'spaces_after_argument'}->{'text'};
     }

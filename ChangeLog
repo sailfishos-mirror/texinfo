@@ -1,3 +1,14 @@
+2024-11-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo, _convert_args),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (convert_args)
+	(convert_to_texinfo_internal): add convert_args for expansion of
+	arguments separated by commas.
+
+	* tp/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (convert_to_texinfo_internal):
+	change conditions to group more by type of commands.
+
 2024-11-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Text.pm (_convert): check line_commands instead

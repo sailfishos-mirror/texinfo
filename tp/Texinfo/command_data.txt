@@ -69,6 +69,7 @@ index_entry_command     internal,line,index_entry_command,contain_basic_inline,n
 # formatting
 noindent                nobrace,preamble,no_paragraph                NOBRACE_skipspace
 indent                  nobrace,preamble,no_paragraph                NOBRACE_skipspace
+# Next three commands are also containers
 headitem                nobrace,formatted_nobrace,close_paragraph,no_paragraph         NOBRACE_skipspace
 item                    nobrace,formatted_nobrace,close_paragraph,no_paragraph         NOBRACE_skipspace
 tab                     nobrace,formatted_nobrace,close_paragraph,no_paragraph         NOBRACE_skipspace

@@ -37,16 +37,34 @@
 #include "convert_to_texinfo.h"
 
 
-static void expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result);
 static void convert_to_texinfo_internal (const ELEMENT *e, TEXT *result);
 
 
 #define ADD(x) text_append (result, x)
 
 static void
+convert_args (const ELEMENT *element, TEXT *result)
+{
+  size_t i;
+  size_t arg_nr = 0;
+
+  for (i = 0; i < element->e.c->contents.number; i++)
+    {
+      const ELEMENT *arg = element->e.c->contents.list[i];
+      if (arg->flags & EF_inserted)
+        continue;
+
+      if (arg_nr)
+        ADD(",");
+      arg_nr++;
+      convert_to_texinfo_internal (arg, result);
+    }
+}
+
+static void
 convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
 {
-  ELEMENT *elt;
+  const ELEMENT *elt;
 
   if (e->flags & EF_inserted || e->type == ET_argument)
     {}
@@ -59,9 +77,8 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
     {
       if (e->e.c->cmd)
         {
-          enum command_id cmd = element_builtin_cmd (e);
-          ELEMENT *elt;
-          ELEMENT *spc_before_arg = 0;
+          enum command_id cmd = element_builtin_data_cmd (e);
+          const ELEMENT *spc_before_arg = 0;
 
           if (cmd)
             {
@@ -82,10 +99,21 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
               spc_before_arg = e->elt_info[eit_spaces_before_argument];
             }
 
-          /* if there is no arg_line, the end of line is in rawline_arg in args
-             so the ET_lineraw_command args should be processed along with other
-             commands in that case */
-          if (e->type == ET_lineraw_command && e->e.c->string_info[sit_arg_line])
+          if (builtin_command_data[cmd].flags & CF_nobrace)
+            {
+           /* the spaces following a command are put in a text element in the
+              tree, not associated to the command element. */
+           /* item, tab and headitem are nobrace commands with contents */
+              if (e->e.c->contents.number == 0)
+                return;
+            }
+      /* arg_line set for line_commands with type lineraw that have
+         arguments and for @macro. */
+      /* if there is no arg_line, the end of line is in rawline_arg in contents
+         so the ET_lineraw_command should be processed along with other
+         line commands below */
+          else if (e->type == ET_lineraw_command
+                   && e->e.c->string_info[sit_arg_line])
             {
               const char *arg_line = e->e.c->string_info[sit_arg_line];
               if (spc_before_arg)
@@ -96,12 +124,16 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
               if (!(builtin_command_data[cmd].flags & CF_block))
                 return;
             }
-          else if (e->e.c->contents.number > 0
-                   && (builtin_command_data[cmd].flags & CF_brace
-                       || builtin_command_data[cmd].flags & CF_INFOENCLOSE))
+          else if (builtin_command_data[cmd].flags & CF_brace
+                   || builtin_command_data[cmd].flags & CF_INFOENCLOSE)
             {
-              size_t i, arg_nr;
               int braces;
+
+       /* contents may not be set for a command without braces.  In that
+          case it is better if the command is considered as a command without
+          argument. */
+              if (e->e.c->contents.number == 0)
+                return;
 
               braces = !(e->e.c->contents.list[0]->type == ET_following_arg);
               if (braces)
@@ -116,18 +148,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
               if (spc_before_arg)
                 ADD((char *)spc_before_arg->e.text->text);
 
-              arg_nr = 0;
-              for (i = 0; i < e->e.c->contents.number; i++)
-                {
-                  ELEMENT *arg = e->e.c->contents.list[i];
-                  if (arg->flags & EF_inserted)
-                    continue;
-
-                  if (arg_nr)
-                    ADD(",");
-                  arg_nr++;
-                  convert_to_texinfo_internal (arg, result);
-                }
+              convert_args (e, result);
 
               if (cmd == CM_verb)
                 {
@@ -142,56 +163,35 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
           else if (e->e.c->contents.number > 0
                    && e->e.c->contents.list[0]->type == ET_argument)
             {
-              size_t i, arg_nr;
-              ELEMENT *argument = e->e.c->contents.list[0];
+           /* root commands and block commands that are not def commands */
+              const ELEMENT *argument = e->e.c->contents.list[0];
 
               if (spc_before_arg)
                 ADD((char *)spc_before_arg->e.text->text);
 
-              arg_nr = 0;
-              for (i = 0; i < argument->e.c->contents.number; i++)
-                {
-                  ELEMENT *arg = argument->e.c->contents.list[i];
-                  if (arg->flags & EF_inserted)
-                    continue;
-
-                  if (arg_nr)
-                    ADD(",");
-                  arg_nr++;
-                  convert_to_texinfo_internal (arg, result);
-                }
+              convert_args (argument, result);
             }
-          /* line commands that are not root commands */
-          else if (e->e.c->contents.number > 0
-                   && e->e.c->contents.list[0]->type == ET_line_arg)
+          else if (builtin_command_data[cmd].flags & CF_line
+                   || e->type == ET_index_entry_command)
             {
-              size_t i, arg_nr;
-
+          /* line commands that are not root commands */
               if (spc_before_arg)
                 ADD((char *)spc_before_arg->e.text->text);
 
-              arg_nr = 0;
-              for (i = 0; i < e->e.c->contents.number; i++)
-                {
-                  ELEMENT *arg = e->e.c->contents.list[i];
-                  if (arg->flags & EF_inserted)
-                    continue;
-
-                  if (arg_nr)
-                    ADD(",");
-                  arg_nr++;
-                  convert_to_texinfo_internal (arg, result);
-                }
+              convert_args (e, result);
               return;
+            }
+          else if (builtin_command_data[cmd].flags & CF_def)
+            { /* @def* commands (that are also block commands) */
+              if (spc_before_arg)
+                ADD((char *)spc_before_arg->e.text->text);
             }
           else
             {
-              if (spc_before_arg)
-                ADD((char *)spc_before_arg->e.text->text);
+              fprintf (stderr,
+                       "BUG: Unknown command type to convert to texinfo: %s\n",
+                       element_command_name (e));
             }
-          if (builtin_command_data[cmd].flags & CF_brace
-              || builtin_command_data[cmd].flags & CF_INFOENCLOSE)
-            return;
         }
       else
         {
