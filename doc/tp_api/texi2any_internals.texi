@@ -92,10 +92,21 @@ Texinfo::Parser METHODS
 
 TEXINFO TREE
 
+* Texinfo@asis{::}Parser Texinfo tree structure::
 * Texinfo@asis{::}Parser Element keys::
 * Texinfo@asis{::}Parser Element types::
 * Texinfo@asis{::}Parser Information available in the @code{info} key::
 * Texinfo@asis{::}Parser Information available in the @code{extra} key::
+
+Texinfo tree structure
+
+* Texinfo@asis{::}Parser Root and first level elements::
+* Texinfo@asis{::}Parser Line command tree element::
+* Texinfo@asis{::}Parser Block command tree element::
+* Texinfo@asis{::}Parser Paragraphs and preformatted::
+* Texinfo@asis{::}Parser Brace commands::
+* Texinfo@asis{::}Parser Texinfo line tree::
+* Texinfo@asis{::}Parser Showing the tree structure::
 
 Element types
 

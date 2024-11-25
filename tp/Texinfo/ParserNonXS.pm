@@ -8483,16 +8483,208 @@ Finally, the last category is other elements, which in most cases have
 a C<type> key holding their name.  Text fragments and @-command elements
 may also have an associated type when such information is needed.
 
-The children of an @-command or of other container element are in the array
-referred to with the C<args> key or with the C<contents> key.  The C<args> key
-is for arguments of @-commands, either in braces or on the rest of the line
-after the command, depending on the type of command.  The C<contents> key array
-holds the contents of the texinfo code appearing within a block @-command,
-within a container, or within a C<@node> or sectioning @-command.
+The C<contents> key holds an array reference for the children of @-command
+tree elements and containers.  In particular for arguments of an @-command,
+either in braces or on the rest of the line after the command, depending on
+the type of command. Also for content appearing within a block @-command,
+within a container, or within a C<@node> or sectioning @-command.  Text
+fragments do not have children.
 
-Another important key for the elements is the C<extra> key which is
-associated to a hash reference and holds all kinds of information that
-is gathered during the parsing and may help with the conversion.
+The C<extra> and C<info> keys are associated to hash references and hold
+information gathered during the parsing.
+
+=head2 Texinfo tree structure
+
+=head3 Root and first level elements
+
+A full Texinfo tree is rooted at a I<document_root> type element.
+I<document_root> first element in C<contents> should be a
+I<before_node_section> container for content appearing before the first node or
+sectioning command.  Nodes and sections @-commands elements follow.  The node
+or sectioning command elements C<contents> hold all the elements corresponding
+to Texinfo code before the next node or sectioning command element or C<@bye>.
+If present in the Texinfo document, the C<@bye> element is next.  If there is
+content after C<@bye>, it is last in the I<postamble_after_end> container
+element.
+
+The content of I<before_node_section> depend on the presence of
+C<@setfilename> in the document before the first node or sectioning element:
+
+=over
+
+=item with C<@setfilename>
+
+The first container in I<before_node_section> is
+I<preamble_before_setfilename>.  The first element in
+I<preamble_before_setfilename> is I<preamble_before_beginning>, which
+holds everything appearing before the first content, including
+the \input texinfo.tex line and following blank lines.  It may be
+followed by paragraphs and block commands elements, if any, although it is
+not recommended to have such content before C<@setfilename>.
+
+The second container in I<before_node_section> is
+I<preamble_before_content>, which begins with C<@setfilename>
+and contains everything appearing before the first formatted content,
+corresponding to the I<preamble> in the Texinfo documentation.
+
+The paragraphs and other contents follow up in I<before_node_section>
+C<contents> until the first node or section.
+
+=item without C<@setfilename>
+
+The first container in I<before_node_section> is I<preamble_before_beginning>,
+which holds everything appearing before the first content, including
+the \input texinfo.tex line and following blank lines.
+
+It is followed by I<preamble_before_content>, which contains everything
+appearing before the first formatted content, corresponding to the I<preamble>
+in the Texinfo documentation.
+
+The paragraphs and other contents follow up in I<before_node_section>
+C<contents> until the first node or section.
+
+=back
+
+I<preamble_before_content> contains empty lines text elements,
+elements corresponding to line commands such as C<@documentlanguage> or
+C<@frenchspacing>, block commands such as C<@copying> that are not immediately
+output but also raw output block commands such as C<@html>.
+
+The first element of a node or sectioning command C<contents>
+is an I<arguments_line> container holding the command arguments
+appearing on the @-command line.  The I<arguments_line> in turn contains
+I<line_arg> containers for each of the node arguments separated by
+commas, or the unique sectioning command argument.  The node or
+sectioning command contents follow, including paragraphs, empty line
+text elements, all kind of block commands and line commands such as
+C<@center> or index commands such as C<@cindex> as well as C<@image>
+command elements out of paragraphs.
+
+=head3 Line command tree element
+
+There are three main types of line commands, regular line commands,
+I<lineraw> line commands and definition line commands.
+
+=over
+
+=item I<lineraw> line commands
+
+I<lineraw> line commands arguments are not subject to the
+usual macro expansion.  I<lineraw> line commands with
+arguments are, for example, C<@set>, C<@clickstyle>, C<@unmacro>
+and C<@comment>.  C<@raisesections>, C<@contents> and C<@novalidate>
+are examples of I<lineraw> line commands without arguments.
+
+I<lineraw> line commands C<contents> contains direclty I<rawline_arg>
+text elements holding the line arguments or the end of line if the
+@-command do not have any argument.
+
+=item regular line commands
+
+Most line commands with arguments that are not node or sectioning commands are
+regular line commands.  Regular line command C<contents> holds I<line_arg>
+containers for each of the line arguments separated by commas.  I<line_arg>
+containers contain in turn text elements, elements of @-commands without
+arguments, with empty braces, such as C<@equiv> and with braces such as
+C<@code> or C<@ref>.
+
+=item definition line commands
+
+Definition line commands elements are elements associated to commands like
+C<@deffnx> or C<@defline>.  They contain a I<line_arg> container, which, in
+turn contains the specific definition line containers such as I<def_category>,
+I<def_arg> and some special text elements such as I<space>.
+
+=back
+
+=head3 Block command tree element
+
+The first element of most block command C<contents> is an I<arguments_line>
+container holding the command arguments appearing on the @-command line,
+similar to node and sectioning command elements.  The I<arguments_line> holds
+I<line_arg> containers for each of the arguments separated by commas, similar
+to line commands.  Definition block commands such as C<@deffn> do not follow
+the same rule and do not have an I<arguments_line> container.  C<@defblock>
+command element, however, is like regular block commands, with an
+I<arguments_line> container as first C<contents> element.
+
+The remaining elements in C<contents> depend on the block command.  Block
+commands like C<@float>, C<@quotation> or C<@flushleft> remaining C<contents>
+are paragraphs, empty line text elements, line commands and nested block
+commands, much like node and sectioning elements, appearing before the matching
+C<@end> commmand element.
+
+Block commands like C<@example> or C<@display> are similar except that they
+contain I<preformatted> containers instead of paragraphs and so do
+other block commands nested in those @-commands.
+
+Other block commands contain specific containers depending on the block
+command.  Block commands with C<@item> may contain a I<before_item> container
+for contents before the first C<@item>.  C<@itemize> and C<@enumerate> block
+commands following contents are C<@item> commands holding the Texinfo
+code elements until the next C<@item> or C<@end>.  C<@table> and similar block
+commands elements in C<contents> are I<table_entry> containers for each table
+line, that contain themselves specific containers.  C<@multitable> contains
+I<multitable_head> and I<multitable_body> containers.  C<@menu> C<contents>
+hold I<menu_entry> and I<menu_comments> container elements.
+
+The definition commands such as C<@deffn> contain a I<def_line> container
+as first C<contents>, may contain an I<inter_def_item> container, also contains
+C<@deffnx> line commands, and ends with a I<def_item> container for the main
+contents of the definition command.  The C<@defblock> commands C<contents> may
+hold a I<before_defline> element after the line arguments, also contains
+line @-commands such as C<@defline> and a I<def_item> container.  The
+I<def_line> container contains a I<block_line_arg> container,
+which, in turn contains the specific definition line containers such as
+I<def_category>, I<def_arg> and some special text elements such as I<space>.
+
+Raw block commands such as C<@verbatim>, C<@ignore> or C<@macro>
+contain directly I<raw> text elements.
+
+Lastly, raw output commands such as C<@html> element in C<contents> after the
+I<arguments_line> is either an I<elided_rawpreformatted> element container
+containing I<raw> text elements if ignored, or a I<rawpreformatted> container
+containing directly text and @-command elements if output.
+
+The C<@end> command element is a regular line command element and is the last
+element of all the block commands C<contents>.
+
+=head3 Paragraphs and preformatted
+
+I<paragraph> and I<preformatted> container C<contents> are 
+text elements, elements of @-commands without arguments, such as C<@}>, with
+empty braces, such as C<@equiv> and with braces such as C<@code> or C<@ref>.
+They may also contain elements corresponding to the few line commands that do
+not stop a paragraph, such as index command elements.  I<preformatted>
+container may contain empty line text elements, while I<paragraph> containers
+do not.
+
+=head3 Brace commands
+
+C<@footnote> and C<@caption> @-command elements that start a new context and
+contain paragraphs and block commands contain a I<brace_command_context>
+container.  The I<brace_command_context> container contains I<paragraph>,
+line command and block command elements, much like node, sectioning and block
+command elements.  C<@math> also contains a I<brace_command_context> container,
+which contains directly text and brace commands more similar to the
+I<preformatted> container.
+
+For commands taking arguments surrounded by braces when the whole text in the
+braces is in the argument, such as C<@u> or C<@code> the first and only
+C<contents> element is a I<brace_container>.
+Other brace commands, in particular brace commands with arguments separated
+by commas contain I<brace_arg> containers, one for each of the arguments.
+The I<brace_container> and I<brace_arg> containers contain directly text
+elements some @-commands without arguments and other @-commands with braces,
+similar to I<line_arg> or I<paragraph> containers.
+
+=head3 Texinfo line tree
+
+When parsing Texinfo line fragments using C<parse_texi_line>, a I<root_line>
+type element is the root element.  It should typically contain elements
+that appear in I<paragraph>, I<preformatted> or containers like I<line_arg>.
+
+=head3 Showing the tree structure
 
 You can see examples of the tree structure by running makeinfo like
 this:
@@ -8530,14 +8722,9 @@ I<spaces_before_paragraph> is associated to spaces appearing
 before a paragraph beginning.  Most @-commands elements do not have
 a type associated.
 
-=item args
-
-Arguments in braces or on @-command line.  An array reference.
-
 =item contents
 
-The Texinfo appearing in the element.  For block commands, other
-containers, C<@node> and sectioning commands. An array reference.
+An array reference holding the list of children of the element. 
 
 =item parent
 
@@ -8652,6 +8839,12 @@ An empty line (possibly containing whitespace characters only).
 spaces appearing after an @-command without braces that does not
 take argument on the line, but which is followed by ignorable
 spaces, such as C<@item> in C<@itemize> or C<@multitable>, or C<@noindent>.
+
+=item macro_line
+
+Text appearing on a C<@macro>, C<@linemacro> or C<@rmacro> line after
+the @-command, including the leading space and the newline.  In the
+I<arguments_line> container @-command.
 
 =item spaces_after_close_brace
 
@@ -8783,7 +8976,7 @@ with items (C<@table>, C<@multitable>, C<@enumerate>...).
 
 =item following_arg
 
-Those containers occur within the C<args> array of @-commands taking an
+Those containers occur within the C<contents> array of @-commands taking an
 argument.  I<brace_container> is used for the argument to commands
 taking arguments surrounded by braces when the whole text in the braces
 is in the argument.  I<brace_arg> is used for the arguments to commands taking
@@ -8793,9 +8986,10 @@ commas.  I<brace_command_context> is used for @-commands with braces that start
 a new context (C<@footnote>, C<@caption>, C<@math>).
 
 I<line_arg> is used for commands that take the texinfo code on the rest of the
-line as their argument, such as C<@settitle>, C<@node>, C<@section>.
-I<block_line_arg> is similar but is used for commands that start a new block
-(which is to be ended with C<@end>).
+line as their argument, such as C<@settitle>, or for C<@node>, C<@section>
+I<arguments_line> container.  I<block_line_arg> is similar but is used for
+I<arguments_line> container of commands that start a new block (which is to be
+ended with C<@end>).
 
 I<following_arg> is used for the accent @-commands argument that did not use
 braces but instead followed the @-command, possibly after a space, as
@@ -8894,15 +9088,6 @@ or rmacro.  It should not appear directly in the tree as the user defined
 call is expanded.  The name of the macro, rmacro or linemacro is the the info
 I<command_name> value.  The I<macro_call_line> or I<rmacro_call_line> elements
 are used when there are no braces and the whole line is the argument.
-
-=item macro_name
-
-=item macro_arg
-
-Taken from C<@macro> definition and put in the C<args> key array of
-the macro, I<macro_name> is the type of the text fragment corresponding
-to the macro name, I<macro_arg> is the type of the text fragments
-corresponding to macro formal arguments.
 
 =item menu_comment
 
@@ -9011,8 +9196,7 @@ and C<@itemx>, in a I<table_term>.
 =item arg_line
 
 The string correspond to the line after the @-command
-for @-commands that have special arguments on their line,
-and for C<@macro> line.
+for @-commands that have special arguments on their line.
 
 =item command_name
 
