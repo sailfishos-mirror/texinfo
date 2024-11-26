@@ -1,3 +1,16 @@
+2024-11-26  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (Internationalization of Document Strings): move
+	details on libintl implementations used to the end, and update to be
+	clearer now that there is also a C implementation.
+	Describe that braced argument for varying parts of the strings are
+	used before telling that %s is not used.
+	Remove argument on Perl version, we require that version already.
+	Put in an @ignore block the justification of using braced argument for
+	variable strings, there is no need for a justification.  
+	Remove the point on encoding, it is not important nowadays that UTF-8
+	is generally used.
+
 2024-11-26  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (@definfoenclose, Generating HTML)

@@ -16170,37 +16170,28 @@ the value of the @code{documentlanguage} at the time of the string
 being output (@pxref{@code{@@documentlanguage}}, for the Texinfo
 command interface).
 
-@pindex libintl-perl @r{Gettext implementation}
-The Gettext framework is used for those strings (@pxref{Top,,,
-gettext, Gettext}).  The @code{libintl-perl} package is used as the
-@code{gettext} implementation; more specifically, the pure Perl
-implementation is used, so Texinfo can support consistent behavior
-across all platforms and installations, which would not otherwise be
-possible.  @code{libintl-perl} is included in the Texinfo distribution
-and always installed, to ensure that it is available if needed.  It is
-also possible to use the system @code{gettext} (the choice can be made
-at build-time).
-
 @vindex texinfo_document @r{Gettext domain}
 @cindex Perl format strings for translation
-The Gettext domain @samp{texinfo_document} is used for the strings.
+The Gettext framework with the @samp{texinfo_document} domain
+is used for those strings (@pxref{Top,,, gettext, Gettext}).
 Translated strings are written as Texinfo, and may include
 @@-commands.  In translated strings, the varying parts of the string
-are not usually denoted by @code{%s} and the like, but by
-@samp{@{arg_name@}}.  (This convention is common for @code{gettext} in
-Perl and is fully supported in GNU Gettext; @pxref{perl-format,, Perl
-Format Strings, gettext, GNU Gettext}.)  For example, in the
-following, @samp{@{section@}} will be replaced by the section name:
+are denoted by @samp{@{arg_name@}}, but not by @code{%s} and the like.
+(This convention is common for @code{gettext} in Perl and is fully
+supported in GNU Gettext; @pxref{perl-format,, Perl Format Strings,
+gettext, GNU Gettext}.)  For example, in the following, @samp{@{section@}}
+will be replaced by the section name:
 
 @example
 see @{section@}
 @end example
 
-These Perl-style brace format strings are used for two reasons: first,
-changing the order of @code{printf} arguments is only available since
-Perl@tie{}5.8.0; second, and more importantly, the order of arguments
+@c Ignore, there is no need to justify this choice
+@ignore
+These Perl-style brace format strings are used because the order of arguments
 is unpredictable, since @@-command expansion may lead to different
 orders depending on the output format.
+@end ignore
 
 The expansion of a translation string is done like this:
 
@@ -16232,12 +16223,11 @@ Generated on @@emph@{@{date@}@} using
 @@uref@{@{program_homepage@}, @@emph@{@{program@}@}@}.
 @end example
 
-This approach is admittedly a bit complicated.  Its usefulness is that
-it supports having translations available in different encodings for
-encodings which can be covered by @@-commands, and also specifying how
-the formatting for some commands is done, independently of the output
-format---yet still be language-dependent.  For example, the
-@samp{@@pxref} translation string can be like this:
+This approach is admittedly a bit complicated.  Its usefulness is that it
+supports specifying the formatting of the translated string independently
+of the output format.
+
+For example, the @samp{@@pxref} translation string can be like this:
 
 @example
 see @{node_file_href@} section `@{section@}' in @@cite@{@{book@}@}
@@ -16247,6 +16237,17 @@ see @{node_file_href@} section `@{section@}' in @@cite@{@{book@}@}
 which allows for specifying a string independently of the output
 format, while nevertheless with rich formatting it may be translated
 appropriately in many languages.
+
+@c TODO Seems like an implementation detail.  Remove?
+@pindex libintl-perl @r{Gettext implementation}
+If Perl is used for strings translation in @command{texi2any}, the
+@code{libintl-perl} package is used as the @code{gettext} implementation; more
+specifically, the pure Perl implementation is used, so Texinfo can support
+consistent behavior across all platforms and installations, which would not
+otherwise be possible.  @code{libintl-perl} is included in the Texinfo
+distribution and always installed, to ensure that it is available if needed.
+It is also possible to use the system @code{libintl-perl} (the choice can be
+made at build-time).
 
 
 @node Invoking @command{pod2texi}
