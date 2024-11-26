@@ -503,6 +503,16 @@ AC_SUBST([enable_xs])
 
 AM_CONDITIONAL([DISABLE_XS], [test "z$enable_xs" = zno])
 
+AC_ARG_ENABLE([xs-perl-libintl],
+    AS_HELP_STRING([--enable-xs-perl-libintl],
+            [prefer Perl libintl-perl gettext in XS modules]),
+    [if test $enableval = 'yes'; then
+       prefer_libinlt_perl=yes
+     else
+       prefer_libinlt_perl=no
+     fi],
+     [])
+
 # Texinfo JS Interface
 npm_path="${srcdir}/js/node_modules/.bin"
 if test -d "$npm_path" ; then

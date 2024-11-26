@@ -78,10 +78,10 @@ configure_output_strings_translations (const char *localesdir,
     use_external_translate_string = use_external_translate_string_in;
   else
     {
-  #ifndef HAVE_USABLE_GETENV_IN_XS
-      use_external_translate_string = 1;
-  #else
+  #ifndef USE_LIBINTL_PERL_IN_XS
       use_external_translate_string = 0;
+  #else
+      use_external_translate_string = 1;
   #endif
     }
 
