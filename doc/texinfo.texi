@@ -13577,7 +13577,7 @@ For example, you can write:
 
 @noindent
 near the beginning of a Texinfo file to define @code{@@phoo} as an Info
-and HTML formatting command that inserts `//' before and `\\' after the
+and HTML command that inserts `//' before and `\\' after the
 argument to @code{@@phoo}.  You can then write @code{@@phoo@{bar@}}
 wherever you want `//bar\\' highlighted in Info and HTML.
 
@@ -17083,7 +17083,7 @@ with which you can influence the HTML output.  @xref{HTML Output
 Customization}.  In particular, there is support for syntax
 highlighting in @code{@@example} (@pxref{Syntax Highlighting}). You can also
 write so-called @dfn{initialization files}, or @dfn{init files} for short, to
-modify almost every aspect of HTML output formatting.  Initialization files
+modify almost every aspect of HTML output.  Initialization files
 contain code and are loaded by @option{--init-file} (@pxref{Invoking
 @command{texi2any}}).
 
@@ -18479,7 +18479,7 @@ You could also set the DOCTYPE to HTML 4.01 Transitional:
 By default, entities are used for doubled single-quote characters
 (@pxref{Inserting Quotation Marks}), and @samp{---} and @samp{--}
 (@pxref{Conventions}).  Set @code{USE_ISO} to @samp{0} in the unlikely case
-that you want a simpler formatting.
+that you want a simpler output.
 By default textual entities are used when possible.  Set
 @code{USE_NUMERIC_ENTITY} to use numeric entities only.
 Set @code{OUTPUT_CHARACTERS} to output accented characters based on

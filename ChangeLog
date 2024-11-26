@@ -1,5 +1,13 @@
 2024-11-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@definfoenclose, Generating HTML)
+	(HTML Features Customization): Avoid using the word "format" as
+	a general synonym for "process" or "output".  It should either
+	have something to do with graphical layout or be in the context
+	of a "file format".
+
+2024-11-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (texi2any Printed Output):
 	Change @a4paper to @afourpaper in command as the former is
 	a mistake.  (Texinfo commands do not have digits in them.)
