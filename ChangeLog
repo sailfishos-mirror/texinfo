@@ -1,3 +1,8 @@
+2024-11-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Syntax Highlighting): Add warning about
+	change of syntax for HIGHLIGHT_SYNTAX.  Suggestion from Patrice.
+
 2024-11-24  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (Syntax Highlighting): mandate HIGHLIGHT_SYNTAX to

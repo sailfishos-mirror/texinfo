@@ -17485,8 +17485,9 @@ customization set by the user.
 @cindex @command{source-highlight}
 
 @cartouche
-@quotation warning
-Source highlighting is experimental, feedback is welcomed.
+@quotation Warning
+Source highlighting is experimental; feedback is welcomed.  The syntax
+of @code{HIGHLIGHT_SYNTAX} is very likely to change in future release.
 @end quotation
 @end cartouche
 
