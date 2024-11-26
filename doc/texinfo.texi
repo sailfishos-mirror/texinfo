@@ -15293,13 +15293,13 @@ to construct an arbitrary command line for @command{texi2dvi}.  For
 example, running
 
 @example
-texi2any --Xopt -t --Xopt @@a4paper --pdf foo.texi
+texi2any --Xopt -t --Xopt @@afourpaper --pdf foo.texi
 @end example
 
 @noindent is equivalent to running
 
 @example
-texi2dvi -t @@a4paper --pdf foo.texi
+texi2dvi -t @@afourpaper --pdf foo.texi
 @end example
 
 @noindent except for the validity check.

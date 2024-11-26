@@ -1,5 +1,11 @@
 2024-11-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (texi2any Printed Output):
+	Change @a4paper to @afourpaper in command as the former is
+	a mistake.  (Texinfo commands do not have digits in them.)
+
+2024-11-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Syntax Highlighting): Add warning about
 	change of syntax for HIGHLIGHT_SYNTAX.  Suggestion from Patrice.
 
