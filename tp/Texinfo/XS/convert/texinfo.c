@@ -26,6 +26,7 @@
 #include <stddef.h>
 #include <string.h>
 #include <stdio.h>
+#include <dirent.h>
 
 #include "document_types.h"
 #include "option_types.h"
@@ -46,14 +47,35 @@
 /* initialization of the library for parsing and conversion (generic),
    to be called once */
 void
-txi_general_setup (const char *localesdir, int texinfo_uninstalled,
-                   const char *converterdatadir, const char *tp_builddir,
-                   const char *top_srcdir)
+txi_general_setup (int texinfo_uninstalled, const char *converterdatadir,
+                   const char *tp_builddir, const char *top_srcdir)
 {
+  char *locales_dir;
+
   messages_and_encodings_setup ();
 
-  if (localesdir)
-    configure_output_strings_translations (localesdir, 0, -1);
+  /* code in texinfo.pl */
+  if (texinfo_uninstalled)
+    {
+      DIR *dir;
+
+      xasprintf (&locales_dir, "%s/LocaleData", tp_builddir);
+      dir = opendir (locales_dir);
+      if (dir)
+        {
+          closedir (dir);
+          configure_output_strings_translations (locales_dir, 0, -1);
+        }
+      else
+        fprintf (stderr, "Locales dir for document strings not found\n");
+    }
+  else
+    {
+      xasprintf (&locales_dir, "%s/locale", converterdatadir);
+      configure_output_strings_translations (locales_dir, 0, -1);
+    }
+
+  free (locales_dir);
 
   converter_setup (texinfo_uninstalled, converterdatadir, tp_builddir,
                    top_srcdir);

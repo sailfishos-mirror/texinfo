@@ -22,8 +22,7 @@
    and regenerate_master_menu */
 #define STTF_complete_menus_use_sections            0x0400
 
-/* locales dir for output strings translations */
-void txi_general_setup (const char *localesdir, int texinfo_uninstalled,
+void txi_general_setup (int texinfo_uninstalled,
                    const char *converterdatadir, const char *tp_builddir,
                    const char *top_srcdir);
 

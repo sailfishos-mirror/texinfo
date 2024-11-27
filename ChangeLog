@@ -1,3 +1,18 @@
+2024-11-27  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_general_setup),
+	tp/Texinfo/XS/teximakehtml.c (main): do not get locales directory for
+	output strings domain from argument, determine it as in texi2any.pl.
+
+	* tp/Texinfo/XS/teximakehtml.c (enum teximakehtml_mode)
+	(demo_parser_EXPANDED_FORMATS, main): consider 4 run modes, default to
+	mimick texi2any, test corresponding to TEST set, but no mimicking of
+	texi2any, 'mimick test' with both TEST set and mimicking of texi2any
+	and demo.  Add command-line options to set the different modes.
+
+	* tp/Texinfo/XS/teximakehtml.c (main): set PACKAGE_* for tests run
+	modes as in texi2any.pl.
+
 2024-11-26  Patrice Dumas  <pertusus@free.fr>
 
 	* configure.ac (--enable-xs-perl-libintl), tp/Texinfo/XS/configure.ac

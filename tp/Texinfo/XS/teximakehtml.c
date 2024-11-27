@@ -52,11 +52,26 @@ static char *parser_EXPANDED_FORMATS_array[] = {"html"};
 static STRING_LIST parser_EXPANDED_FORMATS
   = {parser_EXPANDED_FORMATS_array, 1, 1};
 
-/* in test mode, also expand @iftex for the sake of testing */
-static char *test_parser_EXPANDED_FORMATS_array[] = {"HTML", "tex"};
-static STRING_LIST test_parser_EXPANDED_FORMATS
-  = {test_parser_EXPANDED_FORMATS_array, 2, 2};
+/* in demo mode, also expand @iftex for the sake of demonstration */
+static char *demo_parser_EXPANDED_FORMATS_array[] = {"HTML", "tex"};
+static STRING_LIST demo_parser_EXPANDED_FORMATS
+  = {demo_parser_EXPANDED_FORMATS_array, 2, 2};
 
+/* different modes for the program.
+   - default: mimick the Perl program (use same name/version)
+   - test: similar to setting TEST customization variable, try to
+           have a reproducible output, though without mimicking Perl
+   - mimick test: same as test, and in addition mimick the Perl program
+   - demo: with customization set in order to check that the output
+           is correct with exotic or even weird customizations
+ */
+
+enum teximakehtml_mode {
+  TEXIMAKEHTML_mode_default,
+  TEXIMAKEHTML_mode_test,
+  TEXIMAKEHTML_mode_mimick_test,
+  TEXIMAKEHTML_mode_demo,
+};
 
 int
 main (int argc, char *argv[])
@@ -85,14 +100,7 @@ main (int argc, char *argv[])
   char *top_srcdir;
   char *top_builddir;
   char *tp_builddir = 0;
-
-  /* there are two modes, depending on test value.
-      - if test is set, the output is setup to test specific output
-        options, use the true program name and try to generate
-        reproducible output.
-      - if test is unset, the program tries to mimic texi2any.
-   */
-  int test = 0;
+  enum teximakehtml_mode run_mode = TEXIMAKEHTML_mode_default;
 
   /*
   const char *texinfo_text;
@@ -114,14 +122,20 @@ main (int argc, char *argv[])
     {
       int option_character;
 
-      option_character = getopt (argc, argv, "t");
+      option_character = getopt (argc, argv, "tmd");
       if (option_character == -1)
         break;
 
       switch (option_character)
         {
         case 't':
-          test = 1;
+          run_mode = TEXIMAKEHTML_mode_test;
+          break;
+        case 'm':
+          run_mode = TEXIMAKEHTML_mode_mimick_test;
+          break;
+        case 'd':
+          run_mode = TEXIMAKEHTML_mode_demo;
           break;
           /*
         case '?':
@@ -134,7 +148,7 @@ main (int argc, char *argv[])
           break;
            */
         default:
-          fprintf (stderr, "Usage: %s [-t] input_file\n", program_file);
+          fprintf (stderr, "Usage: %s [-t|-m|-d] input_file\n", program_file);
           exit (EXIT_FAILURE);
         }
     }
@@ -183,7 +197,7 @@ main (int argc, char *argv[])
     /* this is correct for in-source builds only. */
     top_builddir = strdup (top_srcdir);
 
-  txi_general_setup (LOCALEDIR, 1, 0, tp_builddir, top_srcdir);
+  txi_general_setup (1, 0, tp_builddir, top_srcdir);
 
   free (tp_builddir);
   free (top_srcdir);
@@ -205,10 +219,10 @@ main (int argc, char *argv[])
   /*
   add_option_value (&parser_options, "DEBUG", 1, 0);
    */
-  if (test)
+  if (run_mode == TEXIMAKEHTML_mode_demo)
     {
       add_option_strlist_value (&parser_options, "EXPANDED_FORMATS",
-                                &test_parser_EXPANDED_FORMATS);
+                                &demo_parser_EXPANDED_FORMATS);
     }
   else
     {
@@ -261,7 +275,26 @@ main (int argc, char *argv[])
   /* conversion initialization */
   initialize_options_list (&convert_options);
 
-  if (test)
+  if (run_mode == TEXIMAKEHTML_mode_test
+      || run_mode == TEXIMAKEHTML_mode_mimick_test)
+    {
+      /* this is set to help with comparison with previous invokations */
+      add_option_value (&convert_options, "TEST", 1, 0);
+
+      add_option_value (&convert_options, "PACKAGE_VERSION", 0, "");
+      add_option_value (&convert_options, "PACKAGE", 0, "texinfo");
+      add_option_value (&convert_options, "PACKAGE_NAME", 0, "GNU Texinfo");
+      add_option_value (&convert_options, "PACKAGE_AND_VERSION", 0,
+                                          "texinfo");
+      add_option_value (&convert_options, "PACKAGE_URL", 0,
+                                     "https://www.gnu.org/software/texinfo/");
+      add_option_value (&convert_options, "PROGRAM", 0, "texi2any");
+
+      /*
+      add_option_value (&convert_options, "DEBUG", 1, 0);
+       */
+    }
+  else if (run_mode == TEXIMAKEHTML_mode_demo)
     {
       /* customize buttons.  It is a bit silly to use link buttons for
          footer, it is for the demonstration */
@@ -269,10 +302,9 @@ main (int argc, char *argv[])
       add_new_button_option (&convert_options,
                      "NODE_FOOTER_BUTTONS", custom_node_footer_buttons);
       add_option_value (&convert_options, "PROGRAM_NAME_IN_FOOTER", 1, 0);
-      /* this is set to help with comparison with previous invokations */
-      add_option_value (&convert_options, "TEST", 1, 0);
     }
-  else
+
+  if (run_mode == TEXIMAKEHTML_mode_default)
     {
       /* mimics what is done in texi2any.pl, under the assumption that
          teximakehtml output will be compared to calls of in-source

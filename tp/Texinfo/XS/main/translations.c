@@ -62,7 +62,7 @@ static int use_external_translate_string;
 
 /* USE_EXTERNAL_TRANSLATE_STRING_IN:
     -1: never call external (Perl) translate string
-    0: default, use HAVE_USABLE_GETENV_IN_XS value
+    0: default, use USE_LIBINTL_PERL_IN_XS value
     1: always call external (Perl) translate string
  */
 void
