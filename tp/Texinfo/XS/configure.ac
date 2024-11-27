@@ -213,7 +213,7 @@ AC_ARG_ENABLE([xs-perl-libintl],
       if test $usable_getenv_in_XS = yes ; then
         use_libinlt_perl_in_xs=no
         # TODO add a check of working C libintl gettext for the locale
-        # switching and translated output string retrieveal
+        # switching and translated output string retrieval
       else
         use_libinlt_perl_in_xs=yes
       fi
