@@ -7,6 +7,10 @@ use Test::More;
 
 BEGIN { plan tests => 10; }
 
+# For consistent test results, use the C locale.
+$ENV{LC_ALL} = 'C';
+$ENV{LANGUAGE} = 'en';
+
 use File::Spec;
 # for fileparse
 use File::Basename;
