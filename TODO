@@ -45,6 +45,11 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - unique identifiers/way to disambiguate manuals with the same name?
   - reflection on guide/topic document structure and pluggable content
     for extensible documents (Mallard format ideas)
+  - to be discussed tabs or similar when documenting code for different
+    languages such that the user is probably only interested by one only
+      https://sphinx-tabs.readthedocs.io/en/latest/
+    example:
+      https://developer.gnome.org/documentation/tutorials/beginners/getting_started/content_view.html#bind-the-text-view-in-the-source-code
 
 * texi2any:
   - HTML: support thumbnails.
