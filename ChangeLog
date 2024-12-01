@@ -1,5 +1,10 @@
 2024-12-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm: add parentheses for define call.  Change
+	in spacing.
+
+2024-12-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/misc.c (xs_parse_texi_regex): return early if there is
 	a NUL in the string, and do not set any output variable.
 

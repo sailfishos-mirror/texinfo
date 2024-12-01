@@ -3216,7 +3216,7 @@ sub _split_delimiters
   if ($root->{'type'}
       and ($root->{'type'} eq 'spaces' or $root->{'type'} eq 'bracketed_arg')) {
     return $root;
-  } elsif (!defined $root->{'text'}) {
+  } elsif (!defined($root->{'text'})) {
     my $new = {'type' => 'def_line_arg', 'parent' => $current,
                'contents' => [$root]};
     $root->{'parent'} = $current;
@@ -3269,7 +3269,7 @@ sub _split_def_args
   if ($root->{'type'} and $root->{'type'} eq 'spaces'
       and $root->{'info'} and $root->{'info'}->{'inserted'}) {
     return $root;
-  } elsif (defined $root->{'text'}) {
+  } elsif (defined($root->{'text'})) {
     my @elements;
     my $type;
     # FIXME how to handle non ascii space?  As space or in argument?
@@ -3610,7 +3610,7 @@ sub _text_contents_to_plain_text {
     # Allow @@, @{ and @} to give a way for @, { and } to appear in
     # filenames (although it's not a good idea to use these characters
     # in filenames).
-    if (defined $c->{'text'}) {
+    if (defined($c->{'text'})) {
       $text .= $c->{'text'};
     } elsif ($c->{'cmdname'}
         and ($c->{'cmdname'} eq '@'
@@ -5449,7 +5449,7 @@ sub _handle_menu_entry_separators($$$$$$)
                  and $current->{'type'} eq 'menu_entry_node')
                 or ($menu_separator eq ':' and $current->{'type'}
                     and $current->{'type'} eq 'menu_entry_name'))) {
-    substr ($$line_ref, 0, 1) = '';
+    substr($$line_ref, 0, 1) = '';
     $current = $current->{'parent'};
     push @{$current->{'contents'}}, { 'type' => 'menu_entry_separator',
                                       'text' => $menu_separator,
@@ -6103,7 +6103,7 @@ sub _handle_block_command($$$$$)
                       $source_info);
           }
         } elsif ($command eq 'menu') {
-          if (!(defined $current->{'cmdname'})
+          if (!(defined($current->{'cmdname'}))
               or $root_commands{$current->{'cmdname'}}) {
             $self->{'current_node'}->{'extra'} = {}
               if (!defined($self->{'current_node'}->{'extra'}));
@@ -6488,7 +6488,7 @@ sub _handle_close_brace($$$)
         my $arg_label = $ref->{'args'}->[0];
         my $ref_label_info
           = Texinfo::Common::parse_node_manual($arg_label, 1);
-        if (defined $ref_label_info) {
+        if (defined($ref_label_info)) {
           foreach my $label_info (keys(%$ref_label_info)) {
             $arg_label->{'extra'} = {} if (!$arg_label->{'extra'});
             $arg_label->{'extra'}->{$label_info}
@@ -6540,7 +6540,7 @@ sub _handle_close_brace($$$)
       my $dotless = $brace_command;
       if ($current->{'contents'}) {
         my $text = $current->{'contents'}->[0]->{'text'};
-        if (!defined ($text)
+        if (!defined($text)
           or ($text ne 'i' and $text ne 'j')) {
           $self->_line_error(sprintf(
                 __("\@dotless expects `i' or `j' as argument, not `%s'"),
@@ -6574,7 +6574,7 @@ sub _handle_close_brace($$$)
         $self->_line_error(sprintf(__(
                     "non-hex digits in argument for \@U: %s"), $arg_text),
                            $source_info);
-      } elsif (length ($arg_text) < 4) {
+      } elsif (length($arg_text) < 4) {
         # Perl doesn't mind, but too much trouble to do in TeX.
         $self->_line_warn(sprintf(__(
           "fewer than four hex digits in argument for \@U: %s"), $arg_text),
@@ -7565,7 +7565,7 @@ sub _process_remaining_on_line($$$$)
       $command_element->{'info'}->{'alias_of'} = $from_alias;
     }
   } elsif ($open_brace) {
-    substr ($line, 0, 1) = '';
+    substr($line, 0, 1) = '';
     ($current, $line)
        = _handle_open_brace($self, $current, $line, $source_info);
     # in @verb. type should be 'brace_container'
@@ -7590,11 +7590,11 @@ sub _process_remaining_on_line($$$$)
       }
     }
   } elsif ($close_brace) {
-    substr ($line, 0, 1) = '';
+    substr($line, 0, 1) = '';
     $current = _handle_close_brace($self, $current, $source_info);
 
   } elsif ($comma) {
-    substr ($line, 0, 1) = '';
+    substr($line, 0, 1) = '';
     if ($current->{'parent'}
         and $current->{'parent'}->{'remaining_args'}) {
       ($current, $line, $source_info)
@@ -7608,7 +7608,7 @@ sub _process_remaining_on_line($$$$)
       $current = _merge_text($self, $current, $comma);
     }
   } elsif ($form_feed) {
-    substr ($line, 0, 1) = '';
+    substr($line, 0, 1) = '';
     print STDERR "FORM FEED in "
           .Texinfo::Common::debug_print_element($current, 1).": "
            ._debug_protect_eol($line)."\n"
@@ -7627,12 +7627,12 @@ sub _process_remaining_on_line($$$$)
       $current = _merge_text($self, $current, $form_feed);
     }
   } elsif ($menu_only_separator) {
-    substr ($line, 0, 1) = '';
+    substr($line, 0, 1) = '';
     $current = _merge_text($self, $current, $menu_only_separator);
   # Misc text except end of line
-  } elsif (defined $misc_text) {
+  } elsif (defined($misc_text)) {
     #print STDERR "MISC TEXT: $misc_text\n" if ($self->{'conf'}->{'DEBUG'});
-    substr ($line, 0, length ($misc_text)) = '';
+    substr($line, 0, length($misc_text)) = '';
     $current = _merge_text($self, $current, $misc_text);
   # end of line
   } else {
