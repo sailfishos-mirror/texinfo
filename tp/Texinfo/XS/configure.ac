@@ -208,19 +208,19 @@ AC_ARG_ENABLE([xs-perl-libintl],
     AS_HELP_STRING([--enable-xs-perl-libintl],
               [prefer Perl libintl-perl gettext in XS modules]),
     [if test $enableval = 'yes'; then
-       use_libinlt_perl_in_xs=yes
+       use_libintl_perl_in_xs=yes
      else
-       use_libinlt_perl_in_xs=no
+       use_libintl_perl_in_xs=no
      fi],
      [
       if test $usable_getenv_in_XS = yes ; then
-        use_libinlt_perl_in_xs=no
+        use_libintl_perl_in_xs=no
       else
-        use_libinlt_perl_in_xs=yes
+        use_libintl_perl_in_xs=yes
       fi
      ])
 
-if test $use_libinlt_perl_in_xs = yes ; then
+if test $use_libintl_perl_in_xs = yes ; then
   AC_DEFINE([USE_LIBINTL_PERL_IN_XS], [1],
             [Define to 1 if Perl libintl-perl should be called from XS])
 fi

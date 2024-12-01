@@ -1,5 +1,11 @@
 2024-12-01  Patrice Dumas  <pertusus@free.fr>
 
+	* configure.ac (prefer_libintl_perl), tp/Texinfo/XS/configure.ac
+	(use_libintl_perl_in_xs): fix typo in variable names.  Report from Ken
+	Brown.
+
+2024-12-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm: add parentheses for define call.  Change
 	in spacing.
 

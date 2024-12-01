@@ -507,9 +507,9 @@ AC_ARG_ENABLE([xs-perl-libintl],
     AS_HELP_STRING([--enable-xs-perl-libintl],
             [prefer Perl libintl-perl gettext in XS modules]),
     [if test $enableval = 'yes'; then
-       prefer_libinlt_perl=yes
+       prefer_libintl_perl=yes
      else
-       prefer_libinlt_perl=no
+       prefer_libintl_perl=no
      fi],
      [])
 
