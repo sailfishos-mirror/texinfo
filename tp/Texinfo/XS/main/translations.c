@@ -104,18 +104,24 @@ switch_messages_locale (void)
 
   if (working_locale)
     {
-      setenv_status = setenv ("LANG", working_locale, 1);
-      locale = setlocale (LC_MESSAGES, working_locale);
+      setenv_status = setenv ("LC_MESSAGES", working_locale, 1);
+                      || setenv ("LANG", working_locale, 1);
+      locale = setlocale (LC_MESSAGES, "");
+
+      /* Note that running "setlocale (LC_MESSAGES, working_locale)" directly
+         may not work depending on platform and/or gettext version. */
     }
   if (!locale || setenv_status)
     {
-      setenv_status = setenv ("LANG", "en_US.UTF-8", 1);
-      locale = setlocale (LC_MESSAGES, "en_US.UTF-8");
+      setenv_status = setenv ("LC_MESSAGES", "en_US.UTF-8", 1);
+                      || setenv ("LANG", "en_US.UTF-8", 1);
+      locale = setlocale (LC_MESSAGES, "");
     }
   if (!locale || setenv_status)
     {
-      setenv_status = setenv ("LANG", "en_US", 1);
-      locale = setlocale (LC_MESSAGES, "en_US");
+      setenv_status = setenv ("LC_MESSAGES", "en_US", 1);
+                      || setenv ("LANG", "en_US", 1);
+      locale = setlocale (LC_MESSAGES, "");
     }
   if ((!locale || setenv_status) && !locale_command)
     {
@@ -143,8 +149,9 @@ switch_messages_locale (void)
                   free (line);
                   continue;
                 }
-              setenv_status = setenv ("LANG", line, 1);
-              locale = setlocale (LC_MESSAGES, line);
+              setenv_status = setenv ("LC_MESSAGES", line, 1);
+                              || setenv ("LANG", line, 1);
+              locale = setlocale (LC_MESSAGES, "");
               if (locale && !setenv_status)
                 {
                   free (line);
