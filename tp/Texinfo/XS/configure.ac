@@ -201,6 +201,9 @@ GL_GNULIB_MDA_PUTENV=0
 AM_CONDITIONAL([HAVE_ICONV],
                [test "x$am_func_iconv" = "xyes"])
 
+# This switch was added when there were issues on some platforms with
+# the locales switch for output strings translations when done in C.
+# Now that it is fixed, it could be removed.
 AC_ARG_ENABLE([xs-perl-libintl],
     AS_HELP_STRING([--enable-xs-perl-libintl],
               [prefer Perl libintl-perl gettext in XS modules]),
@@ -212,8 +215,6 @@ AC_ARG_ENABLE([xs-perl-libintl],
      [
       if test $usable_getenv_in_XS = yes ; then
         use_libinlt_perl_in_xs=no
-        # TODO add a check of working C libintl gettext for the locale
-        # switching and translated output string retrieval
       else
         use_libinlt_perl_in_xs=yes
       fi

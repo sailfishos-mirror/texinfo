@@ -1,5 +1,10 @@
 2024-12-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/configure.ac: add a comment explaining that the issue
+	--enable-xs-perl-libintl worked around is fixed.
+
+2024-12-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XSLoader.pm (init): do not fallback if additional
 	libraries are not found and texi2any libraries are installed.  Indeed,
 	in that case, there could be RUNPATH or similar pointing to the
