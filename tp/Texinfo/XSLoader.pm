@@ -215,7 +215,12 @@ sub init {
       my $additional_library = 'lib' . $additional_library_name;
       if (!$loaded_additional_libraries->{$additional_library}) {
         my $ref = load_libtool_library($additional_library);
-        if (!$ref) {
+        # if the libraries are installed but .la were removed, in general
+        # they will be found as there are RUNPATH or similar pointing
+        # to the installation directory in the XS modules objects themselves,
+        # so we do not fallback if the libraries are not found.
+        if (!$ref and (not defined($Texinfo::ModulePath::texinfo_uninstalled)
+                       or $Texinfo::ModulePath::texinfo_uninstalled)) {
           goto FALLBACK;
         } else {
           $loaded_additional_libraries->{$additional_library} = $ref;
