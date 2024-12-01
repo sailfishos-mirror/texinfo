@@ -1,8 +1,17 @@
 2024-12-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/misc.c (xs_parse_texi_regex): return early if there is
+	a NUL in the string, and do not set any output variable.
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line): handle
+	better NUL characters in $line, which can happen with
+	_parse_texi_regex XS override.
+
+2024-12-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block)
 	(_process_remaining_on_line): check if a command name is defined
-	instead of testing if it is true, to catche the case of a command name
+	instead of testing if it is true, to catch the case of a command name
 	or alias being '0'.
 
 	* tp/Makefile.tres, tp/t/02coverage.t (command_zero), tp/t/58alias.t

@@ -7641,6 +7641,16 @@ sub _process_remaining_on_line($$$$)
           if ($self->{'conf'}->{'DEBUG'});
     if ($line =~ s/^(\n)//) {
       $current = _merge_text($self, $current, $1);
+    } elsif ($line =~ s/^\0+//) {
+      # NOTE this does not happen with _parse_texi_regex Perl implementation
+      # as a NUL byte ends up in misc_text.  The XS override cannot pass
+      # NUL as strings and cannot therefore put NUL in misc_text, therefore
+      # if there are NUL in string we end up here.
+      # Also we could have called _merge_text instead of discarding the NUL
+      # to be more like _parse_texi_regex Perl, but it should not matter as
+      # NUL in input is invalid.  In addition the XS Parser, in general, does
+      # something different with NUL.
+      return ($current, $line, $source_info, $retval);
     } else {
       $self->_bug_message("Should be at end of line but have `$line'",
                           $source_info, $current);

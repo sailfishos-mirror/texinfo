@@ -320,6 +320,11 @@ void xs_parse_texi_regex (char *text,
     {
       *comma = ",";
     }
+  /* return now, otherwise strchr just below would match */
+  else if (!*text)
+    {
+      return;
+    }
   else if (strchr (":\t.", *text))
     {
       static char a[2];
