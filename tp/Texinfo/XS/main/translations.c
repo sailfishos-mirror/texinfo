@@ -104,7 +104,7 @@ switch_messages_locale (void)
 
   if (working_locale)
     {
-      setenv_status = setenv ("LC_MESSAGES", working_locale, 1);
+      setenv_status = setenv ("LC_ALL", working_locale, 1)
                       || setenv ("LANG", working_locale, 1);
       locale = setlocale (LC_MESSAGES, "");
 
@@ -113,13 +113,13 @@ switch_messages_locale (void)
     }
   if (!locale || setenv_status)
     {
-      setenv_status = setenv ("LC_MESSAGES", "en_US.UTF-8", 1);
+      setenv_status = setenv ("LC_ALL", "en_US.UTF-8", 1)
                       || setenv ("LANG", "en_US.UTF-8", 1);
       locale = setlocale (LC_MESSAGES, "");
     }
   if (!locale || setenv_status)
     {
-      setenv_status = setenv ("LC_MESSAGES", "en_US", 1);
+      setenv_status = setenv ("LC_ALL", "en_US", 1)
                       || setenv ("LANG", "en_US", 1);
       locale = setlocale (LC_MESSAGES, "");
     }
@@ -149,7 +149,7 @@ switch_messages_locale (void)
                   free (line);
                   continue;
                 }
-              setenv_status = setenv ("LC_MESSAGES", line, 1);
+              setenv_status = setenv ("LC_ALL", line, 1)
                               || setenv ("LANG", line, 1);
               locale = setlocale (LC_MESSAGES, "");
               if (locale && !setenv_status)
@@ -188,6 +188,7 @@ translate_string (const char *string, const char *in_lang,
   const char *lang = in_lang;
   char *saved_LANGUAGE;
   char *saved_LANG;
+  char *saved_LC_ALL;
   char *saved_LC_MESSAGES;
   char *langs[2] = {0, 0};
   char *main_lang = 0;
@@ -243,11 +244,12 @@ translate_string (const char *string, const char *in_lang,
    switch_messages_locale to have LANGUAGE work in that case. */
 
   saved_LANG = getenv ("LANG");
-
   if (saved_LANG)
-    {
-      saved_LANG = strdup (saved_LANG);
-    }
+    saved_LANG = strdup (saved_LANG);
+
+  saved_LC_ALL = getenv ("LC_ALL");
+  if (saved_LC_ALL)
+    saved_LC_ALL = strdup (saved_LC_ALL);
 
   saved_LC_MESSAGES = setlocale (LC_MESSAGES, NULL);
 
@@ -338,6 +340,14 @@ translate_string (const char *string, const char *in_lang,
     }
   else
     unsetenv ("LANG");
+
+  if (saved_LC_ALL)
+    {
+      setenv ("LC_ALL", saved_LC_ALL, 1);
+      free (saved_LC_ALL);
+    }
+  else
+    unsetenv ("LC_ALL");
 
   if (saved_LC_MESSAGES)
     {

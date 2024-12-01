@@ -3,6 +3,14 @@
 	Set LC_MESSAGES via setenv before setlocale.
 
 	* tp/Texinfo/XS/main/translations.c (switch_messages_locale):
+	Set LC_ALL with setenv instead of LC_MESSAGES.
+	(translate_string): Save and restore LC_ALL in environment.
+
+2024-12-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Set LC_MESSAGES via setenv before setlocale.
+
+	* tp/Texinfo/XS/main/translations.c (switch_messages_locale):
 	Set "LC_MESSAGES" via setenv before setlocale (LC_MESSAGES, ""),
 	rather than giving the locale name as the second argument to
 	setlocale, as this may not work on some platforms including
