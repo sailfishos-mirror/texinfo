@@ -1,5 +1,11 @@
 2024-12-01  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/Changes: point to GNU Texinfo main ChangeLog.
+
+	* Pod-Simple-Texinfo/prove.sh: sync with tp/prove.sh.
+
+2024-12-01  Patrice Dumas  <pertusus@free.fr>
+
 	* configure.ac (prefer_libintl_perl), tp/Texinfo/XS/configure.ac
 	(use_libintl_perl_in_xs): fix typo in variable names.  Report from Ken
 	Brown.
