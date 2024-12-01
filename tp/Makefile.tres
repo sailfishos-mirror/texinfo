@@ -78,6 +78,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/alias/alias_of_macro.pl \
   t/results/alias/alias_of_macro_before_macro.pl \
   t/results/alias/alias_table_command.pl \
+  t/results/alias/alias_zero.pl \
   t/results/alias/bad_line.pl \
   t/results/alias/block_command_alias.pl \
   t/results/alias/recursive_alias.pl \
@@ -329,6 +330,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage/command_in_end_ignored_raw_one_char_not_in_command.pl \
   t/results/coverage/command_in_end_ignored_raw_two_char_before_command.pl \
   t/results/coverage/command_in_end_ignored_raw_two_char_not_in_command.pl \
+  t/results/coverage/command_zero.pl \
   t/results/coverage/commands.pl \
   t/results/coverage/commands_in_math.pl \
   t/results/coverage/comment_on_cartouche_line.pl \
@@ -1520,6 +1522,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/macro/macro_inlineifcond_end_in_empty_set.pl \
   t/results/macro/macro_name_with_digit.pl \
   t/results/macro/macro_name_with_hyphen.pl \
+  t/results/macro/macro_name_zero.pl \
   t/results/macro/macro_no_arg_bad_expansion.pl \
   t/results/macro/macro_no_arg_expansion.pl \
   t/results/macro/macro_no_argument.pl \

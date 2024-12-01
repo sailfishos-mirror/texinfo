@@ -630,6 +630,9 @@ In float with caption.
 @errormsg{Text @~e @code{code}}
 @errormsg{  with surrounding spaces   }
 '],
+['command_zero',
+'@0:
+'],
 ['unknown_accents',
 '@"X @"x @"Q @"Y
 

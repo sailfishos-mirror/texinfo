@@ -4429,7 +4429,7 @@ sub _end_line_starting_block($$$)
                   exists($all_commands{$name})
                   or $self->{'macros'}->{$name}
                   or $self->{'definfoenclose'}->{$name}
-                  or $self->{'aliases'}->{$name}
+                  or exists($self->{'aliases'}->{$name})
                   or $self->{'index_entry_commands'}->{$name}
                 );
                 if (($command_is_defined
@@ -7246,7 +7246,7 @@ sub _process_remaining_on_line($$$$)
   }
 
   # handle unknown @-command
-  if ($command and !$all_commands{$command}
+  if (defined($command) and !$all_commands{$command}
       and !$self->{'definfoenclose'}->{$command}
       and !$self->{'index_entry_commands'}->{$command}
       # @txiinternalvalue is invalid unless accept_internalvalue is set
@@ -7394,7 +7394,7 @@ sub _process_remaining_on_line($$$$)
                                          $menu_separator)) {
     $current = $current_array_for_ref[0];
   # Any other @-command.
-  } elsif ($command) {
+  } elsif (defined($command)) {
     substr($line, 0, $command_length) = '';
 
     print STDERR "COMMAND \@".Texinfo::Common::debug_command_name($command)
@@ -7560,7 +7560,7 @@ sub _process_remaining_on_line($$$$)
         = _handle_brace_command($self, $current, $command, $source_info);
     }
 
-    if ($from_alias and $command_element) {
+    if (defined($from_alias) and $command_element) {
       $command_element->{'info'} = {} if (!$command_element->{'info'});
       $command_element->{'info'}->{'alias_of'} = $from_alias;
     }

@@ -1,5 +1,16 @@
 2024-12-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block)
+	(_process_remaining_on_line): check if a command name is defined
+	instead of testing if it is true, to catche the case of a command name
+	or alias being '0'.
+
+	* tp/Makefile.tres, tp/t/02coverage.t (command_zero), tp/t/58alias.t
+	(alias_zero), tp/t/60macro.t (macro_name_zero): test unknown command,
+	alias and macro name be '0'.
+
+2024-12-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/configure.ac: add a comment explaining that the issue
 	--enable-xs-perl-libintl worked around is fixed.
 

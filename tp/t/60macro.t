@@ -104,6 +104,13 @@ expand \arg\
 
 @macro11 some thing @macro1{}
 '],
+['macro_name_zero',
+'@macro 0
+in macro
+@end macro
+
+@0:
+'],
 ['unpaired_backslash_in_macro_body',
 '@macro mymacro {arg}
 In macro \not arg
