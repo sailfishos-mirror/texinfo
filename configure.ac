@@ -543,8 +543,6 @@ dnl configuring them.  See contrib/nontests/README.
 dnl AC_CONFIG_FILES([util/tests/defs])
 dnl AC_CHECK_PROGS([TEX], [tex], [])
 
-AC_CHECK_PROGS([PROVE], [prove], [])
-
 tp_tests='no'
 AC_ARG_ENABLE([tp-tests],
     AS_HELP_STRING([--enable-tp-tests],[run the parser and converters testsuite (default: detected)]),
@@ -586,9 +584,7 @@ AC_ARG_ENABLE([pod-simple-texinfo-tests],
        pod_simple_texinfo_tests='yes'
      fi],
     [
-     if test "z$PROVE" = 'z' ; then
-       pod_simple_texinfo_tests='no'
-     elif $PERL -e "use 5.008_001; use Encode; use Test::More; use Pod::Simple::PullParser; use Pod::Simple::XHTML;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
+     if $PERL -e "use 5.008_001; use Encode; use Test::More; use Pod::Simple::PullParser; use Pod::Simple::XHTML;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
      then
        pod_simple_texinfo_tests='yes'
      else

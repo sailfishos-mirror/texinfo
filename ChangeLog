@@ -1,3 +1,8 @@
+2024-12-02  Patrice Dumas  <pertusus@free.fr>
+
+	* configure.ac: remove check for prove, prove is not used in tests
+	anymore.
+
 2024-12-01  Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/Changes: point to GNU Texinfo main ChangeLog.
