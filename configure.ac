@@ -423,7 +423,6 @@ AC_ARG_WITH([external-Text-Unidecode],
    fi]
 )
 
-AC_SUBST([USE_UNICODE])
 AC_SUBST([USE_EXTERNAL_UNIDECODE])
 
 # i18n support.

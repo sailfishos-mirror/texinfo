@@ -117,6 +117,8 @@ PACKAGE_XS_VERSION=0
 # "make dist" will work.
 if test x$disable_xs != xyes; then
   #PACKAGE_XS_VERSION=`${PERL} -e 'use version; print version->declare('"$PACKAGE_VERSION"')->numify;'`
+  # to check that Perl module loading the XS objects and XS objects versions
+  # match.  A hyphen is also turned to a dot for the Perl module version.
   PACKAGE_XS_VERSION=`echo $PACKAGE_VERSION | sed 's/-/./g'`
 
   if test -n "$PERL_EXT_CC" ; then
@@ -192,12 +194,6 @@ LT_INIT([disable-static dlopen])
 # Note that the above have to be outside the disable_xs block
 # otherwise it causes an error with configure.
 
-# Disable gnulib provision of "Microsoft deprecated alias" functions on
-# MS-Windows to prevent a clash with definitions in Perl header files
-GL_GNULIB_MDA_FDOPEN=0
-GL_GNULIB_MDA_MKTEMP=0
-GL_GNULIB_MDA_PUTENV=0
-
 AM_CONDITIONAL([HAVE_ICONV],
                [test "x$am_func_iconv" = "xyes"])
 
@@ -243,9 +239,9 @@ PERL_LIBS="-L$PERL_INC $PERL_CONF_libperl"
 # linking against Perl.
 case "$host" in *-mingw32 | *-mingw64 | *-msdosdjgpp | *-cygwin )
   perl_conf_LDFLAGS="$perl_conf_LDFLAGS -no-undefined"
-  # used for shared libraries not linked against Perl.
-  platform_LDFLAGS='-no-undefined'
   platform_PERL_LIBADD=$PERL_LIBS
+  # to be used for shared libraries not linked against Perl.
+  platform_LDFLAGS='-no-undefined'
   ;;
 esac
 

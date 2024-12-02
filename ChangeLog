@@ -1,5 +1,13 @@
 2024-12-02  Patrice Dumas  <pertusus@free.fr>
 
+	* configure.ac: remove USE_UNICODE, it is not used anywhere.
+
+	* tp/Texinfo/XS/configure.ac: do not set GL_GNULIB_MDA_* anymore,
+	there should not be any case where Perl and Gnulib headers are used
+	together.
+
+2024-12-02  Patrice Dumas  <pertusus@free.fr>
+
 	* configure.ac: remove check for prove, prove is not used in tests
 	anymore.
 
