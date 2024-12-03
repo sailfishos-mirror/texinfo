@@ -287,8 +287,6 @@ new_converter (enum converter_format format)
 
   converter->format = format;
 
-  init_generic_converter (converter);
-
   converter_list[converter_index] = converter;
   converter->converter_descriptor = converter_index +1;
 
@@ -337,6 +335,8 @@ set_converter_init_information (CONVERTER *converter,
                             CONVERTER_INITIALIZATION_INFO *format_defaults,
                             CONVERTER_INITIALIZATION_INFO *user_conf)
 {
+  init_generic_converter (converter);
+
   apply_converter_info (converter, format_defaults, 0);
 
   /* Also keep format_defaults options as an OPTIONS structure */
