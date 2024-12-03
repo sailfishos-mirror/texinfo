@@ -18,7 +18,7 @@
 #include "perl.h"
 #include "XSUB.h"
 
-#include "miscxs.h"
+#include "xsmisc.h"
 
 MODULE = Texinfo::MiscXS  PACKAGE = Texinfo::MiscXS  PREFIX = xs_
 

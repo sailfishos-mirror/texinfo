@@ -19,7 +19,7 @@
 
 /* isascii_alnum */
 #include "base_utils.h"
-#include "miscxs.h"
+#include "xsmisc.h"
 
 char *
 xs_process_text (const char *text)

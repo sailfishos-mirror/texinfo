@@ -85,7 +85,7 @@ install-data-hook:
 xs_LTLIBRARIES += MiscXS.la
 nodist_MiscXS_la_SOURCES = MiscXS.c
 CLEANFILES += MiscXS.c
-MiscXS_la_SOURCES = misc.c miscxs.h main/base_utils.c main/base_utils.h
+MiscXS_la_SOURCES = xsmisc.c xsmisc.h main/base_utils.c main/base_utils.h
 MiscXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS) -UHAVE_CONFIG_H
 MiscXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 MiscXS_la_LIBADD = $(platform_PERL_LIBADD)

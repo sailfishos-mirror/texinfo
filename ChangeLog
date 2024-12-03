@@ -1,5 +1,12 @@
 2024-12-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (MiscXS_la_SOURCES),
+	tp/Texinfo/XS/xsmisc.c, tp/Texinfo/XS/xsmisc.h: rename
+	tp/Texinfo/XS/misc.c as xsmisc.c and tp/Texinfo/XS/miscxs.h as
+	xsmisc.h.
+
+2024-12-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/MiscXS.xs (xs_unicode_text), tp/Texinfo/XS/misc.c
 	(xs_unicode_substitute_text): handle in_code in MiscXS.xs, remove
 	in_code argument from xs_unicode_text in misc.c.  Rename
