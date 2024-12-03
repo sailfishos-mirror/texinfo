@@ -1,5 +1,16 @@
 2024-12-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/MiscXS.xs (xs_unicode_text), tp/Texinfo/XS/misc.c
+	(xs_unicode_substitute_text): handle in_code in MiscXS.xs, remove
+	in_code argument from xs_unicode_text in misc.c.  Rename
+	xs_unicode_text in misc.c to xs_unicode_substitute_text to make clear
+	that it is not exactly the same as the Perl function, as it does the
+	substitution but does not handle in_code.
+
+	* tp/Texinfo/XS/misc.c: remove unused whitespace_chars.
+
+2024-12-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/misc.c: add const.
 
 2024-12-03  Gavin Smith <gavinsmith0123@gmail.com>

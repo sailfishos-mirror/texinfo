@@ -51,7 +51,10 @@ xs_unicode_text (text, ...)
          if (SvOK(ST(1)))
            in_code = (int) SvIV(ST(1));
        }
-     retval = xs_unicode_text (text, in_code);
+     if (in_code)
+       retval = text;
+     else
+       retval = xs_unicode_substitute_text (text);
 
      RETVAL = newSVpv (retval, 0);
      SvUTF8_on (RETVAL);

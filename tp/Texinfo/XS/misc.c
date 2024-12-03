@@ -21,8 +21,6 @@
 #include "base_utils.h"
 #include "miscxs.h"
 
-const char *whitespace_chars = " \t\f\v\r\n";
-
 char *
 xs_process_text (const char *text)
 {
@@ -78,14 +76,11 @@ xs_process_text (const char *text)
 }
 
 char *
-xs_unicode_text (char *text, int in_code)
+xs_unicode_substitute_text (const char *text)
 {
   const char *p, *q;
   static char *new;
   int new_space, new_len;
-
-  if (in_code)
-    return text;
 
   p = text;
   new_space = strlen (text);
@@ -290,7 +285,7 @@ void xs_parse_command_name (const char *text,
   return;
 }
 
-/* Return list ($at_command, $open_brace, ....) */
+/* determining the nature of leading text for parsing of Texinfo code */
 void xs_parse_texi_regex (const char *text,
                           char **arobase,
                           char **open_brace,
