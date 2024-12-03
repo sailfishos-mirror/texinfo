@@ -22,7 +22,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <stddef.h>
-#include <stdbool.h>
 #include "unictype.h"
 #include "uninorm.h"
 #include "unistr.h"

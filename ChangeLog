@@ -1,3 +1,15 @@
+2024-12-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Remove stdbool.h include
+
+	* tp/Texinfo/XS/main/manipulate_tree.c,
+	* tp/Texinfo/XS/main/unicode.c,
+	* tp/Texinfo/XS/main/utils.c,
+	* tp/Texinfo/XS/parsetexi/def.c,
+	* tp/Texinfo/XS/structuring_transfo/transformations.c:
+	Remove stdbool.h include as it appears to be unnecessary and
+	possibly causes a compilation error on Solaris 10.4.
+
 2024-12-02  Patrice Dumas  <pertusus@free.fr>
 
 	* configure.ac: remove USE_UNICODE, it is not used anywhere.

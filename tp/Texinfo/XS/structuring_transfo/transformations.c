@@ -22,7 +22,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <iconv.h>
-#include <stdbool.h>
 #include "unistr.h"
 
 #include "text.h"
