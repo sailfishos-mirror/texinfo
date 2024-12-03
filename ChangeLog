@@ -1,5 +1,9 @@
 2024-12-03  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS: mention libtool version
+
+2024-12-03  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove stdbool.h include
 
 	* tp/Texinfo/XS/main/manipulate_tree.c,
