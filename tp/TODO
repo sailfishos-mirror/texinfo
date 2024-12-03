@@ -82,12 +82,6 @@ pointers.  I don't someone looking at these files for the first time
 would have an easy time figuring out what they are for.
 
 
-In the https://github.com/gnu-texinfo/ci-check for cygwin32, unexplained
-failure with missing symbols.  Would need access to the platform.
-See Eli advice on how to debug the issue:
-https://lists.gnu.org/archive/html/bug-texinfo/2024-10/msg00091.html
-
-
 Make building "source marks" optional?
 
 

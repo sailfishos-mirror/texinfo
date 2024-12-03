@@ -24,10 +24,11 @@
 const char *whitespace_chars = " \t\f\v\r\n";
 
 char *
-xs_process_text (char *text)
+xs_process_text (const char *text)
 {
   static char *new;
-  char *p, *q;
+  const char *p;
+  char *q;
 
   new = realloc (new, strlen (text) + 1);
   strcpy (new, text);
@@ -79,7 +80,7 @@ xs_process_text (char *text)
 char *
 xs_unicode_text (char *text, int in_code)
 {
-  char *p, *q;
+  const char *p, *q;
   static char *new;
   int new_space, new_len;
 
@@ -177,9 +178,9 @@ xs_unicode_text (char *text, int in_code)
 }
 
 char *
-xs_entity_text (char *text)
+xs_entity_text (const char *text)
 {
-  char *p, *q;
+  const char *p, *q;
   static char *new;
   int new_space, new_len;
 
@@ -253,7 +254,7 @@ xs_entity_text (char *text)
   return new;
 }
 
-void xs_parse_command_name (char *text,
+void xs_parse_command_name (const char *text,
                             char **command,
                             int *is_single_letter)
 {
@@ -262,7 +263,7 @@ void xs_parse_command_name (char *text,
 
   if (isascii_alnum (text[0]))
     {
-      char *p, *q;
+      const char *p, *q;
       static char *s;
 
       p = text;
@@ -290,7 +291,7 @@ void xs_parse_command_name (char *text,
 }
 
 /* Return list ($at_command, $open_brace, ....) */
-void xs_parse_texi_regex (char *text,
+void xs_parse_texi_regex (const char *text,
                           char **arobase,
                           char **open_brace,
                           char **close_brace,
@@ -338,7 +339,7 @@ void xs_parse_texi_regex (char *text,
     }
   else
     {
-      char *p;
+      const char *p;
 
       if (*text == '*')
         *asterisk = "*";
@@ -359,9 +360,9 @@ void xs_parse_texi_regex (char *text,
 }
 
 char *
-xs_default_format_protect_text (char *text)
+xs_default_format_protect_text (const char *text)
 {
-  char *p, *q;
+  const char *p, *q;
   static char *new;
   int new_space, new_len;
 

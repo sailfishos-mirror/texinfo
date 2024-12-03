@@ -229,6 +229,7 @@ set_generic_converter_options (OPTIONS *options)
 }
 
 /* initialize the converter */
+/* corresponds to setting %all_converters_defaults in Perl */
 static void
 init_generic_converter (CONVERTER *self)
 {
