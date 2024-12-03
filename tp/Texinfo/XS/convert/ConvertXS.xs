@@ -133,10 +133,7 @@ converter_defaults (SV *converter_in, SV *conf_sv)
         converter_format
           = find_perl_converter_class_converter_format (class_name);
 
-        /* use txi_base_sorted_options to find the type of options
-           specified by name.
-
-           Do not pass class_name to avoid error messages, there will
+        /* Do not pass class_name to avoid error messages, there will
            be an error messages in generic_converter_init (as in Perl)
          */
         conf = get_converter_info_from_sv (conf_sv, 0, 0);

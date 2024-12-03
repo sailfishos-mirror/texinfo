@@ -3102,7 +3102,7 @@ build_sv_options_from_options_list (const OPTIONS_LIST *options_list,
 static HV *
 build_translated_commands (const TRANSLATED_COMMAND *translated_commands)
 {
-  int i;
+  size_t i;
   HV *translated_hv;
 
   dTHX;

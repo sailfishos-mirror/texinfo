@@ -297,6 +297,37 @@ new_converter (enum converter_format format)
   return converter_index +1;
 }
 
+static TRANSLATED_COMMAND *
+copy_translated_commands (const TRANSLATED_COMMAND *translated_commands)
+{
+  size_t translated_cmds_nr, i;
+  TRANSLATED_COMMAND *result;
+
+  for (translated_cmds_nr = 0; translated_commands[translated_cmds_nr].cmd;
+       translated_cmds_nr++)
+    {}
+
+  result = (TRANSLATED_COMMAND *)
+        malloc ((translated_cmds_nr +1) * sizeof (TRANSLATED_COMMAND));
+  memset (result, 0,
+              (translated_cmds_nr +1) * sizeof (TRANSLATED_COMMAND));
+
+  if (translated_cmds_nr)
+    {
+      for (i = 0; i < translated_cmds_nr; i++)
+        {
+          const TRANSLATED_COMMAND *reference_translated_command
+            = &translated_commands[i];
+          TRANSLATED_COMMAND *translated_command_copy = &result[i];
+
+          translated_command_copy->cmd = reference_translated_command->cmd;
+          translated_command_copy->translation
+            = strdup (reference_translated_command->translation);
+        }
+    }
+  return result;
+}
+
 void
 destroy_translated_commands (TRANSLATED_COMMAND *translated_commands)
 {
@@ -313,7 +344,7 @@ destroy_translated_commands (TRANSLATED_COMMAND *translated_commands)
 /* apply initialization information from one source */
 static void
 apply_converter_info (CONVERTER *converter,
-              CONVERTER_INITIALIZATION_INFO *init_info, int set_configured)
+         const CONVERTER_INITIALIZATION_INFO *init_info, int set_configured)
 {
   copy_options_list_set_configured (converter->conf,
                                     converter->sorted_options,
@@ -322,8 +353,8 @@ apply_converter_info (CONVERTER *converter,
   if (init_info->translated_commands)
     {
       destroy_translated_commands (converter->translated_commands);
-      converter->translated_commands = init_info->translated_commands;
-      init_info->translated_commands = 0;
+      converter->translated_commands
+        = copy_translated_commands (init_info->translated_commands);
     }
 }
 

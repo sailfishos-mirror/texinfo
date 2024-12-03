@@ -513,7 +513,7 @@ copy_options_list (OPTIONS_LIST *options_list, const OPTIONS_LIST *options_src,
 /* copy OPTIONS_LIST options to an OPTIONS structure */
 void
 copy_options_list_set_configured (OPTIONS *options, OPTION **sorted_options,
-                                  OPTIONS_LIST *options_list,
+                                  const OPTIONS_LIST *options_list,
                                   int set_configured)
 {
   copy_options_list_options (options, sorted_options, options_list);
