@@ -262,7 +262,7 @@ sub texinfo_set_from_init_file($$) {
                                 'texinfo_set_from_init_file', $var));
     return 0;
   }
-  return 0 if (defined($cmdline_options->{$var}));
+  return 0 if (exists($cmdline_options->{$var}));
   delete $options_defaults->{$var};
   $init_files_options->{$var} = $value;
   return 1;
@@ -302,8 +302,8 @@ sub GNUT_set_customization_default($$)
     return 1;
   }
 
-  return 0 if (defined($cmdline_options->{$var})
-    or defined($init_files_options->{$var}));
+  return 0 if (exists($cmdline_options->{$var})
+    or exists($init_files_options->{$var}));
   $options_defaults->{$var} = $value;
   return 1;
 }
