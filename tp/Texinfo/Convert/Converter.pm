@@ -63,7 +63,7 @@ xml_accent
 xml_accents
 );
 
-our $VERSION = '7.1.91';
+our $VERSION = '7.1.92';
 
 my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 

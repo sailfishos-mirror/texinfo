@@ -48,7 +48,7 @@ use Carp qw(cluck);
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
-our $VERSION = '7.1.91';
+our $VERSION = '7.1.92';
 
 
 # our because it is used in the xml to texi translator and subclasses.

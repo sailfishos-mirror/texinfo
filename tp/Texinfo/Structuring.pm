@@ -67,7 +67,7 @@ our @EXPORT_OK = qw(
   warn_non_empty_parts
 );
 
-our $VERSION = '7.1.91';
+our $VERSION = '7.1.92';
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 

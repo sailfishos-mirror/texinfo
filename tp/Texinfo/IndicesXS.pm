@@ -19,7 +19,7 @@ package Texinfo::IndicesXS;
 use strict;
 use warnings;
 
-our $VERSION = '7.1.91';
+our $VERSION = '7.1.92';
 
 use Texinfo::XSLoader;
 

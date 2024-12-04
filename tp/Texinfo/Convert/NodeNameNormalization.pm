@@ -57,7 +57,7 @@ our @EXPORT_OK = qw(
   transliterate_protect_file_name
 );
 
-our $VERSION = '7.1.91';
+our $VERSION = '7.1.92';
 
 
 my %normalize_node_brace_no_arg_commands
