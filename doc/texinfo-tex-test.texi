@@ -94,6 +94,7 @@ Test of @acronym{ACRONYM}s.  {ACRONYM}s.
 @chapter Paragraph formatting
 @section Images
 
+@ifpdf
 
 @image{image}
 
@@ -172,6 +173,12 @@ line
 
 
 @image{image}
+
+@else
+(PDF output only)
+@fi
+
+
 
 @paragraphindent 0
 
