@@ -23,7 +23,10 @@
 #include <string.h>
 #include <unistd.h>
 #include <ctype.h>
+/* from Gnulib codeset.m4 */
+#ifdef HAVE_LANGINFO_CODESET
 #include <langinfo.h>
+#endif
 #include <locale.h>
 #ifdef ENABLE_NLS
 #include <libintl.h>
@@ -76,7 +79,7 @@ enum teximakehtml_mode {
 int
 main (int argc, char *argv[])
 {
-  const char *locale_encoding;
+  const char *locale_encoding = 0;
   const char *input_file_path;
   int status;
   char *program_file_name_and_directory[2];
@@ -110,13 +113,77 @@ main (int argc, char *argv[])
   program_file = program_file_name_and_directory[0];
   input_directory = program_file_name_and_directory[1];
 
+  top_srcdir = getenv ("top_srcdir");
+  if (top_srcdir)
+    top_srcdir = strdup (top_srcdir);
+  else
+    /* equivalent to setting top_srcdir based on updirs in ModulePath.pm
+       adapted to a program without any in-source version */
+    top_srcdir = strdup ("../../..");
+
+  top_builddir = getenv ("top_builddir");
+  if (!top_builddir)
+    /* this is correct for in-source builds only. */
+    top_builddir = strdup (top_srcdir);
+
+  xasprintf (&tp_builddir, "%s/tp", top_builddir);
+
+  txi_general_setup (1, 0, tp_builddir, top_srcdir);
+
+  free (tp_builddir);
+  free (top_srcdir);
+
+  /* from Gnulib codeset.m4 */
+  #ifdef HAVE_LANGINFO_CODESET
   locale_encoding = nl_langinfo (CODESET);
+  #endif
+  /*
+  if (!defined($locale_encoding) and $^O eq 'MSWin32') {
+    eval 'require Win32::API';
+    if (!$@) {
+      Win32::API::More->Import("kernel32", "int GetACP()");
+      my $CP = GetACP();
+      if (defined($CP)) {
+        $locale_encoding = 'cp'.$CP;
+      }
+    }
+  }
+   */
+
 
   initialize_options_list (&cmdline_options);
+
+  /*
+   if ($^O eq 'MSWin32') {
+     $main_program_set_options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'} = 0;
+   }
+  */
+
   /*
   add_new_option_value (&cmdline_options, GOT_integer,
                            "DEBUG", 1, 0);
    */
+
+  memset (&texinfo_language_config_dirs, 0, sizeof (STRING_LIST));
+  add_string (".config", &texinfo_language_config_dirs);
+
+  home_dir = getenv ("HOME");
+  if (home_dir)
+    {
+      char *home_texinfo_language_config_dirs;
+      xasprintf (&home_texinfo_language_config_dirs, "%s/.texinfo",
+                 home_dir);
+      add_string (home_texinfo_language_config_dirs,
+                  &texinfo_language_config_dirs);
+      free (home_texinfo_language_config_dirs);
+    }
+
+  if (strlen (SYSCONFDIR))
+    add_string (SYSCONFDIR "/texinfo", &texinfo_language_config_dirs);
+
+  if (strlen (DATADIR))
+    add_string (DATADIR "/texinfo", &texinfo_language_config_dirs);
+
 
   while (1)
     {
@@ -155,52 +222,6 @@ main (int argc, char *argv[])
 
   if (optind >= argc)
     exit (EXIT_FAILURE);
-
-  memset (&texinfo_language_config_dirs, 0, sizeof (STRING_LIST));
-  add_string (".config", &texinfo_language_config_dirs);
-
-  home_dir = getenv ("HOME");
-  if (home_dir)
-    {
-      char *home_texinfo_language_config_dirs;
-      xasprintf (&home_texinfo_language_config_dirs, "%s/.texinfo",
-                 home_dir);
-      add_string (home_texinfo_language_config_dirs,
-                  &texinfo_language_config_dirs);
-      free (home_texinfo_language_config_dirs);
-    }
-
-  if (strlen (SYSCONFDIR))
-    add_string (SYSCONFDIR "/texinfo", &texinfo_language_config_dirs);
-
-  if (strlen (DATADIR))
-    add_string (DATADIR "/texinfo", &texinfo_language_config_dirs);
-
-  /*
-   if ($^O eq 'MSWin32') {
-     $main_program_set_options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'} = 0;
-   }
-  */
-
-  top_srcdir = getenv ("top_srcdir");
-  if (top_srcdir)
-    top_srcdir = strdup (top_srcdir);
-  else
-    /* equivalent to setting top_srcdir based on updirs in ModulePath.pm
-       adapted to a program without any in-source version */
-    top_srcdir = strdup ("../../..");
-
-  top_builddir = getenv ("top_builddir");
-  if (top_builddir)
-    xasprintf (&tp_builddir, "%s/tp", top_builddir);
-  else
-    /* this is correct for in-source builds only. */
-    top_builddir = strdup (top_srcdir);
-
-  txi_general_setup (1, 0, tp_builddir, top_srcdir);
-
-  free (tp_builddir);
-  free (top_srcdir);
 
   txi_converter_output_format_setup ("html");
 
