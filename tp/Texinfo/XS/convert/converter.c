@@ -364,7 +364,7 @@ apply_converter_info (CONVERTER *converter,
 void
 set_converter_init_information (CONVERTER *converter,
                             CONVERTER_INITIALIZATION_INFO *format_defaults,
-                            CONVERTER_INITIALIZATION_INFO *user_conf)
+                            const CONVERTER_INITIALIZATION_INFO *user_conf)
 {
   init_generic_converter (converter);
 
@@ -418,7 +418,8 @@ destroy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
   free (init_info);
 }
 
-static void
+/* not used */
+void
 copy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *dst_info,
                                const CONVERTER_INITIALIZATION_INFO *src_info)
 {
@@ -426,6 +427,13 @@ copy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *dst_info,
                 &src_info->non_valid_customization);
 
   copy_options_list (&dst_info->conf, &src_info->conf, 1);
+
+  if (src_info->translated_commands)
+    {
+      destroy_translated_commands (dst_info->translated_commands);
+      dst_info->translated_commands
+        = copy_translated_commands (src_info->translated_commands);
+    }
 }
 
 /* Next five functions are not called from Perl as the Perl equivalent
@@ -441,14 +449,14 @@ copy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *dst_info,
 /* corresponds to Perl $converter->converter_defaults() Converter */
 CONVERTER_INITIALIZATION_INFO *
 converter_defaults (enum converter_format converter_format,
-                    CONVERTER_INITIALIZATION_INFO *user_conf)
+                    const CONVERTER_INITIALIZATION_INFO *user_conf)
 {
   if (converter_format != COF_none
       && converter_format_data[converter_format].converter_defaults)
     {
       CONVERTER_INITIALIZATION_INFO *
          (* format_converter_defaults) (enum converter_format format,
-                                  CONVERTER_INITIALIZATION_INFO *conf)
+                             const CONVERTER_INITIALIZATION_INFO *conf)
         = converter_format_data[converter_format].converter_defaults;
       return format_converter_defaults (converter_format, user_conf);
     }
@@ -472,25 +480,18 @@ converter_initialize (CONVERTER *converter)
 /* only called from C, not from Perl */
 CONVERTER *
 converter_converter (enum converter_format format,
-                     const CONVERTER_INITIALIZATION_INFO *input_user_conf)
+                     const CONVERTER_INITIALIZATION_INFO *user_conf)
 {
   CONVERTER_INITIALIZATION_INFO *format_defaults;
 
   size_t converter_descriptor = new_converter (format);
   CONVERTER *converter = retrieve_converter (converter_descriptor);
 
-  CONVERTER_INITIALIZATION_INFO *user_conf
-     = new_converter_initialization_info ();
-
-  copy_converter_initialization_info (user_conf, input_user_conf);
-
   format_defaults = converter_defaults (converter->format, user_conf);
 
   set_converter_init_information (converter, format_defaults, user_conf);
 
   destroy_converter_initialization_info (format_defaults);
-
-  destroy_converter_initialization_info (user_conf);
 
   converter_initialize (converter);
 

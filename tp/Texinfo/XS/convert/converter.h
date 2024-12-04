@@ -95,7 +95,7 @@ typedef struct CONVERTER_FORMAT_DATA {
     const char *perl_converter_class;
     CONVERTER_INITIALIZATION_INFO *
        (* converter_defaults) (enum converter_format format,
-                               CONVERTER_INITIALIZATION_INFO *conf);
+                               const CONVERTER_INITIALIZATION_INFO *conf);
     void (* converter_initialize) (CONVERTER *self);
     char * (* converter_output) (CONVERTER *converter, DOCUMENT *document);
     char * (* converter_convert) (CONVERTER *converter, DOCUMENT *document);
@@ -139,11 +139,11 @@ size_t new_converter (enum converter_format format);
 
 void set_converter_init_information (CONVERTER *converter,
                             CONVERTER_INITIALIZATION_INFO *format_defaults,
-                            CONVERTER_INITIALIZATION_INFO *user_conf);
+                            const CONVERTER_INITIALIZATION_INFO *user_conf);
 
 CONVERTER_INITIALIZATION_INFO *converter_defaults (
                     enum converter_format converter_format,
-                    CONVERTER_INITIALIZATION_INFO *user_conf);
+                    const CONVERTER_INITIALIZATION_INFO *user_conf);
 CONVERTER *converter_converter (enum converter_format format,
                      const CONVERTER_INITIALIZATION_INFO *input_user_conf);
 void converter_initialize (CONVERTER *converter);

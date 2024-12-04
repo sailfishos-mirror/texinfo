@@ -28,7 +28,7 @@ void html_format_setup (void);
 /* in html_converter_init_options.c */
 CONVERTER_INITIALIZATION_INFO *html_converter_defaults (
                               enum converter_format format,
-                              CONVERTER_INITIALIZATION_INFO *format_defaults);
+                              const CONVERTER_INITIALIZATION_INFO *conf);
 
 /* implemented in html_converter_api.c using html_conversion_api.h functions */
 void html_converter_initialize (CONVERTER *converter);

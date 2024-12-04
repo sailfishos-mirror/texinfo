@@ -185,7 +185,7 @@ add_texi2html_default_buttons_specifications (OPTIONS_LIST *options,
 
 CONVERTER_INITIALIZATION_INFO *
 html_converter_defaults (enum converter_format format,
-                         CONVERTER_INITIALIZATION_INFO *conf)
+                         const CONVERTER_INITIALIZATION_INFO *conf)
 {
   CONVERTER_INITIALIZATION_INFO *format_defaults
     = new_converter_initialization_info ();
