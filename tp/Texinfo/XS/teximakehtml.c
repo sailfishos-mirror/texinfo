@@ -91,7 +91,8 @@ main (int argc, char *argv[])
   BUTTON_SPECIFICATION_LIST *custom_node_footer_buttons;
   OPTIONS_LIST parser_options;
   OPTIONS_LIST convert_options;
-  /* not really cmdline_options but options common to parser and converter */
+  /* options common to parser and converter */
+  OPTIONS_LIST program_options;
   OPTIONS_LIST cmdline_options;
   size_t errors_count = 0;
   size_t errors_nr;
@@ -150,8 +151,9 @@ main (int argc, char *argv[])
   }
    */
 
-
-  initialize_options_list (&cmdline_options);
+  /* program_options corresponds to main_program_set_options in texi2any */
+  txi_set_base_default_options (&program_options, locale_encoding,
+                                program_file);
 
   /*
    if ($^O eq 'MSWin32') {
@@ -160,7 +162,7 @@ main (int argc, char *argv[])
   */
 
   /*
-  add_new_option_value (&cmdline_options, GOT_integer,
+  add_new_option_value (&program_options, GOT_integer,
                            "DEBUG", 1, 0);
    */
 
@@ -184,6 +186,8 @@ main (int argc, char *argv[])
   if (strlen (DATADIR))
     add_string (DATADIR "/texinfo", &texinfo_language_config_dirs);
 
+  /* TODO set from command line */
+  initialize_options_list (&cmdline_options);
 
   while (1)
     {
@@ -223,19 +227,52 @@ main (int argc, char *argv[])
   if (optind >= argc)
     exit (EXIT_FAILURE);
 
+  if (run_mode == TEXIMAKEHTML_mode_test
+      || run_mode == TEXIMAKEHTML_mode_mimick_test)
+    {
+      /* this is set to help with comparison with previous invokations */
+      add_option_value (&program_options, "TEST", 1, 0);
+    }
+
+  if (program_options.options->TEST.o.integer > 0)
+    {
+      add_option_value (&program_options, "PACKAGE_VERSION", 0, "");
+      add_option_value (&program_options, "PACKAGE", 0, "texinfo");
+      add_option_value (&program_options, "PACKAGE_NAME", 0, "GNU Texinfo");
+      add_option_value (&program_options, "PACKAGE_AND_VERSION", 0,
+                                          "texinfo");
+      add_option_value (&program_options, "PACKAGE_URL", 0,
+                                     "https://www.gnu.org/software/texinfo/");
+      add_option_value (&program_options, "PROGRAM", 0, "texi2any");
+    }
   txi_converter_output_format_setup ("html");
 
   /*
   add_option_value (&cmdline_options, "TEXI2HTML", 1, 0);
    */
 
-  /* FORMAT_MENU for parser should be set based on converter_defaults taking into
-     account cmdline_options in case TEXI2HTML is set
-  format_defaults = txi_converter_format_defaults ("html", &cmdline_options);
-  fprintf (stderr, "FORMAT_MENU %s\n", format_defaults->options->FORMAT_MENU.o.string);
+  /*
+  For now, FORMAT_MENU is the only variable that can be set from converter
+  defaults for the main program structuring and for the parser.
    */
+  /*
+   $cmdline_options is passed to have command line settings, here
+   in practice TEXI2HTML set, for conversion to HTML to select
+   possibly different customization variable values.
+   */
+  format_defaults = txi_converter_format_defaults ("html", &cmdline_options);
 
-  /* TODO add cmdline_options filtering in only parser options */
+  if (format_defaults->conf.options->FORMAT_MENU.o.string != 0)
+    {
+      /*
+      fprintf (stderr, "FORMAT_MENU %s\n",
+           format_defaults->conf.options->FORMAT_MENU.o.string);
+       */
+      txi_config_set_customization_default (&program_options, &cmdline_options,
+                                 &format_defaults->conf.options->FORMAT_MENU);
+    }
+
+  /* TODO add program_options filtering in only parser options */
   initialize_options_list (&parser_options);
   /*
   add_option_value (&parser_options, "DEBUG", 1, 0);
@@ -295,27 +332,10 @@ main (int argc, char *argv[])
 
   /* conversion initialization */
   initialize_options_list (&convert_options);
+  copy_options_list (&convert_options, &program_options, 0);
+  copy_options_list (&convert_options, &cmdline_options, 1);
 
-  if (run_mode == TEXIMAKEHTML_mode_test
-      || run_mode == TEXIMAKEHTML_mode_mimick_test)
-    {
-      /* this is set to help with comparison with previous invokations */
-      add_option_value (&convert_options, "TEST", 1, 0);
-
-      add_option_value (&convert_options, "PACKAGE_VERSION", 0, "");
-      add_option_value (&convert_options, "PACKAGE", 0, "texinfo");
-      add_option_value (&convert_options, "PACKAGE_NAME", 0, "GNU Texinfo");
-      add_option_value (&convert_options, "PACKAGE_AND_VERSION", 0,
-                                          "texinfo");
-      add_option_value (&convert_options, "PACKAGE_URL", 0,
-                                     "https://www.gnu.org/software/texinfo/");
-      add_option_value (&convert_options, "PROGRAM", 0, "texi2any");
-
-      /*
-      add_option_value (&convert_options, "DEBUG", 1, 0);
-       */
-    }
-  else if (run_mode == TEXIMAKEHTML_mode_demo)
+  if (run_mode == TEXIMAKEHTML_mode_demo)
     {
       /* customize buttons.  It is a bit silly to use link buttons for
          footer, it is for the demonstration */
@@ -337,6 +357,7 @@ main (int argc, char *argv[])
       free (program_file);
       program_file = strdup ("texi2any");
 
+      add_option_value (&convert_options, "PROGRAM", 0, program_file);
       add_option_value (&convert_options, "PACKAGE_VERSION", 0,
                         configured_version);
       add_option_value (&convert_options, "PACKAGE_AND_VERSION", 0,
@@ -356,8 +377,7 @@ main (int argc, char *argv[])
   copy_strings (&converter_texinfo_language_config_dirs,
                 &texinfo_language_config_dirs);
 
-  converter = txi_converter_setup ("html", "html", locale_encoding,
-                                   program_file,
+  converter = txi_converter_setup ("html", "html",
                                    &converter_texinfo_language_config_dirs,
                                    &convert_options);
 

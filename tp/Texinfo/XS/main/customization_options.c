@@ -426,20 +426,28 @@ free_options_list (OPTIONS_LIST *options_list)
   free (options_list->options);
 }
 
+int
+option_number_in_option_list (OPTIONS_LIST *options_list, size_t number)
+{
+  size_t i;
+
+  for (i = 0; i < options_list->number; i++)
+    {
+      size_t option_nr = options_list->list[i];
+      if (number == option_nr)
+        return 1;
+    }
+  return 0;
+}
+
 void
 options_list_add_option_number (OPTIONS_LIST *options_list,
                                 size_t number, int check_duplicates)
 {
-  size_t i;
-
   if (check_duplicates)
     {
-      for (i = 0; i < options_list->number; i++)
-        {
-          size_t option_nr = options_list->list[i];
-          if (number == option_nr)
-            return;
-        }
+      if (option_number_in_option_list (options_list, number))
+        return;
     }
 
   if (options_list->number >= options_list->space)

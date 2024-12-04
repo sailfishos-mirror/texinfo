@@ -30,6 +30,7 @@
 
 #include "document_types.h"
 #include "option_types.h"
+#include "options_defaults.h"
 #include "api.h"
 #include "conf.h"
 #include "errors.h"
@@ -78,6 +79,59 @@ txi_general_setup (int texinfo_uninstalled, const char *converterdatadir,
 
   converter_setup (texinfo_uninstalled, converterdatadir, tp_builddir,
                    top_srcdir);
+}
+
+static void
+err_add_option_value (OPTIONS_LIST *options_list, const char *option_name,
+                      int int_value, const char *char_value)
+{
+  if (!add_option_value (options_list, option_name,
+                         int_value, char_value))
+    fprintf (stderr, "BUG: error setting %s\n", option_name);
+}
+
+/* similar to texi2any setting customization variables independent of
+   conversion format */
+void
+txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
+                              const char *locale_encoding,
+                              const char *program_file)
+{
+  const char *configured_version = PACKAGE_VERSION_CONFIG;
+  const char *configured_package = PACKAGE_CONFIG;
+  const char *configured_name = PACKAGE_NAME_CONFIG;
+  const char *configured_url = PACKAGE_URL_CONFIG;
+  const char *configured_name_version
+    = PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG;
+
+  initialize_options_list (main_program_set_options);
+
+  /* similar to options coming from texi2any */
+  err_add_option_value (main_program_set_options, "PROGRAM", 0, program_file);
+#define set_configured_information(varname,varvalue) \
+    err_add_option_value (main_program_set_options, #varname, 0, varvalue);
+  set_configured_information(PACKAGE_VERSION, configured_version)
+  set_configured_information(PACKAGE, configured_package)
+  set_configured_information(PACKAGE_NAME, configured_name)
+  set_configured_information(PACKAGE_AND_VERSION, configured_name_version)
+  set_configured_information(PACKAGE_URL, configured_url)
+#undef set_configured_information
+
+  err_add_option_value (main_program_set_options, "COMMAND_LINE_ENCODING", 0,
+                        locale_encoding);
+  err_add_option_value (main_program_set_options, "MESSAGE_ENCODING", 0,
+                        locale_encoding);
+  err_add_option_value (main_program_set_options, "LOCALE_ENCODING", 0,
+                        locale_encoding);
+  /* filled here because it is the best we have in C */
+  err_add_option_value (main_program_set_options,
+                        "XS_STRXFRM_COLLATION_LOCALE", 0,
+                        "en_US");
+
+  /* same as Texinfo::Common::default_main_program_customization_options */
+  /* in general transmitted to converters as default */
+  add_program_cmdline_options_defaults (main_program_set_options);
+  add_program_customization_options_defaults (main_program_set_options);
 }
 
 /* initialization of the library for a specific output format, to be
@@ -326,22 +380,11 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
                                          document->options);
 }
 
-static void
-err_add_option_value (OPTIONS_LIST *options_list, const char *option_name,
-                      int int_value, const char *char_value)
-{
-  if (!add_option_value (options_list, option_name,
-                         int_value, char_value))
-    fprintf (stderr, "BUG: error setting %s\n", option_name);
-}
-
 /* converter setup. Similar to an initialization of converter
    in texi2any */
 CONVERTER *
 txi_converter_setup (const char *format_str,
                      const char *output_format,
-                     const char *locale_encoding,
-                     const char *program_file,
                      const STRING_LIST *texinfo_language_config_dirs_in,
                      OPTIONS_LIST *customizations)
 {
@@ -349,12 +392,6 @@ txi_converter_setup (const char *format_str,
     = find_format_name_converter_format (format_str);
   CONVERTER_INITIALIZATION_INFO *conf;
   CONVERTER *self;
-  const char *configured_version = PACKAGE_VERSION_CONFIG;
-  const char *configured_package = PACKAGE_CONFIG;
-  const char *configured_name = PACKAGE_NAME_CONFIG;
-  const char *configured_url = PACKAGE_URL_CONFIG;
-  const char *configured_name_version
-    = PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG;
   STRING_LIST *texinfo_language_config_dirs = new_string_list ();
 
   conf = new_converter_initialization_info ();
@@ -372,25 +409,6 @@ txi_converter_setup (const char *format_str,
     copy_strings (texinfo_language_config_dirs,
                   texinfo_language_config_dirs_in);
 
-
-  /* similar to options coming from texi2any */
-  err_add_option_value (&conf->conf, "PROGRAM", 0, program_file);
-#define set_configured_information(varname,varvalue) \
-    err_add_option_value (&conf->conf, #varname, 0, varvalue);
-  set_configured_information(PACKAGE_VERSION, configured_version)
-  set_configured_information(PACKAGE, configured_package)
-  set_configured_information(PACKAGE_NAME, configured_name)
-  set_configured_information(PACKAGE_AND_VERSION, configured_name_version)
-  set_configured_information(PACKAGE_URL, configured_url)
-#undef set_configured_information
-
-  err_add_option_value (&conf->conf, "COMMAND_LINE_ENCODING", 0,
-                        locale_encoding);
-  err_add_option_value (&conf->conf, "MESSAGE_ENCODING", 0, locale_encoding);
-  err_add_option_value (&conf->conf, "LOCALE_ENCODING", 0, locale_encoding);
-  /* filled here because it is the best we have in C */
-  err_add_option_value (&conf->conf, "XS_STRXFRM_COLLATION_LOCALE", 0,
-                        "en_US");
   /*
   err_add_option_value (&conf->conf, "DEBUG", 1, 0);
    */
@@ -490,4 +508,17 @@ txi_handle_converter_error_messages (CONVERTER *converter, int no_warn,
 {
   return handle_error_messages (&converter->error_messages, no_warn,
                          use_filename, message_encoding);
+}
+
+/* Texinfo::Config */
+int
+txi_config_set_customization_default (OPTIONS_LIST *options_defaults,
+                         OPTIONS_LIST *cmdline_options, const OPTION *option)
+{
+  if (option_number_in_option_list (cmdline_options, option->number))
+    return 0;
+
+  options_list_add_option_number (options_defaults, option->number, 1);
+  copy_option (options_defaults->sorted_options[option->number -1], option);
+  return 1;
 }

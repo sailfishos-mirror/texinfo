@@ -6,6 +6,7 @@
 
 #include "document_types.h"
 #include "converter_types.h"
+#include "option_types.h"
 
 /* document structuring and transformations selection flags */
 #define STTF_relate_index_entries_to_table_items    0x0001
@@ -26,6 +27,10 @@ void txi_general_setup (int texinfo_uninstalled,
                    const char *converterdatadir, const char *tp_builddir,
                    const char *top_srcdir);
 
+void txi_set_base_default_options (OPTIONS_LIST *options,
+                                   const char *locale_encoding,
+                                   const char *program_file);
+
 void txi_converter_output_format_setup (const char *format_str);
 
 CONVERTER_INITIALIZATION_INFO *txi_converter_format_defaults (
@@ -43,8 +48,6 @@ void txi_complete_document (DOCUMENT *document, unsigned long flags,
 
 CONVERTER *txi_converter_setup (const char *converter_format,
                      const char *output_format,
-                     const char *locale_encoding,
-                     const char *program_file,
                      const STRING_LIST *texinfo_language_config_dirs,
                      OPTIONS_LIST *customizations);
 
@@ -66,4 +69,6 @@ void txi_document_remove (DOCUMENT *document);
 void txi_converter_reset (CONVERTER *converter);
 void txi_converter_destroy (CONVERTER *converter);
 
+int txi_config_set_customization_default (OPTIONS_LIST *options_defaults,
+                         OPTIONS_LIST *cmdline_options, const OPTION *option);
 #endif
