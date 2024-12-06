@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: coreutils-5.2.1\n"
 "Report-Msgid-Bugs-To: bug-gnulib@gnu.org\n"
-"POT-Creation-Date: 2024-11-10 13:59+0000\n"
+"POT-Creation-Date: 2024-12-06 19:10+0000\n"
 "PO-Revision-Date: 2005-01-04 20:27+0100\n"
 "Last-Translator: Mikel Olasagasti <hey_neken@mundurat.net>\n"
 "Language-Team: Basque <translation-team-eu@lists.sourceforge.net>\n"
@@ -19,73 +19,42 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
-#: gnulib/lib/copy-file.c:212
 #, fuzzy, c-format
-msgid "error while opening %s for reading"
-msgstr "errepikatu arte"
+#~ msgid "error while opening %s for reading"
+#~ msgstr "errepikatu arte"
 
-#: gnulib/lib/copy-file.c:216
 #, fuzzy, c-format
-msgid "cannot open backup file %s for writing"
-msgstr "errepikatu arte"
+#~ msgid "cannot open backup file %s for writing"
+#~ msgstr "errepikatu arte"
 
-#: gnulib/lib/copy-file.c:220
 #, fuzzy, c-format
-msgid "error reading %s"
-msgstr "errorea %s irakurtzen"
+#~ msgid "error reading %s"
+#~ msgstr "errorea %s irakurtzen"
 
-#: gnulib/lib/copy-file.c:224
 #, fuzzy, c-format
-msgid "error writing %s"
-msgstr "errorea %s idazten"
+#~ msgid "error writing %s"
+#~ msgstr "errorea %s idazten"
 
-#: gnulib/lib/copy-file.c:228
 #, fuzzy, c-format
-msgid "error after reading %s"
-msgstr "errorea %s irakurtzen"
+#~ msgid "error after reading %s"
+#~ msgstr "errorea %s irakurtzen"
 
-#: gnulib/lib/copy-file.c:235
 #, fuzzy, c-format
-#| msgid "cannot change permissions of %s"
-msgid "preserving permissions for %s"
-msgstr "ezin da %s-(r)en baimenak aldatu"
+#~| msgid "cannot change permissions of %s"
+#~ msgid "preserving permissions for %s"
+#~ msgstr "ezin da %s-(r)en baimenak aldatu"
 
-#: gnulib/lib/error.c:208
-msgid "Unknown system error"
-msgstr "Sistema-errore ezezaguna"
+#~ msgid "Unknown system error"
+#~ msgstr "Sistema-errore ezezaguna"
 
-#: gnulib/lib/obstack.c:317 gnulib/lib/obstack.c:319 gnulib/lib/xalloc-die.c:34
-msgid "memory exhausted"
-msgstr "memoria agortuta"
+#~ msgid "memory exhausted"
+#~ msgstr "memoria agortuta"
 
-#. TRANSLATORS:
-#. Get translations for open and closing quotation marks.
-#. The message catalog should translate "`" to a left
-#. quotation mark suitable for the locale, and similarly for
-#. "'".  For example, a French Unicode local should translate
-#. these to U+00AB (LEFT-POINTING DOUBLE ANGLE
-#. QUOTATION MARK), and U+00BB (RIGHT-POINTING DOUBLE ANGLE
-#. QUOTATION MARK), respectively.
-#.
-#. If the catalog has no translation, we will try to
-#. use Unicode U+2018 (LEFT SINGLE QUOTATION MARK) and
-#. Unicode U+2019 (RIGHT SINGLE QUOTATION MARK).  If the
-#. current locale is not Unicode, locale_quoting_style
-#. will quote 'like this', and clocale_quoting_style will
-#. quote "like this".  You should always include translations
-#. for "`" and "'" even if U+2018 and U+2019 are appropriate
-#. for your locale.
-#.
-#. If you don't know what to put here, please see
-#. <https://en.wikipedia.org/wiki/Quotation_marks_in_other_languages>
-#. and use glyphs suitable for your language.
-#: gnulib/lib/quotearg.c:354
-msgid "`"
-msgstr "`"
+#~ msgid "`"
+#~ msgstr "`"
 
-#: gnulib/lib/quotearg.c:355
-msgid "'"
-msgstr "'"
+#~ msgid "'"
+#~ msgstr "'"
 
 #, c-format
 #~ msgid "invalid argument %s for %s"

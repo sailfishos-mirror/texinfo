@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU textutils 2.0.22\n"
 "Report-Msgid-Bugs-To: bug-gnulib@gnu.org\n"
-"POT-Creation-Date: 2024-11-10 13:59+0000\n"
+"POT-Creation-Date: 2024-12-06 19:10+0000\n"
 "PO-Revision-Date: 2002-07-22 20:02+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean <translation-team-ko@lists.sourceforge.net>\n"
@@ -17,73 +17,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 
-#: gnulib/lib/copy-file.c:212
 #, fuzzy, c-format
-msgid "error while opening %s for reading"
-msgstr "`%s'를 `%s'로 이동할 수 없습니다"
+#~ msgid "error while opening %s for reading"
+#~ msgstr "`%s'를 `%s'로 이동할 수 없습니다"
 
-#: gnulib/lib/copy-file.c:216
 #, fuzzy, c-format
-msgid "cannot open backup file %s for writing"
-msgstr "`%s'를 `%s'로 이동할 수 없습니다"
+#~ msgid "cannot open backup file %s for writing"
+#~ msgstr "`%s'를 `%s'로 이동할 수 없습니다"
 
-#: gnulib/lib/copy-file.c:220
 #, fuzzy, c-format
-msgid "error reading %s"
-msgstr "%s을(를) 읽는 도중 오류 발생"
+#~ msgid "error reading %s"
+#~ msgstr "%s을(를) 읽는 도중 오류 발생"
 
-#: gnulib/lib/copy-file.c:224
 #, fuzzy, c-format
-msgid "error writing %s"
-msgstr "%s에 쓰는 도중 오류 발생"
+#~ msgid "error writing %s"
+#~ msgstr "%s에 쓰는 도중 오류 발생"
 
-#: gnulib/lib/copy-file.c:228
 #, fuzzy, c-format
-msgid "error after reading %s"
-msgstr "%s을(를) 읽는 도중 오류 발생"
+#~ msgid "error after reading %s"
+#~ msgstr "%s을(를) 읽는 도중 오류 발생"
 
-#: gnulib/lib/copy-file.c:235
 #, fuzzy, c-format
-#| msgid "cannot change permissions of %s"
-msgid "preserving permissions for %s"
-msgstr "%s의 허가를 바꿀 수 없습니다"
+#~| msgid "cannot change permissions of %s"
+#~ msgid "preserving permissions for %s"
+#~ msgstr "%s의 허가를 바꿀 수 없습니다"
 
-#: gnulib/lib/error.c:208
-msgid "Unknown system error"
-msgstr "알 수 없는 시스템 오류"
+#~ msgid "Unknown system error"
+#~ msgstr "알 수 없는 시스템 오류"
 
-#: gnulib/lib/obstack.c:317 gnulib/lib/obstack.c:319 gnulib/lib/xalloc-die.c:34
-msgid "memory exhausted"
-msgstr "메모리가 바닥남"
+#~ msgid "memory exhausted"
+#~ msgstr "메모리가 바닥남"
 
-#. TRANSLATORS:
-#. Get translations for open and closing quotation marks.
-#. The message catalog should translate "`" to a left
-#. quotation mark suitable for the locale, and similarly for
-#. "'".  For example, a French Unicode local should translate
-#. these to U+00AB (LEFT-POINTING DOUBLE ANGLE
-#. QUOTATION MARK), and U+00BB (RIGHT-POINTING DOUBLE ANGLE
-#. QUOTATION MARK), respectively.
-#.
-#. If the catalog has no translation, we will try to
-#. use Unicode U+2018 (LEFT SINGLE QUOTATION MARK) and
-#. Unicode U+2019 (RIGHT SINGLE QUOTATION MARK).  If the
-#. current locale is not Unicode, locale_quoting_style
-#. will quote 'like this', and clocale_quoting_style will
-#. quote "like this".  You should always include translations
-#. for "`" and "'" even if U+2018 and U+2019 are appropriate
-#. for your locale.
-#.
-#. If you don't know what to put here, please see
-#. <https://en.wikipedia.org/wiki/Quotation_marks_in_other_languages>
-#. and use glyphs suitable for your language.
-#: gnulib/lib/quotearg.c:354
-msgid "`"
-msgstr "`"
+#~ msgid "`"
+#~ msgstr "`"
 
-#: gnulib/lib/quotearg.c:355
-msgid "'"
-msgstr "'"
+#~ msgid "'"
+#~ msgstr "'"
 
 #, c-format
 #~ msgid "invalid argument %s for %s"

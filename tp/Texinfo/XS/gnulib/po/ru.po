@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnulib 4.0.0.2567\n"
 "Report-Msgid-Bugs-To: bug-gnulib@gnu.org\n"
-"POT-Creation-Date: 2024-11-10 13:59+0000\n"
+"POT-Creation-Date: 2024-12-06 19:10+0000\n"
 "PO-Revision-Date: 2023-07-07 05:18+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <gnu@d07.ru>\n"
@@ -21,72 +21,41 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: gnulib/lib/copy-file.c:212
 #, c-format
-msgid "error while opening %s for reading"
-msgstr "ошибка при открытии файла %s для чтения"
+#~ msgid "error while opening %s for reading"
+#~ msgstr "ошибка при открытии файла %s для чтения"
 
-#: gnulib/lib/copy-file.c:216
 #, c-format
-msgid "cannot open backup file %s for writing"
-msgstr "не удалось открыть файл резервной копии %s для записи"
+#~ msgid "cannot open backup file %s for writing"
+#~ msgstr "не удалось открыть файл резервной копии %s для записи"
 
-#: gnulib/lib/copy-file.c:220
 #, c-format
-msgid "error reading %s"
-msgstr "ошибка чтения %s"
+#~ msgid "error reading %s"
+#~ msgstr "ошибка чтения %s"
 
-#: gnulib/lib/copy-file.c:224
 #, c-format
-msgid "error writing %s"
-msgstr "ошибка записи %s"
+#~ msgid "error writing %s"
+#~ msgstr "ошибка записи %s"
 
-#: gnulib/lib/copy-file.c:228
 #, c-format
-msgid "error after reading %s"
-msgstr "ошибка после чтения %s"
+#~ msgid "error after reading %s"
+#~ msgstr "ошибка после чтения %s"
 
-#: gnulib/lib/copy-file.c:235
 #, c-format
-msgid "preserving permissions for %s"
-msgstr "сохраняются права доступа для %s"
+#~ msgid "preserving permissions for %s"
+#~ msgstr "сохраняются права доступа для %s"
 
-#: gnulib/lib/error.c:208
-msgid "Unknown system error"
-msgstr "Неизвестная системная ошибка"
+#~ msgid "Unknown system error"
+#~ msgstr "Неизвестная системная ошибка"
 
-#: gnulib/lib/obstack.c:317 gnulib/lib/obstack.c:319 gnulib/lib/xalloc-die.c:34
-msgid "memory exhausted"
-msgstr "закончилась память"
+#~ msgid "memory exhausted"
+#~ msgstr "закончилась память"
 
-#. TRANSLATORS:
-#. Get translations for open and closing quotation marks.
-#. The message catalog should translate "`" to a left
-#. quotation mark suitable for the locale, and similarly for
-#. "'".  For example, a French Unicode local should translate
-#. these to U+00AB (LEFT-POINTING DOUBLE ANGLE
-#. QUOTATION MARK), and U+00BB (RIGHT-POINTING DOUBLE ANGLE
-#. QUOTATION MARK), respectively.
-#.
-#. If the catalog has no translation, we will try to
-#. use Unicode U+2018 (LEFT SINGLE QUOTATION MARK) and
-#. Unicode U+2019 (RIGHT SINGLE QUOTATION MARK).  If the
-#. current locale is not Unicode, locale_quoting_style
-#. will quote 'like this', and clocale_quoting_style will
-#. quote "like this".  You should always include translations
-#. for "`" and "'" even if U+2018 and U+2019 are appropriate
-#. for your locale.
-#.
-#. If you don't know what to put here, please see
-#. <https://en.wikipedia.org/wiki/Quotation_marks_in_other_languages>
-#. and use glyphs suitable for your language.
-#: gnulib/lib/quotearg.c:354
-msgid "`"
-msgstr "«"
+#~ msgid "`"
+#~ msgstr "«"
 
-#: gnulib/lib/quotearg.c:355
-msgid "'"
-msgstr "»"
+#~ msgid "'"
+#~ msgstr "»"
 
 #, c-format
 #~ msgid "invalid argument %s for %s"
