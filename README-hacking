@@ -538,9 +538,10 @@ run "make -C po check-linguas" and "make -C po_document check-linguas"
 to check that LINGUAS under po and po_document match actual file list.
 
   make
-  make update-po  # both po and po_document needed, build a dist first
+  make update-po
   ( cd po_document ; for f in *.po ; do ./adjust-translations.pl $f ; done )
-  make update-po  # in case po files change again after last step
+  ( cd po_document ; make update-po ) # in case po files change again after
+                                      # last step
 
 
 - Official releases only:
