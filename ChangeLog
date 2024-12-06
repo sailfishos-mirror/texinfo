@@ -1,3 +1,9 @@
+2024-12-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/gnulib/po/Makevars (XGETTEXT_OPTIONS):
+	patch to add --force-po as this gnulib import does not at present
+	actually have any translatable strings.
+
 2024-12-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* configure.ac: bump version to 7.1.92
