@@ -192,7 +192,11 @@ get_cmdline_customization_option (OPTIONS_LIST *options_list,
               p++;
               p += strspn (p, whitespace_chars);
             }
-          if (option->type == GOT_integer)
+          if (!strcasecmp (p, "undef"))
+            {
+              clear_option (option);
+            }
+          else if (option->type == GOT_integer)
             {
               char *endptr;
               long value = strtol (p, &endptr, 10);
