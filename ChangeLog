@@ -1,5 +1,10 @@
 2024-12-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* Makefile.am (update-po): Also run update-po in gnulib
+	subdirectories.
+
+2024-12-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/gnulib/po/Makevars (XGETTEXT_OPTIONS):
 	patch to add --force-po as this gnulib import does not at present
 	actually have any translatable strings.
