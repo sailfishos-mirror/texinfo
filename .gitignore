@@ -102,26 +102,18 @@ gnulib/po/stamp-po
 tp/Texinfo/XS/teximakehtml
 
 tp/Texinfo/XS/gnulib/lib/locale.h
-tp/Texinfo/XS/gnulib/lib/iconv.h
 tp/Texinfo/XS/gnulib/lib/inttypes.h
-tp/Texinfo/XS/gnulib/lib/error.h
 tp/Texinfo/XS/gnulib/lib/float.h
 tp/Texinfo/XS/gnulib/lib/fcntl.h
-tp/Texinfo/XS/gnulib/lib/obstack.h
-tp/Texinfo/XS/gnulib/lib/signal.h
 tp/Texinfo/XS/gnulib/lib/sys/stat.h
 tp/Texinfo/XS/gnulib/lib/sys/time.h
 tp/Texinfo/XS/gnulib/lib/time.h
-tp/Texinfo/XS/gnulib/lib/utime.h
 tp/Texinfo/XS/gnulib/lib/stdckdint.h
 tp/Texinfo/XS/gnulib/lib/stdlib.h
 tp/Texinfo/XS/gnulib/lib/unistd.h
 tp/Texinfo/XS/gnulib/lib/uchar.h
 tp/Texinfo/XS/gnulib/lib/unistr.h
-tp/Texinfo/XS/gnulib/lib/uniconv.h
 tp/Texinfo/XS/gnulib/lib/wctype.h
-
-tp/Texinfo/XS/gnulib/lib/uniconv/*.lo
 
 tp/Texinfo/XS/build-aux/m4/libtool.m4
 tp/Texinfo/XS/build-aux/m4/ltoptions.m4
