@@ -1246,17 +1246,16 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2024");
     }
  },
  'set-customization-variable|c=s' => sub {
-   my $var_val;
-   if ($Texinfo::Common::non_decoded_customization_variables{$_[1]}) {
-     $var_val = $_[1];
-   } else {
-     $var_val = _decode_input($_[1]);
-   }
+   my $var_val = $_[1];
+   # the string is a byte string, so \w should correspond to ASCII
+   # characters only, which is good
    if ($var_val =~ s/^(\w+)\s*=?\s*//) {
      my $var = $1;
      my $value = $var_val;
      if ($value =~ /^undef$/i) {
        $value = undef;
+     } elsif (!$Texinfo::Common::non_decoded_customization_variables{$var}) {
+       $value = _decode_input($var_val);
      }
      # TODO verify that it is the best.  It is inconsistent with other
      # customization options that have the same precedence as command

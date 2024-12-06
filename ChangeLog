@@ -1,5 +1,11 @@
 2024-12-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl: when parsing -c/--set-customization-variable,
+	determine the variable name before checking if the value should be
+	decoded.
+
+2024-12-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (_GNUT_document_warn, _GNUT_document_fatal)
 	(GNUT_set_from_cmdline, texinfo_register_no_arg_command_formatting)
 	(GNUT_get_no_arg_command_formatting)
