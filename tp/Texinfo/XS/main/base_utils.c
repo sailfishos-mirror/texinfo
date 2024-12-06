@@ -28,6 +28,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdio.h>
+#include <stddef.h>
 
 void bug (char *message)
 {
@@ -74,5 +75,17 @@ int
 isascii_upper (unsigned char c)
 {
   return (((c & ~0x7f) == 0) && isupper (c));
+}
+
+/* generic, similar to Perl re (\w+) with /a modifier */
+size_t
+read_var_len (const char *text)
+{
+  const char *q = text;
+
+  while (*q && (isascii_alnum (*q) || *q == '_'))
+    q++;
+
+  return q - text;
 }
 

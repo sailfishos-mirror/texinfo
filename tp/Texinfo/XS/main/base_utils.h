@@ -27,4 +27,6 @@ int isascii_lower (unsigned char c);
 int isascii_space (unsigned char c);
 int isascii_upper (unsigned char c);
 
+size_t read_var_len (const char *text);
+
 #endif

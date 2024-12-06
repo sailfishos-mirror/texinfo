@@ -30,7 +30,7 @@
 #include "tree_types.h"
 #include "converter_types.h"
 #include "html_conversion_data.h"
-/* bug fatal isascii_alnum isascii_alpha */
+/* bug fatal isascii_alnum isascii_alpha read_var_len */
 #include "base_utils.h"
 /* new_element */
 #include "tree.h"
@@ -689,18 +689,6 @@ clear_string_variables_list (STRING_VARIABLES_LIST *variables)
       free (variable->string);
     }
   variables->number = 0;
-}
-
-/* generic, similar to Perl re (\w+) with /a modifier */
-static size_t
-read_var_len (const char *text)
-{
-  const char *q = text;
-
-  while (*q && (isascii_alnum (*q) || *q == '_'))
-    q++;
-
-  return q - text;
 }
 
 static char *

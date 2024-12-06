@@ -461,7 +461,7 @@ handle_error_messages (ERROR_MESSAGE_LIST *error_messages,
   for (i = 0; i < error_messages->number; i++)
     {
       const ERROR_MESSAGE *error_msg = &error_messages->list[i];
-      if (error_msg->type == MSG_warning && no_warn)
+      if (error_msg->type == MSG_warning && no_warn > 0)
         continue;
 
       text_reset (&text);

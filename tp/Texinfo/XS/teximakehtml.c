@@ -23,6 +23,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <stdarg.h>
 /* from Gnulib codeset.m4 */
 #ifdef HAVE_LANGINFO_CODESET
 #include <langinfo.h>
@@ -30,11 +31,17 @@
 #include <locale.h>
 #ifdef ENABLE_NLS
 #include <libintl.h>
+/* for pgettext */
+#include <gettext.h>
 #endif
 
 #include "document_types.h"
 #include "converter_types.h"
-/* parse_file_path */
+/* read_var_len */
+#include "base_utils.h"
+/* for xvasprintf */
+#include "text.h"
+/* parse_file_path whitespace_chars encode_string xasprintf */
 #include "utils.h"
 #include "customization_options.h"
 /*
@@ -60,6 +67,12 @@ static char *demo_parser_EXPANDED_FORMATS_array[] = {"HTML", "tex"};
 static STRING_LIST demo_parser_EXPANDED_FORMATS
   = {demo_parser_EXPANDED_FORMATS_array, 2, 2};
 
+/* options common to parser and converter */
+static OPTIONS_LIST program_options;
+static OPTIONS_LIST cmdline_options;
+
+static char *program_file;
+
 /* different modes for the program.
    - default: mimick the Perl program (use same name/version)
    - test: similar to setting TEST customization variable, try to
@@ -76,6 +89,147 @@ enum teximakehtml_mode {
   TEXIMAKEHTML_mode_demo,
 };
 
+static OPTION *
+get_conf (size_t number)
+{
+  if (option_number_in_option_list (&cmdline_options, number))
+    return cmdline_options.sorted_options[number -1];
+
+  if (option_number_in_option_list (&program_options, number))
+    return program_options.sorted_options[number -1];
+
+  return 0;
+}
+
+static char *
+decode_input (char *text)
+{
+  OPTION *option
+    = get_conf (program_options.options->COMMAND_LINE_ENCODING.number);
+  if (option && option->o.string)
+    {
+      int status;
+      char *result = decode_string (text, option->o.string, &status, 0);
+      return result;
+    }
+  else
+    return strdup (text);
+}
+
+static char *
+encode_message (char *text)
+{
+  OPTION *option
+    = get_conf (program_options.options->MESSAGE_ENCODING.number);
+  if (option && option->o.string)
+    {
+      int status;
+      char *result = encode_string (text, option->o.string, &status, 0);
+      return result;
+    }
+  else
+    return strdup (text);
+}
+
+static void
+document_warn (const char *format, ...)
+{
+  char *message;
+  char *encoded_message;
+  char *formatted_message;
+  OPTION *option
+    = get_conf (program_options.options->NO_WARN.number);
+
+  if (option && option->o.integer > 0)
+    return;
+
+  va_list v;
+
+  va_start (v, format);
+
+#ifdef ENABLE_NLS
+  xvasprintf (&message, gettext (format), v);
+#else
+  xvasprintf (&message, format, v);
+#endif
+  if (!message) fatal ("vasprintf failed");
+
+  va_end (v);
+
+#ifdef ENABLE_NLS
+  xasprintf (&formatted_message,
+          pgettext ("program name: warning: warning_message",
+                    "%s: warning: %s"), program_file, message);
+#else
+  xasprintf (&formatted_message, "%s: warning: %s",
+                              program_file, message);
+#endif
+  if (!formatted_message) fatal ("asprintf failed");
+
+  encoded_message = encode_message (formatted_message);
+
+  if (encoded_message)
+    fprintf (stderr, "%s\n", encoded_message);
+}
+
+void
+get_cmdline_customization_option (OPTIONS_LIST *options_list,
+                                  char *text)
+{
+  size_t identifier_len = read_var_len (text);
+  if (identifier_len > 0)
+    {
+      char *option_name = strndup (text, identifier_len);
+      OPTION *option = find_option_string (options_list->sorted_options,
+                                           option_name);
+
+      if (option)
+        {
+          char *p = text + identifier_len;
+          p += strspn (p, whitespace_chars);
+          if (*p == '=')
+            {
+              p++;
+              p += strspn (p, whitespace_chars);
+            }
+          if (option->type == GOT_integer)
+            {
+              char *endptr;
+              long value = strtol (p, &endptr, 10);
+              int int_value = (int) value;
+              if (endptr != p && int_value >= 0)
+                {
+                  option_set_conf (option, int_value, 0);
+                }
+              else
+                {
+                  /* warn?  No such check in Perl */
+                }
+            }
+          else if (option->type == GOT_char
+                   || option->type == GOT_bytes)
+            {
+              char *value;
+              if (!p)
+                value = strdup ("");
+              else if (option->type == GOT_char)
+                value = decode_input (p);
+              else
+                value = strdup (p);
+              option_set_conf (option, 0, value);
+              free (value);
+            }
+          options_list_add_option_number (options_list, option->number, 1);
+        }
+      else
+        {
+          document_warn("unknown variable from command line: %s",
+                        option_name);
+        }
+      free (option_name);
+    }
+}
+
 int
 main (int argc, char *argv[])
 {
@@ -83,7 +237,6 @@ main (int argc, char *argv[])
   const char *input_file_path;
   int status;
   char *program_file_name_and_directory[2];
-  char *program_file;
   char *input_directory;
   DOCUMENT *document;
   CONVERTER *converter;
@@ -91,9 +244,6 @@ main (int argc, char *argv[])
   BUTTON_SPECIFICATION_LIST *custom_node_footer_buttons;
   OPTIONS_LIST parser_options;
   OPTIONS_LIST convert_options;
-  /* options common to parser and converter */
-  OPTIONS_LIST program_options;
-  OPTIONS_LIST cmdline_options;
   size_t errors_count = 0;
   size_t errors_nr;
   STRING_LIST texinfo_language_config_dirs;
@@ -105,6 +255,10 @@ main (int argc, char *argv[])
   char *top_builddir;
   char *tp_builddir = 0;
   enum teximakehtml_mode run_mode = TEXIMAKEHTML_mode_default;
+  OPTION *test_option;
+  OPTION *no_warn_option;
+  int no_warn = 0;
+  int test_mode_set = 0;
 
   /*
   const char *texinfo_text;
@@ -186,14 +340,13 @@ main (int argc, char *argv[])
   if (strlen (DATADIR))
     add_string (DATADIR "/texinfo", &texinfo_language_config_dirs);
 
-  /* TODO set from command line */
   initialize_options_list (&cmdline_options);
 
   while (1)
     {
       int option_character;
 
-      option_character = getopt (argc, argv, "tmd");
+      option_character = getopt (argc, argv, "tmdc:");
       if (option_character == -1)
         break;
 
@@ -208,6 +361,9 @@ main (int argc, char *argv[])
         case 'd':
           run_mode = TEXIMAKEHTML_mode_demo;
           break;
+        case 'c':
+          get_cmdline_customization_option (&cmdline_options, optarg);
+          break;
           /*
         case '?':
           if (isprint (optopt))
@@ -219,7 +375,9 @@ main (int argc, char *argv[])
           break;
            */
         default:
-          fprintf (stderr, "Usage: %s [-t|-m|-d] input_file\n", program_file);
+          fprintf (stderr,
+                   "Usage: %s [-t|-m|-d][-c VAR[=| ]value] input_file\n",
+                   program_file);
           exit (EXIT_FAILURE);
         }
     }
@@ -234,7 +392,10 @@ main (int argc, char *argv[])
       add_option_value (&program_options, "TEST", 1, 0);
     }
 
-  if (program_options.options->TEST.o.integer > 0)
+  test_option = get_conf (program_options.options->TEST.number);
+  if (test_option && test_option->o.integer > 0)
+    test_mode_set = 1;
+  if(test_mode_set)
     {
       add_option_value (&program_options, "PACKAGE_VERSION", 0, "");
       add_option_value (&program_options, "PACKAGE", 0, "texinfo");
@@ -287,6 +448,9 @@ main (int argc, char *argv[])
       add_option_strlist_value (&parser_options, "EXPANDED_FORMATS",
                                 &parser_EXPANDED_FORMATS);
     }
+  no_warn_option = get_conf (program_options.options->NO_WARN.number);
+  if (no_warn_option && no_warn_option->o.integer > 0)
+    no_warn = 1;
 
 
   /* Texinfo file parsing */
@@ -303,13 +467,15 @@ main (int argc, char *argv[])
 
   if (status)
     {
-      txi_handle_parser_error_messages (document, 0, 1, locale_encoding);
+      txi_handle_parser_error_messages (document, no_warn, test_mode_set,
+                                        locale_encoding);
       txi_document_remove (document);
       exit (EXIT_FAILURE);
     }
 
   errors_nr
-    = txi_handle_parser_error_messages (document, 0, 1, locale_encoding);
+    = txi_handle_parser_error_messages (document, no_warn, test_mode_set,
+                                        locale_encoding);
   errors_count += errors_nr;
 
   /*
@@ -327,7 +493,8 @@ main (int argc, char *argv[])
                      | STTF_setup_index_entries_sort_strings, 0);
 
   errors_nr
-    = txi_handle_document_error_messages (document, 0, 1, locale_encoding);
+    = txi_handle_document_error_messages (document, no_warn, test_mode_set,
+                                          locale_encoding);
   errors_count += errors_nr;
 
   /* conversion initialization */
@@ -387,6 +554,9 @@ main (int argc, char *argv[])
   free_options_list (&convert_options);
   free (program_file);
 
+  free_options_list (&cmdline_options);
+  free_options_list (&program_options);
+
 
   /* conversion */
   /* return value can be NULL in case of errors or an empty string, but
@@ -395,7 +565,8 @@ main (int argc, char *argv[])
   free (result);
 
   errors_nr
-    = txi_handle_converter_error_messages (converter, 0, 1, locale_encoding);
+    = txi_handle_converter_error_messages (converter, no_warn,
+                                           test_mode_set, locale_encoding);
   errors_count += errors_nr;
 
   /* free after output */
