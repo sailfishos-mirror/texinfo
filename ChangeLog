@@ -1,5 +1,15 @@
 2024-12-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Config.pm (_GNUT_document_warn, _GNUT_document_fatal)
+	(GNUT_set_from_cmdline, texinfo_register_no_arg_command_formatting)
+	(GNUT_get_no_arg_command_formatting)
+	(texinfo_register_style_command_formatting)
+	(GNUT_get_style_command_formatting)
+	(texinfo_register_special_unit_info): remove \n in messages.  Remove
+	chomp in _GNUT_document_warn and _GNUT_document_fatal.
+
+2024-12-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/html_prepare_converter.c,
 	tp/Texinfo/XS/main/base_utils.c (read_var_len): move read_var_len to
 	base_utils.c.

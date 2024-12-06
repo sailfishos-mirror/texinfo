@@ -135,7 +135,6 @@ sub _GNUT_decode_input($)
 sub _GNUT_document_warn($) {
   return if (texinfo_get_conf('NO_WARN'));
   my $text = shift;
-  chomp ($text);
   warn(_GNUT_encode_message(
         sprintf(__p("program name: warning: warning_message",
                    "%s: warning: %s"), $real_command_name, $text)."\n"));
@@ -143,7 +142,6 @@ sub _GNUT_document_warn($) {
 
 sub _GNUT_document_fatal($) {
   my $text = shift;
-  chomp ($text);
   warn(_GNUT_encode_message(
         sprintf(__p("program name: error_message",
                    "%s: %s"), $real_command_name, $text)."\n"));
@@ -283,7 +281,7 @@ sub GNUT_set_from_cmdline($$)
   delete $init_files_options->{$var};
   delete $options_defaults->{$var};
   if (!Texinfo::Common::valid_customization_option($var)) {
-    _GNUT_document_warn(sprintf(__("unknown variable from command line: %s\n"),
+    _GNUT_document_warn(sprintf(__("unknown variable from command line: %s"),
                                $var));
     return 0;
   }
@@ -645,7 +643,7 @@ sub texinfo_register_no_arg_command_formatting($$;$$$$)
   if (!defined($context)) {
     $context = $default_formatting_context;
   } elsif (not defined($GNUT_no_arg_commands_formatting_strings->{$context})) {
-    _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s\n"),
+    _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s"),
                   'texinfo_register_no_arg_command_formatting', $context));
     return 0;
   }
@@ -681,7 +679,7 @@ sub GNUT_get_no_arg_command_formatting($;$)
   if (!defined($context)) {
     $context = $default_formatting_context;
   } elsif (not defined($GNUT_no_arg_commands_formatting_strings->{$context})) {
-    _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s\n"),
+    _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s"),
                         'GNUT_get_no_arg_command_formatting', $context));
     return undef;
   }
@@ -703,7 +701,7 @@ sub texinfo_register_style_command_formatting($$;$$)
   if (!defined($context)) {
     $context = $default_formatting_context;
   } elsif (not defined($GNUT_style_commands_formatting_info->{$context})) {
-    _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s\n"),
+    _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s"),
                   'texinfo_register_style_command_formatting', $context));
     return 0;
   }
@@ -726,7 +724,7 @@ sub GNUT_get_style_command_formatting($;$)
   if (!defined($context)) {
     $context = $default_formatting_context;
   } elsif (not defined($GNUT_style_commands_formatting_info->{$context})) {
-    _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s\n"),
+    _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s"),
                         'GNUT_get_style_command_formatting', $context));
     return undef;
   }
@@ -835,7 +833,7 @@ sub texinfo_register_special_unit_info($$$)
 
   if (not defined($GNUT_special_unit_info->{$type})) {
     _GNUT_document_warn(
-         sprintf(__("%s: unknown special element information type %s\n"),
+         sprintf(__("%s: unknown special element information type %s"),
                   'texinfo_register_special_unit_info', $type));
     return 0;
   }
