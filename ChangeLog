@@ -1,5 +1,12 @@
 2024-12-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/texinfo.c, tp/Texinfo/XS/teximakehtml.c
+	(set_customization_default, main): remove
+	txi_config_set_customization_default from texinfo.c and add the
+	similar set_customization_default function to teximakehtml.c.
+
+2024-12-07  Patrice Dumas  <pertusus@free.fr>
+
 	Fix memory leaks in teximakehtml (from valgrind)
 
 	* tp/Texinfo/XS/teximakehtml.c (document_warn): free encoded_message.

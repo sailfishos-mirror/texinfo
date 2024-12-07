@@ -509,16 +509,3 @@ txi_handle_converter_error_messages (CONVERTER *converter, int no_warn,
   return handle_error_messages (&converter->error_messages, no_warn,
                          use_filename, message_encoding);
 }
-
-/* Texinfo::Config */
-int
-txi_config_set_customization_default (OPTIONS_LIST *options_defaults,
-                         OPTIONS_LIST *cmdline_options, const OPTION *option)
-{
-  if (option_number_in_option_list (cmdline_options, option->number))
-    return 0;
-
-  options_list_add_option_number (options_defaults, option->number, 1);
-  copy_option (options_defaults->sorted_options[option->number -1], option);
-  return 1;
-}

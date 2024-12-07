@@ -91,6 +91,7 @@ enum teximakehtml_mode {
   TEXIMAKEHTML_mode_demo,
 };
 
+/* Texinfo::Config */
 static OPTION *
 get_conf (size_t number)
 {
@@ -101,6 +102,17 @@ get_conf (size_t number)
     return program_options.sorted_options[number -1];
 
   return 0;
+}
+
+static int
+set_customization_default (const OPTION *option)
+{
+  if (option_number_in_option_list (&cmdline_options, option->number))
+    return 0;
+
+  options_list_add_option_number (&program_options, option->number, 1);
+  copy_option (program_options.sorted_options[option->number -1], option);
+  return 1;
 }
 
 static char *
@@ -442,8 +454,8 @@ main (int argc, char *argv[])
       fprintf (stderr, "FORMAT_MENU %s\n",
            format_defaults->conf.options->FORMAT_MENU.o.string);
        */
-      txi_config_set_customization_default (&program_options, &cmdline_options,
-                                 &format_defaults->conf.options->FORMAT_MENU);
+      set_customization_default (
+                           &format_defaults->conf.options->FORMAT_MENU);
     }
 
   destroy_converter_initialization_info (format_defaults);

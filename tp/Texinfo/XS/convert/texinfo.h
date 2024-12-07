@@ -69,6 +69,4 @@ void txi_document_remove (DOCUMENT *document);
 void txi_converter_reset (CONVERTER *converter);
 void txi_converter_destroy (CONVERTER *converter);
 
-int txi_config_set_customization_default (OPTIONS_LIST *options_defaults,
-                         OPTIONS_LIST *cmdline_options, const OPTION *option);
 #endif
