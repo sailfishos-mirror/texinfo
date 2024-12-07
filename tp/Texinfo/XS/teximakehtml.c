@@ -48,6 +48,8 @@
 #include "convert_to_texinfo.h"
  */
 #include "create_buttons.h"
+/* destroy_converter_initialization_info */
+#include "converter.h"
 #include "texinfo.h"
 
 #define LOCALEDIR DATADIR "/locale"
@@ -169,7 +171,10 @@ document_warn (const char *format, ...)
   encoded_message = encode_message (formatted_message);
 
   if (encoded_message)
-    fprintf (stderr, "%s\n", encoded_message);
+    {
+      fprintf (stderr, "%s\n", encoded_message);
+      free (encoded_message);
+    }
 }
 
 void
@@ -284,8 +289,12 @@ main (int argc, char *argv[])
   if (!top_builddir)
     /* this is correct for in-source builds only. */
     top_builddir = strdup (top_srcdir);
+  else
+    top_builddir = strdup (top_builddir);
 
   xasprintf (&tp_builddir, "%s/tp", top_builddir);
+
+  free (top_builddir);
 
   txi_general_setup (1, 0, tp_builddir, top_srcdir);
 
@@ -436,6 +445,8 @@ main (int argc, char *argv[])
       txi_config_set_customization_default (&program_options, &cmdline_options,
                                  &format_defaults->conf.options->FORMAT_MENU);
     }
+
+  destroy_converter_initialization_info (format_defaults);
 
   /* TODO add program_options filtering in only parser options */
   initialize_options_list (&parser_options);
