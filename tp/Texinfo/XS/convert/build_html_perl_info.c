@@ -31,6 +31,8 @@
 #include "converter_types.h"
 /* bug */
 #include "base_utils.h"
+/* non_perl_free */
+#include "xs_utils.h"
 /* for builtin_command_name */
 #include "builtin_commands.h"
 /* for HMSF_* */
@@ -872,7 +874,7 @@ pass_sv_converter_info (const CONVERTER *converter,
       xasprintf (&bug_msg, "%s not an available converter info",
                  converter_info);
       bug (bug_msg);
-      free (bug_msg);
+      non_perl_free (bug_msg);
     }
 
   if (new_sv)

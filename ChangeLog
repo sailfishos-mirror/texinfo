@@ -1,5 +1,12 @@
 2024-12-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs,
+	tp/Texinfo/XS/convert/build_html_perl_info.c,
+	tp/Texinfo/XS/main/get_perl_info.c: use non_perl_free instead of free
+	to free variables allocated outside of Perl C code.
+
+2024-12-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (build_perl_array)
 	(build_perl_const_element_array, build_perl_directions)
 	(build_additional_info, build_indices_sort_strings)

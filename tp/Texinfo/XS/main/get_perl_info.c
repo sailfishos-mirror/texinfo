@@ -54,8 +54,6 @@
 #define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen (#key), 0);
 
 /* used for debugging only */
-/* This function mixes Perl and gnulib allocation functions, but since it is
-   only used for debugging it is ok */
 static void
 debug_print_element_hv (HV *element_hv)
 {
@@ -85,10 +83,10 @@ debug_print_element_hv (HV *element_hv)
       char *text = SvPVutf8_nolen (*text_sv);
       char *protected_text = debug_protect_eol (text);
       text_printf (&msg, "[T: %s]", protected_text);
-      free (protected_text);
+      non_perl_free (protected_text);
     }
   fprintf (stderr, "ELT_sv: %s\n", msg.text);
-  free (msg.text);
+  non_perl_free (msg.text);
 }
 
 /* used for debugging only */
@@ -552,7 +550,7 @@ init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force,
   if (sorted_options_out)
     *sorted_options_out = sorted_options;
   else
-    free (sorted_options);
+    non_perl_free (sorted_options);
   return options;
 }
 

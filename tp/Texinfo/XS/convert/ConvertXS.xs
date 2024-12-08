@@ -850,7 +850,7 @@ html_setup_output (SV *converter_in)
 
                 for (i = 0; i < 5; i++)
                   {
-                    free (paths[i]);
+                    non_perl_free (paths[i]);
                   }
               }
 
@@ -1013,7 +1013,7 @@ html_convert_convert (SV *converter_in, ...)
         result = html_convert_convert (self, self->document->tree);
         build_html_formatting_state (self);
         RETVAL = newSVpv_utf8 (result, 0);
-        free (result);
+        non_perl_free (result);
     OUTPUT:
         RETVAL
 
@@ -1041,7 +1041,7 @@ html_convert_output (SV *converter_in, output_file, destination_directory, outpu
             if (result)
               {
                 result_sv = newSVpv_utf8 (result, 0);
-                free (result);
+                non_perl_free (result);
               }
 
             build_output_files_information (converter_in,
@@ -1075,7 +1075,7 @@ html_prepare_node_redirection_page (SV *converter_in, SV *element_sv, redirectio
         if (redirection_page)
           {
             RETVAL = newSVpv_utf8 (redirection_page, 0);
-            free (redirection_page);
+            non_perl_free (redirection_page);
           }
         else
           RETVAL = newSV (0);
@@ -1207,7 +1207,7 @@ html_output (SV *converter_in, SV *document_in)
           }
 
         /* output to a file only */
-        free (result);
+        non_perl_free (result);
         result = 0;
 
         status = html_finish_output (self, output_file, destination_directory);
@@ -1215,7 +1215,7 @@ html_output (SV *converter_in, SV *document_in)
       finalization:
         for (i = 0; i < 5; i++)
           {
-            free (paths[i]);
+            non_perl_free (paths[i]);
           }
         /* html_conversion_finalization */
         html_conversion_finalization (self);
@@ -1225,7 +1225,7 @@ html_output (SV *converter_in, SV *document_in)
         if (result)
           {
             RETVAL = newSVpv_utf8 (result, 0);
-            free (result);
+            non_perl_free (result);
           }
         else
           RETVAL = newSV (0);
@@ -1311,7 +1311,7 @@ html_convert (SV *converter_in, SV *document_in)
         html_check_transfer_state_finalization (self);
 
         RETVAL = newSVpv_utf8 (result, 0);
-        free (result);
+        non_perl_free (result);
     OUTPUT:
         RETVAL
 
@@ -2411,7 +2411,7 @@ html_attribute_class (SV *converter_in, element, ...)
             if (classes)
               destroy_strings_list (classes);
             RETVAL = newSVpv_utf8 (result, 0);
-            free (result);
+            non_perl_free (result);
           }
         else
           RETVAL = newSV (0);
@@ -2644,7 +2644,7 @@ html_cancel_pending_formatted_inline_content (SV *converter_in, category)
         if (inline_content)
           {
             RETVAL = newSVpv_utf8 (inline_content, 0);
-            free (inline_content);
+            non_perl_free (inline_content);
           }
         else
           RETVAL = newSV (0);
@@ -2666,7 +2666,7 @@ html_get_pending_formatted_inline_content (SV *converter_in)
         if (inline_content)
           {
             RETVAL = newSVpv_utf8 (inline_content, 0);
-            free (inline_content);
+            non_perl_free (inline_content);
           }
         else
           RETVAL = newSV (0);
@@ -2700,7 +2700,7 @@ html_get_associated_formatted_inline_content (SV *converter_in, SV *element_sv)
              = html_get_associated_formatted_inline_content (self,
                                                   0, SvRV (element_sv));
             RETVAL = newSVpv_utf8 (inline_content, 0);
-            free (inline_content);
+            non_perl_free (inline_content);
           }
         else
           RETVAL = newSV (0);
@@ -2771,9 +2771,9 @@ html_check_htmlxref_already_warned (SV *converter_in, manual_name, SV *source_in
                                                      source_info);
         if (source_info)
           {
-            free (source_info->macro);
-            free (source_info->file_name);
-            free (source_info);
+            non_perl_free (source_info->macro);
+            non_perl_free (source_info->file_name);
+            non_perl_free (source_info);
           }
     OUTPUT:
         RETVAL
@@ -2800,7 +2800,7 @@ html_convert_tree (SV *converter_in, SV *tree_in, explanation)
                 char *result = html_convert_tree(self, document->tree,
                                                  explanation);
                 result_sv = newSVpv_utf8 (result, 0);
-                free (result);
+                non_perl_free (result);
               }
           }
         if (result_sv)
