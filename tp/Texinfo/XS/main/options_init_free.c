@@ -20,8 +20,8 @@ initialize_options (OPTIONS *options)
 
   initialize_option (&options->CSS_FILES, GOT_bytes_string_list, "CSS_FILES", 0);
   initialize_option (&options->CSS_REFS, GOT_char_string_list, "CSS_REFS", 0);
-  initialize_option (&options->EXPANDED_FORMATS, GOT_bytes_string_list, "EXPANDED_FORMATS", 0);
-  initialize_option (&options->INCLUDE_DIRECTORIES, GOT_file_string_list, "INCLUDE_DIRECTORIES", 0);
+  initialize_option (&options->EXPANDED_FORMATS, GOT_bytes_string_list, "EXPANDED_FORMATS", OF_parser_option);
+  initialize_option (&options->INCLUDE_DIRECTORIES, GOT_file_string_list, "INCLUDE_DIRECTORIES", OF_parser_option);
   initialize_option (&options->TEXINFO_LANGUAGE_DIRECTORIES, GOT_file_string_list, "TEXINFO_LANGUAGE_DIRECTORIES", 0);
 
 /* converter_cmdline */

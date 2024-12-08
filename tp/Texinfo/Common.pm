@@ -125,12 +125,6 @@ foreach my $variable_name ('MACRO_EXPAND', 'INTERNAL_LINKS') {
   $non_decoded_customization_variables{$variable_name} = 1;
 }
 
-# array variables not specific of Parser, used in other contexts.
-my %array_parser_options = (
-  'INCLUDE_DIRECTORIES' => [ '.' ],
-  'EXPANDED_FORMATS' => [],
-);
-
 # can be modified through command-line, but not customization options
 our %parser_document_state_configuration = (
   # parsed document parsing information still relevant after parsing
@@ -154,7 +148,7 @@ my %parser_inner_options = (
 # valid for the parser.
 my $common_parser_regular_options_defaults
   = Texinfo::Options::get_regular_options('common_parser');
-our %default_parser_customization_values = (%array_parser_options,
+our %default_parser_customization_values = (
                   %Texinfo::Options::parser_options,
                   %$common_parser_regular_options_defaults);
 

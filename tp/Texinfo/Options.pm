@@ -271,9 +271,11 @@ my %regular_options_types;
 my %common_parser_regular_options_defaults = (
   'documentlanguage'                 => undef,
   'DEBUG'                            => 0,
+  'EXPANDED_FORMATS'                 => [],
   'FORMAT_MENU'                      => 'menu',
   'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,
   'COMMAND_LINE_ENCODING'            => undef,
+  'INCLUDE_DIRECTORIES'              => [ '.' ],
   'INPUT_FILE_NAME_ENCODING'         => undef,
   'LOCALE_ENCODING'                  => undef,
 );

@@ -522,7 +522,9 @@ foreach my $format (@sorted_formats) {
     my $option_info = $options{$option};
     my ($category, $main_default, $type) = @$option_info;
     my ($int_value, $char_value) = get_value($type, $value);
-    print CDCF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
+    if ($type eq 'char' or $type eq 'bytes' or $type eq 'integer') {
+      print CDCF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
+    }
   }
   print CDCF "}\n\n";
 
@@ -532,8 +534,10 @@ foreach my $format (@sorted_formats) {
     my $option_info = $options{$option};
     my ($option_unused, $main_default, $type) = @$option_info;
     my ($int_value, $char_value) = get_value($type, $value);
-    print CDCF "  add_option_value (options_list, "
-                 ."\"$option\", $int_value, $char_value);\n";
+    if ($type eq 'char' or $type eq 'bytes' or $type eq 'integer') {
+      print CDCF "  add_option_value (options_list, "
+                   ."\"$option\", $int_value, $char_value);\n";
+    }
   }
   print CDCF "}\n\n";
 }
