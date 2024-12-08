@@ -1,5 +1,19 @@
 2024-12-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (set_global_document_commands)
+	tp/Texinfo/XS/main/customization_options.c (initialize_option)
+	(option_set_conf, copy_options_list_set_configured),
+	tp/Texinfo/XS/main/get_perl_info.c (get_sv_option),
+	tp/Texinfo/XS/main/option_types.h (OPTION): replace configured with
+	flags, and use a flag to determine if the option is configured.
+	Add flags argument to initialization function.
+
+	* tp/maintain/regenerate_C_options_info.pl: set a specific flag for
+	parser options and options set in parser flags when initializing the
+	options.
+
+2024-12-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%array_parser_options)
 	(%default_parser_customization_values)
 	($common_parser_regular_options_defaults): add %array_parser_options

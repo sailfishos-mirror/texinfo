@@ -49,7 +49,7 @@ OPTIONS *new_options (void);
 void clear_option (OPTION *option);
 void free_option (OPTION *option);
 void initialize_option (OPTION *option, enum global_option_type type,
-                        const char *name);
+                        const char *name, unsigned long flags);
 int option_set_conf (OPTION *option, int int_value, const char *char_value);
 void option_force_conf (OPTION *option, int int_value, const char *char_value);
 void copy_option (OPTION *destination, const OPTION *source);

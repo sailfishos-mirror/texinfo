@@ -169,13 +169,16 @@ typedef struct DIRECTION_ICON_LIST {
     char **list;
 } DIRECTION_ICON_LIST;
 
+#define OF_configured          0x0001
+#define OF_parser_option       0x0002
+
 typedef struct OPTION {
     enum global_option_type type;
     const char *name;
     /* index in sorted options array */
     /* starts at 1 to use 0 for unset */
     size_t number;
-    int configured;
+    unsigned long flags;
     union {
       int integer;
       char *string;

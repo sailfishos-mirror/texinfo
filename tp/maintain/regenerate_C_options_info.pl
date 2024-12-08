@@ -26,8 +26,9 @@ use File::Basename;
 
 my %option_categories;
 
-# Not used much for now, could be useful to distinguish converter
-# from other customization options, parser options for instance
+my %parser_option_categories;
+
+# Not used much for now
 my %converter_option_categories;
 
 my %commands_options;
@@ -46,7 +47,9 @@ while (<STDIN>) {
 
       if (!exists($option_categories{$category})) {
         $option_categories{$category} = [];
-        if ($category !~ /^parser/) {
+        if ($category =~ /^parser/) {
+          $parser_option_categories{$category} = 1;
+        } else {
           $converter_option_categories{$category} = 1;
         }
       }
@@ -104,7 +107,9 @@ open(CDEF, $converter_defaults_file)
   or die "open $converter_defaults_file: $!";
 
 my %converter_defaults;
+my %parser_options;
 my $format;
+my $in_parser_options;
 my $line = 1;
 while (<CDEF>) {
   if (not (/^ *#/ or /^ *$/)) {
@@ -112,6 +117,11 @@ while (<CDEF>) {
       $format = $1;
       if (!defined($converter_defaults{$format})) {
         $converter_defaults{$format} = [];
+      }
+      if ($format =~ /parser/) {
+        $in_parser_options = 1;
+      } else {
+        $in_parser_options = 0;
       }
     } elsif (defined($format)) {
       if (/^ *([A-Za-z][A-Za-z0-9_]*)( +(.*))?$/) {
@@ -125,6 +135,9 @@ while (<CDEF>) {
           print STDERR "$converter_defaults_file: $line: unknown option $option\n";
         } else {
           push @{$converter_defaults{$format}}, [$option, $value];
+          if ($in_parser_options) {
+            $parser_options{$option} = 1;
+          }
         }
       }
     }
@@ -216,10 +229,20 @@ print CODE "void\ninitialize_options (OPTIONS *options)\n{\n";
 print CODE "  options->BIT_user_function_number = 0;\n";
 
 foreach my $category (sort(keys(%option_categories))) {
+  my $flags;
+  if ($parser_option_categories{$category}) {
+    $flags = 'OF_parser_option';
+  } else {
+    $flags = 0;
+  }
   print CODE "\n/* ${category} */\n\n";
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
-    print CODE "  initialize_option (&options->$option, GOT_$type, \"$option\");\n";
+    my $option_flags = $flags;
+    if ($parser_options{$option}) {
+      $option_flags = 'OF_parser_option';
+    }
+    print CODE "  initialize_option (&options->$option, GOT_$type, \"$option\", $option_flags);\n";
   }
 }
 

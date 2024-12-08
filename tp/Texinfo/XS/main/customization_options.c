@@ -179,10 +179,11 @@ free_option (OPTION *option)
 
 void
 initialize_option (OPTION *option, enum global_option_type type,
-                   const char *name)
+                   const char *name, unsigned long flags)
 {
   option->type = type;
   option->name = name;
+  option->flags = flags;
   option->number = 0;
   switch (type)
     {
@@ -243,7 +244,7 @@ option_set_conf_internal (OPTION *option, int int_value, const char *char_value)
 int
 option_set_conf (OPTION *option, int int_value, const char *char_value)
 {
-  if (option->configured > 0)
+  if (option->flags & OF_configured)
     return 0;
   option_set_conf_internal (option, int_value, char_value);
   return 1;
@@ -532,7 +533,7 @@ copy_options_list_set_configured (OPTIONS *options, OPTION **sorted_options,
       for (i = 0; i < options_list->number; i++)
         {
           size_t index = options_list->list[i] - 1;
-          sorted_options[index]->configured = 1;
+          sorted_options[index]->flags |= OF_configured;
         }
     }
 }

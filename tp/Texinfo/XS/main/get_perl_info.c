@@ -430,7 +430,7 @@ get_sv_option (OPTION *option, SV *value, int force,
 {
   dTHX;
 
-  if (force <= 0 && option->configured > 0)
+  if (force <= 0 && option->flags & OF_configured)
     return -1;
 
   switch (option->type)
