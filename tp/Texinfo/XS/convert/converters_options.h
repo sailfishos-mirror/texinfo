@@ -15,21 +15,21 @@
 #undef PACKAGE_URL
 #undef PACKAGE_VERSION
 
-void set_common_regular_options_defaults (OPTIONS *options);
-
-void add_common_regular_options_defaults (OPTIONS_LIST *options_list);
-
 void set_common_parser_regular_options_defaults (OPTIONS *options);
 
 void add_common_parser_regular_options_defaults (OPTIONS_LIST *options_list);
 
-void set_converter_regular_options_defaults (OPTIONS *options);
+void set_converter_common_regular_options_defaults (OPTIONS *options);
 
-void add_converter_regular_options_defaults (OPTIONS_LIST *options_list);
+void add_converter_common_regular_options_defaults (OPTIONS_LIST *options_list);
 
-void set_html_regular_options_defaults (OPTIONS *options);
+void set_converter_defaults_regular_options_defaults (OPTIONS *options);
 
-void add_html_regular_options_defaults (OPTIONS_LIST *options_list);
+void add_converter_defaults_regular_options_defaults (OPTIONS_LIST *options_list);
+
+void set_html_converter_regular_options_defaults (OPTIONS *options);
+
+void add_html_converter_regular_options_defaults (OPTIONS_LIST *options_list);
 
 void set_texi2html_regular_options_defaults (OPTIONS *options);
 

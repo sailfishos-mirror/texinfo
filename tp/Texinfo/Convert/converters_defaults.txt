@@ -1,5 +1,5 @@
 # Copyright 2010-2024 Free Software Foundation, Inc.
-# 
+#
 # This file is part of GNU Texinfo.
 #
 # GNU Texinfo is free software; you can redistribute it and/or modify
@@ -44,13 +44,14 @@ INPUT_FILE_NAME_ENCODING   undef
 # used for file name encoding
 LOCALE_ENCODING            undef
 
-# for Texinfo::Convert::Converter
-- converter
+# for Texinfo::Convert::Converter, used when a Converter does not redefine
+# the converter_defaults method
+- converter_defaults
 
 documentlanguage undef
 
 # in Texinfo::Convert::Converter, common to all the converters
-- common
+- converter_common
 
 # This is the default, mainly for tests; the caller should set them.  These
 # values are what is used in tests of the Converters.  These variables are
@@ -64,7 +65,7 @@ PACKAGE_URL           https://www.gnu.org/software/texinfo/
 PROGRAM               
 
 
-- html
+- html_converter
 
 BIG_RULE               <hr>
 BODY_ELEMENT_ATTRIBUTES  undef

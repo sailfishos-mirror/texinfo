@@ -1,5 +1,18 @@
 2024-12-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/regenerate_perl_options_info.pl,
+	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/HTML.pm: do not
+	prepend converter_ in front of regular options defaults.  Rename
+	get_converter_regular_options as get_regular_options.
+
+	* tp/Texinfo/Convert/converters_defaults.txt,
+	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/XS/convert/html_converter_init_options.c
+	(html_converter_defaults), tp/Texinfo/XS/convert/converter.c
+	(set_generic_converter_options): update names.
+
+2024-12-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/regenerate_C_options_info.pl,
 	tp/Texinfo/options_data.txt: add parser customization options.
 

@@ -268,18 +268,7 @@ our %unique_at_command_options = (
 
 my %regular_options_types;
 
-my %converter_common_regular_options_defaults = (
-  'PACKAGE'                          => 'texinfo',
-  'PACKAGE_NAME'                     => 'GNU Texinfo',
-  'PACKAGE_AND_VERSION'              => 'texinfo',
-  'PACKAGE_VERSION'                  => '',
-  'PACKAGE_URL'                      => 'https://www.gnu.org/software/texinfo/',
-  'PROGRAM'                          => '',
-);
-
-$regular_options_types{'common'} = \%converter_common_regular_options_defaults;
-
-my %converter_common_parser_regular_options_defaults = (
+my %common_parser_regular_options_defaults = (
   'documentlanguage'                 => undef,
   'DEBUG'                            => 0,
   'FORMAT_MENU'                      => 'menu',
@@ -289,15 +278,26 @@ my %converter_common_parser_regular_options_defaults = (
   'LOCALE_ENCODING'                  => undef,
 );
 
-$regular_options_types{'common_parser'} = \%converter_common_parser_regular_options_defaults;
+$regular_options_types{'common_parser'} = \%common_parser_regular_options_defaults;
 
-my %converter_converter_regular_options_defaults = (
+my %converter_common_regular_options_defaults = (
+  'PACKAGE'                          => 'texinfo',
+  'PACKAGE_NAME'                     => 'GNU Texinfo',
+  'PACKAGE_AND_VERSION'              => 'texinfo',
+  'PACKAGE_VERSION'                  => '',
+  'PACKAGE_URL'                      => 'https://www.gnu.org/software/texinfo/',
+  'PROGRAM'                          => '',
+);
+
+$regular_options_types{'converter_common'} = \%converter_common_regular_options_defaults;
+
+my %converter_defaults_regular_options_defaults = (
   'documentlanguage'                 => undef,
 );
 
-$regular_options_types{'converter'} = \%converter_converter_regular_options_defaults;
+$regular_options_types{'converter_defaults'} = \%converter_defaults_regular_options_defaults;
 
-my %converter_html_regular_options_defaults = (
+my %html_converter_regular_options_defaults = (
   'BIG_RULE'                         => '<hr>',
   'BODY_ELEMENT_ATTRIBUTES'          => undef,
   'CHAPTER_HEADER_LEVEL'             => 2,
@@ -353,9 +353,9 @@ my %converter_html_regular_options_defaults = (
   'xrefautomaticsectiontitle'        => 'on',
 );
 
-$regular_options_types{'html'} = \%converter_html_regular_options_defaults;
+$regular_options_types{'html_converter'} = \%html_converter_regular_options_defaults;
 
-my %converter_texi2html_regular_options_defaults = (
+my %texi2html_regular_options_defaults = (
   'FORMAT_MENU'                      => 'menu',
   'USE_SETFILENAME_EXTENSION'        => 0,
   'footnotestyle'                    => 'separate',
@@ -381,9 +381,9 @@ my %converter_texi2html_regular_options_defaults = (
   'FOOTNOTE_SEPARATE_HEADER_LEVEL'   => 1,
 );
 
-$regular_options_types{'texi2html'} = \%converter_texi2html_regular_options_defaults;
+$regular_options_types{'texi2html'} = \%texi2html_regular_options_defaults;
 
-sub get_converter_regular_options {
+sub get_regular_options {
   my $input = shift;
   return $regular_options_types{$input}
 }

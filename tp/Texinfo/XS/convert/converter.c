@@ -222,7 +222,7 @@ set_generic_converter_options (OPTIONS *options)
   set_converter_customization_options_defaults (options);
   set_unique_at_command_options_defaults (options);
   set_multiple_at_command_options_defaults (options);
-  set_common_regular_options_defaults (options);
+  set_converter_common_regular_options_defaults (options);
 }
 
 /* initialize the converter */

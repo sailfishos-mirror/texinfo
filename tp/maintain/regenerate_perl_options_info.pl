@@ -123,7 +123,7 @@ print OUT "my %regular_options_types;\n\n";
 my @sorted_formats = sort(keys(%converter_defaults));
 
 foreach my $format (@sorted_formats) {
-  my $hash = "%converter_${format}_regular_options_defaults";
+  my $hash = "%${format}_regular_options_defaults";
   print OUT "my $hash = (\n";
   foreach my $option_spec (@{$converter_defaults{$format}}) {
     my ($option, $value) = @$option_spec;
@@ -134,7 +134,7 @@ foreach my $format (@sorted_formats) {
   print OUT "\$regular_options_types{'$format'} = \\$hash;\n\n";
 }
 
-print OUT "sub get_converter_regular_options {\n";
+print OUT "sub get_regular_options {\n";
 print OUT "  my \$input = shift;\n";
 print OUT "  return \$regular_options_types{\$input}\n";
 print OUT "}\n\n";

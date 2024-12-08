@@ -190,7 +190,7 @@ html_converter_defaults (enum converter_format format,
   CONVERTER_INITIALIZATION_INFO *format_defaults
     = new_converter_initialization_info ();
 
-  add_html_regular_options_defaults (&format_defaults->conf);
+  add_html_converter_regular_options_defaults (&format_defaults->conf);
 
   add_html_default_buttons_specifications (&format_defaults->conf, 0);
 

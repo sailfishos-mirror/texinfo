@@ -13,28 +13,6 @@
 #include "html_conversion_api.h"
 
 void
-set_common_regular_options_defaults (OPTIONS *options)
-{
-  option_set_conf (&options->PACKAGE, -2, "texinfo");
-  option_set_conf (&options->PACKAGE_NAME, -2, "GNU Texinfo");
-  option_set_conf (&options->PACKAGE_AND_VERSION, -2, "texinfo");
-  option_set_conf (&options->PACKAGE_VERSION, -2, "");
-  option_set_conf (&options->PACKAGE_URL, -2, "https://www.gnu.org/software/texinfo/");
-  option_set_conf (&options->PROGRAM, -2, "");
-}
-
-void
-add_common_regular_options_defaults (OPTIONS_LIST *options_list)
-{
-  add_option_value (options_list, "PACKAGE", -2, "texinfo");
-  add_option_value (options_list, "PACKAGE_NAME", -2, "GNU Texinfo");
-  add_option_value (options_list, "PACKAGE_AND_VERSION", -2, "texinfo");
-  add_option_value (options_list, "PACKAGE_VERSION", -2, "");
-  add_option_value (options_list, "PACKAGE_URL", -2, "https://www.gnu.org/software/texinfo/");
-  add_option_value (options_list, "PROGRAM", -2, "");
-}
-
-void
 set_common_parser_regular_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->documentlanguage, -2, 0);
@@ -59,19 +37,41 @@ add_common_parser_regular_options_defaults (OPTIONS_LIST *options_list)
 }
 
 void
-set_converter_regular_options_defaults (OPTIONS *options)
+set_converter_common_regular_options_defaults (OPTIONS *options)
+{
+  option_set_conf (&options->PACKAGE, -2, "texinfo");
+  option_set_conf (&options->PACKAGE_NAME, -2, "GNU Texinfo");
+  option_set_conf (&options->PACKAGE_AND_VERSION, -2, "texinfo");
+  option_set_conf (&options->PACKAGE_VERSION, -2, "");
+  option_set_conf (&options->PACKAGE_URL, -2, "https://www.gnu.org/software/texinfo/");
+  option_set_conf (&options->PROGRAM, -2, "");
+}
+
+void
+add_converter_common_regular_options_defaults (OPTIONS_LIST *options_list)
+{
+  add_option_value (options_list, "PACKAGE", -2, "texinfo");
+  add_option_value (options_list, "PACKAGE_NAME", -2, "GNU Texinfo");
+  add_option_value (options_list, "PACKAGE_AND_VERSION", -2, "texinfo");
+  add_option_value (options_list, "PACKAGE_VERSION", -2, "");
+  add_option_value (options_list, "PACKAGE_URL", -2, "https://www.gnu.org/software/texinfo/");
+  add_option_value (options_list, "PROGRAM", -2, "");
+}
+
+void
+set_converter_defaults_regular_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->documentlanguage, -2, 0);
 }
 
 void
-add_converter_regular_options_defaults (OPTIONS_LIST *options_list)
+add_converter_defaults_regular_options_defaults (OPTIONS_LIST *options_list)
 {
   add_option_value (options_list, "documentlanguage", -2, 0);
 }
 
 void
-set_html_regular_options_defaults (OPTIONS *options)
+set_html_converter_regular_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->BIG_RULE, -2, "<hr>");
   option_set_conf (&options->BODY_ELEMENT_ATTRIBUTES, -2, 0);
@@ -129,7 +129,7 @@ set_html_regular_options_defaults (OPTIONS *options)
 }
 
 void
-add_html_regular_options_defaults (OPTIONS_LIST *options_list)
+add_html_converter_regular_options_defaults (OPTIONS_LIST *options_list)
 {
   add_option_value (options_list, "BIG_RULE", -2, "<hr>");
   add_option_value (options_list, "BODY_ELEMENT_ATTRIBUTES", -2, 0);

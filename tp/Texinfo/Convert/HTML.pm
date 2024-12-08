@@ -2521,7 +2521,7 @@ sub convert_tree_new_formatting_context($$$;$$$)
 
 # values for integer and string options in code generated from
 # Texinfo/Convert/converters_defaults.txt
-my $regular_defaults = Texinfo::Options::get_converter_regular_options('html');
+my $regular_defaults = Texinfo::Options::get_regular_options('html_converter');
 
 my %defaults = (
   # Customization option variables
@@ -13803,7 +13803,7 @@ sub _set_variables_texi2html($)
                              'Top', 'Contents', 'Index', 'About' ]],
   );
   my $regular_texi2html_options
-    = Texinfo::Options::get_converter_regular_options('texi2html');
+    = Texinfo::Options::get_regular_options('texi2html');
   foreach my $option (keys(%$regular_texi2html_options)) {
     $options->{$option} = $regular_texi2html_options->{$option};
   }

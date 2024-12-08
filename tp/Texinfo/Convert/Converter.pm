@@ -125,13 +125,14 @@ sub import {
 # values for integer and string options in code generated from
 # Texinfo/Convert/converters_defaults.txt
 my $regular_defaults
-  = Texinfo::Options::get_converter_regular_options('converter');
+  = Texinfo::Options::get_regular_options('converter_defaults');
 
 my %defaults = %$regular_defaults;
 
 # values for integer and string options in code generated from
 # Texinfo/Convert/converters_defaults.txt
-my $common_defaults = Texinfo::Options::get_converter_regular_options('common');
+my $common_defaults
+  = Texinfo::Options::get_regular_options('converter_common');
 
 # defaults for all converters that are not defined elsewhere.
 # undef values in general marks information passed by the caller that
