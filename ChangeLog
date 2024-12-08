@@ -1,3 +1,10 @@
+2023-12-08  Eli Zaretskii <eliz@gnu.org>
+
+	* tp/Texinfo/XS/main/build_perl_info.c
+	(perl_only_free, perl_only_malloc),
+	* tp/Texinfo/XS/main/get_perl_info.c (get_sv_output_units)
+	(init_copy_sv_options): Add missing dTHX.
+
 2024-12-06  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: adjust instructions for updating translations

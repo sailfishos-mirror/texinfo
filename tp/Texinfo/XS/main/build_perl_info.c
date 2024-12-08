@@ -125,6 +125,7 @@
 void
 perl_only_free (void *ptr)
 {
+  dTHX;
   free (ptr);
 }
 
@@ -132,6 +133,7 @@ perl_only_free (void *ptr)
 void *
 perl_only_malloc (size_t size)
 {
+  dTHX;
   return malloc (size);
 }
 

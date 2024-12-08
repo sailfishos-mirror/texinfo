@@ -245,6 +245,8 @@ get_sv_output_units (const DOCUMENT *document,
   const DOCUMENT *document_found = 0;
   size_t output_units_descriptor = 0;
 
+  dTHX;
+
   if (document)
     {
       document_found = document;
@@ -543,6 +545,9 @@ init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force,
 {
   OPTIONS *options = new_options ();
   OPTION **sorted_options = new_sorted_options (options);
+
+  dTHX;
+
   get_sv_options (sv_in, options, sorted_options, converter, force);
   if (sorted_options_out)
     *sorted_options_out = sorted_options;
