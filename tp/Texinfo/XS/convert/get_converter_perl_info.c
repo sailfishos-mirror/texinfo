@@ -179,7 +179,7 @@ set_translated_commands (SV *translated_commands_sv)
         }
 
       translated_commands = (TRANSLATED_COMMAND *)
-        malloc ((hv_number +1) * sizeof (TRANSLATED_COMMAND));
+        non_perl_malloc ((hv_number +1) * sizeof (TRANSLATED_COMMAND));
       memset (translated_commands, 0,
               (hv_number +1) * sizeof (TRANSLATED_COMMAND));
 

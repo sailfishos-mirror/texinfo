@@ -47,9 +47,6 @@ INDEX_ENTRY *find_index_entry_sv (const SV *index_entry_sv,
                      const char *warn_string, const INDEX **entry_idx,
                      int *entry_number);
 
-INDEX_SORTED_BY_LETTER *get_sv_index_entries_sorted_by_letter
-                 (INDEX_LIST *indices_info, SV *index_entries_sorted_by_letter);
-
 BUTTON_SPECIFICATION_LIST *html_get_button_specification_list
                                 (const CONVERTER *converter, const SV *buttons_sv);
 void html_fill_button_sv_specification_list (const CONVERTER *converter,

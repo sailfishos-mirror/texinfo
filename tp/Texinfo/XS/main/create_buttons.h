@@ -16,6 +16,7 @@ enum BUTTON_special_unit_directions {
     BSUD_D_Contents,
 };
 
+BUTTON_SPECIFICATION_INFO *new_button_specification_info (void);
 void new_button_specification (BUTTON_SPECIFICATION *button,
                           enum button_specification_type type,
                           enum button_information_type info_type,

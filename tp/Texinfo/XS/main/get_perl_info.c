@@ -45,6 +45,7 @@
 #include "targets.h"
 #include "parser_conf.h"
 #include "document.h"
+#include "create_buttons.h"
 #include "output_unit.h"
 #include "get_perl_info.h"
 
@@ -360,7 +361,8 @@ get_source_info (SV *source_info_sv)
 
   hv_in = (HV *)SvRV (source_info_sv);
 
-  SOURCE_INFO *source_info = (SOURCE_INFO *) malloc (sizeof (SOURCE_INFO));
+  SOURCE_INFO *source_info
+    = (SOURCE_INFO *) non_perl_malloc (sizeof (SOURCE_INFO));
   memset (source_info, 0, sizeof (SOURCE_INFO));
 
   FETCH(macro)
@@ -598,221 +600,6 @@ find_index_entry_sv (const SV *index_entry_sv, INDEX_LIST *indices_info,
   return 0;
 }
 
-
-/* code in comments allow to sort the index names to have a fixed order
-   in the data structure.  Not clear that it is useful or not, not enabled
-   for now */
-/* return value to be freed by caller */
-/* Currently not used */
-INDEX_SORTED_BY_LETTER *
-get_sv_index_entries_sorted_by_letter (INDEX_LIST *indices_info,
-                                       SV *index_entries_sorted_by_letter)
-{
-  INDEX_SORTED_BY_LETTER *indices_entries_by_letter;
-
-  HV *hv_in;
-  /* for sorted index names
-  AV *index_names_av;
-  SV **index_names_av_array;
-  SV **sorted_index_names_av_array;
-  I32 i;
-   */
-  I32 index_names_nr;
-
-  SSize_t j;
-
-  dTHX;
-
-  if (!SvOK (index_entries_sorted_by_letter))
-    return 0;
-
-  hv_in = (HV *)SvRV (index_entries_sorted_by_letter);
-
-  index_names_nr = hv_iterinit (hv_in);
-
-  /* when there is a memcpy just below, a condition that avoids negative
-     index_names_nr is important to avoid a gcc warning */
-  if (index_names_nr <= 0)
-    return 0;
-
-  /* doing an AV with the keys (first step of sorting)
-  index_names_av = newAV ();
-
-  for (i = 0; i < index_names_nr; i++)
-    {
-      HE *next = hv_iternext (hv_in);
-      SV *index_name_sv = hv_iterkeysv (next);
-      av_push (index_names_av, index_name_sv);
-    }
-   */
-  /* copy and sort
-  index_names_av_array = AvARRAY(index_names_av);
-  sorted_index_names_av_array
-       = (SV **) malloc (sizeof (SV *) * index_names_nr);
-  memcpy (sorted_index_names_av_array, index_names_av_array,
-          sizeof (SV *) * index_names_nr);
-  sortsv (sorted_index_names_av_array, index_names_nr, Perl_sv_cmp);
-   */
-
-  indices_entries_by_letter = (INDEX_SORTED_BY_LETTER *)
-    malloc ((index_names_nr +1) * sizeof (INDEX_SORTED_BY_LETTER));
-  /* zeroed entry to mark the end of the array */
-  memset (&indices_entries_by_letter[index_names_nr], 0,
-          sizeof (INDEX_SORTED_BY_LETTER));
-
-  for (j = 0; j < index_names_nr; j++)
-    {
-      int i;
-      INDEX_SORTED_BY_LETTER *index_index_letters;
-      char *idx_name = 0;
-      SSize_t letter_entries_nr;
-      HE *sorted_by_letter_he;
-      SV *idx_name_sv;
-      SV *sorted_by_letter_sv;
-      AV *av;
-
-      /* unsorted AV (to compare unsorted/sorted for debug)
-      SV **idx_name_sv_ref = av_fetch (index_names_av, j, 0);
-      if (!idx_name_sv_ref)
-        {
-          char *msg;
-          xasprintf (&msg,
-            "get_sv_index_entries_sorted_by_letter: %d: no index name\n", j);
-          fatal (msg);
-        }
-      idx_name_sv = *idx_name_sv_ref;
-       */
-       /* sorted SV**
-      idx_name_sv = sorted_index_names_av_array[j];
-       */
-      /* unsorted HV
-       */
-      HE *next = hv_iternext (hv_in);
-      idx_name_sv = hv_iterkeysv (next);
-      /* code common to all the cases above */
-      if (!idx_name_sv)
-        {
-          char *msg;
-          xasprintf (&msg,
-            "get_sv_index_entries_sorted_by_letter: %d: no index name\n", j);
-          fatal (msg);
-        }
-      idx_name = (char *) SvPVutf8_nolen (idx_name_sv);
-
-      sorted_by_letter_he = hv_fetch_ent (hv_in, idx_name_sv, 0, 0);
-      if (!sorted_by_letter_he)
-        {
-          char *msg;
-          xasprintf (&msg,
-           "get_sv_index_entries_sorted_by_letter: %d: %s: cannot find index\n",
-                     j, idx_name);
-          fatal (msg);
-        }
-
-      sorted_by_letter_sv = HeVAL(sorted_by_letter_he);
-      if (!sorted_by_letter_sv)
-        {
-          char *msg;
-          xasprintf (&msg,
-            "get_sv_index_entries_sorted_by_letter: %d: %s: no letter entries\n",
-                     j, idx_name);
-          fatal (msg);
-        }
-      av = (AV *)SvRV (sorted_by_letter_sv);
-      letter_entries_nr = AvFILL (av) +1;
-
-      index_index_letters = &indices_entries_by_letter[j];
-      index_index_letters->name = non_perl_strdup (idx_name);
-      index_index_letters->letter_number = letter_entries_nr;
-      index_index_letters->letter_entries
-        = (LETTER_INDEX_ENTRIES *)
-         malloc (letter_entries_nr * sizeof (LETTER_INDEX_ENTRIES));
-      for (i = 0; i < letter_entries_nr; i++)
-        {
-          SV** letter_entries_sv = av_fetch (av, i, 0);
-          LETTER_INDEX_ENTRIES *letter_entries
-            = &index_index_letters->letter_entries[i];
-          if (letter_entries_sv)
-            {
-              SSize_t k;
-              char *letter_string;
-              SSize_t entries_nr;
-              AV *entries_av;
-
-              HV *letter_entries_hv = (HV *) SvRV (*letter_entries_sv);
-              SV **letter_sv = hv_fetch (letter_entries_hv, "letter",
-                                         strlen ("letter"), 0);
-              SV **entries_sv = hv_fetch (letter_entries_hv, "entries",
-                                         strlen ("entries"), 0);
-              if (!letter_sv || !entries_sv)
-                {
-                  char *msg;
-                  xasprintf (&msg,
-  "get_sv_index_entries_sorted_by_letter: %s: %d: no letter and entries\n",
-                             idx_name, i);
-                  fatal (msg);
-                }
-              letter_string = (char *) SvPVutf8_nolen (*letter_sv);
-              letter_entries->letter = non_perl_strdup (letter_string);
-
-              entries_av = (AV *) SvRV (*entries_sv);
-              entries_nr = AvFILL (entries_av) +1;
-              letter_entries->entries_number = entries_nr;
-              letter_entries->entries =
-                (INDEX_ENTRY **) malloc (entries_nr * sizeof (INDEX_ENTRY *));
-              for (k = 0; k < entries_nr; k++)
-                {
-                  SV** index_entry_sv = av_fetch (entries_av, k, 0);
-                  const INDEX *entry_idx = 0;
-                  int entry_number;
-                  char *warn_string;
-                  INDEX_ENTRY *index_entry = 0;
-
-                  if (!index_entry_sv)
-                    {
-                      char *msg;
-                      xasprintf (&msg,
-        "get_sv_index_entries_sorted_by_letter: %s: %d: %s: %d: no entry\n",
-                             idx_name, i, letter_entries->letter, k);
-                      fatal (msg);
-                    }
-                  non_perl_xasprintf (&warn_string,
-                     "get_sv_index_entries_sorted_by_letter: %s: %d: %s: %d",
-                         idx_name, i, letter_entries->letter, k);
-                  index_entry
-                    = find_index_entry_sv (*index_entry_sv, indices_info,
-                                           warn_string, &entry_idx,
-                                           &entry_number);
-                  non_perl_free (warn_string);
-
-                  letter_entries->entries[k] = index_entry;
-
-                  if (!letter_entries->entries[k])
-                    {
-                      char *msg;
-                      char *entry_index_name = 0;
-                      if (entry_idx)
-                        entry_index_name = entry_idx->name;
-                      xasprintf (&msg,
-          "BUG: index %s letter %s position %d: %s entry %d not found\n",
-                                 idx_name, letter_string, k,
-                                 entry_index_name, entry_number);
-                    }
-                }
-            }
-          else
-            {
-              char *msg;
-              xasprintf (&msg,
-    "get_sv_index_entries_sorted_by_letter: %s: %d: no letter entries\n",
-                         idx_name, i);
-              fatal (msg);
-            }
-        }
-    }
-  return indices_entries_by_letter;
-}
-
 /* output format specific */
 
 /* should be consistent with enum button_function_type */
@@ -900,19 +687,10 @@ html_get_button_specification_list (const CONVERTER *converter,
   if (buttons_nr == 0)
     return 0;
 
-  result = (BUTTON_SPECIFICATION_LIST *)
-            malloc (sizeof (BUTTON_SPECIFICATION_LIST));
+  result = new_button_specification_list ((size_t) buttons_nr);
 
   result->av = buttons_av;
   SvREFCNT_inc ((SV *)result->av);
-
-  result->number = (size_t) buttons_nr;
-
-  result->BIT_user_function_number = 0;
-
-  result->list = (BUTTON_SPECIFICATION *)
-    malloc (result->number * sizeof (BUTTON_SPECIFICATION));
-  memset (result->list, 0, result->number * sizeof (BUTTON_SPECIFICATION));
 
   for (i = 0; i < result->number; i++)
     {
@@ -943,9 +721,7 @@ html_get_button_specification_list (const CONVERTER *converter,
               const char *direction_name;
 
               BUTTON_SPECIFICATION_INFO *button_spec
-                = (BUTTON_SPECIFICATION_INFO *)
-                   malloc (sizeof (BUTTON_SPECIFICATION_INFO));
-              memset (button_spec, 0, sizeof (BUTTON_SPECIFICATION_INFO));
+                = new_button_specification_info ();
 
               button->type = BST_direction_info;
               button->b.button_info = button_spec;

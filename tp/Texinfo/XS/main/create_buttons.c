@@ -25,9 +25,6 @@
 #include "converter_types.h"
 /* html_get_direction_index */
 #include "utils.h"
-/*
-#include "converter.h"
- */
 #include "create_buttons.h"
 
 /* should be consistent with enum BUTTON_special_unit_directions.  See
@@ -36,6 +33,16 @@ static const char *buttons_special_units_names[] = {
     "Contents",
     "About",
 };
+
+BUTTON_SPECIFICATION_INFO *
+new_button_specification_info (void)
+{
+  BUTTON_SPECIFICATION_INFO *button_spec
+    = (BUTTON_SPECIFICATION_INFO *)
+        malloc (sizeof (BUTTON_SPECIFICATION_INFO));
+  memset (button_spec, 0, sizeof (BUTTON_SPECIFICATION_INFO));
+  return button_spec;
+}
 
 /* create button specification */
 void
@@ -60,9 +67,7 @@ new_button_specification (BUTTON_SPECIFICATION *button,
   else if (type == BST_direction_info)
     {
       BUTTON_SPECIFICATION_INFO *button_spec
-       = (BUTTON_SPECIFICATION_INFO *)
-           malloc (sizeof (BUTTON_SPECIFICATION_INFO));
-      memset (button_spec, 0, sizeof (BUTTON_SPECIFICATION_INFO));
+                    = new_button_specification_info ();
 
       button->b.button_info = button_spec;
 

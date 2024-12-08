@@ -1,5 +1,29 @@
 2024-12-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (C_libtexinfo_sources),
+	tp/Texinfo/XS/main/create_buttons.c: move create_buttons.c from
+	convert to main, and from C_libtexinfo_convert_sources to
+	C_libtexinfo_sources.
+
+	* tp/Texinfo/XS/main/create_buttons.c (new_button_specification_info):
+	add.
+
+	* tp/Texinfo/XS/main/get_perl_info.c: remove
+	get_sv_index_entries_sorted_by_letter, it is not used and uses Perl
+	malloc.
+
+	* tp/Texinfo/XS/main/get_perl_info.c
+	(html_get_button_specification_list): call
+	new_button_specification_list and new_button_specification_info.
+
+	* tp/Texinfo/XS/convert/get_converter_perl_info.c,
+	tp/Texinfo/XS/convert/get_html_perl_info.c,
+	tp/Texinfo/XS/main/get_perl_info.c (get_source_info): use
+	non_perl_malloc instead of malloc when allocating data kept in the
+	converter and unallocated outside of code including Perl headers.
+
+2024-12-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (create_destination_directory),
 	tp/Texinfo/XS/convert/texinfo.c (txi_general_setup),
 	tp/Texinfo/XS/main/utils.h (S_ISDIR): use stat instead of opendir to

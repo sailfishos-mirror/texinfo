@@ -340,7 +340,7 @@ html_converter_get_customization_sv (SV *converter_sv,
       hv_number = hv_iterinit (upper_case_commands_hv);
 
       converter->html_customized_upper_case_commands
-        = (COMMAND_INTEGER_INFORMATION *) malloc ((hv_number + 1)
+        = (COMMAND_INTEGER_INFORMATION *) non_perl_malloc ((hv_number + 1)
                                   * sizeof (COMMAND_INTEGER_INFORMATION));
       memset (converter->html_customized_upper_case_commands, 0,
               (hv_number + 1) * sizeof (COMMAND_INTEGER_INFORMATION));
@@ -381,13 +381,13 @@ html_converter_get_customization_sv (SV *converter_sv,
       hv_number = hv_iterinit (customized_type_formatting_hv);
 
       converter->html_customized_code_types
-        = (TYPE_INTEGER_INFORMATION *) malloc ((hv_number + 1)
+        = (TYPE_INTEGER_INFORMATION *) non_perl_malloc ((hv_number + 1)
                                   * sizeof (TYPE_INTEGER_INFORMATION));
       memset (converter->html_customized_code_types, 0,
               (hv_number + 1) * sizeof (TYPE_INTEGER_INFORMATION));
 
       converter->html_customized_pre_class_types
-        = (PRE_CLASS_TYPE_INFO *) malloc ((hv_number + 1)
+        = (PRE_CLASS_TYPE_INFO *) non_perl_malloc ((hv_number + 1)
                                   * sizeof (PRE_CLASS_TYPE_INFO));
       memset (converter->html_customized_pre_class_types, 0,
               (hv_number + 1) * sizeof (PRE_CLASS_TYPE_INFO));
@@ -463,7 +463,7 @@ html_converter_get_customization_sv (SV *converter_sv,
       hv_number = hv_iterinit (accent_entities_hv);
 
       converter->html_customized_accent_entity_info
-        = (COMMAND_ACCENT_ENTITY_INFO *) malloc ((hv_number + 1)
+        = (COMMAND_ACCENT_ENTITY_INFO *) non_perl_malloc ((hv_number + 1)
                                   * sizeof (COMMAND_ACCENT_ENTITY_INFO));
       memset (converter->html_customized_accent_entity_info, 0,
               (hv_number + 1) * sizeof (COMMAND_ACCENT_ENTITY_INFO));
@@ -523,7 +523,8 @@ html_converter_get_customization_sv (SV *converter_sv,
       hv_number = hv_iterinit (style_commands_formatting_hv);
 
       converter->html_customized_style_commands
-        = (COMMAND_HTML_STYLE_COMMAND_CONVERSION *) malloc ((hv_number + 1)
+        = (COMMAND_HTML_STYLE_COMMAND_CONVERSION *)
+              non_perl_malloc ((hv_number + 1)
                         * sizeof (COMMAND_HTML_STYLE_COMMAND_CONVERSION));
       memset (converter->html_customized_style_commands, 0,
          (hv_number + 1) * sizeof (COMMAND_HTML_STYLE_COMMAND_CONVERSION));
@@ -580,7 +581,8 @@ html_converter_get_customization_sv (SV *converter_sv,
                           I32 s;
                           HTML_STYLE_COMMAND_CONVERSION *format_spec
                            = (HTML_STYLE_COMMAND_CONVERSION *)
-                            malloc (sizeof (HTML_STYLE_COMMAND_CONVERSION));
+                             non_perl_malloc (
+                                   sizeof (HTML_STYLE_COMMAND_CONVERSION));
 
                           HV *format_spec_hv = (HV *)SvRV (format_spec_sv);
 
@@ -681,7 +683,8 @@ html_converter_get_customization_sv (SV *converter_sv,
                           HV *format_spec_hv = (HV *)SvRV (format_spec_sv);
 
                           format_spec = (HTML_NO_ARG_COMMAND_CONVERSION *)
-                            malloc (sizeof (HTML_NO_ARG_COMMAND_CONVERSION));
+                            non_perl_malloc (
+                              sizeof (HTML_NO_ARG_COMMAND_CONVERSION));
                           memset (format_spec, 0,
                                   sizeof (HTML_NO_ARG_COMMAND_CONVERSION));
                           converter->customized_no_arg_commands_formatting
@@ -777,7 +780,8 @@ html_converter_get_customization_sv (SV *converter_sv,
           /* do not use new_directions_strings_type as a 0 for a direction array
              is allowed here, it means that there is a customized value undef */
               converter->customized_directions_strings[customized_type]
-                = (char ***) malloc (nr_string_directions * sizeof (char **));
+                = (char ***) non_perl_malloc (nr_string_directions
+                                                * sizeof (char **));
               memset (converter->customized_directions_strings[customized_type],
                       0, nr_string_directions * sizeof (char **));
             }
@@ -832,7 +836,8 @@ html_converter_get_customization_sv (SV *converter_sv,
                           converter->
                            customized_directions_strings[customized_type][i]
                             = (char **)
-                           malloc (nr_dir_str_contexts * sizeof (char *));
+                           non_perl_malloc (nr_dir_str_contexts
+                                                          * sizeof (char *));
                           memset (converter->
                              customized_directions_strings[customized_type][i],
                              0, nr_dir_str_contexts * sizeof (char *));
@@ -1221,7 +1226,7 @@ html_converter_get_customization_sv (SV *converter_sv,
 
               stage_handler_list->number = stage_handlers_info_nr;
               stage_handler_list->list = (HTML_STAGE_HANDLER_INFO *)
-                 malloc (sizeof (HTML_STAGE_HANDLER_INFO)
+                 non_perl_malloc (sizeof (HTML_STAGE_HANDLER_INFO)
                                                   * stage_handlers_info_nr);
 
               for (k = 0; k < stage_handlers_info_nr; k++)
