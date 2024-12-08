@@ -206,11 +206,9 @@ build_perl_array (const ELEMENT_LIST *e_l, int avoid_recursion)
               text_init (&message);
               text_printf (&message,
                 "BUG: build_perl_array oot %d: %s\n", i, debug_str);
-      /* Calling free in this file on data possibly allocated with gnulib
-         is not ok in general, but ok here, as it should never be called */
-              free (debug_str);
+              non_perl_free (debug_str);
               fprintf (stderr, "%s", message.text);
-              free (message.text);
+              non_perl_free (message.text);
               /* Out-of-tree element */
               /* WARNING: This is possibly recursive. */
               element_to_perl_hash (e_l->list[i], avoid_recursion);
@@ -250,11 +248,9 @@ build_perl_const_element_array (const CONST_ELEMENT_LIST *e_l, int avoid_recursi
               text_init (&message);
               text_printf (&message,
                 "BUG: build_perl_const_element_array oot %d: %s\n", i, debug_str);
-      /* Calling free in this file on data possibly allocated with gnulib
-         is not ok in general, but ok here, as it should never be called */
-              free (debug_str);
+              non_perl_free (debug_str);
               fprintf (stderr, "%s", message.text);
-              free (message.text);
+              non_perl_free (message.text);
               /* Out-of-tree element */
               /* WARNING: This is possibly recursive. */
               element_to_perl_hash (f, avoid_recursion);
@@ -316,11 +312,9 @@ build_perl_directions (const ELEMENT * const *e_l, int avoid_recursion)
                   text_init (&message);
                   text_printf (&message,
                     "BUG: build_perl_directions oot %s: %s\n", key, debug_str);
-      /* Calling free in this file on data possibly allocated with gnulib
-         is not ok in general, but ok here, as it should never be called */
-                  free (debug_str);
+                  non_perl_free (debug_str);
                   fprintf (stderr, "%s", message.text);
-                  free (message.text);
+                  non_perl_free (message.text);
                   /* Out-of-tree element */
                   /* WARNING: This is possibly recursive. */
                   element_to_perl_hash (f, avoid_recursion);
@@ -405,7 +399,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
                   text_printf (&message,
                         "element_to_perl_hash oot %s double in %s %p\n",
                                key, debug_str, f->hv);
-                  free (debug_str);
+                  non_perl_free (debug_str);
                   fatal (message.text);
                   fprintf (stderr, message.text);
                 }
@@ -2240,7 +2234,7 @@ build_indices_sort_strings (const INDICES_SORT_STRINGS *indices_sort_strings,
                 = find_idx_name_entry_number_sv (indices_information_hv,
                                                  entry_index_name, entry_number,
                                                  message);
-              free (message);
+              non_perl_free (message);
 
               /* probably not possible, unless there is a bug */
               if (!index_entry_sv)
@@ -2324,7 +2318,7 @@ build_sorted_indices_by_index (
             = find_idx_name_entry_number_sv (indices_information_hv,
                                              index_name, entry_number,
                                              message);
-          free (message);
+          non_perl_free (message);
 
           if (index_entry_sv)
             {
@@ -2393,7 +2387,7 @@ build_sorted_indices_by_letter (
                 = find_idx_name_entry_number_sv (indices_information_hv,
                                                  index_name, entry_number,
                                                  message);
-              free (message);
+              non_perl_free (message);
 
               if (index_entry_sv)
                 {
@@ -2494,7 +2488,7 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
               xasprintf (&msg, "BUG: no output unit Perl ref: %s",
                                    output_unit_texi (direction_unit));
               fatal (msg);
-              free (msg);
+              non_perl_free (msg);
             }
           unit_sv = newRV_inc ((SV *) direction_unit->hv);
           hv_store (directions_hv, direction_name, strlen (direction_name),
@@ -2874,7 +2868,7 @@ html_build_button (const CONVERTER *converter, BUTTON_SPECIFICATION *button,
             xasprintf (&msg, "No name for button direction %d",
                        button->b.direction);
             fatal (msg);
-            free (msg);
+            non_perl_free (msg);
           }
         return newSVpv_utf8 (direction_name, 0);
         break;
@@ -2896,7 +2890,7 @@ html_build_button (const CONVERTER *converter, BUTTON_SPECIFICATION *button,
               xasprintf (&msg, "No name for array button direction %d",
                               button_spec->direction);
               fatal (msg);
-              free (msg);
+              non_perl_free (msg);
             }
 
           if (button_spec->type == BIT_function)
@@ -2915,7 +2909,7 @@ html_build_button (const CONVERTER *converter, BUTTON_SPECIFICATION *button,
                   if (!button_function_cv)
                     fprintf (stderr, "BUG: %s: not found\n", sub_full_name);
 
-                  free (sub_full_name);
+                  non_perl_free (sub_full_name);
 
                   button_spec_info_av = newAV ();
                   av_push (button_spec_info_av,
