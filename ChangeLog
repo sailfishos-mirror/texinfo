@@ -1,3 +1,9 @@
+2024-12-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/TestXS.xs: remove <config.h> include to
+	avoid possible clash with redefinition of uid_t and gid_t
+	in Perl header files.  Report from Eli.
+
 2023-12-08  Eli Zaretskii <eliz@gnu.org>
 
 	* tp/Texinfo/XS/main/build_perl_info.c
