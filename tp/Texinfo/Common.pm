@@ -125,42 +125,11 @@ foreach my $variable_name ('MACRO_EXPAND', 'INTERNAL_LINKS') {
   $non_decoded_customization_variables{$variable_name} = 1;
 }
 
-# variables not specific of Parser, used in other contexts.  Spread over
-# the different categories set below.  The default values are in general
-# the same as elsewhere, but occasionally may be specific of the Parser.
-my %common_parser_customization = (
+# array variables not specific of Parser, used in other contexts.
+my %array_parser_options = (
   'INCLUDE_DIRECTORIES' => [ '.' ],
-  'documentlanguage' => undef,  # not 'en' as it is better to specify that there is no
-                                # need for translation since the strings are in english
-                                # rather than ask for translations to en
   'EXPANDED_FORMATS' => [],
-  'DEBUG' => 0,     # if >= 10, tree is printed in texi2any.pl after parsing.
-                    # If >= 100 tree is printed every line.
-  'FORMAT_MENU' => 'menu',           # if not 'menu' no menu error related.
-  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1, # use document encoding for input file
-                                           # names encoding if set
-  'COMMAND_LINE_ENCODING' => undef, # encoding of command line strings
-                                    # used to decode file names for error message
-  'INPUT_FILE_NAME_ENCODING' => undef, # used for input file name encoding
-  'LOCALE_ENCODING' => undef, # used for file name encoding
 );
-
-# Customization variables obeyed only by the parser, and the default values.
-my %parser_customization = (
-  'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME' => 1,
-  'CPP_LINE_DIRECTIVES' => 1, # handle cpp like synchronization lines
-  'MAX_MACRO_CALL_NESTING' => 100000, # max number of nested macro calls
-  'NO_INDEX' => 0, # if set, do not record index entries and ignore
-                   # index related @-commands
-  'NO_USER_COMMANDS' => 0, # if set, ignore @*macro, @def*index, @alias and
-                           # @definfoenclose
-);
-
-# this serves both to set defaults and list customization variable
-# valid for the parser.
-# also used in util/txicustomvars
-our %default_parser_customization_values = (%common_parser_customization,
-                                            %parser_customization);
 
 # can be modified through command-line, but not customization options
 our %parser_document_state_configuration = (
@@ -181,10 +150,19 @@ my %parser_inner_options = (
                                # currently set if called by gdt.
 );
 
+# this serves both to set defaults and list customization variable
+# valid for the parser.
+my $common_parser_regular_options_defaults
+  = Texinfo::Options::get_regular_options('common_parser');
+our %default_parser_customization_values = (%array_parser_options,
+                  %Texinfo::Options::parser_options,
+                  %$common_parser_regular_options_defaults);
+
+
 our %parser_document_parsing_options = (
-                       %default_parser_customization_values,
-                       %parser_document_state_configuration,
-                       %parser_inner_options);
+                  %default_parser_customization_values,
+                  %parser_document_state_configuration,
+                  %parser_inner_options);
 
 # check that settable commands are contained in global commands
 # from command_data.txt
@@ -229,7 +207,7 @@ foreach my $var (keys(%document_settable_at_commands),
          keys(%Texinfo::Options::program_cmdline_options),
          keys(%Texinfo::Options::converter_cmdline_options),
          keys(%Texinfo::Options::program_customization_options),
-         keys(%parser_customization),
+         keys(%Texinfo::Options::parser_options),
          keys(%Texinfo::Options::converter_customization_options),
          keys(%Texinfo::Options::converter_other_options),
          keys(%Texinfo::Options::array_cmdline_options)) {

@@ -1,5 +1,17 @@
 2024-12-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%array_parser_options)
+	(%default_parser_customization_values)
+	($common_parser_regular_options_defaults): add %array_parser_options
+	for array reference parser options and use Texinfo::Options
+	parser options to gt the other customization options. Remove
+	%common_parser_customization and %parser_customization.
+
+	* util/txicustomvars: use Texinfo::Options::parser_options only to get
+	parser specific options.
+
+2024-12-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/regenerate_perl_options_info.pl,
 	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/HTML.pm: do not
 	prepend converter_ in front of regular options defaults.  Rename

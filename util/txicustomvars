@@ -45,10 +45,10 @@ if ($do_customization_variable_commands) {
   exit 0;
 }
 
-my %parser_customization
-  = %Texinfo::Common::default_parser_customization_values;
+my %parser_customization = %Texinfo::Options::parser_options;
 
 # avoid commands by selecting only upper cased customization variables
+# also remove array and hash references
 my @parser_string_non_command_customization
     = grep {ref($parser_customization{$_}) eq '' and $_ =~ /^[A-Z0-9_]+$/ }
               keys(%parser_customization);
