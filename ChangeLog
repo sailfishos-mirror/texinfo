@@ -1,5 +1,12 @@
 2024-12-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c: update comment on Perl/C
+	library plus Gnulib mixing to make clearer that there would be
+	incompatibilities between Perl and C library memory management
+	functions even without Gnulib.
+
+2024-12-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (C_libtexinfo_sources),
 	tp/Texinfo/XS/main/create_buttons.c: move create_buttons.c from
 	convert to main, and from C_libtexinfo_convert_sources to

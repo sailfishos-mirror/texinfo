@@ -87,18 +87,19 @@
 #include "build_perl_info.h"
 
   /* NOTE This file includes the Perl headers, therefore we get the Perl
-     redefinitions of functions related to memory allocation, such as
-     'free' or 'malloc'.  In other files, the Gnulib redefinition of
-     those functions are used.  It is wrong to mix functions from Perl
-     and Gnulib.  If memory is allocated with Gnulib defined malloc,
-     and then freed with Perl defined free (or vice versa), then an
-     error can occur like "Free to wrong pool".
+     redefinitions of functions, in particular for functions related to
+     memory allocation, such as 'free' or 'malloc'.  In other files, the
+     C library or Gnulib redefinition of those functions are used.  It is
+     wrong to mix functions from Perl and C library plus Gnulib.  If memory
+     is allocated with C library malloc, and then freed with Perl defined
+     free (or vice versa), then an error can occur like "Free to wrong pool".
     https://lists.gnu.org/archive/html/bug-texinfo/2016-01/msg00016.html
    */
 
-   /* Functions defined in files with Gnulib definition should therefore
-      be used to allocate or free to match with the functions used to
-      free or allocate in other files using Gnulib definitions.
+   /* Functions defined in files with C library plus Gnulib definition should
+      therefore be used to allocate or free to match with the functions
+      used to free or allocate in other files using C library plus Gnulib
+      definitions.
 
       To be sure to use non Perl defined functions, constructors and wrappers
       must be used, from xs_utils.h:
@@ -107,7 +108,8 @@
 
       This is often needed, when memory is allocated or free'd in
       'pure' C code (code that does not include Perl headers), as it is
-      safer to assume that Gnulib is always used in 'pure' C code.
+      safer to assume that C library or Gnulib function definitions are
+      always used in 'pure' C code.
 
       To be sure to use Perl defined functions in files that include
       both Gnulib and Perl headers, wrappers can be used, from
