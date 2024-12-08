@@ -28,6 +28,18 @@
 # no need for quoting/escaping.
 
 
+# Parser only options
+IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME  parser 1 integer
+# handle cpp like synchronization lines
+CPP_LINE_DIRECTIVES                     parser 1 integer
+# max number of nested macro calls
+MAX_MACRO_CALL_NESTING                  parser 100000 integer
+# if set, do not record index entries and ignore index related @-commands
+NO_INDEX                                parser 0 integer
+# if set, ignore @*macro, @def*index, @alias and @definfoenclose
+NO_USER_COMMANDS                        parser 0 integer
+
+
 # @-commands that can be used multiple time in a document and default
 # values.
 # also used in util/txicustomvars

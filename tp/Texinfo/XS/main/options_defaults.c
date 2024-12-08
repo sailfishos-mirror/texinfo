@@ -495,6 +495,29 @@ add_multiple_at_command_options_defaults (OPTIONS_LIST *options_list)
 }
 
 
+/* parser */
+
+void
+set_parser_options_defaults (OPTIONS *options)
+{
+  option_set_conf (&options->IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME, 1, 0);
+  option_set_conf (&options->CPP_LINE_DIRECTIVES, 1, 0);
+  option_set_conf (&options->MAX_MACRO_CALL_NESTING, 100000, 0);
+  option_set_conf (&options->NO_INDEX, 0, 0);
+  option_set_conf (&options->NO_USER_COMMANDS, 0, 0);
+}
+
+void
+add_parser_options_defaults (OPTIONS_LIST *options_list)
+{
+  add_option_value (options_list, "IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME", 1, 0);
+  add_option_value (options_list, "CPP_LINE_DIRECTIVES", 1, 0);
+  add_option_value (options_list, "MAX_MACRO_CALL_NESTING", 100000, 0);
+  add_option_value (options_list, "NO_INDEX", 0, 0);
+  add_option_value (options_list, "NO_USER_COMMANDS", 0, 0);
+}
+
+
 /* program_cmdline */
 
 void
@@ -611,6 +634,7 @@ set_all_options_defaults (OPTIONS *options)
   set_converter_customization_options_defaults (options);
   set_converter_other_options_defaults (options);
   set_multiple_at_command_options_defaults (options);
+  set_parser_options_defaults (options);
   set_program_cmdline_options_defaults (options);
   set_program_customization_options_defaults (options);
   set_unique_at_command_options_defaults (options);

@@ -26,6 +26,10 @@ use File::Basename;
 
 my %option_categories;
 
+# Not used much for now, could be useful to distinguish converter
+# from other customization options, parser options for instance
+my %converter_option_categories;
+
 my %commands_options;
 
 my %options;
@@ -42,6 +46,9 @@ while (<STDIN>) {
 
       if (!exists($option_categories{$category})) {
         $option_categories{$category} = [];
+        if ($category !~ /^parser/) {
+          $converter_option_categories{$category} = 1;
+        }
       }
       push @{$option_categories{$category}}, [$option, $value, $type];
       #print STDERR "$option, $category, $value, $type\n";
@@ -490,7 +497,7 @@ foreach my $format (@sorted_formats) {
   foreach my $option_spec (@{$converter_defaults{$format}}) {
     my ($option, $value) = @$option_spec;
     my $option_info = $options{$option};
-    my ($option_unused, $main_default, $type) = @$option_info;
+    my ($category, $main_default, $type) = @$option_info;
     my ($int_value, $char_value) = get_value($type, $value);
     print CDCF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
   }
@@ -513,7 +520,7 @@ print CDCF 'void
 html_fill_options_directions (OPTIONS *options, const CONVERTER *converter)
 {
 ';
-foreach my $category (sort(keys(%option_categories))) {
+foreach my $category (sort(keys(%converter_option_categories))) {
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
     if ($type eq 'buttons') {
@@ -542,7 +549,7 @@ print GET 'void
 html_fill_sv_options (OPTIONS *options, const CONVERTER *converter)
 {
 ';
-foreach my $category (sort(keys(%option_categories))) {
+foreach my $category (sort(keys(%converter_option_categories))) {
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
     if ($type eq 'buttons') {

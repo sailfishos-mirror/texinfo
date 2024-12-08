@@ -14,7 +14,7 @@
 #undef PACKAGE_URL
 #undef PACKAGE_VERSION
 
-#define TXI_OPTIONS_NR 228
+#define TXI_OPTIONS_NR 233
 
 typedef struct OPTIONS {
     size_t BIT_user_function_number;
@@ -226,6 +226,14 @@ typedef struct OPTIONS {
     OPTION summarycontents;
     OPTION urefbreakstyle;
     OPTION xrefautomaticsectiontitle;
+
+/* parser */
+
+    OPTION IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME;
+    OPTION CPP_LINE_DIRECTIVES;
+    OPTION MAX_MACRO_CALL_NESTING;
+    OPTION NO_INDEX;
+    OPTION NO_USER_COMMANDS;
 
 /* program_cmdline */
 

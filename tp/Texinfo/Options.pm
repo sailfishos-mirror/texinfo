@@ -210,6 +210,14 @@ our %multiple_at_command_options = (
   'xrefautomaticsectiontitle'        => 'off',
 );
 
+our %parser_options = (
+  'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME' => 1,
+  'CPP_LINE_DIRECTIVES'              => 1,
+  'MAX_MACRO_CALL_NESTING'           => 100000,
+  'NO_INDEX'                         => 0,
+  'NO_USER_COMMANDS'                 => 0,
+);
+
 our %program_cmdline_options = (
   'MACRO_EXPAND'                     => undef,
   'INTERNAL_LINKS'                   => undef,
@@ -270,6 +278,18 @@ my %converter_common_regular_options_defaults = (
 );
 
 $regular_options_types{'common'} = \%converter_common_regular_options_defaults;
+
+my %converter_common_parser_regular_options_defaults = (
+  'documentlanguage'                 => undef,
+  'DEBUG'                            => 0,
+  'FORMAT_MENU'                      => 'menu',
+  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,
+  'COMMAND_LINE_ENCODING'            => undef,
+  'INPUT_FILE_NAME_ENCODING'         => undef,
+  'LOCALE_ENCODING'                  => undef,
+);
+
+$regular_options_types{'common_parser'} = \%converter_common_parser_regular_options_defaults;
 
 my %converter_converter_regular_options_defaults = (
   'documentlanguage'                 => undef,

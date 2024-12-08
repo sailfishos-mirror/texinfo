@@ -15,8 +15,34 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# this information is used to setup converter options for both C and
+# this information is used to setup customization options for both C and
 # Perl.
+
+# for Texinfo::Parser
+# variables not specific of Parser, used in other contexts.  Spread over
+# the different categories set below.  The default values are in general
+# the same as elsewhere, but occasionally may be specific of the Parser.
+- common_parser
+
+# INCLUDE_DIRECTORIES [.]
+# EXPANDED_FORMATS    []
+# not 'en' as it is better to specify that there is no
+# need for translation since the strings are in english
+# rather than ask for translations to en
+documentlanguage           undef
+# if >= 10, tree is printed in texi2any.pl after parsing.
+# If >= 100 tree is printed every line.
+DEBUG                      0
+# if not 'menu' no menu error related.
+FORMAT_MENU                menu
+# use document encoding for input file names encoding if set
+DOC_ENCODING_FOR_INPUT_FILE_NAME   1
+# encoding of command line strings used to decode file names for error messages
+COMMAND_LINE_ENCODING      undef
+# used for input file name encoding
+INPUT_FILE_NAME_ENCODING   undef
+# used for file name encoding
+LOCALE_ENCODING            undef
 
 # for Texinfo::Convert::Converter
 - converter

@@ -35,6 +35,30 @@ add_common_regular_options_defaults (OPTIONS_LIST *options_list)
 }
 
 void
+set_common_parser_regular_options_defaults (OPTIONS *options)
+{
+  option_set_conf (&options->documentlanguage, -2, 0);
+  option_set_conf (&options->DEBUG, 0, 0);
+  option_set_conf (&options->FORMAT_MENU, -2, "menu");
+  option_set_conf (&options->DOC_ENCODING_FOR_INPUT_FILE_NAME, 1, 0);
+  option_set_conf (&options->COMMAND_LINE_ENCODING, -2, 0);
+  option_set_conf (&options->INPUT_FILE_NAME_ENCODING, -2, 0);
+  option_set_conf (&options->LOCALE_ENCODING, -2, 0);
+}
+
+void
+add_common_parser_regular_options_defaults (OPTIONS_LIST *options_list)
+{
+  add_option_value (options_list, "documentlanguage", -2, 0);
+  add_option_value (options_list, "DEBUG", 0, 0);
+  add_option_value (options_list, "FORMAT_MENU", -2, "menu");
+  add_option_value (options_list, "DOC_ENCODING_FOR_INPUT_FILE_NAME", 1, 0);
+  add_option_value (options_list, "COMMAND_LINE_ENCODING", -2, 0);
+  add_option_value (options_list, "INPUT_FILE_NAME_ENCODING", -2, 0);
+  add_option_value (options_list, "LOCALE_ENCODING", -2, 0);
+}
+
+void
 set_converter_regular_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->documentlanguage, -2, 0);

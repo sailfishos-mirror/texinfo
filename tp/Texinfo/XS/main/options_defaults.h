@@ -35,6 +35,10 @@ void set_multiple_at_command_options_defaults (OPTIONS *options);
 
 void add_multiple_at_command_options_defaults (OPTIONS_LIST *options_list);
 
+void set_parser_options_defaults (OPTIONS *options);
+
+void add_parser_options_defaults (OPTIONS_LIST *options_list);
+
 void set_program_cmdline_options_defaults (OPTIONS *options);
 
 void add_program_cmdline_options_defaults (OPTIONS_LIST *options_list);

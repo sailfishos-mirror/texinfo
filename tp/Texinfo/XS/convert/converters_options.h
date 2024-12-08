@@ -19,6 +19,10 @@ void set_common_regular_options_defaults (OPTIONS *options);
 
 void add_common_regular_options_defaults (OPTIONS_LIST *options_list);
 
+void set_common_parser_regular_options_defaults (OPTIONS *options);
+
+void add_common_parser_regular_options_defaults (OPTIONS_LIST *options_list);
+
 void set_converter_regular_options_defaults (OPTIONS *options);
 
 void add_converter_regular_options_defaults (OPTIONS_LIST *options_list);
