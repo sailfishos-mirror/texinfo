@@ -35,6 +35,11 @@
    C structure */
 #define pgdt_context_noop(Context,String) String, Context
 
+/* portability definition for platforms that may lack S_ISDIR */
+#if !defined (S_ISDIR) && defined (S_IFDIR)
+#  define S_ISDIR(m) (((m) & S_IFMT) == S_IFDIR)
+#endif /* !S_ISDIR && S_IFDIR */
+
 extern const char *null_device_names[];
 
 extern const char *whitespace_chars;

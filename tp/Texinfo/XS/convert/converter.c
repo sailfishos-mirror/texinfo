@@ -24,12 +24,9 @@
 #include <inttypes.h>
 #include <unistr.h>
 #include <unictype.h>
-/* for opendir */
-#include <dirent.h>
 #include <errno.h>
-/* mkdir */
+/* mkdir stat */
 #include <sys/stat.h>
-#include <sys/types.h>
 
 #include "html_conversion_data.h"
 #include "text.h"
@@ -862,12 +859,10 @@ create_destination_directory (CONVERTER *self,
 {
   if (destination_directory_path)
     {
-      DIR *dir = opendir (destination_directory_path);
-      if (dir)
-        {
-          closedir (dir);
-        }
-      else if (errno == ENOENT)
+      struct stat finfo;
+
+      if (stat (destination_directory_path, &finfo) != 0
+          || !S_ISDIR (finfo.st_mode))
         {
           int status = mkdir (destination_directory_path, S_IRWXU
                              | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);

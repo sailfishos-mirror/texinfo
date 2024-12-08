@@ -26,7 +26,7 @@
 #include <stddef.h>
 #include <string.h>
 #include <stdio.h>
-#include <dirent.h>
+#include <sys/stat.h>
 
 #include "document_types.h"
 #include "option_types.h"
@@ -57,13 +57,12 @@ txi_general_setup (int texinfo_uninstalled, const char *converterdatadir,
   /* code in texinfo.pl */
   if (texinfo_uninstalled)
     {
-      DIR *dir;
+      struct stat finfo;
 
       xasprintf (&locales_dir, "%s/LocaleData", tp_builddir);
-      dir = opendir (locales_dir);
-      if (dir)
+
+      if (stat (locales_dir, &finfo) == 0 && S_ISDIR (finfo.st_mode))
         {
-          closedir (dir);
           configure_output_strings_translations (locales_dir, 0, -1);
         }
       else
