@@ -280,6 +280,7 @@ main (int argc, char *argv[])
   OPTION *no_warn_option;
   int no_warn = 0;
   int test_mode_set = 0;
+  size_t i;
 
   /*
   const char *texinfo_text;
@@ -460,8 +461,20 @@ main (int argc, char *argv[])
 
   destroy_converter_initialization_info (format_defaults);
 
-  /* TODO add program_options filtering in only parser options */
   initialize_options_list (&parser_options);
+  /* Copy relevant customization variables into the parser options. */
+  for (i = 0; i < TXI_OPTIONS_NR; i++)
+    {
+      OPTION *parser_option = parser_options.sorted_options[i];
+      if (parser_option->flags & OF_parser_option)
+        {
+          OPTION *option = get_conf (parser_option->number);
+          if (option)
+            {
+              copy_option (parser_option, option);
+            }
+        }
+    }
   /*
   add_option_value (&parser_options, "DEBUG", 1, 0);
    */

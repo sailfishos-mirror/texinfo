@@ -1,5 +1,10 @@
 2024-12-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/teximakehtml.c (main): copy the parser customizations
+	set into the parser options.
+
+2024-12-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/converters_defaults.txt,
 	tp/maintain/regenerate_C_options_info.pl: set defaults for parser array
 	variables.  Select integer and strings only to set regular options in
