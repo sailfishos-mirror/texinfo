@@ -1,3 +1,29 @@
+2024-12-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Excise tp/Texinfo/XS/gnulib/po
+
+	* Makefile.am (update-po): Do not run in tp/Texinfo/XS/gnulib/po
+	directory.
+	* tp/Texinfo/XS/gnulib/lib/Makefile.am: rm --po-base and --po-domain
+	options to gnulib-tool.
+
+	* tp/Texinfo/XS/configure.ac, tp/Texinfo/XS/Makefile.am:
+	remove reference to gnulib/po subdirectory.
+
+	* tp/Texinfo/XS/main/utils.c (messages_and_encodings_setup):
+	Do not call bindtextdomain for gnulib domain.
+	* tp/Texinfo/XS/gnulib/po: delete entire directory
+
+	This gnulib checkout does not actually use any translated strings
+	at present so does not need its own translation domain.  In the
+	future, an alternative method is recommended for gnulib translations
+	that we should use instead if needed.
+
+	(See
+	https://lists.gnu.org/archive/html/bug-gnulib/2024-12/msg00042.html
+	and
+	https://lists.gnu.org/archive/html/bug-gnulib/2024-12/msg00043.html.)
+
 2024-12-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/api.c: remove unneeded <dirent.h> include.

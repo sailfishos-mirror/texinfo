@@ -214,9 +214,6 @@ messages_and_encodings_setup (void)
   bindtextdomain (PACKAGE_CONFIG, LOCALEDIR);
 
   textdomain (PACKAGE_CONFIG);
-
-  /* set the tp gnulib text message domain. */
-  bindtextdomain (PACKAGE_CONFIG "_tp-gnulib", LOCALEDIR);
 #else
 
 #endif

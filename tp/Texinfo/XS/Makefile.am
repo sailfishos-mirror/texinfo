@@ -27,7 +27,7 @@ GNULIB_CPPFLAGS = -I$(srcdir)/gnulib/lib \
 
 ACLOCAL_AMFLAGS = -I build-aux/m4 -I gnulib/m4
 
-SUBDIRS=gnulib/lib gnulib/po
+SUBDIRS=gnulib/lib
 
 EXTRA_DIST+=gnulib/m4/gnulib-cache.m4
 

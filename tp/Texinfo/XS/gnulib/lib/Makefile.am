@@ -26,14 +26,12 @@
 #  --lib=libgnu \
 #  --source-base=gnulib/lib \
 #  --m4-base=gnulib/m4 \
-#  --po-base=gnulib/po \
 #  --doc-base=doc \
 #  --tests-base=tests \
 #  --aux-dir=build-aux \
 #  --no-conditional-dependencies \
 #  --libtool \
 #  --macro-prefix=gl \
-#  --po-domain=texinfo_tp \
 #  euidaccess \
 #  getline \
 #  gettext-h \
@@ -103,8 +101,6 @@ libgnu_la_LDFLAGS += $(EUIDACCESS_LIBGEN)
 libgnu_la_LDFLAGS += $(LTLIBICONV)
 libgnu_la_LDFLAGS += $(LTLIBINTL)
 libgnu_la_LDFLAGS += $(LTLIBUNISTRING)
-
-AM_CPPFLAGS += -DDEFAULT_TEXT_DOMAIN=\"texinfo_tp-gnulib\"
 
 ## begin gnulib module absolute-header
 

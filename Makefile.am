@@ -107,7 +107,6 @@ update-po:
 	cd po && $(MAKE) update-po
 	cd po_document && $(MAKE) update-po
 	cd gnulib/po && $(MAKE) update-po
-	cd tp/Texinfo/XS/gnulib/po && $(MAKE) update-po
 
 # From coreutils.  Use when making a release.
 # Verify that all source files using _() are listed in po/POTFILES.in.
