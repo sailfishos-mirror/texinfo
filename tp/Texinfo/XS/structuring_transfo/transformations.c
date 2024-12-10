@@ -286,6 +286,7 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
               add_to_element_contents (new_section, empty_line);
 
               add_to_element_list (new_sections, new_section);
+              new_section->parent = root;
             }
           insert_list_slice_into_contents (root, idx_current_section+1,
                                           new_sections, 0,
