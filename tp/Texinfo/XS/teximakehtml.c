@@ -251,6 +251,21 @@ get_cmdline_customization_option (OPTIONS_LIST *options_list,
     }
 }
 
+static void
+push_include_directory (STRING_LIST *include_dirs_list, char *text)
+{
+  char *dir = strtok (text, PATH_SEP);
+
+  while (dir)
+    {
+      if (strlen (dir))
+        {
+          add_include_directory (dir, include_dirs_list);
+        }
+      dir = strtok (NULL, PATH_SEP);
+    }
+}
+
 int
 main (int argc, char *argv[])
 {
@@ -269,6 +284,7 @@ main (int argc, char *argv[])
   size_t errors_nr;
   STRING_LIST texinfo_language_config_dirs;
   STRING_LIST converter_texinfo_language_config_dirs;
+  STRING_LIST include_dirs;
   CONVERTER_INITIALIZATION_INFO *format_defaults;
   char *home_dir;
   const char *curdir = ".";
@@ -366,13 +382,16 @@ main (int argc, char *argv[])
   if (strlen (DATADIR))
     add_string (DATADIR "/texinfo", &texinfo_language_config_dirs);
 
+
+  memset (&include_dirs, 0, sizeof (STRING_LIST));
+
   initialize_options_list (&cmdline_options);
 
   while (1)
     {
       int option_character;
 
-      option_character = getopt (argc, argv, "tmdc:");
+      option_character = getopt (argc, argv, "tmdc:I:");
       if (option_character == -1)
         break;
 
@@ -389,6 +408,9 @@ main (int argc, char *argv[])
           break;
         case 'c':
           get_cmdline_customization_option (&cmdline_options, optarg);
+          break;
+        case 'I':
+          push_include_directory (&include_dirs, optarg);
           break;
           /*
         case '?':
@@ -410,6 +432,16 @@ main (int argc, char *argv[])
 
   if (optind >= argc)
     exit (EXIT_FAILURE);
+
+
+  if (include_dirs.number > 0)
+    {
+      OPTION *option = &cmdline_options.options->INCLUDE_DIRECTORIES;
+      options_list_add_option_number (&cmdline_options,
+                                      option->number, 0);
+      merge_strings (option->o.strlist, &include_dirs);
+      include_dirs.number = 0;
+    }
 
   if (run_mode == TEXIMAKEHTML_mode_test
       || run_mode == TEXIMAKEHTML_mode_mimick_test)
@@ -471,6 +503,8 @@ main (int argc, char *argv[])
           OPTION *option = get_conf (parser_option->number);
           if (option)
             {
+              options_list_add_option_number (&parser_options,
+                                              parser_option->number, 0);
               copy_option (parser_option, option);
             }
         }
@@ -590,6 +624,8 @@ main (int argc, char *argv[])
 
   free_strings_list (&converter_texinfo_language_config_dirs);
   free_strings_list (&texinfo_language_config_dirs);
+
+  free_strings_list (&include_dirs);
 
   free_options_list (&convert_options);
   free (program_file);
