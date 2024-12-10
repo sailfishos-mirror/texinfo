@@ -90,7 +90,7 @@ sub output_files_disable_output_encoding($$)
 # Returns
 #  - the opened filehandle, or undef if opening failed,
 #  - the $! error message or undef if opening succeeded.
-#  - 1 if the $FILE_PATH was already opened, which means overwritting.
+#  - 1 if the $FILE_PATH was already opened, which means overwriting.
 sub output_files_open_out($$$;$$)
 {
   my $self = shift;

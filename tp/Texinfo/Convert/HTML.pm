@@ -11814,7 +11814,7 @@ sub _do_jslicenses_file {
                          $licence_file_path);
   if ($overwritten_file) {
     $self->converter_document_warn(
-     sprintf(__("overwritting output file with js licences: %s"),
+     sprintf(__("overwriting output file with js licences: %s"),
              $license_file));
   }
   if (defined($fh)) {

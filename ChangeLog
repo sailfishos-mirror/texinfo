@@ -1,3 +1,14 @@
+2024-12-10  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Correct spelling
+
+	* texi2any (merge_opened_files),
+	* tp/Texinfo/Convert/HTML.pm (_do_jslicenses_file)
+	* tp/Texinfo/Convert/Utils.pm (output_files_disable_output_encoding),
+	* tp/Texinfo/XS/convert/convert_html.c (do_jslicenses_file),
+	* tp/Texinfo/XS/main/convert_utils.c (output_files_open_out):
+	Correct spelling of "overwriting".
+
 2024-12-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Excise tp/Texinfo/XS/gnulib/po

@@ -2360,7 +2360,7 @@ do_jslicenses_file (CONVERTER *self)
   if (overwritten_file)
     {
       message_list_document_warn (&self->error_messages, self->conf, 0,
-                           "overwritting output file with js licences: %s",
+                           "overwriting output file with js licences: %s",
                                   license_file);
     }
 

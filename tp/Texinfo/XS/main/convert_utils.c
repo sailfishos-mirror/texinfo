@@ -782,7 +782,7 @@ clear_output_files_information (OUTPUT_FILES_INFORMATION *self)
   - as return value, the opened filehandle, or 0 if opening failed,
   - in *error_message, the errno message or 0 if opening succeeded.
   - in *overwritten_file, 1 if the FILE_PATH was already opened,
-    which means overwritting.
+    which means overwriting.
 */
 FILE *
 output_files_open_out (OUTPUT_FILES_INFORMATION *self, const char *file_path,

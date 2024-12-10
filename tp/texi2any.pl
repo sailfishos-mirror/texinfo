@@ -1488,7 +1488,7 @@ sub _handle_errors($)
   }
 }
 
-# If the file overwritting becomes an error, should increase $ERROR_COUNT.
+# If the file overwriting becomes an error, should increase $ERROR_COUNT.
 sub merge_opened_files($$$)
 {
   my $error_count = shift;
@@ -1500,7 +1500,7 @@ sub merge_opened_files($$$)
       # NOTE paths are not normalized, therefore different paths names
       # that refers to the same file will not trigger the message.
       if (exists($opened_files->{$opened_file})) {
-        document_warn(sprintf(__('overwritting file: %s'),
+        document_warn(sprintf(__('overwriting file: %s'),
                       $opened_file));
       } else {
         $opened_files->{$opened_file} = 1;
