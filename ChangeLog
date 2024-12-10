@@ -1,5 +1,13 @@
 2024-12-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/tests/run_parser_all.sh (post_process_output):
+	Delete some lines from output that may have directory
+	components in file names in order to avoid divergent test
+	output on MS-Windows where a backslash might be used as
+	the directory separator.  Report from Eli.
+
+2024-12-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Correct spelling
 
 	* texi2any (merge_opened_files),

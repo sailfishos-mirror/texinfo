@@ -125,49 +125,51 @@ post_process_output ()
     mkdir -p "${raw_outdir}$dir"
     cp -p ${outdir}$dir/${basename}.2 "${raw_outdir}$dir"
   fi
+
   if test "$use_tex4ht" = 'yes' ; then
     # tex4ht may be customized to use dvipng or dvips, both being
     # verbose, so there can not be reproducible tests on stderr either
     # with tex4ht.
     rm "${outdir}$dir/$basename.2"
-  elif test "$use_latex2html" = 'yes' ; then
-    sed -e 's/^texexpand.*/texexpand /' \
-        -e '/is no longer supported at.*line/d' \
-        -e '/^could not open/d' \
-        -e 's/^htmlxref/.\/htmlxref/' \
-        $raw_outdir$dir/$basename.2 > $outdir$dir/$basename.2
-    # "*"_images.pl" files are not guaranteed to be present
-    for file in "${raw_outdir}$dir/"*"_labels.pl"; do
-     if test -f "$file" ; then
-      filename=`basename "$file"`
-      sed -e 's/^# LaTeX2HTML.*/# LaTeX2HTML/' "$file" > "$outdir$dir/$filename"
-     fi
-    done
-    #for file in "${raw_outdir}$dir/"*.htm* "${raw_outdir}$dir/"*-l2h_cache.pm "${raw_outdir}$dir/"*_l2h_images.pl; do
-    for file in "${raw_outdir}$dir/"*.htm* "${raw_outdir}$dir/"*-l2h_cache.pm; do
-     if test -f "$file" ; then
-     # width and height changed because of different rounding on
-     # different computers.  Also remove version information.
-      filename=`basename "$file"`
-      sed -e 's/WIDTH="\([0-9]*\)\([0-9]\)"/WIDTH="100"/' \
-          -e 's/HEIGHT="\([0-9]*\)\([0-9]\)"/HEIGHT="\10"/' \
-          -e 's/CONTENT="LaTeX2HTML.*/CONTENT="LaTeX2HTML">/' \
-          -e 's/^# LaTeX2HTML.*/# LaTeX2HTML/' \
-          -e 's/with LaTeX2HTML.*/with LaTeX2HTML/' "$file" > "$outdir$dir/$filename"
-     fi
-    done
-    # *_l2h_images.pl associate images original text with physical files
-    # but entries are not sorted, so that the result is not reproducible
-    # even with the normalizations above.
-    rm -f ${outdir}$dir/*.aux ${outdir}$dir/*_images.out \
-          ${outdir}$dir/*_l2h.css ${outdir}$dir/*_l2h_images.pl
   else
     # Delete error message that may have directories in file name and
-    # account for variant output under MS-Windows.  These transformations
-    # are also done above.
-    sed -e '/^could not open/d' \
-        -e 's/^htmlxref/.\/htmlxref/' \
-        $raw_outdir$dir/$basename.2 > $outdir$dir/$basename.2
+    # account for variant output under MS-Windows.
+    sed_cmds='/^could not open/d; /: overwriting file/d; /: overwriting output file/d; s/^htmlxref/.\/htmlxref/'
+
+    if test "$use_latex2html" = 'yes' ; then
+      sed -e 's/^texexpand.*/texexpand /' \
+          -e '/is no longer supported at.*line/d' \
+          -e "$sed_cmds" \
+          $raw_outdir$dir/$basename.2 > $outdir$dir/$basename.2
+      # "*"_images.pl" files are not guaranteed to be present
+      for file in "${raw_outdir}$dir/"*"_labels.pl"; do
+       if test -f "$file" ; then
+        filename=`basename "$file"`
+        sed -e 's/^# LaTeX2HTML.*/# LaTeX2HTML/' "$file" > "$outdir$dir/$filename"
+       fi
+      done
+      #for file in "${raw_outdir}$dir/"*.htm* "${raw_outdir}$dir/"*-l2h_cache.pm "${raw_outdir}$dir/"*_l2h_images.pl; do
+      for file in "${raw_outdir}$dir/"*.htm* "${raw_outdir}$dir/"*-l2h_cache.pm; do
+       if test -f "$file" ; then
+       # width and height changed because of different rounding on
+       # different computers.  Also remove version information.
+        filename=`basename "$file"`
+        sed -e 's/WIDTH="\([0-9]*\)\([0-9]\)"/WIDTH="100"/' \
+            -e 's/HEIGHT="\([0-9]*\)\([0-9]\)"/HEIGHT="\10"/' \
+            -e 's/CONTENT="LaTeX2HTML.*/CONTENT="LaTeX2HTML">/' \
+            -e 's/^# LaTeX2HTML.*/# LaTeX2HTML/' \
+            -e 's/with LaTeX2HTML.*/with LaTeX2HTML/' "$file" > "$outdir$dir/$filename"
+       fi
+      done
+      # *_l2h_images.pl associate images original text with physical files
+      # but entries are not sorted, so that the result is not reproducible
+      # even with the normalizations above.
+      rm -f ${outdir}$dir/*.aux ${outdir}$dir/*_images.out \
+            ${outdir}$dir/*_l2h.css ${outdir}$dir/*_l2h_images.pl
+    else
+      sed -e "$sed_cmds" \
+          $raw_outdir$dir/$basename.2 > $outdir$dir/$basename.2
+    fi
   fi
 }
 
