@@ -482,7 +482,8 @@ foreach my $file (@input_files) {
       $outfile = $outfile_name;
     }
     if (defined($subdir)) {
-      $incfile = File::Spec->catfile($subdir, $outfile_name);
+      # use / in generated Texinfo code to be as portable as possible
+      $incfile = "$subdir/$outfile_name";
     } else {
       $incfile = $outfile_name;
     }
@@ -586,7 +587,8 @@ foreach my $file (@input_files) {
         }
         my $new_incfile;
         if (defined($subdir)) {
-          $new_incfile = File::Spec->catfile($subdir, $new_outfile_name);
+          # use / in generated Texinfo code to be as portable as possible
+          $new_incfile = "$subdir/$new_outfile_name";
         } else {
           $new_incfile = $new_outfile_name;
         }
