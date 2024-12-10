@@ -1,3 +1,10 @@
+2024-12-10  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/tests/formatting/list-of-tests (cpp_lines):
+	Add "-c INPUT_FILE_NAME_ENCODING=UTF-8".  This prevents a test
+	failure when the encoding is set to something else by default, e.g.
+	Windows-1252.  Report from Eli.
+
 2024-12-10  Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/pod2texi.pl: use / in generated Texinfo code
