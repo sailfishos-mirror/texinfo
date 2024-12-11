@@ -12,7 +12,7 @@ documentlanguage_cmdline documentlanguage.texi --html -c TEXI2HTML=1 --no-split 
 
 # already tested in t/*.t, but here want to have a result with
 # accented characters in error messages
-cpp_lines ../../t/input_files/cpp_lines.texi --html --no-split -c MESSAGE_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8
+cpp_lines ../../t/input_files/cpp_lines.texi --html --no-split -c MESSAGE_ENCODING=UTF-8 -c DOC_ENCODING_FOR_INPUT_FILE_NAME=1
 
 # the same tests are in t/*.t to test through code
 no_content no_content.texi --html --no-split -c 'BIG_RULE <hr style="height: 6px;">'

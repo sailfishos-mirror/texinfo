@@ -1,3 +1,9 @@
+2024-12-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/tests/formatting/list-of-tests (cpp_lines):
+	Set DOC_ENCODING_FOR_INPUT_FILE_NAME instead of
+	INPUT_FILE_NAME_ENCODING.  From Patrice.
+
 2024-12-10  Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree): rename
