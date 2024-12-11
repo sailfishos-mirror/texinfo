@@ -636,7 +636,6 @@ AC_CONFIG_FILES([\
   doc/refcard/Makefile
   doc/tp_api/Makefile
   gnulib/lib/Makefile
-  gnulib/po/Makefile.in
   info/Makefile
   install-info/Makefile
   install-info/tests/Makefile
