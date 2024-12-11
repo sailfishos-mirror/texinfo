@@ -1981,6 +1981,9 @@ main (int argc, char *argv[])
   bindtextdomain (PACKAGE, LOCALEDIR);
   textdomain (PACKAGE);
 
+  /* For any translations of gnulib strings. */
+  bindtextdomain ("gnulib", GNULIB_LOCALEDIR);
+
   /* Make sure standard input can be freopened at will.  Otherwise,
      when stdin starts off closed, bad things could happen if a plain fopen
      returns stdin before open_possibly_compressed_file freopens it.  */

@@ -699,6 +699,9 @@ main (int argc, char *argv[])
   /* Set the text message domain.  */
   bindtextdomain (PACKAGE, LOCALEDIR);
   textdomain (PACKAGE);
+
+  /* For any translations of gnulib strings. */
+  bindtextdomain ("gnulib", GNULIB_LOCALEDIR);
 #endif
 
   init_messages ();

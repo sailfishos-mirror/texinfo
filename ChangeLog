@@ -1,5 +1,13 @@
 2024-12-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Use new method for gnulib translations
+
+	* info/info.c (main),
+	* install-info/install-info.c (main):
+	Call bindtextdomain for gnulib domain.
+
+2024-12-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Excise gnulib/po
 
 	* Makefile.am (update-po): Do not run in tp/Texinfo/XS/gnulib/po
