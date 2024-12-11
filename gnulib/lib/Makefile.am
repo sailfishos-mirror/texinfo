@@ -26,14 +26,12 @@
 #  --lib=libgnu \
 #  --source-base=gnulib/lib \
 #  --m4-base=gnulib/m4 \
-#  --po-base=gnulib/po \
 #  --doc-base=doc \
 #  --tests-base=tests \
 #  --aux-dir=build-aux \
 #  --conditional-dependencies \
 #  --no-libtool \
 #  --macro-prefix=gl \
-#  --po-domain=texinfo \
 #  --no-vc-files \
 #  argz \
 #  getopt-gnu \
@@ -84,8 +82,6 @@ libgnu_a_CFLAGS = $(AM_CFLAGS) $(GL_CFLAG_GNULIB_WARNINGS)
 libgnu_a_LIBADD = $(gl_LIBOBJS)
 libgnu_a_DEPENDENCIES = $(gl_LIBOBJS)
 EXTRA_libgnu_a_SOURCES =
-
-AM_CPPFLAGS += -DDEFAULT_TEXT_DOMAIN=\"texinfo-gnulib\"
 
 ## begin gnulib module absolute-header
 

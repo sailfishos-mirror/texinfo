@@ -1,5 +1,25 @@
 2024-12-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Excise gnulib/po
+
+	* Makefile.am (update-po): Do not run in tp/Texinfo/XS/gnulib/po
+	directory.
+	* gnulib/lib/Makefile.am: rm --po-base and --po-domain
+	options to gnulib-tool.
+
+	* configure.ac, Makefile.am:
+	remove reference to gnulib/po subdirectory.
+
+	* info/info.c (main),
+	* install-info/install-info.c (main):
+	Do not call bindtextdomain for gnulib domain.
+
+	* gnulib/po: delete entire directory
+
+	* README-hacking: update
+
+2024-12-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* (top-level), tp/Texinfo/XS: run gnulib-tool --add-import
 
 2024-12-11  Gavin Smith <gavinsmith0123@gmail.com>
