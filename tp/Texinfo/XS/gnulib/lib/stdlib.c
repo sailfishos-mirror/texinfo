@@ -1,6 +1,6 @@
-/* reallocarray function that is glibc compatible.
+/* Inline functions for <stdlib.h>.
 
-   Copyright (C) 2017-2024 Free Software Foundation, Inc.
+   Copyright (C) 2024 Free Software Foundation, Inc.
 
    This file is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as
@@ -15,24 +15,7 @@
    You should have received a copy of the GNU Lesser General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
-/* written by Darshit Shah */
-
 #include <config.h>
 
-#include <stdckdint.h>
+#define _GL_STDLIB_INLINE _GL_EXTERN_INLINE
 #include <stdlib.h>
-#include <errno.h>
-
-void *
-reallocarray (void *ptr, size_t nmemb, size_t size)
-{
-  size_t nbytes;
-  if (ckd_mul (&nbytes, nmemb, size))
-    {
-      errno = ENOMEM;
-      return NULL;
-    }
-
-  /* Call realloc, setting errno to ENOMEM on failure.  */
-  return realloc (ptr, nbytes);
-}

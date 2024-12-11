@@ -95,8 +95,6 @@ AC_DEFUN([gl_EARLY],
   # Code from module multiarch:
   # Code from module pathmax:
   # Code from module rawmemchr:
-  # Code from module realloc-gnu:
-  # Code from module realloc-posix:
   # Code from module root-uid:
   # Code from module setenv:
   # Code from module size_max:
@@ -340,16 +338,6 @@ AC_DEFUN([gl_INIT],
     gl_PREREQ_RAWMEMCHR
   ])
   gl_STRING_MODULE_INDICATOR([rawmemchr])
-  gl_FUNC_REALLOC_GNU
-  if test $REPLACE_REALLOC_FOR_REALLOC_GNU = 1; then
-    AC_LIBOBJ([realloc])
-  fi
-  gl_STDLIB_MODULE_INDICATOR([realloc-gnu])
-  gl_FUNC_REALLOC_POSIX
-  if test $REPLACE_REALLOC_FOR_REALLOC_POSIX = 1; then
-    AC_LIBOBJ([realloc])
-  fi
-  gl_STDLIB_MODULE_INDICATOR([realloc-posix])
   gl_FUNC_SETENV
   gl_CONDITIONAL([GL_COND_OBJ_SETENV],
                  [test $HAVE_SETENV = 0 || test $REPLACE_SETENV = 1])
@@ -797,7 +785,6 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/printf-parse.h
   lib/rawmemchr.c
   lib/rawmemchr.valgrind
-  lib/realloc.c
   lib/root-uid.h
   lib/setenv.c
   lib/size_max.h
@@ -812,6 +799,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/stdio-read.c
   lib/stdio-write.c
   lib/stdio.in.h
+  lib/stdlib.c
   lib/stdlib.in.h
   lib/strchrnul.c
   lib/strchrnul.valgrind
@@ -933,7 +921,6 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/close.m4
   m4/codeset.m4
   m4/dup2.m4
-  m4/eealloc.m4
   m4/environ.m4
   m4/errno_h.m4
   m4/euidaccess.m4
@@ -987,7 +974,6 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/pid_t.m4
   m4/printf.m4
   m4/rawmemchr.m4
-  m4/realloc.m4
   m4/setenv.m4
   m4/size_max.m4
   m4/ssize_t.m4

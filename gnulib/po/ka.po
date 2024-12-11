@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: gnulib 4.0.0.2567\n"
 "Report-Msgid-Bugs-To: bug-gnulib@gnu.org\n"
 "POT-Creation-Date: 2024-12-06 19:05+0000\n"
-"PO-Revision-Date: 2022-12-23 14:32+0100\n"
+"PO-Revision-Date: 2024-12-11 12:33+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <(nothing)>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.5\n"
 
 #: gnulib/lib/error.c:208
 msgid "Unknown system error"
@@ -237,6 +237,21 @@ msgstr "მეხსიერება გადავსებულია"
 #~ msgid "%u bitset_lists\n"
 #~ msgstr "%u bitset_lists\n"
 
+#, fuzzy
+#~| msgid "density histogram"
+#~ msgid "count log histogram\n"
+#~ msgstr "სიმკვრივის ჰისტოგრამა"
+
+#, fuzzy
+#~| msgid "density histogram"
+#~ msgid "size log histogram\n"
+#~ msgstr "სიმკვრივის ჰისტოგრამა"
+
+#, fuzzy
+#~| msgid "density histogram"
+#~ msgid "density histogram\n"
+#~ msgstr "სიმკვრივის ჰისტოგრამა"
+
 #~ msgid "program error"
 #~ msgstr "პროგრამის შეცდომა"
 
@@ -269,12 +284,23 @@ msgstr "მეხსიერება გადავსებულია"
 #~ msgstr "%s-ის წვდომების შენახვა"
 
 #, c-format
+#~ msgid "error while opening %s for reading"
+#~ msgstr "შეცდომა '%s'-ის წასაკითხად გახნისას"
+
+#, c-format
 #~ msgid "error reading %s"
 #~ msgstr "შეცდომა '%s'-ის კითხვისას"
 
 #, c-format
 #~ msgid "error writing %s"
 #~ msgstr "შეცდომა '%s'-ის ჩაწერისას"
+
+#, c-format
+#~ msgid "error after reading %s"
+#~ msgstr "შეცდომა '%s'-ის წაკითხვის შემდეგ"
+
+#~ msgid "fdopen() failed"
+#~ msgstr "fdopen() -ის შეცდომა"
 
 #~ msgid "unbalanced ["
 #~ msgstr "დაუბალანსებელი ["
@@ -437,6 +463,18 @@ msgstr "მეხსიერება გადავსებულია"
 #~ msgstr "უცნობი შეცდომა"
 
 #, c-format
+#~ msgid "failed to create \"%s\""
+#~ msgstr "\"%s\"-ის შექმნის შეცდომა"
+
+#, c-format
+#~ msgid "error while writing \"%s\" file"
+#~ msgstr "შეცდომა \"%s\" ფაილის ჩაწერსას"
+
+#, c-format
+#~ msgid "%s subprocess I/O error"
+#~ msgstr "%s ქვეპროცესის შეტ/გამოტ შეცდომა"
+
+#, c-format
 #~ msgid "cannot stat %s"
 #~ msgstr "%s-ის აღმოჩენის შეცდომა"
 
@@ -453,6 +491,9 @@ msgstr "მეხსიერება გადავსებულია"
 
 #~ msgid "failed to return to initial working directory"
 #~ msgstr "საწყისი საქაღალდის დაბრუნების შეცდომა"
+
+#~ msgid "creation of threads failed"
+#~ msgstr "ნაკადების შექმნა ჩავარდა"
 
 #~ msgid "`"
 #~ msgstr "`"
@@ -714,6 +755,10 @@ msgstr "მეხსიერება გადავსებულია"
 #~ "%s, %s და სხვ.\n"
 
 #, c-format
+#~ msgid "Report bugs to: %s\n"
+#~ msgstr "შეცდომების შესახებ მიწერეთ: %s\n"
+
+#, c-format
 #~ msgid "Report %s bugs to: %s\n"
 #~ msgstr "%s-ის შეცდომების შესახებ მისაწერი ელფოსტა: %s\n"
 
@@ -749,7 +794,7 @@ msgstr "მეხსიერება გადავსებულია"
 
 #, c-format
 #~ msgid "failed to reopen %s with mode %s"
-#~ msgstr "%s-ის %s რეჟიმში ხელახალი გახსნიშ ეცდომა"
+#~ msgstr "%s-ის %s რეჟიმში ხელახალი გახსნის შეცდომა"
 
 #~ msgid "string comparison failed"
 #~ msgstr "სტრიქონების შედარება შეუძლებელია"
@@ -778,3 +823,76 @@ msgstr "მეხსიერება გადავსებულია"
 #, c-format
 #~ msgid "%s%s argument '%s' too large"
 #~ msgstr "%s%s-ის არგუმენტი %s ძალიან დიდია"
+
+#, c-format
+#~ msgid "failed to copy '%s' to '%s'"
+#~ msgstr "%s-ის %s-ში კოპირება ჩავარდა"
+
+#, c-format
+#~ msgid "%s invocation failed"
+#~ msgstr "%s-ის ჩაწოდება ჩავარდა"
+
+#~ msgid "? at start of expression"
+#~ msgstr "? გამოსახულების დასაწყისში"
+
+#~ msgid "* at start of expression"
+#~ msgstr "* გამოსახულების დასაწყისში"
+
+#~ msgid "+ at start of expression"
+#~ msgstr "+ გამოსახულების დასაწყისში"
+
+#~ msgid "{...} at start of expression"
+#~ msgstr "{...} გამოსახულების დასაწყისში"
+
+#~ msgid "stray \\ before unprintable character"
+#~ msgstr "უცხო \\ დაუბეჭდავად  სიმბოლომდე"
+
+#~ msgid "stray \\ before white space"
+#~ msgstr "უცხო \\ თეთრ გამოტოვებამდე"
+
+#~ msgid "stray \\"
+#~ msgstr "უცხო \\"
+
+#~ msgid "datetime"
+#~ msgstr "თარიღი და დრო"
+
+#~ msgid "time"
+#~ msgstr "დრო"
+
+#~ msgid "zone"
+#~ msgstr "ზონა"
+
+#~ msgid "date"
+#~ msgstr "თარიღი"
+
+#~ msgid "day"
+#~ msgstr "დღე"
+
+#~ msgid "relative"
+#~ msgstr "ფარდობითი"
+
+#~ msgid "number"
+#~ msgstr "ნომერი"
+
+#~ msgid "hybrid"
+#~ msgstr "ჰიბრიდი"
+
+#~ msgid "incorrect timezone"
+#~ msgstr "არასწორი დროის სარტყელი"
+
+#~ msgid "error: initial year out of range\n"
+#~ msgstr "შეცდომა: საწყისი წელი შუალედს გარეთაა\n"
+
+#~ msgid "error: parsing failed\n"
+#~ msgstr "შეცდომა: დამუშავება ჩავარდა\n"
+
+#, c-format
+#~ msgid "system default"
+#~ msgstr "სისტემის ნაგულისხმევი"
+
+#~ msgid "warning: '.' should be ':'"
+#~ msgstr "გაფრთხილება: '.' უნდა იყოს \":\""
+
+#, c-format
+#~ msgid "%s: %s"
+#~ msgstr "%s: %s"

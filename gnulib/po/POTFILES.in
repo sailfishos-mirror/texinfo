@@ -201,6 +201,7 @@ gnulib/lib/stdint.in.h
 gnulib/lib/stdio-read.c
 gnulib/lib/stdio-write.c
 gnulib/lib/stdio.in.h
+gnulib/lib/stdlib.c
 gnulib/lib/stdlib.in.h
 gnulib/lib/stpcpy.c
 gnulib/lib/str-kmp.h

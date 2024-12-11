@@ -99,6 +99,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module getrandom:
   # Code from module gettext-h:
   # Code from module glibc-internal/dynarray:
+  # Code from module gnulib-i18n:
   # Code from module hard-locale:
   # Code from module havelib:
   # Code from module ialloc:
@@ -157,7 +158,6 @@ AC_DEFUN([gl_EARLY],
   # Code from module pthread-h:
   gl_ANYTHREADLIB_EARLY
   # Code from module pthread-once:
-  # Code from module realloc-gnu:
   # Code from module realloc-posix:
   # Code from module reallocarray:
   # Code from module regex:
@@ -414,6 +414,7 @@ AC_DEFUN([gl_INIT],
   gl_UNISTD_MODULE_INDICATOR([getopt-posix])
   AC_SUBST([LIBINTL])
   AC_SUBST([LTLIBINTL])
+  GNULIB_I18N
   AC_DEFUN([gl_HAVE_MODULE_HAVELIB])
   AM_ICONV
   m4_ifdef([gl_ICONV_MODULE_INDICATOR],
@@ -507,15 +508,10 @@ AC_DEFUN([gl_INIT],
   ])
   gl_STDLIB_MODULE_INDICATOR([mkstemp])
   gl_MULTIARCH
-  gl_FUNC_REALLOC_GNU
-  if test $REPLACE_REALLOC_FOR_REALLOC_GNU = 1; then
-    AC_LIBOBJ([realloc])
-  fi
-  gl_STDLIB_MODULE_INDICATOR([realloc-gnu])
   gl_FUNC_REALLOC_POSIX
-  if test $REPLACE_REALLOC_FOR_REALLOC_POSIX = 1; then
-    AC_LIBOBJ([realloc])
-  fi
+  gl_FUNC_REALLOC_0_NONNULL
+  gl_CONDITIONAL([GL_COND_OBJ_REALLOC_POSIX],
+                 [test $REPLACE_REALLOC_FOR_REALLOC_POSIX != 0])
   gl_STDLIB_MODULE_INDICATOR([realloc-posix])
   gl_FUNC_REALLOCARRAY
   gl_CONDITIONAL([GL_COND_OBJ_REALLOCARRAY],
@@ -1714,12 +1710,6 @@ AC_DEFUN([gl_INIT],
   if test $HAVE_MKSTEMP = 0 || test $REPLACE_MKSTEMP = 1; then
     func_gl_gnulib_m4code_tempname
   fi
-  if test $REPLACE_REALLOC_FOR_REALLOC_GNU = 1; then
-    func_gl_gnulib_m4code_ef07dc4b3077c11ea9cef586db4e5955
-  fi
-  if test $REPLACE_REALLOC_FOR_REALLOC_POSIX = 1; then
-    func_gl_gnulib_m4code_ef07dc4b3077c11ea9cef586db4e5955
-  fi
   if test $ac_use_included_regex = yes; then
     func_gl_gnulib_m4code_attribute
   fi
@@ -2203,6 +2193,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/stdio-read.c
   lib/stdio-write.c
   lib/stdio.in.h
+  lib/stdlib.c
   lib/stdlib.in.h
   lib/stpcpy.c
   lib/str-kmp.h
@@ -2303,6 +2294,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/argz.m4
   m4/assert_h.m4
   m4/btowc.m4
+  m4/build-to-host.m4
   m4/builtin-expect.m4
   m4/c-bool.m4
   m4/c32rtomb.m4
@@ -2312,7 +2304,6 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/codeset.m4
   m4/double-slash-root.m4
   m4/dup2.m4
-  m4/eealloc.m4
   m4/errno_h.m4
   m4/error.m4
   m4/error_h.m4
@@ -2331,6 +2322,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/getprogname.m4
   m4/getrandom.m4
   m4/gnulib-common.m4
+  m4/gnulib-i18n.m4
   m4/host-cpu-c-abi.m4
   m4/iconv.m4
   m4/include_next.m4

@@ -3,13 +3,13 @@
 # Copyright (C) 2010 Free Software Foundation, Inc.
 #
 # Sergey Poznyakoff <gray@gnu.org>, 2010.
-# Yuri Chornoivan <yurchor@ukr.net>, 2011, 2019.
+# Yuri Chornoivan <yurchor@ukr.net>, 2011, 2019, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnulib 4.0.0.2567\n"
+"Project-Id-Version: gnulib-20241209\n"
 "Report-Msgid-Bugs-To: bug-gnulib@gnu.org\n"
 "POT-Creation-Date: 2024-12-06 19:05+0000\n"
-"PO-Revision-Date: 2019-05-19 14:26+0300\n"
+"PO-Revision-Date: 2024-12-11 18:31+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 19.03.70\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: gnulib/lib/error.c:208
 msgid "Unknown system error"
@@ -238,132 +238,33 @@ msgstr "пам'ять вичерпано"
 #~ msgid "%u bitset_lists\n"
 #~ msgstr "%u bitset_lists\n"
 
-#~ msgid "count log histogram\n"
-#~ msgstr "гістограма журналу лічильників\n"
+#~ msgid "count log histogram"
+#~ msgstr "гістограма журналу лічильників"
 
-#~ msgid "size log histogram\n"
-#~ msgstr "гістограма журналу розміру\n"
+#~ msgid "size log histogram"
+#~ msgstr "гістограма журналу розміру"
 
-#~ msgid "density histogram\n"
-#~ msgstr "гістограма щільності\n"
+#~ msgid "density histogram"
+#~ msgstr "гістограма щільності"
 
-#, c-format
-#~ msgid ""
-#~ "Bitset statistics:\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Статистика наборів бітів:\n"
-#~ "\n"
+#~ msgid "Bitset statistics:"
+#~ msgstr "Статистика наборів бітів:"
 
 #, c-format
-#~ msgid "Accumulated runs = %u\n"
-#~ msgstr "Акумульовані запуски = %u\n"
+#~ msgid "Accumulated runs = %u"
+#~ msgstr "Акумульовані запуски = %u"
 
 #~ msgid "cannot read stats file"
 #~ msgstr "не вдалося прочитати файл статистичних даних"
 
-#, c-format
-#~ msgid "bad stats file size\n"
-#~ msgstr "помилковий розмір файла статистичних даних\n"
+#~ msgid "bad stats file size"
+#~ msgstr "помилковий розмір файла статистичних даних"
 
 #~ msgid "cannot write stats file"
 #~ msgstr "не вдалося записати файл статистичних даних."
 
 #~ msgid "cannot open stats file for writing"
 #~ msgstr "не вдалося відкрити файл статистичних даних для запису"
-
-#~ msgid "program error"
-#~ msgstr "помилка програми"
-
-#~ msgid "stack overflow"
-#~ msgstr "переповнення стосу"
-
-#~ msgid "cannot find a temporary directory, try setting $TMPDIR"
-#~ msgstr "не вдається знайти тимчасовий каталог, спробуйте встановити $TMPDIR"
-
-#, c-format
-#~ msgid "cannot create a temporary directory using template \"%s\""
-#~ msgstr ""
-#~ "не вдається створити тимчасовий каталог використовуючи шаблон \"%s\""
-
-#, c-format
-#~ msgid "cannot remove temporary file %s"
-#~ msgstr "не вдається усунути тимчасовий файл %s"
-
-#, c-format
-#~ msgid "cannot remove temporary directory %s"
-#~ msgstr "не вдається усунути тимчасовий каталог %s"
-
-#~ msgid "error closing file"
-#~ msgstr "помилка закриття файлу"
-
-#~ msgid "write error"
-#~ msgstr "помилка запису"
-
-#, c-format
-#~ msgid "preserving permissions for %s"
-#~ msgstr "збереження прав доступу до %s"
-
-#, c-format
-#~ msgid "error while opening %s for reading"
-#~ msgstr "помилка при відкриванні «%s» для читання"
-
-#, c-format
-#~ msgid "cannot open backup file %s for writing"
-#~ msgstr "не вдається відкрити резервний файл «%s» для запису"
-
-#, c-format
-#~ msgid "error reading %s"
-#~ msgstr "помилка читання %s"
-
-#, c-format
-#~ msgid "error writing %s"
-#~ msgstr "помилка запису %s"
-
-#, c-format
-#~ msgid "error after reading %s"
-#~ msgstr "помилка після читання «%s»"
-
-#~ msgid "fdopen() failed"
-#~ msgstr "помилка fdopen()"
-
-#~ msgid "C# compiler not found, try installing mono"
-#~ msgstr "не знайдено компілятора C#, спробуйте встановити mono"
-
-#~ msgid "C# virtual machine not found, try installing mono"
-#~ msgstr "не знайдено віртуальної машини C#, спробуйте встановити mono"
-
-#~ msgid "unbalanced ["
-#~ msgstr "неврівноважена дужка ["
-
-#~ msgid "invalid character class"
-#~ msgstr "некоректний клас символів"
-
-#~ msgid "character class syntax is [[:space:]], not [:space:]"
-#~ msgstr ""
-#~ "синтаксис класу символів є таким: [[:space:]], — а не таким: [:space:]"
-
-#~ msgid "unfinished \\ escape"
-#~ msgstr "незавершене екранування \\"
-
-#~ msgid "invalid content of \\{\\}"
-#~ msgstr "некоректний вміст \\{\\}"
-
-#~ msgid "regular expression too big"
-#~ msgstr "занадто об'ємний формальний вираз"
-
-#~ msgid "unbalanced ("
-#~ msgstr "неврівноважена дужка ("
-
-#~ msgid "no syntax specified"
-#~ msgstr "не вказано синтаксису"
-
-#~ msgid "unbalanced )"
-#~ msgstr "неврівноважена дужка )"
-
-#, c-format
-#~ msgid "%s subprocess failed"
-#~ msgstr "нащадок %s зазнав невдачі"
 
 #~ msgid "regular empty file"
 #~ msgstr "звичайний порожній файл"
@@ -437,6 +338,161 @@ msgstr "пам'ять вичерпано"
 #~ msgid "weird file"
 #~ msgstr "дивний файл"
 
+#~ msgid "program error"
+#~ msgstr "помилка програми"
+
+#~ msgid "stack overflow"
+#~ msgstr "переповнення стосу"
+
+#, c-format
+#~ msgid "cannot remove temporary file %s"
+#~ msgstr "не вдається усунути тимчасовий файл %s"
+
+#, c-format
+#~ msgid "cannot find a temporary directory, try setting $TMPDIR"
+#~ msgstr "не вдається знайти тимчасовий каталог, спробуйте встановити $TMPDIR"
+
+#, c-format
+#~ msgid "cannot create a temporary directory using template \"%s\""
+#~ msgstr ""
+#~ "не вдається створити тимчасовий каталог використовуючи шаблон \"%s\""
+
+#, c-format
+#~ msgid "cannot remove temporary directory %s"
+#~ msgstr "не вдається усунути тимчасовий каталог %s"
+
+#~ msgid "error closing file"
+#~ msgstr "помилка закриття файлу"
+
+#~ msgid "write error"
+#~ msgstr "помилка запису"
+
+#, c-format
+#~ msgid "preserving permissions for %s"
+#~ msgstr "збереження прав доступу до %s"
+
+#, c-format
+#~ msgid "error while opening %s for reading"
+#~ msgstr "помилка при відкриванні «%s» для читання"
+
+#, c-format
+#~ msgid "cannot open backup file %s for writing"
+#~ msgstr "не вдається відкрити резервний файл «%s» для запису"
+
+#, c-format
+#~ msgid "error reading %s"
+#~ msgstr "помилка читання %s"
+
+#, c-format
+#~ msgid "error writing %s"
+#~ msgstr "помилка запису %s"
+
+#, c-format
+#~ msgid "error after reading %s"
+#~ msgstr "помилка після читання «%s»"
+
+#, c-format
+#~ msgid "fdopen() failed"
+#~ msgstr "помилка fdopen()"
+
+#, c-format
+#~ msgid "%s subprocess I/O error"
+#~ msgstr "помилка вводу-виводу нащадка %s"
+
+#, c-format
+#~ msgid "%s subprocess failed"
+#~ msgstr "нащадок %s зазнав невдачі"
+
+#, c-format
+#~ msgid "C# compiler not found, try installing mono or dotnet"
+#~ msgstr "Компілятор C# не знайдено, спробуйте встановити mono або dotnet"
+
+#, c-format
+#~ msgid "failed to copy '%s' to '%s'"
+#~ msgstr "не вдалося скопіювати «%s» до «%s»"
+
+#, c-format
+#~ msgid "could not determine %s version"
+#~ msgstr "не вдалося визначити версію %s"
+
+#, c-format
+#~ msgid "failed to create \"%s\""
+#~ msgstr "не вдалося створити \"%s\""
+
+#, c-format
+#~ msgid "error while writing \"%s\" file"
+#~ msgstr "помилка запису у файл \"%s\""
+
+#, c-format
+#~ msgid "C# virtual machine not found, try installing mono or dotnet"
+#~ msgstr ""
+#~ "Не знайдено віртуальну машину pnet, спробуйте встановити mono або dotnet"
+
+#, c-format
+#~ msgid "cannot convert file name '%s' to Windows syntax"
+#~ msgstr "не вдалося перетворити назву файла «%s» до синтаксису Windows"
+
+#, c-format
+#~ msgid "cygwin_conv_path failed"
+#~ msgstr "помилка cygwin_conv_path"
+
+#, c-format
+#~ msgid "%s invocation failed"
+#~ msgstr "спроба викликати %s зазнала невдачі"
+
+#~ msgid "unbalanced ["
+#~ msgstr "неврівноважена дужка ["
+
+#~ msgid "invalid character class"
+#~ msgstr "некоректний клас символів"
+
+#~ msgid "character class syntax is [[:space:]], not [:space:]"
+#~ msgstr ""
+#~ "синтаксис класу символів є таким: [[:space:]], — а не таким: [:space:]"
+
+#~ msgid "unfinished \\ escape"
+#~ msgstr "незавершене екранування \\"
+
+#~ msgid "? at start of expression"
+#~ msgstr "? на початку виразу"
+
+#~ msgid "* at start of expression"
+#~ msgstr "* на початку виразу"
+
+#~ msgid "+ at start of expression"
+#~ msgstr "+ на початку виразу"
+
+#~ msgid "{...} at start of expression"
+#~ msgstr "{...} на початку виразу"
+
+#~ msgid "invalid content of \\{\\}"
+#~ msgstr "некоректний вміст \\{\\}"
+
+#~ msgid "regular expression too big"
+#~ msgstr "занадто об'ємний формальний вираз"
+
+#~ msgid "stray \\ before unprintable character"
+#~ msgstr "зайва \\ перед непридатним до друку символом"
+
+#~ msgid "stray \\ before white space"
+#~ msgstr "зайва \\ перед пробілом"
+
+#, c-format
+#~ msgid "stray \\ before %s"
+#~ msgstr "зайва \\ перед %s"
+
+#~ msgid "stray \\"
+#~ msgstr "зайвий символ \\"
+
+#~ msgid "unbalanced ("
+#~ msgstr "неврівноважена дужка ("
+
+#~ msgid "no syntax specified"
+#~ msgstr "не вказано синтаксису"
+
+#~ msgid "unbalanced )"
+#~ msgstr "неврівноважена дужка )"
+
 #~ msgid "Address family for hostname not supported"
 #~ msgstr "Родина адрес для назви вузла не підтримується"
 
@@ -494,33 +550,29 @@ msgstr "пам'ять вичерпано"
 #~ msgid "Unknown error"
 #~ msgstr "Невідома помилка"
 
+#, c-format
+#~ msgid ""
+#~ "The java program is too old. Cannot compile Java code for this old "
+#~ "version any more."
+#~ msgstr ""
+#~ "Програма мовою java є надто старою. Компіляція коду Java для цієї старої "
+#~ "версії більше не є можливою."
+
+#, c-format
 #~ msgid "invalid source_version argument to compile_java_class"
 #~ msgstr "недійсне значення аргументу source_version для compile_java_class"
 
+#, c-format
 #~ msgid "invalid target_version argument to compile_java_class"
 #~ msgstr "недійсне значення аргументу target_version для compile_java_class"
 
 #, c-format
-#~ msgid "failed to create \"%s\""
-#~ msgstr "не вдалося створити \"%s\""
+#~ msgid "Java compiler not found, try setting $JAVAC"
+#~ msgstr "Компілятор Java не знайдено, встановіть змінну $JAVAC"
 
 #, c-format
-#~ msgid "error while writing \"%s\" file"
-#~ msgstr "помилка запису у файл \"%s\""
-
-#~ msgid "Java compiler not found, try installing gcj or set $JAVAC"
-#~ msgstr ""
-#~ "Не знайдено компілятора java, спробуйте встановити gcj або задати "
-#~ "значення $JAVAC"
-
-#~ msgid "Java virtual machine not found, try installing gij or set $JAVA"
-#~ msgstr ""
-#~ "Не знайдено віртуальної машини java, спробуйте встановити gij або задати "
-#~ "значення $JAVA"
-
-#, c-format
-#~ msgid "%s subprocess I/O error"
-#~ msgstr "помилка вводу-виводу нащадка %s"
+#~ msgid "Java virtual machine not found, try setting $JAVA"
+#~ msgstr "Не знайдено віртуальну машину Java, встановіть змінну $JAVA"
 
 #, c-format
 #~ msgid "cannot stat %s"
@@ -534,15 +586,312 @@ msgstr "пам'ять вичерпано"
 #~ msgid "cannot create directory %s"
 #~ msgstr "не вдається створити каталог %s"
 
+#, c-format
 #~ msgid "unable to record current working directory"
 #~ msgstr "не вдається змінити поточний каталог"
 
+#, c-format
 #~ msgid "failed to return to initial working directory"
 #~ msgstr "не вдається зберегти поточний каталог"
 
+#, c-format
+#~ msgid "_open_osfhandle failed"
+#~ msgstr "помилка _open_osfhandle"
+
+#, c-format
+#~ msgid "cannot restore fd %d: dup2 failed"
+#~ msgstr "не вдається відновити дескриптор %d: помилка dup2"
+
+#, c-format
 #~ msgid "Failed to open /dev/zero for read"
 #~ msgstr "Не вдалося відкрити /dev/zero для читання"
 
+#, c-format
+#~ msgid "parsed %s part: "
+#~ msgstr "оброблена частина %s: "
+
+#, c-format
+#~ msgid "year: %04<PRIdMAX>"
+#~ msgstr "рік: %04<PRIdMAX>"
+
+#, c-format
+#~ msgid "%s (day ordinal=%<PRIdMAX> number=%d)"
+#~ msgstr "%s (порядковий день=%<PRIdMAX> номер=%d)"
+
+#, c-format
+#~ msgid "number of seconds: %<PRIdMAX>"
+#~ msgstr "кількість секунд: %<PRIdMAX>"
+
+#~ msgid "today/this/now\n"
+#~ msgstr "сьогодні/ця/зараз\n"
+
+#~ msgid "number of seconds"
+#~ msgstr "кількість секунд"
+
+#~ msgid "datetime"
+#~ msgstr "дата-час"
+
+#~ msgid "time"
+#~ msgstr "час"
+
+#~ msgid "local_zone"
+#~ msgstr "місцевий_пояс"
+
+#~ msgid "zone"
+#~ msgstr "пояс"
+
+#~ msgid "date"
+#~ msgstr "дата"
+
+#~ msgid "day"
+#~ msgstr "день"
+
+#~ msgid "relative"
+#~ msgstr "відносне"
+
+#~ msgid "number"
+#~ msgstr "число"
+
+#~ msgid "hybrid"
+#~ msgstr "гібридна"
+
+#, c-format
+#~ msgid ""
+#~ "warning: value %<PRIdMAX> has %<PRIdMAX> digits. Assuming YYYY/MM/DD\n"
+#~ msgstr ""
+#~ "попередження: значення %<PRIdMAX> складається з %<PRIdMAX> цифр. "
+#~ "Припускаємо формат РРРР/ММ/ДД\n"
+
+#, c-format
+#~ msgid ""
+#~ "warning: value %<PRIdMAX> has less than 4 digits. Assuming MM/DD/YY[YY]\n"
+#~ msgstr ""
+#~ "попередження: значення %<PRIdMAX> містить менше за 4 цифри. Припускаємо "
+#~ "формат ММ/ДД/РР[РР]\n"
+
+#, c-format
+#~ msgid "warning: adjusting year value %<PRIdMAX> to %<PRIdMAX>\n"
+#~ msgstr "попередження: коригуємо значення року %<PRIdMAX> до %<PRIdMAX>\n"
+
+#, c-format
+#~ msgid "error: out-of-range year %<PRIdMAX>\n"
+#~ msgstr "помилка: рік поза межами припустимого діапазону — %<PRIdMAX>\n"
+
+#, c-format
+#~ msgid "error: unknown word '%s'\n"
+#~ msgstr "помилка: невідоме слово «%s»\n"
+
+#~ msgid "error: invalid date/time value:\n"
+#~ msgstr "помилка: некоректне значення дати або часу:\n"
+
+#, c-format
+#~ msgid "    user provided time: '%s'\n"
+#~ msgstr "    час, наданий користувачем: «%s»\n"
+
+#, c-format
+#~ msgid "       normalized time: '%s'\n"
+#~ msgstr "       нормалізований час: «%s»\n"
+
+#~ msgid "     possible reasons:\n"
+#~ msgstr "     можливі причини:\n"
+
+#~ msgid "       nonexistent due to daylight-saving time;\n"
+#~ msgstr "       не існує через використання літнього часу;\n"
+
+#~ msgid "       invalid day/month combination;\n"
+#~ msgstr "       некоректна комбінація день-місяць;\n"
+
+#~ msgid "       numeric values overflow;\n"
+#~ msgstr "       переповнення числових значень;\n"
+
+#~ msgid "incorrect timezone"
+#~ msgstr "помилковий часовий пояс"
+
+#~ msgid "missing timezone"
+#~ msgstr "не вказано часового поясу"
+
+#~ msgid "error: initial year out of range\n"
+#~ msgstr "помилка: початковий рік поза межами припустимого діапазону\n"
+
+#~ msgid "error: parsing failed\n"
+#~ msgstr "помилка: не вдалося обробити\n"
+
+#, c-format
+#~ msgid "error: parsing failed, stopped at '%s'\n"
+#~ msgstr "помилка: не вдалося обробити, зупинилися на «%s»\n"
+
+#~ msgid "input timezone: "
+#~ msgstr "вхідний часовий пояс:"
+
+#, c-format
+#~ msgid "'@timespec' - always UTC"
+#~ msgstr "«@timespec» — завжди всесвітній час (UTC)"
+
+#, c-format
+#~ msgid "parsed date/time string"
+#~ msgstr "оброблено рядок дати і часу"
+
+#, c-format
+#~ msgid "TZ=\"%s\" in date string"
+#~ msgstr "TZ=\"%s\" у рядку дати"
+
+#, c-format
+#~ msgid "TZ=\"UTC0\" environment value or -u"
+#~ msgstr "значення середовища TZ=\"UTC0\" або -u"
+
+#, c-format
+#~ msgid "TZ=\"%s\" environment value"
+#~ msgstr "значення середовища TZ=\"%s\""
+
+#, c-format
+#~ msgid "system default"
+#~ msgstr "типове для системи"
+
+#~ msgid "error: year, month, or day overflow\n"
+#~ msgstr "помилка: переповнення значення року, місяця або дня\n"
+
+#, c-format
+#~ msgid "error: invalid hour %<PRIdMAX>%s\n"
+#~ msgstr "помилка: некоректне значення годин — %<PRIdMAX>%s\n"
+
+#, c-format
+#~ msgid "using specified time as starting value: '%s'\n"
+#~ msgstr "використовуємо вказаний час як початкове значення: «%s»\n"
+
+#, c-format
+#~ msgid "using current time as starting value: '%s'\n"
+#~ msgstr "використовуємо поточний час як початкове значення: «%s»\n"
+
+#, c-format
+#~ msgid "error: tzalloc (\"%s\") failed\n"
+#~ msgstr "помилка: не вдалося виконати tzalloc (\"%s\")\n"
+
+#, c-format
+#~ msgid ""
+#~ "error: day '%s' (day ordinal=%<PRIdMAX> number=%d) resulted in an invalid "
+#~ "date: '%s'\n"
+#~ msgstr ""
+#~ "помилка: використання дня «%s» (порядковий день=%<PRIdMAX> номер=%d) дало "
+#~ "некоректну дату: «%s»\n"
+
+#, c-format
+#~ msgid "new start date: '%s' is '%s'\n"
+#~ msgstr "нова початкова дата: «%s» є «%s»\n"
+
+#, c-format
+#~ msgid "using current date as starting value: '%s'\n"
+#~ msgstr "використовуємо поточну дату як початкове значення: «%s»\n"
+
+#, c-format
+#~ msgid "warning: day (%s) ignored when explicit dates are given\n"
+#~ msgstr "попередження: день (%s) ігнорується, якщо вказано явні дати\n"
+
+#, c-format
+#~ msgid "starting date/time: '%s'\n"
+#~ msgstr "початкова дата і час: «%s»\n"
+
+#~ msgid ""
+#~ "warning: when adding relative months/years, it is recommended to specify "
+#~ "the 15th of the months\n"
+#~ msgstr ""
+#~ "попередження: при додаванні відносних місяців і років рекомендовано "
+#~ "вказувати 15-е число місяців\n"
+
+#~ msgid ""
+#~ "warning: when adding relative days, it is recommended to specify noon\n"
+#~ msgstr ""
+#~ "попередження: при додаванні відносних днів рекомендовано вказувати "
+#~ "південь\n"
+
+#, c-format
+#~ msgid "error: %s:%d\n"
+#~ msgstr "помилка: %s:%d\n"
+
+#, c-format
+#~ msgid "error: adding relative date resulted in an invalid date: '%s'\n"
+#~ msgstr ""
+#~ "помилка: додавання відносної дати призвело до некоректної дати: «%s»\n"
+
+#, c-format
+#~ msgid ""
+#~ "after date adjustment (%+<PRIdMAX> years, %+<PRIdMAX> months, %+<PRIdMAX> "
+#~ "days),\n"
+#~ msgstr ""
+#~ "після коригування дати (%+<PRIdMAX> років, %+<PRIdMAX> місяців, "
+#~ "%+<PRIdMAX> днів),\n"
+
+#, c-format
+#~ msgid "    new date/time = '%s'\n"
+#~ msgstr "    нова дата і час = «%s»\n"
+
+#~ msgid "warning: daylight saving time changed after date adjustment\n"
+#~ msgstr "попередження: змінено літній час після коригування дати\n"
+
+#~ msgid "warning: month/year adjustment resulted in shifted dates:\n"
+#~ msgstr "попередження: коригування місяця і року призвело до зсуву дат:\n"
+
+#, c-format
+#~ msgid "     adjusted Y M D: %s %02d %02d\n"
+#~ msgstr "     кориговані значення року, місяця і дня: %s %02d %02d\n"
+
+#, c-format
+#~ msgid "   normalized Y M D: %s %02d %02d\n"
+#~ msgstr "   нормалізоване значення року, місяця і дня: %s %02d %02d\n"
+
+#, c-format
+#~ msgid "error: timezone %d caused time_t overflow\n"
+#~ msgstr ""
+#~ "помилка: використання часового поясу %d призвело до переповнення time_t\n"
+
+#, c-format
+#~ msgid "'%s' = %<PRIdMAX> epoch-seconds\n"
+#~ msgstr "'%s' = %<PRIdMAX> секунд епохи\n"
+
+#~ msgid "error: adding relative time caused an overflow\n"
+#~ msgstr "помилка: додавання відносного часу призвело до переповнення\n"
+
+#, c-format
+#~ msgid ""
+#~ "after time adjustment (%+<PRIdMAX> hours, %+<PRIdMAX> minutes, "
+#~ "%+<PRIdMAX> seconds, %+d ns),\n"
+#~ msgstr ""
+#~ "після коригування часу (%+<PRIdMAX> годин, %+<PRIdMAX> хвилин, "
+#~ "%+<PRIdMAX> секунд, %+d мкс),\n"
+
+#, c-format
+#~ msgid "    new time = %<PRIdMAX> epoch-seconds\n"
+#~ msgstr "    новий час = %<PRIdMAX> секунд епохи\n"
+
+#~ msgid "warning: daylight saving time changed after time adjustment\n"
+#~ msgstr "попередження: змінено літній час після коригування часу\n"
+
+#~ msgid "timezone: system default\n"
+#~ msgstr "часовий пояс: типовий для системи\n"
+
+#~ msgid "timezone: Universal Time\n"
+#~ msgstr "часовий пояс: всесвітній час\n"
+
+#, c-format
+#~ msgid "timezone: TZ=\"%s\" environment value\n"
+#~ msgstr "часовий пояс: значення середовища TZ=\"%s\"\n"
+
+#, c-format
+#~ msgid "final: %<PRIdMAX>.%09d (epoch-seconds)\n"
+#~ msgstr "остаточно: %<PRIdMAX>.%09d (секунд епохи)\n"
+
+#, c-format
+#~ msgid "final: %s (UTC)\n"
+#~ msgstr "остаточно: %s (UTC)\n"
+
+#, c-format
+#~ msgid "final: %s (UTC%s)\n"
+#~ msgstr "остаточно: %s (UTC%s)\n"
+
+#, c-format
+#~ msgid "final: %s (unknown time zone offset)\n"
+#~ msgstr "остаточно: %s (невідомий зсув часового поясу)\n"
+
+#, c-format
 #~ msgid "creation of reading thread failed"
 #~ msgstr "не вдалося створити потік читання"
 
@@ -566,6 +915,7 @@ msgstr "пам'ять вичерпано"
 #~ msgid "subprocess %s terminated with exit code %d"
 #~ msgstr "підпроцес %s закінчився кодом %d"
 
+#, c-format
 #~ msgid "creation of threads failed"
 #~ msgstr "помилка створення потоків"
 
@@ -694,6 +1044,7 @@ msgstr "пам'ять вичерпано"
 #~ msgid "error writing to a closed pipe or socket"
 #~ msgstr "помилка запису у закритий конвеєр або гніздо"
 
+#, c-format
 #~ msgid "cannot create pipe"
 #~ msgstr "не вдається створити конвеєр"
 
@@ -734,17 +1085,17 @@ msgstr "пам'ять вичерпано"
 #~ msgid "cannot convert U+%04X to local character set: %s"
 #~ msgstr "не вдається передати U+%04X у локальному зборі знаків: %s"
 
+#~ msgid "invalid spec"
+#~ msgstr "недійсна специфікація"
+
 #~ msgid "invalid user"
 #~ msgstr "Некоректний користувач"
 
 #~ msgid "invalid group"
 #~ msgstr "недійсна група"
 
-#~ msgid "invalid spec"
-#~ msgstr "недійсна специфікація"
-
-#~ msgid "unable to display error message"
-#~ msgstr "не вдається вивести повідомлення про помилку"
+#~ msgid "warning: '.' should be ':'"
+#~ msgstr "попередження: замість «.» має бути «:»"
 
 #, c-format
 #~ msgid "Packaged by %s (%s)\n"
@@ -861,13 +1212,6 @@ msgstr "пам'ять вичерпано"
 #~ "Загальна довідкова інформація щодо використання програмного забезпечення "
 #~ "GNU: <%s>\n"
 
-#~ msgid "_open_osfhandle failed"
-#~ msgstr "помилка _open_osfhandle"
-
-#, c-format
-#~ msgid "cannot restore fd %d: dup2 failed"
-#~ msgstr "не вдається відновити дескриптор %d: помилка dup2"
-
 #, c-format
 #~ msgid "%s subprocess"
 #~ msgstr "нащадок процесу %s"
@@ -876,6 +1220,7 @@ msgstr "пам'ять вичерпано"
 #~ msgid "%s subprocess got fatal signal %d"
 #~ msgstr "підпроцес %s отримав фатальний сигнал %d"
 
+#, c-format
 #~ msgid "failed to set file descriptor text/binary mode"
 #~ msgstr ""
 #~ "не вдалося встановити текстовий або двійковий режим для дескриптора файла"
@@ -896,9 +1241,11 @@ msgstr "пам'ять вичерпано"
 #~ msgid "failed to reopen %s with mode %s"
 #~ msgstr "не вдалося відкрити %s у режимі %s"
 
+#, c-format
 #~ msgid "string comparison failed"
 #~ msgstr "невдале порівняння рядків"
 
+#, c-format
 #~ msgid "Set LC_ALL='C' to work around the problem."
 #~ msgstr "Встановити LC_ALL='C', щоб уникнути цієї помилки."
 
@@ -906,11 +1253,17 @@ msgstr "пам'ять вичерпано"
 #~ msgid "The strings compared were %s and %s."
 #~ msgstr "Порівнювалися рядки: \"%s\" та \"%s\"."
 
+#, c-format
 #~ msgid "cannot perform formatted output"
 #~ msgstr "неможливо здійснити форматований вивід"
 
+#, c-format
 #~ msgid "standard file descriptors"
 #~ msgstr "стандартні дескриптори файлів"
+
+#, c-format
+#~ msgid "%s: %s"
+#~ msgstr "%s: %s"
 
 #, c-format
 #~ msgid "invalid %s%s argument '%s'"
@@ -923,6 +1276,9 @@ msgstr "пам'ять вичерпано"
 #, c-format
 #~ msgid "%s%s argument '%s' too large"
 #~ msgstr "%s%s, аргумент «%s» є занадто об’ємним"
+
+#~ msgid "unable to display error message"
+#~ msgstr "не вдається вивести повідомлення про помилку"
 
 #~ msgid "%s home page: <https://www.gnu.org/software/%s/>\n"
 #~ msgstr "Домашня сторінка %s: <https://www.gnu.org/software/%s/>\n"

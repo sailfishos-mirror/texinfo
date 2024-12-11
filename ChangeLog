@@ -1,5 +1,9 @@
 2024-12-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* (top-level), tp/Texinfo/XS: run gnulib-tool --add-import
+
+2024-12-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/tests/formatting/list-of-tests (cpp_lines):
 	Set DOC_ENCODING_FOR_INPUT_FILE_NAME instead of
 	INPUT_FILE_NAME_ENCODING.  From Patrice.
