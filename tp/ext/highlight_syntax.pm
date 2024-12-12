@@ -74,15 +74,21 @@ sub highlight_setup($$)
 
   my $highlight_type = $self->get_conf('HIGHLIGHT_SYNTAX');
 
+  return 1 if !defined($highlight_type);
+
   my $cmd;
-  if (defined($highlight_type) and $highlight_type eq 'highlight') {
+  if ($highlight_type eq 'highlight') {
     $cmd = 'highlight --list-scripts=lang';
-  } elsif (defined($highlight_type) and $highlight_type eq 'pygments') {
+  } elsif ($highlight_type eq 'pygments') {
     $cmd = 'pygmentize -L lexers';
-  } else {
-    $highlight_type = 'source-highlight';
+  } elsif ($highlight_type eq 'source-highlight') {
     $cmd = 'source-highlight --lang-list';
+  } else {
+    $self->converter_document_warn(sprintf(__(
+      "`%s' is not valid for HIGHLIGHT_SYNTAX"), $highlight_type));
+    return 1;
   }
+
   if ($highlight_type_languages_name_mappings{$highlight_type}) {
     %languages_name_mapping
       = %{$highlight_type_languages_name_mappings{$highlight_type}};

@@ -1,3 +1,9 @@
+2024-12-12  Carlos Maniero  <carlos@maniero.me>  (tiny change)
+
+	* tp/ext/highlight_syntax.pm: show warning if HIGHLIGHT_SYNTAX is
+	set to unknown value.
+	* tp/tests/other/list-of-tests: set HIGHLIGHT_SYNTAX=source-highlight
+
 2024-12-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* configure.ac: remove reference to gnulib/po subdirectory
