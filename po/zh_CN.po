@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-04 18:27+0000\n"
+"POT-Creation-Date: 2024-12-13 16:35+0000\n"
 "PO-Revision-Date: 2018-01-23 10:13+0800\n"
 "Last-Translator: Boyuan Yang <073plan@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -2236,37 +2236,37 @@ msgstr ""
 msgid "%s: same manual name `%s' for different files: %s and %s"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:503 Pod-Simple-Texinfo/pod2texi.pl:610
+#: Pod-Simple-Texinfo/pod2texi.pl:504 Pod-Simple-Texinfo/pod2texi.pl:612
 #: tp/texi2any.pl:2085 tp/texi2any.pl:2163
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: 无法打开 --css-file: %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:549
+#: Pod-Simple-Texinfo/pod2texi.pl:550
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "%s: could not open %s: %s\n"
 msgstr "%s: 无法打开 --css-file: %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:562 Pod-Simple-Texinfo/pod2texi.pl:659
+#: Pod-Simple-Texinfo/pod2texi.pl:563 Pod-Simple-Texinfo/pod2texi.pl:661
 #: tp/texi2any.pl:2046 tp/texi2any.pl:2193
 #, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:568
+#: Pod-Simple-Texinfo/pod2texi.pl:569
 #, perl-format
 msgid "%s: removing %s as input file %s has no content\n"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:596
+#: Pod-Simple-Texinfo/pod2texi.pl:598
 #, fuzzy, perl-format
 #| msgid "%s: already have dir file: %s\n"
 msgid "%s: rename %s failed: %s\n"
 msgstr "%s: 已经存在了 dir 文件: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:665
+#: Pod-Simple-Texinfo/pod2texi.pl:667
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "%s: error on closing stdout: %s\n"
@@ -2402,7 +2402,7 @@ msgid "unknown customization variable: %s"
 msgstr "未知的动作“%s”"
 
 #: tp/Texinfo/Convert/Converter.pm:1015 tp/Texinfo/Convert/Text.pm:991
-#: tp/Texinfo/Convert/Text.pm:1010 tp/Texinfo/XS/convert/converter.c:878
+#: tp/Texinfo/Convert/Text.pm:1010 tp/Texinfo/XS/convert/converter.c:873
 #, fuzzy, c-format, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "could not create directory `%s': %s"
@@ -2591,7 +2591,7 @@ msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:11817 tp/Texinfo/XS/convert/convert_html.c:2363
 #, c-format, perl-format
-msgid "overwritting output file with js licences: %s"
+msgid "overwriting output file with js licences: %s"
 msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:12469 tp/Texinfo/XS/convert/convert_html.c:727
@@ -2836,7 +2836,7 @@ msgstr ""
 msgid "empty index sub entry %d key in @%s"
 msgstr "节点“%s”中没有菜单。"
 
-#: tp/Texinfo/ParserNonXS.pm:965 tp/Texinfo/XS/parsetexi/api.c:164
+#: tp/Texinfo/ParserNonXS.pm:965 tp/Texinfo/XS/parsetexi/api.c:163
 #, fuzzy, c-format, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not open %s: %s"
@@ -3789,7 +3789,7 @@ msgid "node `%s' appears in its own menus"
 msgstr ""
 
 #: tp/Texinfo/Transformations.pm:875
-#: tp/Texinfo/XS/structuring_transfo/transformations.c:1381
+#: tp/Texinfo/XS/structuring_transfo/transformations.c:1382
 #, c-format, perl-format
 msgid "could not protect hash character in @%s"
 msgstr ""
@@ -3892,92 +3892,97 @@ msgstr ""
 msgid "epub3.pm: error writing archive %s"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:120 tp/ext/highlight_syntax.pm:360
+#: tp/ext/highlight_syntax.pm:88
+#, perl-format
+msgid "`%s' is not valid for HIGHLIGHT_SYNTAX"
+msgstr ""
+
+#: tp/ext/highlight_syntax.pm:126 tp/ext/highlight_syntax.pm:366
 #, perl-format
 msgid "%s: %s"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:163 tp/ext/highlight_syntax.pm:185
+#: tp/ext/highlight_syntax.pm:169 tp/ext/highlight_syntax.pm:191
 #, fuzzy, perl-format
 #| msgid "%s is not a valid ISO 639 language code"
 msgid "%s: %s: cannot parse language line"
 msgstr "%s 在 ISO 639 语言编码中是无效的"
 
-#: tp/ext/highlight_syntax.pm:196
+#: tp/ext/highlight_syntax.pm:202
 #, fuzzy, perl-format
 #| msgid "%s is not a valid ISO 639 language code"
 msgid "%s: no highlighted language found"
 msgstr "%s 在 ISO 639 语言编码中是无效的"
 
-#: tp/ext/highlight_syntax.pm:370
+#: tp/ext/highlight_syntax.pm:376
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "%s: error closing input: %s"
 msgstr "关闭输出文件“%s”时出错"
 
-#: tp/ext/highlight_syntax.pm:381
+#: tp/ext/highlight_syntax.pm:387
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "%s: error closing output: %s"
 msgstr "关闭输出文件“%s”时出错"
 
-#: tp/ext/highlight_syntax.pm:386
+#: tp/ext/highlight_syntax.pm:392
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "%s: error closing errors: %s"
 msgstr "关闭输出文件“%s”时出错"
 
-#: tp/ext/highlight_syntax.pm:392
+#: tp/ext/highlight_syntax.pm:398
 #, fuzzy, perl-format
 #| msgid "regexp error: %s"
 msgid "%s: errors: %s"
 msgstr "正则表达式错误: %s"
 
-#: tp/ext/highlight_syntax.pm:395
+#: tp/ext/highlight_syntax.pm:401
 #, perl-format
 msgid "  %s"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:431 tp/ext/highlight_syntax.pm:501
+#: tp/ext/highlight_syntax.pm:437 tp/ext/highlight_syntax.pm:507
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "highlight_syntax.pm: could not open %s: %s"
 msgstr "%s: 无法打开 --css-file: %s"
 
-#: tp/ext/highlight_syntax.pm:461 tp/ext/highlight_syntax.pm:559
+#: tp/ext/highlight_syntax.pm:467 tp/ext/highlight_syntax.pm:565
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "highlight_syntax.pm: error on closing %s: %s"
 msgstr "关闭输出文件“%s”时出错"
 
-#: tp/ext/highlight_syntax.pm:490
+#: tp/ext/highlight_syntax.pm:496
 #, perl-format
 msgid "highlight_syntax.pm: command did not succeed: %s"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:537
+#: tp/ext/highlight_syntax.pm:543
 #, perl-format
 msgid ""
 "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments "
 "+1"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:545
+#: tp/ext/highlight_syntax.pm:551
 #, perl-format
 msgid "highlight_syntax.pm: %s: end of @%s item %d not found"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:554
+#: tp/ext/highlight_syntax.pm:560
 #, perl-format
 msgid "highlight_syntax.pm: %s: retrieved %d items in HTML; expected %d"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:623
+#: tp/ext/highlight_syntax.pm:629
 #, perl-format
 msgid "highlight_syntax.pm: output has HTML item for @%s but no language %s"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:711
+#: tp/ext/highlight_syntax.pm:717
 #, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr ""
@@ -4597,7 +4602,7 @@ msgstr ""
 #: tp/texi2any.pl:1503
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
-msgid "overwritting file: %s"
+msgid "overwriting file: %s"
 msgstr "写入“%s”时出错"
 
 #: tp/texi2any.pl:1553

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.1.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-04 18:27+0000\n"
+"POT-Creation-Date: 2024-12-13 16:35+0000\n"
 "PO-Revision-Date: 2024-11-11 17:47+0100\n"
 "Last-Translator: Marek Felšöci <marek@felsoci.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -2061,34 +2061,34 @@ msgstr "%s: varovanie: %s bez obsahu\n"
 msgid "%s: same manual name `%s' for different files: %s and %s"
 msgstr "%s: rovnaký názov príručky „%s“ pre rôzne súbory: %s a %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:503 Pod-Simple-Texinfo/pod2texi.pl:610
+#: Pod-Simple-Texinfo/pod2texi.pl:504 Pod-Simple-Texinfo/pod2texi.pl:612
 #: tp/texi2any.pl:2085 tp/texi2any.pl:2163
 #, perl-format
 msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: nepodarilo sa otvoriť %s na zápis: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:549
+#: Pod-Simple-Texinfo/pod2texi.pl:550
 #, perl-format
 msgid "%s: could not open %s: %s\n"
 msgstr "%s: nepodarilo sa otvoriť %s: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:562 Pod-Simple-Texinfo/pod2texi.pl:659
+#: Pod-Simple-Texinfo/pod2texi.pl:563 Pod-Simple-Texinfo/pod2texi.pl:661
 #: tp/texi2any.pl:2046 tp/texi2any.pl:2193
 #, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr "%s: chyba pri zatváraní %s: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:568
+#: Pod-Simple-Texinfo/pod2texi.pl:569
 #, perl-format
 msgid "%s: removing %s as input file %s has no content\n"
 msgstr "%s: odstraňuje sa %s, keďže vstupný súbor %s nemá žiadny obsah\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:596
+#: Pod-Simple-Texinfo/pod2texi.pl:598
 #, perl-format
 msgid "%s: rename %s failed: %s\n"
 msgstr "%s: premenovanie %s zlyhalo: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:665
+#: Pod-Simple-Texinfo/pod2texi.pl:667
 #, perl-format
 msgid "%s: error on closing stdout: %s\n"
 msgstr "%s: chyba pri zatváraní štandardného výstupu: %s\n"
@@ -2207,7 +2207,7 @@ msgid "unknown customization variable: %s"
 msgstr "neznáma premenná prispôsobenia: %s"
 
 #: tp/Texinfo/Convert/Converter.pm:1015 tp/Texinfo/Convert/Text.pm:991
-#: tp/Texinfo/Convert/Text.pm:1010 tp/Texinfo/XS/convert/converter.c:878
+#: tp/Texinfo/Convert/Text.pm:1010 tp/Texinfo/XS/convert/converter.c:873
 #, c-format, perl-format
 msgid "could not create directory `%s': %s"
 msgstr "nepodarilo sa vytvoriť priečinok „%s“: %s"
@@ -2379,8 +2379,9 @@ msgstr ""
 "vytváraní súboru webových menoviek"
 
 #: tp/Texinfo/Convert/HTML.pm:11817 tp/Texinfo/XS/convert/convert_html.c:2363
-#, c-format, perl-format
-msgid "overwritting output file with js licences: %s"
+#, fuzzy, c-format, perl-format
+#| msgid "overwritting output file with js licences: %s"
+msgid "overwriting output file with js licences: %s"
 msgstr "prepisuje sa výstupný súbor js licenciami: %s"
 
 #: tp/Texinfo/Convert/HTML.pm:12469 tp/Texinfo/XS/convert/convert_html.c:727
@@ -2609,7 +2610,7 @@ msgstr "prázdny kľúč registra v @%s"
 msgid "empty index sub entry %d key in @%s"
 msgstr "prázdny kľúč %d pod-záznamu registra v @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:965 tp/Texinfo/XS/parsetexi/api.c:164
+#: tp/Texinfo/ParserNonXS.pm:965 tp/Texinfo/XS/parsetexi/api.c:163
 #, c-format, perl-format
 msgid "could not open %s: %s"
 msgstr "nepodarilo sa otvoriť %s: %s"
@@ -3491,7 +3492,7 @@ msgid "node `%s' appears in its own menus"
 msgstr "uzol „%s“ sa objavuje vo svojich vlastných ponukách"
 
 #: tp/Texinfo/Transformations.pm:875
-#: tp/Texinfo/XS/structuring_transfo/transformations.c:1381
+#: tp/Texinfo/XS/structuring_transfo/transformations.c:1382
 #, c-format, perl-format
 msgid "could not protect hash character in @%s"
 msgstr "nepodarilo sa ochrániť znak mriežky v @%s"
@@ -3583,62 +3584,67 @@ msgstr "epub3.pm: chyba pri pridávaní %s do stlačeného súboru"
 msgid "epub3.pm: error writing archive %s"
 msgstr "epub3.pm: chyba pri zapisovaní stlačeného súboru %s"
 
-#: tp/ext/highlight_syntax.pm:120 tp/ext/highlight_syntax.pm:360
+#: tp/ext/highlight_syntax.pm:88
+#, perl-format
+msgid "`%s' is not valid for HIGHLIGHT_SYNTAX"
+msgstr ""
+
+#: tp/ext/highlight_syntax.pm:126 tp/ext/highlight_syntax.pm:366
 #, perl-format
 msgid "%s: %s"
 msgstr "%s: %s"
 
-#: tp/ext/highlight_syntax.pm:163 tp/ext/highlight_syntax.pm:185
+#: tp/ext/highlight_syntax.pm:169 tp/ext/highlight_syntax.pm:191
 #, perl-format
 msgid "%s: %s: cannot parse language line"
 msgstr "%s: %s: nepodarilo sa spracovať riadok s jazykom"
 
-#: tp/ext/highlight_syntax.pm:196
+#: tp/ext/highlight_syntax.pm:202
 #, perl-format
 msgid "%s: no highlighted language found"
 msgstr "%s: nenašiel sa žiadny zvýraznený jazyk"
 
-#: tp/ext/highlight_syntax.pm:370
+#: tp/ext/highlight_syntax.pm:376
 #, perl-format
 msgid "%s: error closing input: %s"
 msgstr "%s: chyba pri zatváraní vstupu: %s"
 
-#: tp/ext/highlight_syntax.pm:381
+#: tp/ext/highlight_syntax.pm:387
 #, perl-format
 msgid "%s: error closing output: %s"
 msgstr "%s: chyba pri zatváraní výstupu: %s"
 
-#: tp/ext/highlight_syntax.pm:386
+#: tp/ext/highlight_syntax.pm:392
 #, perl-format
 msgid "%s: error closing errors: %s"
 msgstr "%s: chyba pri zatváraní záznamu o chybách: %s"
 
-#: tp/ext/highlight_syntax.pm:392
+#: tp/ext/highlight_syntax.pm:398
 #, perl-format
 msgid "%s: errors: %s"
 msgstr "%s: chyby: %s"
 
-#: tp/ext/highlight_syntax.pm:395
+#: tp/ext/highlight_syntax.pm:401
 #, perl-format
 msgid "  %s"
 msgstr "  %s"
 
-#: tp/ext/highlight_syntax.pm:431 tp/ext/highlight_syntax.pm:501
+#: tp/ext/highlight_syntax.pm:437 tp/ext/highlight_syntax.pm:507
 #, perl-format
 msgid "highlight_syntax.pm: could not open %s: %s"
 msgstr "highlight_syntax.pm: nepodarilo sa otvoriť %s: %s"
 
-#: tp/ext/highlight_syntax.pm:461 tp/ext/highlight_syntax.pm:559
+#: tp/ext/highlight_syntax.pm:467 tp/ext/highlight_syntax.pm:565
 #, perl-format
 msgid "highlight_syntax.pm: error on closing %s: %s"
 msgstr "highlight_syntax.pm: chyba pri zatváraní %s: %s"
 
-#: tp/ext/highlight_syntax.pm:490
+#: tp/ext/highlight_syntax.pm:496
 #, perl-format
 msgid "highlight_syntax.pm: command did not succeed: %s"
 msgstr "highlight_syntax.pm: príkaz zlyhal: %s"
 
-#: tp/ext/highlight_syntax.pm:537
+#: tp/ext/highlight_syntax.pm:543
 #, perl-format
 msgid ""
 "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments "
@@ -3646,23 +3652,23 @@ msgid ""
 msgstr ""
 "highlight_syntax.pm: %s: %d oddeľovačov; očakávalo sa %d, počet častí +1"
 
-#: tp/ext/highlight_syntax.pm:545
+#: tp/ext/highlight_syntax.pm:551
 #, perl-format
 msgid "highlight_syntax.pm: %s: end of @%s item %d not found"
 msgstr "highlight_syntax.pm: %s: nenašiel sa koniec @%s položky %d"
 
-#: tp/ext/highlight_syntax.pm:554
+#: tp/ext/highlight_syntax.pm:560
 #, perl-format
 msgid "highlight_syntax.pm: %s: retrieved %d items in HTML; expected %d"
 msgstr ""
 "highlight_syntax.pm: %s: získalo so %d položiek v HTML; očakávalo sa %d"
 
-#: tp/ext/highlight_syntax.pm:623
+#: tp/ext/highlight_syntax.pm:629
 #, perl-format
 msgid "highlight_syntax.pm: output has HTML item for @%s but no language %s"
 msgstr "highlight_syntax.pm: výstup má HTML položku pre @%s ale nie jazyk %s"
 
-#: tp/ext/highlight_syntax.pm:711
+#: tp/ext/highlight_syntax.pm:717
 #, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr "highlight_syntax.pm: výstup nemá HTML položku pre @%s %s %s"
@@ -4320,8 +4326,9 @@ msgid "--Xopt option without printed output"
 msgstr "--Xopt prepínač bez výstupu na zobrazenie"
 
 #: tp/texi2any.pl:1503
-#, perl-format
-msgid "overwritting file: %s"
+#, fuzzy, perl-format
+#| msgid "overwritting file: %s"
+msgid "overwriting file: %s"
 msgstr "prepisuje sa súbor: %s"
 
 #: tp/texi2any.pl:1553

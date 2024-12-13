@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo-7.0.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-04 18:27+0000\n"
+"POT-Creation-Date: 2024-12-13 16:35+0000\n"
 "PO-Revision-Date: 2023-10-01 13:02+0200\n"
 "Last-Translator: Benno Schulenberg <vertaling@coevern.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -2090,34 +2090,34 @@ msgstr "%s: '%s' zonder inhoud wordt genegeerd\n"
 msgid "%s: same manual name `%s' for different files: %s and %s"
 msgstr "@%s-paginanaam '%s' verschilt van %s-naam '%s'"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:503 Pod-Simple-Texinfo/pod2texi.pl:610
+#: Pod-Simple-Texinfo/pod2texi.pl:504 Pod-Simple-Texinfo/pod2texi.pl:612
 #: tp/texi2any.pl:2085 tp/texi2any.pl:2163
 #, perl-format
 msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: kan %s niet openen om te schrijven: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:549
+#: Pod-Simple-Texinfo/pod2texi.pl:550
 #, perl-format
 msgid "%s: could not open %s: %s\n"
 msgstr "@%s: kan %s niet openen: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:562 Pod-Simple-Texinfo/pod2texi.pl:659
+#: Pod-Simple-Texinfo/pod2texi.pl:563 Pod-Simple-Texinfo/pod2texi.pl:661
 #: tp/texi2any.pl:2046 tp/texi2any.pl:2193
 #, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr "%s: fout bij sluiten van %s: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:568
+#: Pod-Simple-Texinfo/pod2texi.pl:569
 #, perl-format
 msgid "%s: removing %s as input file %s has no content\n"
 msgstr "%s: %s wordt verwijderd omdat invoerbestand %s geen inhoud heeft\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:596
+#: Pod-Simple-Texinfo/pod2texi.pl:598
 #, perl-format
 msgid "%s: rename %s failed: %s\n"
 msgstr "%s: hernoemen van %s is mislukt: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:665
+#: Pod-Simple-Texinfo/pod2texi.pl:667
 #, perl-format
 msgid "%s: error on closing stdout: %s\n"
 msgstr "%s: fout bij sluiten van standaarduitvoer: %s\n"
@@ -2237,7 +2237,7 @@ msgid "unknown customization variable: %s"
 msgstr "%s: onbekende variabele %s"
 
 #: tp/Texinfo/Convert/Converter.pm:1015 tp/Texinfo/Convert/Text.pm:991
-#: tp/Texinfo/Convert/Text.pm:1010 tp/Texinfo/XS/convert/converter.c:878
+#: tp/Texinfo/Convert/Text.pm:1010 tp/Texinfo/XS/convert/converter.c:873
 #, c-format, perl-format
 msgid "could not create directory `%s': %s"
 msgstr "kan map '%s' niet aanmaken: %s"
@@ -2412,7 +2412,7 @@ msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:11817 tp/Texinfo/XS/convert/convert_html.c:2363
 #, c-format, perl-format
-msgid "overwritting output file with js licences: %s"
+msgid "overwriting output file with js licences: %s"
 msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:12469 tp/Texinfo/XS/convert/convert_html.c:727
@@ -2642,7 +2642,7 @@ msgstr "lege indexsleutel in @%s"
 msgid "empty index sub entry %d key in @%s"
 msgstr "lege indexsleutel in @%s"
 
-#: tp/Texinfo/ParserNonXS.pm:965 tp/Texinfo/XS/parsetexi/api.c:164
+#: tp/Texinfo/ParserNonXS.pm:965 tp/Texinfo/XS/parsetexi/api.c:163
 #, c-format, perl-format
 msgid "could not open %s: %s"
 msgstr "kan %s niet openen: %s"
@@ -3541,7 +3541,7 @@ msgid "node `%s' appears in its own menus"
 msgstr ""
 
 #: tp/Texinfo/Transformations.pm:875
-#: tp/Texinfo/XS/structuring_transfo/transformations.c:1381
+#: tp/Texinfo/XS/structuring_transfo/transformations.c:1382
 #, c-format, perl-format
 msgid "could not protect hash character in @%s"
 msgstr "kan hekje in @%s niet beschermen"
@@ -3633,62 +3633,67 @@ msgstr ""
 msgid "epub3.pm: error writing archive %s"
 msgstr ""
 
-#: tp/ext/highlight_syntax.pm:120 tp/ext/highlight_syntax.pm:360
+#: tp/ext/highlight_syntax.pm:88
+#, perl-format
+msgid "`%s' is not valid for HIGHLIGHT_SYNTAX"
+msgstr ""
+
+#: tp/ext/highlight_syntax.pm:126 tp/ext/highlight_syntax.pm:366
 #, perl-format
 msgid "%s: %s"
 msgstr "%s: %s"
 
-#: tp/ext/highlight_syntax.pm:163 tp/ext/highlight_syntax.pm:185
+#: tp/ext/highlight_syntax.pm:169 tp/ext/highlight_syntax.pm:191
 #, perl-format
 msgid "%s: %s: cannot parse language line"
 msgstr "%s: %s: kan taalregel niet ontleden"
 
-#: tp/ext/highlight_syntax.pm:196
+#: tp/ext/highlight_syntax.pm:202
 #, perl-format
 msgid "%s: no highlighted language found"
 msgstr "%s: geen uitgelichte taal gevonden"
 
-#: tp/ext/highlight_syntax.pm:370
+#: tp/ext/highlight_syntax.pm:376
 #, perl-format
 msgid "%s: error closing input: %s"
 msgstr "%s: fout bij sluiten van invoer: %s"
 
-#: tp/ext/highlight_syntax.pm:381
+#: tp/ext/highlight_syntax.pm:387
 #, perl-format
 msgid "%s: error closing output: %s"
 msgstr "%s: fout bij sluiten van uitvoer: %s"
 
-#: tp/ext/highlight_syntax.pm:386
+#: tp/ext/highlight_syntax.pm:392
 #, perl-format
 msgid "%s: error closing errors: %s"
 msgstr "%s: fout bij sluiten van foutuitvoer: %s"
 
-#: tp/ext/highlight_syntax.pm:392
+#: tp/ext/highlight_syntax.pm:398
 #, perl-format
 msgid "%s: errors: %s"
 msgstr "%s: fouten: %s"
 
-#: tp/ext/highlight_syntax.pm:395
+#: tp/ext/highlight_syntax.pm:401
 #, perl-format
 msgid "  %s"
 msgstr "  %s"
 
-#: tp/ext/highlight_syntax.pm:431 tp/ext/highlight_syntax.pm:501
+#: tp/ext/highlight_syntax.pm:437 tp/ext/highlight_syntax.pm:507
 #, perl-format
 msgid "highlight_syntax.pm: could not open %s: %s"
 msgstr "highlight_syntax.pm: kan %s niet openen: %s"
 
-#: tp/ext/highlight_syntax.pm:461 tp/ext/highlight_syntax.pm:559
+#: tp/ext/highlight_syntax.pm:467 tp/ext/highlight_syntax.pm:565
 #, perl-format
 msgid "highlight_syntax.pm: error on closing %s: %s"
 msgstr "highlight_syntax.pm: fout bij sluiten van %s: %s"
 
-#: tp/ext/highlight_syntax.pm:490
+#: tp/ext/highlight_syntax.pm:496
 #, perl-format
 msgid "highlight_syntax.pm: command did not succeed: %s"
 msgstr "highlight_syntax.pm: opdracht is niet gelukt: %s"
 
-#: tp/ext/highlight_syntax.pm:537
+#: tp/ext/highlight_syntax.pm:543
 #, perl-format
 msgid ""
 "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments "
@@ -3697,23 +3702,23 @@ msgstr ""
 "highlight_syntax.pm: %s: %d scheidingstekens; verwachtte %d, het aantal "
 "fragmenten plus één"
 
-#: tp/ext/highlight_syntax.pm:545
+#: tp/ext/highlight_syntax.pm:551
 #, perl-format
 msgid "highlight_syntax.pm: %s: end of @%s item %d not found"
 msgstr "highlight_syntax.pm: %s: einde van @%s-item %d niet gevonden"
 
-#: tp/ext/highlight_syntax.pm:554
+#: tp/ext/highlight_syntax.pm:560
 #, perl-format
 msgid "highlight_syntax.pm: %s: retrieved %d items in HTML; expected %d"
 msgstr "highlight_syntax.pm: %s: %d items opgehaald in HTML; verwachtte %d"
 
-#: tp/ext/highlight_syntax.pm:623
+#: tp/ext/highlight_syntax.pm:629
 #, perl-format
 msgid "highlight_syntax.pm: output has HTML item for @%s but no language %s"
 msgstr ""
 "highlight_syntax.pm: uitvoer bevat HTML-item voor @%s maar geen taal %s"
 
-#: tp/ext/highlight_syntax.pm:711
+#: tp/ext/highlight_syntax.pm:717
 #, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr "highlight_syntax.pm: uitvoer bevat geen HTML-item voor @%s %s %s"
@@ -4338,7 +4343,7 @@ msgstr "Optie '--Xopt' gegeven zonder dat er afdrukuitvoer gemaakt wordt"
 #: tp/texi2any.pl:1503
 #, fuzzy, perl-format
 #| msgid "writing file %s"
-msgid "overwritting file: %s"
+msgid "overwriting file: %s"
 msgstr "schrijven van bestand %s"
 
 #: tp/texi2any.pl:1553

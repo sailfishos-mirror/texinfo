@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 7.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-04 18:27+0000\n"
+"POT-Creation-Date: 2024-12-13 16:35+0000\n"
 "PO-Revision-Date: 2024-11-11 10:11-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
@@ -439,45 +439,45 @@ msgid "{name} of {class}"
 msgstr "{name} da {class}"
 
 #. TRANSLATORS: expansion of @error{} as Texinfo code
-#: tp/Texinfo/Convert/Converter.pm:170 tp/Texinfo/XS/convert/converter.c:179
+#: tp/Texinfo/Convert/Converter.pm:170 tp/Texinfo/XS/convert/converter.c:176
 msgid "error@arrow{}"
 msgstr "error@arrow{}"
 
 #: tp/Texinfo/Convert/Converter.pm:1423 tp/Texinfo/Convert/Converter.pm:1478
-#: tp/Texinfo/XS/convert/converter.c:1095
-#: tp/Texinfo/XS/convert/converter.c:1156
+#: tp/Texinfo/XS/convert/converter.c:1090
+#: tp/Texinfo/XS/convert/converter.c:1151
 #, perl-brace-format
 msgid "{float_type} {float_number}"
 msgstr "{float_type} {float_number}"
 
 #: tp/Texinfo/Convert/Converter.pm:1427 tp/Texinfo/Convert/Converter.pm:1480
-#: tp/Texinfo/XS/convert/converter.c:1098
-#: tp/Texinfo/XS/convert/converter.c:1159
+#: tp/Texinfo/XS/convert/converter.c:1093
+#: tp/Texinfo/XS/convert/converter.c:1154
 #, perl-brace-format
 msgid "{float_type}"
 msgstr "{float_type}"
 
 #: tp/Texinfo/Convert/Converter.pm:1431 tp/Texinfo/Convert/Converter.pm:1488
-#: tp/Texinfo/XS/convert/converter.c:1101
-#: tp/Texinfo/XS/convert/converter.c:1170
+#: tp/Texinfo/XS/convert/converter.c:1096
+#: tp/Texinfo/XS/convert/converter.c:1165
 #, perl-brace-format
 msgid "{float_number}"
 msgstr "{float_number}"
 
 #. TRANSLATORS: added before caption
-#: tp/Texinfo/Convert/Converter.pm:1471 tp/Texinfo/XS/convert/converter.c:1146
+#: tp/Texinfo/Convert/Converter.pm:1471 tp/Texinfo/XS/convert/converter.c:1141
 #, perl-brace-format
 msgid "{float_type} {float_number}: "
 msgstr "{float_type} {float_number}: "
 
 #. TRANSLATORS: added before caption, no float label
-#: tp/Texinfo/Convert/Converter.pm:1474 tp/Texinfo/XS/convert/converter.c:1150
+#: tp/Texinfo/Convert/Converter.pm:1474 tp/Texinfo/XS/convert/converter.c:1145
 #, perl-brace-format
 msgid "{float_type}: "
 msgstr "{float_type}: "
 
 #. TRANSLATORS: added before caption, no float type
-#: tp/Texinfo/Convert/Converter.pm:1486 tp/Texinfo/XS/convert/converter.c:1167
+#: tp/Texinfo/Convert/Converter.pm:1486 tp/Texinfo/XS/convert/converter.c:1162
 #, perl-brace-format
 msgid "{float_number}: "
 msgstr "{float_number}: "
