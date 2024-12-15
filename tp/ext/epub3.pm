@@ -320,8 +320,8 @@ sub epub_convert_image_command($$$$)
                      $image_basefile));
       } else {
         my $images_destination_dir
-               = File::Spec->catdir($epub_destination_directory,
-                                    $epub_document_dir_name, $epub_images_dir_name);
+               = join('/', ($epub_destination_directory,
+                            $epub_document_dir_name, $epub_images_dir_name));
         my ($encoded_images_destination_dir, $images_destination_dir_encoding)
           = $self->encoded_output_file_name($images_destination_dir);
         my $error_creating_dir;
@@ -335,8 +335,8 @@ sub epub_convert_image_command($$$$)
         }
         if (not $error_creating_dir) {
           my $image_destination_path_name
-             = File::Spec->catfile($images_destination_dir,
-                                   $destination_basefile_name);
+             = join('/', ($images_destination_dir,
+                          $destination_basefile_name));
           my ($encoded_image_dest_path_name, $image_dest_path_encoding)
             = $self->encoded_output_file_name($image_destination_path_name);
           my $copy_succeeded = copy($image_path, $encoded_image_dest_path_name);
@@ -492,16 +492,8 @@ sub epub_setup($)
     # css files in a directory rooted at $epub_document_dir_name
     $epub_info_js_dir_name = $self->get_conf('INFO_JS_DIR');
     my $updir = File::Spec->updir();
-    # FIXME INFO_JS_DIR is used both as a filesystem directory name
-    # and as path in HTML files.  As a path in HTML, / should always be
-    # used.  File::Spec->catdir is better for filesystem paths.  We finally
-    # hardocde '/' as separator because it is needed for HTML paths and it
-    # works for both for Unix and Windows filesystems, but it is not
-    # clean.
-    #$self->force_conf('INFO_JS_DIR', File::Spec->catdir($updir,
-    #                                              $epub_info_js_dir_name));
     $self->force_conf('INFO_JS_DIR', join('/', ($updir,
-                                                  $epub_info_js_dir_name)));
+                                                $epub_info_js_dir_name)));
     # TODO make sure it is SPLIT and set SPLIT if not?
   }
 
@@ -527,16 +519,16 @@ sub epub_setup($)
   # so we try to set it to a directory that the user would not create
   # nor populate with files.
   if (defined($self->get_conf('SUBDIR'))) {
-    $epub_destination_directory = File::Spec->catdir($self->get_conf('SUBDIR'),
-                                          $document_name . '_epub_package');
+    $epub_destination_directory = join('/', ($self->get_conf('SUBDIR'),
+                                          $document_name . '_epub_package'));
   } elsif ($split) {
     $epub_destination_directory = $destination_directory;
   } else {
     $epub_destination_directory = $document_name . '_epub_package';
   }
   $epub_document_destination_directory
-             = File::Spec->catdir($epub_destination_directory,
-                                  $epub_document_dir_name, $epub_xhtml_dir);
+             = join('/', ($epub_destination_directory,
+                          $epub_document_dir_name, $epub_xhtml_dir));
   # set for XHTML conversion
   if ($split) {
     $self->force_conf('SUBDIR', $epub_document_destination_directory);
@@ -551,7 +543,7 @@ sub epub_setup($)
       $nav_filename = 'Gtexinfo_' . $default_nav_filename;
     }
     $self->force_conf('OUTFILE',
-     File::Spec->catfile($epub_document_destination_directory, $xhtml_output_file));
+     join('/', ($epub_document_destination_directory, $xhtml_output_file)));
   }
 
   my $epub_destination_dir_encoding;
@@ -608,8 +600,8 @@ sub epub_finish($$)
   }
 
   my $meta_inf_directory_name = 'META-INF';
-  my $meta_inf_directory = File::Spec->catdir($epub_destination_directory,
-                                              $meta_inf_directory_name);
+  my $meta_inf_directory = join('/', ($epub_destination_directory,
+                                      $meta_inf_directory_name));
   my ($encoded_meta_inf_directory, $meta_inf_directory_encoding)
     = $self->encoded_output_file_name($meta_inf_directory);
   if (!mkdir($encoded_meta_inf_directory, oct(755))) {
@@ -618,8 +610,8 @@ sub epub_finish($$)
                                          $meta_inf_directory, $!));
     return 1;
   }
-  my $container_file_path_name = File::Spec->catfile($meta_inf_directory,
-                                           'container.xml');
+  my $container_file_path_name = join('/', ($meta_inf_directory,
+                                            'container.xml'));
   my ($encoded_container_file_path_name, $container_path_encoding)
     = $self->encoded_output_file_name($container_file_path_name);
   my ($container_fh, $error_message_container)
@@ -659,8 +651,8 @@ EOT
   }
 
   my $mimetype_filename = 'mimetype';
-  my $mimetype_file_path_name = File::Spec->catfile($epub_destination_directory,
-                                                    $mimetype_filename);
+  my $mimetype_file_path_name = join('/', ($epub_destination_directory,
+                                           $mimetype_filename));
   my ($encoded_mimetype_file_path_name, $mimetype_path_encoding)
     = $self->encoded_output_file_name($mimetype_file_path_name);
   my ($mimetype_fh, $error_message_mimetype)
@@ -696,7 +688,7 @@ EOT
 
   if ($sections_list) {
     $nav_file_path_name
-     = File::Spec->catfile($epub_document_destination_directory, $nav_filename);
+     = join('/', ($epub_document_destination_directory, $nav_filename));
     my ($encoded_nav_file_path_name, $nav_path_encoding)
       = $self->encoded_output_file_name($nav_file_path_name);
     my ($nav_fh, $error_message_nav)
@@ -827,8 +819,8 @@ EOT
   # Cf TODO, publication date
   # <dc:date>
 
-  my $opf_file_path_name = File::Spec->catfile($epub_destination_directory,
-                                        $epub_document_dir_name, $opf_filename);
+  my $opf_file_path_name = join('/', ($epub_destination_directory,
+                                     $epub_document_dir_name, $opf_filename));
   my ($encoded_opf_file_path_name, $opf_path_encoding)
     = $self->encoded_output_file_name($opf_file_path_name);
   my ($opf_fh, $error_message_opf)
@@ -912,8 +904,8 @@ EOT
   my $js_weblabels_id;
   if (defined($self->get_conf('JS_WEBLABELS_FILE'))) {
     my $js_weblabels_file_name = $self->get_conf('JS_WEBLABELS_FILE');
-    my $js_licenses_file_path = File::Spec->catfile($epub_document_destination_directory,
-                                                    $js_weblabels_file_name);
+    my $js_licenses_file_path = join('/', ($epub_document_destination_directory,
+                                           $js_weblabels_file_name));
     if (-e $js_licenses_file_path) {
       $js_weblabels_id = 'jsweblabels';
       print $opf_fh "      <item id=\"${js_weblabels_id}\" "
@@ -937,8 +929,8 @@ EOT
   }
   if (defined($epub_info_js_dir_name)) {
     my $info_js_destination_dir
-               = File::Spec->catdir($epub_destination_directory,
-                                    $epub_document_dir_name, $epub_info_js_dir_name);
+          = join('/', ($epub_destination_directory,
+                       $epub_document_dir_name, $epub_info_js_dir_name));
     my $opendir_success = opendir(JSPATH, $info_js_destination_dir);
     if (not $opendir_success) {
       $self->converter_document_error(
@@ -1024,8 +1016,8 @@ EOT
       return 1;
     }
 
-    my $epub_document_dir_path = File::Spec->catdir($epub_destination_directory,
-                                                    $epub_document_dir_name);
+    my $epub_document_dir_path = join('/', ($epub_destination_directory,
+                                            $epub_document_dir_name));
     my ($encoded_epub_document_dir_path, $epub_document_dir_path_encoding)
       = $self->encoded_output_file_name($epub_document_dir_path);
     my $epub_document_dir_name_ret_code

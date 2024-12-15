@@ -196,8 +196,8 @@ sub tex4ht_prepare($$)
        = $self->encoded_output_file_name($formats{$format}->{'html_basefile_name'});
     $formats{$format}->{'html_basefile_path'} = $encoded_html_basefile_name;
 
-    my $tex4ht_file_path_name = File::Spec->catfile($tex4ht_out_dir,
-                                    $formats{$format}->{'basefile_name'});
+    my $tex4ht_file_path_name
+      = "$tex4ht_out_dir/$formats{$format}->{'basefile_name'}";
     my ($encoded_tex4ht_file_path_name, $tex4ht_path_encoding)
       = $self->encoded_output_file_name($tex4ht_file_path_name);
     $formats{$format}->{'counter'} = 0;

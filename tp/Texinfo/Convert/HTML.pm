@@ -8523,11 +8523,11 @@ sub _load_htmlxref_files {
       my $curdir = File::Spec->curdir();
       # to have reproducible tests, do not use system or user
       # directories if TEST is set.
-      @htmlxref_dirs = File::Spec->catdir($curdir, '.texinfo');
+      @htmlxref_dirs = join('/', ($curdir, '.texinfo'));
 
       if ($Texinfo::ModulePath::texinfo_uninstalled) {
-        unshift @htmlxref_dirs, File::Spec->catdir(
-          $Texinfo::ModulePath::top_srcdir, 'tp', 't', 'input_files');
+        unshift @htmlxref_dirs, join('/', (
+          $Texinfo::ModulePath::top_srcdir, 'tp', 't', 'input_files'));
       }
     } elsif ($self->get_conf('TEXINFO_LANGUAGE_DIRECTORIES')
        and scalar(@{$self->get_conf('TEXINFO_LANGUAGE_DIRECTORIES')}) > 0) {
@@ -11801,7 +11801,7 @@ sub _do_jslicenses_file {
 
   my $license_file;
   if ($destination_directory ne '') {
-    $license_file = File::Spec->catdir($destination_directory, $path);
+    $license_file = join('/', ($destination_directory, $path));
   } else {
     $license_file = $path;
   }
@@ -12499,7 +12499,7 @@ sub _do_js_files($$)
     my $info_js_dir = $self->get_conf('INFO_JS_DIR');
     my $jsdir;
     if ($destination_directory ne '') {
-      $jsdir = File::Spec->catdir($destination_directory, $info_js_dir);
+      $jsdir = join('/', ($destination_directory, $info_js_dir));
     } else {
       $jsdir = $info_js_dir;
     }
@@ -12512,14 +12512,14 @@ sub _do_js_files($$)
       if (!$self->get_conf('TEST')) {
         my $jssrcdir;
         if (!$Texinfo::ModulePath::texinfo_uninstalled) {
-          $jssrcdir = File::Spec->catdir(
-            $Texinfo::ModulePath::converterdatadir, 'js');
+          $jssrcdir = join('/', (
+            $Texinfo::ModulePath::converterdatadir, 'js'));
         } else {
-          $jssrcdir = File::Spec->catdir(
-            $Texinfo::ModulePath::top_srcdir, 'js');
+          $jssrcdir = join('/', (
+            $Texinfo::ModulePath::top_srcdir, 'js'));
         }
         for my $f ('info.js', 'modernizr.js', 'info.css') {
-          my $from = File::Spec->catfile($jssrcdir, $f);
+          my $from = join('/', ($jssrcdir, $f));
 
           if (!copy($from, $jsdir)) {
             $self->converter_document_error(
@@ -12529,7 +12529,7 @@ sub _do_js_files($$)
       } else {
       # create empty files for tests to keep results stable.
         for my $f ('info.js', 'modernizr.js', 'info.css') {
-          my $filename = File::Spec->catfile($jsdir, $f);
+          my $filename = join('/', ($jsdir, $f));
           if (!open(FH, '>', $filename)) {
             $self->converter_document_error(
               sprintf(__("error on creating empty %s: %s"),
@@ -12999,8 +12999,8 @@ sub _node_redirections($$$$)
 
         my $out_filepath;
         if ($destination_directory ne '') {
-          $out_filepath = File::Spec->catfile($destination_directory,
-                                              $redirection_filename);
+          $out_filepath = join('/', ($destination_directory,
+                                     $redirection_filename));
         } else {
           $out_filepath = $redirection_filename;
         }

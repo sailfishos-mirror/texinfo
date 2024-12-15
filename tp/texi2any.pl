@@ -80,34 +80,34 @@ BEGIN
 
     # To find Texinfo::ModulePath
     if (defined($ENV{'top_builddir'})) {
-      unshift @INC, File::Spec->catdir($ENV{'top_builddir'}, 'tp');
+      unshift @INC, join('/', ($ENV{'top_builddir'}, 'tp'));
     } else {
-      unshift @INC, File::Spec->catdir($command_directory);
+      unshift @INC, $command_directory;
     }
 
     require Texinfo::ModulePath;
     Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 1);
   } else {
     # Look for modules in their installed locations.
-    my $modules_dir = File::Spec->catdir($datadir, $converter);
+    my $modules_dir = join('/', ($datadir, $converter));
     # look for package data in the installed location.
     # actually the same as $converterdatadir in main program below, but use
     # another name to avoid confusion.
     my $modules_converterdatadir = $modules_dir;
-    $xsdir = File::Spec->catdir($libdir, $converter);
+    $xsdir = join('/', ($libdir, $converter));
 
     # try to make package relocatable, will only work if
     # standard relative paths are used
-    if (! -f File::Spec->catfile($modules_dir, 'Texinfo', 'Parser.pm')
-        and -f File::Spec->catfile($command_directory, $updir, 'share',
-                                   $converter, 'Texinfo', 'Parser.pm')) {
-      $modules_dir = File::Spec->catdir($command_directory, $updir,
-                                          'share', $converter);
+    if (! -f join('/', ($modules_dir, 'Texinfo', 'Parser.pm'))
+        and -f join('/', ($command_directory, $updir, 'share',
+                          $converter, 'Texinfo', 'Parser.pm'))) {
+      $modules_dir = join('/', ($command_directory, $updir,
+                                'share', $converter));
       $modules_converterdatadir
-                  = File::Spec->catdir($command_directory, $updir,
-                                               'share', $converter);
-      $xsdir = File::Spec->catdir($command_directory, $updir,
-                                          'lib', $converter);
+                  = join('/', ($command_directory, $updir,
+                                               'share', $converter));
+      $xsdir = join('/', ($command_directory, $updir,
+                                          'lib', $converter));
     }
 
     unshift @INC, $modules_dir;
@@ -156,6 +156,9 @@ my $sysconfdir;
 #my $pkgdatadir;
 my $converter;
 
+# the result is not good when using rootdir, maybe using a concatenation
+# of rootdir would be better.
+#my $fallback_prefix = join('/', (File::Spec->rootdir(), 'usr', 'local'));
 my $fallback_prefix = File::Spec->catdir(File::Spec->rootdir(), 'usr', 'local');
 
 # We need to eval as $prefix has to be expanded. However when we haven't
@@ -164,33 +167,30 @@ my $fallback_prefix = File::Spec->catdir(File::Spec->rootdir(), 'usr', 'local');
 if ('@sysconfdir@' ne '@' . 'sysconfdir@') {
   $sysconfdir = eval '"@sysconfdir@"';
 } else {
-  $sysconfdir = File::Spec->catdir($fallback_prefix, 'etc');
+  $sysconfdir = "$fallback_prefix/etc";
 }
 
 if ('@datarootdir@' ne '@' . 'datarootdir@') {
   $datarootdir = eval '"@datarootdir@"';
 } else {
-  $datarootdir = File::Spec->catdir($fallback_prefix, 'share');
+  $datarootdir = "$fallback_prefix/share";
 }
 
 if ('@datadir@' ne '@' . 'datadir@' and '@PACKAGE@' ne '@' . 'PACKAGE@') {
   $datadir = eval '"@datadir@"';
   my $package = '@PACKAGE@';
   $converter = '@CONVERTER@';
-  #$pkgdatadir = File::Spec->catdir($datadir, $package);
 } else {
-  $datadir = File::Spec->catdir($fallback_prefix, 'share');
-  #$pkgdatadir = File::Spec->catdir($datadir, 'texinfo');
+  $datadir = "$fallback_prefix/share";
   $converter = 'texi2any';
 }
 
 my $extensions_dir;
 if ($Texinfo::ModulePath::texinfo_uninstalled) {
-  $extensions_dir = File::Spec->catdir($Texinfo::ModulePath::top_srcdir,
-                                       'tp', 'ext');
+  $extensions_dir = join('/', ($Texinfo::ModulePath::top_srcdir, 'tp', 'ext'));
 } else {
   $extensions_dir
-    = File::Spec->catdir($Texinfo::ModulePath::converterdatadir, 'ext');
+    = join('/', ($Texinfo::ModulePath::converterdatadir, 'ext'));
 }
 
 my $internal_extension_dirs = [$extensions_dir];
@@ -417,7 +417,7 @@ sub add_config_paths($$$$;$$) {
   if (defined($ENV{$env_string}) and $ENV{$env_string} ne '') {
     foreach my $dir (split(':', $ENV{$env_string})) {
       if ($dir ne '') {
-        push @xdg_result_dirs, File::Spec->catdir($dir, $subdir);
+        push @xdg_result_dirs, "$dir/$subdir";
         $used_xdg_base_dirs{$dir} = 1;
       }
     }
@@ -426,12 +426,12 @@ sub add_config_paths($$$$;$$) {
   my %used_base_dirs;
   if (defined($installation_dir)) {
       #and not $used_base_dirs{$installation_dir}) {
-    my $install_result_dir = File::Spec->catdir($installation_dir, $subdir);
+    my $install_result_dir = "$installation_dir/$subdir";
     push @result_dirs, $install_result_dir;
     $used_base_dirs{$installation_dir} = 1;
     if ($overriding_dirs and $overriding_dirs->{$installation_dir}) {
       my $deprecated_dir
-       = File::Spec->catdir($overriding_dirs->{$installation_dir}, $subdir);
+       = "$overriding_dirs->{$installation_dir}/$subdir";
       if (not $used_xdg_base_dirs{$deprecated_dir}) {
         $deprecated_dirs->{$deprecated_dir} = $install_result_dir;
         push @result_dirs, $deprecated_dir;
@@ -442,7 +442,7 @@ sub add_config_paths($$$$;$$) {
 
   foreach my $dir (@xdg_result_dirs) {
     if (!$used_base_dirs{$dir}) {
-      push @result_dirs, File::Spec->catdir($dir, $subdir);
+      push @result_dirs, "$dir/$subdir";
       $used_base_dirs{$dir} = 1;
     }
   }
@@ -450,7 +450,7 @@ sub add_config_paths($$$$;$$) {
   # to also use XDG Base Directory Specification defaults
   #foreach my $dir (@$default_base_dirs) {
   #  if (!$used_base_dirs{$dir}) {
-  #    push @result_dirs, File::Spec->catdir($dir, $subdir);
+  #    push @result_dirs, "$dir/$subdir";
   #  }
   #}
   return \@result_dirs;
@@ -460,16 +460,16 @@ sub set_subdir_directories($$) {
   my $subdir = shift;
   my $deprecated_dirs = shift;
 
-  my @result = File::Spec->catdir('.'.$subdir);
+  my @result = ('.'."/$subdir");
 
   my $config_home;
   my $deprecated_config_home;
   if (defined($ENV{'XDG_CONFIG_HOME'}) and $ENV{'XDG_CONFIG_HOME'} ne '') {
-    $config_home = File::Spec->catdir($ENV{'XDG_CONFIG_HOME'}, $subdir);
+    $config_home = $ENV{'XDG_CONFIG_HOME'}."/$subdir";
   } else {
     if (defined($ENV{'HOME'})) {
-      $config_home = File::Spec->catdir($ENV{'HOME'}, '.config', $subdir);
-      $deprecated_config_home = File::Spec->catdir($ENV{'HOME'}, '.'.$subdir);
+      $config_home = join('/', ($ENV{'HOME'}, '.config', $subdir));
+      $deprecated_config_home = $ENV{'HOME'}.'/.'.$subdir;
       $deprecated_dirs->{$deprecated_config_home} = $config_home;
     }
   }
@@ -479,12 +479,12 @@ sub set_subdir_directories($$) {
   push @result, $deprecated_config_home
     if (defined($deprecated_config_home));
 
-  my $sysconf_install_dir = File::Spec->catdir($sysconfdir, 'xdg');
+  my $sysconf_install_dir = "$sysconfdir/xdg";
   # associate new location to deprecated location
   my $overriding_dirs = {$sysconf_install_dir => $sysconfdir};
   # in 2024, mark $sysconfdir overriden by $sysconfdir/xdg.
   my $config_dirs = add_config_paths('XDG_CONFIG_DIRS', $subdir,
-                       ['/etc/xdg'], File::Spec->catdir($sysconfdir, 'xdg'),
+                       ['/etc/xdg'], "$sysconfdir/xdg",
                        $overriding_dirs, $deprecated_dirs);
   push @result, @$config_dirs;
 
@@ -498,7 +498,7 @@ sub set_subdir_directories($$) {
   # datadir, there is no need for customization of those directories
   # since the sysconfdir directories are already customized, just use
   # the installation directory.
-  push @result, File::Spec->catdir($datadir, $subdir);
+  push @result, "$datadir/$subdir";
 
   return \@result;
 }
@@ -510,9 +510,9 @@ my $language_config_dirs
   = set_subdir_directories('texinfo', \%deprecated_directories);
 my @texinfo_language_config_dirs = @$language_config_dirs;
 
-#push @texinfo_language_config_dirs, File::Spec->catdir($sysconfdir, 'texinfo')
+#push @texinfo_language_config_dirs, "$sysconfdir/texinfo"
 #                               if (defined($sysconfdir));
-#push @texinfo_language_config_dirs, File::Spec->catdir($datadir, 'texinfo')
+#push @texinfo_language_config_dirs, "$datadir/texinfo"
 #                               if (defined($datadir));
 
 # these variables are used as part of binary strings.
@@ -525,21 +525,21 @@ my $converter_config_dirs_array_ref
 @converter_config_dirs = ($curdir, @$converter_config_dirs_array_ref);
 
 #@converter_config_dirs
-#   = ($curdir, File::Spec->catdir($curdir, ".$converter"));
-#push @converter_config_dirs, File::Spec->catdir($ENV{'HOME'}, ".$converter")
+#   = ($curdir, "$curdir/.$converter");
+#push @converter_config_dirs, $ENV{'HOME'}."/.$converter")
 #       if (defined($ENV{'HOME'}));
-#push @converter_config_dirs, File::Spec->catdir($sysconfdir, $converter)
+#push @converter_config_dirs, "$sysconfdir/$converter"
 #       if (defined($sysconfdir));
-#push @converter_config_dirs, File::Spec->catdir($datadir, $converter)
+#push @converter_config_dirs, "$datadir/$converter"
 #  if (defined($datadir));
 
 @converter_init_dirs = @converter_config_dirs;
 foreach my $texinfo_config_dir (@texinfo_language_config_dirs) {
-  my $init_dir = File::Spec->catdir($texinfo_config_dir, 'init');
+  my $init_dir = "$texinfo_config_dir/init";
   push @converter_init_dirs, $init_dir;
   if ($deprecated_directories{$texinfo_config_dir}) {
     $deprecated_directories{$init_dir}
-   = File::Spec->catdir($deprecated_directories{$texinfo_config_dir}, 'init');
+      = "$deprecated_directories{$texinfo_config_dir}/init";
   }
 }
 
@@ -1527,7 +1527,7 @@ Texinfo::Convert::Utils->import();
 
 if (not get_conf('TEST') and $Texinfo::ModulePath::texinfo_uninstalled) {
   push @texinfo_language_config_dirs,
-    File::Spec->catdir($Texinfo::ModulePath::top_srcdir, 'util');
+    join('/', ($Texinfo::ModulePath::top_srcdir, 'util'));
 }
 
 if ($Texinfo::ModulePath::texinfo_uninstalled) {

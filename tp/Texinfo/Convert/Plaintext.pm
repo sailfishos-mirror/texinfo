@@ -720,8 +720,8 @@ sub output($$)
       if ($self->get_conf('SPLIT')) {
         my $top_node_file_name = $self->top_node_filename($document_name);
         if ($destination_directory ne '') {
-          $outfile_name = File::Spec->catfile($destination_directory,
-                                              $top_node_file_name);
+          $outfile_name = join('/', ($destination_directory,
+                                     $top_node_file_name));
         } else {
           $outfile_name = $top_node_file_name;
         }

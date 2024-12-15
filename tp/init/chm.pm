@@ -214,7 +214,7 @@ sub chm_init($)
   $outdir = File::Spec->curdir() if ($outdir eq '');
 
   my $hhk_filename = $document_name . ".hhk";
-  my $hhk_file_path_name = File::Spec->catfile($outdir, $hhk_filename);
+  my $hhk_file_path_name = join('/', ($outdir, $hhk_filename));
   my ($encoded_hhk_file_path_name, $hhk_path_encoding)
     = $self->encoded_output_file_name($hhk_file_path_name);
   my ($hhk_fh, $hhk_error_message)
@@ -296,7 +296,7 @@ sub chm_init($)
   }
 
   my $hhc_filename = $document_name . ".hhc";
-  my $hhc_file_path_name = File::Spec->catfile($outdir, $hhc_filename);
+  my $hhc_file_path_name = join('/', ($outdir, $hhc_filename));
   my ($encoded_hhc_file_path_name, $hhc_path_encoding)
     = $self->encoded_output_file_name($hhc_file_path_name);
   my ($hhc_fh, $hhc_error_message)
@@ -378,7 +378,7 @@ sub chm_init($)
   }
 
   my $hhp_filename = $document_name . ".hhp";
-  my $hhp_file_path_name = File::Spec->catfile($outdir, $hhp_filename);
+  my $hhp_file_path_name = join('/', ($outdir, $hhp_filename));
   my ($encoded_hhp_file_path_name, $hhp_path_encoding)
     = $self->encoded_output_file_name($hhp_file_path_name);
   my ($hhp_fh, $hhp_error_message)

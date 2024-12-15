@@ -993,7 +993,7 @@ sub output($$)
           return undef;
         }
       }
-      $outfile = File::Spec->catfile($destination_directory, $outfile);
+      $outfile = join('/', ($destination_directory, $outfile));
     }
   } else {
     $outfile = $self->{'OUTFILE'};

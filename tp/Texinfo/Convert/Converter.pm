@@ -826,7 +826,7 @@ sub set_file_path($$$;$)
 
   if (not defined($filepath)) {
     if (defined($destination_directory) and $destination_directory ne '') {
-      $filepath = File::Spec->catfile($destination_directory, $filename);
+      $filepath = join('/', ($destination_directory, $filename));
     } else {
       $filepath = $filename;
     }
@@ -1127,7 +1127,7 @@ sub determine_files_and_directory($$)
     }
     if (defined($self->get_conf('SUBDIR')) and $output_file ne '') {
       my $dir = File::Spec->canonpath($self->get_conf('SUBDIR'));
-      $output_file = File::Spec->catfile($dir, $output_file);
+      $output_file = join('/', ($dir, $output_file));
     }
   } else {
     $document_path = $self->get_conf('OUTFILE');

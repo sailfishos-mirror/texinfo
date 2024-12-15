@@ -233,8 +233,7 @@ sub l2h_process($$)
   my $encoded_l2h_latex_file_name = encode('UTF-8', $l2h_latex_file_name);
   my $l2h_latex_path_string = File::Spec->catfile($destination_directory_string,
                                                   $encoded_l2h_latex_file_name);
-  $l2h_cache_path_name = File::Spec->catfile($destination_directory,
-                                             "${docu_name}-l2h_cache.pm");
+  $l2h_cache_path_name = "$destination_directory/${docu_name}-l2h_cache.pm";
   # set consistently with $l2h_latex_file_name to ensure that
   # latex2html will create a file with this name.
   my $l2h_html_file_name = "${l2h_name}.html";
@@ -573,11 +572,10 @@ sub l2h_retrieve_from_html($$)
 
   my @html_retrieved_text_indices;   # the text indices retrieved
 
-  my $l2h_html_path_name = File::Spec->catfile($destination_directory,
-                                               $l2h_html_file_name);
+  my $l2h_html_path_name = "$destination_directory/$l2h_html_file_name";
   my $encoded_l2h_html_file_name = encode('UTF-8', $l2h_html_file_name);
-  my $l2h_html_path_string = File::Spec->catfile($destination_directory_string,
-                                                 $encoded_l2h_html_file_name);
+  my $l2h_html_path_string
+      = "$destination_directory_string/$encoded_l2h_html_file_name";
 
   if (! open(L2H_HTML, "<$l2h_html_path_string")) {
     $self->converter_document_error(
@@ -778,8 +776,7 @@ sub l2h_init_cache($)
     my $loaded_path;
     # do require a relative path, or to have . in INC
     if (not File::Spec->file_name_is_absolute($l2h_cache_path_name)) {
-      $loaded_path = File::Spec->catfile(File::Spec->curdir(),
-                                       $encoded_l2h_cache_path_name);
+      $loaded_path = File::Spec->curdir()."/$encoded_l2h_cache_path_name";
     } else {
       $loaded_path = $encoded_l2h_cache_path_name;
     }
@@ -861,8 +858,7 @@ sub l2h_from_cache($$)
       my $encoded_cached_image_file_name
             = encode('UTF-8', $cached_image_file_name);
       my $cached_image_path_string
-         = File::Spec->catfile($destination_directory_string,
-                               $encoded_cached_image_file_name);
+         = "$destination_directory_string/$encoded_cached_image_file_name";
       unless (-e $cached_image_path_string) {
         return undef;
       }
