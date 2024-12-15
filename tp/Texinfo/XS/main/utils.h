@@ -171,6 +171,9 @@ char *locate_file_in_dirs (const char *filename,
                      DEPRECATED_DIRS_LIST *deprecated_dirs,
                      DEPRECATED_DIRS_LIST *deprecated_dirs_used);
 
+DEPRECATED_DIR_INFO *find_deprecated_dir_info (
+                          const DEPRECATED_DIRS_LIST *deprecated_dirs,
+                          const char *directory_name);
 void copy_deprecated_dirs (DEPRECATED_DIRS_LIST *deprecated_dirs_dst,
                            const DEPRECATED_DIRS_LIST *deprecated_dirs_src);
 void add_new_deprecated_dir_info (DEPRECATED_DIRS_LIST *deprecated_dirs,

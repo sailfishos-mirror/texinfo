@@ -1032,8 +1032,8 @@ file_name_is_absolute (const char *filename)
   return !memcmp (filename, "/", 1);
 }
 
-static DEPRECATED_DIR_INFO *
-find_deprecated_dir_info (DEPRECATED_DIRS_LIST *deprecated_dirs,
+DEPRECATED_DIR_INFO *
+find_deprecated_dir_info (const DEPRECATED_DIRS_LIST *deprecated_dirs,
                           const char *directory_name)
 {
   size_t i;

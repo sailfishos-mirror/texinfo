@@ -387,6 +387,7 @@ CONVERTER *
 txi_converter_setup (const char *format_str,
                      const char *output_format,
                      const STRING_LIST *texinfo_language_config_dirs_in,
+                     const DEPRECATED_DIRS_LIST *deprecated_dirs,
                      OPTIONS_LIST *customizations)
 {
   enum converter_format converter_format
@@ -409,6 +410,10 @@ txi_converter_setup (const char *format_str,
   if (texinfo_language_config_dirs_in)
     copy_strings (texinfo_language_config_dirs,
                   texinfo_language_config_dirs_in);
+
+  if (deprecated_dirs)
+    copy_deprecated_dirs (&conf->deprecated_config_directories,
+                          deprecated_dirs);
 
   /*
   err_add_option_value (&conf->conf, "DEBUG", 1, 0);

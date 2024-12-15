@@ -1,5 +1,18 @@
 2024-12-15  Patrice Dumas  <pertusus@free.fr>
 
+	Use XDG base directory in teximakehtml
+
+	* tp/Texinfo/XS/main/utils.c (find_deprecated_dir_info): add const.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_converter_setup): get and set
+	DEPRECATED_DIRS_LIST deprecated dirs.
+
+	* tp/Texinfo/XS/teximakehtml.c (add_config_paths, main)
+	(set_subdir_directories): implement add_config_paths and
+	set_subdir_directories and use to set texinfo_language_config_dirs.
+
+2024-12-15  Patrice Dumas  <pertusus@free.fr>
+
 	Deprecated directories warning in XS/C
 
 	* tp/Texinfo/XS/main/utils.c (file_name_is_absolute)

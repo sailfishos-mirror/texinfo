@@ -189,6 +189,144 @@ document_warn (const char *format, ...)
     }
 }
 
+static void
+add_config_paths (const char *env_string, const char *subdir,
+                  /* unused in Perl
+                  const STRING_LIST *default_base_dirs,
+                   */
+                  const char *installation_dir,
+                  const DEPRECATED_DIRS_LIST *overriding_dirs,
+                  STRING_LIST *result_dirs,
+                  DEPRECATED_DIRS_LIST *deprecated_dirs)
+{
+  static STRING_LIST xdg_result_dirs;
+  size_t i;
+  /*
+   read the env directories to avoid setting the overriding_dirs
+   as deprecated if they are explicitely specified in the environnement
+   variable.
+   */
+  const char *env_value = getenv (env_string);
+  if (env_value && strlen (env_value))
+    {
+      char *text = strdup (env_value);
+      char *dir = strtok (text, ":");
+
+      while (dir)
+        {
+          if (strlen (dir))
+            {
+              add_include_directory (dir, &xdg_result_dirs);
+            }
+          dir = strtok (NULL, ":");
+        }
+      free (text);
+    }
+
+  if (installation_dir)
+    {
+      char *install_result_dir;
+      xasprintf (&install_result_dir, "%s/%s", installation_dir, subdir);
+      add_string (install_result_dir, result_dirs);
+      if (overriding_dirs)
+        {
+          DEPRECATED_DIR_INFO *deprecated_dir_info
+            = find_deprecated_dir_info (overriding_dirs, installation_dir);
+
+          if (deprecated_dir_info)
+            {
+              char *deprecated_result_dir;
+              xasprintf (&deprecated_result_dir, "%s/%s",
+                         deprecated_dir_info->obsolete_dir, subdir);
+              if (!find_string (&xdg_result_dirs,
+                                deprecated_dir_info->obsolete_dir))
+                {
+                  add_new_deprecated_dir_info (deprecated_dirs,
+                                   deprecated_dir_info->obsolete_dir,
+                                   deprecated_dir_info->reference_dir);
+                  add_string (deprecated_result_dir, result_dirs);
+                }
+              free (deprecated_result_dir);
+            }
+        }
+      free (install_result_dir);
+    }
+
+  for (i = 0; i < xdg_result_dirs.number; i++)
+    {
+      char *dir = xdg_result_dirs.list[i];
+      if (!find_string (result_dirs, dir))
+        {
+          char *result_dir;
+          xasprintf (&result_dir, "%s/%s", dir, subdir);
+          add_string (result_dir, result_dirs);
+          free (result_dir);
+        }
+      free (dir);
+    }
+
+  xdg_result_dirs.number = 0;
+}
+
+#define XDG_SYSCONFDIR SYSCONFDIR "/xdg"
+
+static DEPRECATED_DIR_INFO overriding_sysconfdir_info[1] = {
+  {XDG_SYSCONFDIR, SYSCONFDIR} };
+static const DEPRECATED_DIRS_LIST overriding_sysconfdir_list = {
+  1, 1, overriding_sysconfdir_info };
+
+static STRING_LIST *
+set_subdir_directories (const char *subdir,
+                        DEPRECATED_DIRS_LIST *deprecated_dirs)
+{
+  STRING_LIST *result = new_string_list ();
+  STRING_LIST *config_dirs = new_string_list ();
+  char *dir_string;
+  char *xdg_config_home;
+
+  xasprintf (&dir_string, "./.%s", subdir);
+  add_string (dir_string, result);
+  free (dir_string);
+
+  xdg_config_home = getenv ("XDG_CONFIG_HOME");
+  if (xdg_config_home && strlen (xdg_config_home))
+    {
+      xasprintf (&dir_string, "%s/%s", xdg_config_home, subdir);
+      add_string (dir_string, result);
+      free (dir_string);
+    }
+  else
+    {
+      const char *home_dir = getenv ("HOME");
+      if (home_dir)
+        {
+          char *deprecated_config_home;
+          xasprintf (&dir_string, "%s/%s/%s", home_dir, ".config", subdir);
+          xasprintf (&deprecated_config_home, "%s/.%s", home_dir, subdir);
+          add_new_deprecated_dir_info (deprecated_dirs,
+                                   deprecated_config_home, dir_string);
+          add_string (dir_string, result);
+          free (dir_string);
+          add_string (deprecated_config_home, result);
+          free (deprecated_config_home);
+        }
+    }
+
+  add_config_paths ("XDG_CONFIG_DIRS", subdir, XDG_SYSCONFDIR,
+                    &overriding_sysconfdir_list, config_dirs, deprecated_dirs);
+
+  merge_strings (result, config_dirs);
+
+  free (config_dirs->list);
+  free (config_dirs);
+
+  xasprintf (&dir_string, DATADIR "/%s", subdir);
+  add_string (dir_string, result);
+  free (dir_string);
+
+  return result;
+}
+
 void
 get_cmdline_customization_option (OPTIONS_LIST *options_list,
                                   char *text)
@@ -282,11 +420,11 @@ main (int argc, char *argv[])
   OPTIONS_LIST convert_options;
   size_t errors_count = 0;
   size_t errors_nr;
-  STRING_LIST texinfo_language_config_dirs;
+  STRING_LIST *texinfo_language_config_dirs;
   STRING_LIST converter_texinfo_language_config_dirs;
   STRING_LIST include_dirs;
   CONVERTER_INITIALIZATION_INFO *format_defaults;
-  char *home_dir;
+  DEPRECATED_DIRS_LIST deprecated_directories;
   const char *curdir = ".";
   char *top_srcdir;
   char *top_builddir;
@@ -362,26 +500,10 @@ main (int argc, char *argv[])
                            "DEBUG", 1, 0);
    */
 
-  memset (&texinfo_language_config_dirs, 0, sizeof (STRING_LIST));
-  add_string (".config", &texinfo_language_config_dirs);
+  memset (&deprecated_directories, 0, sizeof (DEPRECATED_DIRS_LIST));
 
-  home_dir = getenv ("HOME");
-  if (home_dir)
-    {
-      char *home_texinfo_language_config_dirs;
-      xasprintf (&home_texinfo_language_config_dirs, "%s/.texinfo",
-                 home_dir);
-      add_string (home_texinfo_language_config_dirs,
-                  &texinfo_language_config_dirs);
-      free (home_texinfo_language_config_dirs);
-    }
-
-  if (strlen (SYSCONFDIR))
-    add_string (SYSCONFDIR "/texinfo", &texinfo_language_config_dirs);
-
-  if (strlen (DATADIR))
-    add_string (DATADIR "/texinfo", &texinfo_language_config_dirs);
-
+  texinfo_language_config_dirs
+   = set_subdir_directories ("texinfo", &deprecated_directories);
 
   memset (&include_dirs, 0, sizeof (STRING_LIST));
 
@@ -616,14 +738,15 @@ main (int argc, char *argv[])
   free (input_directory);
 
   copy_strings (&converter_texinfo_language_config_dirs,
-                &texinfo_language_config_dirs);
+                texinfo_language_config_dirs);
 
   converter = txi_converter_setup ("html", "html",
                                    &converter_texinfo_language_config_dirs,
+                                   &deprecated_directories,
                                    &convert_options);
 
   free_strings_list (&converter_texinfo_language_config_dirs);
-  free_strings_list (&texinfo_language_config_dirs);
+  destroy_strings_list (texinfo_language_config_dirs);
 
   free_strings_list (&include_dirs);
 
