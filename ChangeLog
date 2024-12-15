@@ -1,5 +1,12 @@
 2024-12-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl (add_config_paths): remove a spurious subdir in
+	@xdg_result_dirs.  Also distinguish deprecated_dir and
+	deprecated_result_dir to check if deprecated_dir is in
+	used_xdg_base_dirs and put it in used_base_dirs.
+
+2024-12-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (locate_include_file): remove comments, move
 	code to where the variables are used.
 

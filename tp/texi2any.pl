@@ -417,7 +417,7 @@ sub add_config_paths($$$$;$$) {
   if (defined($ENV{$env_string}) and $ENV{$env_string} ne '') {
     foreach my $dir (split(':', $ENV{$env_string})) {
       if ($dir ne '') {
-        push @xdg_result_dirs, "$dir/$subdir";
+        push @xdg_result_dirs, $dir;
         $used_xdg_base_dirs{$dir} = 1;
       }
     }
@@ -425,16 +425,15 @@ sub add_config_paths($$$$;$$) {
   my @result_dirs;
   my %used_base_dirs;
   if (defined($installation_dir)) {
-      #and not $used_base_dirs{$installation_dir}) {
     my $install_result_dir = "$installation_dir/$subdir";
     push @result_dirs, $install_result_dir;
     $used_base_dirs{$installation_dir} = 1;
     if ($overriding_dirs and $overriding_dirs->{$installation_dir}) {
-      my $deprecated_dir
-       = "$overriding_dirs->{$installation_dir}/$subdir";
+      my $deprecated_dir = $overriding_dirs->{$installation_dir};
+      my $deprecated_result_dir = "$deprecated_dir/$subdir";
       if (not $used_xdg_base_dirs{$deprecated_dir}) {
-        $deprecated_dirs->{$deprecated_dir} = $install_result_dir;
-        push @result_dirs, $deprecated_dir;
+        $deprecated_dirs->{$deprecated_result_dir} = $install_result_dir;
+        push @result_dirs, $deprecated_result_dir;
         $used_base_dirs{$deprecated_dir} = 1;
       }
     }
