@@ -459,7 +459,7 @@ sub set_subdir_directories($$) {
   my $subdir = shift;
   my $deprecated_dirs = shift;
 
-  my @result = ('.'."/$subdir");
+  my @result = (".$subdir");
 
   my $config_home;
   my $deprecated_config_home;
