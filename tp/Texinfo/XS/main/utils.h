@@ -166,8 +166,17 @@ void add_include_directory (const char *filename,
 char *locate_include_file (const char *filename,
                            const STRING_LIST *include_dirs_list);
 char *locate_file_in_dirs (const char *filename,
-                           const STRING_LIST *directories,
-                           STRING_LIST *all_files);
+                     const STRING_LIST *directories,
+                     STRING_LIST *all_files,
+                     DEPRECATED_DIRS_LIST *deprecated_dirs,
+                     DEPRECATED_DIRS_LIST *deprecated_dirs_used);
+
+void copy_deprecated_dirs (DEPRECATED_DIRS_LIST *deprecated_dirs_dst,
+                           const DEPRECATED_DIRS_LIST *deprecated_dirs_src);
+void add_new_deprecated_dir_info (DEPRECATED_DIRS_LIST *deprecated_dirs,
+                                  const char *obsolete_dir,
+                                  const char *reference_dir);
+void free_deprecated_dirs_list (DEPRECATED_DIRS_LIST *deprecated_dirs);
 
 ENCODING_CONVERSION *get_encoding_conversion (const char *encoding,
                                     ENCODING_CONVERSION_LIST *encodings_list);

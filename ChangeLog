@@ -1,3 +1,28 @@
+2024-12-15  Patrice Dumas  <pertusus@free.fr>
+
+	Deprecated directories warning in XS/C
+
+	* tp/Texinfo/XS/main/utils.c (file_name_is_absolute)
+	(locate_include_file, locate_file_in_dirs): add file_name_is_absolute.
+
+	* tp/Texinfo/XS/main/converter_types.h (DEPRECATED_DIR_INFO)
+	(DEPRECATED_DIRS_LIST, CONVERTER_INITIALIZATION_INFO, CONVERTER),
+	tp/Texinfo/XS/main/utils.c (find_deprecated_dir_info)
+	(add_deprecated_dir_info, copy_deprecated_dirs)
+	(add_new_deprecated_dir_info, free_deprecated_dirs_list): add
+	deprecated directories structures and functions.
+
+	* tp/Texinfo/XS/convert/converter.c (apply_converter_info)
+	(destroy_converter_initialization_info, free_generic_converter),
+	tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(get_deprecated_config_directories_sv, get_converter_info_from_sv):
+	pass deprecated directories information from Perl to converter.
+
+	* tp/Texinfo/XS/main/utils.c (locate_file_in_dirs),
+	tp/Texinfo/XS/convert/html_prepare_converter.c (load_htmlxref_files):
+	set deprecated directories used in locate_file_in_dirs.  Warn if
+	deprecated directories are used in load_htmlxref_files.
+
 2024-12-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/texinfo.c (txi_parser): check that

@@ -1144,6 +1144,7 @@ load_htmlxref_files (CONVERTER *self)
         {
           char *encoded_htmlxref_file_name;
           char *path_encoding;
+          static DEPRECATED_DIRS_LIST deprecated_dirs_used;
 
           /* cast to remove const */
           encoded_htmlxref_file_name
@@ -1154,7 +1155,48 @@ load_htmlxref_files (CONVERTER *self)
           free (path_encoding);
 
           locate_file_in_dirs (encoded_htmlxref_file_name,
-                               &htmlxref_dirs, &htmlxref_files);
+                               &htmlxref_dirs, &htmlxref_files,
+                               &self->deprecated_config_directories,
+                               &deprecated_dirs_used);
+
+          if (deprecated_dirs_used.number)
+            {
+              size_t i;
+              const char *encoding = self->conf->COMMAND_LINE_ENCODING.o.string;
+              for (i = 0; i < deprecated_dirs_used.number; i++)
+                {
+                  char *dir_name, *replacement_dir;
+                  DEPRECATED_DIR_INFO *deprecated_dir_info
+                    = &deprecated_dirs_used.list[i];
+                  if (encoding)
+                    {
+                      int status;
+                      dir_name
+                       = decode_string (deprecated_dir_info->obsolete_dir,
+                                         encoding, &status, 0);
+                      replacement_dir
+                        = decode_string (deprecated_dir_info->reference_dir,
+                                         encoding, &status, 0);
+                      free (deprecated_dir_info->obsolete_dir);
+                      free (deprecated_dir_info->reference_dir);
+                    }
+                  else
+                    {
+                      dir_name = deprecated_dir_info->obsolete_dir;
+                      replacement_dir
+                         = deprecated_dir_info->reference_dir;
+                    }
+
+                  message_list_document_warn (&self->error_messages,
+                      self->conf, 0,
+                      "%s directory is deprecated. Use %s instead",
+                      dir_name, replacement_dir);
+
+                  free (dir_name);
+                  free (replacement_dir);
+                }
+              deprecated_dirs_used.number = 0;
+            }
           free (encoded_htmlxref_file_name);
         }
       free_strings_list (&htmlxref_dirs);

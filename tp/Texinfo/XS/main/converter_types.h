@@ -749,11 +749,23 @@ typedef struct PRE_CLASS_TYPE_INFO {
     char *pre_class;
 } PRE_CLASS_TYPE_INFO;
 
+typedef struct DEPRECATED_DIR_INFO {
+  char *reference_dir;
+  char *obsolete_dir;
+} DEPRECATED_DIR_INFO;
+
+typedef struct DEPRECATED_DIRS_LIST {
+  size_t space;
+  size_t number;
+  DEPRECATED_DIR_INFO *list;
+} DEPRECATED_DIRS_LIST;
+
 /* information on converter configuration from a source of configuration
    (either output format or user customization) */
 typedef struct CONVERTER_INITIALIZATION_INFO {
     TRANSLATED_COMMAND *translated_commands;
     OPTIONS_LIST conf;
+    DEPRECATED_DIRS_LIST deprecated_config_directories;
     /* gather strings that are not customization options */
     STRING_LIST non_valid_customization;
 } CONVERTER_INITIALIZATION_INFO;
@@ -798,6 +810,9 @@ typedef struct CONVERTER {
 
   /* API to open, set encoding and register files */
     OUTPUT_FILES_INFORMATION output_files_information;
+
+  /* associates deprecated directories and reference directories */
+    DEPRECATED_DIRS_LIST deprecated_config_directories;
 
   /* HTML specific */
     /* set for a converter */

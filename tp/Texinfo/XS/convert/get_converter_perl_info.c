@@ -209,6 +209,45 @@ set_translated_commands (SV *translated_commands_sv)
   return translated_commands;
 }
 
+static void
+get_deprecated_config_directories_sv (SV *deprecated_config_directories_sv,
+                                      DEPRECATED_DIRS_LIST *deprecated_dirs)
+{
+  dTHX;
+
+  if (deprecated_config_directories_sv)
+    {
+      HV *deprecated_config_directories_hv = 0;
+      I32 hv_number;
+      I32 i;
+
+      if (!SvOK (deprecated_config_directories_sv))
+        hv_number = 0;
+      else
+        {
+          deprecated_config_directories_hv
+            = (HV *)SvRV (deprecated_config_directories_sv);
+
+          hv_number = hv_iterinit (deprecated_config_directories_hv);
+        }
+
+      for (i = 0; i < hv_number; i++)
+        {
+          HE *next = hv_iternext (deprecated_config_directories_hv);
+          SV *obsolete_dir_sv = hv_iterkeysv (next);
+          const char *obsolete_dir = (char *) SvPVutf8_nolen (obsolete_dir_sv);
+          SV *value_sv = HeVAL(next);
+          if (SvOK (value_sv))
+            {
+              const char *reference_dir = (char *) SvPVutf8_nolen (value_sv);
+              add_new_deprecated_dir_info (deprecated_dirs, obsolete_dir,
+                                           reference_dir);
+            }
+        }
+    }
+}
+
+
 /* CLASS_NAME is Perl converter class for warning message.  If NULL, no message.
    CONVERTER may be NULL (when called from converter_defaults). */
 CONVERTER_INITIALIZATION_INFO *
@@ -265,9 +304,11 @@ get_converter_info_from_sv (SV *conf_sv, const char *class_name,
               if (!strcmp (key, "translated_commands"))
                 initialization_info->translated_commands
                   = set_translated_commands (value_sv);
-              /* FIXME get deprecated_config_directories if needed */
               else if (!strcmp (key, "deprecated_config_directories"))
-                {}
+                {
+                  get_deprecated_config_directories_sv (value_sv,
+                    &initialization_info->deprecated_config_directories);
+                }
               else if (class_name)
                 {
                   fprintf (stderr,

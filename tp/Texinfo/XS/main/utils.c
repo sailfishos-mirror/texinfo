@@ -1024,6 +1024,95 @@ destroy_strings_list (STRING_LIST *strings)
   free (strings);
 }
 
+/* Note: the Perl code (in Common.pm, 'locate_include_file') handles
+   a volume in a path (like "A:") using the File::Spec module. */
+static int
+file_name_is_absolute (const char *filename)
+{
+  return !memcmp (filename, "/", 1);
+}
+
+static DEPRECATED_DIR_INFO *
+find_deprecated_dir_info (DEPRECATED_DIRS_LIST *deprecated_dirs,
+                          const char *directory_name)
+{
+  size_t i;
+  for (i = 0; i < deprecated_dirs->number; i++)
+    {
+      DEPRECATED_DIR_INFO *result = &deprecated_dirs->list[i];
+      if (!strcmp (result->obsolete_dir, directory_name))
+        return result;
+    }
+  return 0;
+}
+
+void
+add_deprecated_dir_info (DEPRECATED_DIRS_LIST *deprecated_dirs,
+                         const DEPRECATED_DIR_INFO *deprecated_dir_info)
+{
+  DEPRECATED_DIR_INFO *found_deprecated_dir_info
+    = find_deprecated_dir_info (deprecated_dirs,
+                                deprecated_dir_info->obsolete_dir);
+
+  if (found_deprecated_dir_info)
+    {
+      free (found_deprecated_dir_info->reference_dir);
+      found_deprecated_dir_info->reference_dir
+        = strdup (deprecated_dir_info->reference_dir);
+    }
+  else
+    {
+      if (deprecated_dirs->number >= deprecated_dirs->space)
+        {
+          deprecated_dirs->list
+            = realloc (deprecated_dirs->list,
+               (deprecated_dirs->space += 5) * sizeof (DEPRECATED_DIR_INFO));
+        }
+      deprecated_dirs->list[deprecated_dirs->number].obsolete_dir
+        = strdup (deprecated_dir_info->obsolete_dir);
+      deprecated_dirs->list[deprecated_dirs->number].reference_dir
+        = strdup (deprecated_dir_info->reference_dir);
+      deprecated_dirs->number++;
+    }
+}
+
+void
+copy_deprecated_dirs (DEPRECATED_DIRS_LIST *deprecated_dirs_dst,
+                      const DEPRECATED_DIRS_LIST *deprecated_dirs_src)
+{
+  size_t i;
+  for (i = 0; i < deprecated_dirs_src->number; i++)
+    {
+      add_deprecated_dir_info (deprecated_dirs_dst,
+                               &deprecated_dirs_src->list[i]);
+    }
+}
+
+void
+add_new_deprecated_dir_info (DEPRECATED_DIRS_LIST *deprecated_dirs,
+                             const char *obsolete_dir,
+                             const char *reference_dir)
+{
+  static DEPRECATED_DIR_INFO deprecated_dir_info;
+  /* actually const, but cannot be const in the structure */
+  deprecated_dir_info.obsolete_dir = (char *) obsolete_dir;
+  deprecated_dir_info.reference_dir = (char *) reference_dir;
+  add_deprecated_dir_info (deprecated_dirs, &deprecated_dir_info);
+}
+
+void
+free_deprecated_dirs_list (DEPRECATED_DIRS_LIST *deprecated_dirs)
+{
+  size_t i;
+  for (i = 0; i < deprecated_dirs->number; i++)
+    {
+      DEPRECATED_DIR_INFO *deprecated_dir_info = &deprecated_dirs->list[i];
+      free (deprecated_dir_info->obsolete_dir);
+      free (deprecated_dir_info->reference_dir);
+    }
+  free (deprecated_dirs->list);
+}
+
 /* Return value to be freed by caller. */
 /* try to locate a file called FILENAME, looking for it in the list of include
    directories. */
@@ -1036,9 +1125,7 @@ locate_include_file (const char *filename, const STRING_LIST *include_dirs_list)
   size_t i;
 
   /* Checks if filename is absolute or relative to current directory. */
-  /* Note: the Perl code (in Common.pm, 'locate_include_file') handles
-     a volume in a path (like "A:") using the File::Spec module. */
-  if (!memcmp (filename, "/", 1)
+  if (file_name_is_absolute (filename)
       || (strlen (filename) >= 3 && !memcmp (filename, "../", 3))
       || (strlen (filename) >= 2 && !memcmp (filename, "./", 2)))
     {
@@ -1084,9 +1171,11 @@ locate_include_file (const char *filename, const STRING_LIST *include_dirs_list)
 char *
 locate_file_in_dirs (const char *filename,
                      const STRING_LIST *directories,
-                     STRING_LIST *all_files)
+                     STRING_LIST *all_files,
+                     DEPRECATED_DIRS_LIST *deprecated_dirs,
+                     DEPRECATED_DIRS_LIST *deprecated_dirs_used)
 {
-  if (!memcmp (filename, "/", 1))
+  if (file_name_is_absolute (filename))
     {
       if (euidaccess (filename, R_OK) == 0)
         {
@@ -1106,6 +1195,15 @@ locate_file_in_dirs (const char *filename,
           xasprintf (&fullpath, "%s/%s", directories->list[i], filename);
           if (euidaccess (fullpath, R_OK) == 0)
             {
+              if (deprecated_dirs && deprecated_dirs_used)
+                {
+                  DEPRECATED_DIR_INFO *deprecated_dir_info
+                    = find_deprecated_dir_info (deprecated_dirs,
+                                         directories->list[i]);
+                  if (deprecated_dir_info)
+                    add_deprecated_dir_info (deprecated_dirs_used,
+                                             deprecated_dir_info);
+                }
               if (all_files)
                 add_string (fullpath, all_files);
               else

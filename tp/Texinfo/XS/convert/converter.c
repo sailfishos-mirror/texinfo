@@ -353,6 +353,9 @@ apply_converter_info (CONVERTER *converter,
       converter->translated_commands
         = copy_translated_commands (init_info->translated_commands);
     }
+
+  copy_deprecated_dirs (&converter->deprecated_config_directories,
+                        &init_info->deprecated_config_directories);
 }
 
 /* apply format_defaults and user_conf initialization information.
@@ -410,6 +413,8 @@ destroy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
     destroy_translated_commands (init_info->translated_commands);
 
   free_options_list (&init_info->conf);
+
+  free_deprecated_dirs_list (&init_info->deprecated_config_directories);
 
   free_strings_list (&init_info->non_valid_customization);
   free (init_info);
@@ -1784,6 +1789,8 @@ free_generic_converter (CONVERTER *self)
     {
       destroy_translated_commands (self->translated_commands);
     }
+
+  free_deprecated_dirs_list (&self->deprecated_config_directories);
 
   free (self->expanded_formats);
 
