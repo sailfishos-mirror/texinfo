@@ -1101,15 +1101,15 @@ sub locate_include_file($;$)
 
   my $ignore_include_directories = 0;
 
-  my ($volume, $directories, $filename)
-     = File::Spec->splitpath($input_file_path);
-  my @directories = File::Spec->splitdir($directories);
-
   # If the path is absolute or begins with . or .., do not search in
   # include directories.  This is consistent with Kpathsea for Texinfo TeX.
   if (File::Spec->file_name_is_absolute($input_file_path)) {
     $ignore_include_directories = 1;
   } else {
+    my ($volume, $directories, $filename)
+      = File::Spec->splitpath($input_file_path);
+    my @directories = File::Spec->splitdir($directories);
+
     foreach my $dir (@directories) {
       if ($dir eq File::Spec->updir() or $dir eq File::Spec->curdir()) {
         $ignore_include_directories = 1;
@@ -1130,17 +1130,6 @@ sub locate_include_file($;$)
       return undef;
     }
     foreach my $include_dir (@$include_directories) {
-      #my ($include_volume, $include_dir_path, $include_filename)
-      #   = File::Spec->splitpath($include_dir, 1);
-
-      # catpath/catdir remove leading . and remove empty directories
-      # within paths.  To be more like XS/C output, we do it more simply
-      #my $possible_file = File::Spec->catpath($include_volume,
-      #  File::Spec->catdir(File::Spec->splitdir($include_dir_path),
-      #                     @directories), $filename);
-      #my $filepath = $directories . $filename;
-      #my $possible_file = File::Spec->catpath($include_volume,
-      #                $include_dir_path, $filepath);
       my $possible_file = "$include_dir/$input_file_path";
       if (-e $possible_file and -r $possible_file) {
         return $possible_file;

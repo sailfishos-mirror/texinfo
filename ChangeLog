@@ -1,5 +1,10 @@
 2024-12-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (locate_include_file): remove comments, move
+	code to where the variables are used.
+
+2024-12-15  Patrice Dumas  <pertusus@free.fr>
+
 	Unconditionally use / as directory separator
 
 	* tp/texi2any.pl,
