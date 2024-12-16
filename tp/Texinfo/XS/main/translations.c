@@ -78,14 +78,14 @@ configure_output_strings_translations (const char *localesdir,
     use_external_translate_string = use_external_translate_string_in;
   else
     {
-  #ifndef USE_LIBINTL_PERL_IN_XS
+#ifndef USE_LIBINTL_PERL_IN_XS
       use_external_translate_string = 0;
-  #else
+#else
       use_external_translate_string = 1;
-  #endif
+#endif
     }
 
-  #ifdef ENABLE_NLS
+#ifdef ENABLE_NLS
   textdomain_directory = bindtextdomain (strings_textdomain, localesdir);
 
   if (!textdomain_directory)
@@ -93,7 +93,7 @@ configure_output_strings_translations (const char *localesdir,
       fprintf (stderr, "bindtextdomain: error setting %s to `%s': %s\n",
                strings_textdomain, localesdir, strerror (errno));
     }
-  #endif
+#endif
 }
 
 void
@@ -211,7 +211,7 @@ translate_string (const char *string, const char *in_lang,
   else
     return call_translations_translate_string (string, in_lang,
                                                translation_context);
-#endif
+#else
   if (use_external_translate_string > 0)
     return call_translations_translate_string (string, in_lang,
                                                translation_context);
@@ -232,7 +232,7 @@ translate_string (const char *string, const char *in_lang,
   and (b) this could interfere with the LC_CTYPE setting in XSParagraph.
    */
 
-#ifndef _WIN32
+# ifndef _WIN32
   /* In
    https://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html
     Note: The variable LANGUAGE is ignored if the locale is set to ‘C’. In
@@ -258,7 +258,7 @@ translate_string (const char *string, const char *in_lang,
 
   switch_messages_locale ();
 
-#endif
+# endif
 
   saved_LANGUAGE = getenv ("LANGUAGE");
 
@@ -332,7 +332,7 @@ translate_string (const char *string, const char *in_lang,
 
   free (language_locales.text);
 
-#ifndef _WIN32
+# ifndef _WIN32
   if (saved_LANG)
     {
       setenv ("LANG", saved_LANG, 1);
@@ -356,11 +356,12 @@ translate_string (const char *string, const char *in_lang,
     }
   else
     setlocale (LC_MESSAGES, "");
-#endif
+# endif
 
   call_sync_locale ();
 
   return translated_string;
+#endif
 }
 
 char *
