@@ -6636,7 +6636,8 @@ The @code{@@small@dots{}} commands use the same font style as their
 normal counterparts: @code{@@smallexample} and @code{@@smalllisp} use
 a fixed-width font, and everything else uses the regular font.
 They also have the same behavior in other respects---whether filling
-is done and whether margins are narrowed.
+is done and whether margins are narrowed.  They do not take arguments
+even when their normal counterparts do, however.
 
 @vindex dispenvsize
 As a general rule, it's better to just use the regular
