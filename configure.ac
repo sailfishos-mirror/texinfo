@@ -502,6 +502,13 @@ AC_SUBST([enable_xs])
 
 AM_CONDITIONAL([DISABLE_XS], [test "z$enable_xs" = zno])
 
+# This is useful on platforms where gettext functions are present, but
+# setting the locale through LANGUAGE is not implemented.  In 2024 this is
+# the case of the musl libc libintl implementation, for example.
+# Setting locale through LANGUAGE is not automatically detected, but it
+# is possible to manually set --enable-xs-perl-libintl to use libintl-perl
+# to always get the correct output (there is a TODO for automatic detection in
+# tp/Texinfo/XS/configure.ac).
 AC_ARG_ENABLE([xs-perl-libintl],
     AS_HELP_STRING([--enable-xs-perl-libintl],
             [prefer Perl libintl-perl gettext in XS modules]),

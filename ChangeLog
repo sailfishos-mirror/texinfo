@@ -1,5 +1,12 @@
 2024-12-16  Patrice Dumas  <pertusus@free.fr>
 
+	* configure.ac, tp/Texinfo/XS/configure.ac: add comments and TODO
+	describing that --enable-xs-perl-libintl can be useful on platforms
+	where gettext functions are present, but setting the locale through
+	LANGUAGE is not implemented, as is the case for musl.
+
+2024-12-16  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (small): mention that @small... commands
 	do not take arguments.
 
@@ -7,7 +14,7 @@
 
 	* tp/Texinfo/XS/main/translations.c (translate_string): if ENABLE_NLS
 	is not set, remove completly the code calling functions in include
-	fils included only if ENABLE_NLS is set.
+	files included only if ENABLE_NLS is set.
 
 	* tp/Texinfo/XS/main/translations.c
 	(configure_output_strings_translations): unindent cpp directives for
