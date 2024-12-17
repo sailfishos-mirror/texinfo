@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-13 16:35+0000\n"
+"POT-Creation-Date: 2024-12-17 21:26+0000\n"
 "PO-Revision-Date: 2021-07-07 18:24+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Poedit 2.4.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: tp/ext/epub3.pm:713
+#: tp/ext/epub3.pm:705
 msgid "Table of contents"
 msgstr "Sisällysluettelo"
 

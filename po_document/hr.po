@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo_document 7.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-13 16:35+0000\n"
+"POT-Creation-Date: 2024-12-17 21:26+0000\n"
 "PO-Revision-Date: 2024-10-26 21:51-0700\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: vim 9.1\n"
 
-#: tp/ext/epub3.pm:713
+#: tp/ext/epub3.pm:705
 msgid "Table of contents"
 msgstr "Sadržaj"
 

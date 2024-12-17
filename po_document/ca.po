@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 5.9.93\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-13 16:35+0000\n"
+"POT-Creation-Date: 2024-12-17 21:26+0000\n"
 "PO-Revision-Date: 2015-06-08 17:08+0200\n"
 "Last-Translator: Walter Garcia-Fontes <walter.garcia@upf.edu>\n"
 "Language-Team: Catalan <ca@dodds.net>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: tp/ext/epub3.pm:713
+#: tp/ext/epub3.pm:705
 msgid "Table of contents"
 msgstr "Taula de continguts"
 

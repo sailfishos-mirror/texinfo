@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo-7.0.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-13 16:35+0000\n"
+"POT-Creation-Date: 2024-12-17 21:26+0000\n"
 "PO-Revision-Date: 2023-10-01 13:02+0200\n"
 "Last-Translator: Benno Schulenberg <vertaling@coevern.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -311,7 +311,7 @@ msgid "Try --help for more information.\n"
 msgstr "Gebruik '--help' voor meer informatie.\n"
 
 #: info/info.c:875 install-info/install-info.c:2270
-#: Pod-Simple-Texinfo/pod2texi.pl:199 tp/texi2any.pl:1144
+#: Pod-Simple-Texinfo/pod2texi.pl:199 tp/texi2any.pl:1143
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -462,7 +462,7 @@ msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
 msgstr "  info -f ./deze.info           het bestand './deze.info' tonen"
 
 #: info/info.c:1165 install-info/install-info.c:578
-#: Pod-Simple-Texinfo/pod2texi.pl:173 tp/texi2any.pl:1130
+#: Pod-Simple-Texinfo/pod2texi.pl:173 tp/texi2any.pl:1129
 #, fuzzy
 #| msgid ""
 #| "Email bug reports to bug-texinfo@gnu.org,\n"
@@ -2073,7 +2073,7 @@ msgstr "%s: kan map '%s' niet aanmaken: %s"
 msgid "%s: missing file argument\n"
 msgstr "%s: ontbrekend bestandsargument\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:254 tp/texi2any.pl:1673
+#: Pod-Simple-Texinfo/pod2texi.pl:254 tp/texi2any.pl:1672
 #, perl-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Typ '%s --help' voor meer informatie.\n"
@@ -2091,7 +2091,7 @@ msgid "%s: same manual name `%s' for different files: %s and %s"
 msgstr "@%s-paginanaam '%s' verschilt van %s-naam '%s'"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:504 Pod-Simple-Texinfo/pod2texi.pl:612
-#: tp/texi2any.pl:2085 tp/texi2any.pl:2163
+#: tp/texi2any.pl:2084 tp/texi2any.pl:2162
 #, perl-format
 msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: kan %s niet openen om te schrijven: %s\n"
@@ -2102,7 +2102,7 @@ msgid "%s: could not open %s: %s\n"
 msgstr "@%s: kan %s niet openen: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:563 Pod-Simple-Texinfo/pod2texi.pl:661
-#: tp/texi2any.pl:2046 tp/texi2any.pl:2193
+#: tp/texi2any.pl:2045 tp/texi2any.pl:2192
 #, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr "%s: fout bij sluiten van %s: %s\n"
@@ -2133,7 +2133,7 @@ msgstr "%s is geen geldige taalcode"
 msgid "%s is not a valid region code"
 msgstr "%s is geen geldige regiocode"
 
-#: tp/Texinfo/Config.pm:141 tp/texi2any.pl:578
+#: tp/Texinfo/Config.pm:141 tp/texi2any.pl:577
 #, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s"
@@ -2309,7 +2309,7 @@ msgstr "fout bij sluiten van instellingenbestand %s voor HTML-referenties: %s"
 msgid "could not find html refs config file %s"
 msgstr "kan instellingenbestand %s voor HTML-referenties niet vinden"
 
-#: tp/Texinfo/Convert/HTML.pm:8571 tp/texi2any.pl:604
+#: tp/Texinfo/Convert/HTML.pm:8571 tp/texi2any.pl:603
 #, fuzzy, perl-format
 #| msgid "@allow-recursion is deprecated; please use @rmacro instead"
 msgid "%s directory is deprecated. Use %s instead"
@@ -3586,49 +3586,49 @@ msgstr "fout bij het verwijderen van map '%s', bij \"unlinken\" van %s: %s"
 msgid "Archive::Zip is required for EPUB file output"
 msgstr "Archive::Zip is vereist voor EPUB-bestandsuitvoer"
 
-#: tp/ext/epub3.pm:575
+#: tp/ext/epub3.pm:567
 #, perl-format
 msgid "error creating directory: %s: %s"
 msgstr "fout bij aanmaken van map '%s': %s"
 
-#: tp/ext/epub3.pm:580
+#: tp/ext/epub3.pm:572
 #, perl-format
 msgid "error creating directory: %s: creating %s: %s"
 msgstr "fout bij aanmaken van map '%s', bij aanmaken van %s: %s"
 
-#: tp/ext/epub3.pm:606
+#: tp/ext/epub3.pm:598
 #, perl-format
 msgid "epub: no filename output"
 msgstr "epub: geen bestandsnaam voor uitvoer"
 
-#: tp/ext/epub3.pm:617
+#: tp/ext/epub3.pm:609
 #, perl-format
 msgid "could not create meta informations directory `%s': %s"
 msgstr "kan map '%s' voor meta-informatie niet aanmaken: %s"
 
-#: tp/ext/epub3.pm:631 tp/ext/epub3.pm:672 tp/ext/epub3.pm:708
-#: tp/ext/epub3.pm:840
+#: tp/ext/epub3.pm:623 tp/ext/epub3.pm:664 tp/ext/epub3.pm:700
+#: tp/ext/epub3.pm:832
 #, perl-format
 msgid "epub3.pm: could not open %s for writing: %s\n"
 msgstr "epub3.pm: kan %s niet openen om te schrijven: %s\n"
 
-#: tp/ext/epub3.pm:656 tp/ext/epub3.pm:684 tp/ext/epub3.pm:796
-#: tp/ext/epub3.pm:993
+#: tp/ext/epub3.pm:648 tp/ext/epub3.pm:676 tp/ext/epub3.pm:788
+#: tp/ext/epub3.pm:985
 #, perl-format
 msgid "epub3.pm: error on closing %s: %s"
 msgstr "epub3.pm: fout bij sluiten van %s: %s"
 
-#: tp/ext/epub3.pm:945
+#: tp/ext/epub3.pm:937
 #, perl-format
 msgid "epub3.pm: readdir %s error: %s"
 msgstr ""
 
-#: tp/ext/epub3.pm:1013 tp/ext/epub3.pm:1022 tp/ext/epub3.pm:1035
+#: tp/ext/epub3.pm:1005 tp/ext/epub3.pm:1014 tp/ext/epub3.pm:1027
 #, perl-format
 msgid "epub3.pm: error adding %s to archive"
 msgstr ""
 
-#: tp/ext/epub3.pm:1044
+#: tp/ext/epub3.pm:1036
 #, perl-format
 msgid "epub3.pm: error writing archive %s"
 msgstr ""
@@ -3728,72 +3728,72 @@ msgstr "highlight_syntax.pm: uitvoer bevat geen HTML-item voor @%s %s %s"
 msgid "l2h: could not open latex file %s for writing: %s"
 msgstr "l2h: kan '%s' niet openen om te schrijven: %s"
 
-#: tp/ext/latex2html.pm:376
+#: tp/ext/latex2html.pm:375
 #, perl-format
 msgid "latex2html.pm: processing produced %d items in HTML; expected %d"
 msgstr "latex2html.pm: bewerking produceerde %d items in HTML; verwachtte %d"
 
-#: tp/ext/latex2html.pm:414
+#: tp/ext/latex2html.pm:413
 #, perl-format
 msgid "l2h: L2H_TMP directory contains a dot"
 msgstr "l2h: de map L2H_TMP bevat een dot"
 
-#: tp/ext/latex2html.pm:420
+#: tp/ext/latex2html.pm:419
 #, perl-format
 msgid "l2h: current directory contains a dot"
 msgstr "l2h: de huidge map bevat een dot"
 
-#: tp/ext/latex2html.pm:427
+#: tp/ext/latex2html.pm:426
 #, perl-format
 msgid "l2h: command not set"
 msgstr "l2h: opdracht is niet ingesteld"
 
-#: tp/ext/latex2html.pm:482
+#: tp/ext/latex2html.pm:481
 #, perl-format
 msgid "l2h: command did not succeed: %s"
 msgstr "l2h: opdracht is niet gelukt: %s"
 
-#: tp/ext/latex2html.pm:527
+#: tp/ext/latex2html.pm:526
 #, perl-format
 msgid "l2h: image has invalid extension: %s"
 msgstr "l2h: afbeelding heeft ongeldige extensie: %s"
 
-#: tp/ext/latex2html.pm:558
+#: tp/ext/latex2html.pm:557
 #, perl-format
 msgid "l2h: rename %s as %s failed: %s"
 msgstr "l2h: hernoemen van %s naar %s is mislukt: %s"
 
-#: tp/ext/latex2html.pm:584
+#: tp/ext/latex2html.pm:582
 #, perl-format
 msgid "l2h: could not open %s: %s"
 msgstr "l2h: kan %s niet openen: %s"
 
-#: tp/ext/latex2html.pm:618
+#: tp/ext/latex2html.pm:616
 #, perl-format
 msgid "latex2html.pm: end of @%s text %d not found"
 msgstr "latex2html.pm: einde van @%s-tekst %d is niet gevonden"
 
-#: tp/ext/latex2html.pm:698
+#: tp/ext/latex2html.pm:696
 #, perl-format
 msgid "l2h: could not extract the fragment %d for @%s, text %d, from HTML"
 msgstr "l2h: kan fragment %d voor @%s, tekst %d, niet extraheren uit HTML"
 
-#: tp/ext/latex2html.pm:790
+#: tp/ext/latex2html.pm:787
 #, perl-format
 msgid "l2h: could not compile %s: %s"
 msgstr "l2h: kan %s niet compileren: %s"
 
-#: tp/ext/latex2html.pm:795
+#: tp/ext/latex2html.pm:792
 #, perl-format
 msgid "l2h: could not load %s: %s"
 msgstr "l2h: kan %s niet laden: %s"
 
-#: tp/ext/latex2html.pm:799
+#: tp/ext/latex2html.pm:796
 #, perl-format
 msgid "l2h: error loading %s"
 msgstr "l2h: fout bij laden van %s"
 
-#: tp/ext/latex2html.pm:819
+#: tp/ext/latex2html.pm:816
 #, perl-format
 msgid "l2h: could not open %s for writing: %s"
 msgstr "l2h: kan %s niet openen om te schrijven: %s"
@@ -3876,27 +3876,27 @@ msgstr ""
 msgid "tex4ht.pm: processing retrieved %d items in HTML; collected %d for @%s"
 msgstr ""
 
-#: tp/texi2any.pl:625
+#: tp/texi2any.pl:624
 #, perl-format
 msgid "could not read init file %s"
 msgstr "kan initialisatiebestand %s niet lezen"
 
-#: tp/texi2any.pl:650
+#: tp/texi2any.pl:649
 #, perl-format
 msgid "could not read extension file %s"
 msgstr "kan extensiebestand %s niet lezen"
 
-#: tp/texi2any.pl:913
+#: tp/texi2any.pl:912
 #, perl-format
 msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"
 msgstr "onbekende waarde '%s' van TEXINFO_OUTPUT_FORMAT wordt genegeerd\n"
 
-#: tp/texi2any.pl:975
+#: tp/texi2any.pl:974
 #, perl-format
 msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
 msgstr "Gebruik:  %s [OPTIE...] TEXINFO-BESTAND...\n"
 
-#: tp/texi2any.pl:978
+#: tp/texi2any.pl:977
 msgid ""
 "Translate Texinfo source documentation to various other formats, by default\n"
 "Info files suitable for reading online with Emacs or standalone GNU Info.\n"
@@ -3911,103 +3911,103 @@ msgstr ""
 "Dit programma wordt gewoonlijk geïnstalleerd zowel als 'makeinfo'\n"
 "als als 'texi2any'; hun gedrag is identiek.\n"
 
-#: tp/texi2any.pl:984
+#: tp/texi2any.pl:983
 #, fuzzy
 #| msgid "General output options:"
 msgid "General options:"
 msgstr "Algemene uitvoeropties:"
 
-#: tp/texi2any.pl:985
+#: tp/texi2any.pl:984
 msgid ""
 "      --document-language=STR locale to use in translating Texinfo keywords\n"
 "                                for the output document (default C)."
 msgstr ""
 
-#: tp/texi2any.pl:987
+#: tp/texi2any.pl:986
 #, perl-format
 msgid "      --error-limit=NUM       quit after NUM errors (default %d)."
 msgstr ""
 
-#: tp/texi2any.pl:989
+#: tp/texi2any.pl:988
 #, fuzzy
 #| msgid "      --xml                   output Texinfo XML."
 msgid "      --force                 preserve output even if errors."
 msgstr "      --xml                   Texinfo-XML produceren"
 
-#: tp/texi2any.pl:990
+#: tp/texi2any.pl:989
 #, fuzzy
 #| msgid "    --help                  display this help and exit"
 msgid "      --help                  display this help and exit."
 msgstr "    --help                  deze hulptekst tonen en stoppen"
 
-#: tp/texi2any.pl:991
+#: tp/texi2any.pl:990
 msgid "      --no-validate           suppress node cross-reference validation."
 msgstr ""
 
-#: tp/texi2any.pl:992
+#: tp/texi2any.pl:991
 msgid "      --no-warn               suppress warnings (but not errors)."
 msgstr ""
 
-#: tp/texi2any.pl:993
+#: tp/texi2any.pl:992
 msgid ""
 "      --conf-dir=DIR          search also for initialization files in DIR."
 msgstr ""
 
-#: tp/texi2any.pl:994
+#: tp/texi2any.pl:993
 msgid "      --init-file=FILE        load FILE to modify the default behavior."
 msgstr ""
 
-#: tp/texi2any.pl:995
+#: tp/texi2any.pl:994
 msgid ""
 "  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n"
 "                                to value VAL."
 msgstr ""
 
-#: tp/texi2any.pl:997
+#: tp/texi2any.pl:996
 msgid "      --trace-includes        print names of included files."
 msgstr ""
 
-#: tp/texi2any.pl:998
+#: tp/texi2any.pl:997
 #, fuzzy
 #| msgid "    --version               display version information and exit"
 msgid "  -v, --verbose               explain what is being done."
 msgstr "    --version               programmaversie tonen en stoppen"
 
-#: tp/texi2any.pl:999
+#: tp/texi2any.pl:998
 #, fuzzy
 #| msgid "    --version               display version information and exit"
 msgid "      --version               display version information and exit."
 msgstr "    --version               programmaversie tonen en stoppen"
 
-#: tp/texi2any.pl:1001
+#: tp/texi2any.pl:1000
 msgid "Output format selection (default is to produce Info):"
 msgstr "Selectie van soort uitvoer (standaard wordt Info geproduceerd):"
 
-#: tp/texi2any.pl:1002
+#: tp/texi2any.pl:1001
 msgid "      --docbook               output Docbook XML."
 msgstr "      --docbook               Docbook-XML produceren"
 
-#: tp/texi2any.pl:1003
+#: tp/texi2any.pl:1002
 msgid "      --html                  output HTML."
 msgstr "      --html                  HTML produceren"
 
-#: tp/texi2any.pl:1004
+#: tp/texi2any.pl:1003
 msgid "      --epub3                 output EPUB 3."
 msgstr "      --epub3                 EPUB-3 produceren"
 
-#: tp/texi2any.pl:1005
+#: tp/texi2any.pl:1004
 msgid "      --latex                 output LaTeX."
 msgstr "      --latex                 LaTeX produceren"
 
-#: tp/texi2any.pl:1006
+#: tp/texi2any.pl:1005
 msgid "      --plaintext             output plain text rather than Info."
 msgstr "      --plaintext             platte tekst produceren"
 
-#: tp/texi2any.pl:1007
+#: tp/texi2any.pl:1006
 msgid "      --xml                   output Texinfo XML."
 msgstr "      --xml                   Texinfo-XML produceren"
 
-#: tp/texi2any.pl:1008
+#: tp/texi2any.pl:1007
 msgid ""
 "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
 "                                after checking validity of TEXINFO-FILE."
@@ -4018,11 +4018,11 @@ msgstr ""
 "                                controleren van geldigheid van TEXINFO-"
 "BESTAND"
 
-#: tp/texi2any.pl:1012
+#: tp/texi2any.pl:1011
 msgid "General output options:"
 msgstr "Algemene uitvoeropties:"
 
-#: tp/texi2any.pl:1014
+#: tp/texi2any.pl:1013
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename."
@@ -4031,7 +4031,7 @@ msgstr ""
 "bestand\n"
 "                                schrijven, eventuele @setfilename's negeren"
 
-#: tp/texi2any.pl:1017
+#: tp/texi2any.pl:1016
 msgid ""
 "      --no-headers            suppress node separators, Node: lines, and "
 "menus\n"
@@ -4048,7 +4048,7 @@ msgstr ""
 "                                Info standaard naar standaarduitvoer "
 "schrijven"
 
-#: tp/texi2any.pl:1023
+#: tp/texi2any.pl:1022
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file."
@@ -4057,14 +4057,14 @@ msgstr ""
 "onderdrukken,\n"
 "                                slechts één uitvoerbestand aanmaken"
 
-#: tp/texi2any.pl:1026
+#: tp/texi2any.pl:1025
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on."
 msgstr ""
 "      --[no-]number-sections  (geen) hoofdstuk- en sectienummers produceren"
 
-#: tp/texi2any.pl:1029
+#: tp/texi2any.pl:1028
 msgid ""
 "  -o, --output=DEST           output to DEST.\n"
 "                                With split output, create DEST as a "
@@ -4076,7 +4076,7 @@ msgid ""
 "                                Otherwise, DEST names the output file."
 msgstr "  -o, --output=DOEL           uitvoerbestand of uitvoermap"
 
-#: tp/texi2any.pl:1037
+#: tp/texi2any.pl:1036
 msgid ""
 "      --disable-encoding      do not output accented and special characters\n"
 "                                in Info and plain text output based on "
@@ -4084,22 +4084,22 @@ msgid ""
 "                                encoding."
 msgstr ""
 
-#: tp/texi2any.pl:1041
+#: tp/texi2any.pl:1040
 msgid "      --enable-encoding       override --disable-encoding (default)."
 msgstr ""
 
-#: tp/texi2any.pl:1043
+#: tp/texi2any.pl:1042
 #, perl-format
 msgid "Options for Info and plain text:"
 msgstr ""
 
-#: tp/texi2any.pl:1045
+#: tp/texi2any.pl:1044
 #, perl-format
 msgid ""
 "      --fill-column=NUM       break Info lines at NUM columns (default %d)."
 msgstr ""
 
-#: tp/texi2any.pl:1047
+#: tp/texi2any.pl:1046
 #, perl-format
 msgid ""
 "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n"
@@ -4109,7 +4109,7 @@ msgid ""
 "                                which they are defined (this is the default)."
 msgstr ""
 
-#: tp/texi2any.pl:1052
+#: tp/texi2any.pl:1051
 #, perl-format
 msgid ""
 "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default "
@@ -4118,13 +4118,13 @@ msgid ""
 "                                `asis', preserve existing indentation."
 msgstr ""
 
-#: tp/texi2any.pl:1056
+#: tp/texi2any.pl:1055
 #, perl-format
 msgid ""
 "      --split-size=NUM        split Info files at size NUM (default %d)."
 msgstr ""
 
-#: tp/texi2any.pl:1064
+#: tp/texi2any.pl:1063
 msgid ""
 "Options for HTML:\n"
 "      --css-include=FILE      include FILE in HTML <style> output;\n"
@@ -4154,7 +4154,7 @@ msgstr ""
 "                                en ankers; is standaard alleen bij "
 "opsplitsen\n"
 
-#: tp/texi2any.pl:1076
+#: tp/texi2any.pl:1075
 msgid ""
 "Options for DVI/PS/PDF:\n"
 "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n"
@@ -4163,100 +4163,100 @@ msgstr ""
 "      --Xopt=OPTIE            te gebruiken optie voor 'texi2dvi'; mag "
 "herhaald\n"
 
-#: tp/texi2any.pl:1079
+#: tp/texi2any.pl:1078
 msgid "Input file options:"
 msgstr ""
 
-#: tp/texi2any.pl:1080
+#: tp/texi2any.pl:1079
 msgid " -D VAR                       define the variable VAR, as with @set."
 msgstr ""
 
-#: tp/texi2any.pl:1081
+#: tp/texi2any.pl:1080
 msgid " -D 'VAR VAL'                 define VAR to VAL (one shell argument)."
 msgstr ""
 
-#: tp/texi2any.pl:1082
+#: tp/texi2any.pl:1081
 msgid " -I DIR                       append DIR to the @include search path."
 msgstr ""
 
-#: tp/texi2any.pl:1083
+#: tp/texi2any.pl:1082
 msgid " -P DIR                       prepend DIR to the @include search path."
 msgstr ""
 
-#: tp/texi2any.pl:1084
+#: tp/texi2any.pl:1083
 msgid ""
 " -U VAR                       undefine the variable VAR, as with @clear."
 msgstr ""
 
-#: tp/texi2any.pl:1086
+#: tp/texi2any.pl:1085
 msgid "Conditional processing in input:"
 msgstr ""
 
-#: tp/texi2any.pl:1087
+#: tp/texi2any.pl:1086
 msgid ""
 "  --ifdocbook       process @ifdocbook and @docbook even if\n"
 "                      not generating Docbook."
 msgstr ""
 
-#: tp/texi2any.pl:1089
+#: tp/texi2any.pl:1088
 msgid ""
 "  --ifhtml          process @ifhtml and @html even if not generating HTML."
 msgstr ""
 
-#: tp/texi2any.pl:1090
+#: tp/texi2any.pl:1089
 msgid "  --ifinfo          process @ifinfo even if not generating Info."
 msgstr ""
 
-#: tp/texi2any.pl:1091
+#: tp/texi2any.pl:1090
 msgid "  --iflatex         process @iflatex and @latex."
 msgstr ""
 
-#: tp/texi2any.pl:1092
+#: tp/texi2any.pl:1091
 msgid ""
 "  --ifplaintext     process @ifplaintext even if not generating plain text."
 msgstr ""
 
-#: tp/texi2any.pl:1093
+#: tp/texi2any.pl:1092
 msgid "  --iftex           process @iftex and @tex."
 msgstr ""
 
-#: tp/texi2any.pl:1094
+#: tp/texi2any.pl:1093
 msgid "  --ifxml           process @ifxml and @xml."
 msgstr ""
 
-#: tp/texi2any.pl:1095
+#: tp/texi2any.pl:1094
 msgid "  --no-ifdocbook    do not process @ifdocbook and @docbook text."
 msgstr ""
 
-#: tp/texi2any.pl:1096
+#: tp/texi2any.pl:1095
 msgid "  --no-ifhtml       do not process @ifhtml and @html text."
 msgstr ""
 
-#: tp/texi2any.pl:1097
+#: tp/texi2any.pl:1096
 msgid "  --no-ifinfo       do not process @ifinfo text."
 msgstr ""
 
-#: tp/texi2any.pl:1098
+#: tp/texi2any.pl:1097
 msgid "  --no-iflatex      do not process @iflatex and @latex text."
 msgstr ""
 
-#: tp/texi2any.pl:1099
+#: tp/texi2any.pl:1098
 msgid "  --no-ifplaintext  do not process @ifplaintext text."
 msgstr ""
 
-#: tp/texi2any.pl:1100
+#: tp/texi2any.pl:1099
 msgid "  --no-iftex        do not process @iftex and @tex text."
 msgstr ""
 
-#: tp/texi2any.pl:1101
+#: tp/texi2any.pl:1100
 msgid "  --no-ifxml        do not process @ifxml and @xml text."
 msgstr ""
 
-#: tp/texi2any.pl:1103
+#: tp/texi2any.pl:1102
 msgid "  Also, for the --no-ifFORMAT options, do process @ifnotFORMAT text."
 msgstr ""
 
-#: tp/texi2any.pl:1107
+#: tp/texi2any.pl:1106
 msgid ""
 "  The defaults for the @if... conditionals depend on the output format:\n"
 "  if generating Docbook, --ifdocbook is on and the others are off;\n"
@@ -4276,7 +4276,7 @@ msgstr ""
 "  als LaTeX gemaakt wordt, staat '--iflatex' aan en de anderen niet;\n"
 "  als XML gemaakt wordt, staat '--ifxml' aan en de anderen niet."
 
-#: tp/texi2any.pl:1118
+#: tp/texi2any.pl:1117
 msgid ""
 "Examples:\n"
 "  makeinfo foo.texi                      write Info to foo's @setfilename\n"
@@ -4311,87 +4311,87 @@ msgstr ""
 "  makeinfo --no-split foo.texi           één Info-bestand ongeacht de "
 "grootte\n"
 
-#: tp/texi2any.pl:1171
+#: tp/texi2any.pl:1170
 #, perl-format
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgstr ""
 "%s: Argument van --footnote-style moet 'separate' of 'end' zijn, niet '%s'.\n"
 
-#: tp/texi2any.pl:1178
+#: tp/texi2any.pl:1177
 #, perl-format
 msgid "%s is not a valid split possibility"
 msgstr "%s is geen geldige splitsmogelijkheid"
 
-#: tp/texi2any.pl:1291
+#: tp/texi2any.pl:1290
 #, perl-format
 msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
 msgstr ""
 "%s: Argument van --paragraph-indent moet numeriek, 'none' of 'asis' zijn, "
 "niet '%s'.\n"
 
-#: tp/texi2any.pl:1427
+#: tp/texi2any.pl:1426
 #, perl-format
 msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
 msgstr ""
 "%s: bij het genereren van %s kan met optie '-o' slechts één invoerbestand "
 "gegeven worden\n"
 
-#: tp/texi2any.pl:1431
+#: tp/texi2any.pl:1430
 msgid "--Xopt option without printed output"
 msgstr "Optie '--Xopt' gegeven zonder dat er afdrukuitvoer gemaakt wordt"
 
-#: tp/texi2any.pl:1503
+#: tp/texi2any.pl:1502
 #, fuzzy, perl-format
 #| msgid "writing file %s"
 msgid "overwriting file: %s"
 msgstr "schrijven van bestand %s"
 
-#: tp/texi2any.pl:1553
+#: tp/texi2any.pl:1552
 #, perl-format
 msgid "unknown tree transformation %s"
 msgstr "onbekende boomtransformatie %s"
 
-#: tp/texi2any.pl:1573
+#: tp/texi2any.pl:1572
 #, perl-format
 msgid "ignoring splitting for converted format %s (for %s)"
 msgstr "het splitsen voor geconverteerd opmaak %s (voor %s) wordt genegeerd"
 
-#: tp/texi2any.pl:1576
+#: tp/texi2any.pl:1575
 #, perl-format
 msgid "ignoring splitting for format %s"
 msgstr "het splitsen voor opmaak %s wordt genegeerd"
 
-#: tp/texi2any.pl:1594
+#: tp/texi2any.pl:1593
 #, perl-format
 msgid "error loading %s: %s"
 msgstr "fout bij laden van %s: %s"
 
-#: tp/texi2any.pl:1672
+#: tp/texi2any.pl:1671
 #, perl-format
 msgid "%s: missing file argument.\n"
 msgstr "%s: Ontbrekend bestandsargument.\n"
 
-#: tp/texi2any.pl:1703
+#: tp/texi2any.pl:1702
 #, perl-format
 msgid "input file %s; did you mean %s?"
 msgstr ""
 
-#: tp/texi2any.pl:1849
+#: tp/texi2any.pl:1848
 #, perl-format
 msgid "error on closing macro expand file %s: %s\n"
 msgstr "fout bij sluiten van %s, bestand met macro-expansies: %s\n"
 
-#: tp/texi2any.pl:1854
+#: tp/texi2any.pl:1853
 #, perl-format
 msgid "could not open %s for writing: %s\n"
 msgstr "kan %s niet openen om te schrijven: %s\n"
 
-#: tp/texi2any.pl:2077
+#: tp/texi2any.pl:2076
 #, perl-format
 msgid "%s: error on closing internal links file %s: %s\n"
 msgstr "%s: fout bij sluiten van %s, bestand met interne koppelingen: %s\n"
 
-#: tp/texi2any.pl:2155
+#: tp/texi2any.pl:2154
 #, fuzzy, perl-format
 #| msgid "%s: error on closing internal links file %s: %s\n"
 msgid "%s: error on closing elements size file %s: %s\n"

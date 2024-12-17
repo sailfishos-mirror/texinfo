@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.0\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-13 16:35+0000\n"
+"POT-Creation-Date: 2024-12-17 21:26+0000\n"
 "PO-Revision-Date: 2001-01-01\n"
 "Last-Translator: Unknown\n"
 "Language-Team: Unknown\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: tp/ext/epub3.pm:713
+#: tp/ext/epub3.pm:705
 #, fuzzy
 #| msgid "Table of Contents"
 msgid "Table of contents"
