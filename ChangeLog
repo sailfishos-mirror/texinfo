@@ -1,3 +1,13 @@
+2024-12-17  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/customization_options.c
+	(option_number_in_option_list, options_list_add_option_number),
+	maintain/regenerate_C_options_info.pl: set OF_set_in_list flag in in
+	option flag when the option is added to an option list.  Always check
+	that the OF_set_in_list flag is not set before adding to the options
+	list, and remove the check_duplicates options_list_add_option_number
+	argument.  Update callers.
+
 2024-12-15  Patrice Dumas  <pertusus@free.fr>
 
 	Use XDG base directory in teximakehtml

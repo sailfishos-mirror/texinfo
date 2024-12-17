@@ -428,7 +428,7 @@ copy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *dst_info,
   copy_strings (&dst_info->non_valid_customization,
                 &src_info->non_valid_customization);
 
-  copy_options_list (&dst_info->conf, &src_info->conf, 1);
+  copy_options_list (&dst_info->conf, &src_info->conf);
 
   if (src_info->translated_commands)
     {

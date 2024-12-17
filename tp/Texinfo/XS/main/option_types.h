@@ -171,6 +171,7 @@ typedef struct DIRECTION_ICON_LIST {
 
 #define OF_configured          0x0001
 #define OF_parser_option       0x0002
+#define OF_set_in_list         0x0004
 
 typedef struct OPTION {
     enum global_option_type type;

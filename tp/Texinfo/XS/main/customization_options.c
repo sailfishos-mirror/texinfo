@@ -430,26 +430,18 @@ free_options_list (OPTIONS_LIST *options_list)
 int
 option_number_in_option_list (OPTIONS_LIST *options_list, size_t number)
 {
-  size_t i;
-
-  for (i = 0; i < options_list->number; i++)
-    {
-      size_t option_nr = options_list->list[i];
-      if (number == option_nr)
-        return 1;
-    }
-  return 0;
+  if (options_list->sorted_options[number -1]->flags & OF_set_in_list)
+    return 1;
+  else
+    return 0;
 }
 
 void
 options_list_add_option_number (OPTIONS_LIST *options_list,
-                                size_t number, int check_duplicates)
+                                size_t number)
 {
-  if (check_duplicates)
-    {
-      if (option_number_in_option_list (options_list, number))
-        return;
-    }
+  if (options_list->sorted_options[number -1]->flags & OF_set_in_list)
+    return;
 
   if (options_list->number >= options_list->space)
     {
@@ -457,6 +449,7 @@ options_list_add_option_number (OPTIONS_LIST *options_list,
              (options_list->space += 5) * sizeof (size_t));
     }
   options_list->list[options_list->number] = number;
+  options_list->sorted_options[number -1]->flags |= OF_set_in_list;
   options_list->number++;
 }
 
@@ -469,7 +462,7 @@ options_list_add_option_name (OPTIONS_LIST *options_list,
   if (!option)
     return 0;
 
-  options_list_add_option_number (options_list, option->number, 1);
+  options_list_add_option_number (options_list, option->number);
 
   return option;
 }
@@ -504,8 +497,7 @@ copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
 }
 
 void
-copy_options_list (OPTIONS_LIST *options_list, const OPTIONS_LIST *options_src,
-                   int check_duplicates)
+copy_options_list (OPTIONS_LIST *options_list, const OPTIONS_LIST *options_src)
 {
   copy_options_list_options (options_list->options,
                              options_list->sorted_options,
@@ -514,8 +506,7 @@ copy_options_list (OPTIONS_LIST *options_list, const OPTIONS_LIST *options_src,
     {
       size_t i;
       for (i = 0; i < options_src->number; i++)
-        options_list_add_option_number (options_list, options_src->list[i],
-                                        check_duplicates);
+        options_list_add_option_number (options_list, options_src->list[i]);
     }
 }
 
@@ -559,7 +550,7 @@ add_new_button_option (OPTIONS_LIST *options_list, const char *option_name,
   if (!option || option->type != GOT_buttons)
     return 0;
 
-  options_list_add_option_number (options_list, option->number, 1);
+  options_list_add_option_number (options_list, option->number);
 
   if (option->o.buttons)
     options_list->options->BIT_user_function_number
@@ -588,7 +579,7 @@ add_option_strlist_value (OPTIONS_LIST *options_list,
       && option->type != GOT_file_string_list)
     return 0;
 
-  options_list_add_option_number (options_list, option->number, 1);
+  options_list_add_option_number (options_list, option->number);
 
   clear_option (option);
 

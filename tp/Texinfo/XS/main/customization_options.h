@@ -60,9 +60,9 @@ void initialize_options_list (OPTIONS_LIST *options_list);
 void free_options_list (OPTIONS_LIST *options_list);
 int option_number_in_option_list (OPTIONS_LIST *options_list, size_t number);
 void options_list_add_option_number (OPTIONS_LIST *options_list,
-                                     size_t number, int check_duplicates);
+                                     size_t number);
 void copy_options_list (OPTIONS_LIST *options_list,
-                        const OPTIONS_LIST *options_src, int check_duplicates);
+                        const OPTIONS_LIST *options_src);
 void copy_options_list_set_configured (OPTIONS *options,
                                        OPTION **sorted_options,
                                        const OPTIONS_LIST *options_list,

@@ -110,7 +110,7 @@ set_customization_default (const OPTION *option)
   if (option_number_in_option_list (&cmdline_options, option->number))
     return 0;
 
-  options_list_add_option_number (&program_options, option->number, 1);
+  options_list_add_option_number (&program_options, option->number);
   copy_option (program_options.sorted_options[option->number -1], option);
   return 1;
 }
@@ -378,7 +378,7 @@ get_cmdline_customization_option (OPTIONS_LIST *options_list,
               option_set_conf (option, 0, value);
               free (value);
             }
-          options_list_add_option_number (options_list, option->number, 1);
+          options_list_add_option_number (options_list, option->number);
         }
       else
         {
@@ -560,7 +560,7 @@ main (int argc, char *argv[])
     {
       OPTION *option = &cmdline_options.options->INCLUDE_DIRECTORIES;
       options_list_add_option_number (&cmdline_options,
-                                      option->number, 0);
+                                      option->number);
       merge_strings (option->o.strlist, &include_dirs);
       include_dirs.number = 0;
     }
@@ -626,7 +626,7 @@ main (int argc, char *argv[])
           if (option)
             {
               options_list_add_option_number (&parser_options,
-                                              parser_option->number, 0);
+                                              parser_option->number);
               copy_option (parser_option, option);
             }
         }
@@ -695,8 +695,8 @@ main (int argc, char *argv[])
 
   /* conversion initialization */
   initialize_options_list (&convert_options);
-  copy_options_list (&convert_options, &program_options, 0);
-  copy_options_list (&convert_options, &cmdline_options, 1);
+  copy_options_list (&convert_options, &program_options);
+  copy_options_list (&convert_options, &cmdline_options);
 
   if (run_mode == TEXIMAKEHTML_mode_demo)
     {

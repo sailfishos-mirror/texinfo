@@ -161,7 +161,7 @@ txi_converter_format_defaults (const char *format_str,
   CONVERTER_INITIALIZATION_INFO *format_defaults;
 
   if (customizations)
-    copy_options_list (&conf->conf, customizations, 0);
+    copy_options_list (&conf->conf, customizations);
 
   format_defaults = converter_defaults (converter_format, conf);
 
@@ -421,7 +421,7 @@ txi_converter_setup (const char *format_str,
 
   if (customizations)
     {
-      copy_options_list (&conf->conf, customizations, 1);
+      copy_options_list (&conf->conf, customizations);
     }
 
   if (conf->conf.options->TEST.o.integer <= 0

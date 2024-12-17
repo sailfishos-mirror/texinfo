@@ -449,7 +449,7 @@ foreach my $category (sort(keys(%option_categories))) {
         "  option = find_option_string (options_list->sorted_options, "
                                                  ."\"$option\");\n";
       print ODCF
-        "  options_list_add_option_number (options_list, option->number, 0);\n";
+        "  options_list_add_option_number (options_list, option->number);\n";
       print ODCF "  clear_option (option);\n";
     }
   }
