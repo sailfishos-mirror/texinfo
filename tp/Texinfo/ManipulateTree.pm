@@ -60,7 +60,7 @@ protect_first_parenthesis
 protect_node_after_label_in_tree
 );
 
-our $VERSION = '7.1.92';
+our $VERSION = '7.2';
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 

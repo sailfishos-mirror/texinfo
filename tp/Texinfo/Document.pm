@@ -36,7 +36,7 @@ use Texinfo::Common;
 use Texinfo::Report;
 use Texinfo::Indices;
 
-our $VERSION = '7.1.92';
+our $VERSION = '7.2';
 
 # Full XS coverage.  See comments before methods definitions for an
 # explanation of why some methods have no XS override.
