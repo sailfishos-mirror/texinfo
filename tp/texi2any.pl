@@ -971,9 +971,9 @@ sub makeinfo_help()
 {
   # TODO: avoid \n in translated strings.  Report from Benno Schulenberg
   my $makeinfo_help =
-    sprintf(__("Usage: %s [OPTION]... TEXINFO-FILE...\n"),
+    sprintf(__("Usage: %s [OPTION]... TEXINFO-FILE..."),
     $real_command_name . $command_suffix)
-."\n".
+."\n\n".
 __("Translate Texinfo source documentation to various other formats, by default
 Info files suitable for reading online with Emacs or standalone GNU Info.
 

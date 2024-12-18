@@ -31,11 +31,13 @@
 #include <locale.h>
 #ifdef ENABLE_NLS
 #include <libintl.h>
-/* for pgettext */
-#include <gettext.h>
 #endif
+/* for pgettext and to have a definition of gettext in case ENABLE_NLS
+   is not set */
+#include "gettext.h"
 #include <getopt.h>
 
+#include "text.h"
 #include "document_types.h"
 #include "converter_types.h"
 /* read_var_len */
@@ -54,6 +56,8 @@
 #include "texinfo.h"
 
 #define LOCALEDIR DATADIR "/locale"
+
+#define _(String) gettext (String)
 
 static const char *expanded_formats[] = {"html", 0};
 static VALUE values_array[] = {
@@ -315,6 +319,40 @@ set_subdir_directories (const char *subdir,
 }
 
 static void
+set_from_cmdline (OPTIONS_LIST *options_list, OPTION *option,
+                  const char *value)
+{
+  if (option->type == GOT_integer)
+    {
+      char *endptr;
+      long long_value = strtol (value, &endptr, 10);
+      int int_value = (int) value;
+      if (endptr != value && int_value >= 0)
+        {
+          option_set_conf (option, int_value, 0);
+        }
+      else
+        {
+          /* warn?  No such check in Perl */
+        }
+    }
+  else if (option->type == GOT_char
+           || option->type == GOT_bytes)
+    {
+      char *option_value;
+      if (!value)
+        option_value = strdup ("");
+      else if (option->type == GOT_char)
+        option_value = decode_input (value);
+      else
+        option_value = strdup (value);
+      option_set_conf (option, 0, option_value);
+      free (option_value);
+    }
+  options_list_add_option_number (options_list, option->number);
+}
+
+static void
 get_cmdline_customization_option (OPTIONS_LIST *options_list,
                                   char *text)
 {
@@ -338,32 +376,9 @@ get_cmdline_customization_option (OPTIONS_LIST *options_list,
             {
               clear_option (option);
             }
-          else if (option->type == GOT_integer)
+          else
             {
-              char *endptr;
-              long value = strtol (p, &endptr, 10);
-              int int_value = (int) value;
-              if (endptr != p && int_value >= 0)
-                {
-                  option_set_conf (option, int_value, 0);
-                }
-              else
-                {
-                  /* warn?  No such check in Perl */
-                }
-            }
-          else if (option->type == GOT_char
-                   || option->type == GOT_bytes)
-            {
-              char *value;
-              if (!p)
-                value = strdup ("");
-              else if (option->type == GOT_char)
-                value = decode_input (p);
-              else
-                value = strdup (p);
-              option_set_conf (option, 0, value);
-              free (value);
+              set_from_cmdline (options_list, option, p);
             }
           options_list_add_option_number (options_list, option->number);
         }
@@ -397,10 +412,18 @@ static int demonstration_p;
 /* Non-zero means mimick texi2any mode */
 static int mimick_p;
 
+/* If non-zero, show help and exit */
+static int print_help_p;
+
+#define DOCUMENT_LANGUAGE_OPT 2
+
 static struct option long_options[] = {
-  {"set-customization-variable", required_argument, 0, 'c'},
   {"demonstration", 0, &demonstration_p, 1},
+  {"document-language", required_argument, 0, DOCUMENT_LANGUAGE_OPT},
+  {"error-limit", required_argument, 0, 'e'},
+  {"help", 0, &print_help_p, 'h'},
   {"mimick", 0, &mimick_p, 1},
+  {"set-customization-variable", required_argument, 0, 'c'},
   {NULL, 0, NULL, 0}
 };
 
@@ -435,6 +458,7 @@ main (int argc, char *argv[])
   int no_warn = 0;
   int test_mode_set = 0;
   size_t i;
+  STRING_LIST input_files;
 
   /*
   const char *texinfo_text;
@@ -500,6 +524,8 @@ main (int argc, char *argv[])
   texinfo_language_config_dirs
    = set_subdir_directories ("texinfo", &deprecated_directories);
 
+  memset (&input_files, 0, sizeof (STRING_LIST));
+
   memset (&include_dirs, 0, sizeof (STRING_LIST));
 
   initialize_options_list (&cmdline_options);
@@ -508,7 +534,7 @@ main (int argc, char *argv[])
     {
       int option_character;
 
-      option_character = getopt_long (argc, argv, "c:I:", long_options,
+      option_character = getopt_long (argc, argv, "he:c:I:", long_options,
                                       &getopt_long_index);
       if (option_character == -1)
         break;
@@ -518,8 +544,21 @@ main (int argc, char *argv[])
         case 'c':
           get_cmdline_customization_option (&cmdline_options, optarg);
           break;
+        case 'e':
+          set_from_cmdline(&cmdline_options,
+                           &cmdline_options.options->ERROR_LIMIT,
+                           optarg);
+          break;
         case 'I':
           push_include_directory (&include_dirs, optarg);
+          break;
+        case 'h':
+          print_help_p = 1;
+          break;
+        case DOCUMENT_LANGUAGE_OPT:
+          set_from_cmdline(&cmdline_options,
+                           &cmdline_options.options->documentlanguage,
+                           optarg);
           break;
           /*
         case '?':
@@ -532,16 +571,47 @@ main (int argc, char *argv[])
           break;
            */
         default:
-          fprintf (stderr,
-                   "Usage: %s [-t|-m|-d][-c VAR[=| ]value] input_file\n",
-                   program_file);
           exit (EXIT_FAILURE);
         }
     }
 
-  if (optind >= argc)
-    exit (EXIT_FAILURE);
+  if (print_help_p)
+    {
+      TEXT help_message;
+      OPTION *error_limit_option
+        = get_conf (program_options.options->ERROR_LIMIT.number);
 
+      text_init (&help_message);
+      text_printf (&help_message,
+                   _("Usage: %s [OPTION]... TEXINFO-FILE..."), program_file);
+      text_append_n (&help_message, "\n\n", 2);
+      /* no added translations, reuse translations with they already exist */
+      text_append (&help_message,
+     "Translate Texinfo source documentation to various other formats.\n\n");
+      text_append (&help_message, _("General options:"));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+   _("      --document-language=STR locale to use in translating Texinfo keywords\n                                for the output document (default C)."));
+      text_append_n (&help_message, "\n", 1);
+      text_printf (&help_message,
+        _("      --error-limit=NUM       quit after NUM errors (default %d)."),
+        error_limit_option->o.integer);
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n                                to value VAL."));
+      text_append_n (&help_message, "\n\n", 2);
+      text_append (&help_message, _("Input file options:"));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _(" -I DIR                       append DIR to the @include search path."));
+      text_append_n (&help_message, "\n\n", 2);
+      text_append (&help_message, _("Email bug reports to bug-texinfo@gnu.org,\ngeneral questions and discussion to help-texinfo@gnu.org.\nTexinfo home page: https://www.gnu.org/software/texinfo/"));
+      text_append_n (&help_message, "\n", 1);
+
+      fprintf (stderr, "%s", help_message.text);
+      free (help_message.text);
+      exit (EXIT_SUCCESS);
+    }
 
   if (include_dirs.number > 0)
     {
@@ -623,9 +693,40 @@ main (int argc, char *argv[])
   if (no_warn_option && no_warn_option->o.integer > 0)
     no_warn = 1;
 
+  if (optind < argc)
+    {
+      int j;
+      for (j = optind; j < argc; j++)
+        add_string (argv[j], &input_files);
+    }
+  else if (!isatty (fileno (stdin)))
+    {
+      add_string ("-", &input_files);
+    }
+  else
+    {
+      char *formatted_message;
+      char *encoded_message;
+
+      xasprintf (&formatted_message, _("%s: missing file argument."),
+                 program_file);
+      encoded_message = encode_message (formatted_message);
+      free (formatted_message);
+      fprintf (stderr, "%s\n", encoded_message);
+      free (encoded_message);
+
+      xasprintf (&formatted_message,
+                 _("Try `%s --help' for more information."),
+                 program_file);
+      encoded_message = encode_message (formatted_message);
+      free (formatted_message);
+      fprintf (stderr, "%s\n", encoded_message);
+      free (encoded_message);
+      exit (EXIT_FAILURE);
+    }
 
   /* Texinfo file parsing */
-  input_file_path = argv[optind];
+  input_file_path = input_files.list[0];
 
   /* initialize parser */
   txi_parser (input_file_path, locale_encoding, expanded_formats, &values,
@@ -722,6 +823,7 @@ main (int argc, char *argv[])
   destroy_strings_list (texinfo_language_config_dirs);
 
   free_strings_list (&include_dirs);
+  free_strings_list (&input_files);
 
   free_options_list (&convert_options);
   free (program_file);
