@@ -10,6 +10,7 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+add getopt-gnu gnulib module in XS
 
 Bugs
 ====

@@ -34,6 +34,7 @@
 /* for pgettext */
 #include <gettext.h>
 #endif
+#include <getopt.h>
 
 #include "document_types.h"
 #include "converter_types.h"
@@ -75,22 +76,6 @@ static OPTIONS_LIST cmdline_options;
 
 static char *program_file;
 
-/* different modes for the program.
-   - default: mimick the Perl program (use same name/version)
-   - test: similar to setting TEST customization variable, try to
-           have a reproducible output, though without mimicking Perl
-   - mimick test: same as test, and in addition mimick the Perl program
-   - demo: with customization set in order to check that the output
-           is correct with exotic or even weird customizations
- */
-
-enum teximakehtml_mode {
-  TEXIMAKEHTML_mode_default,
-  TEXIMAKEHTML_mode_test,
-  TEXIMAKEHTML_mode_mimick_test,
-  TEXIMAKEHTML_mode_demo,
-};
-
 /* Texinfo::Config */
 static OPTION *
 get_conf (size_t number)
@@ -115,6 +100,7 @@ set_customization_default (const OPTION *option)
   return 1;
 }
 
+/* Texinfo::Config and texi2any */
 static char *
 decode_input (char *text)
 {
@@ -189,6 +175,7 @@ document_warn (const char *format, ...)
     }
 }
 
+/* texi2any */
 static void
 add_config_paths (const char *env_string, const char *subdir,
                   /* unused in Perl
@@ -284,7 +271,7 @@ set_subdir_directories (const char *subdir,
   char *dir_string;
   char *xdg_config_home;
 
-  xasprintf (&dir_string, "./.%s", subdir);
+  xasprintf (&dir_string, ".%s", subdir);
   add_string (dir_string, result);
   free (dir_string);
 
@@ -327,7 +314,7 @@ set_subdir_directories (const char *subdir,
   return result;
 }
 
-void
+static void
 get_cmdline_customization_option (OPTIONS_LIST *options_list,
                                   char *text)
 {
@@ -404,9 +391,23 @@ push_include_directory (STRING_LIST *include_dirs_list, char *text)
     }
 }
 
+/* Non-zero means demonstration mode */
+static int demonstration_p;
+
+/* Non-zero means mimick texi2any mode */
+static int mimick_p;
+
+static struct option long_options[] = {
+  {"set-customization-variable", required_argument, 0, 'c'},
+  {"demonstration", 0, &demonstration_p, 1},
+  {"mimick", 0, &mimick_p, 1},
+  {NULL, 0, NULL, 0}
+};
+
 int
 main (int argc, char *argv[])
 {
+  int getopt_long_index;
   const char *locale_encoding = 0;
   const char *input_file_path;
   int status;
@@ -429,7 +430,6 @@ main (int argc, char *argv[])
   char *top_srcdir;
   char *top_builddir;
   char *tp_builddir = 0;
-  enum teximakehtml_mode run_mode = TEXIMAKEHTML_mode_default;
   OPTION *test_option;
   OPTION *no_warn_option;
   int no_warn = 0;
@@ -469,9 +469,9 @@ main (int argc, char *argv[])
   free (top_srcdir);
 
   /* from Gnulib codeset.m4 */
-  #ifdef HAVE_LANGINFO_CODESET
+#ifdef HAVE_LANGINFO_CODESET
   locale_encoding = nl_langinfo (CODESET);
-  #endif
+#endif
   /*
   if (!defined($locale_encoding) and $^O eq 'MSWin32') {
     eval 'require Win32::API';
@@ -495,11 +495,6 @@ main (int argc, char *argv[])
    }
   */
 
-  /*
-  add_new_option_value (&program_options, GOT_integer,
-                           "DEBUG", 1, 0);
-   */
-
   memset (&deprecated_directories, 0, sizeof (DEPRECATED_DIRS_LIST));
 
   texinfo_language_config_dirs
@@ -513,21 +508,13 @@ main (int argc, char *argv[])
     {
       int option_character;
 
-      option_character = getopt (argc, argv, "tmdc:I:");
+      option_character = getopt_long (argc, argv, "c:I:", long_options,
+                                      &getopt_long_index);
       if (option_character == -1)
         break;
 
       switch (option_character)
         {
-        case 't':
-          run_mode = TEXIMAKEHTML_mode_test;
-          break;
-        case 'm':
-          run_mode = TEXIMAKEHTML_mode_mimick_test;
-          break;
-        case 'd':
-          run_mode = TEXIMAKEHTML_mode_demo;
-          break;
         case 'c':
           get_cmdline_customization_option (&cmdline_options, optarg);
           break;
@@ -565,13 +552,6 @@ main (int argc, char *argv[])
       include_dirs.number = 0;
     }
 
-  if (run_mode == TEXIMAKEHTML_mode_test
-      || run_mode == TEXIMAKEHTML_mode_mimick_test)
-    {
-      /* this is set to help with comparison with previous invokations */
-      add_option_value (&program_options, "TEST", 1, 0);
-    }
-
   test_option = get_conf (program_options.options->TEST.number);
   if (test_option && test_option->o.integer > 0)
     test_mode_set = 1;
@@ -587,10 +567,6 @@ main (int argc, char *argv[])
       add_option_value (&program_options, "PROGRAM", 0, "texi2any");
     }
   txi_converter_output_format_setup ("html");
-
-  /*
-  add_option_value (&cmdline_options, "TEXI2HTML", 1, 0);
-   */
 
   /*
   For now, FORMAT_MENU is the only variable that can be set from converter
@@ -631,10 +607,8 @@ main (int argc, char *argv[])
             }
         }
     }
-  /*
-  add_option_value (&parser_options, "DEBUG", 1, 0);
-   */
-  if (run_mode == TEXIMAKEHTML_mode_demo)
+
+  if (demonstration_p)
     {
       add_option_strlist_value (&parser_options, "EXPANDED_FORMATS",
                                 &demo_parser_EXPANDED_FORMATS);
@@ -644,6 +618,7 @@ main (int argc, char *argv[])
       add_option_strlist_value (&parser_options, "EXPANDED_FORMATS",
                                 &parser_EXPANDED_FORMATS);
     }
+
   no_warn_option = get_conf (program_options.options->NO_WARN.number);
   if (no_warn_option && no_warn_option->o.integer > 0)
     no_warn = 1;
@@ -693,12 +668,13 @@ main (int argc, char *argv[])
                                           locale_encoding);
   errors_count += errors_nr;
 
+
   /* conversion initialization */
   initialize_options_list (&convert_options);
   copy_options_list (&convert_options, &program_options);
   copy_options_list (&convert_options, &cmdline_options);
 
-  if (run_mode == TEXIMAKEHTML_mode_demo)
+  if (demonstration_p)
     {
       /* customize buttons.  It is a bit silly to use link buttons for
          footer, it is for the demonstration */
@@ -708,9 +684,9 @@ main (int argc, char *argv[])
       add_option_value (&convert_options, "PROGRAM_NAME_IN_FOOTER", 1, 0);
     }
 
-  if (run_mode == TEXIMAKEHTML_mode_default)
+  if (mimick_p)
     {
-      /* mimics what is done in texi2any.pl, under the assumption that
+      /* mimick texi2any.pl, under the assumption that
          teximakehtml output will be compared to calls of in-source
          texi2any.pl */
       const char *configured_version = PACKAGE_VERSION_CONFIG "+dev";
@@ -726,9 +702,6 @@ main (int argc, char *argv[])
       add_option_value (&convert_options, "PACKAGE_AND_VERSION", 0,
                         configured_name_version);
     }
-  /*
-  add_option_value (&convert_options, "CHECK_HTMLXREF", 1, 0);
-   */
 
   memset (&converter_texinfo_language_config_dirs, 0, sizeof (STRING_LIST));
 
