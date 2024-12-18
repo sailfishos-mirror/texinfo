@@ -265,5 +265,9 @@ AC_DEFINE_UNQUOTED([PACKAGE_URL_CONFIG], ["$PACKAGE_URL"],
 AC_DEFINE_UNQUOTED([PACKAGE_VERSION_CONFIG], ["$PACKAGE_VERSION"],
                    [autoconf PACKAGE_VERSION value])
 
+# Output with the _CONFIG suffix as the original is a type name
+AC_DEFINE_UNQUOTED([CONVERTER_CONFIG], ["$CONVERTER"],
+                   [configure CONVERTER value])
+
 AC_CONFIG_FILES([Makefile gnulib/lib/Makefile])
 AC_OUTPUT

@@ -1056,21 +1056,19 @@ the behavior is identical, and does not depend on the installed name.\n")
 ."\n",
     _get_converter_default('FILLCOLUMN'),
     _get_converter_default('paragraphindent'),
-    _get_converter_default('SPLIT_SIZE'))
-."\n";
-  # TODO: avoid \n in translated strings, split each option in a translatable
-  # string.  Report from Benno Schulenberg
-  $makeinfo_help .= __("Options for HTML:
-      --css-include=FILE      include FILE in HTML <style> output;
-                                read stdin if FILE is -.
-      --css-ref=URL           generate CSS reference to URL.
-      --internal-links=FILE   produce list of internal links in FILE.
-      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',
-                                `section' or `node'.
-      --transliterate-file-names  use file names in ASCII transliteration.
-      --node-files            produce redirection files for nodes and 
-                                anchors; default is set only if split.\n")
-."\n";
+    _get_converter_default('SPLIT_SIZE'));
+
+  $makeinfo_help .= __("Options for HTML:")."\n"
+.__("      --css-include=FILE      include FILE in HTML <style> output;
+                                read stdin if FILE is -.")."\n"
+.__("      --css-ref=URL           generate CSS reference to URL.")."\n"
+.__("      --internal-links=FILE   produce list of internal links in FILE.")."\n"
+.__("      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',
+                                `section' or `node'.")."\n"
+.__("      --transliterate-file-names  use file names in ASCII transliteration.")."\n"
+.__("      --node-files            produce redirection files for nodes and
+                                anchors; default is set only if split.")
+."\n\n";
   # TODO: avoid \n in translated strings.  Report from Benno Schulenberg
   $makeinfo_help .= __("Options for DVI/PS/PDF:
       --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n")
@@ -1143,7 +1141,7 @@ my $result_options = Getopt::Long::GetOptions (
 "Copyright (C) %s Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.\n"), "2024");
+There is NO WARRANTY, to the extent permitted by law."), "2024")."\n";
       exit 0;},
  'macro-expand|E=s' => sub { set_from_cmdline('MACRO_EXPAND', $_[1]); },
  'ifhtml!' => sub { set_expansion('html', $_[1]); },
@@ -1167,8 +1165,8 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2024");
     } else {
       die _encode_message(
            sprintf(__(
-          "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"),
-                  $real_command_name, $value));
+          "%s: --footnote-style arg must be `separate' or `end', not `%s'."),
+                  $real_command_name, $value))."\n";
     }
   },
  'split=s' => sub {  my $split = _decode_input($_[1]);

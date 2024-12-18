@@ -24,6 +24,7 @@
 #include <unistd.h>
 #include <ctype.h>
 #include <stdarg.h>
+#include <sys/stat.h>
 /* from Gnulib codeset.m4 */
 #ifdef HAVE_LANGINFO_CODESET
 #include <langinfo.h>
@@ -322,11 +323,13 @@ static void
 set_from_cmdline (OPTIONS_LIST *options_list, OPTION *option,
                   const char *value)
 {
-  if (option->type == GOT_integer)
+  if (!strcmp (value, "undef"))
+    clear_option (option);
+  else if (option->type == GOT_integer)
     {
       char *endptr;
       long long_value = strtol (value, &endptr, 10);
-      int int_value = (int) value;
+      int int_value = (int) long_value;
       if (endptr != value && int_value >= 0)
         {
           option_set_conf (option, int_value, 0);
@@ -343,7 +346,8 @@ set_from_cmdline (OPTIONS_LIST *options_list, OPTION *option,
       if (!value)
         option_value = strdup ("");
       else if (option->type == GOT_char)
-        option_value = decode_input (value);
+        /* actually const, but constrained by protoypes */
+        option_value = decode_input ((char *) value);
       else
         option_value = strdup (value);
       option_set_conf (option, 0, option_value);
@@ -375,12 +379,12 @@ get_cmdline_customization_option (OPTIONS_LIST *options_list,
           if (!strcasecmp (p, "undef"))
             {
               clear_option (option);
+              options_list_add_option_number (options_list, option->number);
             }
           else
             {
               set_from_cmdline (options_list, option, p);
             }
-          options_list_add_option_number (options_list, option->number);
         }
       else
         {
@@ -416,15 +420,30 @@ static int mimick_p;
 static int print_help_p;
 
 #define DOCUMENT_LANGUAGE_OPT 2
+#define NO_SPLIT_OPT 3
+#define SPLIT_OPT 4
+#define FOOTNOTE_STYLE_OPT 5
 
 static struct option long_options[] = {
+  /* next two not in texi2any */
   {"demonstration", 0, &demonstration_p, 1},
+  {"mimick", 0, &mimick_p, 1},
+
   {"document-language", required_argument, 0, DOCUMENT_LANGUAGE_OPT},
   {"error-limit", required_argument, 0, 'e'},
+  {"footnote-style", required_argument, 0, FOOTNOTE_STYLE_OPT},
   {"help", 0, &print_help_p, 'h'},
-  {"mimick", 0, &mimick_p, 1},
+  {"out", required_argument, 0, 'o'},
+  {"output", required_argument, 0, 'o'},
+  {"no-split", 0, 0, NO_SPLIT_OPT},
+  {"split", required_argument, 0, SPLIT_OPT},
   {"set-customization-variable", required_argument, 0, 'c'},
+  {"version", 0, 0, 'V'},
   {NULL, 0, NULL, 0}
+};
+
+static const char *possible_split[] = {
+  "chapter", "section", "node", NULL
 };
 
 int
@@ -534,7 +553,7 @@ main (int argc, char *argv[])
     {
       int option_character;
 
-      option_character = getopt_long (argc, argv, "he:c:I:", long_options,
+      option_character = getopt_long (argc, argv, "Vhc:e:I:o:", long_options,
                                       &getopt_long_index);
       if (option_character == -1)
         break;
@@ -555,10 +574,105 @@ main (int argc, char *argv[])
         case 'h':
           print_help_p = 1;
           break;
+        case 'V':
+          {
+            char *encoded_message;
+            char *message
+             = CONVERTER_CONFIG " (GNU texinfo) " PACKAGE_VERSION_CONFIG "\n\n";
+            char *formatted_message;
+
+            encoded_message = encode_message (message);
+            printf ("%s", encoded_message);
+            free (encoded_message);
+
+            xasprintf (&formatted_message, _(
+  "Copyright (C) %s Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law."),
+                       "2024");
+            encoded_message = encode_message (formatted_message);
+            free (formatted_message);
+            printf ("%s\n", encoded_message);
+            free (encoded_message);
+
+            exit (EXIT_SUCCESS);
+          }
+          break;
         case DOCUMENT_LANGUAGE_OPT:
           set_from_cmdline(&cmdline_options,
                            &cmdline_options.options->documentlanguage,
                            optarg);
+          break;
+        case FOOTNOTE_STYLE_OPT:
+          {
+            /* actually const but constrained by prototypes */
+            char *value = decode_input((char *) optarg);
+            if (!strcmp (value, "end") || !strcmp (value, "separate"))
+              {
+                set_from_cmdline(&cmdline_options,
+                                 &cmdline_options.options->footnotestyle,
+                                 value);
+              }
+            else
+              {
+                char *formatted_message;
+                char *encoded_message;
+
+                xasprintf (&formatted_message,
+        _("%s: --footnote-style arg must be `separate' or `end', not `%s'."),
+                  program_file, value);
+                encoded_message = encode_message (formatted_message);
+                free (formatted_message);
+                fprintf (stderr, "%s\n", encoded_message);
+                free (encoded_message);
+                exit (EXIT_FAILURE);
+              }
+            free (value);
+          }
+          break;
+        case 'o':
+          {
+            OPTION *option = &cmdline_options.options->OUTFILE;
+            /* actually const but constrained by prototypes */
+            char *decoded_string = decode_input ((char *) optarg);
+            if (strcmp (optarg, "-"))
+              {
+                size_t opt_len = strlen (optarg);
+                struct stat finfo;
+
+                if (optarg[opt_len -1] == '/'
+                    || (stat (optarg, &finfo) == 0 && S_ISDIR (finfo.st_mode)))
+                  {
+                    set_from_cmdline (&cmdline_options, option, "undef");
+                    option = &cmdline_options.options->SUBDIR;
+                  }
+              }
+            set_from_cmdline (&cmdline_options, option, decoded_string);
+            free (decoded_string);
+          }
+          break;
+        case NO_SPLIT_OPT:
+          set_from_cmdline (&cmdline_options,
+                            &cmdline_options.options->SPLIT, "");
+          set_from_cmdline (&cmdline_options,
+                            &cmdline_options.options->SPLIT_SIZE, "undef");
+          break;
+        case SPLIT_OPT:
+          {
+            char *split = decode_input (optarg);
+            size_t i;
+            for (i = 0; possible_split[i]; i++)
+              if (!strcmp (possible_split[i], optarg))
+                break;
+            if (!possible_split[i])
+              {
+                document_warn (_("%s is not a valid split possibility"),
+                               split);
+                free (split);
+                split = strdup ("node");
+              }
+            set_from_cmdline (&cmdline_options,
+                              &cmdline_options.options->SPLIT, split);
+            free (split);
+          }
           break;
           /*
         case '?':
@@ -600,6 +714,28 @@ main (int argc, char *argv[])
       text_append (&help_message,
         _("  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n                                to value VAL."));
       text_append_n (&help_message, "\n\n", 2);
+
+      text_append (&help_message, _("General output options:"));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
+   "      --no-split              suppress any splitting of the output;\n                                generate only one output file."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
+   "  -o, --output=DEST           output to DEST.\n                                With split output, create DEST as a directory\n                                and put the output files there.\n                                With non-split output, if DEST is already\n                                a directory or ends with a /,\n                                put the output file there.\n                                Otherwise, DEST names the output file."));
+      text_append_n (&help_message, "\n\n", 2);
+
+      text_append (&help_message, _("Options for Info and plain text:"));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+   "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n                                `separate' to put them in their own node;\n                                `end' to put them at the end of the node, in\n                                which they are defined (this is the default).");
+      text_append_n (&help_message, "\n\n", 2);
+
+      text_append (&help_message, _("Options for HTML:"));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+   "      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',\n                                `section' or `node'.");
+      text_append_n (&help_message, "\n\n", 2);
+
       text_append (&help_message, _("Input file options:"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
