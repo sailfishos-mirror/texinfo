@@ -1,5 +1,11 @@
 2024-12-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/errors.c (output_error_messages), tp/texi2any.pl
+	(_output_error_messages): rename handle_error_messages as
+	output_error_messages and _handle_errors as _output_error_messages.
+
+2024-12-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl: keep track of total errors number by using the
 	handle_errors return value.  Use handle_errors for document errors.
 

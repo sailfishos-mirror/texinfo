@@ -441,9 +441,9 @@ clear_error_message_list (ERROR_MESSAGE_LIST *error_messages)
 }
 
 /* add file information to message and print out.  Similar to texi2any.pl
-   handle_errors.  Used from C only */
+   _output_error_messages.  Used from C only */
 size_t
-handle_error_messages (ERROR_MESSAGE_LIST *error_messages,
+output_error_messages (ERROR_MESSAGE_LIST *error_messages,
                        int no_warn, int use_filename,
                        const char *message_encoding)
 {

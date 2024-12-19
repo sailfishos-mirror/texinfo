@@ -1450,13 +1450,13 @@ sub handle_errors(@)
   my $opened_files = shift;
 
   $error_count += $additional_error_count if ($additional_error_count);
-  _handle_errors($errors);
+  _output_error_messages($errors);
 
   _exit($error_count, $opened_files);
   return $error_count;
 }
 
-sub _handle_errors($)
+sub _output_error_messages($)
 {
   my $errors = shift;
   foreach my $error_message (@$errors) {

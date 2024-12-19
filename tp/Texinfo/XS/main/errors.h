@@ -53,7 +53,7 @@ void vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
                             const OPTIONS *conf,
                             const ELEMENT *e, const char *format, va_list v);
 
-size_t handle_error_messages (ERROR_MESSAGE_LIST *error_messages,
+size_t output_error_messages (ERROR_MESSAGE_LIST *error_messages,
                               int no_warn, int use_filename,
                               const char *message_encoding);
 #endif
