@@ -307,9 +307,12 @@ callgrind profiling for XS code
 
 run all tests with valgrind:
 * in info/t/Init-test.inc, put valgrind in $ginfo, then check t/*.val.log
-  files after running test suite
+  files after running test suite.  Note that some tests may report leaks
+  unless info is compiled with CFLAGS='-g -O0'.
 * edit install-info/tests/defs.in, uncomment valgrind line and run
-  config.status to regenerate defs
+  config.status to regenerate defs.  Note that some tests may report leaks
+  unless install-info is compiled with CFLAGS='-g -O0'.
+
 * XS modules memory leak check checking with valgrind
   Add line "use Perl::Destruct::Level level => 1;" to texi2any.pl
   when running 'valgrind --leak-check=full' to make perl clean it
