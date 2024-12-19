@@ -306,8 +306,8 @@ callgrind profiling for XS code
   FILE.texi' then 'kcachegrind callgrind.out.*'.
 
 run all tests with valgrind:
-* under info/t, put valgrind in $ginfo, then check t/*.val.log files after
-  running test suite
+* in info/t/Init-test.inc, put valgrind in $ginfo, then check t/*.val.log
+  files after running test suite
 * edit install-info/tests/defs.in, uncomment valgrind line and run
   config.status to regenerate defs
 * XS modules memory leak check checking with valgrind

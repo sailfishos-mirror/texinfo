@@ -1,3 +1,8 @@
+2024-12-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* README-hacking: tweak instructions for checking with valgrind
+	* info/t/Init-test.inc: 2024
+
 2024-12-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Bump version to 7.2
