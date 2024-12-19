@@ -427,6 +427,13 @@ free_options_list (OPTIONS_LIST *options_list)
   free (options_list->options);
 }
 
+void
+clear_options_list (OPTIONS_LIST *options_list)
+{
+  options_list->number = 0;
+  clear_options (options_list->options);
+}
+
 int
 option_number_in_option_list (OPTIONS_LIST *options_list, size_t number)
 {

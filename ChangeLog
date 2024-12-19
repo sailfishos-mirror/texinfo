@@ -1,3 +1,15 @@
+2024-12-19  Patrice Dumas  <pertusus@free.fr>
+
+	Handle processing more than one file in teximakehtml
+
+	* tp/Texinfo/XS/main/customization_options.c (clear_options_list):
+	add.
+
+	* tp/Texinfo/XS/teximakehtml.c (main): set program_options and not
+	converter_options based on demonstration_p and mimick_p.  Parse input
+	file name and use the input file name directory to complete
+	converter_texinfo_language_config_dirs.
+
 2024-12-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (set_from_cmdline): handle "undef"

@@ -454,10 +454,7 @@ main (int argc, char *argv[])
   const char *input_file_path;
   int status;
   char *program_file_name_and_directory[2];
-  char *input_directory;
-  DOCUMENT *document;
-  CONVERTER *converter;
-  char *result;
+  char *command_directory;
   BUTTON_SPECIFICATION_LIST *custom_node_footer_buttons;
   OPTIONS_LIST parser_options;
   OPTIONS_LIST convert_options;
@@ -485,7 +482,7 @@ main (int argc, char *argv[])
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
-  input_directory = program_file_name_and_directory[1];
+  command_directory = program_file_name_and_directory[1];
 
   top_srcdir = getenv ("top_srcdir");
   if (top_srcdir)
@@ -761,6 +758,23 @@ main (int argc, char *argv[])
   test_option = get_conf (program_options.options->TEST.number);
   if (test_option && test_option->o.integer > 0)
     test_mode_set = 1;
+
+  no_warn_option = get_conf (program_options.options->NO_WARN.number);
+  if (no_warn_option && no_warn_option->o.integer > 0)
+    no_warn = 1;
+
+  /* FIXME EXPANDED_FORMATS should probably be handled more like include_dirs */
+  if (demonstration_p)
+    {
+      add_option_strlist_value (&program_options, "EXPANDED_FORMATS",
+                                &demo_parser_EXPANDED_FORMATS);
+    }
+  else
+    {
+      add_option_strlist_value (&program_options, "EXPANDED_FORMATS",
+                                &parser_EXPANDED_FORMATS);
+    }
+
   if(test_mode_set)
     {
       add_option_value (&program_options, "PACKAGE_VERSION", 0, "");
@@ -772,6 +786,7 @@ main (int argc, char *argv[])
                                      "https://www.gnu.org/software/texinfo/");
       add_option_value (&program_options, "PROGRAM", 0, "texi2any");
     }
+
   txi_converter_output_format_setup ("html");
 
   /*
@@ -816,18 +831,34 @@ main (int argc, char *argv[])
 
   if (demonstration_p)
     {
-      add_option_strlist_value (&parser_options, "EXPANDED_FORMATS",
-                                &demo_parser_EXPANDED_FORMATS);
-    }
-  else
-    {
-      add_option_strlist_value (&parser_options, "EXPANDED_FORMATS",
-                                &parser_EXPANDED_FORMATS);
+      /* customize buttons.  It is a bit silly to use link buttons for
+         footer, it is for the demonstration */
+      custom_node_footer_buttons = new_base_links_buttons (0);
+      add_new_button_option (&program_options,
+                     "NODE_FOOTER_BUTTONS", custom_node_footer_buttons);
+      add_option_value (&program_options, "PROGRAM_NAME_IN_FOOTER", 1, 0);
     }
 
-  no_warn_option = get_conf (program_options.options->NO_WARN.number);
-  if (no_warn_option && no_warn_option->o.integer > 0)
-    no_warn = 1;
+  if (mimick_p)
+    {
+      /* mimick texi2any.pl, under the assumption that
+         teximakehtml output will be compared to calls of in-source
+         texi2any.pl */
+      const char *configured_version = PACKAGE_VERSION_CONFIG "+dev";
+      const char *configured_name_version
+         = PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG "+dev";
+
+      free (program_file);
+      program_file = strdup ("texi2any");
+
+      add_option_value (&program_options, "PROGRAM", 0, program_file);
+      add_option_value (&program_options, "PACKAGE_VERSION", 0,
+                        configured_version);
+      add_option_value (&program_options, "PACKAGE_AND_VERSION", 0,
+                        configured_name_version);
+    }
+
+  memset (&converter_texinfo_language_config_dirs, 0, sizeof (STRING_LIST));
 
   if (optind < argc)
     {
@@ -861,132 +892,126 @@ main (int argc, char *argv[])
       exit (EXIT_FAILURE);
     }
 
-  /* Texinfo file parsing */
-  input_file_path = input_files.list[0];
+  initialize_options_list (&convert_options);
 
-  /* initialize parser */
-  txi_parser (input_file_path, locale_encoding, expanded_formats, &values,
-              &parser_options);
-
-  free_options_list (&parser_options);
-
-  /* Texinfo document tree parsing */
-  document = txi_parse_texi_file (input_file_path, &status);
-
-  if (status)
+  for (i = 0; i < input_files.number; i++)
     {
-      txi_handle_parser_error_messages (document, no_warn, test_mode_set,
-                                        locale_encoding);
-      txi_document_remove (document);
-      exit (EXIT_FAILURE);
-    }
+      DOCUMENT *document;
+      CONVERTER *converter;
+      char *result;
+      char *input_file_name_and_directory[2];
+      char *input_file_name;
+      char *input_directory;
 
-  errors_nr
-    = txi_handle_parser_error_messages (document, no_warn, test_mode_set,
-                                        locale_encoding);
-  errors_count += errors_nr;
+      input_file_path = input_files.list[i];
 
-  /*
-  texinfo_text = convert_to_texinfo (document->tree);
-  fprintf (stderr, "%s", texinfo_text);
-  free (texinfo_text);
-   */
+      parse_file_path (input_file_path, input_file_name_and_directory);
+      input_file_name = input_file_name_and_directory[0];
+      input_directory = input_file_name_and_directory[1];
+
+      /* Texinfo file parsing */
+      /* initialize parser */
+      txi_parser (input_file_path, locale_encoding, expanded_formats,
+                  &values, &parser_options);
+
+      /* Texinfo document tree parsing */
+      document = txi_parse_texi_file (input_file_path, &status);
+
+      if (status)
+        {
+          txi_handle_parser_error_messages (document, no_warn, test_mode_set,
+                                            locale_encoding);
+          txi_document_remove (document);
+          exit (EXIT_FAILURE);
+        }
+
+      errors_nr
+        = txi_handle_parser_error_messages (document, no_warn, test_mode_set,
+                                            locale_encoding);
+      errors_count += errors_nr;
+
+      /*
+      texinfo_text = convert_to_texinfo (document->tree);
+      fprintf (stderr, "%s", texinfo_text);
+      free (texinfo_text);
+       */
 
 
-  /* structure and transformations */
-  txi_complete_document (document, STTF_relate_index_entries_to_table_items
+      /* structure and transformations */
+      txi_complete_document (document,
+                     STTF_relate_index_entries_to_table_items
                      | STTF_move_index_entries_after_items
                      | STTF_no_warn_non_empty_parts
                      | STTF_nodes_tree | STTF_floats
                      | STTF_setup_index_entries_sort_strings, 0);
 
-  errors_nr
-    = txi_handle_document_error_messages (document, no_warn, test_mode_set,
-                                          locale_encoding);
-  errors_count += errors_nr;
+      errors_nr
+        = txi_handle_document_error_messages (document, no_warn,
+                                              test_mode_set,
+                                              locale_encoding);
+      errors_count += errors_nr;
 
 
-  /* conversion initialization */
-  initialize_options_list (&convert_options);
-  copy_options_list (&convert_options, &program_options);
-  copy_options_list (&convert_options, &cmdline_options);
+      /* conversion initialization */
+      copy_options_list (&convert_options, &program_options);
+      copy_options_list (&convert_options, &cmdline_options);
 
-  if (demonstration_p)
-    {
-      /* customize buttons.  It is a bit silly to use link buttons for
-         footer, it is for the demonstration */
-      custom_node_footer_buttons = new_base_links_buttons (0);
-      add_new_button_option (&convert_options,
-                     "NODE_FOOTER_BUTTONS", custom_node_footer_buttons);
-      add_option_value (&convert_options, "PROGRAM_NAME_IN_FOOTER", 1, 0);
-    }
+      add_string (curdir, &converter_texinfo_language_config_dirs);
+      if (input_directory)
+        {
+          if (strcmp (curdir, input_directory))
+            add_string (input_directory,
+                        &converter_texinfo_language_config_dirs);
+        free (input_directory);
+      }
 
-  if (mimick_p)
-    {
-      /* mimick texi2any.pl, under the assumption that
-         teximakehtml output will be compared to calls of in-source
-         texi2any.pl */
-      const char *configured_version = PACKAGE_VERSION_CONFIG "+dev";
-      const char *configured_name_version
-         = PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG "+dev";
+      copy_strings (&converter_texinfo_language_config_dirs,
+                    texinfo_language_config_dirs);
 
-      free (program_file);
-      program_file = strdup ("texi2any");
-
-      add_option_value (&convert_options, "PROGRAM", 0, program_file);
-      add_option_value (&convert_options, "PACKAGE_VERSION", 0,
-                        configured_version);
-      add_option_value (&convert_options, "PACKAGE_AND_VERSION", 0,
-                        configured_name_version);
-    }
-
-  memset (&converter_texinfo_language_config_dirs, 0, sizeof (STRING_LIST));
-
-  add_string (curdir, &converter_texinfo_language_config_dirs);
-  if (strcmp (curdir, input_directory))
-    add_string (input_directory, &converter_texinfo_language_config_dirs);
-  free (input_directory);
-
-  copy_strings (&converter_texinfo_language_config_dirs,
-                texinfo_language_config_dirs);
-
-  converter = txi_converter_setup ("html", "html",
+      converter = txi_converter_setup ("html", "html",
                                    &converter_texinfo_language_config_dirs,
                                    &deprecated_directories,
                                    &convert_options);
 
-  free_strings_list (&converter_texinfo_language_config_dirs);
-  destroy_strings_list (texinfo_language_config_dirs);
 
-  free_strings_list (&include_dirs);
+      /* conversion */
+      /* return value can be NULL in case of errors or an empty string, but
+         not anything else as parse_file is used with a file */
+      result = txi_converter_output (converter, document);
+      free (result);
+
+      errors_nr
+        = txi_handle_converter_error_messages (converter, no_warn,
+                                           test_mode_set, locale_encoding);
+      errors_count += errors_nr;
+
+      /* free after output */
+      txi_converter_reset (converter);
+
+      /* destroy converter */
+      txi_converter_destroy (converter);
+      /* destroy document */
+      txi_document_remove (document);
+
+      free (input_file_name);
+
+      clear_strings_list (&converter_texinfo_language_config_dirs);
+      clear_options_list (&convert_options);
+    }
+
+  free_strings_list (&converter_texinfo_language_config_dirs);
+  free_options_list (&convert_options);
+
   free_strings_list (&input_files);
 
-  free_options_list (&convert_options);
+  free_options_list (&parser_options);
+  free_strings_list (&include_dirs);
   free (program_file);
 
   free_options_list (&cmdline_options);
   free_options_list (&program_options);
 
-
-  /* conversion */
-  /* return value can be NULL in case of errors or an empty string, but
-     not anything else as parse_file is used with a file */
-  result = txi_converter_output (converter, document);
-  free (result);
-
-  errors_nr
-    = txi_handle_converter_error_messages (converter, no_warn,
-                                           test_mode_set, locale_encoding);
-  errors_count += errors_nr;
-
-  /* free after output */
-  txi_converter_reset (converter);
-
-
-  /* destroy converter */
-  txi_converter_destroy (converter);
-  /* destroy document */
-  txi_document_remove (document);
+  destroy_strings_list (texinfo_language_config_dirs);
 
   if (errors_count > 0)
     exit (EXIT_FAILURE);
