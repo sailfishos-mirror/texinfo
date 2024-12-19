@@ -70,11 +70,6 @@ static char *parser_EXPANDED_FORMATS_array[] = {"html"};
 static STRING_LIST parser_EXPANDED_FORMATS
   = {parser_EXPANDED_FORMATS_array, 1, 1};
 
-/* in demo mode, also expand @iftex for the sake of demonstration */
-static char *demo_parser_EXPANDED_FORMATS_array[] = {"HTML", "tex"};
-static STRING_LIST demo_parser_EXPANDED_FORMATS
-  = {demo_parser_EXPANDED_FORMATS_array, 2, 2};
-
 /* options common to parser and converter */
 static OPTIONS_LIST program_options;
 static OPTIONS_LIST cmdline_options;
@@ -410,6 +405,42 @@ push_include_directory (STRING_LIST *include_dirs_list, char *text)
     }
 }
 
+static void
+set_expansion (OPTIONS_LIST *options_list, STRING_LIST *ignored_formats,
+               const char *format_name)
+{
+  OPTION *option = &options_list->options->EXPANDED_FORMATS;
+  STRING_LIST *str_list = option->o.strlist;
+  size_t idx_format = find_string (str_list, format_name);
+  size_t ignored_idx = find_string (ignored_formats, format_name);
+
+  if (!idx_format)
+    add_string (format_name, str_list);
+
+  if (ignored_idx)
+    remove_from_strings_list (ignored_formats, ignored_idx -1);
+
+  options_list_add_option_number (options_list, option->number);
+}
+
+static void
+unset_expansion (OPTIONS_LIST *options_list, STRING_LIST *ignored_formats,
+                 const char *format_name)
+{
+  OPTION *option = &options_list->options->EXPANDED_FORMATS;
+  STRING_LIST *str_list = option->o.strlist;
+  size_t idx_format = find_string (str_list, format_name);
+  size_t ignored_idx = find_string (ignored_formats, format_name);
+
+  if (idx_format)
+    remove_from_strings_list (str_list, idx_format -1);
+
+  if (!ignored_idx)
+    add_string (format_name, ignored_formats);
+
+  options_list_add_option_number (options_list, option->number);
+}
+
 /* Non-zero means demonstration mode */
 static int demonstration_p;
 
@@ -423,6 +454,24 @@ static int print_help_p;
 #define NO_SPLIT_OPT 3
 #define SPLIT_OPT 4
 #define FOOTNOTE_STYLE_OPT 5
+#define IFDOCBOOK_OPT 6
+#define NO_IFDOCBOOK_OPT 7
+#define IFINFO_OPT 8
+#define NO_IFINFO_OPT 9
+#define IFHTML_OPT 10
+#define NO_IFHTML_OPT 11
+#define IFLATEX_OPT 12
+#define NO_IFLATEX_OPT 13
+#define IFPLAINTEXT_OPT 14
+#define NO_IFPLAINTEXT_OPT 15
+#define IFTEX_OPT 16
+#define NO_IFTEX_OPT 17
+#define IFXML_OPT 18
+#define NO_IFXML_OPT 19
+
+#define IFFORMAT_TABLE(upcase, name) \
+  {"if" #name, 0, 0, IF ## upcase ## _OPT}, \
+  {"no-if" #name, 0, 0, NO_IF ## upcase ## _OPT},
 
 static struct option long_options[] = {
   /* next two not in texi2any */
@@ -439,8 +488,16 @@ static struct option long_options[] = {
   {"split", required_argument, 0, SPLIT_OPT},
   {"set-customization-variable", required_argument, 0, 'c'},
   {"version", 0, 0, 'V'},
+  IFFORMAT_TABLE(DOCBOOK, docbook)
+  IFFORMAT_TABLE(INFO, info)
+  IFFORMAT_TABLE(HTML, html)
+  IFFORMAT_TABLE(LATEX, latex)
+  IFFORMAT_TABLE(PLAINTEXT, plaintext)
+  IFFORMAT_TABLE(TEX, tex)
+  IFFORMAT_TABLE(XML, xml)
   {NULL, 0, NULL, 0}
 };
+#undef IFFORMAT_TABLE
 
 static const char *possible_split[] = {
   "chapter", "section", "node", NULL
@@ -454,7 +511,9 @@ main (int argc, char *argv[])
   const char *input_file_path;
   int status;
   char *program_file_name_and_directory[2];
+  /*
   char *command_directory;
+   */
   BUTTON_SPECIFICATION_LIST *custom_node_footer_buttons;
   OPTIONS_LIST parser_options;
   OPTIONS_LIST convert_options;
@@ -462,7 +521,7 @@ main (int argc, char *argv[])
   size_t errors_nr;
   STRING_LIST *texinfo_language_config_dirs;
   STRING_LIST converter_texinfo_language_config_dirs;
-  STRING_LIST include_dirs;
+  STRING_LIST ignored_formats;
   CONVERTER_INITIALIZATION_INFO *format_defaults;
   DEPRECATED_DIRS_LIST deprecated_directories;
   const char *curdir = ".";
@@ -482,7 +541,7 @@ main (int argc, char *argv[])
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
-  command_directory = program_file_name_and_directory[1];
+  /* command_directory = program_file_name_and_directory[1]; */
 
   top_srcdir = getenv ("top_srcdir");
   if (top_srcdir)
@@ -542,9 +601,11 @@ main (int argc, char *argv[])
 
   memset (&input_files, 0, sizeof (STRING_LIST));
 
-  memset (&include_dirs, 0, sizeof (STRING_LIST));
-
   initialize_options_list (&cmdline_options);
+  memset (&ignored_formats, 0, sizeof (STRING_LIST));
+
+  add_option_strlist_value (&cmdline_options, "EXPANDED_FORMATS",
+                            &parser_EXPANDED_FORMATS);
 
   while (1)
     {
@@ -566,7 +627,11 @@ main (int argc, char *argv[])
                            optarg);
           break;
         case 'I':
-          push_include_directory (&include_dirs, optarg);
+          {
+            OPTION *option = &cmdline_options.options->INCLUDE_DIRECTORIES;
+            push_include_directory (option->o.strlist, optarg);
+            options_list_add_option_number (&cmdline_options, option->number);
+          }
           break;
         case 'h':
           print_help_p = 1;
@@ -671,6 +736,29 @@ main (int argc, char *argv[])
             free (split);
           }
           break;
+#define IFFORMAT_CASE(upcase, name) \
+        case IF ## upcase ## _OPT: \
+          set_expansion (&cmdline_options, &ignored_formats, #name); \
+          break; \
+        case NO_IF ## upcase ## _OPT: \
+          unset_expansion (&cmdline_options, &ignored_formats, #name); \
+          break;
+        IFFORMAT_CASE(DOCBOOK, docbook)
+        IFFORMAT_CASE(INFO, info)
+        IFFORMAT_CASE(HTML, html)
+        IFFORMAT_CASE(LATEX, latex)
+        IFFORMAT_CASE(PLAINTEXT, plaintext)
+        IFFORMAT_CASE(TEX, tex)
+        IFFORMAT_CASE(XML, xml)
+#undef IFFORMAT_CASE
+ /*
+        case IFTEX_OPT:
+          set_expansion (&cmdline_options, &ignored_formats, "tex");
+          break;
+        case NO_IFTEX_OPT:
+          unset_expansion (&cmdline_options, &ignored_formats, "tex");
+          break;
+ */
           /*
         case '?':
           if (isprint (optopt))
@@ -738,21 +826,62 @@ main (int argc, char *argv[])
       text_append (&help_message,
         _(" -I DIR                       append DIR to the @include search path."));
       text_append_n (&help_message, "\n\n", 2);
+
+      text_append (&help_message, _("Conditional processing in input:"));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+  _("  --ifdocbook       process @ifdocbook and @docbook even if\n                      not generating Docbook."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+  _("  --ifhtml          process @ifhtml and @html even if not generating HTML."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+  _("  --ifinfo          process @ifinfo even if not generating Info."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+  _("  --iflatex         process @iflatex and @latex."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+  _("  --ifplaintext     process @ifplaintext even if not generating plain text."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+  _("  --iftex           process @iftex and @tex."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+  _("  --ifxml           process @ifxml and @xml."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+  _("  --no-ifdocbook    do not process @ifdocbook and @docbook text."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+  _("  --no-ifhtml       do not process @ifhtml and @html text."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+  _("  --no-ifinfo       do not process @ifinfo text."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+  _("  --no-iflatex      do not process @iflatex and @latex text."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+  _("  --no-ifplaintext  do not process @ifplaintext text."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+  _("  --no-iftex        do not process @iftex and @tex text."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+  _("  --no-ifxml        do not process @ifxml and @xml text."));
+      text_append_n (&help_message, "\n\n", 2);
+
+      text_append (&help_message,
+  _("  Also, for the --no-ifFORMAT options, do process @ifnotFORMAT text."));
+      text_append_n (&help_message, "\n\n", 2);
+
       text_append (&help_message, _("Email bug reports to bug-texinfo@gnu.org,\ngeneral questions and discussion to help-texinfo@gnu.org.\nTexinfo home page: https://www.gnu.org/software/texinfo/"));
       text_append_n (&help_message, "\n", 1);
 
       fprintf (stderr, "%s", help_message.text);
       free (help_message.text);
       exit (EXIT_SUCCESS);
-    }
-
-  if (include_dirs.number > 0)
-    {
-      OPTION *option = &cmdline_options.options->INCLUDE_DIRECTORIES;
-      options_list_add_option_number (&cmdline_options,
-                                      option->number);
-      merge_strings (option->o.strlist, &include_dirs);
-      include_dirs.number = 0;
     }
 
   test_option = get_conf (program_options.options->TEST.number);
@@ -762,18 +891,6 @@ main (int argc, char *argv[])
   no_warn_option = get_conf (program_options.options->NO_WARN.number);
   if (no_warn_option && no_warn_option->o.integer > 0)
     no_warn = 1;
-
-  /* FIXME EXPANDED_FORMATS should probably be handled more like include_dirs */
-  if (demonstration_p)
-    {
-      add_option_strlist_value (&program_options, "EXPANDED_FORMATS",
-                                &demo_parser_EXPANDED_FORMATS);
-    }
-  else
-    {
-      add_option_strlist_value (&program_options, "EXPANDED_FORMATS",
-                                &parser_EXPANDED_FORMATS);
-    }
 
   if(test_mode_set)
     {
@@ -1005,7 +1122,6 @@ main (int argc, char *argv[])
   free_strings_list (&input_files);
 
   free_options_list (&parser_options);
-  free_strings_list (&include_dirs);
   free (program_file);
 
   free_options_list (&cmdline_options);

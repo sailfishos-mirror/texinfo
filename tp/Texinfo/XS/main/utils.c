@@ -948,6 +948,18 @@ add_string (const char *string, STRING_LIST *strings_list)
 }
 
 void
+remove_from_strings_list (STRING_LIST *strings_list, size_t where)
+{
+  if (where > strings_list->number -1)
+    fatal ("string list index out of bounds");
+
+  if (where < strings_list->number - 1)
+    memmove (&strings_list->list[where], &strings_list->list[where + 1],
+             (strings_list->number - (where+1)) * sizeof (char *));
+  strings_list->number--;
+}
+
+void
 merge_strings (STRING_LIST *strings_list, const STRING_LIST *merged_strings)
 {
   size_t i;

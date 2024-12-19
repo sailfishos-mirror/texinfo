@@ -1,5 +1,17 @@
 2024-12-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (remove_from_strings_list): add.
+
+	* tp/Texinfo/XS/teximakehtml.c (main): set directly
+	cmdline_options.options->INCLUDE_DIRECTORIES strings list with include
+	directories, remove include_dirs.
+
+	* tp/Texinfo/XS/teximakehtml.c (set_expansion, unset_expansion)
+	(long_options, main): handle --if*FORMAT options.  Remove
+	demo_parser_EXPANDED_FORMATS.
+
+2024-12-19  Patrice Dumas  <pertusus@free.fr>
+
 	Handle processing more than one file in teximakehtml
 
 	* tp/Texinfo/XS/main/customization_options.c (clear_options_list):

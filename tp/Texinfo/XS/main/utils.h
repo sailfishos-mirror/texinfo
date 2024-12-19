@@ -148,6 +148,7 @@ void clear_strings_list (STRING_LIST *strings);
 void free_strings_list (STRING_LIST *strings);
 void destroy_strings_list (STRING_LIST *strings);
 char *add_string (const char *string, STRING_LIST *strings_list);
+void remove_from_strings_list (STRING_LIST *strings_list, size_t where);
 void merge_strings (STRING_LIST *strings_list,
                     const STRING_LIST *merged_strings);
 void copy_strings (STRING_LIST *dest_list, const STRING_LIST *source_list);
