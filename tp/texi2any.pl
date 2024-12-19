@@ -1445,11 +1445,11 @@ sub _exit($$)
 sub handle_errors(@)
 {
   my $errors = shift;
-  my $new_error_count = shift;
+  my $additional_error_count = shift;
   my $error_count = shift;
   my $opened_files = shift;
 
-  $error_count += $new_error_count if ($new_error_count);
+  $error_count += $additional_error_count if ($additional_error_count);
   _handle_errors($errors);
 
   _exit($error_count, $opened_files);
@@ -1754,18 +1754,24 @@ while(@input_files) {
   }
 
   if (!defined($tree)) {
-    handle_errors($document->parser_errors(), $error_count, \%opened_files);
+    $error_count
+      = handle_errors($document->parser_errors(), $error_count,
+                      \%opened_files);
     goto NEXT;
   }
 
   if ($output_format eq 'parse') {
-    handle_errors($document->parser_errors(), $error_count, \%opened_files);
+    $error_count
+      = handle_errors($document->parser_errors(), $error_count,
+                      \%opened_files);
     goto NEXT;
   }
 
   my $document_information = $document->global_information();
   if (get_conf('TRACE_INCLUDES')) {
-    handle_errors($document->parser_errors(), $error_count, \%opened_files);
+    $error_count
+     = handle_errors($document->parser_errors(), $error_count,
+                     \%opened_files);
     my $included_file_paths = $document_information->{'included_files'};
     if (defined($included_file_paths)) {
       foreach my $included_file (@$included_file_paths) {
@@ -1868,7 +1874,8 @@ while(@input_files) {
   }
   if (get_conf('DUMP_TEXI')
       or $formats_table{$output_format}->{'texi2dvi_format'}) {
-    handle_errors($document->parser_errors(), $error_count, \%opened_files);
+    $error_count = handle_errors($document->parser_errors(), $error_count,
+                                 \%opened_files);
     goto NEXT;
   }
 
@@ -1951,11 +1958,10 @@ while(@input_files) {
   $error_count += $new_error_count if ($new_error_count);
   # document/structuring errors
   my ($document_errors, $document_error_count) = $document->errors();
-  $error_count += $document_error_count if ($document_error_count);
   push @$errors, @$document_errors;
 
-  _handle_errors($errors);
-  _exit($error_count, \%opened_files);
+  $error_count = handle_errors($errors, $document_error_count,
+                               $error_count, \%opened_files);
 
   if ($output_format eq 'structure') {
     goto NEXT;
@@ -2016,7 +2022,8 @@ while(@input_files) {
                     $converter->output_files_information());
   $error_count = merge_opened_files($error_count, \%opened_files,
                                     $converter_opened_files);
-  handle_errors($converter_registrar->errors(), $error_count, \%opened_files);
+  $error_count = handle_errors($converter_registrar->errors(),
+                               $error_count, \%opened_files);
   my $converter_unclosed_files
        = Texinfo::Convert::Utils::output_files_unclosed_files(
                                $converter->output_files_information());
