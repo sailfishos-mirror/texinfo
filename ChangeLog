@@ -1,5 +1,9 @@
 2024-12-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: remove note to check groff.texinfo.
+
+2024-12-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: mention CFLAGS='-g -O0' to prevent false
 	positives for valgrind.
 

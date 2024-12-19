@@ -342,7 +342,6 @@ To get back to the default:
  find tp/Texinfo tp/ext tp/init -type f -name '*.pm' -execdir perl -wpli -e 's/^no autovivification qw\(fetch delete exists store strict\);/#no autovivification qw\(fetch delete exists store strict\);/' '{}' ';'
 
 Manual testing:
-. try groff.texinfo from groff source repo.
 . process doc/texinfo-tex-test.texi with TeX and check that output is good.
 . process some manuals with INFO_JS_DIR and check the JS interface is
   not broken.
