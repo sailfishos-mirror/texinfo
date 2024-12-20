@@ -898,13 +898,13 @@ Have a look at the headline.
 
 @chapter @code{@@set} and @code{@@value}
 
-@section Another test of @t{@@value}
-
-Underscores and hyphens in value
+@section Underscores and hyphens in value
 
 @set foo-bar_ neenaw
 
 The value is @value{foo-bar_}.
+
+The value is neenaw.
 
 
 @chapter Copying and captions
@@ -922,9 +922,16 @@ Copyrite @copyright{} 201X@*
 þ þ þ þ þ þ þ þ
 @end copying
 
-Now for the @@insertcopying:
+Output should be doubled
 
 @insertcopying
+
+This manual is for blah-de-blah.@*
+Backslash \@*
+Brace commands @{ @{ @}
+
+Copyrite @copyright{} 201X@*
+þ þ þ þ þ þ þ þ
 
 
 @section Captions

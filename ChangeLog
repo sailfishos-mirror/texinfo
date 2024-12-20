@@ -1,5 +1,10 @@
 2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi (@set and @value, Copying):
+	Show expected results.
+
+2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo-tex-test.texi
 	(Cross-references, Test of auxiliary files):
 	Move to end of file.
