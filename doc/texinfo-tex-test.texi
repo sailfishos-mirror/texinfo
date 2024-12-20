@@ -117,7 +117,7 @@ third third third third third third third third third third
 third third third third third third third third third third
 third third third third third third third third third third
 
-(check no paragraph indent on first paragraph above, after image)
+(check no paragraph indent on first paragraph above, after first image)
 
 @page
 
@@ -481,51 +481,60 @@ Output should be doubled
 
 x
 @Example
-groff [ -abceghijklpstvzCEGNRSUVXZ ]
+aaagroff
 @endExample
 x
 
 x
 @example
 @group@comment
-groff [ -abceghijklpstvzCEGNRSUVXZ ]
+aaagroff
 @end group
 @end example
 x
 
+y
+@Example
+bbbgroff
+@endExample
 x
+
+y
 @example
 @group
-groff [ -abceghijklpstvzCEGNRSUVXZ ]
+bbbgroff
 @end group
 @end example
-x
+y
 
-x
-@example
-@group@c
-groff [ -abceghijklpstvzCEGNRSUVXZ ]
-@end group
-@end example
-x
-
-xxxxxxxxxxxxxxxxxxxxxx
-
-@example
-@group@c
-groff [ -abceghijklpstvzCEGNRSUVXZ ]
-@end group
-@end example
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-xxxxxxxxxxxxxxxxxxxxxx
-
+z
 @Example
-groff [ -abceghijklpstvzCEGNRSUVXZ ]
+cccgroff
 @endExample
+z
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxx
+z
+@example
+@group@c
+cccgroff
+@end group
+@end example
+z
+
+zz
+@Example
+dddgroff
+@endExample
+zz
+
+zz
+@example
+@group@c
+dddgroff
+@end group
+@end example
+zz
+
 
 @section Braceless at end of line
 
@@ -560,11 +569,11 @@ EE value FF
 
 GG @Mac{}
 
-HHH
+GGG
 
 GG value
 
-HHH
+GGG
 
 II JJ @Mac
 

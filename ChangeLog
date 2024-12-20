@@ -1,5 +1,12 @@
 2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi
+	(Images, Open or close a group in a macro)
+	(Braceless at end of line):
+	Adjust test cases/instructions slightly.
+
+2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: adjust discussion of building for valgrind slightly
 
 2024-12-19  Gavin Smith <gavinsmith0123@gmail.com>
