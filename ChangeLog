@@ -1,5 +1,10 @@
 2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi (Nested URL, URL): rename and
+	move earlier.
+
+2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo-tex-test.texi (Test of characters in section title):
 	Move nearer end of file.
 

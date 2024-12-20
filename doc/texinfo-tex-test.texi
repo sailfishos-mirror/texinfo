@@ -1318,6 +1318,29 @@ aaaaa/bbbbb/aaaaa/bbbbb/}
 
 par
 
+
+@chapter URL
+
+In @command{@@lisp}
+
+@lisp
+one
+@url{www.gnu.org}
+three
+four
+
+six
+
+
+nine @url{http://example.com/} nine
+@end lisp
+
+in footnote@footnote{see @url{http://example.com/}.}. after footnote
+
+next para.
+
+next para.
+
 @chapter URL line breaking
 
 Some use of @code{@@url}.  Ragged-right output should only be used where
@@ -1371,27 +1394,8 @@ Link: @url{https://software-dl.ti.com/ccs/esd/documents/xdsdebugprobes/emu_xds_s
 Link: @url{https://software-dl.ti.com/ccs/esd/documents/xdsdebugprobes/emu_xds110.html}
 @end itemize
 
-@chapter Nested URL
+@page
 
-In @command{@@lisp}
-
-@lisp
-one
-@url{www.gnu.org}
-three
-four
-
-six
-
-
-nine @url{http://example.com/} nine
-@end lisp
-
-in footnote@footnote{see @url{http://example.com/}.}. after footnote
-
-next para.
-
-next para.
 
 
 
