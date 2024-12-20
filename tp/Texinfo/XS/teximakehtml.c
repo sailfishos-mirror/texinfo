@@ -135,7 +135,8 @@ get_conf (size_t number)
 static int
 set_customization_default (const OPTION *option)
 {
-  if (option_number_in_option_list (&cmdline_options, option->number))
+  if (option_number_in_option_list (&cmdline_options, option->number)
+      || option_number_in_option_list (&init_files_options, option->number))
     return 0;
 
   options_list_add_option_number (&program_options, option->number);
@@ -705,6 +706,8 @@ static int print_help_p;
 #define NO_WARN_OPT 20
 /* potentially 12 formats */
 #define HTML_OPT 25
+#define TRACE_INCLUDES_OPT 33
+#define NO_VERBOSE_OPT 34
 
 #define IFFORMAT_TABLE(upcase, name) \
   {"if" #name, 0, 0, IF ## upcase ## _OPT}, \
@@ -726,6 +729,9 @@ static struct option long_options[] = {
   {"no-split", 0, 0, NO_SPLIT_OPT},
   {"split", required_argument, 0, SPLIT_OPT},
   {"set-customization-variable", required_argument, 0, 'c'},
+  {"trace-include", 0, 0, TRACE_INCLUDES_OPT},
+  {"verbose", 0, 0, 'v'},
+  {"no-verbose", 0, 0, NO_VERBOSE_OPT},
   {"version", 0, 0, 'V'},
   {"html", 0, 0, HTML_OPT},
   IFFORMAT_TABLE(DOCBOOK, docbook)
@@ -771,6 +777,7 @@ main (int argc, char *argv[])
   char *tp_builddir = 0;
   OPTION *test_option;
   OPTION *no_warn_option;
+  OPTION *format_menu_option;
   int no_warn = 0;
   int test_mode_set = 0;
   size_t i;
@@ -781,6 +788,7 @@ main (int argc, char *argv[])
   const char *output_format;
   const char *converted_format;
   FORMAT_SPECIFICATION *format_specification = 0;
+  int do_menu = 0;
 
   /*
   const char *texinfo_text;
@@ -862,7 +870,7 @@ main (int argc, char *argv[])
     {
       int option_character;
 
-      option_character = getopt_long (argc, argv, "VhFc:e:I:o:", long_options,
+      option_character = getopt_long (argc, argv, "VhvFc:e:I:o:", long_options,
                                       &getopt_long_index);
 
       if (option_character == -1)
@@ -885,6 +893,18 @@ main (int argc, char *argv[])
         case NO_WARN_OPT:
           set_from_cmdline(&cmdline_options,
                            &cmdline_options.options->NO_WARN, "1");
+          break;
+        case TRACE_INCLUDES_OPT:
+          set_from_cmdline(&cmdline_options,
+                           &cmdline_options.options->TRACE_INCLUDES, "1");
+          break;
+        case 'v':
+          set_from_cmdline(&cmdline_options,
+                           &cmdline_options.options->VERBOSE, "1");
+          break;
+        case NO_VERBOSE_OPT:
+          set_from_cmdline(&cmdline_options,
+                           &cmdline_options.options->VERBOSE, "0");
           break;
         case 'I':
           {
@@ -1072,6 +1092,12 @@ main (int argc, char *argv[])
         _("  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n                                to value VAL."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
+        _("      --trace-includes        print names of included files."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("  -v, --verbose               explain what is being done."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
         _("      --version               display version information and exit."));
       text_append_n (&help_message, "\n\n", 2);
 
@@ -1246,17 +1272,28 @@ main (int argc, char *argv[])
   format_defaults = txi_converter_format_defaults (converted_format,
                                                    &cmdline_options);
 
-  if (format_defaults->conf.options->FORMAT_MENU.o.string != 0)
+  /* in Perl the presence of a module is used to determine if there
+     are format defaults.  Here we use format_defaults being set */
+  if (format_defaults)
     {
-      /*
-      fprintf (stderr, "FORMAT_MENU %s\n",
-           format_defaults->conf.options->FORMAT_MENU.o.string);
-       */
-      set_customization_default (
-                           &format_defaults->conf.options->FORMAT_MENU);
+      if (format_defaults->conf.options->FORMAT_MENU.o.string != 0)
+        {
+          /*
+          fprintf (stderr, "FORMAT_MENU %s\n",
+               format_defaults->conf.options->FORMAT_MENU.o.string);
+           */
+          set_customization_default (
+                               &format_defaults->conf.options->FORMAT_MENU);
+        }
+
+      destroy_converter_initialization_info (format_defaults);
     }
 
-  destroy_converter_initialization_info (format_defaults);
+  format_menu_option = get_conf (program_options.options->FORMAT_MENU.number);
+  if (format_menu_option && (!format_menu_option->o.string
+                             || !strcmp (format_menu_option->o.string,
+                                         "menu")))
+    do_menu = 1;
 
   initialize_options_list (&parser_options);
   /* Copy relevant customization variables into the parser options. */
@@ -1350,6 +1387,7 @@ main (int argc, char *argv[])
       char *input_file_name_and_directory[2];
       char *input_file_name;
       char *input_directory;
+      OPTION *trace_includes_option;
 
       input_file_path = input_files.list[i];
 
@@ -1374,6 +1412,29 @@ main (int argc, char *argv[])
           goto next_input_file;
         }
 
+      if (!strcmp (output_format, "parse"))
+        {
+          errors_count = handle_errors (errors_nr, errors_count, &opened_files);
+          goto next_input_file;
+        }
+
+      trace_includes_option
+         = get_conf (program_options.options->TRACE_INCLUDES.number);
+      if (trace_includes_option && trace_includes_option->o.integer > 0)
+        {
+          errors_count = handle_errors (errors_nr, errors_count, &opened_files);
+          if (document->global_info.included_files.number)
+            {
+              for (i = 0; i < document->global_info.included_files.number;
+                   i++)
+                {
+                  printf ("%s\n",
+                          document->global_info.included_files.list[i]);
+                }
+            }
+          goto next_input_file;
+        }
+
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 
       /*
@@ -1382,9 +1443,9 @@ main (int argc, char *argv[])
       free (texinfo_text);
        */
 
-
       /* structure and transformations */
-      txi_complete_document (document, format_specification->flags, 0);
+      /* do_menu corresponds to FORMAT_MENU undef or set to menu */
+      txi_complete_document (document, format_specification->flags, do_menu);
 
       errors_nr
         = txi_handle_document_error_messages (document, no_warn,
@@ -1393,6 +1454,8 @@ main (int argc, char *argv[])
 
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 
+      if (!strcmp (output_format, "structure"))
+        goto next_input_file;
 
       /* conversion initialization */
       copy_options_list (&convert_options, &program_options);

@@ -34,6 +34,9 @@ use warnings;
 # character strings by Perl.
 no utf8;
 
+# check that autovivification do not happen incorrectly.
+#no autovivification qw(fetch delete exists store strict);
+
 # to decode command line arguments
 use Encode qw(decode encode find_encoding);
 # for file names portability
