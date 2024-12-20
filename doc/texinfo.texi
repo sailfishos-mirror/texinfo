@@ -15446,29 +15446,29 @@ meaning of the options.
 @vindex FORCE
 @option{--force}             @tab @code{FORCE}
 @item
+@vindex HEADERS
+@option{--headers}           @tab @code{HEADERS}, @code{FORMAT_MENU}
+@item
 @vindex INTERNAL_LINKS
 @option{--internal-links}    @tab @code{INTERNAL_LINKS}
 @item
 @vindex MACRO_EXPAND
 @option{--macro-expand}      @tab @code{MACRO_EXPAND}
 @item
-@vindex HEADERS
-@option{--headers}           @tab @code{HEADERS}, @code{FORMAT_MENU}
+@vindex novalidate
+@option{--no-validate}       @tab @code{novalidate}
 @item
 @vindex NO_WARN
 @option{--no-warn}           @tab @code{NO_WARN}
 @item
-@vindex novalidate
-@option{--no-validate}       @tab @code{novalidate}
+@vindex NODE_FILES
+@option{--node-files}        @tab @code{NODE_FILES}
 @item
 @vindex NUMBER_FOOTNOTES
 @option{--number-footnotes}  @tab @code{NUMBER_FOOTNOTES}
 @item
 @vindex NUMBER_SECTIONS
 @option{--number-sections}   @tab @code{NUMBER_SECTIONS}
-@item
-@vindex NODE_FILES
-@option{--node-files}        @tab @code{NODE_FILES}
 @item
 @vindex OUTFILE
 @vindex SUBDIR
