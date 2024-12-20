@@ -1,5 +1,15 @@
 2024-12-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl (%formats_table): remove internal_links for latex, it
+	is not implemented.
+
+	* tp/texi2any.pl (set_format): remove end of line in message.
+
+	* tp/texi2any.pl (set_format): do not recognize undef for
+	TEXINFO_OUTPUT_FORMAT.
+
+2024-12-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (remove_from_strings_list): free removed
 	string.
 

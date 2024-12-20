@@ -821,7 +821,6 @@ my %formats_table = (
            },
   'latex' => {
              'floats' => 1,
-             'internal_links' => 1,
              'move_index_entries_after_items' => 1,
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::LaTeX'
@@ -909,7 +908,7 @@ sub set_format($)
   }
   if (!$formats_table{$new_output_format}) {
     document_warn(sprintf(__(
-                   "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"),
+                 "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'"),
                          $set_format));
   } else {
     Texinfo::Config::texinfo_set_from_init_file('TEXINFO_OUTPUT_FORMAT',
@@ -1250,24 +1249,26 @@ There is NO WARRANTY, to the extent permitted by law."), "2024")."\n";
    if ($var_val =~ s/^(\w+)\s*=?\s*//) {
      my $var = $1;
      my $value = $var_val;
-     if ($value =~ /^undef$/i) {
-       $value = undef;
-     } elsif (!$Texinfo::Common::non_decoded_customization_variables{$var}) {
-       $value = _decode_input($var_val);
-     }
-     # TODO verify that it is the best.  It is inconsistent with other
-     # customization options that have the same precedence as command
-     # line option when specified on the command line.  This is because
-     # in the manual, it is said:
-     # "The customization variable of the same name is also read; if set,
-     # that overrides an environment variable setting, but not a command-line
-     # option."
-     # If read means "read from an init file" then we could change here, but
-     # if it means "read from the command line or an init file" we should
-     # keep it as it is.
+
      if ($var eq 'TEXINFO_OUTPUT_FORMAT') {
+       $value = _decode_input($var_val);
+       # TODO verify that it is the best.  It is inconsistent with other
+       # customization options that have the same precedence as command
+       # line option when specified on the command line.  This is because
+       # in the manual, it is said:
+       # "The customization variable of the same name is also read; if set,
+       # that overrides an environment variable setting, but not a command-line
+       # option."
+       # If read means "read from an init file" then we could change here, but
+       # if it means "read from the command line or an init file" we should
+       # keep it as it is.
        set_format($value);
      } else {
+       if ($value =~ /^undef$/i) {
+         $value = undef;
+       } elsif (!$Texinfo::Common::non_decoded_customization_variables{$var}) {
+         $value = _decode_input($var_val);
+       }
        set_from_cmdline($var, $value);
      }
    }
