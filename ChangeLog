@@ -1,3 +1,7 @@
+2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* README-hacking: adjust discussion of building for valgrind slightly
+
 2024-12-19  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: remove note to check groff.texinfo.
