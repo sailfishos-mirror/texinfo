@@ -896,157 +896,6 @@ If @var{axis} is not a valid axis of @var{a}.
 Have a look at the headline.
 
 
-@chapter Test of auxiliary files
-
-
-@section Values
-
-Need to test with @command{texi2dvi}.
-
-Undefined value in anchor: @anchor{@value{ho} ho}
-
-Xref to said anchor: @xref{@value{ho} ho}.
-
-@set auxvalue this is the value
-Defined value in anchor: @anchor{@value{auxvalue} ho}
-
-Xref to said anchor: @xref{@value{auxvalue} ho}.  (Should definitely 
-work.)
-
-@defindex ax
-
-value in index entry
-@axindex @value{ho} in index entry
-
-defined value in index entry (this should definitely work)
-@axindex @value{auxvalue} in index entry
-
-value in index entry, but only defined afterwards
-@axindex @value{definedafter} index entry
-
-@axindex @b{another}
-
-@set complex @code{foo@b{b@'ar}}
-test of texinfo commands in value in index entry
-@axindex @value{complex} index entry
-
-test of value change after index command
-@set changed original
-@axindex `@value{changed}' should be `original'
-@set changed new
-
-test of underscore in value
-@set underscore _
-@axindex `@value{underscore}' should be `_'
-
-some more text.
-
-test of macro in index entry:
-@macro MyMac {arg}
-ffff\arg\ggggg
-@end macro
-
-@axindex @MyMac{bah}
-
-@page
-
-@set definedafter Defining this now
-@set definedafter Defining this again
-
-@printindex ax
-
-
-@ignore
-@c This section doesn't work while we use \ as the escape character
-@c in the index files.
-
-@section Test of macros with @samp{@@} in index
-
-@defindex BB
-
-@macro Mac {arg}
-\arg\@}
-@end macro
-
-@macro MacTwo {arg}
-@{@}
-@end macro
-
-@BBindex @Mac{CCCC @@}
-
-@BBindex @MacTwo{DDDD @@}
-@printindex BB
-@end ignore
-
-
-@section Test of certain characters in index
-
-@defindex CC
-@CCindex \, backslash
-@CCindex @{, open brace
-@CCindex @}, close brace
-@CCindex @@, at sign
-@CCindex @backslashchar{}, backslash 2
-@CCindex @lbracechar{}, open brace 2
-@CCindex @rbracechar{}, close brace 2
-@CCindex @atchar{}, at sign 2
-
-@printindex CC
-
-
-@section Test of @code{@@synindex}
-
-@defindex foo
-@defindex bar
-
-@synindex foo bar
-
-@fooindex One
-@barindex Two
-
-Should be two entries, not one below.
-
-@printindex bar
-
-
-@section Test of index sort keys
-
-@defindex SK
-
-@SKindex @sortas{A} bbbbbbb (first)
-@SKindex @sortas{B} aaaaaaa (second)
-
-@printindex SK
-
-
-@page
-@section Test of characters in node names for PDF
-
-@ifx@pdfescapestring@thisisundefined
-
-This test requires newer @command{pdfetex}.
-
-@else
-
-@anchor{anchor}.
-
-@anchor{backslash \}.
-
-@anchor{closing bracket )}.
-
-@anchor{opening bracket (}.
-
-@xref{anchor}.
-
-@xref{backslash \}.
-
-@xref{closing bracket )}.
-
-@xref{opening bracket (}.
-
-@fi
-
-
 @chapter @code{@@set} and @code{@@value}
 
 @section Another test of @t{@@value}
@@ -1057,41 +906,6 @@ Underscores and hyphens in value
 
 The value is @value{foo-bar_}.
 
-
-@chapter Cross-references
-
-@section Comma insertion
-
-Check commas surrounding page number:
-
-@noindent
-@xref{Target}, for more information (@code{@@xref})@*
-@xref{Target} for more information@*
-@xref{Target}	for more information@*
-@xref{Target}
-for more information@*
-@xref{Target}.@*
-@xref{Target}@ for more info.@*
-@xref{Target}@
-for more info.@*
-@xref{Target}@*
-for more info.@*
-@xref{Target}@	for more info.@*
-@xref{Target} --- for more info. (comma)@*
-@xref{Target}@: --- for more info. (no comma)@*
-See @ref{Target}, for more information (@code{@@ref})@*
-See @ref{Target} for more information@*
-See @ref{Target}.@*
-(@pxref{Target}) (@code{@@pxref})@*
-(@pxref{Target,, Hurricanes})
-
-
-@node Target
-@section Target
-
-@section Non-existent target
-
-@xref{blllllllrrrrrrghhh}.
 
 @chapter Copying and captions
 
@@ -2580,6 +2394,198 @@ line line line line line line}{9, 42}
 @initial{@}}
 @initial{F}
 @finishindex
+
+
+
+@chapter Cross-references
+
+@section Comma insertion
+
+Check commas surrounding page number:
+
+@noindent
+@xref{Target}, for more information (@code{@@xref})@*
+@xref{Target} for more information@*
+@xref{Target}	for more information@*
+@xref{Target}
+for more information@*
+@xref{Target}.@*
+@xref{Target}@ for more info.@*
+@xref{Target}@
+for more info.@*
+@xref{Target}@*
+for more info.@*
+@xref{Target}@	for more info.@*
+@xref{Target} --- for more info. (comma)@*
+@xref{Target}@: --- for more info. (no comma)@*
+See @ref{Target}, for more information (@code{@@ref})@*
+See @ref{Target} for more information@*
+See @ref{Target}.@*
+(@pxref{Target}) (@code{@@pxref})@*
+(@pxref{Target,, Hurricanes})
+
+
+@node Target
+@section Target
+
+@section Non-existent target
+
+@xref{blllllllrrrrrrghhh}.
+
+@chapter Test of auxiliary files
+
+
+@section Values
+
+Need to test with @command{texi2dvi}.
+
+Undefined value in anchor: @anchor{@value{ho} ho}
+
+Xref to said anchor: @xref{@value{ho} ho}.
+
+@set auxvalue this is the value
+Defined value in anchor: @anchor{@value{auxvalue} ho}
+
+Xref to said anchor: @xref{@value{auxvalue} ho}.  (Should definitely 
+work.)
+
+@defindex ax
+
+value in index entry
+@axindex @value{ho} in index entry
+
+defined value in index entry (this should definitely work)
+@axindex @value{auxvalue} in index entry
+
+value in index entry, but only defined afterwards
+@axindex @value{definedafter} index entry
+
+@axindex @b{another}
+
+@set complex @code{foo@b{b@'ar}}
+test of texinfo commands in value in index entry
+@axindex @value{complex} index entry
+
+test of value change after index command
+@set changed original
+@axindex `@value{changed}' should be `original'
+@set changed new
+
+test of underscore in value
+@set underscore _
+@axindex `@value{underscore}' should be `_'
+
+some more text.
+
+test of macro in index entry:
+@macro MyMac {arg}
+ffff\arg\ggggg
+@end macro
+
+@axindex @MyMac{bah}
+
+@page
+
+@set definedafter Defining this now
+@set definedafter Defining this again
+
+@printindex ax
+
+
+@ignore
+@c This section doesn't work while we use \ as the escape character
+@c in the index files.
+
+@section Test of macros with @samp{@@} in index
+
+@defindex BB
+
+@macro Mac {arg}
+\arg\@}
+@end macro
+
+@macro MacTwo {arg}
+@{@}
+@end macro
+
+@BBindex @Mac{CCCC @@}
+
+@BBindex @MacTwo{DDDD @@}
+@printindex BB
+@end ignore
+
+
+@section Test of certain characters in index
+
+@defindex CC
+@CCindex \, backslash
+@CCindex @{, open brace
+@CCindex @}, close brace
+@CCindex @@, at sign
+@CCindex @backslashchar{}, backslash 2
+@CCindex @lbracechar{}, open brace 2
+@CCindex @rbracechar{}, close brace 2
+@CCindex @atchar{}, at sign 2
+
+@printindex CC
+
+
+@section Test of @code{@@synindex}
+
+@defindex foo
+@defindex bar
+
+@synindex foo bar
+
+@fooindex One
+@barindex Two
+
+Should be two entries, not one below.
+
+@printindex bar
+
+
+@section Test of index sort keys
+
+@defindex SK
+
+@SKindex @sortas{A} bbbbbbb (first)
+@SKindex @sortas{B} aaaaaaa (second)
+
+@printindex SK
+
+
+@page
+@section Test of characters in node names for PDF
+
+@ifx@pdfescapestring@thisisundefined
+
+This test requires newer @command{pdfetex}.
+
+@else
+
+@anchor{anchor}.
+
+@anchor{backslash \}.
+
+@anchor{closing bracket )}.
+
+@anchor{opening bracket (}.
+
+@xref{anchor}.
+
+@xref{backslash \}.
+
+@xref{closing bracket )}.
+
+@xref{opening bracket (}.
+
+@fi
+
+
+
+
+
 
 
 

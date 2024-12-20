@@ -1,5 +1,11 @@
 2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi
+	(Cross-references, Test of auxiliary files):
+	Move to end of file.
+
+2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo-tex-test.texi (Test of non-alphanumeric characters):
 	Move next to "Glyph commands".
 
