@@ -441,6 +441,63 @@ unset_expansion (OPTIONS_LIST *options_list, STRING_LIST *ignored_formats,
   options_list_add_option_number (options_list, option->number);
 }
 
+/* If the file overwriting becomes an error, should increase $ERROR_COUNT. */
+static size_t
+merge_opened_files (STRING_LIST *opened_files,
+                    STRING_LIST *added_opened_files, size_t error_count)
+{
+  if (added_opened_files)
+    {
+      size_t i;
+      for (i = 0; i < added_opened_files->number; i++)
+        {
+          char *opened_file = added_opened_files->list[i];
+          if (find_string (opened_files, opened_file))
+            document_warn ("overwriting file: %s", opened_file);
+          else
+            add_string (opened_file, opened_files);
+        }
+    }
+
+  return error_count;
+}
+
+static void
+exit_if_errors (size_t error_count, STRING_LIST *opened_files)
+{
+  OPTION *error_limit_option
+     = get_conf (program_options.options->ERROR_LIMIT.number);
+  OPTION *force_option
+     = get_conf (program_options.options->FORCE.number);
+  int force = (force_option->o.integer > 0);
+  int error_limit = error_limit_option->o.integer;
+
+  if (opened_files->number > 0 && error_count && !force)
+    {
+      size_t i;
+      for (i = opened_files->number; i > 0 ; i--)
+        {
+          size_t index = i - 1;
+          char *opened_file = strdup (opened_files->list[index]);
+          unlink (opened_file);
+          remove_from_strings_list (opened_files, index);
+          free (opened_file);
+        }
+    }
+
+  if ((error_count && !force) || error_count > error_limit)
+    exit (EXIT_FAILURE);
+}
+
+static size_t
+handle_errors (size_t additional_error_count, size_t error_count,
+               STRING_LIST *opened_files)
+{
+  error_count += additional_error_count;
+  exit_if_errors (error_count, opened_files);
+  return error_count;
+}
+
 /* Non-zero means demonstration mode */
 static int demonstration_p;
 
@@ -468,6 +525,7 @@ static int print_help_p;
 #define NO_IFTEX_OPT 17
 #define IFXML_OPT 18
 #define NO_IFXML_OPT 19
+#define NO_WARN_OPT 20
 
 #define IFFORMAT_TABLE(upcase, name) \
   {"if" #name, 0, 0, IF ## upcase ## _OPT}, \
@@ -481,7 +539,9 @@ static struct option long_options[] = {
   {"document-language", required_argument, 0, DOCUMENT_LANGUAGE_OPT},
   {"error-limit", required_argument, 0, 'e'},
   {"footnote-style", required_argument, 0, FOOTNOTE_STYLE_OPT},
+  {"force", 0, 0, 'F'},
   {"help", 0, &print_help_p, 'h'},
+  {"no-warn", 0, 0, NO_WARN_OPT},
   {"out", required_argument, 0, 'o'},
   {"output", required_argument, 0, 'o'},
   {"no-split", 0, 0, NO_SPLIT_OPT},
@@ -534,6 +594,7 @@ main (int argc, char *argv[])
   int test_mode_set = 0;
   size_t i;
   STRING_LIST input_files;
+  STRING_LIST opened_files;
 
   /*
   const char *texinfo_text;
@@ -611,7 +672,7 @@ main (int argc, char *argv[])
     {
       int option_character;
 
-      option_character = getopt_long (argc, argv, "Vhc:e:I:o:", long_options,
+      option_character = getopt_long (argc, argv, "VhFc:e:I:o:", long_options,
                                       &getopt_long_index);
       if (option_character == -1)
         break;
@@ -625,6 +686,14 @@ main (int argc, char *argv[])
           set_from_cmdline(&cmdline_options,
                            &cmdline_options.options->ERROR_LIMIT,
                            optarg);
+          break;
+        case 'F':
+          set_from_cmdline(&cmdline_options,
+                           &cmdline_options.options->FORCE, "1");
+          break;
+        case NO_WARN_OPT:
+          set_from_cmdline(&cmdline_options,
+                           &cmdline_options.options->NO_WARN, "1");
           break;
         case 'I':
           {
@@ -726,7 +795,7 @@ main (int argc, char *argv[])
                 break;
             if (!possible_split[i])
               {
-                document_warn (_("%s is not a valid split possibility"),
+                document_warn ("%s is not a valid split possibility",
                                split);
                 free (split);
                 split = strdup ("node");
@@ -1011,6 +1080,8 @@ main (int argc, char *argv[])
 
   initialize_options_list (&convert_options);
 
+  memset (&opened_files, 0, sizeof (STRING_LIST));
+
   for (i = 0; i < input_files.number; i++)
     {
       DOCUMENT *document;
@@ -1034,18 +1105,16 @@ main (int argc, char *argv[])
       /* Texinfo document tree parsing */
       document = txi_parse_texi_file (input_file_path, &status);
 
-      if (status)
-        {
-          txi_handle_parser_error_messages (document, no_warn, test_mode_set,
-                                            locale_encoding);
-          txi_document_remove (document);
-          exit (EXIT_FAILURE);
-        }
-
       errors_nr
         = txi_handle_parser_error_messages (document, no_warn, test_mode_set,
                                             locale_encoding);
-      errors_count += errors_nr;
+      if (status)
+        {
+          errors_count = handle_errors (errors_nr, errors_count, &opened_files);
+          goto next_input_file;
+        }
+
+      errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 
       /*
       texinfo_text = convert_to_texinfo (document->tree);
@@ -1066,7 +1135,8 @@ main (int argc, char *argv[])
         = txi_handle_document_error_messages (document, no_warn,
                                               test_mode_set,
                                               locale_encoding);
-      errors_count += errors_nr;
+
+      errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 
 
       /* conversion initialization */
@@ -1097,16 +1167,24 @@ main (int argc, char *argv[])
       result = txi_converter_output (converter, document);
       free (result);
 
+      errors_count
+        = merge_opened_files (&opened_files,
+                     &converter->output_files_information.opened_files,
+                              errors_count);
+
       errors_nr
         = txi_handle_converter_error_messages (converter, no_warn,
                                            test_mode_set, locale_encoding);
-      errors_count += errors_nr;
+
+      errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 
       /* free after output */
       txi_converter_reset (converter);
 
       /* destroy converter */
       txi_converter_destroy (converter);
+
+    next_input_file:
       /* destroy document */
       txi_document_remove (document);
 
@@ -1116,6 +1194,7 @@ main (int argc, char *argv[])
       clear_options_list (&convert_options);
     }
 
+  free_strings_list (&opened_files);
   free_strings_list (&converter_texinfo_language_config_dirs);
   free_options_list (&convert_options);
 
