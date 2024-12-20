@@ -1,5 +1,10 @@
 2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi (Test of macros with @ in index):
+	Enable section as we now use @ in index files.
+
+2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo-tex-test.texi (Nested URL, URL): rename and
 	move earlier.
 
