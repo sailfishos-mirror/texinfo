@@ -18160,6 +18160,16 @@ components of output units, isolated sections not associated with nodes
 are associated with the previous node, and isolated nodes are
 output units.
 
+@vindex USE_NODE_DIRECTIONS
+By default, the @code{USE_NODES} setting also affects whether next,
+up and prev links in node headers link to nodes or sections, with nodes
+used if true, and sections used if false.  You can override this using
+the @code{USE_NODE_DIRECTIONS} variable (default value is undefined).
+Note that this setting does not determine the link string, only where the
+links points to; see @ref{Three Arguments, , xrefautomaticsectiontitle}
+for the link string customization.  If nodes and sections are
+systematically associated, this customization has no practical effect.
+
 @vindex DO_ABOUT
 @vindex PROGRAM_NAME_IN_ABOUT
 You can add a special @dfn{About} element explaining how to navigate by
@@ -19278,7 +19288,7 @@ that the command found provides the heading.  Default true.
 If true, use nodes to determine where next, up and prev
 link to in node headers.  If false, use sections.  If undefined, use
 @code{USE_NODES} value.  Default is undefined.  Note that this setting does not
-determine the link string only where the links points to, see @ref{Three
+determine the link string, only where the links points to; see @ref{Three
 Arguments, , xrefautomaticsectiontitle} for the link string customization.  If
 nodes and sections are systematically associated, this customization has no
 practical effect.
