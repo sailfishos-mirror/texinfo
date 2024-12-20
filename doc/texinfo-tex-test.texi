@@ -1169,12 +1169,18 @@ test of \eqno
 
 @section Code quote
 
+Default
+
 @code{`foo'}
+
+Code quotes on
 
 @codequoteundirected on
 @codequotebacktick on
 
 @code{`foo'}
+
+Code quotes off
 
 @codequoteundirected off
 @codequotebacktick off

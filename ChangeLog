@@ -1,5 +1,10 @@
 2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi (Code quote):
+	Label examples.
+
+2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo-tex-test.texi (@set and @value, Copying):
 	Show expected results.
 
