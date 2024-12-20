@@ -18551,7 +18551,7 @@ and set @code{BIG_RULE} for the wider separator sometimes used.
 @c Arguments are HTML content to be inserted at certain points in the output.
 @vindex HTML_ROOT_ELEMENT_ATTRIBUTES
 @vindex EXTRA_HEAD
-@vindex AFTER_BODY_OPEN
+@c @vindex AFTER_BODY_OPEN
 @cindex @code{<head>} block, adding to
 @vindex BODY_ELEMENT_ATTRIBUTES
 You can set @code{HTML_ROOT_ELEMENT_ATTRIBUTES} to add attributes to
@@ -18922,7 +18922,7 @@ Labels files can be generated if @code{INFO_JS_DIR} is set, or if
 
 This table lists the customization variables which apply to HTML output.
 
-@vtable @code
+@table @code
 @item AFTER_BODY_OPEN
 Text added at the beginning of each HTML file; default unset.
 
@@ -19330,7 +19330,7 @@ as the hyperlink.  If set to@tie{}0, use the node name if
 otherwise use the node name or section name depending on
 @code{USE_NODES}.  The default is @samp{undef}.
 
-@end vtable
+@end table
 
 
 @node @@-Command Details

@@ -1,5 +1,11 @@
 2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (HTML Customization Variables List):
+	Change @vtable to @table to avoid duplicate index entries
+	for customization variables.
+
+2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (HTML Output Structure Customization):
 	Add USE_NODE_DIRECTIONS as this is only documented in
 	"HTML Customization Variables List".
