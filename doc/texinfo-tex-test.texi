@@ -86,9 +86,19 @@ Test of @acronym{ACRONYM}s.  {ACRONYM}s.
 @majorheading Test of @acronym{ACRONYM}s.  ACRONYMs
 
 
-@chapter Glyph commands
+@chapter Glyph tests
+
+@section Glyph commands
 
 @ordf{} @ordm{}
+
+@section Test of non-alphanumeric characters
+
+Not in code: @{@}@@#\
+
+In code @t{@{@}@@#\}
+
+
 
 @paragraphindent 3
 @chapter Paragraph formatting
@@ -884,13 +894,6 @@ If @var{axis} is not a valid axis of @var{a}.
 @chapter First chapter after a part page
 
 Have a look at the headline.
-
-
-@chapter Test of non-alphanumeric characters
-
-Not in code: @{@}@@#\
-
-In code @t{@{@}@@#\}
 
 
 @chapter Test of auxiliary files
