@@ -137,10 +137,10 @@ txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
 /* initialization of the library for a specific output format, to be
    called once */
 void
-txi_converter_output_format_setup (const char *format_str)
+txi_converter_output_format_setup (const char *converted_format)
 {
   enum converter_format converter_format
-    = find_format_name_converter_format (format_str);
+    = find_format_name_converter_format (converted_format);
 
   if (converter_format == COF_html)
     html_format_setup ();
@@ -152,11 +152,11 @@ txi_converter_output_format_setup (const char *format_str)
    Similar to Texinfo::Convert::XXXX->converter_defaults($options)
  */
 CONVERTER_INITIALIZATION_INFO *
-txi_converter_format_defaults (const char *format_str,
+txi_converter_format_defaults (const char *converted_format,
                                OPTIONS_LIST *customizations)
 {
   enum converter_format converter_format
-    = find_format_name_converter_format (format_str);
+    = find_format_name_converter_format (converted_format);
   CONVERTER_INITIALIZATION_INFO *conf = new_converter_initialization_info ();
   CONVERTER_INITIALIZATION_INFO *format_defaults;
 
@@ -384,14 +384,14 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
 /* converter setup. Similar to an initialization of converter
    in texi2any */
 CONVERTER *
-txi_converter_setup (const char *format_str,
+txi_converter_setup (const char *converted_format,
                      const char *output_format,
                      const STRING_LIST *texinfo_language_config_dirs_in,
                      const DEPRECATED_DIRS_LIST *deprecated_dirs,
                      OPTIONS_LIST *customizations)
 {
   enum converter_format converter_format
-    = find_format_name_converter_format (format_str);
+    = find_format_name_converter_format (converted_format);
   CONVERTER_INITIALIZATION_INFO *conf;
   CONVERTER *self;
   STRING_LIST *texinfo_language_config_dirs = new_string_list ();
@@ -399,12 +399,14 @@ txi_converter_setup (const char *format_str,
   conf = new_converter_initialization_info ();
 
   /* prepare specific information for the converter */
+  /* Now already done in main program
   if (output_format)
     err_add_option_value (&conf->conf, "TEXINFO_OUTPUT_FORMAT",
                           0, output_format);
   else
     err_add_option_value (&conf->conf, "TEXINFO_OUTPUT_FORMAT",
-                          0, format_str);
+                          0, converted_format);
+   */
 
 
   if (texinfo_language_config_dirs_in)
@@ -414,10 +416,6 @@ txi_converter_setup (const char *format_str,
   if (deprecated_dirs)
     copy_deprecated_dirs (&conf->deprecated_config_directories,
                           deprecated_dirs);
-
-  /*
-  err_add_option_value (&conf->conf, "DEBUG", 1, 0);
-   */
 
   if (customizations)
     {

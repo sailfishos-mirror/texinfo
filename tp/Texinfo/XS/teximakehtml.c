@@ -52,6 +52,8 @@
 #include "convert_to_texinfo.h"
  */
 #include "create_buttons.h"
+/* needed because commands are used to determine expanded regions names */
+#include "builtin_commands.h"
 /* destroy_converter_initialization_info */
 #include "converter.h"
 #include "texinfo.h"
@@ -60,19 +62,57 @@
 
 #define _(String) gettext (String)
 
+typedef struct FORMAT_COMMAND_LINE_NAME {
+    const char *command_line_name;
+    const char *output_name;
+} FORMAT_COMMAND_LINE_NAME;
+
+static FORMAT_COMMAND_LINE_NAME format_command_line_names[] = {
+ {"xml", "texinfoxml"},
+ {NULL, NULL},
+};
+
+typedef struct FORMAT_REGION_NAME {
+    const char *output_name;
+    const char *region_name;
+} FORMAT_REGION_NAME;
+
+static FORMAT_REGION_NAME converter_format_expanded_region_name[] = {
+  {"texinfoxml", "xml"},
+  {NULL, NULL},
+};
+
+/* TODO for internal_links add a flag or set to a function called to do
+        the internal links? */
+typedef struct FORMAT_SPECIFICATION {
+    const char *name;
+    unsigned long flags;
+    const char *converted_format;
+} FORMAT_SPECIFICATION;
+
+static FORMAT_SPECIFICATION formats_table[] = {
+  {"html", STTF_relate_index_entries_to_table_items
+           | STTF_move_index_entries_after_items
+           | STTF_no_warn_non_empty_parts
+           | STTF_nodes_tree | STTF_floats | STTF_split
+           | STTF_setup_index_entries_sort_strings, NULL},
+  {"parse", 0, NULL},
+  {"structure", STTF_nodes_tree | STTF_floats | STTF_split, NULL},
+  {NULL, 0, NULL}
+};
+
 static const char *expanded_formats[] = {"html", 0};
 static VALUE values_array[] = {
   {"txicommandconditionals", "1"}
 };
 static const VALUE_LIST values = {1, 1, values_array};
 
-static char *parser_EXPANDED_FORMATS_array[] = {"html"};
-static STRING_LIST parser_EXPANDED_FORMATS
-  = {parser_EXPANDED_FORMATS_array, 1, 1};
-
 /* options common to parser and converter */
 static OPTIONS_LIST program_options;
 static OPTIONS_LIST cmdline_options;
+/* there are no init files in C, but this is used for the occasional
+   customization variables set to an intermediate priority */
+static OPTIONS_LIST init_files_options;
 
 static char *program_file;
 
@@ -82,6 +122,9 @@ get_conf (size_t number)
 {
   if (option_number_in_option_list (&cmdline_options, number))
     return cmdline_options.sorted_options[number -1];
+
+  if (option_number_in_option_list (&init_files_options, number))
+    return init_files_options.sorted_options[number -1];
 
   if (option_number_in_option_list (&program_options, number))
     return program_options.sorted_options[number -1];
@@ -315,12 +358,10 @@ set_subdir_directories (const char *subdir,
 }
 
 static void
-set_from_cmdline (OPTIONS_LIST *options_list, OPTION *option,
+set_option_value (OPTIONS_LIST *options_list, OPTION *option,
                   const char *value)
 {
-  if (!strcmp (value, "undef"))
-    clear_option (option);
-  else if (option->type == GOT_integer)
+  if (option->type == GOT_integer)
     {
       char *endptr;
       long long_value = strtol (value, &endptr, 10);
@@ -351,6 +392,73 @@ set_from_cmdline (OPTIONS_LIST *options_list, OPTION *option,
   options_list_add_option_number (options_list, option->number);
 }
 
+/* Texinfo::Config::texinfo_set_from_init_file */
+/* only used for one variable */
+static void
+set_from_init_file (const char *option_name,
+                    const char *value)
+{
+  OPTION *option = find_option_string (init_files_options.sorted_options,
+                                       option_name);
+  if (!option)
+    {
+      document_warn("%s: unknown variable %s", "texinfo_set_from_init_file",
+                    option_name);
+      return;
+    }
+  set_option_value (&init_files_options, option, value);
+}
+
+static void
+set_from_cmdline (OPTIONS_LIST *options_list, OPTION *option,
+                  const char *value)
+{
+  if (!strcmp (value, "undef"))
+    {
+      clear_option (option);
+      options_list_add_option_number (options_list, option->number);
+    }
+  else
+    set_option_value (options_list, option, value);
+}
+
+static void
+set_format (const char *format_name)
+{
+  size_t i;
+  const char *new_output_format = 0;
+  int format_found = 0;
+
+  for (i = 0; format_command_line_names[i].command_line_name; i++)
+    {
+      if (!strcmp (format_command_line_names[i].command_line_name,
+                   format_name))
+        {
+          new_output_format = format_command_line_names[i].output_name;
+          break;
+        }
+    }
+
+  if (!new_output_format)
+    new_output_format = format_name;
+
+  for (i = 0; formats_table[i].name; i++)
+    {
+      if (!strcmp (formats_table[i].name, new_output_format))
+        {
+          format_found = 1;
+          break;
+        }
+    }
+  if (!format_found)
+    {
+      document_warn ("ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'",
+                     format_name);
+    }
+  else
+    set_from_init_file ("TEXINFO_OUTPUT_FORMAT", new_output_format);
+}
+
 static void
 get_cmdline_customization_option (OPTIONS_LIST *options_list,
                                   char *text)
@@ -371,14 +479,24 @@ get_cmdline_customization_option (OPTIONS_LIST *options_list,
               p++;
               p += strspn (p, whitespace_chars);
             }
-          if (!strcasecmp (p, "undef"))
+
+          if (!strcmp (option_name, "TEXINFO_OUTPUT_FORMAT"))
             {
-              clear_option (option);
-              options_list_add_option_number (options_list, option->number);
+              char *option_value = decode_input (p);
+              set_format (option_value);
+              free (option_value);
             }
           else
             {
-              set_from_cmdline (options_list, option, p);
+              if (!strcasecmp (p, "undef"))
+                {
+                  clear_option (option);
+                  options_list_add_option_number (options_list, option->number);
+                }
+              else
+                {
+                  set_from_cmdline (options_list, option, p);
+                }
             }
         }
       else
@@ -441,6 +559,64 @@ unset_expansion (OPTIONS_LIST *options_list, STRING_LIST *ignored_formats,
   options_list_add_option_number (options_list, option->number);
 }
 
+static void
+format_expanded_formats (STRING_LIST *default_expanded_formats,
+                         FORMAT_SPECIFICATION *format_specification)
+{
+  const char *converter_format;
+  const char *expanded_region = 0;
+  size_t i;
+
+  if (format_specification->converted_format)
+    converter_format = format_specification->converted_format;
+  else
+    converter_format = format_specification->name;
+
+  for (i = 0; converter_format_expanded_region_name[i].output_name; i++)
+    {
+      if (!strcmp (converter_format,
+                   converter_format_expanded_region_name[i].output_name))
+        {
+          expanded_region
+            = converter_format_expanded_region_name[i].region_name;
+          break;
+        }
+    }
+
+  if (!expanded_region)
+    expanded_region = converter_format;
+
+  if (!strcmp (expanded_region, "plaintext"))
+    {
+      add_string (expanded_region, default_expanded_formats);
+      add_string ("info", default_expanded_formats);
+    }
+  /* Texinfo::Common::texinfo_output_formats */
+  else
+    {
+      const char *expanded_format = 0;
+      if (!strcmp (expanded_region, "info"))
+        expanded_format = expanded_region;
+      else
+        {
+          enum command_id cmd = lookup_builtin_command (expanded_region);
+          if (cmd && builtin_command_data[cmd].flags & CF_block
+              && builtin_command_data[cmd].data == BLOCK_format_raw)
+            expanded_format = expanded_region;
+        }
+      if (expanded_format)
+        add_string (expanded_format, default_expanded_formats);
+    }
+}
+
+static void
+set_cmdline_format (const char *format_name)
+{
+  set_from_cmdline(&cmdline_options,
+                   &cmdline_options.options->TEXINFO_OUTPUT_FORMAT,
+                   format_name);
+}
+
 /* If the file overwriting becomes an error, should increase $ERROR_COUNT. */
 static size_t
 merge_opened_files (STRING_LIST *opened_files,
@@ -470,7 +646,8 @@ exit_if_errors (size_t error_count, STRING_LIST *opened_files)
   OPTION *force_option
      = get_conf (program_options.options->FORCE.number);
   int force = (force_option->o.integer > 0);
-  int error_limit = error_limit_option->o.integer;
+  /* implicit conversion */
+  size_t error_limit = error_limit_option->o.integer;
 
   if (opened_files->number > 0 && error_count && !force)
     {
@@ -526,6 +703,8 @@ static int print_help_p;
 #define IFXML_OPT 18
 #define NO_IFXML_OPT 19
 #define NO_WARN_OPT 20
+/* potentially 12 formats */
+#define HTML_OPT 25
 
 #define IFFORMAT_TABLE(upcase, name) \
   {"if" #name, 0, 0, IF ## upcase ## _OPT}, \
@@ -540,7 +719,7 @@ static struct option long_options[] = {
   {"error-limit", required_argument, 0, 'e'},
   {"footnote-style", required_argument, 0, FOOTNOTE_STYLE_OPT},
   {"force", 0, 0, 'F'},
-  {"help", 0, &print_help_p, 'h'},
+  {"help", 0, 0, 'h'},
   {"no-warn", 0, 0, NO_WARN_OPT},
   {"out", required_argument, 0, 'o'},
   {"output", required_argument, 0, 'o'},
@@ -548,6 +727,7 @@ static struct option long_options[] = {
   {"split", required_argument, 0, SPLIT_OPT},
   {"set-customization-variable", required_argument, 0, 'c'},
   {"version", 0, 0, 'V'},
+  {"html", 0, 0, HTML_OPT},
   IFFORMAT_TABLE(DOCBOOK, docbook)
   IFFORMAT_TABLE(INFO, info)
   IFFORMAT_TABLE(HTML, html)
@@ -582,6 +762,7 @@ main (int argc, char *argv[])
   STRING_LIST *texinfo_language_config_dirs;
   STRING_LIST converter_texinfo_language_config_dirs;
   STRING_LIST ignored_formats;
+  STRING_LIST default_expanded_formats;
   CONVERTER_INITIALIZATION_INFO *format_defaults;
   DEPRECATED_DIRS_LIST deprecated_directories;
   const char *curdir = ".";
@@ -595,6 +776,11 @@ main (int argc, char *argv[])
   size_t i;
   STRING_LIST input_files;
   STRING_LIST opened_files;
+  char *texinfo_output_format_env;
+  OPTION *output_format_option;
+  const char *output_format;
+  const char *converted_format;
+  FORMAT_SPECIFICATION *format_specification = 0;
 
   /*
   const char *texinfo_text;
@@ -649,6 +835,11 @@ main (int argc, char *argv[])
   txi_set_base_default_options (&program_options, locale_encoding,
                                 program_file);
 
+  /* set default output format.  Is info in texi2any */
+  /* better than making it the default value independently of the
+     implementation */
+  add_option_value (&program_options, "TEXINFO_OUTPUT_FORMAT", 0, "html");
+
   /*
    if ($^O eq 'MSWin32') {
      $main_program_set_options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'} = 0;
@@ -665,8 +856,7 @@ main (int argc, char *argv[])
   initialize_options_list (&cmdline_options);
   memset (&ignored_formats, 0, sizeof (STRING_LIST));
 
-  add_option_strlist_value (&cmdline_options, "EXPANDED_FORMATS",
-                            &parser_EXPANDED_FORMATS);
+  initialize_options_list (&init_files_options);
 
   while (1)
     {
@@ -674,6 +864,7 @@ main (int argc, char *argv[])
 
       option_character = getopt_long (argc, argv, "VhFc:e:I:o:", long_options,
                                       &getopt_long_index);
+
       if (option_character == -1)
         break;
 
@@ -805,6 +996,9 @@ main (int argc, char *argv[])
             free (split);
           }
           break;
+        case HTML_OPT:
+          set_cmdline_format ("html");
+          break;
 #define IFFORMAT_CASE(upcase, name) \
         case IF ## upcase ## _OPT: \
           set_expansion (&cmdline_options, &ignored_formats, #name); \
@@ -866,7 +1060,25 @@ main (int argc, char *argv[])
         error_limit_option->o.integer);
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
+        _("      --force                 preserve output even if errors."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("      --help                  display this help and exit."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("      --no-warn               suppress warnings (but not errors)."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
         _("  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n                                to value VAL."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("      --version               display version information and exit."));
+      text_append_n (&help_message, "\n\n", 2);
+
+      text_append (&help_message, "Output format selection (default is to produce HTML):");
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("      --html                  output HTML."));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("General output options:"));
@@ -973,7 +1185,54 @@ main (int argc, char *argv[])
       add_option_value (&program_options, "PROGRAM", 0, "texi2any");
     }
 
-  txi_converter_output_format_setup ("html");
+  texinfo_output_format_env = getenv ("TEXINFO_OUTPUT_FORMAT");
+  if (texinfo_output_format_env && strlen (texinfo_output_format_env))
+    {
+      char *format_name = decode_input (texinfo_output_format_env);
+      set_format (format_name);
+      free (format_name);
+    }
+
+  output_format_option
+    = get_conf (program_options.options->TEXINFO_OUTPUT_FORMAT.number);
+  output_format = output_format_option->o.string;
+
+  for (i = 0; formats_table[i].name; i++)
+    {
+      if (!strcmp (formats_table[i].name, output_format))
+        {
+          format_specification = &formats_table[i];
+          break;
+        }
+    }
+
+  if (format_specification->converted_format)
+    converted_format = format_specification->converted_format;
+  else
+    converted_format = output_format;
+
+  memset (&default_expanded_formats, 0, sizeof (STRING_LIST));
+  format_expanded_formats (&default_expanded_formats, format_specification);
+
+  for (i = 0; i < ignored_formats.number; i++)
+    {
+      size_t ignored_fmt_nr
+         = find_string (&default_expanded_formats, ignored_formats.list[i]);
+      if (ignored_fmt_nr)
+        remove_from_strings_list (&default_expanded_formats, ignored_fmt_nr-1);
+    }
+  for (i = 0; i < default_expanded_formats.number; i++)
+    {
+      OPTION *option = &cmdline_options.options->EXPANDED_FORMATS;
+      STRING_LIST *expanded_formats_list = option->o.strlist;
+      if (!find_string (expanded_formats_list,
+                        default_expanded_formats.list[i]))
+        add_string (default_expanded_formats.list[i], expanded_formats_list);
+    }
+
+
+  /* corresponds to eval "require $module"; in texi2any.pl */
+  txi_converter_output_format_setup (converted_format);
 
   /*
   For now, FORMAT_MENU is the only variable that can be set from converter
@@ -984,7 +1243,8 @@ main (int argc, char *argv[])
    in practice TEXI2HTML set, for conversion to HTML to select
    possibly different customization variable values.
    */
-  format_defaults = txi_converter_format_defaults ("html", &cmdline_options);
+  format_defaults = txi_converter_format_defaults (converted_format,
+                                                   &cmdline_options);
 
   if (format_defaults->conf.options->FORMAT_MENU.o.string != 0)
     {
@@ -1124,12 +1384,7 @@ main (int argc, char *argv[])
 
 
       /* structure and transformations */
-      txi_complete_document (document,
-                     STTF_relate_index_entries_to_table_items
-                     | STTF_move_index_entries_after_items
-                     | STTF_no_warn_non_empty_parts
-                     | STTF_nodes_tree | STTF_floats
-                     | STTF_setup_index_entries_sort_strings, 0);
+      txi_complete_document (document, format_specification->flags, 0);
 
       errors_nr
         = txi_handle_document_error_messages (document, no_warn,
@@ -1141,6 +1396,7 @@ main (int argc, char *argv[])
 
       /* conversion initialization */
       copy_options_list (&convert_options, &program_options);
+      copy_options_list (&convert_options, &init_files_options);
       copy_options_list (&convert_options, &cmdline_options);
 
       add_string (curdir, &converter_texinfo_language_config_dirs);
@@ -1155,7 +1411,7 @@ main (int argc, char *argv[])
       copy_strings (&converter_texinfo_language_config_dirs,
                     texinfo_language_config_dirs);
 
-      converter = txi_converter_setup ("html", "html",
+      converter = txi_converter_setup (converted_format, output_format,
                                    &converter_texinfo_language_config_dirs,
                                    &deprecated_directories,
                                    &convert_options);
@@ -1204,6 +1460,7 @@ main (int argc, char *argv[])
   free (program_file);
 
   free_options_list (&cmdline_options);
+  free_options_list (&init_files_options);
   free_options_list (&program_options);
 
   destroy_strings_list (texinfo_language_config_dirs);

@@ -22,6 +22,9 @@
 /* for complete_tree_nodes_menus, complete_tree_nodes_missing_menu
    and regenerate_master_menu */
 #define STTF_complete_menus_use_sections            0x0400
+/* not strictly a structuring and transformations selection flag, used to
+   mark that splitting is possible for a format */
+#define STTF_split                                  0x0800
 
 void txi_general_setup (int texinfo_uninstalled,
                    const char *converterdatadir, const char *tp_builddir,
