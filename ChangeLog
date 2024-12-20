@@ -1,5 +1,10 @@
 2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi (Trim whitespace from macro arguments):
+	Show expected results.
+
+2024-12-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo-tex-test.texi
 	(Images, Open or close a group in a macro)
 	(Braceless at end of line):

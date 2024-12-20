@@ -625,7 +625,12 @@ for other macros.
 
 @noindent @Mac{b} @Mac{ b} @Mac{b  } @Mac{ b }
 
+@noindent <XbX> <X bX> <Xb  X> <X b X>
+
 @noindent @Mactwo{b,c} @Mactwo{ b, c} @Mactwo{b  ,c  } @Mactwo{ b , c }
+
+@noindent <XbXcX> <XbXcX> <Xb  Xc  X> <Xb Xc X>
+
 
 
 @section Newline at start of argument
