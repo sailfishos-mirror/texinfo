@@ -19,7 +19,6 @@
 
 #include "utils.h"
 #include "parser_conf.h"
-#include "macro.h"
 #include "conf.h"
 
 void

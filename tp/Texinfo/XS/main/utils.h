@@ -122,6 +122,8 @@ int word_bytes_len_multibyte (const char *text);
 
 void messages_and_encodings_setup (void);
 
+void store_value (VALUE_LIST *values, const char *name, const char *value);
+void clear_value (VALUE_LIST *values, const char *name);
 void wipe_values (VALUE_LIST *values);
 
 void delete_global_info (GLOBAL_INFO *global_info_ref);

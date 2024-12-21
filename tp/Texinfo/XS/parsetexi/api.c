@@ -224,6 +224,6 @@ parser_conf_reset_values (void)
 void
 parser_conf_add_value (const char *name, const char *value)
 {
-  store_value (&global_parser_conf.values, name, value);
+  store_value_parsed_document (&global_parser_conf.values, name, value);
 }
 

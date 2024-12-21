@@ -28,7 +28,7 @@
 #include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
-/* for whitespace_chars wipe_values */
+/* for whitespace_chars store_value clear_value wipe_values */
 #include "utils.h"
 #include "convert_to_texinfo.h"
 /* for global_parser_conf */
@@ -1003,38 +1003,10 @@ init_values (void)
 }
 
 void
-store_value (VALUE_LIST *values, const char *name, const char *value)
+store_value_parsed_document (VALUE_LIST *values, const char *name,
+                             const char *value)
 {
-  size_t i;
-  VALUE *v = 0;
-  int len;
-
-  len = strlen (name);
-
-  /* Check if already defined. */
-  for (i = 0; i < values->number; i++)
-    {
-      if (!strncmp (values->list[i].name, name, len)
-          && !values->list[i].name[len])
-        {
-          v = &values->list[i];
-          free (v->name); free (v->value);
-          break;
-        }
-    }
-
-  if (!v)
-    {
-      if (values->number == values->space)
-        {
-          values->list = realloc (values->list,
-                                  (values->space += 5) * sizeof (VALUE));
-        }
-      v = &values->list[values->number++];
-    }
-
-  v->name = strdup (name);
-  v->value = strdup (value);
+  store_value (values, name, value);
 
   /* Internal Texinfo flag */
   if (!strncmp (name, "txi", 3) && parsed_document)
@@ -1057,24 +1029,16 @@ store_value (VALUE_LIST *values, const char *name, const char *value)
 }
 
 void
-store_parser_value (const char *name, const char *value)
+store_parser_value_parsed_document (const char *name, const char *value)
 {
-  store_value (&parser_values, name, value);
+  store_value_parsed_document (&parser_values, name, value);
 }
 
-void
-clear_value (const char *name)
+static void
+clear_value_parsed_document (VALUE_LIST *values, const char *name)
 {
-  size_t i;
-  VALUE_LIST *values = &parser_values;
-  for (i = 0; i < values->number; i++)
-    {
-      if (!strcmp (values->list[i].name, name))
-        {
-          values->list[i].name[0] = '\0';
-          values->list[i].value[0] = '\0';
-        }
-    }
+  clear_value (values, name);
+
   /* Internal Texinfo flag */
   if (!strncmp (name, "txi", 3))
     {
@@ -1092,6 +1056,12 @@ clear_value (const char *name)
       /* also: txicodequotebacktick, txicodequoteundirected,
          txicommandconditionals.  Deal with them here? */
     }
+}
+
+void
+clear_parser_value_parsed_document (const char *name)
+{
+  clear_value_parsed_document (&parser_values, name);
 }
 
 char *

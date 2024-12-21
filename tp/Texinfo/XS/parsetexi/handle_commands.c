@@ -236,8 +236,8 @@ parse_rawline_command (const char *line, enum command_id cmd,
       else
         ADD_ARG("", 0);
 
-      store_parser_value (args->list[0]->e.text->text,
-                          args->list[1]->e.text->text);
+      store_parser_value_parsed_document (args->list[0]->e.text->text,
+                                          args->list[1]->e.text->text);
 
       break;
     set_no_name:
@@ -266,7 +266,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
 
       ADD_ARG (p, flag_len);
       flag = strndup (p, flag_len);
-      clear_value (flag);
+      clear_parser_value_parsed_document (flag);
       free (flag);
 
       break;

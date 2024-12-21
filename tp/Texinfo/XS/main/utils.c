@@ -1233,6 +1233,55 @@ locate_file_in_dirs (const char *filename,
 
 /* code related to values used in files not in parsetexi */
 void
+store_value (VALUE_LIST *values, const char *name, const char *value)
+{
+  size_t i;
+  VALUE *v = 0;
+  int len;
+
+  len = strlen (name);
+
+  /* Check if already defined. */
+  for (i = 0; i < values->number; i++)
+    {
+      if (!strncmp (values->list[i].name, name, len)
+          && !values->list[i].name[len])
+        {
+          v = &values->list[i];
+          free (v->name); free (v->value);
+          break;
+        }
+    }
+
+  if (!v)
+    {
+      if (values->number == values->space)
+        {
+          values->list = realloc (values->list,
+                                  (values->space += 5) * sizeof (VALUE));
+        }
+      v = &values->list[values->number++];
+    }
+
+  v->name = strdup (name);
+  v->value = strdup (value);
+}
+
+void
+clear_value (VALUE_LIST *values, const char *name)
+{
+  size_t i;
+  for (i = 0; i < values->number; i++)
+    {
+      if (!strcmp (values->list[i].name, name))
+        {
+          values->list[i].name[0] = '\0';
+          values->list[i].value[0] = '\0';
+        }
+    }
+}
+
+void
 wipe_values (VALUE_LIST *values)
 {
   size_t i;

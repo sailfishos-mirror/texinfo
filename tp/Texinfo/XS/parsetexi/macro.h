@@ -43,11 +43,12 @@ void unset_macro_record (MACRO *m);
 MACRO *lookup_macro (enum command_id cmd);
 void wipe_macros (void);
 
-void store_value (VALUE_LIST *values, const char *name, const char *value);
+void store_value_parsed_document (VALUE_LIST *values, const char *name,
+                                  const char *value);
 char *fetch_value (const char *name);
-void clear_value (const char *name);
+void clear_parser_value_parsed_document (const char *name);
+void store_parser_value_parsed_document (const char *name, const char *value);
 void init_values (void);
-void store_parser_value (const char *name, const char *value);
 
 INFO_ENCLOSE *lookup_infoenclose (enum command_id cmd);
 void add_infoenclose (enum command_id cmd, const char *begin, const char *end);
