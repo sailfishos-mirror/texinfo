@@ -263,7 +263,7 @@ sub get_build_constant($)
 my %valid_tree_transformations;
 foreach my $valid_transformation (
     'fill_gaps_in_sectioning', 'move_index_entries_after_items',
-    'relate_index_entries_to_items',
+    'relate_index_entries_to_table_items',
     'insert_nodes_for_sectioning_commands',
     'complete_tree_nodes_menus',
     'complete_tree_nodes_missing_menu',

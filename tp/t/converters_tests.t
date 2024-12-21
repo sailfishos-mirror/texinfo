@@ -1445,7 +1445,7 @@ undef,{'test_file' => 'simplest.texi',},
 undef, {'test_file' => '../../tests/formatting/indices_in_begin_tables_lists.texi'},
 {'SPLIT' => '', 'USE_NODES' => 0}],
 # HTML still different from tests/indices indices_in_begin_tables_lists,
-# as there is no relate_index_entries_to_items tree transformation
+# as there is no relate_index_entries_to_table_items tree transformation
 ['indices_in_begin_tables_lists_entries_after_item',
 undef, {'test_file' => '../../tests/formatting/indices_in_begin_tables_lists.texi',
         'TREE_TRANSFORMATIONS' => 'move_index_entries_after_items'},

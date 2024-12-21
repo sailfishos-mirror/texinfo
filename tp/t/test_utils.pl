@@ -1146,7 +1146,7 @@ sub test($$)
     Texinfo::Transformations::fill_gaps_in_sectioning($tree);
   }
 
-  if ($tree_transformations{'relate_index_entries_to_items'}) {
+  if ($tree_transformations{'relate_index_entries_to_table_items'}) {
     Texinfo::ManipulateTree::relate_index_entries_to_table_items_in_tree(
                                                                    $document);
   }

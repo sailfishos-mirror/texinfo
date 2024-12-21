@@ -241,7 +241,7 @@ GGGG
 HHHHHH
 @end table
 ',
-{'TREE_TRANSFORMATIONS' => 'relate_index_entries_to_items'}
+{'TREE_TRANSFORMATIONS' => 'relate_index_entries_to_table_items'}
 ],
 ['block_commands_in_table',
 '@node Top
