@@ -46,7 +46,7 @@
 #include "base_utils.h"
 /* for xvasprintf */
 #include "text.h"
-/* parse_file_path whitespace_chars encode_string xasprintf */
+/* parse_file_path whitespace_chars encode_string xasprintf digit_chars */
 #include "utils.h"
 #include "customization_options.h"
 #include "convert_to_texinfo.h"
@@ -699,6 +699,22 @@ handle_errors (size_t additional_error_count, size_t error_count,
   return error_count;
 }
 
+/* TODO could also have used strtol */
+static int
+is_ascii_digit (const char *text)
+{
+  const char *p = text;
+  size_t digits_nr = strspn (text, digit_chars);
+
+  if (digits_nr)
+    {
+      p += digits_nr;
+      if (!*p)
+        return 1;
+    }
+  return 0;
+}
+
 /* Non-zero means demonstration mode */
 static int demonstration_p;
 
@@ -778,6 +794,7 @@ static struct option long_options[] = {
   {"no-number-footnotes", 0, 0, NO_NUMBER_FOOTNOTES_OPT},
   {"number-sections", 0, 0, NUMBER_SECTIONS_OPT},
   {"no-number-sections", 0, 0, NO_NUMBER_SECTIONS_OPT},
+  {"paragraph-indent", required_argument, 0, 'p'},
   {"no-warn", 0, 0, NO_WARN_OPT},
   {"out", required_argument, 0, 'o'},
   {"output", required_argument, 0, 'o'},
@@ -959,6 +976,11 @@ main (int argc, char *argv[])
         case 'c':
           get_cmdline_customization_option (&cmdline_options, optarg);
           break;
+        case DOCUMENT_LANGUAGE_OPT:
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->documentlanguage.number,
+                           optarg);
+          break;
         case 'e':
           set_from_cmdline(&cmdline_options,
                            cmdline_options.options->ERROR_LIMIT.number,
@@ -1122,11 +1144,6 @@ main (int argc, char *argv[])
             exit (EXIT_SUCCESS);
           }
           break;
-        case DOCUMENT_LANGUAGE_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->documentlanguage.number,
-                           optarg);
-          break;
         case FOOTNOTE_STYLE_OPT:
           {
             /* actually const but constrained by prototypes */
@@ -1144,6 +1161,34 @@ main (int argc, char *argv[])
 
                 xasprintf (&formatted_message,
         _("%s: --footnote-style arg must be `separate' or `end', not `%s'."),
+                  program_file, value);
+                encoded_message = encode_message (formatted_message);
+                free (formatted_message);
+                fprintf (stderr, "%s\n", encoded_message);
+                free (encoded_message);
+                exit (EXIT_FAILURE);
+              }
+            free (value);
+          }
+          break;
+        case 'p':
+          {
+            /* actually const but constrained by prototypes */
+            char *value = decode_input((char *) optarg);
+            if (!strcmp (value, "none") || !strcmp (value, "asis")
+                || is_ascii_digit (value))
+              {
+                set_from_cmdline(&cmdline_options,
+                          cmdline_options.options->paragraphindent.number,
+                                 value);
+              }
+            else
+              {
+                char *formatted_message;
+                char *encoded_message;
+
+                xasprintf (&formatted_message,
+    _("%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."),
                   program_file, value);
                 encoded_message = encode_message (formatted_message);
                 free (formatted_message);
@@ -1245,6 +1290,10 @@ main (int argc, char *argv[])
 
   if (print_help_p)
     {
+      char *encoded_message;
+      char *endptr;
+      const char *option_value;
+      int paragraphindent_size;
       TEXT help_message;
       OPTION *error_limit_option
         = get_conf (program_options.options->ERROR_LIMIT.number);
@@ -1270,6 +1319,9 @@ main (int argc, char *argv[])
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _("      --help                  display this help and exit."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("      --no-validate           suppress node cross-reference validation."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _("      --no-warn               suppress warnings (but not errors)."));
@@ -1325,6 +1377,14 @@ main (int argc, char *argv[])
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n                                `separate' to put them in their own node;\n                                `end' to put them at the end of the node, in\n                                which they are defined (this is the default)."));
+      text_append_n (&help_message, "\n", 1);
+
+      option_value
+  = txi_base_sorted_options[program_options.options->paragraphindent.number -1]->o.string;
+      paragraphindent_size = strtol (option_value, &endptr, 10);
+      text_printf (&help_message, _(
+   "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default %d).\n                                If VAL is `none', do not indent; if VAL is\n                                `asis', preserve existing indentation."),
+                   paragraphindent_size);
       text_append_n (&help_message, "\n", 1);
       text_printf (&help_message, _(
    "      --split-size=NUM        split Info files at size NUM (default %d)."),
@@ -1410,8 +1470,10 @@ main (int argc, char *argv[])
       text_append (&help_message, _("Email bug reports to bug-texinfo@gnu.org,\ngeneral questions and discussion to help-texinfo@gnu.org.\nTexinfo home page: https://www.gnu.org/software/texinfo/"));
       text_append_n (&help_message, "\n", 1);
 
-      fprintf (stderr, "%s", help_message.text);
+      encoded_message = encode_message (help_message.text);
       free (help_message.text);
+      printf ("%s", encoded_message);
+      free (encoded_message);
       exit (EXIT_SUCCESS);
     }
 
