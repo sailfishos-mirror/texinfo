@@ -133,19 +133,6 @@ get_conf (size_t number)
   return 0;
 }
 
-static int
-set_customization_default (const OPTION *option)
-{
-  if (option_number_in_option_list (&cmdline_options, option->number)
-      || option_number_in_option_list (&init_files_options, option->number))
-    return 0;
-
-  options_list_add_option_number (&program_options, option->number);
-  copy_option (program_options.sorted_options[option->number -1], option);
-  return 1;
-}
-
-/* Texinfo::Config and texi2any */
 static char *
 decode_input (char *text)
 {
@@ -360,9 +347,11 @@ set_subdir_directories (const char *subdir,
 }
 
 static void
-set_option_value (OPTIONS_LIST *options_list, OPTION *option,
+set_option_value (OPTIONS_LIST *options_list, size_t number,
                   const char *value)
 {
+  OPTION *option = options_list->sorted_options[number -1];
+
   if (option->type == GOT_integer)
     {
       char *endptr;
@@ -391,7 +380,7 @@ set_option_value (OPTIONS_LIST *options_list, OPTION *option,
       option_set_conf (option, 0, option_value);
       free (option_value);
     }
-  options_list_add_option_number (options_list, option->number);
+  options_list_add_option_number (options_list, number);
 }
 
 /* Texinfo::Config::texinfo_set_from_init_file */
@@ -408,20 +397,35 @@ set_from_init_file (const char *option_name,
                     option_name);
       return;
     }
-  set_option_value (&init_files_options, option, value);
+  set_option_value (&init_files_options, option->number, value);
 }
 
+/* Texinfo::Config::GNUT_set_customization_default */
+/* set_main_program_default in texi2any.pl */
+static int
+set_customization_default (size_t number, const char *value)
+{
+  if (option_number_in_option_list (&cmdline_options, number)
+      || option_number_in_option_list (&init_files_options, number))
+    return 0;
+
+  set_option_value (&program_options, number, value);
+  return 1;
+}
+
+/* Texinfo::Config and texi2any */
 static void
-set_from_cmdline (OPTIONS_LIST *options_list, OPTION *option,
+set_from_cmdline (OPTIONS_LIST *options_list, size_t number,
                   const char *value)
 {
   if (!strcmp (value, "undef"))
     {
+      OPTION *option = options_list->sorted_options[number -1];
       clear_option (option);
       options_list_add_option_number (options_list, option->number);
     }
   else
-    set_option_value (options_list, option, value);
+    set_option_value (options_list, number, value);
 }
 
 static void
@@ -497,7 +501,7 @@ get_cmdline_customization_option (OPTIONS_LIST *options_list,
                 }
               else
                 {
-                  set_from_cmdline (options_list, option, p);
+                  set_from_cmdline (options_list, option->number, p);
                 }
             }
         }
@@ -615,7 +619,7 @@ static void
 set_cmdline_format (const char *format_name)
 {
   set_from_cmdline(&cmdline_options,
-                   &cmdline_options.options->TEXINFO_OUTPUT_FORMAT,
+                   cmdline_options.options->TEXINFO_OUTPUT_FORMAT.number,
                    format_name);
 }
 
@@ -709,6 +713,8 @@ static int print_help_p;
 #define HTML_OPT 25
 #define TRACE_INCLUDES_OPT 33
 #define NO_VERBOSE_OPT 34
+#define HEADERS_OPT 35
+#define NO_HEADERS_OPT 36
 
 #define IFFORMAT_TABLE(upcase, name) \
   {"if" #name, 0, 0, IF ## upcase ## _OPT}, \
@@ -723,6 +729,8 @@ static struct option long_options[] = {
   {"error-limit", required_argument, 0, 'e'},
   {"footnote-style", required_argument, 0, FOOTNOTE_STYLE_OPT},
   {"force", 0, 0, 'F'},
+  {"headers", 0, 0, HEADERS_OPT},
+  {"no-headers", 0, 0, NO_HEADERS_OPT},
   {"help", 0, 0, 'h'},
   {"macro-expand", required_argument, 0, 'E'},
   {"no-warn", 0, 0, NO_WARN_OPT},
@@ -791,6 +799,8 @@ main (int argc, char *argv[])
   const char *converted_format;
   FORMAT_SPECIFICATION *format_specification = 0;
   int do_menu = 0;
+  size_t format_menu_option_nr;
+  const char *conversion_format_menu_default = 0;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -882,33 +892,56 @@ main (int argc, char *argv[])
           break;
         case 'e':
           set_from_cmdline(&cmdline_options,
-                           &cmdline_options.options->ERROR_LIMIT,
+                           cmdline_options.options->ERROR_LIMIT.number,
                            optarg);
           break;
         case 'E':
           set_from_cmdline(&cmdline_options,
-                           &cmdline_options.options->MACRO_EXPAND,
+                           cmdline_options.options->MACRO_EXPAND.number,
                            optarg);
           break;
         case 'F':
           set_from_cmdline(&cmdline_options,
-                           &cmdline_options.options->FORCE, "1");
+                           cmdline_options.options->FORCE.number, "1");
           break;
         case NO_WARN_OPT:
           set_from_cmdline(&cmdline_options,
-                           &cmdline_options.options->NO_WARN, "1");
+                           cmdline_options.options->NO_WARN.number, "1");
           break;
         case TRACE_INCLUDES_OPT:
           set_from_cmdline(&cmdline_options,
-                           &cmdline_options.options->TRACE_INCLUDES, "1");
+                           cmdline_options.options->TRACE_INCLUDES.number,
+                           "1");
           break;
         case 'v':
           set_from_cmdline(&cmdline_options,
-                           &cmdline_options.options->VERBOSE, "1");
+                           cmdline_options.options->VERBOSE.number, "1");
           break;
         case NO_VERBOSE_OPT:
           set_from_cmdline(&cmdline_options,
-                           &cmdline_options.options->VERBOSE, "0");
+                           cmdline_options.options->VERBOSE.number, "0");
+          break;
+        case NO_HEADERS_OPT:
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->HEADERS.number, "0");
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->FORMAT_MENU.number,
+                           "nomenu");
+          {
+            size_t option_nr
+              = program_options.options->TEXINFO_OUTPUT_FORMAT.number;
+            OPTION *output_format_option = get_conf (option_nr);
+            if (output_format_option && output_format_option->o.string
+                && !strcmp (output_format_option->o.string, "info"))
+              set_customization_default (option_nr, "plaintext");
+          }
+          break;
+        case HEADERS_OPT:
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->HEADERS.number, "1");
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->FORMAT_MENU.number,
+                           "set_format_menu_from_cmdline_header_option");
           break;
         case 'I':
           {
@@ -944,7 +977,7 @@ main (int argc, char *argv[])
           break;
         case DOCUMENT_LANGUAGE_OPT:
           set_from_cmdline(&cmdline_options,
-                           &cmdline_options.options->documentlanguage,
+                           cmdline_options.options->documentlanguage.number,
                            optarg);
           break;
         case FOOTNOTE_STYLE_OPT:
@@ -954,7 +987,7 @@ main (int argc, char *argv[])
             if (!strcmp (value, "end") || !strcmp (value, "separate"))
               {
                 set_from_cmdline(&cmdline_options,
-                                 &cmdline_options.options->footnotestyle,
+                          cmdline_options.options->footnotestyle.number,
                                  value);
               }
             else
@@ -987,19 +1020,21 @@ main (int argc, char *argv[])
                 if (optarg[opt_len -1] == '/'
                     || (stat (optarg, &finfo) == 0 && S_ISDIR (finfo.st_mode)))
                   {
-                    set_from_cmdline (&cmdline_options, option, "undef");
+                    set_from_cmdline (&cmdline_options,
+                                      option->number, "undef");
                     option = &cmdline_options.options->SUBDIR;
                   }
               }
-            set_from_cmdline (&cmdline_options, option, decoded_string);
+            set_from_cmdline (&cmdline_options, option->number, decoded_string);
             free (decoded_string);
           }
           break;
         case NO_SPLIT_OPT:
           set_from_cmdline (&cmdline_options,
-                            &cmdline_options.options->SPLIT, "");
+                            cmdline_options.options->SPLIT.number, "");
           set_from_cmdline (&cmdline_options,
-                            &cmdline_options.options->SPLIT_SIZE, "undef");
+                            cmdline_options.options->SPLIT_SIZE.number,
+                            "undef");
           break;
         case SPLIT_OPT:
           {
@@ -1016,7 +1051,7 @@ main (int argc, char *argv[])
                 split = strdup ("node");
               }
             set_from_cmdline (&cmdline_options,
-                              &cmdline_options.options->SPLIT, split);
+                              cmdline_options.options->SPLIT.number, split);
             free (split);
           }
           break;
@@ -1115,6 +1150,9 @@ main (int argc, char *argv[])
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n                                ignoring any @setfilename."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
+   "      --no-headers            suppress node separators, Node: lines, and menus\n                                from Info output (thus producing plain text)\n                                or from HTML (thus producing shorter output).\n                                Also, if producing Info, write to\n                                standard output by default."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --no-split              suppress any splitting of the output;\n                                generate only one output file."));
@@ -1279,24 +1317,47 @@ main (int argc, char *argv[])
   format_defaults = txi_converter_format_defaults (converted_format,
                                                    &cmdline_options);
 
-  /* in Perl the presence of a module is used to determine if there
-     are format defaults.  Here we use format_defaults being set */
+  format_menu_option_nr = program_options.options->FORMAT_MENU.number;
+
+  /* in Perl the presence of a module in format specification is used to
+     determine if there are format defaults.  Here check if format_defaults
+     is set */
   if (format_defaults)
     {
-      if (format_defaults->conf.options->FORMAT_MENU.o.string != 0)
+      conversion_format_menu_default
+        = strdup (format_defaults->conf.options->FORMAT_MENU.o.string);
+      if (conversion_format_menu_default != 0)
         {
           /*
-          fprintf (stderr, "FORMAT_MENU %s\n",
-               format_defaults->conf.options->FORMAT_MENU.o.string);
+          fprintf (stderr, "FORMAT_MENU %s\n", conversion_format_menu_default);
            */
-          set_customization_default (
-                               &format_defaults->conf.options->FORMAT_MENU);
+          set_customization_default (format_menu_option_nr,
+                                     conversion_format_menu_default);
         }
 
       destroy_converter_initialization_info (format_defaults);
     }
 
-  format_menu_option = get_conf (program_options.options->FORMAT_MENU.number);
+  /* special case for FORMAT_MENU of delayed setting based in
+     some case on converter */
+  format_menu_option = get_conf (format_menu_option_nr);
+  if (format_menu_option && format_menu_option->o.string
+      && !strcmp (format_menu_option->o.string,
+                  "set_format_menu_from_cmdline_header_option"))
+    {
+      if (conversion_format_menu_default
+          && strcmp (conversion_format_menu_default, "nomenu"))
+        {
+          set_from_cmdline (&cmdline_options, format_menu_option_nr,
+                            conversion_format_menu_default);
+        }
+      else
+        set_from_cmdline (&cmdline_options, format_menu_option_nr, "menu");
+    }
+
+  free (conversion_format_menu_default);
+
+  format_menu_option = get_conf (format_menu_option_nr);
   if (format_menu_option && (!format_menu_option->o.string
                              || !strcmp (format_menu_option->o.string,
                                          "menu")))
