@@ -715,6 +715,19 @@ static int print_help_p;
 #define NO_VERBOSE_OPT 34
 #define HEADERS_OPT 35
 #define NO_HEADERS_OPT 36
+#define NUMBER_SECTIONS_OPT 37
+#define NO_NUMBER_SECTIONS_OPT 38
+#define ENABLE_ENCODING_OPT 39
+#define DISABLE_ENCODING_OPT 40
+#define NUMBER_FOOTNOTES_OPT 41
+#define NO_NUMBER_FOOTNOTES_OPT 42
+#define NODE_FILES_OPT 43
+#define NO_NODE_FILES_OPT 44
+#define TRANSLITERATE_FILE_NAMES_OPT 45
+#define NO_TRANSLITERATE_FILE_NAMES_OPT 46
+#define SPLIT_SIZE_OPT 47
+#define DEBUG_OPT 48
+#define NO_VALIDATE_OPT 49
 
 #define IFFORMAT_TABLE(upcase, name) \
   {"if" #name, 0, 0, IF ## upcase ## _OPT}, \
@@ -725,21 +738,36 @@ static struct option long_options[] = {
   {"demonstration", 0, &demonstration_p, 1},
   {"mimick", 0, &mimick_p, 1},
 
+  {"debug", required_argument, 0, DEBUG_OPT},
+  {"disable-encoding", 0, 0, DISABLE_ENCODING_OPT},
   {"document-language", required_argument, 0, DOCUMENT_LANGUAGE_OPT},
+  {"enable-encoding", 0, 0, ENABLE_ENCODING_OPT},
   {"error-limit", required_argument, 0, 'e'},
+  {"fill-column", required_argument, 0, 'f'},
   {"footnote-style", required_argument, 0, FOOTNOTE_STYLE_OPT},
   {"force", 0, 0, 'F'},
   {"headers", 0, 0, HEADERS_OPT},
   {"no-headers", 0, 0, NO_HEADERS_OPT},
   {"help", 0, 0, 'h'},
   {"macro-expand", required_argument, 0, 'E'},
+  {"node-files", 0, 0, NODE_FILES_OPT},
+  {"no-node-files", 0, 0, NO_NODE_FILES_OPT},
+  {"number-footnotes", 0, 0, NUMBER_FOOTNOTES_OPT},
+  {"no-number-footnotes", 0, 0, NO_NUMBER_FOOTNOTES_OPT},
+  {"number-sections", 0, 0, NUMBER_SECTIONS_OPT},
+  {"no-number-sections", 0, 0, NO_NUMBER_SECTIONS_OPT},
   {"no-warn", 0, 0, NO_WARN_OPT},
   {"out", required_argument, 0, 'o'},
   {"output", required_argument, 0, 'o'},
   {"no-split", 0, 0, NO_SPLIT_OPT},
   {"split", required_argument, 0, SPLIT_OPT},
   {"set-customization-variable", required_argument, 0, 'c'},
+  {"split-size", required_argument, 0, SPLIT_SIZE_OPT},
   {"trace-include", 0, 0, TRACE_INCLUDES_OPT},
+  {"transliterate-file-names", 0, 0, TRANSLITERATE_FILE_NAMES_OPT},
+  {"no-transliterate-file-names", 0, 0, NO_TRANSLITERATE_FILE_NAMES_OPT},
+  {"no-validate", 0, 0, NO_VALIDATE_OPT},
+  {"no-pointer-validate", 0, 0, NO_VALIDATE_OPT},
   {"verbose", 0, 0, 'v'},
   {"no-verbose", 0, 0, NO_VERBOSE_OPT},
   {"version", 0, 0, 'V'},
@@ -881,7 +909,7 @@ main (int argc, char *argv[])
     {
       int option_character;
 
-      option_character = getopt_long (argc, argv, "VhvFc:e:I:P:o:E:",
+      option_character = getopt_long (argc, argv, "VhvFc:e:f:I:P:o:E:",
                                       long_options,
                                       &getopt_long_index);
 
@@ -898,6 +926,11 @@ main (int argc, char *argv[])
                            cmdline_options.options->ERROR_LIMIT.number,
                            optarg);
           break;
+        case 'f':
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->FILLCOLUMN.number,
+                           optarg);
+          break;
         case 'E':
           set_from_cmdline(&cmdline_options,
                            cmdline_options.options->MACRO_EXPAND.number,
@@ -907,14 +940,69 @@ main (int argc, char *argv[])
           set_from_cmdline(&cmdline_options,
                            cmdline_options.options->FORCE.number, "1");
           break;
-        case NO_WARN_OPT:
+        case DISABLE_ENCODING_OPT:
           set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->NO_WARN.number, "1");
+                           cmdline_options.options->ENABLE_ENCODING.number,
+                           "0");
+          break;
+        case ENABLE_ENCODING_OPT:
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->ENABLE_ENCODING.number,
+                           "1");
+          break;
+        case NODE_FILES_OPT:
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->NODE_FILES.number,
+                           "1");
+          break;
+        case NO_NODE_FILES_OPT:
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->NODE_FILES.number,
+                           "0");
+          break;
+        case NUMBER_FOOTNOTES_OPT:
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->NUMBER_FOOTNOTES.number,
+                           "1");
+          break;
+        case NO_NUMBER_FOOTNOTES_OPT:
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->NUMBER_FOOTNOTES.number,
+                           "0");
+          break;
+        case NUMBER_SECTIONS_OPT:
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->NUMBER_SECTIONS.number,
+                           "1");
+          break;
+        case NO_NUMBER_SECTIONS_OPT:
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->NUMBER_SECTIONS.number,
+                           "0");
+          break;
+        case SPLIT_SIZE_OPT:
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->SPLIT_SIZE.number,
+                           optarg);
           break;
         case TRACE_INCLUDES_OPT:
           set_from_cmdline(&cmdline_options,
                            cmdline_options.options->TRACE_INCLUDES.number,
                            "1");
+          break;
+        case TRANSLITERATE_FILE_NAMES_OPT:
+          set_from_cmdline(&cmdline_options,
+                     cmdline_options.options->TRANSLITERATE_FILE_NAMES.number,
+                           "1");
+          break;
+        case NO_TRANSLITERATE_FILE_NAMES_OPT:
+          set_from_cmdline(&cmdline_options,
+                     cmdline_options.options->TRANSLITERATE_FILE_NAMES.number,
+                           "0");
+          break;
+        case NO_VALIDATE_OPT:
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->novalidate.number, "1");
           break;
         case 'v':
           set_from_cmdline(&cmdline_options,
@@ -923,6 +1011,10 @@ main (int argc, char *argv[])
         case NO_VERBOSE_OPT:
           set_from_cmdline(&cmdline_options,
                            cmdline_options.options->VERBOSE.number, "0");
+          break;
+        case NO_WARN_OPT:
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->NO_WARN.number, "1");
           break;
         case NO_HEADERS_OPT:
           set_from_cmdline(&cmdline_options,
@@ -1164,19 +1256,42 @@ main (int argc, char *argv[])
    "      --no-split              suppress any splitting of the output;\n                                generate only one output file."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
+   "      --[no-]number-sections  output chapter and sectioning numbers;\n                                default is on."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
    "  -o, --output=DEST           output to DEST.\n                                With split output, create DEST as a directory\n                                and put the output files there.\n                                With non-split output, if DEST is already\n                                a directory or ends with a /,\n                                put the output file there.\n                                Otherwise, DEST names the output file."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
+   "      --disable-encoding      do not output accented and special characters\n                                in Info and plain text output based on document\n                                encoding."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
+   "      --enable-encoding       override --disable-encoding (default)."));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("Options for Info and plain text:"));
       text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-   "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n                                `separate' to put them in their own node;\n                                `end' to put them at the end of the node, in\n                                which they are defined (this is the default).");
+      text_printf (&help_message, _(
+   "      --fill-column=NUM       break Info lines at NUM columns (default %d)."),
+  txi_base_sorted_options[program_options.options->FILLCOLUMN.number -1]->o.integer);
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
+   "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n                                `separate' to put them in their own node;\n                                `end' to put them at the end of the node, in\n                                which they are defined (this is the default)."));
+      text_append_n (&help_message, "\n", 1);
+      text_printf (&help_message, _(
+   "      --split-size=NUM        split Info files at size NUM (default %d)."),
+  txi_base_sorted_options[program_options.options->SPLIT_SIZE.number -1]->o.integer);
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("Options for HTML:"));
       text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-   "      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',\n                                `section' or `node'.");
+      text_append (&help_message, _(
+   "      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',\n                                `section' or `node'."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
+   "      --transliterate-file-names  use file names in ASCII transliteration."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
+   "      --node-files            produce redirection files for nodes and\n                                anchors; default is set only if split."));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("Input file options:"));

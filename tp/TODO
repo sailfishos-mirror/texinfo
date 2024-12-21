@@ -12,6 +12,8 @@ Before next release
 
 add getopt-gnu gnulib module in XS
 
+Report --number-footnotes not documented in texi2any --help
+
 Bugs
 ====
 
