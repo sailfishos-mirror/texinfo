@@ -102,10 +102,7 @@ static FORMAT_SPECIFICATION formats_table[] = {
   {NULL, 0, NULL}
 };
 
-static VALUE values_array[] = {
-  {"txicommandconditionals", "1"}
-};
-static const VALUE_LIST values = {1, 1, values_array};
+static VALUE_LIST values;
 
 /* options common to parser and converter */
 static OPTIONS_LIST program_options;
@@ -941,6 +938,8 @@ main (int argc, char *argv[])
 
   initialize_options_list (&cmdline_options);
 
+  store_value (&values, "txicommandconditionals", "1");
+
   /* always consider that command-line array options are set from
      the command-line */
 
@@ -964,7 +963,7 @@ main (int argc, char *argv[])
     {
       int option_character;
 
-      option_character = getopt_long (argc, argv, "VhvFc:e:f:I:P:o:E:",
+      option_character = getopt_long (argc, argv, "VhvFc:D:e:f:I:P:o:E:U:",
                                       long_options,
                                       &getopt_long_index);
 
@@ -1121,6 +1120,42 @@ main (int argc, char *argv[])
           break;
         case 'h':
           print_help_p = 1;
+          break;
+        case 'D':
+          {
+           /* actually const but constrained by prototypes */
+            char *value = decode_input((char *) optarg);
+            const char *p = value;
+            size_t flag_len = strcspn (value, whitespace_chars);
+            if (flag_len)
+              {
+                size_t spaces_len;
+                const char *flag_value = 0;
+                char *flag = strndup (value, flag_len);
+
+                p += flag_len;
+                spaces_len = strspn (p, whitespace_chars);
+                if (spaces_len)
+                  {
+                    p += spaces_len;
+                    if (*p)
+                      flag_value = p;
+                  }
+                if (!flag_value)
+                  flag_value = "1";
+                store_value (&values, flag, flag_value);
+                free (flag);
+              }
+            free (value);
+          }
+          break;
+        case 'U':
+          {
+           /* actually const but constrained by prototypes */
+            char *value = decode_input((char *) optarg);
+            clear_value (&values, value);
+            free (value);
+          }
           break;
         case 'V':
           {
@@ -1412,10 +1447,19 @@ main (int argc, char *argv[])
       text_append (&help_message, _("Input file options:"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
+        _(" -D VAR                       define the variable VAR, as with @set."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _(" -D 'VAR VAL'                 define VAR to VAL (one shell argument)."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
         _(" -I DIR                       append DIR to the @include search path."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _(" -P DIR                       prepend DIR to the @include search path."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _(" -U VAR                       undefine the variable VAR, as with @clear."));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("Conditional processing in input:"));
