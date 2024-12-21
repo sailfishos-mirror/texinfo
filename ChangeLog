@@ -1,5 +1,15 @@
 2024-12-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl: remove end of line in translated string.
+
+	* tp/Texinfo/XS/teximakehtml.c (document_warn, main): free strings
+	and wipe values in the end.
+
+	* tp/Texinfo/XS/teximakehtml.c (main): warn if input file ends with
+	.info.  Complete suffixes.  Set format if TEXI2HTML is specified.
+
+2024-12-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/teximakehtml.c (values, main): add -D and -U options.
 
 2024-12-21  Patrice Dumas  <pertusus@free.fr>

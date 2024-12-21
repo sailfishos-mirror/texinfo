@@ -46,7 +46,8 @@
 #include "base_utils.h"
 /* for xvasprintf */
 #include "text.h"
-/* parse_file_path whitespace_chars encode_string xasprintf digit_chars */
+/* parse_file_path whitespace_chars encode_string xasprintf digit_chars
+   wipe_values */
 #include "utils.h"
 #include "customization_options.h"
 #include "convert_to_texinfo.h"
@@ -193,8 +194,10 @@ document_warn (const char *format, ...)
                               program_file, message);
 #endif
   if (!formatted_message) fatal ("asprintf failed");
+  free (message);
 
   encoded_message = encode_message (formatted_message);
+  free (formatted_message);
 
   if (encoded_message)
     {
@@ -503,8 +506,8 @@ get_cmdline_customization_option (OPTIONS_LIST *options_list,
         }
       else
         {
-          document_warn("unknown variable from command line: %s",
-                        option_name);
+          document_warn ("unknown variable from command line: %s",
+                         option_name);
         }
       free (option_name);
     }
@@ -712,6 +715,10 @@ is_ascii_digit (const char *text)
   return 0;
 }
 
+const char *input_file_suffixes[] = {
+".txi",".texinfo",".texi",".txinfo", "", NULL
+};
+
 /* Non-zero means demonstration mode */
 static int demonstration_p;
 
@@ -828,7 +835,7 @@ main (int argc, char *argv[])
 {
   int getopt_long_index;
   const char *locale_encoding = 0;
-  const char *input_file_path;
+  const char *input_file_arg;
   int status;
   char *program_file_name_and_directory[2];
   /*
@@ -869,6 +876,7 @@ main (int argc, char *argv[])
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
+  free (program_file_name_and_directory[1]);
   /* command_directory = program_file_name_and_directory[1]; */
 
   top_srcdir = getenv ("top_srcdir");
@@ -1115,7 +1123,9 @@ main (int argc, char *argv[])
         case CSS_REF_OPT:
           {
             OPTION *option = &cmdline_options.options->CSS_REFS;
-            add_string (optarg, option->o.strlist);
+            char *value = decode_input((char *) optarg);
+            add_string (value, option->o.strlist);
+            free (value);
           }
           break;
         case 'h':
@@ -1521,6 +1531,12 @@ main (int argc, char *argv[])
       exit (EXIT_SUCCESS);
     }
 
+  if (cmdline_options.options->TEXI2HTML.o.integer > 0)
+    {
+      set_format ("html");
+      store_value (&values, "TEXI2HTML", "1");
+    }
+
   test_option = get_conf (program_options.options->TEST.number);
   if (test_option && test_option->o.integer > 0)
     test_mode_set = 1;
@@ -1763,8 +1779,52 @@ main (int argc, char *argv[])
       STRING_LIST *converter_include_dirs;
       STRING_LIST *converter_texinfo_language_config_dirs;
       const char *curdir = ".";
+      char *input_file_path = 0;
+      size_t file_path_len;
+      size_t j;
 
-      input_file_path = input_files.list[i];
+      input_file_arg = input_files.list[i];
+
+      file_path_len = strlen (input_file_arg);
+      if (file_path_len > strlen (".info")
+          && !memcmp (input_file_arg + file_path_len -strlen (".info"),
+                      ".info", strlen (".info")))
+        {
+          char *corrected;
+          char *arg_basename;
+
+          parse_file_path (input_file_arg, input_file_name_and_directory);
+          arg_basename = input_file_name_and_directory[0];
+          free (input_file_name_and_directory[1]);
+          corrected = strdup (arg_basename);
+          memcpy (corrected + strlen (corrected) -strlen (".info"), ".texi",
+                  strlen (".texi"));
+          document_warn ("input file %s; did you mean %s?",
+                         arg_basename, corrected);
+          free (corrected);
+          free (arg_basename);
+        }
+
+     /* try to concatenate with different suffixes. The last suffix is ''
+        such that the plain file name is checked. */
+      for (j = 0; input_file_suffixes[j]; j++)
+        {
+          struct stat finfo;
+          char *path_name;
+          xasprintf (&path_name, "%s%s", input_file_arg,
+                     input_file_suffixes[j]);
+          if (stat (path_name, &finfo) == 0)
+            {
+              input_file_path = path_name;
+              break;
+            }
+          else
+            free (path_name);
+        }
+
+      /* in case no file was found, still set the file name */
+      if (!input_file_path)
+        input_file_path = strdup (input_file_arg);
 
       parse_file_path (input_file_path, input_file_name_and_directory);
       input_file_name = input_file_name_and_directory[0];
@@ -2012,6 +2072,7 @@ main (int argc, char *argv[])
       txi_document_remove (document);
 
       free (input_file_name);
+      free (input_file_path);
 
       clear_strings_list (&prepended_include_directories);
       clear_options_list (&convert_options);
@@ -2024,6 +2085,7 @@ main (int argc, char *argv[])
   free_strings_list (&input_files);
 
   free_options_list (&parser_options);
+  /* free (command_directory); */
   free (program_file);
 
   free_options_list (&cmdline_options);
@@ -2031,6 +2093,7 @@ main (int argc, char *argv[])
   free_options_list (&program_options);
 
   destroy_strings_list (texinfo_language_config_dirs);
+  wipe_values (&values);
 
   if (errors_count > 0)
     exit (EXIT_FAILURE);

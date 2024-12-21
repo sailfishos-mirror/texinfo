@@ -1287,8 +1287,8 @@ There is NO WARRANTY, to the extent permitted by law."), "2024")."\n";
       set_from_cmdline('paragraphindent', $value);
     } else {
       die _encode_message(sprintf(
-   __("%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"),
-                  $real_command_name, $value));
+   __("%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."),
+                  $real_command_name, $value)."\n");
     }
  },
  'fill-column|f=i' => sub {set_from_cmdline('FILLCOLUMN',$_[1]);},
