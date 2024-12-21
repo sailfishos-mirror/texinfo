@@ -102,7 +102,6 @@ static FORMAT_SPECIFICATION formats_table[] = {
   {NULL, 0, NULL}
 };
 
-static const char *expanded_formats[] = {"html", 0};
 static VALUE values_array[] = {
   {"txicommandconditionals", "1"}
 };
@@ -543,8 +542,6 @@ set_expansion (OPTIONS_LIST *options_list, STRING_LIST *ignored_formats,
 
   if (ignored_idx)
     remove_from_strings_list (ignored_formats, ignored_idx -1);
-
-  options_list_add_option_number (options_list, option->number);
 }
 
 static void
@@ -561,8 +558,6 @@ unset_expansion (OPTIONS_LIST *options_list, STRING_LIST *ignored_formats,
 
   if (!ignored_idx)
     add_string (format_name, ignored_formats);
-
-  options_list_add_option_number (options_list, option->number);
 }
 
 static void
@@ -824,6 +819,7 @@ main (int argc, char *argv[])
   STRING_LIST prepended_include_directories;
   char *texinfo_output_format_env;
   OPTION *output_format_option;
+  OPTION *expanded_formats_option;
   const char *output_format;
   const char *converted_format;
   FORMAT_SPECIFICATION *format_specification = 0;
@@ -1409,6 +1405,8 @@ main (int argc, char *argv[])
   memset (&default_expanded_formats, 0, sizeof (STRING_LIST));
   format_expanded_formats (&default_expanded_formats, format_specification);
 
+  expanded_formats_option = &cmdline_options.options->EXPANDED_FORMATS;
+
   for (i = 0; i < ignored_formats.number; i++)
     {
       size_t ignored_fmt_nr
@@ -1418,12 +1416,13 @@ main (int argc, char *argv[])
     }
   for (i = 0; i < default_expanded_formats.number; i++)
     {
-      OPTION *option = &cmdline_options.options->EXPANDED_FORMATS;
-      STRING_LIST *expanded_formats_list = option->o.strlist;
+      STRING_LIST *expanded_formats_list = expanded_formats_option->o.strlist;
       if (!find_string (expanded_formats_list,
                         default_expanded_formats.list[i]))
         add_string (default_expanded_formats.list[i], expanded_formats_list);
     }
+  options_list_add_option_number (&cmdline_options,
+                                  expanded_formats_option->number);
 
 
   /* corresponds to eval "require $module"; in texi2any.pl */
@@ -1616,8 +1615,7 @@ main (int argc, char *argv[])
 
       /* Texinfo file parsing */
       /* initialize parser */
-      txi_parser (input_file_path, locale_encoding, expanded_formats,
-                  &values, &parser_options);
+      txi_parser (input_file_path, locale_encoding, &values, &parser_options);
 
       /* Texinfo document tree parsing */
       document = txi_parse_texi_file (input_file_path, &status);

@@ -41,8 +41,7 @@ CONVERTER_INITIALIZATION_INFO *txi_converter_format_defaults (
                                OPTIONS_LIST *customizations);
 
 void txi_parser (const char *file_path, const char *locale_encoding,
-                const char **expanded_formats, const VALUE_LIST *values,
-                OPTIONS_LIST *options);
+                 const VALUE_LIST *values, OPTIONS_LIST *options);
 
 DOCUMENT *txi_parse_texi_file (const char *input_file_path, int *status);
 

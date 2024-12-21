@@ -1,5 +1,19 @@
 2024-12-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/customization_options.c (clear_options_list):
+	also clear the OF_set_in_list flags.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_converter_format_defaults),
+	tp/Texinfo/XS/teximakehtml.c (main): do not set expanded_formats
+	through txi_converter_format_defaults, remove corresponding argument,
+	it should be set as a regular customization option.  Remove
+	expanded_formats in teximakehtml.c.
+
+	* tp/Texinfo/XS/teximakehtml.c (main, set_expansion, unset_expansion):
+	always set EXPANDED_FORMATS as an added options in cmdline_options.
+
+2024-12-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (store_value, clear_value),
 	tp/Texinfo/XS/parsetexi/macro.c (store_value_parsed_document)
 	(store_parser_value_parsed_document, clear_value_parsed_document)

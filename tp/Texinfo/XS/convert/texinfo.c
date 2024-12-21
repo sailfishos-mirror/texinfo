@@ -175,8 +175,7 @@ txi_converter_format_defaults (const char *converted_format,
    The implementation is similar to parsetexi/Parsetexi.pm on purpose. */
 void
 txi_parser (const char *file_path, const char *locale_encoding,
-            const char **expanded_formats, const VALUE_LIST *values,
-            OPTIONS_LIST *options_list)
+            const VALUE_LIST *values, OPTIONS_LIST *options_list)
 {
   char *input_file_name_and_directory[2];
   char *input_directory;
@@ -208,8 +207,6 @@ txi_parser (const char *file_path, const char *locale_encoding,
 
   /* set from arguments.  Options override */
   parser_conf_set_LOCALE_ENCODING (locale_encoding);
-  for (i = 0; expanded_formats[i]; i++)
-    parser_conf_add_expanded_format (expanded_formats[i]);
 
   if (options_list)
     {
@@ -396,17 +393,6 @@ txi_converter_setup (const char *converted_format,
   STRING_LIST *texinfo_language_config_dirs = new_string_list ();
 
   conf = new_converter_initialization_info ();
-
-  /* prepare specific information for the converter */
-  /* Now already done in main program
-  if (output_format)
-    err_add_option_value (&conf->conf, "TEXINFO_OUTPUT_FORMAT",
-                          0, output_format);
-  else
-    err_add_option_value (&conf->conf, "TEXINFO_OUTPUT_FORMAT",
-                          0, converted_format);
-   */
-
 
   if (texinfo_language_config_dirs_in)
     copy_strings (texinfo_language_config_dirs,

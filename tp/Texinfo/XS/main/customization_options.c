@@ -430,6 +430,15 @@ free_options_list (OPTIONS_LIST *options_list)
 void
 clear_options_list (OPTIONS_LIST *options_list)
 {
+  size_t i;
+
+  /* need to reset the flags too, otherwise the options will not be readded
+     to the list */
+  for (i = 0; i < options_list->number; i++)
+    {
+      size_t index = options_list->list[i] -1;
+      options_list->sorted_options[index]->flags &= ~OF_set_in_list;
+    }
   options_list->number = 0;
   clear_options (options_list->options);
 }
