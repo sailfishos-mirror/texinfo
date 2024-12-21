@@ -25,6 +25,7 @@
 #include <ctype.h>
 #include <stdarg.h>
 #include <sys/stat.h>
+#include <errno.h>
 /* from Gnulib codeset.m4 */
 #ifdef HAVE_LANGINFO_CODESET
 #include <langinfo.h>
@@ -48,12 +49,12 @@
 /* parse_file_path whitespace_chars encode_string xasprintf */
 #include "utils.h"
 #include "customization_options.h"
-/*
 #include "convert_to_texinfo.h"
- */
 #include "create_buttons.h"
 /* needed because commands are used to determine expanded regions names */
 #include "builtin_commands.h"
+/* output_files_open_out output_files_register_closed */
+#include "convert_utils.h"
 /* destroy_converter_initialization_info */
 #include "converter.h"
 #include "texinfo.h"
@@ -723,6 +724,7 @@ static struct option long_options[] = {
   {"footnote-style", required_argument, 0, FOOTNOTE_STYLE_OPT},
   {"force", 0, 0, 'F'},
   {"help", 0, 0, 'h'},
+  {"macro-expand", required_argument, 0, 'E'},
   {"no-warn", 0, 0, NO_WARN_OPT},
   {"out", required_argument, 0, 'o'},
   {"output", required_argument, 0, 'o'},
@@ -789,10 +791,6 @@ main (int argc, char *argv[])
   const char *converted_format;
   FORMAT_SPECIFICATION *format_specification = 0;
   int do_menu = 0;
-
-  /*
-  const char *texinfo_text;
-   */
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -870,7 +868,8 @@ main (int argc, char *argv[])
     {
       int option_character;
 
-      option_character = getopt_long (argc, argv, "VhvFc:e:I:o:", long_options,
+      option_character = getopt_long (argc, argv, "VhvFc:e:I:o:E:",
+                                      long_options,
                                       &getopt_long_index);
 
       if (option_character == -1)
@@ -884,6 +883,11 @@ main (int argc, char *argv[])
         case 'e':
           set_from_cmdline(&cmdline_options,
                            &cmdline_options.options->ERROR_LIMIT,
+                           optarg);
+          break;
+        case 'E':
+          set_from_cmdline(&cmdline_options,
+                           &cmdline_options.options->MACRO_EXPAND,
                            optarg);
           break;
         case 'F':
@@ -1108,6 +1112,9 @@ main (int argc, char *argv[])
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("General output options:"));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
+   "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n                                ignoring any @setfilename."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --no-split              suppress any splitting of the output;\n                                generate only one output file."));
@@ -1388,6 +1395,8 @@ main (int argc, char *argv[])
       char *input_file_name;
       char *input_directory;
       OPTION *trace_includes_option;
+      OPTION *macro_expand_option;
+      OPTION *dump_texi_option;
 
       input_file_path = input_files.list[i];
 
@@ -1437,11 +1446,111 @@ main (int argc, char *argv[])
 
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 
-      /*
-      texinfo_text = convert_to_texinfo (document->tree);
-      fprintf (stderr, "%s", texinfo_text);
-      free (texinfo_text);
-       */
+      macro_expand_option
+        = get_conf (program_options.options->MACRO_EXPAND.number);
+      if (macro_expand_option && macro_expand_option->o.string && i == 0)
+        {
+          const char *encoded_macro_expand_file_name
+            = macro_expand_option->o.string;
+          char *macro_expand_file_name
+            = decode_input((char *) encoded_macro_expand_file_name);
+          FILE *file_fh;
+          OUTPUT_FILES_INFORMATION output_files_information;
+          char *open_error_message;
+          int overwritten_file;
+          size_t error_macro_expand_file = 0;
+
+          char *texinfo_text = convert_to_texinfo (document->tree);
+
+          /* fprintf (stderr, "%s", texinfo_text); */
+
+          memset (&output_files_information, 0,
+                  sizeof (OUTPUT_FILES_INFORMATION));
+
+          file_fh = output_files_open_out (&output_files_information,
+                                           encoded_macro_expand_file_name,
+                                           &open_error_message,
+                                           &overwritten_file, 0);
+          /* overwritten_file, set if the file has already been used
+             in this files_information is not checked as this cannot happen.
+           */
+
+          if (file_fh)
+            {
+              size_t write_len;
+              size_t res_len;
+              const ENCODING_CONVERSION *conversion = 0;
+              char *result_texinfo = 0;
+              OPTION *out_encoding_option
+           = get_conf (program_options.options->OUTPUT_ENCODING_NAME.number);
+              if (out_encoding_option && out_encoding_option->o.string
+                  && strcmp (out_encoding_option->o.string, "utf-8"))
+                {
+                  conversion
+                    = get_encoding_conversion (out_encoding_option->o.string,
+                                               &output_conversions);
+                  if (conversion)
+                    result_texinfo = encode_with_iconv (conversion->iconv,
+                                                        texinfo_text, 0);
+                }
+
+              if (!result_texinfo)
+                result_texinfo = texinfo_text;
+
+              res_len = strlen (result_texinfo);
+
+              write_len = fwrite (result_texinfo, sizeof (char),
+                                  res_len, file_fh);
+
+              if (conversion)
+                free (result_texinfo);
+
+              if (write_len != res_len)
+                { /* register error message instead? */
+                   fprintf (stderr,
+                      "ERROR: write to %s failed (%zu/%zu)\n",
+                            encoded_macro_expand_file_name, write_len, res_len);
+                }
+              output_files_register_closed (&output_files_information,
+                                            encoded_macro_expand_file_name);
+
+              if (fclose (file_fh))
+                {
+                  document_warn ("error on closing macro expand file %s: %s",
+                                 macro_expand_file_name, strerror (errno));
+                  error_macro_expand_file = 1;
+                }
+            }
+          else
+            {
+              document_warn ("could not open %s for writing: %s",
+                             macro_expand_file_name, open_error_message);
+              error_macro_expand_file = 1;
+            }
+
+          error_macro_expand_file
+            = merge_opened_files (&opened_files,
+                                  &output_files_information.opened_files,
+                                  error_macro_expand_file);
+
+          if (error_macro_expand_file)
+            {
+              errors_count = handle_errors (error_macro_expand_file,
+                                            errors_count, &opened_files);
+            }
+
+          free (macro_expand_file_name);
+          free (texinfo_text);
+        }
+
+      dump_texi_option
+        = get_conf (program_options.options->DUMP_TEXI.number);
+
+      if (dump_texi_option && dump_texi_option->o.integer > 0)
+        {
+          errors_count = handle_errors (errors_nr, errors_count, &opened_files);
+          goto next_input_file;
+        }
 
       /* structure and transformations */
       /* do_menu corresponds to FORMAT_MENU undef or set to menu */

@@ -1,5 +1,10 @@
 2024-12-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/teximakehtml.c (long_options, main): add macro-expand
+	option and implementation.
+
+2024-12-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl (document_warn): do not chomp input message.
 	Remove end of lines in document_warn calls.
 
