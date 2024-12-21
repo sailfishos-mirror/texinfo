@@ -574,7 +574,6 @@ sub _encode_message($)
 sub document_warn($) {
   return if (get_conf('NO_WARN'));
   my $text = shift;
-  chomp ($text);
   warn(_encode_message(
        sprintf(__p("program name: warning: warning_message",
                    "%s: warning: %s")."\n", $real_command_name, $text)));
@@ -1852,12 +1851,12 @@ while(@input_files) {
                              $macro_expand_files_information,
                              $encoded_macro_expand_file_name);
       if (!close($macro_expand_fh)) {
-        document_warn(sprintf(__("error on closing macro expand file %s: %s\n"),
+        document_warn(sprintf(__("error on closing macro expand file %s: %s"),
                               $macro_expand_file_name, $!));
         $error_macro_expand_file = 1;
       }
     } else {
-      document_warn(sprintf(__("could not open %s for writing: %s\n"),
+      document_warn(sprintf(__("could not open %s for writing: %s"),
                             $macro_expand_file_name, $error_message));
       $error_macro_expand_file = 1;
     }
