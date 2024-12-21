@@ -8,23 +8,28 @@
 #include "converter_types.h"
 #include "option_types.h"
 
-/* document structuring and transformations selection flags */
-#define STTF_relate_index_entries_to_table_items    0x0001
-#define STTF_move_index_entries_after_items         0x0002
-#define STTF_insert_nodes_for_sectioning_commands   0x0004
-#define STTF_no_warn_non_empty_parts                0x0008
-#define STTF_complete_tree_nodes_menus              0x0010
-#define STTF_complete_tree_nodes_missing_menu       0x0020
-#define STTF_regenerate_master_menu                 0x0040
-#define STTF_nodes_tree                             0x0080
-#define STTF_floats                                 0x0100
-#define STTF_setup_index_entries_sort_strings       0x0200
+/* document transformations selection flags */
+#define STTF_complete_tree_nodes_menus              0x0001
+#define STTF_complete_tree_nodes_missing_menu       0x0002
+#define STTF_fill_gaps_in_sectioning                0x0004
+#define STTF_insert_nodes_for_sectioning_commands   0x0008
+#define STTF_move_index_entries_after_items         0x0010
+#define STTF_regenerate_master_menu                 0x0020
+#define STTF_relate_index_entries_to_table_items    0x0040
+
+/* document structuring selection flags */
+#define STTF_floats                                 0x0080
+#define STTF_no_warn_non_empty_parts                0x0100
+#define STTF_nodes_tree                             0x0200
+#define STTF_setup_index_entries_sort_strings       0x0400
+
 /* for complete_tree_nodes_menus, complete_tree_nodes_missing_menu
    and regenerate_master_menu */
-#define STTF_complete_menus_use_sections            0x0400
+#define STTF_complete_menus_use_sections            0x0800
+
 /* not strictly a structuring and transformations selection flag, used to
    mark that splitting is possible for a format */
-#define STTF_split                                  0x0800
+#define STTF_split                                  0x1000
 
 void txi_general_setup (int texinfo_uninstalled,
                    const char *converterdatadir, const char *tp_builddir,

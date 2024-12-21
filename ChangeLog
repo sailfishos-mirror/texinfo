@@ -1,5 +1,11 @@
 2024-12-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%valid_tree_transformations),
+	tp/Texinfo/XS/convert/texinfo.h: reordervalid transformations.  Add
+	STTF_fill_gaps_in_sectioning.
+
+2024-12-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%valid_transformation), tp/t/test_utils.pl
 	(test): fix spelling of relate_index_entries_to_table_items.  Update
 	tests using that transformation.
