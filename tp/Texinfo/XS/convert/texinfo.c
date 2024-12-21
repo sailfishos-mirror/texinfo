@@ -382,7 +382,6 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
 CONVERTER *
 txi_converter_setup (const char *converted_format,
                      const char *output_format,
-                     const STRING_LIST *texinfo_language_config_dirs_in,
                      const DEPRECATED_DIRS_LIST *deprecated_dirs,
                      OPTIONS_LIST *customizations)
 {
@@ -390,13 +389,8 @@ txi_converter_setup (const char *converted_format,
     = find_format_name_converter_format (converted_format);
   CONVERTER_INITIALIZATION_INFO *conf;
   CONVERTER *self;
-  STRING_LIST *texinfo_language_config_dirs = new_string_list ();
 
   conf = new_converter_initialization_info ();
-
-  if (texinfo_language_config_dirs_in)
-    copy_strings (texinfo_language_config_dirs,
-                  texinfo_language_config_dirs_in);
 
   if (deprecated_dirs)
     copy_deprecated_dirs (&conf->deprecated_config_directories,
@@ -406,22 +400,6 @@ txi_converter_setup (const char *converted_format,
     {
       copy_options_list (&conf->conf, customizations);
     }
-
-  if (conf->conf.options->TEST.o.integer <= 0
-      && conversion_paths_info.texinfo_uninstalled
-      && conversion_paths_info.p.uninstalled.top_srcdir)
-    {
-      char *in_source_util_dir;
-      xasprintf (&in_source_util_dir, "%s/util",
-                conversion_paths_info.p.uninstalled.top_srcdir);
-      add_string (in_source_util_dir, texinfo_language_config_dirs);
-      free (in_source_util_dir);
-    }
-
-  add_option_strlist_value (&conf->conf, "TEXINFO_LANGUAGE_DIRECTORIES",
-                            texinfo_language_config_dirs);
-
-  destroy_strings_list (texinfo_language_config_dirs);
 
   self = converter_converter (converter_format, conf);
 

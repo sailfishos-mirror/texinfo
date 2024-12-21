@@ -50,7 +50,6 @@ void txi_complete_document (DOCUMENT *document, unsigned long flags,
 
 CONVERTER *txi_converter_setup (const char *converter_format,
                      const char *output_format,
-                     const STRING_LIST *texinfo_language_config_dirs,
                      const DEPRECATED_DIRS_LIST *deprecated_dirs,
                      OPTIONS_LIST *customizations);
 

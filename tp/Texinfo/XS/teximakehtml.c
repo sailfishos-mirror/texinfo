@@ -529,16 +529,42 @@ push_include_directory (STRING_LIST *include_dirs_list, char *text)
 }
 
 static void
+add_to_option_list (OPTION *option, const char *value)
+{
+  STRING_LIST *str_list = option->o.strlist;
+  size_t idx_option = find_string (str_list, value);
+
+  if (!idx_option)
+    add_string (value, str_list);
+}
+
+static int
+remove_from_option_list (OPTION *option, const char *value)
+{
+  STRING_LIST *str_list;
+  size_t idx_option;
+
+  if (option->type != GOT_bytes_string_list
+      && option->type != GOT_file_string_list
+      && option->type != GOT_char_string_list)
+    return 0;
+
+  str_list = option->o.strlist;
+  idx_option = find_string (str_list, value);
+
+  if (idx_option)
+    remove_from_strings_list (str_list, idx_option -1);
+  return 1;
+}
+
+static void
 set_expansion (OPTIONS_LIST *options_list, STRING_LIST *ignored_formats,
                const char *format_name)
 {
   OPTION *option = &options_list->options->EXPANDED_FORMATS;
-  STRING_LIST *str_list = option->o.strlist;
-  size_t idx_format = find_string (str_list, format_name);
   size_t ignored_idx = find_string (ignored_formats, format_name);
 
-  if (!idx_format)
-    add_string (format_name, str_list);
+  add_to_option_list (option, format_name);
 
   if (ignored_idx)
     remove_from_strings_list (ignored_formats, ignored_idx -1);
@@ -549,12 +575,9 @@ unset_expansion (OPTIONS_LIST *options_list, STRING_LIST *ignored_formats,
                  const char *format_name)
 {
   OPTION *option = &options_list->options->EXPANDED_FORMATS;
-  STRING_LIST *str_list = option->o.strlist;
-  size_t idx_format = find_string (str_list, format_name);
   size_t ignored_idx = find_string (ignored_formats, format_name);
 
-  if (idx_format)
-    remove_from_strings_list (str_list, idx_format -1);
+  remove_from_option_list (option, format_name);
 
   if (!ignored_idx)
     add_string (format_name, ignored_formats);
@@ -723,6 +746,8 @@ static int print_help_p;
 #define SPLIT_SIZE_OPT 47
 #define DEBUG_OPT 48
 #define NO_VALIDATE_OPT 49
+#define CSS_INCLUDE_OPT 50
+#define CSS_REF_OPT 51
 
 #define IFFORMAT_TABLE(upcase, name) \
   {"if" #name, 0, 0, IF ## upcase ## _OPT}, \
@@ -733,6 +758,8 @@ static struct option long_options[] = {
   {"demonstration", 0, &demonstration_p, 1},
   {"mimick", 0, &mimick_p, 1},
 
+  {"css-include", required_argument, 0, CSS_INCLUDE_OPT},
+  {"css-ref", required_argument, 0, CSS_REF_OPT},
   {"debug", required_argument, 0, DEBUG_OPT},
   {"disable-encoding", 0, 0, DISABLE_ENCODING_OPT},
   {"document-language", required_argument, 0, DOCUMENT_LANGUAGE_OPT},
@@ -799,7 +826,6 @@ main (int argc, char *argv[])
   size_t errors_count = 0;
   size_t errors_nr;
   STRING_LIST *texinfo_language_config_dirs;
-  STRING_LIST converter_texinfo_language_config_dirs;
   STRING_LIST ignored_formats;
   STRING_LIST default_expanded_formats;
   STRING_LIST prepend_dirs;
@@ -897,6 +923,22 @@ main (int argc, char *argv[])
   memset (&input_files, 0, sizeof (STRING_LIST));
 
   initialize_options_list (&cmdline_options);
+
+  /* always consider that command-line array options are set from
+     the command-line */
+
+  options_list_add_option_number (&cmdline_options,
+                     cmdline_options.options->CSS_FILES.number);
+  options_list_add_option_number (&cmdline_options,
+                     cmdline_options.options->CSS_REFS.number);
+  options_list_add_option_number (&cmdline_options,
+                     cmdline_options.options->INCLUDE_DIRECTORIES.number);
+  options_list_add_option_number (&cmdline_options,
+               cmdline_options.options->TEXINFO_LANGUAGE_DIRECTORIES.number);
+  options_list_add_option_number (&cmdline_options,
+                     cmdline_options.options->EXPANDED_FORMATS.number);
+
+
   memset (&ignored_formats, 0, sizeof (STRING_LIST));
 
   initialize_options_list (&init_files_options);
@@ -1038,11 +1080,22 @@ main (int argc, char *argv[])
           {
             OPTION *option = &cmdline_options.options->INCLUDE_DIRECTORIES;
             push_include_directory (option->o.strlist, optarg);
-            options_list_add_option_number (&cmdline_options, option->number);
           }
           break;
         case 'P':
           push_include_directory (&prepend_dirs, optarg);
+          break;
+        case CSS_INCLUDE_OPT:
+          {
+            OPTION *option = &cmdline_options.options->CSS_FILES;
+            add_string (optarg, option->o.strlist);
+          }
+          break;
+        case CSS_REF_OPT:
+          {
+            OPTION *option = &cmdline_options.options->CSS_REFS;
+            add_string (optarg, option->o.strlist);
+          }
           break;
         case 'h':
           print_help_p = 1;
@@ -1281,6 +1334,12 @@ main (int argc, char *argv[])
       text_append (&help_message, _("Options for HTML:"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
+   "      --css-include=FILE      include FILE in HTML <style> output;\n                                read stdin if FILE is -."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
+   "      --css-ref=URL           generate CSS reference to URL."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
    "      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',\n                                `section' or `node'."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
@@ -1384,6 +1443,17 @@ main (int argc, char *argv[])
       free (format_name);
     }
 
+  if (!test_mode_set
+      && conversion_paths_info.texinfo_uninstalled
+      && conversion_paths_info.p.uninstalled.top_srcdir)
+    {
+      char *in_source_util_dir;
+      xasprintf (&in_source_util_dir, "%s/util",
+                 conversion_paths_info.p.uninstalled.top_srcdir);
+      add_string (in_source_util_dir, texinfo_language_config_dirs);
+      free (in_source_util_dir);
+    }
+
   output_format_option
     = get_conf (program_options.options->TEXINFO_OUTPUT_FORMAT.number);
   output_format = output_format_option->o.string;
@@ -1416,14 +1486,9 @@ main (int argc, char *argv[])
     }
   for (i = 0; i < default_expanded_formats.number; i++)
     {
-      STRING_LIST *expanded_formats_list = expanded_formats_option->o.strlist;
-      if (!find_string (expanded_formats_list,
-                        default_expanded_formats.list[i]))
-        add_string (default_expanded_formats.list[i], expanded_formats_list);
+      add_to_option_list (expanded_formats_option,
+                          default_expanded_formats.list[i]);
     }
-  options_list_add_option_number (&cmdline_options,
-                                  expanded_formats_option->number);
-
 
   /* corresponds to eval "require $module"; in texi2any.pl */
   txi_converter_output_format_setup (converted_format);
@@ -1535,8 +1600,6 @@ main (int argc, char *argv[])
                         configured_name_version);
     }
 
-  memset (&converter_texinfo_language_config_dirs, 0, sizeof (STRING_LIST));
-
   if (optind < argc)
     {
       int j;
@@ -1586,11 +1649,13 @@ main (int argc, char *argv[])
       OPTION *macro_expand_option;
       OPTION *dump_texi_option;
       OPTION *converter_include_dirs_option;
+      OPTION *converter_texinfo_language_directories_option;
       STRING_LIST *cmdline_include_dirs
         = cmdline_options.options->INCLUDE_DIRECTORIES.o.strlist;
       STRING_LIST *parser_include_dirs
         = parser_options.options->INCLUDE_DIRECTORIES.o.strlist;
       STRING_LIST *converter_include_dirs;
+      STRING_LIST *converter_texinfo_language_config_dirs;
       const char *curdir = ".";
 
       input_file_path = input_files.list[i];
@@ -1787,24 +1852,28 @@ main (int argc, char *argv[])
       clear_strings_list (converter_include_dirs);
       copy_strings (converter_include_dirs, &prepended_include_directories);
       copy_strings (converter_include_dirs, cmdline_include_dirs);
-      /* always mark include directories as set in converter options */
-      options_list_add_option_number (&convert_options,
-                                      converter_include_dirs_option->number);
 
-      add_string (curdir, &converter_texinfo_language_config_dirs);
+      /* set TEXINFO_LANGUAGE_DIRECTORIES by prepending current directory
+         and input directory to texinfo_language_config_dirs */
+      converter_texinfo_language_directories_option
+        = &convert_options.options->TEXINFO_LANGUAGE_DIRECTORIES;
+      converter_texinfo_language_config_dirs
+        = converter_texinfo_language_directories_option->o.strlist;
+      clear_strings_list (converter_texinfo_language_config_dirs);
+
+      add_string (curdir, converter_texinfo_language_config_dirs);
       if (input_directory)
         {
           if (strcmp (curdir, input_directory))
             add_string (input_directory,
-                        &converter_texinfo_language_config_dirs);
+                        converter_texinfo_language_config_dirs);
         free (input_directory);
       }
 
-      copy_strings (&converter_texinfo_language_config_dirs,
+      copy_strings (converter_texinfo_language_config_dirs,
                     texinfo_language_config_dirs);
 
       converter = txi_converter_setup (converted_format, output_format,
-                                   &converter_texinfo_language_config_dirs,
                                    &deprecated_directories,
                                    &convert_options);
 
@@ -1839,13 +1908,11 @@ main (int argc, char *argv[])
       free (input_file_name);
 
       clear_strings_list (&prepended_include_directories);
-      clear_strings_list (&converter_texinfo_language_config_dirs);
       clear_options_list (&convert_options);
     }
 
   free_strings_list (&opened_files);
   free_strings_list (&prepended_include_directories);
-  free_strings_list (&converter_texinfo_language_config_dirs);
   free_options_list (&convert_options);
 
   free_strings_list (&input_files);
