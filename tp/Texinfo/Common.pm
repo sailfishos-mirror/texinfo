@@ -265,7 +265,6 @@ foreach my $valid_transformation (
     'complete_tree_nodes_menus',
     'complete_tree_nodes_missing_menu',
     'fill_gaps_in_sectioning',
-    'indent_menu_descriptions',
     'insert_nodes_for_sectioning_commands',
     'move_index_entries_after_items',
     'regenerate_master_menu',

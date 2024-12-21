@@ -1,5 +1,10 @@
 2024-12-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%valid_tree_transformations): remove
+	indent_menu_descriptions, it has been removed long ago.
+
+2024-12-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%valid_tree_transformations),
 	tp/Texinfo/XS/convert/texinfo.h: reordervalid transformations.  Add
 	STTF_fill_gaps_in_sectioning.
