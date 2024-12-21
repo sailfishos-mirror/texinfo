@@ -308,12 +308,11 @@ txi_parser (const char *file_path, const char *locale_encoding,
           input_directory = input_file_name_and_directory[1];
           free (input_file_name_and_directory[0]);
 
-          if (strcmp (file_path, "."))
+          if (input_directory && strcmp (input_directory, "."))
             {
               parser_conf_clear_INCLUDE_DIRECTORIES ();
-              if (input_directory)
-                parser_conf_add_include_directory (input_directory);
               parser_conf_add_include_directory (".");
+              parser_conf_add_include_directory (input_directory);
             }
           free (input_directory);
         }

@@ -779,9 +779,9 @@ main (int argc, char *argv[])
   STRING_LIST converter_texinfo_language_config_dirs;
   STRING_LIST ignored_formats;
   STRING_LIST default_expanded_formats;
+  STRING_LIST prepend_dirs;
   CONVERTER_INITIALIZATION_INFO *format_defaults;
   DEPRECATED_DIRS_LIST deprecated_directories;
-  const char *curdir = ".";
   char *top_srcdir;
   char *top_builddir;
   char *tp_builddir = 0;
@@ -793,6 +793,7 @@ main (int argc, char *argv[])
   size_t i;
   STRING_LIST input_files;
   STRING_LIST opened_files;
+  STRING_LIST prepended_include_directories;
   char *texinfo_output_format_env;
   OPTION *output_format_option;
   const char *output_format;
@@ -800,7 +801,7 @@ main (int argc, char *argv[])
   FORMAT_SPECIFICATION *format_specification = 0;
   int do_menu = 0;
   size_t format_menu_option_nr;
-  const char *conversion_format_menu_default = 0;
+  char *conversion_format_menu_default = 0;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -867,6 +868,8 @@ main (int argc, char *argv[])
   texinfo_language_config_dirs
    = set_subdir_directories ("texinfo", &deprecated_directories);
 
+  memset (&prepend_dirs, 0, sizeof (STRING_LIST));
+
   memset (&input_files, 0, sizeof (STRING_LIST));
 
   initialize_options_list (&cmdline_options);
@@ -878,7 +881,7 @@ main (int argc, char *argv[])
     {
       int option_character;
 
-      option_character = getopt_long (argc, argv, "VhvFc:e:I:o:E:",
+      option_character = getopt_long (argc, argv, "VhvFc:e:I:P:o:E:",
                                       long_options,
                                       &getopt_long_index);
 
@@ -949,6 +952,9 @@ main (int argc, char *argv[])
             push_include_directory (option->o.strlist, optarg);
             options_list_add_option_number (&cmdline_options, option->number);
           }
+          break;
+        case 'P':
+          push_include_directory (&prepend_dirs, optarg);
           break;
         case 'h':
           print_help_p = 1;
@@ -1177,6 +1183,9 @@ main (int argc, char *argv[])
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _(" -I DIR                       append DIR to the @include search path."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _(" -P DIR                       prepend DIR to the @include search path."));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("Conditional processing in input:"));
@@ -1370,6 +1379,9 @@ main (int argc, char *argv[])
       OPTION *parser_option = parser_options.sorted_options[i];
       if (parser_option->flags & OF_parser_option)
         {
+          /* note that INCLUDE_DIRECTORIES is reset before parsing
+             to add prepended directories, current directory and manual
+             directory */
           OPTION *option = get_conf (parser_option->number);
           if (option)
             {
@@ -1446,6 +1458,7 @@ main (int argc, char *argv[])
   initialize_options_list (&convert_options);
 
   memset (&opened_files, 0, sizeof (STRING_LIST));
+  memset (&prepended_include_directories, 0, sizeof (STRING_LIST));
 
   for (i = 0; i < input_files.number; i++)
     {
@@ -1458,12 +1471,33 @@ main (int argc, char *argv[])
       OPTION *trace_includes_option;
       OPTION *macro_expand_option;
       OPTION *dump_texi_option;
+      OPTION *converter_include_dirs_option;
+      STRING_LIST *cmdline_include_dirs
+        = cmdline_options.options->INCLUDE_DIRECTORIES.o.strlist;
+      STRING_LIST *parser_include_dirs
+        = parser_options.options->INCLUDE_DIRECTORIES.o.strlist;
+      STRING_LIST *converter_include_dirs;
+      const char *curdir = ".";
 
       input_file_path = input_files.list[i];
 
       parse_file_path (input_file_path, input_file_name_and_directory);
       input_file_name = input_file_name_and_directory[0];
       input_directory = input_file_name_and_directory[1];
+
+      if (prepend_dirs.number > 0)
+        copy_strings (&prepended_include_directories, &prepend_dirs);
+
+      add_string (curdir, &prepended_include_directories);
+      if (input_directory && strcmp (curdir, input_directory))
+        add_string (input_directory, &prepended_include_directories);
+
+      /* tune for the input file include directory and prepend to
+         INCLUDE_DIRECTORIES by merging prepended directories and command
+         line include directories */
+      clear_strings_list (parser_include_dirs);
+      copy_strings (parser_include_dirs, &prepended_include_directories);
+      copy_strings (parser_include_dirs, cmdline_include_dirs);
 
       /* Texinfo file parsing */
       /* initialize parser */
@@ -1632,6 +1666,18 @@ main (int argc, char *argv[])
       copy_options_list (&convert_options, &init_files_options);
       copy_options_list (&convert_options, &cmdline_options);
 
+      /* prepend to INCLUDE_DIRECTORIES by resetting include directories to
+         merged prepended directories and command line include directories */
+      converter_include_dirs_option
+        = &convert_options.options->INCLUDE_DIRECTORIES;
+      converter_include_dirs = converter_include_dirs_option->o.strlist;
+      clear_strings_list (converter_include_dirs);
+      copy_strings (converter_include_dirs, &prepended_include_directories);
+      copy_strings (converter_include_dirs, cmdline_include_dirs);
+      /* always mark include directories as set in converter options */
+      options_list_add_option_number (&convert_options,
+                                      converter_include_dirs_option->number);
+
       add_string (curdir, &converter_texinfo_language_config_dirs);
       if (input_directory)
         {
@@ -1679,11 +1725,13 @@ main (int argc, char *argv[])
 
       free (input_file_name);
 
+      clear_strings_list (&prepended_include_directories);
       clear_strings_list (&converter_texinfo_language_config_dirs);
       clear_options_list (&convert_options);
     }
 
   free_strings_list (&opened_files);
+  free_strings_list (&prepended_include_directories);
   free_strings_list (&converter_texinfo_language_config_dirs);
   free_options_list (&convert_options);
 
