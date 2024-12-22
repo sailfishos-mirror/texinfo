@@ -1,5 +1,23 @@
 2024-12-22  Patrice Dumas  <pertusus@free.fr>
 
+	load initialization files in teximakehtml.c
+
+	* tp/Texinfo/XS/main/build_perl_info.c,
+	tp/Texinfo/XS/main/call_perl_function.c (newSVpv_byte): move
+	newSVpv_byte to call_perl_function.c.
+
+	* tp/Texinfo/XS/main/call_perl_function.c
+	(texinfo_convert_html_module_loaded, call_config_GNUT_load_init_file):
+	add call_config_GNUT_load_init_file.
+
+	* tp/Texinfo/XS/teximakehtml.c (warn_deprecated_dirs)
+	(locate_and_load_init_file, long_options, main): handle conf-dir and
+	init-file options.  call call_config_GNUT_load_init_file through
+	locate_and_load_init_file when an init file is specified.  Setup
+	directory lists related to init files.
+
+2024-12-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (converterdata_SCRIPTS, load_txi_modules): install
 	load_txi_modules.
 

@@ -52,7 +52,7 @@
 /* for xvasprintf */
 #include "text.h"
 /* parse_file_path whitespace_chars encode_string xasprintf digit_chars
-   wipe_values */
+   wipe_values locate_file_in_dirs */
 #include "utils.h"
 #include "customization_options.h"
 #include "convert_to_texinfo.h"
@@ -122,6 +122,8 @@ static OPTIONS_LIST cmdline_options;
 static OPTIONS_LIST init_files_options;
 
 static char *program_file;
+
+static int embedded_interpreter = 0;
 
 /* Texinfo::Config */
 static OPTION *
@@ -724,6 +726,67 @@ is_ascii_digit (const char *text)
   return 0;
 }
 
+static void
+warn_deprecated_dirs (DEPRECATED_DIRS_LIST *deprecated_dirs_used)
+{
+  if (deprecated_dirs_used->number)
+    {
+      size_t i;
+      for (i = 0; i < deprecated_dirs_used->number; i++)
+        {
+          char *dir_name, *replacement_dir;
+          DEPRECATED_DIR_INFO *deprecated_dir_info
+           = &deprecated_dirs_used->list[i];
+          dir_name = decode_input (deprecated_dir_info->obsolete_dir);
+          replacement_dir = decode_input (deprecated_dir_info->reference_dir);
+
+          document_warn ("%s directory is deprecated. Use %s instead",
+                         dir_name, replacement_dir);
+
+          free (dir_name);
+          free (replacement_dir);
+        }
+    }
+  deprecated_dirs_used->number = 0;
+}
+
+static void
+locate_and_load_init_file (const char *filename, STRING_LIST *directories,
+                           DEPRECATED_DIRS_LIST *deprecated_dirs)
+{
+  static DEPRECATED_DIRS_LIST deprecated_dirs_used;
+
+  char *file = locate_file_in_dirs (filename, directories, 0,
+                                    deprecated_dirs, &deprecated_dirs_used);
+
+  if (file)
+    {
+#ifdef EMBED_PERL
+      if (embedded_interpreter)
+        {
+          call_config_GNUT_load_init_file (file);
+        }
+      else
+#endif
+        {
+          char *decoded_filename = decode_input ((char *) filename);
+          fprintf (stderr, "No interpreter, cannot load: %s\n",
+                   filename);
+          free (decoded_filename);
+        }
+    }
+  else
+    {
+      char *decoded_filename = decode_input ((char *) filename);
+      document_warn ("could not read init file %s", decoded_filename);
+
+      free (decoded_filename);
+    }
+
+  if (deprecated_dirs)
+    warn_deprecated_dirs (&deprecated_dirs_used);
+}
+
 const char *input_file_suffixes[] = {
 ".txi",".texinfo",".texi",".txinfo", "", NULL
 };
@@ -777,6 +840,8 @@ static int print_help_p;
 #define NO_VALIDATE_OPT 49
 #define CSS_INCLUDE_OPT 50
 #define CSS_REF_OPT 51
+#define CONF_DIR_OPT 52
+#define INIT_FILE_OPT 53
 
 #define IFFORMAT_TABLE(upcase, name) \
   {"if" #name, 0, 0, IF ## upcase ## _OPT}, \
@@ -787,6 +852,7 @@ static struct option long_options[] = {
   {"demonstration", 0, &demonstration_p, 1},
   {"mimick", 0, &mimick_p, 1},
 
+  {"conf-dir", required_argument, 0, CONF_DIR_OPT},
   {"css-include", required_argument, 0, CSS_INCLUDE_OPT},
   {"css-ref", required_argument, 0, CSS_REF_OPT},
   {"debug", required_argument, 0, DEBUG_OPT},
@@ -800,6 +866,7 @@ static struct option long_options[] = {
   {"headers", 0, 0, HEADERS_OPT},
   {"no-headers", 0, 0, NO_HEADERS_OPT},
   {"help", 0, 0, 'h'},
+  {"init-file", required_argument, 0, INIT_FILE_OPT},
   {"macro-expand", required_argument, 0, 'E'},
   {"node-files", 0, 0, NODE_FILES_OPT},
   {"no-node-files", 0, 0, NO_NODE_FILES_OPT},
@@ -875,6 +942,12 @@ main (int argc, char *argv[], char *env[])
   STRING_LIST input_files;
   STRING_LIST opened_files;
   STRING_LIST prepended_include_directories;
+  STRING_LIST conf_dirs;
+  STRING_LIST converter_config_dirs;
+  STRING_LIST converter_init_dirs;
+  STRING_LIST *converter_config_dirs_array_ref;
+  STRING_LIST internal_extension_dirs;
+  char *extensions_dir;
   char *texinfo_output_format_env;
   OPTION *output_format_option;
   OPTION *expanded_formats_option;
@@ -886,6 +959,7 @@ main (int argc, char *argv[], char *env[])
   char *conversion_format_menu_default = 0;
   int texinfo_uninstalled = 1;
   const char *converterdatadir = DATADIR "/" CONVERTER_CONFIG;
+  const char *curdir = ".";
   /* to avoid a warning on unused variable keep in ifdef */
 #ifdef EMBED_PERL
   const char *load_txi_modules_basename = "load_txi_modules";
@@ -893,7 +967,6 @@ main (int argc, char *argv[], char *env[])
   /* used to have different parameterization with embedded interpreter and
      without */
   int use_external_translate_string = -1;
-  int embedded_interpreter = 0;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -918,6 +991,15 @@ main (int argc, char *argv[], char *env[])
   xasprintf (&tp_builddir, "%s/tp", top_builddir);
 
   free (top_builddir);
+
+  if (texinfo_uninstalled)
+    xasprintf (&extensions_dir, "%s/tp/ext", top_srcdir);
+  else
+    xasprintf (&extensions_dir, "%s/ext", converterdatadir);
+
+  memset (&internal_extension_dirs, 0, sizeof (STRING_LIST));
+
+  add_string (extensions_dir, &internal_extension_dirs);
 
 #ifdef EMBED_PERL
   embedded_interpreter = 1;
@@ -982,7 +1064,40 @@ main (int argc, char *argv[], char *env[])
   texinfo_language_config_dirs
    = set_subdir_directories ("texinfo", &deprecated_directories);
 
+  converter_config_dirs_array_ref
+   = set_subdir_directories (CONVERTER_CONFIG, &deprecated_directories);
+
+  memset (&converter_config_dirs, 0, sizeof (STRING_LIST));
+  add_string (curdir, &converter_config_dirs);
+  copy_strings (&converter_config_dirs, converter_config_dirs_array_ref);
+
+  memset (&converter_init_dirs, 0, sizeof (STRING_LIST));
+  copy_strings (&converter_init_dirs, &converter_config_dirs);
+
+  for (i = 0; i < texinfo_language_config_dirs->number; i++)
+    {
+      char *init_dir;
+      DEPRECATED_DIR_INFO *deprecated_dir_info;
+      char *texinfo_config_dir = texinfo_language_config_dirs->list[i];
+
+      xasprintf (&init_dir, "%s/init", texinfo_config_dir);
+      add_string (init_dir, &converter_init_dirs);
+
+      deprecated_dir_info = find_deprecated_dir_info (&deprecated_directories,
+                                                      texinfo_config_dir);
+      if (deprecated_dir_info)
+        {
+          char *reference_init_dir;
+          xasprintf (&reference_init_dir, "%s/init",
+                                           deprecated_dir_info->reference_dir);
+          add_new_deprecated_dir_info (&deprecated_directories,
+                                       init_dir, reference_init_dir);
+        }
+    }
+  add_string (extensions_dir, &converter_init_dirs);
+
   memset (&prepend_dirs, 0, sizeof (STRING_LIST));
+  memset (&conf_dirs, 0, sizeof (STRING_LIST));
 
   memset (&input_files, 0, sizeof (STRING_LIST));
 
@@ -1164,6 +1279,9 @@ main (int argc, char *argv[], char *env[])
         case 'P':
           push_include_directory (&prepend_dirs, optarg);
           break;
+        case CONF_DIR_OPT:
+          push_include_directory (&conf_dirs, optarg);
+          break;
         case CSS_INCLUDE_OPT:
           {
             OPTION *option = &cmdline_options.options->CSS_FILES;
@@ -1180,6 +1298,25 @@ main (int argc, char *argv[], char *env[])
           break;
         case 'h':
           print_help_p = 1;
+          break;
+        case INIT_FILE_OPT:
+          {
+            OPTION *test_option
+              = get_conf (program_options.options->TEST.number);
+            if (test_option && test_option->o.integer > 0)
+              locate_and_load_init_file (optarg, &conf_dirs, 0);
+            else
+              {
+                static STRING_LIST init_file_dirs;
+                copy_strings (&init_file_dirs, &conf_dirs);
+                copy_strings (&init_file_dirs, &converter_init_dirs);
+                locate_and_load_init_file (optarg, &init_file_dirs,
+                                           &deprecated_directories);
+
+                clear_strings_list (&init_file_dirs);
+              }
+
+          }
           break;
         case 'D':
           {
@@ -1419,6 +1556,12 @@ main (int argc, char *argv[], char *env[])
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _("      --no-validate           suppress node cross-reference validation."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("      --conf-dir=DIR          search also for initialization files in DIR."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("      --init-file=FILE        load FILE to modify the default behavior."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _("      --no-warn               suppress warnings (but not errors)."));
@@ -1830,7 +1973,6 @@ main (int argc, char *argv[], char *env[])
         = parser_options.options->INCLUDE_DIRECTORIES.o.strlist;
       STRING_LIST *converter_include_dirs;
       STRING_LIST *converter_texinfo_language_config_dirs;
-      const char *curdir = ".";
       char *input_file_path = 0;
       size_t file_path_len;
       size_t j;
@@ -2144,8 +2286,18 @@ main (int argc, char *argv[], char *env[])
   free_options_list (&init_files_options);
   free_options_list (&program_options);
 
+  free_strings_list (&conf_dirs);
+  free_strings_list (&prepend_dirs);
+
+  free_strings_list (&converter_init_dirs);
+  free_strings_list (&converter_config_dirs);
+
+  destroy_strings_list (converter_config_dirs_array_ref);
   destroy_strings_list (texinfo_language_config_dirs);
   wipe_values (&values);
+
+  free_strings_list (&internal_extension_dirs);
+  free (extensions_dir);
 
 #ifdef EMBED_PERL
   if (embedded_interpreter)

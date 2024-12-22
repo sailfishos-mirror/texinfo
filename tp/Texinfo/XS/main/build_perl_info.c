@@ -329,19 +329,6 @@ build_perl_directions (const ELEMENT * const *e_l, int avoid_recursion)
   return sv;
 }
 
-
-/* Used to create a string considered as bytes by perl */
-SV *
-newSVpv_byte (const char *str, STRLEN len)
-{
-  SV *sv;
-  dTHX;
-
-  sv = newSVpv (str, len);
-  SvUTF8_off (sv);
-  return sv;
-}
-
 static void
 build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
                        int avoid_recursion, int *nr_info)

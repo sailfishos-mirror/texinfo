@@ -25,8 +25,6 @@ char *perl_only_strndup (const char *s, size_t n);
    headers in call_perl_function.h */
 /* does not exist as perl macro */
 SV *newSVpv_utf8 (const char *str, STRLEN len);
-
-/* does not exist as perl macro */
 SV *newSVpv_byte (const char *str, STRLEN len);
 
 void element_to_perl_hash (ELEMENT *e, int avoid_recursion);

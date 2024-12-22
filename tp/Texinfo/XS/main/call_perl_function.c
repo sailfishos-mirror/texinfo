@@ -46,6 +46,18 @@ newSVpv_utf8 (const char *str, STRLEN len)
   return sv;
 }
 
+/* Used to create a string considered as bytes by perl */
+SV *
+newSVpv_byte (const char *str, STRLEN len)
+{
+  SV *sv;
+  dTHX;
+
+  sv = newSVpv (str, len);
+  SvUTF8_off (sv);
+  return sv;
+}
+
 void
 call_common_set_output_perl_encoding (const CONVERTER *self)
 {
@@ -256,6 +268,48 @@ call_collator_getSortKey (const void *collator_sv, const char *string)
 
   return result;
 }
+
+static int texinfo_convert_html_module_loaded;
+
+void
+call_config_GNUT_load_init_file (const char *file_path)
+{
+  int count;
+
+  dTHX;
+
+  if (!texinfo_convert_html_module_loaded)
+    {
+      eval_pv ("use Texinfo::Convert::HTML;", TRUE);
+      texinfo_convert_html_module_loaded = 1;
+    }
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 1);
+
+  PUSHs(sv_2mortal (newSVpv_byte (file_path, 0)));
+
+  PUTBACK;
+
+  count = call_pv ("Texinfo::Config::GNUT_load_init_file",
+                   G_VOID);
+
+  SPAGAIN;
+
+  if (count != 0)
+    croak ("Texinfo::Config::GNUT_load_init_file should not return anything\n");
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+}
+
 
 
 /* following is used to embed a Perl interpreter */
