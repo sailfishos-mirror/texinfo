@@ -1,5 +1,18 @@
 2024-12-22  Patrice Dumas  <pertusus@free.fr>
 
+	force using XS when Perl interpreter is embedded
+
+	* tp/Texinfo/XSLoader.pm ($embedded_xs, set_XS_embedded)
+	(XS_parser_enabled, XS_structuring_enabled, XS_convert_enabled),
+	tp/load_txi_modules.pl: add set_XS_embedded to notify that the Perl
+	parser is embedded and set $embedded_xs.  Call it from
+	load_txi_modules.pl.
+
+	* tp/Texinfo/Convert/HTML.pm (import): do not call _XS_format_setup if
+	Perl is embedded, as it has already been called by the C code.
+
+2024-12-22  Patrice Dumas  <pertusus@free.fr>
+
 	load initialization files in teximakehtml.c
 
 	* tp/Texinfo/XS/main/build_perl_info.c,

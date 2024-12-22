@@ -112,9 +112,7 @@ BEGIN
 BEGIN {
   my $enable_xs = '@enable_xs@';
   if ($enable_xs eq 'no') {
-    package Texinfo::XSLoader;
-    our $disable_XS;
-    $disable_XS = 1;
+    die ("Cannot have XS disabled and embedding Perl\n");
   }
 }
 
@@ -124,6 +122,8 @@ use Locale::Messages;
 use Texinfo::Common;
 use Texinfo::Config;
 use Texinfo::Report;
+
+Texinfo::XSLoader::set_XS_embedded();
 
 # Paths and file names
 #my $curdir = File::Spec->curdir();

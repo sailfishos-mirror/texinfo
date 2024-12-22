@@ -336,7 +336,10 @@ sub import {
       foreach my $sub (keys %XS_conversion_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_conversion_overrides{$sub});
       }
-      _XS_format_setup();
+      # No need to do it again if called from C
+      if (!$Texinfo::XSLoader::embedded_xs) {
+        _XS_format_setup();
+      }
     }
     $module_loaded = 1;
   }

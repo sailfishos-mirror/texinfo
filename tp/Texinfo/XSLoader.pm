@@ -43,23 +43,34 @@ my $xs_version = $VERSION;
 $xs_version =~ s/-/./g;
 #my $xs_version = version->declare($VERSION)->numify;
 
+# Set from code to notify that Perl is embedded in C, and that XS needs to
+# be used.
+our $embedded_xs;
+
+sub set_XS_embedded {
+  $embedded_xs = 1;
+}
+
 sub XS_parser_enabled {
-  return ((not defined($ENV{TEXINFO_XS})
-           or $ENV{TEXINFO_XS} ne 'omit')
-          and (not defined($ENV{TEXINFO_XS_PARSER})
-               or $ENV{TEXINFO_XS_PARSER} eq '1'));
+  return ($embedded_xs or
+          ((not defined($ENV{TEXINFO_XS})
+            or $ENV{TEXINFO_XS} ne 'omit')
+           and (not defined($ENV{TEXINFO_XS_PARSER})
+                or $ENV{TEXINFO_XS_PARSER} eq '1')));
 }
 
 sub XS_structuring_enabled {
-  return (XS_parser_enabled()
+  return ($embedded_xs or
+          (XS_parser_enabled()
            and (not defined($ENV{TEXINFO_XS_STRUCTURE})
-                or $ENV{TEXINFO_XS_STRUCTURE} ne '0'));
+                or $ENV{TEXINFO_XS_STRUCTURE} ne '0')));
 }
 
 sub XS_convert_enabled {
-  return (XS_structuring_enabled()
+  return ($embedded_xs or
+          (XS_structuring_enabled()
             and defined $ENV{TEXINFO_XS_CONVERT}
-            and $ENV{TEXINFO_XS_CONVERT} eq '1');
+            and $ENV{TEXINFO_XS_CONVERT} eq '1'));
 }
 
 
