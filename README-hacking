@@ -417,6 +417,9 @@ check indices of Texinfo manuals and check for duplicates (with <1> in Info)
 
 Check "make ccheck" and "make vcheck" work in "doc/refcard".
 
+Check mentions of configure flags, environment variables etc. in INSTALL are
+up to date
+
 Consider running tests of texi2dvi under contrib/nontests
 
 - Official releases only:

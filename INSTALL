@@ -92,6 +92,14 @@ Installation notes specific to Texinfo:
   for the structure step.  If you want to use the XS modules for conversion,
   you should set the `TEXINFO_XS_CONVERT' environment variable to 1.
 
+* The XS modules get translations for strings to be put in output files
+  using libc gettext, using the LANGUAGE variable.  If the gettext
+  implementation (such as that on musl) does not support this variable,
+  this will not work and strings will not be translated.  However, if you
+  pass the --enable-xs-perl-libintl flag to `configure', an alternative
+  translation method is activated where XS code calls back into the Perl
+  interpreter to get translations, which does work.
+
 * For instructions on compiling this distribution with DJGPP tools
   for MS-DOS and MS-Windows, see the file djgpp/README.
 
