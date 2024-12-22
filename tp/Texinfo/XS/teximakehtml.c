@@ -980,12 +980,20 @@ main (int argc, char *argv[])
 
       switch (option_character)
         {
+        case 0:
+          /* option sets a flag, nothing to do */
+          break;
         case 'c':
           get_cmdline_customization_option (&cmdline_options, optarg);
           break;
         case DOCUMENT_LANGUAGE_OPT:
           set_from_cmdline(&cmdline_options,
                            cmdline_options.options->documentlanguage.number,
+                           optarg);
+          break;
+        case DEBUG_OPT:
+          set_from_cmdline(&cmdline_options,
+                           cmdline_options.options->DEBUG.number,
                            optarg);
           break;
         case 'e':
@@ -1329,6 +1337,8 @@ main (int argc, char *argv[])
           break;
            */
         default:
+          fprintf (stderr, "BUG: getopt_long unexpected option_character: %d\n",
+                   option_character);
           exit (EXIT_FAILURE);
         }
     }

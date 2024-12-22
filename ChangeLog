@@ -1,3 +1,8 @@
+2024-12-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/teximakehtml.c (main): really handle option setting a
+	flag.  Set customization variable for debug option.
+
 2024-12-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%valid_tree_transformations): remove
