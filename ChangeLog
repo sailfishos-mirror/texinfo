@@ -1,5 +1,9 @@
 2024-12-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* man/info.5, man/texinfo.5: 2024.
+
+2024-12-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* INSTALL: mention --enable-xs-perl-libintl for musl.  From Patrice.
 	* README-hacking: reminder to check configure flags in INSTALL
 
