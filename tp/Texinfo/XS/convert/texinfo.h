@@ -33,11 +33,12 @@
 
 void txi_general_setup (int texinfo_uninstalled,
                    const char *converterdatadir, const char *tp_builddir,
-                   const char *top_srcdir);
+                   const char *top_srcdir, int use_external_translate_string);
 
 void txi_set_base_default_options (OPTIONS_LIST *options,
                                    const char *locale_encoding,
-                                   const char *program_file);
+                                   const char *program_file,
+                                   int embedded_interpreter);
 
 void txi_converter_output_format_setup (const char *format_str);
 

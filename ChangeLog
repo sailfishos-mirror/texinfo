@@ -1,5 +1,26 @@
 2024-12-22  Patrice Dumas  <pertusus@free.fr>
 
+	ctexi2any C program for conversion to HTML with Perl embedding
+
+	* tp/load_txi_modules.pl, tp/Texinfo/XS/teximakehtml.c (main),
+	tp/Texinfo/XS/main/call_perl_function.c (xs_init, call_init_perl)
+	(call_finish_perl), tp/Texinfo/XS/Makefile.am (noinst_PROGRAMS)
+	(ctexi2any_SOURCES, ctexi2any_LDADD, ctexi2any_LDFLAGS)
+	(ctexi2any_CPPFLAGS): add load_txi_modules.pl, a new script that loads
+	the Texinfo modules, based on texi2any.pl beginning trimmed down.
+	Add call_init_perl and call_finish_perl to load a Perl interpreter
+	calling load_txi_modules.pl.  In teximakehtml.c, if EMBED_PERL is
+	defined, call the functions to load an interpreter.
+	Add ctexi2any based on teximakehtml.c linking against libtexinfo*
+	libraries with EMBED_PERL defined.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_general_setup)
+	(txi_set_base_default_options): add arguments to set
+	use_external_translate_string, and to be able to avoid setting
+	XS_STRXFRM_COLLATION_LOCALE.  Update callers.
+
+2024-12-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/teximakehtml.c (main): really handle option setting a
 	flag.  Set customization variable for debug option.
 

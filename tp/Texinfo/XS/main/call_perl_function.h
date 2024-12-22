@@ -20,4 +20,6 @@ const void *call_setup_collator (int use_unicode_collation,
 BYTES_STRING *call_collator_getSortKey (const void *collator_sv,
                                         const char *string);
 
+void call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref);
+void call_finish_perl (void);
 #endif

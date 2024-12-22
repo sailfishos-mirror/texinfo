@@ -356,6 +356,7 @@ maintenance_files = \
 
 # test_files_generated_list comes from the generated Makefile.tres
 EXTRA_DIST = \
+  load_txi_modules.pl \
   texi2any.pl \
   texi2any.supp \
   $(test_files_generated_list) \

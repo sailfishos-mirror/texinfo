@@ -258,3 +258,55 @@ call_collator_getSortKey (const void *collator_sv, const char *string)
 }
 
 
+/* following is used to embed a Perl interpreter */
+static PerlInterpreter *my_perl;
+
+/* this is somewhat magic, but it works; obtained according to perlembed with
+  perl -MExtUtils::Embed -e xsinit -- -o perlxsi.c
+ */
+
+EXTERN_C void xs_init (pTHX);
+
+EXTERN_C void boot_DynaLoader (pTHX_ CV* cv);
+
+EXTERN_C void
+xs_init(pTHX)
+{
+    static const char file[] = __FILE__;
+    dXSUB_SYS;
+    PERL_UNUSED_CONTEXT;
+
+    /* DynaLoader is a special case */
+    newXS("DynaLoader::boot_DynaLoader", boot_DynaLoader, file);
+}
+
+/* load a Perl intperpreter and load Texinfo modules.  To be called once */
+/* TODO "hide" load_txi_modules.pl in datadir/texi2any and pass the
+   path as call_init_perl argument, with a different name for in-source and
+   installed cases */
+void
+/* call_init_perl (int argc, char **argv, char **env) */
+call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref)
+{
+  char *embedding[] = { "", "load_txi_modules.pl" };
+  /* The arguments of PERL_SYS_INIT3 are not explained clearly anywhere.
+     The only hint is in perlembed:
+   PERL_SYS_INIT3() must be invoked on the C main() argc, argv and env and only once.
+   */
+  /* PERL_SYS_INIT3(&argc,&argv,&env); */
+  PERL_SYS_INIT3 (argc_ref, argv_ref, env_ref);
+  /* PERL_SYS_INIT3((int *)NULL,(char ***)NULL,(char ***)NULL); */
+  my_perl = perl_alloc();
+  perl_construct(my_perl);
+  PL_exit_flags |= PERL_EXIT_DESTRUCT_END;
+  perl_parse(my_perl, xs_init, 2, embedding, (char **)NULL);
+  /* perl_run(my_perl); */
+}
+
+void
+call_finish_perl (void)
+{
+  perl_destruct(my_perl);
+  perl_free(my_perl);
+  PERL_SYS_TERM();
+}

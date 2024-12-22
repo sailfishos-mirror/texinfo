@@ -49,7 +49,8 @@
    to be called once */
 void
 txi_general_setup (int texinfo_uninstalled, const char *converterdatadir,
-                   const char *tp_builddir, const char *top_srcdir)
+                   const char *tp_builddir, const char *top_srcdir,
+                   int use_external_translate_string)
 {
   char *locales_dir;
 
@@ -64,7 +65,8 @@ txi_general_setup (int texinfo_uninstalled, const char *converterdatadir,
 
       if (stat (locales_dir, &finfo) == 0 && S_ISDIR (finfo.st_mode))
         {
-          configure_output_strings_translations (locales_dir, 0, -1);
+          configure_output_strings_translations (locales_dir, 0,
+                                           use_external_translate_string);
         }
       else
         fprintf (stderr, "Locales dir for document strings not found\n");
@@ -72,7 +74,8 @@ txi_general_setup (int texinfo_uninstalled, const char *converterdatadir,
   else
     {
       xasprintf (&locales_dir, "%s/locale", converterdatadir);
-      configure_output_strings_translations (locales_dir, 0, -1);
+      configure_output_strings_translations (locales_dir, 0,
+                                           use_external_translate_string);
     }
 
   free (locales_dir);
@@ -95,7 +98,8 @@ err_add_option_value (OPTIONS_LIST *options_list, const char *option_name,
 void
 txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
                               const char *locale_encoding,
-                              const char *program_file)
+                              const char *program_file,
+                              int embedded_interpreter)
 {
   const char *configured_version = PACKAGE_VERSION_CONFIG;
   const char *configured_package = PACKAGE_CONFIG;
@@ -123,10 +127,11 @@ txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
                         locale_encoding);
   err_add_option_value (main_program_set_options, "LOCALE_ENCODING", 0,
                         locale_encoding);
-  /* filled here because it is the best we have in C */
-  err_add_option_value (main_program_set_options,
-                        "XS_STRXFRM_COLLATION_LOCALE", 0,
-                        "en_US");
+  if (!embedded_interpreter)
+    /* filled here because it is the best we have in C */
+    err_add_option_value (main_program_set_options,
+                          "XS_STRXFRM_COLLATION_LOCALE", 0,
+                          "en_US");
 
   /* same as Texinfo::Common::default_main_program_customization_options */
   /* in general transmitted to converters as default */

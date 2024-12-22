@@ -1,4 +1,4 @@
-/* teximakehtml.c -- simplistic conversion of Texinfo to HTML
+/* teximakehtml.c -- conversion of Texinfo to HTML
 
    Copyright 2010-2024 Free Software Foundation, Inc.
 
@@ -14,6 +14,11 @@
 
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+
+/* the program can be compiled standalone with all the required C code,
+   or use libraries with the required C code and also possibilities
+   to embed an interpreter, for now Perl and call Perl code.
+ */
 
 #include <config.h>
 
@@ -59,6 +64,10 @@
 /* destroy_converter_initialization_info */
 #include "converter.h"
 #include "texinfo.h"
+
+#ifdef EMBED_PERL
+#include "call_perl_function.h"
+#endif
 
 #define LOCALEDIR DATADIR "/locale"
 
@@ -830,8 +839,10 @@ static const char *possible_split[] = {
   "chapter", "section", "node", NULL
 };
 
+/* we use env in case a Perl interpreter is embedded in order to blindly
+   follow the documentation in perlembed, which is not very explicit */
 int
-main (int argc, char *argv[])
+main (int argc, char *argv[], char *env[])
 {
   int getopt_long_index;
   const char *locale_encoding = 0;
@@ -873,6 +884,10 @@ main (int argc, char *argv[])
   int do_menu = 0;
   size_t format_menu_option_nr;
   char *conversion_format_menu_default = 0;
+  /* used to have different parameterization with embedded interpreter and
+     without */
+  int use_external_translate_string = -1;
+  int embedded_interpreter = 0;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -898,7 +913,14 @@ main (int argc, char *argv[])
 
   free (top_builddir);
 
-  txi_general_setup (1, 0, tp_builddir, top_srcdir);
+#ifdef EMBED_PERL
+  call_init_perl (&argc, &argv, &env);
+  embedded_interpreter = 1;
+  use_external_translate_string = 0;
+#endif
+
+  txi_general_setup (1, 0, tp_builddir, top_srcdir,
+                     use_external_translate_string);
 
   free (tp_builddir);
   free (top_srcdir);
@@ -922,7 +944,7 @@ main (int argc, char *argv[])
 
   /* program_options corresponds to main_program_set_options in texi2any */
   txi_set_base_default_options (&program_options, locale_encoding,
-                                program_file);
+                                program_file, embedded_interpreter);
 
   /* set default output format.  Is info in texi2any */
   /* better than making it the default value independently of the
@@ -2104,6 +2126,10 @@ main (int argc, char *argv[])
 
   destroy_strings_list (texinfo_language_config_dirs);
   wipe_values (&values);
+
+#ifdef EMBED_PERL
+  call_finish_perl ();
+#endif
 
   if (errors_count > 0)
     exit (EXIT_FAILURE);

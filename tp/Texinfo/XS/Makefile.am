@@ -603,9 +603,11 @@ ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ############################################### demonstrator of the API
 
+noinst_PROGRAMS =
+
 if ! DISABLE_ADDITIONAL_CHECKS
 if HAVE_ICONV
-noinst_PROGRAMS = teximakehtml
+noinst_PROGRAMS += teximakehtml
 endif
 endif
 
@@ -620,4 +622,28 @@ teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la
 teximakehtml_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\"
+
+
+############################################### main program in C
+
+if ! DISABLE_ADDITIONAL_CHECKS
+if HAVE_ICONV
+noinst_PROGRAMS += ctexi2any
+endif
+endif
+
+ctexi2any_SOURCES = \
+                       teximakehtml.c
+
+# NOTE PERL_LIBS is needed on GNU/Linux too, but see just below ExtUtils::Embed
+# should be used
+# FIXME use perl -MExtUtils::Embed -e ccopts
+# FIXME use perl -MExtUtils::Embed -e ldopts
+# TODO not sure that gnulib is directly needed
+ctexi2any_LDADD = libtexinfo-convertxs.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD) $(PERL_LIBS)
+#ctexi2any_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+ctexi2any_LDFLAGS = $(perl_conf_LDFLAGS)
+
+ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
+
 
