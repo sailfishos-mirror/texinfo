@@ -1,5 +1,16 @@
 2024-12-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (converterdata_SCRIPTS, load_txi_modules): install
+	load_txi_modules.
+
+	* tp/Texinfo/XS/main/call_perl_function.c (call_init_perl),
+	tp/Texinfo/XS/teximakehtml.c (main): get file to load from
+	call_init_perl caller.
+
+	* tp/load_txi_modules.pl: add/remove loaded modules.
+
+2024-12-22  Patrice Dumas  <pertusus@free.fr>
+
 	ctexi2any C program for conversion to HTML with Perl embedding
 
 	* tp/load_txi_modules.pl, tp/Texinfo/XS/teximakehtml.c (main),

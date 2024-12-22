@@ -18,7 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 # Trimmed down texi2any.pl that is used to load the modules when
-# Perl code is only called from C and no Perl script is run.
+# Perl code is directly called from C and no Perl script is run.
 
 use 5.006;
 
@@ -121,7 +121,6 @@ BEGIN {
 use Texinfo::XSLoader;
 
 use Locale::Messages;
-use Texinfo::Options;
 use Texinfo::Common;
 use Texinfo::Config;
 use Texinfo::Report;
@@ -274,9 +273,10 @@ foreach my $configured_variable (keys(%$configured_information)) {
                        $configured_information->{$configured_variable});
 }
 
+# next three modules are basic and used in call_perl_function.c
 use Texinfo::Translations;
-use Texinfo::Document;
-use Texinfo::Convert::Utils;
+use Texinfo::Convert::NodeNameNormalization;
+use Texinfo::Indices;
 
 if ($Texinfo::ModulePath::texinfo_uninstalled) {
   my $locales_dir = File::Spec->catdir($Texinfo::ModulePath::tp_builddir,
@@ -291,6 +291,10 @@ if ($Texinfo::ModulePath::texinfo_uninstalled) {
                               $strings_textdomain);
 }
 
-#use Texinfo::Convert::HTML;
+# useful modules the user can always assume to have.
+use Texinfo::ManipulateTree;
+use Texinfo::Document;
+use Texinfo::Convert::Texinfo;
+use Texinfo::Convert::Utils;
 
 1;

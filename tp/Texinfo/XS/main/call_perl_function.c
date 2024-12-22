@@ -281,16 +281,14 @@ xs_init(pTHX)
 }
 
 /* load a Perl intperpreter and load Texinfo modules.  To be called once */
-/* TODO "hide" load_txi_modules.pl in datadir/texi2any and pass the
-   path as call_init_perl argument, with a different name for in-source and
-   installed cases */
 void
-/* call_init_perl (int argc, char **argv, char **env) */
-call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref)
+call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref,
+                char *load_txi_modules_path)
 {
-  char *embedding[] = { "", "load_txi_modules.pl" };
-  /* The arguments of PERL_SYS_INIT3 are not explained clearly anywhere.
-     The only hint is in perlembed:
+  char *embedding[] = { "", load_txi_modules_path };
+  /* The need and use of arguments of PERL_SYS_INIT3 are not explained
+     clearly anywhere.  In perlembed they seem to be mandatory, but
+     there is nothing very explicit.  We follow perlembed:
    PERL_SYS_INIT3() must be invoked on the C main() argc, argv and env and only once.
    */
   /* PERL_SYS_INIT3(&argc,&argv,&env); */

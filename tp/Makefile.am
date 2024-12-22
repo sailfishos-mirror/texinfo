@@ -42,6 +42,8 @@ converterdatadir = $(datadir)/$(CONVERTER)
 
 bin_SCRIPTS = texi2any
 
+converterdata_SCRIPTS = load_txi_modules
+
 do_subst = sed \
   -e 's,[@]PACKAGE_VERSION[@],$(PACKAGE_VERSION),g' \
   -e 's,[@]PACKAGE_NAME[@],$(PACKAGE_NAME),g' \
@@ -62,6 +64,12 @@ do_subst = sed \
 
 texi2any: texi2any.pl $(top_builddir)/config.status
 	$(do_subst) $(srcdir)/texi2any.pl >$@
+	chmod a+x $@
+
+# the chmod may not be needed, but since the file is called by Perl, let's
+# be prudent
+load_txi_modules: load_txi_modules.pl $(top_builddir)/config.status
+	$(do_subst) $(srcdir)/load_txi_modules.pl >$@
 	chmod a+x $@
 
 makeinfo: texi2any

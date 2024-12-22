@@ -884,6 +884,12 @@ main (int argc, char *argv[], char *env[])
   int do_menu = 0;
   size_t format_menu_option_nr;
   char *conversion_format_menu_default = 0;
+  int texinfo_uninstalled = 1;
+  const char *converterdatadir = DATADIR "/" CONVERTER_CONFIG;
+  /* to avoid a warning on unused variable keep in ifdef */
+#ifdef EMBED_PERL
+  const char *load_txi_modules_basename = "load_txi_modules";
+#endif
   /* used to have different parameterization with embedded interpreter and
      without */
   int use_external_translate_string = -1;
@@ -914,12 +920,26 @@ main (int argc, char *argv[], char *env[])
   free (top_builddir);
 
 #ifdef EMBED_PERL
-  call_init_perl (&argc, &argv, &env);
   embedded_interpreter = 1;
-  use_external_translate_string = 0;
+  if (embedded_interpreter)
+    {/* setup paths here to avoid memory management as much as possible
+        in Perl C */
+      char *load_modules_path;
+      if (texinfo_uninstalled)
+        xasprintf (&load_modules_path, "%s/tp/%s.pl", top_srcdir,
+                                       load_txi_modules_basename);
+      else
+        xasprintf (&load_modules_path, "%s/%s",
+                   converterdatadir, load_txi_modules_basename);
+      call_init_perl (&argc, &argv, &env, load_modules_path);
+      free (load_modules_path);
+
+      use_external_translate_string = 0;
+    }
 #endif
 
-  txi_general_setup (1, 0, tp_builddir, top_srcdir,
+  txi_general_setup (texinfo_uninstalled, converterdatadir,
+                     tp_builddir, top_srcdir,
                      use_external_translate_string);
 
   free (tp_builddir);
@@ -2128,7 +2148,8 @@ main (int argc, char *argv[], char *env[])
   wipe_values (&values);
 
 #ifdef EMBED_PERL
-  call_finish_perl ();
+  if (embedded_interpreter)
+    call_finish_perl ();
 #endif
 
   if (errors_count > 0)
