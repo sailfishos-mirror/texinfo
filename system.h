@@ -158,10 +158,4 @@ extern int kill (pid_t, int);
 # define PIPE_USE_FORK	1
 #endif /* not O_BINARY */
 
-#ifdef HAVE_PWD_H
-#include <pwd.h>
-#endif
-/* Some systems don't declare this function in pwd.h. */
-struct passwd *getpwnam (const char *name);
-
 #endif /* TEXINFO_SYSTEM_H */

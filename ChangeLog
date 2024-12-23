@@ -2,6 +2,12 @@
 
 	Remove system.h defines
 
+	* system.h, info/tilde.c: move include of <pwd.h> to tilde.c.
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Remove system.h defines
+
 	* system.h:
 	[MIKTEX]: Remove section.  I have been unable
 	to determine its purpose or relevance.  (Added 2002-09-26.)

@@ -20,6 +20,13 @@
 #include "info.h"
 #include "tilde.h"
 
+#ifdef HAVE_PWD_H
+#include <pwd.h>
+#endif
+/* Some systems don't declare this function in pwd.h. */
+struct passwd *getpwnam (const char *name);
+
+
 /* Do the work of tilde expansion on FILENAME.  FILENAME starts with a
    tilde. */
 char *
