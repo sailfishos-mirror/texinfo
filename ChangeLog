@@ -1,5 +1,18 @@
 2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (free_converter_paths_information)
+	(setup_converter_paths_information), tp/Texinfo/XS/convert/converter.h
+	(INSTALLED_PATHS, UNINSTALLED_PATHS): add
+	free_converter_paths_information.  Free previous conversion_paths_info
+	before setting them in setup_converter_paths_information.
+
+	* tp/Texinfo/XS/convert/converter.c (converter_setup): the function
+	can be called twice if called both from C and from a Perl converter
+	modules initialization called from C.  Add a variable to avoid running
+	twice the code except for setting paths.
+
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/teximakehtml.c (locate_and_load_init_file)
 	(locate_and_load_extension_file, main): free strings and structures to
 	avoid memory leaks found with valgrind.

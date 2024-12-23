@@ -74,12 +74,12 @@ typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
 } FLOAT_CAPTION_PREPENDED_ELEMENT;
 
 typedef struct INSTALLED_PATHS {
-    const char *converterdatadir;
+    char *converterdatadir;
 } INSTALLED_PATHS;
 
 typedef struct UNINSTALLED_PATHS {
-    const char *tp_builddir;
-    const char *top_srcdir;
+    char *tp_builddir;
+    char *top_srcdir;
 } UNINSTALLED_PATHS;
 
 typedef struct PATHS_INFORMATION {

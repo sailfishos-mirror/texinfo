@@ -118,31 +118,57 @@ PATHS_INFORMATION conversion_paths_info;
 const char *xml_text_entity_no_arg_commands_formatting[BUILTIN_CMD_NUMBER];
 
 static void
+free_converter_paths_information (PATHS_INFORMATION *paths_info)
+{
+  if (paths_info->texinfo_uninstalled)
+    {
+      free (paths_info->p.uninstalled.tp_builddir);
+      free (paths_info->p.uninstalled.top_srcdir);
+    }
+  else
+    free (paths_info->p.installed.converterdatadir);
+}
+
+static void
 setup_converter_paths_information (int texinfo_uninstalled,
                                    const char *converterdatadir,
                                    const char *tp_builddir,
                                    const char *top_srcdir)
 {
+  free_converter_paths_information (&conversion_paths_info);
   memset (&conversion_paths_info, 0, sizeof (PATHS_INFORMATION));
   conversion_paths_info.texinfo_uninstalled = texinfo_uninstalled;
   if (texinfo_uninstalled)
     {
       if (tp_builddir)
-        conversion_paths_info.p.uninstalled.tp_builddir
-          = strdup (tp_builddir);
+        {
+          conversion_paths_info.p.uninstalled.tp_builddir
+            = strdup (tp_builddir);
+        }
       if (top_srcdir)
-        conversion_paths_info.p.uninstalled.top_srcdir
-          = strdup (top_srcdir);
+        {
+          conversion_paths_info.p.uninstalled.top_srcdir
+            = strdup (top_srcdir);
+        }
     }
   else
     {
       if (converterdatadir)
-        conversion_paths_info.p.installed.converterdatadir
-          = strdup (converterdatadir);
+        {
+          conversion_paths_info.p.installed.converterdatadir
+            = strdup (converterdatadir);
+        }
     }
 }
 
-/* called only once */
+static int converter_setup_called;
+
+/* should be called only once.  Except that it may be called both
+   from C and from an embedded Perl module initialization, so
+   use a variable to guard resetting anything else than paths */
+/* TODO do not call XS Modules init from XSLoader.pm if
+   $embedded_xs is set, under the assumption that the corresponding
+   code would already be called in C code? */
 void
 converter_setup (int texinfo_uninstalled, const char *converterdatadir,
                  const char *tp_builddir, const char *top_srcdir)
@@ -153,6 +179,11 @@ converter_setup (int texinfo_uninstalled, const char *converterdatadir,
      it may have been relevant at earlier steps */
   setup_converter_paths_information (texinfo_uninstalled,
                              converterdatadir, tp_builddir, top_srcdir);
+
+  if (converter_setup_called)
+    return;
+
+  converter_setup_called = 1;
 
   set_element_type_name_info ();
   txi_initialise_base_options ();
