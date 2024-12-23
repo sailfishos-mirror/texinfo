@@ -1,5 +1,11 @@
 2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	7.2
+
+	* NEWS: version and date.
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/maintain/regenerate_documentlanguages-loc.pl:
 	Exclude duplicate country codes as both Denmark and the Kingdom
 	of Denmark have the same code.

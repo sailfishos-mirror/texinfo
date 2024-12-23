@@ -9,6 +9,7 @@ See the manual for detailed information.
 
 ------------------------------------------------------------------------------
 
+7.2 (23 December 2024)
 * Build
   . "make install" installs files for texi2any under $datadir/texi2any, not
     $datadir/texinfo.
