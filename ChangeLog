@@ -1,5 +1,10 @@
 2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/refcard/txirefcard.tex: remove comments after defines
+	of year and version number
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/nodemenu.c (get_visited_nodes, nodemenu_format_info):
 	Remove "* Menu:" from translatable string to prevent translators
 	from translating it.
