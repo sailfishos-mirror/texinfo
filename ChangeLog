@@ -3,6 +3,13 @@
 	Remove system.h defines
 
 	* system.h,
+	* info/info.h: Remove or move more includes out of system.h.
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Remove system.h defines
+
+	* system.h,
 	* info/info.h,
 	* info/window.h,
 	* install-info/install-info.c: Move system includes out of system.h.

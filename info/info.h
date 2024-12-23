@@ -26,6 +26,7 @@
 #include <stdio.h>
 #include <limits.h>
 #include <ctype.h>
+#include <errno.h>
 
 #define STREQ(s1,s2) (strcmp (s1, s2) == 0)
 

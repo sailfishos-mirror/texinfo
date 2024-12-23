@@ -22,7 +22,6 @@
 
 #include <config.h>
 
-#include <locale.h>
 #include <stdlib.h>
 
 /* Use POSIX headers.  If they are not available, we use the substitute
@@ -44,11 +43,6 @@
 #endif
 #include "mbswidth.h"
 #include "xalloc.h"
-
-#include <errno.h>
-#ifndef errno
-extern int errno;
-#endif
 
 #include <sys/stat.h>
 #if !defined(S_ISDIR) && defined(S_IFDIR)
