@@ -98,6 +98,10 @@ dtd-check:
 	&& diff $@-1 $(srcdir)/util/texinfo.dtd \
 	&& rm -f $@-1
 
+# For updating version number
+update-version:
+	./update-version.sh $(srcdir)
+
 # For updating copyright years
 grand-replace:
 	./grand-replace.sh $(srcdir)
