@@ -36,13 +36,6 @@
 #define _(String) gettext (String)
 #define N_(String) (String)
 
-/* Additional gnulib includes.  */
-#include "mbchar.h"
-#if HAVE_MBRTOWC
-#include "mbiter.h"
-#endif
-#include "mbswidth.h"
-
 #include <sys/stat.h>
 #if !defined(S_ISDIR) && defined(S_IFDIR)
 # define S_ISDIR(mode) (((mode) & S_IFMT) == S_IFDIR)
