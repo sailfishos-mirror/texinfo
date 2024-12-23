@@ -23,6 +23,9 @@
 #include <regex.h>
 #include <argz.h>
 
+/* From gnulib */
+#include "xalloc.h"
+
 #define TAB_WIDTH 8
 
 static char *progname = "install-info";

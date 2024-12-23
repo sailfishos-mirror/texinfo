@@ -42,7 +42,6 @@
 #include "mbiter.h"
 #endif
 #include "mbswidth.h"
-#include "xalloc.h"
 
 #include <sys/stat.h>
 #if !defined(S_ISDIR) && defined(S_IFDIR)

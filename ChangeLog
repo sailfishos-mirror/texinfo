@@ -1,5 +1,12 @@
 2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove system.h include
+
+	* system.h, info/info.h, install-info/install-info.c:
+	Move include of "xalloc.h" out of system.h.
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove system.h defines
 
 	* system.h,

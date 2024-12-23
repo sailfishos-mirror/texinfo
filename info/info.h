@@ -28,6 +28,9 @@
 #include <ctype.h>
 #include <errno.h>
 
+/* From gnulib */
+#include "xalloc.h"
+
 #define STREQ(s1,s2) (strcmp (s1, s2) == 0)
 
 #ifndef TEXINFO_PRINTFLIKE
