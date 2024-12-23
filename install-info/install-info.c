@@ -22,7 +22,10 @@
 #include <getopt.h>
 #include <regex.h>
 #include <argz.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <unistd.h>
+
 
 /* From gnulib */
 #include "xalloc.h"

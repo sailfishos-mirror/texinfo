@@ -36,11 +36,6 @@
 #define _(String) gettext (String)
 #define N_(String) (String)
 
-#include <sys/stat.h>
-#if !defined(S_ISDIR) && defined(S_IFDIR)
-# define S_ISDIR(mode) (((mode) & S_IFMT) == S_IFDIR)
-#endif
-
 /* MS-DOS and similar non-Posix systems have some peculiarities:
     - they distinguish between binary and text files;
     - they use both `/' and `\\' as directory separator in file names;

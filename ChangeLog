@@ -1,5 +1,13 @@
 2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove system.h includes
+
+	* system.h, info/info.h, install-info/install-info.c:
+	remove include of <sys/stat.h> and redefinition of S_ISDIR from
+	system.h.
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* system.h (HAVE_LONG_FILENAMES): Remove as it is not used
 	anywhere.
 
