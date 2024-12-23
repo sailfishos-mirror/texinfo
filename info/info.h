@@ -27,6 +27,7 @@
 #include <limits.h>
 #include <ctype.h>
 #include <errno.h>
+#include <unistd.h>
 
 /* From gnulib */
 #include "xalloc.h"
