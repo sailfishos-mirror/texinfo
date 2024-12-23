@@ -22,12 +22,6 @@
 
 #include <config.h>
 
-#ifdef MIKTEX
-#include <gnu-miktex.h>
-#define S_ISDIR(x) ((x)&_S_IFDIR)
-#endif
-
-/* Assume ANSI C89 headers are available.  */
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -60,9 +54,6 @@
 #include <errno.h>
 #ifndef errno
 extern int errno;
-#endif
-#ifdef VMS
-#include <perror.h>
 #endif
 
 #include <limits.h>

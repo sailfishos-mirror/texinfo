@@ -1,5 +1,15 @@
 2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove system.h defines
+
+	* system.h:
+	[MIKTEX]: Remove section.  I have been unable
+	to determine its purpose or relevance.  (Added 2002-09-26.)
+	* system.h: Remove comment re assuming ANSI C89 headers.
+	[VMS] Remove section.  (Added 1997-30-03.)
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove or move system.h defines.
 
 	* system.h (TEXINFO_PRINTFLIKE): Remove.
