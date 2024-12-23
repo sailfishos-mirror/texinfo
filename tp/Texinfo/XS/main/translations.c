@@ -181,6 +181,7 @@ switch_messages_locale (void)
     }
 }
 
+/* STRING in input must never be NULL */
 char *
 translate_string (const char *string, const char *in_lang,
                   const char *translation_context)
@@ -192,7 +193,7 @@ translate_string (const char *string, const char *in_lang,
   char *saved_LC_MESSAGES;
   char *langs[2] = {0, 0};
   char *main_lang = 0;
-  char *translated_string;
+  char *translated_string = 0;
   char *p;
   static TEXT language_locales;
   int i;
@@ -209,12 +210,22 @@ translate_string (const char *string, const char *in_lang,
       return translated_string;
     }
   else
-    return call_translations_translate_string (string, in_lang,
+    {
+      translated_string = call_translations_translate_string (string, in_lang,
                                                translation_context);
+      if (!translated_string)
+        return strdup (string);
+      else
+        return translated_string;
+    }
 #else
   if (use_external_translate_string > 0)
-    return call_translations_translate_string (string, in_lang,
+    {
+      translated_string = call_translations_translate_string (string, in_lang,
                                                translation_context);
+      if (translated_string)
+        return translated_string;
+    }
 
   /* with the following code valgrind reports issues in perl memory */
 

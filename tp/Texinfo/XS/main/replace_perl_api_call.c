@@ -66,7 +66,7 @@ char *
 call_translations_translate_string (const char *string, const char *in_lang,
                                     const char *translation_context)
 {
-  return strdup (string);
+  return 0;
 }
 
 /* happens if not linked against Perl and a collation locale was specified
