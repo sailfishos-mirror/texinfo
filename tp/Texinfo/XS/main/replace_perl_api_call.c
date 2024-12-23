@@ -26,6 +26,18 @@
 #include "api_to_perl.h"
 #include "call_perl_function.h"
 
+/* in xs_utils.h */
+void
+set_no_perl_interpreter (int value)
+{
+}
+
+int
+get_no_perl_interpreter (void)
+{
+  return 1;
+}
+
 void
 call_switch_to_global_locale (void)
 {

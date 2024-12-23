@@ -44,6 +44,8 @@
 #include "converter.h"
 #include "html_converter_api.h"
 #include "call_conversion_perl.h"
+/* set_no_perl_interpreter */
+#include "xs_utils.h"
 #include "texinfo.h"
 
 /* initialization of the library for parsing and conversion (generic),
@@ -162,12 +164,16 @@ txi_customization_loading_setup (int embedded_interpreter,
         fprintf (stderr, "WARNING: no embedded interpreter available\n");
       free (load_modules_path);
     }
+  else
+    set_no_perl_interpreter (1);
 }
 
 int
-txi_load_init_file (const char *file)
+txi_load_init_file (const char *file, int embedded_interpreter)
 {
-  int status = call_config_GNUT_load_init_file (file);
+  int status = 0;
+  if (embedded_interpreter)
+    status = call_config_GNUT_load_init_file (file);
   return status;
 }
 

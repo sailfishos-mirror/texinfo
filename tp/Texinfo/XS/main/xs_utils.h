@@ -26,4 +26,7 @@ char *non_perl_strndup (const char *s, size_t n);
 int non_perl_xvasprintf (char **ptr, const char *template, va_list ap);
 int non_perl_xasprintf (char **ptr, const char *template, ...);
 
+void set_no_perl_interpreter (int value);
+int get_no_perl_interpreter (void);
+
 #endif

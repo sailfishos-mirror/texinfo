@@ -32,7 +32,7 @@
 #include "option_types.h"
 #include "converter_types.h"
 #include "document_types.h"
-/* non_perl_* */
+/* non_perl_* get_no_perl_interpreter */
 #include "xs_utils.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
@@ -70,6 +70,9 @@ get_perl_scalar_reference_value (const void *sv_string)
 
   dTHX;
 
+  if (get_no_perl_interpreter ())
+    return 0;
+
   string_ref_sv = (SV *) sv_string;
   if (SvOK (string_ref_sv) && SvROK (string_ref_sv))
     {
@@ -89,6 +92,9 @@ call_switch_to_global_locale (void)
 {
   dTHX;
 
+  if (get_no_perl_interpreter ())
+    return;
+
 #if PERL_VERSION > 27 || (PERL_VERSION == 27 && PERL_SUBVERSION > 8)
   /* needed due to thread-safe locale handling in newer perls */
   switch_to_global_locale ();
@@ -99,6 +105,9 @@ void
 call_sync_locale (void)
 {
   dTHX;
+
+  if (get_no_perl_interpreter ())
+    return;
 
 #if PERL_VERSION > 27 || (PERL_VERSION == 27 && PERL_SUBVERSION > 8)
   /* needed due to thread-safe locale handling in newer perls */

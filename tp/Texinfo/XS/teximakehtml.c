@@ -763,7 +763,7 @@ locate_and_load_init_file (const char *filename, STRING_LIST *directories,
 
   if (file)
     {
-      int status = txi_load_init_file (file);
+      int status = txi_load_init_file (file, embedded_interpreter);
 
       if (status)
         loaded_init_files_nr++;
@@ -798,7 +798,7 @@ locate_and_load_extension_file (const char *filename, STRING_LIST *directories)
 
   if (file)
     {
-      int status = txi_load_init_file (file);
+      int status = txi_load_init_file (file, embedded_interpreter);
 
       if (status)
         loaded_init_files_nr++;

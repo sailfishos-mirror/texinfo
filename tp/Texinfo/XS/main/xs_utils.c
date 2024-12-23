@@ -21,6 +21,23 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+#include "xs_utils.h"
+
+/* to set if Perl code is compiled in, but there is no Perl interpreter */
+static int no_perl_interpreter = 0;
+
+void
+set_no_perl_interpreter (int value)
+{
+  no_perl_interpreter = value;
+}
+
+int
+get_no_perl_interpreter (void)
+{
+  return no_perl_interpreter;
+}
+
 /* wrappers to be sure to use non-Perl defined functions */
 void
 non_perl_free (void *ptr)

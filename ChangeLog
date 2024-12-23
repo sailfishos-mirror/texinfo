@@ -1,5 +1,21 @@
 2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/texinfo.c (txi_load_init_file): add
+	embedded_interpreter argument, to be able to skip the call if there is
+	no embedded interpreter forced by the caller.  Update caller.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_customization_loading_setup),
+	tp/Texinfo/XS/main/api_to_perl.c (get_perl_scalar_reference_value)
+	(call_switch_to_global_locale, call_sync_locale),
+	tp/Texinfo/XS/main/xs_utils.c (set_no_perl_interpreter)
+	(get_no_perl_interpreter): add set_no_perl_interpreter and
+	get_no_perl_interpreter to be able to communicate that there is no
+	Perl interpreter even though the code is linked against Perl.  Set it
+	in txi_customization_loading_setup.  Avoid calling Perl functions if
+	set.
+
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am
 	(libcallperl_libtexinfo_convert_la_SOURCES)
 	(libtexinfo_convertxs_la_SOURCES),

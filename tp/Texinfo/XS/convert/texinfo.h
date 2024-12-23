@@ -59,7 +59,7 @@ void txi_complete_document (DOCUMENT *document, unsigned long flags,
 void txi_converter_initialization_setup (CONVERTER_INITIALIZATION_INFO *conf,
                                     const DEPRECATED_DIRS_LIST *deprecated_dirs,
                                     const OPTIONS_LIST *customizations);
-int txi_load_init_file (const char *file);
+int txi_load_init_file (const char *file, int embedded_interpreter);
 void txi_customization_loading_finish (int embedded_interpreter);
 
 CONVERTER *txi_converter_setup (const char *external_module,
