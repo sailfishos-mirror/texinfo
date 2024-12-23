@@ -78,8 +78,7 @@ call_config_GNUT_load_init_file (const char *file_path)
 
 CONVERTER *
 call_convert_converter (const char *module_name,
-                        const DEPRECATED_DIRS_LIST *deprecated_directories,
-                        const OPTIONS_LIST *converter_options)
+                        const CONVERTER_INITIALIZATION_INFO *conf)
 {
   SV *options_list_sv;
   int count;
@@ -87,9 +86,10 @@ call_convert_converter (const char *module_name,
   SV *result_sv;
   
   dTHX;
-  
+
+  /* TODO add a function to build from CONVERTER_INITIALIZATION_INFO */
   options_list_sv
-    = build_sv_options_from_options_list (converter_options, 0);
+    = build_sv_options_from_options_list (&conf->conf, 0);
 
   dSP;
 

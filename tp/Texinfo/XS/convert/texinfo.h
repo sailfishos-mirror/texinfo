@@ -54,10 +54,12 @@ DOCUMENT *txi_parse_texi_file (const char *input_file_path, int *status);
 void txi_complete_document (DOCUMENT *document, unsigned long flags,
                             int format_menu);
 
-CONVERTER *txi_converter_setup (const char *converter_format,
-                     const char *output_format,
-                     const DEPRECATED_DIRS_LIST *deprecated_dirs,
-                     OPTIONS_LIST *customizations);
+void txi_converter_initialization_setup (CONVERTER_INITIALIZATION_INFO *conf,
+                                    const DEPRECATED_DIRS_LIST *deprecated_dirs,
+                                    const OPTIONS_LIST *customizations);
+
+CONVERTER *txi_converter_setup (const char *converted_format,
+                                const CONVERTER_INITIALIZATION_INFO *conf);
 
 char *txi_converter_output (CONVERTER *converter, DOCUMENT *document);
 char *txi_converter_convert (CONVERTER *converter, DOCUMENT *document);

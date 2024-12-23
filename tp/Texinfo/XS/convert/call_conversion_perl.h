@@ -7,8 +7,7 @@
 #include "converter_types.h"
 
 CONVERTER *call_convert_converter (const char *module_name,
-                      const DEPRECATED_DIRS_LIST *deprecated_directories,
-                      const OPTIONS_LIST *converter_options);
+                        const CONVERTER_INITIALIZATION_INFO *conf);
 char *call_converter_output (const char *module_name, CONVERTER *self,
                              DOCUMENT *document);
 

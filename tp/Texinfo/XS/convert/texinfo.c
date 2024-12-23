@@ -382,33 +382,29 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
                                          document->options);
 }
 
-/* converter setup. Similar to an initialization of converter
-   in texi2any */
-CONVERTER *
-txi_converter_setup (const char *converted_format,
-                     const char *output_format,
-                     const DEPRECATED_DIRS_LIST *deprecated_dirs,
-                     OPTIONS_LIST *customizations)
+void
+txi_converter_initialization_setup (CONVERTER_INITIALIZATION_INFO *conf,
+                                    const DEPRECATED_DIRS_LIST *deprecated_dirs,
+                                    const OPTIONS_LIST *customizations)
 {
-  enum converter_format converter_format
-    = find_format_name_converter_format (converted_format);
-  CONVERTER_INITIALIZATION_INFO *conf;
-  CONVERTER *self;
-
-  conf = new_converter_initialization_info ();
-
   if (deprecated_dirs)
     copy_deprecated_dirs (&conf->deprecated_config_directories,
                           deprecated_dirs);
 
   if (customizations)
-    {
-      copy_options_list (&conf->conf, customizations);
-    }
+    copy_options_list (&conf->conf, customizations);
+}
 
-  self = converter_converter (converter_format, conf);
+/* converter setup. Similar to an initialization of converter
+   in texi2any */
+CONVERTER *
+txi_converter_setup (const char *converted_format,
+                     const CONVERTER_INITIALIZATION_INFO *conf)
+{
+  enum converter_format converter_format
+    = find_format_name_converter_format (converted_format);
 
-  destroy_converter_initialization_info (conf);
+  CONVERTER *self = converter_converter (converter_format, conf);
 
   return self;
 }

@@ -182,6 +182,7 @@ void copy_deprecated_dirs (DEPRECATED_DIRS_LIST *deprecated_dirs_dst,
 void add_new_deprecated_dir_info (DEPRECATED_DIRS_LIST *deprecated_dirs,
                                   const char *obsolete_dir,
                                   const char *reference_dir);
+void clear_deprecated_dirs_list (DEPRECATED_DIRS_LIST *deprecated_dirs);
 void free_deprecated_dirs_list (DEPRECATED_DIRS_LIST *deprecated_dirs);
 
 ENCODING_CONVERSION *get_encoding_conversion (const char *encoding,

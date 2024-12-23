@@ -149,6 +149,8 @@ CONVERTER *converter_converter (enum converter_format format,
 void converter_initialize (CONVERTER *converter);
 
 CONVERTER_INITIALIZATION_INFO *new_converter_initialization_info (void);
+void clear_converter_initialization_info (
+                                 CONVERTER_INITIALIZATION_INFO *init_info);
 void destroy_converter_initialization_info (
                             CONVERTER_INITIALIZATION_INFO *defaults);
 

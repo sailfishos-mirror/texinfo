@@ -408,6 +408,22 @@ new_converter_initialization_info (void)
 }
 
 void
+clear_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
+{
+  if (init_info->translated_commands)
+    {
+      destroy_translated_commands (init_info->translated_commands);
+      init_info->translated_commands = 0;
+    }
+
+  clear_options_list (&init_info->conf);
+
+  clear_deprecated_dirs_list (&init_info->deprecated_config_directories);
+
+  clear_strings_list (&init_info->non_valid_customization);
+}
+
+void
 destroy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
 {
   if (init_info->translated_commands)

@@ -61,7 +61,7 @@
 #include "builtin_commands.h"
 /* output_files_open_out output_files_register_closed */
 #include "convert_utils.h"
-/* destroy_converter_initialization_info */
+/* destroy_converter_initialization_info new_converter_initialization_info */
 #include "converter.h"
 #include "texinfo.h"
 
@@ -966,6 +966,7 @@ main (int argc, char *argv[], char *env[])
   int texinfo_uninstalled = 1;
   const char *converterdatadir = DATADIR "/" CONVERTER_CONFIG;
   const char *curdir = ".";
+  CONVERTER_INITIALIZATION_INFO *converter_init_info;
   /* to avoid a warning on unused variable keep in ifdef */
 #ifdef EMBED_PERL
   const char *load_txi_modules_basename = "load_txi_modules";
@@ -1959,6 +1960,7 @@ main (int argc, char *argv[], char *env[])
 
   memset (&opened_files, 0, sizeof (STRING_LIST));
   memset (&prepended_include_directories, 0, sizeof (STRING_LIST));
+  converter_init_info = new_converter_initialization_info ();
 
   for (i = 0; i < input_files.number; i++)
     {
@@ -2239,6 +2241,10 @@ main (int argc, char *argv[], char *env[])
       copy_strings (converter_texinfo_language_config_dirs,
                     texinfo_language_config_dirs);
 
+      txi_converter_initialization_setup (converter_init_info,
+                                          &deprecated_directories,
+                                          &convert_options);
+
 #ifdef EMBED_PERL
       if (format_specification->module
           && embedded_interpreter
@@ -2246,8 +2252,7 @@ main (int argc, char *argv[], char *env[])
               && loaded_init_files_nr > 0))
         {
           converter = call_convert_converter (format_specification->module,
-                                              &deprecated_directories,
-                                              &convert_options);
+                                              converter_init_info);
 
           result = call_converter_output (format_specification->module,
                                           converter, document);
@@ -2255,9 +2260,8 @@ main (int argc, char *argv[], char *env[])
       else
 #endif
         {
-          converter = txi_converter_setup (converted_format, output_format,
-                                           &deprecated_directories,
-                                           &convert_options);
+          converter = txi_converter_setup (converted_format,
+                                           converter_init_info);
 
       /* conversion */
       /* return value can be NULL in case of errors or an empty string, but
@@ -2265,6 +2269,7 @@ main (int argc, char *argv[], char *env[])
           result = txi_converter_output (converter, document);
         }
       free (result);
+      clear_converter_initialization_info (converter_init_info);
 
       errors_count
         = merge_opened_files (&opened_files,
@@ -2293,6 +2298,8 @@ main (int argc, char *argv[], char *env[])
       clear_strings_list (&prepended_include_directories);
       clear_options_list (&convert_options);
     }
+
+  destroy_converter_initialization_info (converter_init_info);
 
   free_strings_list (&opened_files);
   free_strings_list (&prepended_include_directories);

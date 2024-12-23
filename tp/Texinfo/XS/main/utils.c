@@ -1115,7 +1115,7 @@ add_new_deprecated_dir_info (DEPRECATED_DIRS_LIST *deprecated_dirs,
 }
 
 void
-free_deprecated_dirs_list (DEPRECATED_DIRS_LIST *deprecated_dirs)
+clear_deprecated_dirs_list (DEPRECATED_DIRS_LIST *deprecated_dirs)
 {
   size_t i;
   for (i = 0; i < deprecated_dirs->number; i++)
@@ -1124,6 +1124,13 @@ free_deprecated_dirs_list (DEPRECATED_DIRS_LIST *deprecated_dirs)
       free (deprecated_dir_info->obsolete_dir);
       free (deprecated_dir_info->reference_dir);
     }
+  deprecated_dirs->number = 0;
+}
+
+void
+free_deprecated_dirs_list (DEPRECATED_DIRS_LIST *deprecated_dirs)
+{
+  clear_deprecated_dirs_list (deprecated_dirs);
   free (deprecated_dirs->list);
 }
 
