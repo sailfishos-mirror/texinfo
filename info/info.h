@@ -23,6 +23,8 @@
 /* System dependencies.  */
 #include "system.h"
 
+#define STREQ(s1,s2) (strcmp (s1, s2) == 0)
+
 struct window_struct;
 typedef void COMMAND_FUNCTION (struct window_struct *window, int count);
 

@@ -173,11 +173,6 @@ extern int kill (pid_t, int);
 /* Some systems don't declare this function in pwd.h. */
 struct passwd *getpwnam (const char *name);
 
-/* For convenience.  */
-#define STREQ(s1,s2) (strcmp (s1, s2) == 0)
-#define STRCASEEQ(s1,s2) (strcasecmp (s1, s2) == 0)
-#define STRNCASEEQ(s1,s2,n) (strncasecmp (s1, s2, n) == 0)
-
 #ifndef TEXINFO_PRINTFLIKE
 # ifdef __GNUC__
 #  define TEXINFO_PRINTFLIKE(fmt,narg) __attribute__ ((__format__ (__printf__, fmt, narg)))

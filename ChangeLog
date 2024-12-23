@@ -1,5 +1,12 @@
 2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove or move system.h defines.
+
+	* system.h (STREQ, STRCASEEQ. STRNCASEEQ): Remove.
+	* info/info.h (STREQ): Add.
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Version updating script
 
 	* update-version.sh: New file.
