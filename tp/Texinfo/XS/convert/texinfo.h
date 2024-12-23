@@ -37,8 +37,7 @@ void txi_general_setup (int texinfo_uninstalled,
 
 void txi_set_base_default_options (OPTIONS_LIST *options,
                                    const char *locale_encoding,
-                                   const char *program_file,
-                                   int embedded_interpreter);
+                                   const char *program_file);
 
 void txi_converter_output_format_setup (const char *format_str);
 

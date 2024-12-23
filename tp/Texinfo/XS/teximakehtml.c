@@ -806,6 +806,10 @@ static int mimick_p;
 /* If non-zero, show help and exit */
 static int print_help_p;
 
+/* if 1 embed interpreter.  If -1 do not embed interpreted.
+   If 0 use a compile-time default */
+static int embed_interpreter_p;
+
 #define DOCUMENT_LANGUAGE_OPT 2
 #define NO_SPLIT_OPT 3
 #define SPLIT_OPT 4
@@ -854,9 +858,11 @@ static int print_help_p;
   {"no-if" #name, 0, 0, NO_IF ## upcase ## _OPT},
 
 static struct option long_options[] = {
-  /* next two not in texi2any */
+  /* next not in texi2any */
   {"demonstration", 0, &demonstration_p, 1},
   {"mimick", 0, &mimick_p, 1},
+  {"embed-interpreter", 0, &embed_interpreter_p, 1},
+  {"no-embed-interpreter", 0, &embed_interpreter_p, -1},
 
   {"conf-dir", required_argument, 0, CONF_DIR_OPT},
   {"css-include", required_argument, 0, CSS_INCLUDE_OPT},
@@ -971,9 +977,6 @@ main (int argc, char *argv[], char *env[])
 #ifdef EMBED_PERL
   const char *load_txi_modules_basename = "load_txi_modules";
 #endif
-  /* used to have different parameterization with embedded interpreter and
-     without */
-  int use_external_translate_string = -1;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -1008,28 +1011,8 @@ main (int argc, char *argv[], char *env[])
 
   add_string (extensions_dir, &internal_extension_dirs);
 
-#ifdef EMBED_PERL
-  embedded_interpreter = 1;
-  if (embedded_interpreter)
-    {/* setup paths here to avoid memory management as much as possible
-        in Perl C */
-      char *load_modules_path;
-      if (texinfo_uninstalled)
-        xasprintf (&load_modules_path, "%s/tp/%s.pl", top_srcdir,
-                                       load_txi_modules_basename);
-      else
-        xasprintf (&load_modules_path, "%s/%s",
-                   converterdatadir, load_txi_modules_basename);
-      call_init_perl (&argc, &argv, &env, load_modules_path);
-      free (load_modules_path);
-
-      use_external_translate_string = 0;
-    }
-#endif
-
   txi_general_setup (texinfo_uninstalled, converterdatadir,
-                     tp_builddir, top_srcdir,
-                     use_external_translate_string);
+                     tp_builddir, top_srcdir, 0);
 
   free (tp_builddir);
   free (top_srcdir);
@@ -1053,7 +1036,7 @@ main (int argc, char *argv[], char *env[])
 
   /* program_options corresponds to main_program_set_options in texi2any */
   txi_set_base_default_options (&program_options, locale_encoding,
-                                program_file, embedded_interpreter);
+                                program_file);
 
   /* set default output format.  Is info in texi2any */
   /* better than making it the default value independently of the
@@ -1522,9 +1505,13 @@ main (int argc, char *argv[], char *env[])
                      optopt);
           break;
            */
+        case '?': /* unknown option or option with missing argument */
+          exit (EXIT_FAILURE);
+          break;
         default:
-          fprintf (stderr, "BUG: getopt_long unexpected option_character: %d\n",
-                   option_character);
+          fprintf (stderr,
+                   "BUG: getopt_long unexpected option_character: %d '%c'\n",
+                   option_character, (char) option_character);
           exit (EXIT_FAILURE);
         }
     }
@@ -1813,6 +1800,38 @@ main (int argc, char *argv[], char *env[])
       add_to_option_list (expanded_formats_option,
                           default_expanded_formats.list[i]);
     }
+
+#ifdef EMBED_PERL
+  embedded_interpreter = 1;
+#endif
+
+  if (embed_interpreter_p == -1)
+    embedded_interpreter = 0;
+  else if (embed_interpreter_p == 1)
+    embedded_interpreter = 1;
+
+  if (!embedded_interpreter)
+    /* it is the best we have without an embedded interpreter */
+    add_option_value (&program_options, "XS_STRXFRM_COLLATION_LOCALE", 0,
+                      "en_US");
+
+#ifdef EMBED_PERL
+  if (embedded_interpreter)
+    {/* setup paths here to avoid memory management as much as possible
+        in Perl C */
+      char *load_modules_path;
+      if (conversion_paths_info.texinfo_uninstalled)
+        xasprintf (&load_modules_path, "%s/tp/%s.pl",
+                      conversion_paths_info.p.uninstalled.top_srcdir,
+                                       load_txi_modules_basename);
+      else
+        xasprintf (&load_modules_path, "%s/%s",
+                  conversion_paths_info.p.installed.converterdatadir,
+                   load_txi_modules_basename);
+      call_init_perl (&argc, &argv, &env, load_modules_path);
+      free (load_modules_path);
+    }
+#endif
 
   /* corresponds to eval "require $module"; in texi2any.pl */
   txi_converter_output_format_setup (converted_format);
