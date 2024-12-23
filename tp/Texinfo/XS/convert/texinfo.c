@@ -43,6 +43,7 @@
 #include "transformations.h"
 #include "converter.h"
 #include "html_converter_api.h"
+#include "call_conversion_perl.h"
 #include "texinfo.h"
 
 /* initialization of the library for parsing and conversion (generic),
@@ -131,6 +132,50 @@ txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
   /* in general transmitted to converters as default */
   add_program_cmdline_options_defaults (main_program_set_options);
   add_program_customization_options_defaults (main_program_set_options);
+}
+
+/* to be called before loading init file to get the opportunity to
+   start an embedded interpreter */
+void
+txi_customization_loading_setup (int embedded_interpreter,
+                   int *argc_ref, char ***argv_ref, char ***env_ref)
+{
+  const char *load_txi_modules_basename = "load_txi_modules";
+  if (embedded_interpreter)
+    {/* setup paths here to avoid memory management as much as possible
+        in Perl C */
+      char *load_modules_path;
+      int status;
+      if (conversion_paths_info.texinfo_uninstalled)
+        xasprintf (&load_modules_path, "%s/tp/%s.pl",
+                      conversion_paths_info.p.uninstalled.top_srcdir,
+                                       load_txi_modules_basename);
+      else
+        xasprintf (&load_modules_path, "%s/%s",
+                  conversion_paths_info.p.installed.converterdatadir,
+                   load_txi_modules_basename);
+      status = call_init_perl (argc_ref, argv_ref, env_ref, load_modules_path);
+      /* status < 0 means no functioning call_init_perl */
+      if (status > 0)
+        fprintf (stderr, "ERROR: call_init_perl status: %d\n", status);
+      else if (status < 0)
+        fprintf (stderr, "WARNING: no embedded interpreter available\n");
+      free (load_modules_path);
+    }
+}
+
+int
+txi_load_init_file (const char *file)
+{
+  int status = call_config_GNUT_load_init_file (file);
+  return status;
+}
+
+void
+txi_customization_loading_finish (int embedded_interpreter)
+{
+  if (embedded_interpreter)
+    call_finish_perl ();
 }
 
 /* initialization of the library for a specific output format, to be
@@ -392,13 +437,26 @@ txi_converter_initialization_setup (CONVERTER_INITIALIZATION_INFO *conf,
 /* converter setup. Similar to an initialization of converter
    in texi2any */
 CONVERTER *
-txi_converter_setup (const char *converted_format,
-                     const CONVERTER_INITIALIZATION_INFO *conf)
+txi_converter_setup (const char *external_module,
+                     const char *converted_format,
+                     const CONVERTER_INITIALIZATION_INFO *converter_init_info)
 {
-  enum converter_format converter_format
-    = find_format_name_converter_format (converted_format);
+  enum converter_format converter_format;
+  CONVERTER *self;
 
-  CONVERTER *self = converter_converter (converter_format, conf);
+  if (external_module)
+    {
+      self = call_convert_converter (external_module, converter_init_info);
+      if (!self)
+        fprintf (stderr,
+                 "ERROR: no interpreter or NULL return for module: %s\n",
+                 external_module);
+      else
+        return self;
+    }
+
+  converter_format = find_format_name_converter_format (converted_format);
+  self = converter_converter (converter_format, converter_init_info);
 
   return self;
 }
@@ -414,8 +472,15 @@ txi_parse_texi_file (const char *input_file_path, int *status)
 
 /* similar to Texinfo::Convert::XXX->output */
 char *
-txi_converter_output (CONVERTER *converter, DOCUMENT *document)
+txi_converter_output (const char *external_module,
+                      CONVERTER *converter, DOCUMENT *document)
 {
+  if (external_module)
+    {
+      char *result = call_converter_output (external_module,
+                                            converter, document);
+      return result;
+    }
   return converter_output (converter, document);
 }
 

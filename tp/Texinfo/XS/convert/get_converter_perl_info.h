@@ -10,7 +10,11 @@
 #include "converter_types.h"
 #include "convert_to_text.h"
 
+/* Implemented in call_conversion_perl.h, but we do not want Perl
+   SV in call_conversion_perl.h since it is included from pure C */
 CONVERTER *get_sv_converter (SV *sv_in, const char *warn_string);
+
+
 CONVERTER *get_or_create_sv_converter (SV *converter_in,
                                        const char *input_class);
 CONVERTER_INITIALIZATION_INFO * get_converter_info_from_sv (SV *conf_sv,

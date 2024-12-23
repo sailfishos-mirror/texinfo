@@ -11,7 +11,7 @@ CONVERTER *call_convert_converter (const char *module_name,
 char *call_converter_output (const char *module_name, CONVERTER *self,
                              DOCUMENT *document);
 
-void call_config_GNUT_load_init_file (const char *file_path);
+int call_config_GNUT_load_init_file (const char *file_path);
 
 int call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref,
                     char *load_txi_modules_path);

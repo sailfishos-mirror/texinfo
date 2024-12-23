@@ -65,10 +65,6 @@
 #include "converter.h"
 #include "texinfo.h"
 
-#ifdef EMBED_PERL
-#include "call_conversion_perl.h"
-#endif
-
 #define LOCALEDIR DATADIR "/locale"
 
 #define _(String) gettext (String)
@@ -767,18 +763,19 @@ locate_and_load_init_file (const char *filename, STRING_LIST *directories,
 
   if (file)
     {
-#ifdef EMBED_PERL
-      if (embedded_interpreter)
-        {
-          call_config_GNUT_load_init_file (file);
-          loaded_init_files_nr++;
-        }
+      int status = txi_load_init_file (file);
+
+      if (status)
+        loaded_init_files_nr++;
       else
-#endif
         {
           char *decoded_filename = decode_input ((char *) filename);
-          fprintf (stderr, "No interpreter, cannot load: %s\n",
-                   filename);
+          if (!embedded_interpreter)
+            fprintf (stderr, "WARNING: no interpreter, cannot load: %s\n",
+                     filename);
+          else
+            fprintf (stderr, "ERROR: could not load: %s\n",
+                     filename);
           free (decoded_filename);
         }
     }
@@ -801,18 +798,19 @@ locate_and_load_extension_file (const char *filename, STRING_LIST *directories)
 
   if (file)
     {
-#ifdef EMBED_PERL
-      if (embedded_interpreter)
-        {
-          call_config_GNUT_load_init_file (file);
-          loaded_init_files_nr++;
-        }
+      int status = txi_load_init_file (file);
+
+      if (status)
+        loaded_init_files_nr++;
       else
-#endif
         {
           char *decoded_filename = decode_input ((char *) filename);
-          fprintf (stderr, "No interpreter, cannot load: %s\n",
-                   filename);
+          if (!embedded_interpreter)
+            fprintf (stderr, "WARNING: no interpreter, cannot load: %s\n",
+                     filename);
+          else
+            fprintf (stderr, "ERROR: could not load: %s\n",
+                     filename);
           free (decoded_filename);
         }
     }
@@ -1010,10 +1008,7 @@ main (int argc, char *argv[], char *env[])
   const char *converterdatadir = DATADIR "/" CONVERTER_CONFIG;
   const char *curdir = ".";
   CONVERTER_INITIALIZATION_INFO *converter_init_info;
-  /* to avoid a warning on unused variable keep in ifdef */
-#ifdef EMBED_PERL
-  const char *load_txi_modules_basename = "load_txi_modules";
-#endif
+  const char *external_module = 0;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -1762,26 +1757,7 @@ main (int argc, char *argv[], char *env[])
     add_option_value (&program_options, "XS_STRXFRM_COLLATION_LOCALE", 0,
                       "en_US");
 
-#ifdef EMBED_PERL
-  if (embedded_interpreter)
-    {/* setup paths here to avoid memory management as much as possible
-        in Perl C */
-      char *load_modules_path;
-      int status;
-      if (conversion_paths_info.texinfo_uninstalled)
-        xasprintf (&load_modules_path, "%s/tp/%s.pl",
-                      conversion_paths_info.p.uninstalled.top_srcdir,
-                                       load_txi_modules_basename);
-      else
-        xasprintf (&load_modules_path, "%s/%s",
-                  conversion_paths_info.p.installed.converterdatadir,
-                   load_txi_modules_basename);
-      status = call_init_perl (&argc, &argv, &env, load_modules_path);
-      if (status)
-        fprintf (stderr, "ERROR: call_init_perl status: %d\n", status);
-      free (load_modules_path);
-    }
-#endif
+  txi_customization_loading_setup (embedded_interpreter, &argc, &argv, &env);
 
   /* TODO different from Perl, to be discussed on the list which
      one is better, load within the command line loop, or after */
@@ -2017,6 +1993,11 @@ main (int argc, char *argv[], char *env[])
       add_option_value (&program_options, "PACKAGE_AND_VERSION", 0,
                         configured_name_version);
     }
+
+  if (format_specification->module && embedded_interpreter
+      && (!strcmp (converted_format, "html")
+          && loaded_init_files_nr > 0))
+    external_module = format_specification->module;
 
   if (optind < argc)
     {
@@ -2339,29 +2320,15 @@ main (int argc, char *argv[], char *env[])
                                           &deprecated_directories,
                                           &convert_options);
 
-#ifdef EMBED_PERL
-      if (format_specification->module
-          && embedded_interpreter
-          && (!strcmp (converted_format, "html")
-              && loaded_init_files_nr > 0))
-        {
-          converter = call_convert_converter (format_specification->module,
-                                              converter_init_info);
-
-          result = call_converter_output (format_specification->module,
-                                          converter, document);
-        }
-      else
-#endif
-        {
-          converter = txi_converter_setup (converted_format,
-                                           converter_init_info);
+      converter = txi_converter_setup (external_module,
+                                       converted_format,
+                                       converter_init_info);
 
       /* conversion */
       /* return value can be NULL in case of errors or an empty string, but
          not anything else as parse_file is used with a file */
-          result = txi_converter_output (converter, document);
-        }
+      result = txi_converter_output (external_module, converter, document);
+
       free (result);
       clear_converter_initialization_info (converter_init_info);
 
@@ -2422,10 +2389,7 @@ main (int argc, char *argv[], char *env[])
   free_strings_list (&internal_extension_dirs);
   free (extensions_dir);
 
-#ifdef EMBED_PERL
-  if (embedded_interpreter)
-    call_finish_perl ();
-#endif
+  txi_customization_loading_finish (embedded_interpreter);
 
   if (errors_count > 0)
     exit (EXIT_FAILURE);

@@ -29,6 +29,7 @@
 #include "build_perl_info.h"
 #include "get_converter_perl_info.h"
 #include "xs_utils.h"
+#include "converter.h"
 #include "call_conversion_perl.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
@@ -37,7 +38,7 @@
 
 static int texinfo_convert_html_module_loaded;
 
-void
+int
 call_config_GNUT_load_init_file (const char *file_path)
 {
   int count;
@@ -74,6 +75,39 @@ call_config_GNUT_load_init_file (const char *file_path)
 
   FREETMPS;
   LEAVE;
+
+  return 1;
+}
+
+CONVERTER *
+get_sv_converter (SV *sv_in, const char *warn_string)
+{
+  size_t converter_descriptor = 0;
+  CONVERTER *converter = 0;
+  SV** converter_descriptor_sv;
+  HV *hv_in;
+  char *key = "converter_descriptor";
+
+  dTHX;
+
+  hv_in = (HV *)SvRV (sv_in);
+  converter_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
+  if (converter_descriptor_sv)
+    {
+      converter_descriptor = (size_t) SvIV (*converter_descriptor_sv);
+      converter = retrieve_converter (converter_descriptor);
+    }
+  else if (warn_string)
+    {
+      fprintf (stderr, "ERROR: %s: no %s\n", warn_string, key);
+      return 0;
+    }
+  if (! converter && warn_string)
+    {
+      fprintf (stderr, "ERROR: %s: no converter %zu\n", warn_string,
+                                                      converter_descriptor);
+    }
+  return converter;
 }
 
 CONVERTER *

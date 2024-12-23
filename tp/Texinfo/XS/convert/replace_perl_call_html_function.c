@@ -7,9 +7,6 @@
 /* *BUTTON* */
 #include "option_types.h"
 #include "converter_types.h"
-/* new_string_list find_string *string 
- */
-#include "utils.h"
 #include "call_html_perl_function.h"
 
 TARGET_FILENAME *

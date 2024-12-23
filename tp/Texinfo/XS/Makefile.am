@@ -518,7 +518,9 @@ libcallperl_libtexinfo_convert_la_SOURCES = \
                        convert/build_html_perl_state.h \
                        convert/build_html_perl_state.c \
                        convert/call_html_perl_function.h \
-                       convert/call_html_perl_function.c
+                       convert/call_html_perl_function.c \
+                       convert/call_conversion_perl.c \
+                       convert/call_conversion_perl.h
 
 libcallperl_libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(XSLIBS_CPPFLAGS)
 libcallperl_libtexinfo_convert_la_CFLAGS = $(XSLIBS_CFLAGS)
@@ -543,15 +545,11 @@ if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfo-convertxs.la
 endif
 
-# call_conversion_perl.c code is not actually called by XS interfaces
-# but from C code embedding a Perl interpreter.
 libtexinfo_convertxs_la_SOURCES = \
                        convert/build_html_perl_info.h \
                        convert/build_html_perl_info.c \
                        convert/get_converter_perl_info.c \
-                       convert/get_converter_perl_info.h \
-                       convert/call_conversion_perl.c \
-                       convert/call_conversion_perl.h
+                       convert/get_converter_perl_info.h
 
 # locate include files under out-of-source builds.
 libtexinfo_convertxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
@@ -620,7 +618,8 @@ teximakehtml_SOURCES = \
                        $(C_libtexinfo_convert_sources) \
                        teximakehtml.c \
                        main/replace_perl_api_call.c \
-                       convert/replace_perl_call_html_function.c
+                       convert/replace_perl_call_html_function.c \
+                       convert/replace_call_conversion_perl.c
 
 teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la
 teximakehtml_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)

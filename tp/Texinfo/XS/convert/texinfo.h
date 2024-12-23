@@ -39,6 +39,9 @@ void txi_set_base_default_options (OPTIONS_LIST *options,
                                    const char *locale_encoding,
                                    const char *program_file);
 
+void txi_customization_loading_setup (int embedded_interpreter,
+                   int *argc_ref, char ***argv_ref, char ***env_ref);
+
 void txi_converter_output_format_setup (const char *format_str);
 
 CONVERTER_INITIALIZATION_INFO *txi_converter_format_defaults (
@@ -56,11 +59,15 @@ void txi_complete_document (DOCUMENT *document, unsigned long flags,
 void txi_converter_initialization_setup (CONVERTER_INITIALIZATION_INFO *conf,
                                     const DEPRECATED_DIRS_LIST *deprecated_dirs,
                                     const OPTIONS_LIST *customizations);
+int txi_load_init_file (const char *file);
+void txi_customization_loading_finish (int embedded_interpreter);
 
-CONVERTER *txi_converter_setup (const char *converted_format,
-                                const CONVERTER_INITIALIZATION_INFO *conf);
+CONVERTER *txi_converter_setup (const char *external_module,
+                     const char *converted_format,
+                     const CONVERTER_INITIALIZATION_INFO *converter_init_info);
 
-char *txi_converter_output (CONVERTER *converter, DOCUMENT *document);
+char *txi_converter_output (const char *external_module,
+                            CONVERTER *converter, DOCUMENT *document);
 char *txi_converter_convert (CONVERTER *converter, DOCUMENT *document);
 
 size_t txi_handle_parser_error_messages (DOCUMENT *document, int no_warn,
