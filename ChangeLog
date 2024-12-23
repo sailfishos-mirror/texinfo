@@ -1,5 +1,11 @@
 2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/load_txi_modules.pl (BEGIN): load Texinfo::XSLoader in BEGIN
+	block and call set_XS_embedded to be sure that it is done before any
+	module with XS is loaded.
+
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl: use get_conf to determine if HTML_MATH and
 	HIGHLIGHT_SYNTAX are set to load extensions.  Move code around.
 

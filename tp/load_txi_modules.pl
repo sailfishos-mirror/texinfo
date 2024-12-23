@@ -108,22 +108,21 @@ BEGIN
   }
 } # end BEGIN
 
-# This allows disabling use of XS modules when Texinfo is built.
 BEGIN {
+  # important to load early to set XS embedded before loading any
+  # package loading XS modules
+  use Texinfo::XSLoader;
+  Texinfo::XSLoader::set_XS_embedded();
   my $enable_xs = '@enable_xs@';
   if ($enable_xs eq 'no') {
     die ("Cannot have XS disabled and embedding Perl\n");
   }
 }
 
-use Texinfo::XSLoader;
-
 use Locale::Messages;
 use Texinfo::Common;
 use Texinfo::Config;
 use Texinfo::Report;
-
-Texinfo::XSLoader::set_XS_embedded();
 
 # Paths and file names
 #my $curdir = File::Spec->curdir();
@@ -296,5 +295,7 @@ use Texinfo::ManipulateTree;
 use Texinfo::Document;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Utils;
+
+#print STDERR "$0 has run\n";
 
 1;
