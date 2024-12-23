@@ -2034,7 +2034,7 @@ For example, the master menu for this manual looks like the following
 @dots{}
 @end group
 @group
-* Command and Variable Index::
+* Variables Index::
 * General Index::
 @end group
 
@@ -11755,8 +11755,8 @@ in the description of @@code@{mapcar@}.
 @end example
 
 @noindent
-In this manual, this function is listed in the Command and Variable
-Index under @code{apply}.
+In this manual, this function is listed in the Command Index under
+@code{apply}.
 
 
 @node Internationalization

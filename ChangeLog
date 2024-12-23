@@ -1,5 +1,11 @@
 2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Master Menu Parts, Sample Function Definition):
+	Eliminate references to "Command and Variable Index" node which
+	doesn't exist any more.
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/main/translations.c: remove comment that says
 	that LC_CTYPE is used in XSParagraph as it isn't any more.
 
