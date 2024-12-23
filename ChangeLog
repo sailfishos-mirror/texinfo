@@ -1,3 +1,9 @@
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/maintain/regenerate_documentlanguages-loc.pl:
+	Exclude duplicate country codes as both Denmark and the Kingdom
+	of Denmark have the same code.
+
 2024-12-22  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* man/info.5, man/texinfo.5: 2024.

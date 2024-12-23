@@ -58,10 +58,10 @@ if (not defined($code_header_index)) {
   die;
 }
 
-my @regions;
+my %regions;
 while (my $row = $csv->getline ($fh)) {
   if ($row->[$code_header_index] ne '') {
-    push @regions, $row->[$code_header_index];
+    $regions{$row->[$code_header_index]} = 1;
   }
 }
 
@@ -80,7 +80,7 @@ foreach my $entry (sort @entries) {
 print OUT ");\n\n";
 
 print OUT 'our %region_codes = ('."\n";
-foreach my $region (sort @regions) {
+foreach my $region (sort keys %regions) {
   print OUT "'$region' => 1,\n";
 }
 print OUT ");\n\n1;\n";
