@@ -778,6 +778,7 @@ locate_and_load_init_file (const char *filename, STRING_LIST *directories,
                      filename);
           free (decoded_filename);
         }
+      free (file);
     }
   else
     {
@@ -813,6 +814,7 @@ locate_and_load_extension_file (const char *filename, STRING_LIST *directories)
                      filename);
           free (decoded_filename);
         }
+      free (file);
     }
   else
     {
@@ -1114,7 +1116,9 @@ main (int argc, char *argv[], char *env[])
                                            deprecated_dir_info->reference_dir);
           add_new_deprecated_dir_info (&deprecated_directories,
                                        init_dir, reference_init_dir);
+          free (reference_init_dir);
         }
+      free (init_dir);
     }
   add_string (extensions_dir, &converter_init_dirs);
 
@@ -1884,6 +1888,8 @@ main (int argc, char *argv[], char *env[])
                           default_expanded_formats.list[i]);
     }
 
+  free_strings_list (&default_expanded_formats);
+
   /* corresponds to eval "require $module"; in texi2any.pl */
   txi_converter_output_format_setup (converted_format);
 
@@ -2381,6 +2387,8 @@ main (int argc, char *argv[], char *env[])
 
   free_strings_list (&converter_init_dirs);
   free_strings_list (&converter_config_dirs);
+
+  free_deprecated_dirs_list (&deprecated_directories);
 
   destroy_strings_list (converter_config_dirs_array_ref);
   destroy_strings_list (texinfo_language_config_dirs);
