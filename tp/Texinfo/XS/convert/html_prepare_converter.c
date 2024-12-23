@@ -2106,12 +2106,12 @@ html_converter_customize (CONVERTER *self)
       if (type_conversion->status == FRS_status_default_set
           || type_conversion->status == FRS_status_none)
         {
+          if (type_conversion->status == FRS_status_default_set)
+            external_type_conversion_function--;
           type_conversion->formatting_reference = 0;
           type_conversion->status = FRS_status_internal;
           type_conversion->type_conversion
               = types_internal_conversion_table[i].type_conversion;
-          if (type_conversion->status == FRS_status_default_set)
-            external_type_conversion_function--;
         }
       css_string_type_conversion->formatting_reference = 0;
       css_string_type_conversion->status = FRS_status_internal;
@@ -2130,12 +2130,12 @@ html_converter_customize (CONVERTER *self)
       if (type_open->status == FRS_status_default_set
           || type_open->status == FRS_status_none)
         {
+          if (type_open->status == FRS_status_default_set)
+            external_type_open_function--;
           type_open->formatting_reference = 0;
           type_open->status = FRS_status_internal;
           type_open->type_open
               = types_internal_open_table[i].type_open;
-          if (type_open->status == FRS_status_default_set)
-            external_type_open_function--;
         }
     }
 
@@ -2149,12 +2149,12 @@ html_converter_customize (CONVERTER *self)
       if (command_conversion->status == FRS_status_default_set
           || command_conversion->status == FRS_status_none)
         {
+          if (command_conversion->status == FRS_status_default_set)
+            external_command_conversion_function--;
           command_conversion->formatting_reference = 0;
           command_conversion->status = FRS_status_internal;
           command_conversion->command_conversion
               = commands_internal_conversion_table[i].command_conversion;
-          if (command_conversion->status == FRS_status_default_set)
-            external_command_conversion_function--;
         }
       css_string_command_conversion->formatting_reference = 0;
       css_string_command_conversion->status = FRS_status_internal;
@@ -2200,12 +2200,12 @@ html_converter_customize (CONVERTER *self)
       if (command_conversion->status == FRS_status_default_set
           || command_conversion->status == FRS_status_none)
         {
+          if (command_conversion->status == FRS_status_default_set)
+            external_command_conversion_function--;
           command_conversion->formatting_reference = 0;
           command_conversion->status = FRS_status_internal;
           command_conversion->command_conversion
             = &html_convert_no_arg_command;
-          if (command_conversion->status == FRS_status_default_set)
-            external_command_conversion_function--;
         }
 
       css_string_command_conversion->formatting_reference = 0;
@@ -2227,12 +2227,12 @@ html_converter_customize (CONVERTER *self)
           if (command_conversion->status == FRS_status_default_set
               || command_conversion->status == FRS_status_none)
             {
+              if (command_conversion->status == FRS_status_default_set)
+                external_command_conversion_function--;
               command_conversion->formatting_reference = 0;
               command_conversion->status = FRS_status_internal;
               command_conversion->command_conversion
                 = &html_convert_accent_command;
-              if (command_conversion->status == FRS_status_default_set)
-                external_command_conversion_function--;
             }
           css_string_command_conversion->formatting_reference = 0;
           css_string_command_conversion->status = FRS_status_internal;
@@ -2257,12 +2257,12 @@ html_converter_customize (CONVERTER *self)
           if (command_conversion->status == FRS_status_default_set
               || command_conversion->status == FRS_status_none)
             {
+              if (command_conversion->status == FRS_status_default_set)
+                external_command_conversion_function--;
               command_conversion->formatting_reference = 0;
               command_conversion->status = FRS_status_internal;
               command_conversion->command_conversion
                 = &html_convert_style_command;
-              if (command_conversion->status == FRS_status_default_set)
-                external_command_conversion_function--;
             }
 
           css_string_command_conversion->formatting_reference = 0;
@@ -2286,12 +2286,12 @@ html_converter_customize (CONVERTER *self)
           if (command_conversion->status == FRS_status_default_set
               || command_conversion->status == FRS_status_none)
             {
+              if (command_conversion->status == FRS_status_default_set)
+                external_command_conversion_function--;
               command_conversion->formatting_reference = 0;
               command_conversion->status = FRS_status_internal;
               command_conversion->command_conversion
                 = &html_convert_preformatted_command;
-              if (command_conversion->status == FRS_status_default_set)
-                external_command_conversion_function--;
             }
 
           css_string_command_conversion->formatting_reference = 0;
@@ -2314,12 +2314,12 @@ html_converter_customize (CONVERTER *self)
           if (command_conversion->status == FRS_status_default_set
               || command_conversion->status == FRS_status_none)
             {
+              if (command_conversion->status == FRS_status_default_set)
+                external_command_conversion_function--;
               command_conversion->formatting_reference = 0;
               command_conversion->status = FRS_status_internal;
               command_conversion->command_conversion
                 = &html_convert_def_command;
-              if (command_conversion->status == FRS_status_default_set)
-                external_command_conversion_function--;
             }
 
           css_string_command_conversion->formatting_reference = 0;
@@ -2336,12 +2336,12 @@ html_converter_customize (CONVERTER *self)
       if (command_open->status == FRS_status_default_set
           || command_open->status == FRS_status_none)
         {
+          if (command_open->status == FRS_status_default_set)
+            external_command_open_function--;
           command_open->formatting_reference = 0;
           command_open->status = FRS_status_internal;
           command_open->command_open
               = commands_internal_open_table[i].command_open;
-          if (command_open->status == FRS_status_default_set)
-            external_command_open_function--;
         }
     }
 
@@ -2355,12 +2355,12 @@ html_converter_customize (CONVERTER *self)
       if (output_unit_conversion->status == FRS_status_default_set
           || output_unit_conversion->status == FRS_status_none)
         {
+          if (output_unit_conversion->status == FRS_status_default_set)
+            external_output_unit_conversion_function--;
           output_unit_conversion->formatting_reference = 0;
           output_unit_conversion->status = FRS_status_internal;
           output_unit_conversion->output_unit_conversion
            = output_units_internal_conversion_table[i].output_unit_conversion;
-          if (output_unit_conversion->status == FRS_status_default_set)
-            external_output_unit_conversion_function--;
         }
     }
 
@@ -2380,12 +2380,12 @@ html_converter_customize (CONVERTER *self)
           if (body_formatting->status == FRS_status_default_set
               || body_formatting->status == FRS_status_none)
             {
+              if (body_formatting->status == FRS_status_default_set)
+                external_special_unit_body_formatting_function--;
               body_formatting->formatting_reference = 0;
               body_formatting->status = FRS_status_internal;
               body_formatting->special_unit_body_formatting
                 = internal_conversion->special_unit_body_formatting;
-              if (body_formatting->status == FRS_status_default_set)
-                external_special_unit_body_formatting_function--;
             }
         }
     }
