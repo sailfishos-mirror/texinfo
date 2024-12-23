@@ -70,9 +70,6 @@
 #  define SET_SCREEN_SIZE_HELPER terminal_prep_terminal()
 #  define DEFAULT_INFO_PRINT_COMMAND ">PRN"
 # else   /* O_BINARY && !__MSDOS__ */
-#  ifndef setmode
-#   define setmode(f,m)  _setmode(f,m)
-#  endif
 #  define NULL_DEVICE	"NUL"
 # endif  /* O_BINARY && !__MSDOS__ */
 # ifdef __CYGWIN__
