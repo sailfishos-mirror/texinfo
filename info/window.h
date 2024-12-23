@@ -22,6 +22,7 @@
 
 #include "doc.h"
 #include "nodes.h"
+#include <stdarg.h>
 #include <regex.h>
 
 /* Smallest number of visible lines in a window.  The actual height is

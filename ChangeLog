@@ -2,6 +2,16 @@
 
 	Remove system.h defines
 
+	* system.h,
+	* info/info.h,
+	* info/window.h,
+	* install-info/install-info.c: Move system includes out of system.h.
+	* system.h (PATH_MAX): Remove.
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Remove system.h defines
+
 	* system.h [STAT_MACROS_BROKEN]: Remove section as this symbol
 	is not set anywhere.  It was formerly set by AC_HEADER_STAT in
 	configure.ac but this macro is now obsolescent..

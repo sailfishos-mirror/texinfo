@@ -22,6 +22,10 @@
 
 /* System dependencies.  */
 #include "system.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <limits.h>
+#include <ctype.h>
 
 #define STREQ(s1,s2) (strcmp (s1, s2) == 0)
 

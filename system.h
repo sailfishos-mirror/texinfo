@@ -23,16 +23,10 @@
 #include <config.h>
 
 #include <locale.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-
-#include <stdarg.h>
 
 /* Use POSIX headers.  If they are not available, we use the substitute
    provided by gnulib.  */
-#include <getopt.h>
 #include <unistd.h>
 
 #include <fcntl.h>
@@ -54,15 +48,6 @@
 #include <errno.h>
 #ifndef errno
 extern int errno;
-#endif
-
-#include <limits.h>
-
-#ifndef PATH_MAX
-#ifndef _POSIX_PATH_MAX
-# define _POSIX_PATH_MAX 255
-#endif
-#define PATH_MAX _POSIX_PATH_MAX
 #endif
 
 #include <sys/stat.h>
