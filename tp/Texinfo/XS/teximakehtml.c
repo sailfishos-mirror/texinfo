@@ -101,6 +101,7 @@ typedef struct FORMAT_SPECIFICATION {
     const char *converted_format;
     /* Perl module name */
     const char *module;
+    const char *init_file;
 } FORMAT_SPECIFICATION;
 
 static FORMAT_SPECIFICATION formats_table[] = {
@@ -109,10 +110,10 @@ static FORMAT_SPECIFICATION formats_table[] = {
            | STTF_no_warn_non_empty_parts
            | STTF_nodes_tree | STTF_floats | STTF_split
            | STTF_setup_index_entries_sort_strings,
-   NULL, "Texinfo::Convert::HTML"},
-  {"parse", 0, NULL, NULL},
-  {"structure", STTF_nodes_tree | STTF_floats | STTF_split, NULL, NULL},
-  {NULL, 0, NULL, NULL}
+   NULL, "Texinfo::Convert::HTML", NULL},
+  {"parse", 0, NULL, NULL, NULL},
+  {"structure", STTF_nodes_tree | STTF_floats | STTF_split, NULL, NULL, NULL},
+  {NULL, 0, NULL, NULL, NULL}
 };
 
 static VALUE_LIST values;
@@ -793,6 +794,38 @@ locate_and_load_init_file (const char *filename, STRING_LIST *directories,
     warn_deprecated_dirs (&deprecated_dirs_used);
 }
 
+static void
+locate_and_load_extension_file (const char *filename, STRING_LIST *directories)
+{
+  char *file = locate_file_in_dirs (filename, directories, 0, 0, 0);
+
+  if (file)
+    {
+#ifdef EMBED_PERL
+      if (embedded_interpreter)
+        {
+          call_config_GNUT_load_init_file (file);
+          loaded_init_files_nr++;
+        }
+      else
+#endif
+        {
+          char *decoded_filename = decode_input ((char *) filename);
+          fprintf (stderr, "No interpreter, cannot load: %s\n",
+                   filename);
+          free (decoded_filename);
+        }
+    }
+  else
+    {
+      char *decoded_filename = decode_input ((char *) filename);
+      document_warn ("could not read extension file %s", decoded_filename);
+
+      free (decoded_filename);
+      exit (EXIT_FAILURE);
+    }
+}
+
 const char *input_file_suffixes[] = {
 ".txi",".texinfo",".texi",".txinfo", "", NULL
 };
@@ -945,6 +978,8 @@ main (int argc, char *argv[], char *env[])
   char *top_srcdir;
   char *top_builddir;
   char *tp_builddir = 0;
+  OPTION *html_math_option;
+  OPTION *highlight_syntax_option;
   OPTION *test_option;
   OPTION *no_warn_option;
   OPTION *format_menu_option;
@@ -1726,81 +1761,6 @@ main (int argc, char *argv[], char *env[])
       store_value (&values, "TEXI2HTML", "1");
     }
 
-  test_option = get_conf (program_options.options->TEST.number);
-  if (test_option && test_option->o.integer > 0)
-    test_mode_set = 1;
-
-  no_warn_option = get_conf (program_options.options->NO_WARN.number);
-  if (no_warn_option && no_warn_option->o.integer > 0)
-    no_warn = 1;
-
-  if(test_mode_set)
-    {
-      add_option_value (&program_options, "PACKAGE_VERSION", 0, "");
-      add_option_value (&program_options, "PACKAGE", 0, "texinfo");
-      add_option_value (&program_options, "PACKAGE_NAME", 0, "GNU Texinfo");
-      add_option_value (&program_options, "PACKAGE_AND_VERSION", 0,
-                                          "texinfo");
-      add_option_value (&program_options, "PACKAGE_URL", 0,
-                                     "https://www.gnu.org/software/texinfo/");
-      add_option_value (&program_options, "PROGRAM", 0, "texi2any");
-    }
-
-  texinfo_output_format_env = getenv ("TEXINFO_OUTPUT_FORMAT");
-  if (texinfo_output_format_env && strlen (texinfo_output_format_env))
-    {
-      char *format_name = decode_input (texinfo_output_format_env);
-      set_format (format_name);
-      free (format_name);
-    }
-
-  if (!test_mode_set
-      && conversion_paths_info.texinfo_uninstalled
-      && conversion_paths_info.p.uninstalled.top_srcdir)
-    {
-      char *in_source_util_dir;
-      xasprintf (&in_source_util_dir, "%s/util",
-                 conversion_paths_info.p.uninstalled.top_srcdir);
-      add_string (in_source_util_dir, texinfo_language_config_dirs);
-      free (in_source_util_dir);
-    }
-
-  output_format_option
-    = get_conf (program_options.options->TEXINFO_OUTPUT_FORMAT.number);
-  output_format = output_format_option->o.string;
-
-  for (i = 0; formats_table[i].name; i++)
-    {
-      if (!strcmp (formats_table[i].name, output_format))
-        {
-          format_specification = &formats_table[i];
-          break;
-        }
-    }
-
-  if (format_specification->converted_format)
-    converted_format = format_specification->converted_format;
-  else
-    converted_format = output_format;
-
-  memset (&default_expanded_formats, 0, sizeof (STRING_LIST));
-  format_expanded_formats (&default_expanded_formats, format_specification);
-
-  expanded_formats_option = &cmdline_options.options->EXPANDED_FORMATS;
-
-  for (i = 0; i < ignored_formats.number; i++)
-    {
-      size_t ignored_fmt_nr
-         = find_string (&default_expanded_formats, ignored_formats.list[i]);
-      if (ignored_fmt_nr)
-        remove_from_strings_list (&default_expanded_formats, ignored_fmt_nr-1);
-    }
-  for (i = 0; i < default_expanded_formats.number; i++)
-    {
-      add_to_option_list (expanded_formats_option,
-                          default_expanded_formats.list[i]);
-    }
-
 #ifdef EMBED_PERL
   embedded_interpreter = 1;
 #endif
@@ -1832,6 +1792,103 @@ main (int argc, char *argv[], char *env[])
       free (load_modules_path);
     }
 #endif
+
+  html_math_option = get_conf (program_options.options->HTML_MATH.number);
+  if (html_math_option && html_math_option->o.string
+      && !strcmp (html_math_option->o.string, "l2h"))
+    locate_and_load_extension_file ("latex2html.pm", &internal_extension_dirs);
+
+  if (html_math_option && html_math_option->o.string
+      && !strcmp (html_math_option->o.string, "t4h"))
+    locate_and_load_extension_file ("tex4ht.pm", &internal_extension_dirs);
+
+  highlight_syntax_option
+    = get_conf (program_options.options->HIGHLIGHT_SYNTAX.number);
+  if (highlight_syntax_option && highlight_syntax_option->o.string
+      && strlen (highlight_syntax_option->o.string))
+    locate_and_load_extension_file ("highlight_syntax.pm",
+                                    &internal_extension_dirs);
+
+  test_option = get_conf (program_options.options->TEST.number);
+  if (test_option && test_option->o.integer > 0)
+    test_mode_set = 1;
+
+  no_warn_option = get_conf (program_options.options->NO_WARN.number);
+  if (no_warn_option && no_warn_option->o.integer > 0)
+    no_warn = 1;
+
+  if(test_mode_set)
+    {
+      add_option_value (&program_options, "PACKAGE_VERSION", 0, "");
+      add_option_value (&program_options, "PACKAGE", 0, "texinfo");
+      add_option_value (&program_options, "PACKAGE_NAME", 0, "GNU Texinfo");
+      add_option_value (&program_options, "PACKAGE_AND_VERSION", 0,
+                                          "texinfo");
+      add_option_value (&program_options, "PACKAGE_URL", 0,
+                                     "https://www.gnu.org/software/texinfo/");
+      add_option_value (&program_options, "PROGRAM", 0, "texi2any");
+    }
+
+  texinfo_output_format_env = getenv ("TEXINFO_OUTPUT_FORMAT");
+  if (texinfo_output_format_env && strlen (texinfo_output_format_env))
+    {
+      char *format_name = decode_input (texinfo_output_format_env);
+      set_format (format_name);
+      free (format_name);
+    }
+
+  output_format_option
+    = get_conf (program_options.options->TEXINFO_OUTPUT_FORMAT.number);
+  output_format = output_format_option->o.string;
+
+  if (!test_mode_set
+      && conversion_paths_info.texinfo_uninstalled
+      && conversion_paths_info.p.uninstalled.top_srcdir)
+    {
+      char *in_source_util_dir;
+      xasprintf (&in_source_util_dir, "%s/util",
+                 conversion_paths_info.p.uninstalled.top_srcdir);
+      add_string (in_source_util_dir, texinfo_language_config_dirs);
+      free (in_source_util_dir);
+    }
+
+
+  for (i = 0; formats_table[i].name; i++)
+    {
+      if (!strcmp (formats_table[i].name, output_format))
+        {
+          format_specification = &formats_table[i];
+          break;
+        }
+    }
+
+  /* for a format setup with an init file */
+  if (format_specification->init_file)
+    locate_and_load_extension_file (format_specification->init_file,
+                                    &internal_extension_dirs);
+
+  if (format_specification->converted_format)
+    converted_format = format_specification->converted_format;
+  else
+    converted_format = output_format;
+
+  memset (&default_expanded_formats, 0, sizeof (STRING_LIST));
+  format_expanded_formats (&default_expanded_formats, format_specification);
+
+  expanded_formats_option = &cmdline_options.options->EXPANDED_FORMATS;
+
+  for (i = 0; i < ignored_formats.number; i++)
+    {
+      size_t ignored_fmt_nr
+         = find_string (&default_expanded_formats, ignored_formats.list[i]);
+      if (ignored_fmt_nr)
+        remove_from_strings_list (&default_expanded_formats, ignored_fmt_nr-1);
+    }
+  for (i = 0; i < default_expanded_formats.number; i++)
+    {
+      add_to_option_list (expanded_formats_option,
+                          default_expanded_formats.list[i]);
+    }
 
   /* corresponds to eval "require $module"; in texi2any.pl */
   txi_converter_output_format_setup (converted_format);

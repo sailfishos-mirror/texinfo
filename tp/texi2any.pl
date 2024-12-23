@@ -1348,19 +1348,19 @@ sub process_config($) {
 process_config($cmdline_options);
 
 my $latex2html_file = 'latex2html.pm';
-if (defined($cmdline_options->{'HTML_MATH'})
-      and $cmdline_options->{'HTML_MATH'} eq 'l2h') {
+my $html_math_option = get_conf('HTML_MATH');
+if (defined($html_math_option) and $html_math_option eq 'l2h') {
   locate_and_load_extension_file($latex2html_file, $internal_extension_dirs);
 }
 
 my $tex4ht_file = 'tex4ht.pm';
-if (defined($cmdline_options->{'HTML_MATH'})
-      and $cmdline_options->{'HTML_MATH'} eq 't4h') {
+if (defined($html_math_option) and $html_math_option eq 't4h') {
   locate_and_load_extension_file($tex4ht_file, $internal_extension_dirs);
 }
 
 my $highlight_syntax_file = 'highlight_syntax.pm';
-if ($cmdline_options->{'HIGHLIGHT_SYNTAX'}) {
+my $highlight_syntax_option = get_conf('HIGHLIGHT_SYNTAX');
+if (defined($highlight_syntax_option) and $highlight_syntax_option ne '') {
   locate_and_load_extension_file($highlight_syntax_file,
                                  $internal_extension_dirs);
 }
@@ -1413,11 +1413,6 @@ if (defined($ENV{'TEXINFO_OUTPUT_FORMAT'})
 }
 
 my $output_format = get_conf('TEXINFO_OUTPUT_FORMAT');
-# for a format setup with an init file
-if (defined ($formats_table{$output_format}->{'init_file'})) {
-  locate_and_load_extension_file($formats_table{$output_format}->{'init_file'},
-                                 $internal_extension_dirs);
-}
 
 if ($call_texi2dvi) {
   if (defined(get_conf('OUTFILE')) and @ARGV > 1) {
@@ -1553,6 +1548,12 @@ if (get_conf('TREE_TRANSFORMATIONS')) {
                      $transformation));
     }
   }
+}
+
+# for a format setup with an init file
+if (defined ($formats_table{$output_format}->{'init_file'})) {
+  locate_and_load_extension_file($formats_table{$output_format}->{'init_file'},
+                                 $internal_extension_dirs);
 }
 
 # in general the format name is the format being converted.  If this is
