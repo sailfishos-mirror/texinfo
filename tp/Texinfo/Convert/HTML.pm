@@ -7445,6 +7445,9 @@ sub _convert_menu_entry_type($$$)
       $name_no_number = $self->command_text($section, 'text_nonumber');
     }
   }
+  # A leading menu symbol is only inserted if the section name is not
+  # used since the section name comes with a section number (unless
+  # NUMBER_SECTIONS is 0)
   if (!defined($name) or $name eq '') {
     if ($name_entry) {
       $name = $self->convert_tree($name_entry, 'convert menu_entry_name');

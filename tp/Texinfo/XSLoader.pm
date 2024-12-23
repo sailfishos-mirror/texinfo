@@ -258,7 +258,7 @@ sub init {
   # matches the XS object XS_VERSION value.  In our case, XS_VERSION
   # is set based on tp/Texinfo/XS/configure.ac AC_INIT version passed
   # through Makefile.am.  The tp/Texinfo/XS/configure.ac AC_INIT version
-  # and thePerl modules VERSION should be synchronized with the top-level
+  # and the Perl modules VERSION should be synchronized with the top-level
   # configure.ac version.  The check therefore ensures that the XS objects
   # and the Perl module come from the same GNU Texinfo distribution.
   #print STDERR "REMARK: XS version: $xs_version\n";
