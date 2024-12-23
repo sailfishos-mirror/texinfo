@@ -30,9 +30,7 @@ static NODE *get_visited_nodes (void);
 static const char *
 nodemenu_format_info (void)
 {
-  /* TRANSLATORS: The "\n* Menu:\n\n" part of this should not be translated, as 
-     it is part of the Info syntax. */
-  return _("\n* Menu:\n\n\
+  return _("\
   (File)Node                        Lines   Size   Containing File\n\
   ----------                        -----   ----   ---------------");
 }
@@ -187,7 +185,9 @@ get_visited_nodes (void)
      (_("Here is the menu of nodes you have recently visited.\n\
 Select one from this menu, or use '\\[history-node]' in another window.\n"), 0));
 
-  text_buffer_printf (&message, "%s\n", nodemenu_format_info ());
+  text_buffer_printf (&message, "\n%s\n\n%s\n",
+                      "* Menu:",
+                      nodemenu_format_info ());
 
   for (i = 0; (lines != NULL) && (i < lines_index); i++)
     {
