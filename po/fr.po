@@ -13,10 +13,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 7.1.91\n"
+"Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
 "POT-Creation-Date: 2024-12-17 21:26+0000\n"
-"PO-Revision-Date: 2024-11-22 18:47+0100\n"
+"PO-Revision-Date: 2024-12-16 19:10+0100\n"
 "Last-Translator: Jean-Charles Malahieude <lilyfan@orange.fr>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -2402,8 +2402,7 @@ msgstr ""
 "JS_WEBLABELS_FILE dans la génération du fichier de libellés web"
 
 #: tp/Texinfo/Convert/HTML.pm:11817 tp/Texinfo/XS/convert/convert_html.c:2363
-#, fuzzy, c-format, perl-format
-#| msgid "overwritting output file with js licences: %s"
+#, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr "écrasement des fichiers de sortie avec les licences js : %s"
 
@@ -3631,7 +3630,7 @@ msgstr "epub3.pm : erreur d'écriture de l'archive %s"
 #: tp/ext/highlight_syntax.pm:88
 #, perl-format
 msgid "`%s' is not valid for HIGHLIGHT_SYNTAX"
-msgstr ""
+msgstr "« %s » est invalide pour HIGHLIGHT_SYNTAX"
 
 #: tp/ext/highlight_syntax.pm:126 tp/ext/highlight_syntax.pm:366
 #, perl-format
@@ -4385,8 +4384,7 @@ msgid "--Xopt option without printed output"
 msgstr "option --Xopt sans sortie imprimée"
 
 #: tp/texi2any.pl:1502
-#, fuzzy, perl-format
-#| msgid "overwritting file: %s"
+#, perl-format
 msgid "overwriting file: %s"
 msgstr "écrasement du fichier %s"
 
@@ -4481,10 +4479,9 @@ msgid "error writing %s: %s"
 msgstr "erreur d'écriture de %s : %s"
 
 #: tp/Texinfo/XS/convert/convert_html.c:2474
-#, fuzzy, c-format
-#| msgid "error on closing %s: %s"
+#, c-format
 msgid "error closing %s: %s"
-msgstr "erreur lors de la fermeture de %s : %s"
+msgstr "erreur de fermeture de %s : %s"
 
 #: tp/Texinfo/XS/convert/html_prepare_converter.c:3272
 #, c-format
@@ -4591,15 +4588,3 @@ msgstr "@subentry est réservé aux entrées d'index"
 #, c-format
 msgid "bad or empty @%s formal argument: "
 msgstr "argument formel à @%s erroné ou vide :"
-
-#, c-format
-#~ msgid "error after reading %s: %s"
-#~ msgstr "erreur de lecture de %s : %s"
-
-#, c-format
-#~ msgid "preserving permissions for %s: %s"
-#~ msgstr "préservation des permissions pour %s : %s"
-
-#, c-format
-#~ msgid "unexpected error on copying %s into %s"
-#~ msgstr "erreur inattendue lors de la copie de %s dans %s"

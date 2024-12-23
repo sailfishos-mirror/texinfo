@@ -23,14 +23,15 @@
 # Actualizare a traducerii pentru versiunea 7.0.92, făcută de R-GC, sep-2023.
 # Actualizare a traducerii pentru versiunea 7.1.90, făcută de R-GC, oct-2024.
 # Actualizare a traducerii pentru versiunea 7.1.91, făcută de R-GC, noi-2024.
+# Actualizare a traducerii pentru versiunea 7.1.92, făcută de R-GC, dec-2024.
 # Actualizare a traducerii pentru versiunea Y, făcută de X, Z(luna-anul).
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 7.1.91\n"
+"Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
 "POT-Creation-Date: 2024-12-17 21:26+0000\n"
-"PO-Revision-Date: 2024-11-11 12:12+0100\n"
+"PO-Revision-Date: 2024-12-14 18:54+0100\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -40,7 +41,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=((n==1) ? 0 : (n==2) ? 1 : (n==0 || (n%100 "
 "> 0 && n%100 < 20)) ? 2 : 3);\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Poedit 3.5\n"
 
 #: info/echo-area.c:290 info/session.c:1384
 msgid "Move forward a character"
@@ -2554,8 +2555,7 @@ msgstr ""
 "JS_WEBLABELS_FILE atunci când se generează fișierul de etichete web"
 
 #: tp/Texinfo/Convert/HTML.pm:11817 tp/Texinfo/XS/convert/convert_html.c:2363
-#, fuzzy, c-format, perl-format
-#| msgid "overwritting output file with js licences: %s"
+#, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr "se suprascrie fișierul de ieșire cu licențe js: %s"
 
@@ -3767,7 +3767,7 @@ msgstr "epub3.pm: eroare la scrierea arhivei %s"
 #: tp/ext/highlight_syntax.pm:88
 #, perl-format
 msgid "`%s' is not valid for HIGHLIGHT_SYNTAX"
-msgstr ""
+msgstr "„%s” nu este valabil pentru HIGHLIGHT_SYNTAX"
 
 #: tp/ext/highlight_syntax.pm:126 tp/ext/highlight_syntax.pm:366
 #, perl-format
@@ -4554,8 +4554,7 @@ msgstr ""
 "opțiunea „--Xopt” a fost dată fără a se specifica ieșirea pentru imprimare"
 
 #: tp/texi2any.pl:1502
-#, fuzzy, perl-format
-#| msgid "overwritting file: %s"
+#, perl-format
 msgid "overwriting file: %s"
 msgstr "se suprascrie fișierul: %s"
 
@@ -4655,8 +4654,7 @@ msgid "error writing %s: %s"
 msgstr "eroare la scrierea %s: %s"
 
 #: tp/Texinfo/XS/convert/convert_html.c:2474
-#, fuzzy, c-format
-#| msgid "error on closing %s: %s"
+#, c-format
 msgid "error closing %s: %s"
 msgstr "eroare la închiderea %s: %s"
 

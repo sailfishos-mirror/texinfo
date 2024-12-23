@@ -7,10 +7,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 7.1.91\n"
+"Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
 "POT-Creation-Date: 2024-12-17 21:26+0000\n"
-"PO-Revision-Date: 2024-11-11 11:15+0100\n"
+"PO-Revision-Date: 2024-12-14 18:06+0100\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -2445,10 +2445,9 @@ msgstr ""
 "generering av webbetikettsfil"
 
 #: tp/Texinfo/Convert/HTML.pm:11817 tp/Texinfo/XS/convert/convert_html.c:2363
-#, fuzzy, c-format, perl-format
-#| msgid "overwritting output file with js licences: %s"
+#, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
-msgstr "skriver över utdatafil med js-licens: %s"
+msgstr "skriver över utdatafil med js-licenser: %s"
 
 #: tp/Texinfo/Convert/HTML.pm:12469 tp/Texinfo/XS/convert/convert_html.c:727
 #, c-format, perl-format
@@ -3670,7 +3669,7 @@ msgstr "epub3.pm: fel vid skrivning av arkiv %s"
 #: tp/ext/highlight_syntax.pm:88
 #, perl-format
 msgid "`%s' is not valid for HIGHLIGHT_SYNTAX"
-msgstr ""
+msgstr "`%s' är inte giltig för HIGHLIGHT_SYNTAX"
 
 #: tp/ext/highlight_syntax.pm:126 tp/ext/highlight_syntax.pm:366
 #, perl-format
@@ -4398,8 +4397,7 @@ msgid "--Xopt option without printed output"
 msgstr "--Xopt flagga utan utskrift"
 
 #: tp/texi2any.pl:1502
-#, fuzzy, perl-format
-#| msgid "overwritting file: %s"
+#, perl-format
 msgid "overwriting file: %s"
 msgstr "skriver över fil: %s"
 
@@ -4494,8 +4492,7 @@ msgid "error writing %s: %s"
 msgstr "fel vid skrivning till %s: %s"
 
 #: tp/Texinfo/XS/convert/convert_html.c:2474
-#, fuzzy, c-format
-#| msgid "error on closing %s: %s"
+#, c-format
 msgid "error closing %s: %s"
 msgstr "fel vid stängning av %s: %s"
 
@@ -4512,7 +4509,7 @@ msgstr "tom indexunderpost för %zu nyckel i @%s"
 #: tp/Texinfo/XS/main/manipulate_indices.c:619
 #, c-format
 msgid "collation locale not found: %s"
-msgstr "Samlingslokal hittades inte: %s"
+msgstr "samlingslokal hittades inte: %s"
 
 #: tp/Texinfo/XS/parsetexi/close.c:540
 #, c-format

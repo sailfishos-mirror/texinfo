@@ -18,10 +18,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 7.1.91\n"
+"Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
 "POT-Creation-Date: 2024-12-17 21:26+0000\n"
-"PO-Revision-Date: 2024-12-01 16:48+01:00\n"
+"PO-Revision-Date: 2024-12-14 20:00+01:00\n"
 "Last-Translator: Petr Pisar <petr.pisar@atlas.cz>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "Language: cs\n"
@@ -2387,8 +2387,7 @@ msgstr ""
 "nelze pro JS_WEBLABELS_FILE použít"
 
 #: tp/Texinfo/Convert/HTML.pm:11817 tp/Texinfo/XS/convert/convert_html.c:2363
-#, fuzzy, c-format, perl-format
-#| msgid "overwritting output file with js licences: %s"
+#, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr "přepisuje se výstupní soubor s licencemi JS: %s"
 
@@ -3590,7 +3589,7 @@ msgstr "epub3.pm: chyba při zápisu do archivu %s"
 #: tp/ext/highlight_syntax.pm:88
 #, perl-format
 msgid "`%s' is not valid for HIGHLIGHT_SYNTAX"
-msgstr ""
+msgstr "„%s“ není platné z hlediska HIGHLIGHT_SYNTAX"
 
 #: tp/ext/highlight_syntax.pm:126 tp/ext/highlight_syntax.pm:366
 #, perl-format
@@ -4318,8 +4317,7 @@ msgid "--Xopt option without printed output"
 msgstr "přepínač --Xopt bez tisknutelného výstupu"
 
 #: tp/texi2any.pl:1502
-#, fuzzy, perl-format
-#| msgid "overwritting file: %s"
+#, perl-format
 msgid "overwriting file: %s"
 msgstr "přepisuje se soubor: %s"
 
@@ -4414,8 +4412,7 @@ msgid "error writing %s: %s"
 msgstr "chyba při zápisu do %s: %s"
 
 #: tp/Texinfo/XS/convert/convert_html.c:2474
-#, fuzzy, c-format
-#| msgid "error on closing %s: %s"
+#, c-format
 msgid "error closing %s: %s"
 msgstr "chyba při zavírání %s: %s"
 
