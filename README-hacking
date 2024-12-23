@@ -560,6 +560,38 @@ git commit and push
 
 (If on a release branch, copy the NEWS message to NEWS on master)
 
+#  Official releases only: tag source tree
+git tag texinfo-6.6
+git push --tags
+
+-------------------------------------------------------------------------
+
+- Update web pages (official releases only)
+
+Make sure texi2any and texinfo.tex are both installed, then build
+web documentation with
+  make -C doc wwwdoc-build
+
+Copy documentation files to web checkout with, e.g.
+  make -C doc \
+  wwwdoc-install www_target=../../CVS_WEB/manual/
+Check for removed files with, e.g. ls -ltu $(www_target)/*/html_node, 
+and looking at file modification dates for files that have not
+been replaced, followed by cvs rm -f.  Check for added files with
+"cvs -qn update | less", followed by cvs add for lines beginning "?".
+When done, run cvs commit.
+
+update date and version number on home page (texinfo.html) and commit
+as needed.
+
+#  ... set up dtd directory on web pages:
+cd CVS_WEB/dtd # or wherever webpages checkout is
+mkdir $ver && cvs add $ver
+cp $tutil/texinfo.dtd $ver
+cvs add -kb $ver/texinfo.dtd
+cvs commit -m$ver $ver
+
+
 -------------------------------------------------------------------------
 
 - To do the actual upload:
@@ -580,39 +612,8 @@ For official releases: send announcement to info-gnu,
   cc bug-texinfo and bcc coordinator@translationproject.org.
 news item at savannah.
 
-#  Official releases only: tag source tree
-git tag texinfo-6.6
-git push --tags
-
-#  ... set up dtd directory on web pages:
-cd CVS_WEB/dtd # or wherever webpages checkout is
-mkdir $ver && cvs add $ver
-cp $tutil/texinfo.dtd $ver
-cvs add -kb $ver/texinfo.dtd
-cvs commit -m$ver $ver
-
 -------------------------------------------------------------------------
 
-
-- When official release is out there ...
-
-Make sure texi2any and texinfo.tex are both installed, then build
-web documentation with
-  make -C doc wwwdoc-build
-
-Copy documentation files to web checkout with, e.g.
-  make -C doc \
-  wwwdoc-install www_target=../../CVS_WEB/manual/
-Check for removed files with, e.g. ls -ltu $(www_target)/*/html_node, 
-and looking at file modification dates for files that have not
-been replaced, followed by cvs rm -f.  Check for added files with
-"cvs -qn update | less", followed by cvs add for lines beginning "?".
-When done, run cvs commit.
-
-update date and version number on home page (texinfo.html) and commit
-as needed.
-
--------------------------------------------------------------------------
 
 #  Official releases only: Contact root@tug.org to update texinfo at tug.org.
 # If root@tug.org doesn't reply, can try webmaster@tug.org,
