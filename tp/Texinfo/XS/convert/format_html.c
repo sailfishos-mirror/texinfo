@@ -11521,22 +11521,15 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
               node_description
                  = lookup_extra_element (node, AI_key_node_description);
 
-   /* if !NODE_NAME_IN_MENU, we pick the associated section, except if
-      the node is the element command */
+                /* if !NODE_NAME_IN_MENU, we pick the associated section */
               if (self->conf->NODE_NAME_IN_MENU.o.integer <= 0)
                 {
                   const ELEMENT *associated_section = lookup_extra_element (node,
                                                        AI_key_associated_section);
                   if (associated_section)
                     {
-                      const ELEMENT *associated_command
-                       = html_command_root_element_command (self, node);
-                      if (associated_command != node)
-                        {
-                          section = associated_section;
-                          href = html_command_href (self, section,
-                                                    0, element, 0);
-                        }
+                      section = associated_section;
+                      href = html_command_href (self, section, 0, element, 0);
                     }
                 }
               if (!href)

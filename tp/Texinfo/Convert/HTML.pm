@@ -7318,12 +7318,10 @@ sub _convert_menu_entry_type($$$)
            and defined($menu_entry_node->{'extra'}->{'normalized'})) {
     my $node = $self->label_command($menu_entry_node->{'extra'}->{'normalized'});
     if ($node) {
-      # if !NODE_NAME_IN_MENU, we pick the associated section, except if
-      # the node is the element command
+      # if !NODE_NAME_IN_MENU, we pick the associated section
       if ($node->{'extra'}
           and $node->{'extra'}->{'associated_section'}
-          and !$self->get_conf('NODE_NAME_IN_MENU')
-          and !($self->command_root_element_command($node) eq $node)) {
+          and !$self->get_conf('NODE_NAME_IN_MENU')) {
         $section = $node->{'extra'}->{'associated_section'};
         $href = $self->command_href($section, undef, $element);
       } else {
