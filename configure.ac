@@ -20,7 +20,11 @@ AM_INIT_AUTOMAKE([1.16.1 dist-xz
 AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4])
 
 # Where to generate output; srcdir location.
-AC_CONFIG_HEADERS([config.h:config.in])dnl Keep filename to 8.3 for MS-DOS.
+AC_CONFIG_HEADERS([config.h:config.in])
+# We keep filename to 8.3 for MS-DOS, as long as it is possible that
+# we still support DJGPP.  Generating config.h would likely clobber
+# config.h.in even if filename truncation was otherwise unproblematic.
+
 AC_CONFIG_SRCDIR([info/info.c])
 
 # TexinfoXML DTD (./util/texinfo.dtd) version:

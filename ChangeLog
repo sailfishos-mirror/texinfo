@@ -1,5 +1,10 @@
 2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* configure.ac (AC_CONFIG_HEADERS): Elaborate on config.in
+	naming.  Information from Eli.
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	makedoc: remove -tags option
 
 	* info/makedoc.c (EMACS_TAG, EMACS_TAG_BLOCK, emacs_tags):
