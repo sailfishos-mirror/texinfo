@@ -994,6 +994,8 @@ main (int argc, char *argv[], char *env[])
   STRING_LIST converter_init_dirs;
   STRING_LIST *converter_config_dirs_array_ref;
   STRING_LIST internal_extension_dirs;
+  STRING_LIST init_files;
+  STRING_LIST init_file_dirs;
   char *extensions_dir;
   char *texinfo_output_format_env;
   OPTION *output_format_option;
@@ -1146,6 +1148,7 @@ main (int argc, char *argv[], char *env[])
 
 
   memset (&ignored_formats, 0, sizeof (STRING_LIST));
+  memset (&init_files, 0, sizeof (STRING_LIST));
 
   initialize_options_list (&init_files_options);
 
@@ -1325,23 +1328,7 @@ main (int argc, char *argv[], char *env[])
           print_help_p = 1;
           break;
         case INIT_FILE_OPT:
-          {
-            OPTION *test_option
-              = get_conf (program_options.options->TEST.number);
-            if (test_option && test_option->o.integer > 0)
-              locate_and_load_init_file (optarg, &conf_dirs, 0);
-            else
-              {
-                static STRING_LIST init_file_dirs;
-                copy_strings (&init_file_dirs, &conf_dirs);
-                copy_strings (&init_file_dirs, &converter_init_dirs);
-                locate_and_load_init_file (optarg, &init_file_dirs,
-                                           &deprecated_directories);
-
-                clear_strings_list (&init_file_dirs);
-              }
-
-          }
+          add_string (optarg, &init_files);
           break;
         case 'D':
           {
@@ -1780,6 +1767,7 @@ main (int argc, char *argv[], char *env[])
     {/* setup paths here to avoid memory management as much as possible
         in Perl C */
       char *load_modules_path;
+      int status;
       if (conversion_paths_info.texinfo_uninstalled)
         xasprintf (&load_modules_path, "%s/tp/%s.pl",
                       conversion_paths_info.p.uninstalled.top_srcdir,
@@ -1788,10 +1776,39 @@ main (int argc, char *argv[], char *env[])
         xasprintf (&load_modules_path, "%s/%s",
                   conversion_paths_info.p.installed.converterdatadir,
                    load_txi_modules_basename);
-      call_init_perl (&argc, &argv, &env, load_modules_path);
+      status = call_init_perl (&argc, &argv, &env, load_modules_path);
+      if (status)
+        fprintf (stderr, "ERROR: call_init_perl status: %d\n", status);
       free (load_modules_path);
     }
 #endif
+
+  /* TODO different from Perl, to be discussed on the list which
+     one is better, load within the command line loop, or after */
+  memset (&init_file_dirs, 0, sizeof (STRING_LIST));
+
+  test_option = get_conf (program_options.options->TEST.number);
+  if (test_option && test_option->o.integer > 0)
+    test_mode_set = 1;
+
+  if (!test_mode_set)
+    {
+      copy_strings (&init_file_dirs, &conf_dirs);
+      copy_strings (&init_file_dirs, &converter_init_dirs);
+    }
+
+  for (i = 0; i < init_files.number; i++)
+    {
+      char *init_file = init_files.list[i];
+      if (test_mode_set)
+        locate_and_load_init_file (init_file, &conf_dirs, 0);
+      else
+        locate_and_load_init_file (init_file, &init_file_dirs,
+                                   &deprecated_directories);
+    }
+
+  free_strings_list (&init_file_dirs);
+  free_strings_list (&init_files);
 
   html_math_option = get_conf (program_options.options->HTML_MATH.number);
   if (html_math_option && html_math_option->o.string
@@ -1809,6 +1826,7 @@ main (int argc, char *argv[], char *env[])
     locate_and_load_extension_file ("highlight_syntax.pm",
                                     &internal_extension_dirs);
 
+  /* re-set in case it was set in init files */
   test_option = get_conf (program_options.options->TEST.number);
   if (test_option && test_option->o.integer > 0)
     test_mode_set = 1;

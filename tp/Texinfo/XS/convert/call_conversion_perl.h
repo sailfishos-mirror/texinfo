@@ -13,7 +13,7 @@ char *call_converter_output (const char *module_name, CONVERTER *self,
 
 void call_config_GNUT_load_init_file (const char *file_path);
 
-void call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref,
-                     char *load_txi_modules_path);
+int call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref,
+                    char *load_txi_modules_path);
 void call_finish_perl (void);
 #endif

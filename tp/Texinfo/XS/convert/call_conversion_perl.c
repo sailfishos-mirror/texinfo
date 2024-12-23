@@ -205,11 +205,12 @@ xs_init(pTHX)
 }
 
 /* load a Perl intperpreter and load Texinfo modules.  To be called once */
-void
+int
 call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref,
                 char *load_txi_modules_path)
 {
-  char *embedding[] = { "", load_txi_modules_path };
+  int parse_status, run_status;
+  char *embedding[] = { "", load_txi_modules_path, NULL };
   /* The need and use of arguments of PERL_SYS_INIT3 are not explained
      clearly anywhere.  In perlembed they seem to be mandatory, but
      there is nothing very explicit.  We follow perlembed:
@@ -221,8 +222,19 @@ call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref,
   my_perl = perl_alloc();
   perl_construct(my_perl);
   PL_exit_flags |= PERL_EXIT_DESTRUCT_END;
-  perl_parse(my_perl, xs_init, 2, embedding, (char **)NULL);
-  /* perl_run(my_perl); */
+  parse_status = perl_parse(my_perl, xs_init, 2, embedding, (char **)NULL);
+  if (parse_status)
+    return parse_status;
+  /*
+  fprintf (stderr, "call_init_perl parse_status: %d\n", parse_status);
+   */
+  run_status = perl_run(my_perl);
+  /*
+  fprintf (stderr, "call_init_perl run_status: %d\n", run_status);
+   */
+  if (run_status)
+    return run_status;
+  return 0;
 }
 
 void
