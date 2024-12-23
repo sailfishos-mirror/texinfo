@@ -6,7 +6,7 @@ highlight_syntax_example_highlight highlight_example.texi --html -c HIGHLIGHT_SY
 
 highlight_syntax_example_default_language highlight_example.texi --html -c HIGHLIGHT_SYNTAX=source-highlight -c HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE=Perl
 
-highlight_syntax_example_latin9 highlight_example.texi --html --init=highlight_syntax.pm -c 'OUTPUT_ENCODING_NAME=ISO-8859-15'
+highlight_syntax_example_latin9 highlight_example.texi --html -c HIGHLIGHT_SYNTAX=source-highlight -c 'OUTPUT_ENCODING_NAME=ISO-8859-15'
 
 
 # collation
