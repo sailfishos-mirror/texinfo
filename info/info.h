@@ -25,6 +25,14 @@
 
 #define STREQ(s1,s2) (strcmp (s1, s2) == 0)
 
+#ifndef TEXINFO_PRINTFLIKE
+# ifdef __GNUC__
+#  define TEXINFO_PRINTFLIKE(fmt,narg) __attribute__ ((__format__ (__printf__, fmt, narg)))
+# else
+#  define TEXINFO_PRINTFLIKE(fmt,narg)
+# endif
+#endif
+
 struct window_struct;
 typedef void COMMAND_FUNCTION (struct window_struct *window, int count);
 
