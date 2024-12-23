@@ -1,3 +1,24 @@
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/converter.c (free_generic_converter),
+	tp/Texinfo/XS/convert/ConvertXS.xs (generic_converter_init): hold a
+	reference to the converter in C.  It is required if the converter is
+	not lexicaly associated to a Perl module, for instance when the
+	converter is created by a call to Perl method from C.
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convertxs_la_SOURCES),
+	tp/Texinfo/XS/convert/call_conversion_perl.c
+	(call_config_GNUT_load_init_file, call_init_perl, call_finish_perl),
+	tp/Texinfo/XS/main/call_perl_function.c: move code calle dfrom
+	embedded Perl to the new convert/call_conversion_perl.c file.
+
+	* tp/Texinfo/XS/convert/call_conversion_perl.c
+	(call_convert_converter, call_converter_output),
+	tp/Texinfo/XS/teximakehtml.c (formats_table, FORMAT_SPECIFICATION)
+	(main): add Perl module in FORMAT_SPECIFICATION, and add calls
+	tp converter converter and output Perl methods.  Use it for HTML if
+	init files were loaded.
+
 2024-12-22  Patrice Dumas  <pertusus@free.fr>
 
 	force using XS when Perl interpreter is embedded

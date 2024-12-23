@@ -36,8 +36,8 @@
 #include "xs_utils.h"
 /* for element_command_name (or could be builtin_command_data) */
 #include "builtin_commands.h"
-/* new_target_filename non_perl_strndup new_target_contents_filename
-   new_file_name_path new_target_directory_filename non_perl_free
+/* new_target_filename new_target_contents_filename
+   new_file_name_path new_target_directory_filename
    new_formatted_button_info output_unit_type_names enum output_unit_type
  */
 #include "utils.h"

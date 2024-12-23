@@ -543,11 +543,15 @@ if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfo-convertxs.la
 endif
 
+# call_conversion_perl.c code is not actually called by XS interfaces
+# but from C code embedding a Perl interpreter.
 libtexinfo_convertxs_la_SOURCES = \
                        convert/build_html_perl_info.h \
                        convert/build_html_perl_info.c \
                        convert/get_converter_perl_info.c \
-                       convert/get_converter_perl_info.h
+                       convert/get_converter_perl_info.h \
+                       convert/call_conversion_perl.c \
+                       convert/call_conversion_perl.h
 
 # locate include files under out-of-source builds.
 libtexinfo_convertxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)

@@ -61,6 +61,7 @@
 #include "manipulate_indices.h"
 #include "document.h"
 #include "html_converter_api.h"
+#include "api_to_perl.h"
 #include "converter.h"
 
 /* table used to dispatch format specific functions.
@@ -1827,6 +1828,9 @@ free_generic_converter (CONVERTER *self)
   wipe_error_message_list (&self->error_messages);
 
   free_strings_list (&self->small_strings);
+
+  if (self->hv)
+    register_perl_data (self->hv);
 }
 
 void

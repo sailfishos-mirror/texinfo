@@ -66,7 +66,7 @@
 #include "texinfo.h"
 
 #ifdef EMBED_PERL
-#include "call_perl_function.h"
+#include "call_conversion_perl.h"
 #endif
 
 #define LOCALEDIR DATADIR "/locale"
@@ -99,6 +99,8 @@ typedef struct FORMAT_SPECIFICATION {
     const char *name;
     unsigned long flags;
     const char *converted_format;
+    /* Perl module name */
+    const char *module;
 } FORMAT_SPECIFICATION;
 
 static FORMAT_SPECIFICATION formats_table[] = {
@@ -106,10 +108,11 @@ static FORMAT_SPECIFICATION formats_table[] = {
            | STTF_move_index_entries_after_items
            | STTF_no_warn_non_empty_parts
            | STTF_nodes_tree | STTF_floats | STTF_split
-           | STTF_setup_index_entries_sort_strings, NULL},
-  {"parse", 0, NULL},
-  {"structure", STTF_nodes_tree | STTF_floats | STTF_split, NULL},
-  {NULL, 0, NULL}
+           | STTF_setup_index_entries_sort_strings,
+   NULL, "Texinfo::Convert::HTML"},
+  {"parse", 0, NULL, NULL},
+  {"structure", STTF_nodes_tree | STTF_floats | STTF_split, NULL, NULL},
+  {NULL, 0, NULL, NULL}
 };
 
 static VALUE_LIST values;
@@ -750,6 +753,8 @@ warn_deprecated_dirs (DEPRECATED_DIRS_LIST *deprecated_dirs_used)
   deprecated_dirs_used->number = 0;
 }
 
+int loaded_init_files_nr = 0;
+
 static void
 locate_and_load_init_file (const char *filename, STRING_LIST *directories,
                            DEPRECATED_DIRS_LIST *deprecated_dirs)
@@ -765,6 +770,7 @@ locate_and_load_init_file (const char *filename, STRING_LIST *directories,
       if (embedded_interpreter)
         {
           call_config_GNUT_load_init_file (file);
+          loaded_init_files_nr++;
         }
       else
 #endif
@@ -2233,15 +2239,31 @@ main (int argc, char *argv[], char *env[])
       copy_strings (converter_texinfo_language_config_dirs,
                     texinfo_language_config_dirs);
 
-      converter = txi_converter_setup (converted_format, output_format,
-                                   &deprecated_directories,
-                                   &convert_options);
+#ifdef EMBED_PERL
+      if (format_specification->module
+          && embedded_interpreter
+          && (!strcmp (converted_format, "html")
+              && loaded_init_files_nr > 0))
+        {
+          converter = call_convert_converter (format_specification->module,
+                                              &deprecated_directories,
+                                              &convert_options);
 
+          result = call_converter_output (format_specification->module,
+                                          converter, document);
+        }
+      else
+#endif
+        {
+          converter = txi_converter_setup (converted_format, output_format,
+                                           &deprecated_directories,
+                                           &convert_options);
 
       /* conversion */
       /* return value can be NULL in case of errors or an empty string, but
          not anything else as parse_file is used with a file */
-      result = txi_converter_output (converter, document);
+          result = txi_converter_output (converter, document);
+        }
       free (result);
 
       errors_count
