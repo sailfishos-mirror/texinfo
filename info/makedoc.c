@@ -59,31 +59,10 @@ static char *doc_header_1[] = {
   NULL
 };
 
-/* How to remember the locations of the functions found so that Emacs
-   can use the information in a tag table. */
-typedef struct {
-  char *name;                   /* Name of the tag. */
-  int line;                     /* Line number at which it appears. */
-  long char_offset;             /* Character offset at which it appears. */
-} EMACS_TAG;
-
-typedef struct {
-  char *filename;               /* Name of the file containing entries. */
-  long entrylen;                /* Total number of characters in tag block. */
-  EMACS_TAG **entries;          /* Entries found in FILENAME. */
-  size_t entries_index;
-  size_t entries_slots;
-} EMACS_TAG_BLOCK;
-
-EMACS_TAG_BLOCK **emacs_tags = NULL;
-size_t emacs_tags_index = 0;
-size_t emacs_tags_slots = 0;
-
 #define DECLARATION_STRING "\nDECLARE_INFO_COMMAND"
 
 static void process_one_file (char *filename, FILE *doc_stream,
                               FILE *funs_stream);
-static void maybe_dump_tags (FILE *stream);
 static FILE *must_fopen (char *filename, char *mode);
 static void init_func_key (unsigned int val);
 static unsigned int next_func_key (void);
@@ -92,7 +71,6 @@ int
 main (int argc, char **argv)
 {
   register int i;
-  int tags_only = 0;
   FILE *funs_stream, *doc_stream;
 
 #if STRIP_DOT_EXE
@@ -103,19 +81,6 @@ main (int argc, char **argv)
       *dot = 0;
   }
 #endif
-
-  for (i = 1; i < argc; i++)
-    if (strcmp (argv[i], "-tags") == 0)
-      {
-        tags_only++;
-        break;
-      }
-
-  if (tags_only)
-    {
-      funs_filename = NULL_DEVICE;
-      doc_filename = NULL_DEVICE;
-    }
 
   /* The order of these calls depends exactly on the order in the
      Makefile.{in,am}, or they might fail on filesystems with
@@ -170,86 +135,7 @@ main (int argc, char **argv)
   fclose (funs_stream);
   fclose (doc_stream);
 
-  if (tags_only)
-    maybe_dump_tags (stdout);
   return 0;
-}
-
-/* Dumping out the contents of an Emacs tags table. */
-static void
-maybe_dump_tags (FILE *stream)
-{
-  size_t i;
-
-  /* Emacs needs its TAGS file to be in Unix text format (i.e., only
-     newline at end of every line, no CR), so when we generate a
-     TAGS table, we must switch the output stream to binary mode.
-     (If the table is written to a terminal, this is obviously not needed.) */
-  SET_BINARY (fileno (stream));
-
-  /* Print out the information for each block. */
-  for (i = 0; i < emacs_tags_index; i++)
-    {
-      size_t j;
-      register EMACS_TAG_BLOCK *block;
-      register EMACS_TAG *etag;
-      long block_len;
-
-      block_len = 0;
-      block = emacs_tags[i];
-
-      /* Calculate the length of the dumped block first. */
-      for (j = 0; j < block->entries_index; j++)
-        {
-          char digits[30];
-          etag = block->entries[j];
-          block_len += 3 + strlen (etag->name);
-          sprintf (digits, "%d,%ld", etag->line, etag->char_offset);
-          block_len += strlen (digits);
-        }
-
-      /* Print out the defining line. */
-      fprintf (stream, "\f\n%s,%ld\n", block->filename, block_len);
-
-      /* Print out the individual tags. */
-      for (j = 0; j < block->entries_index; j++)
-        {
-          etag = block->entries[j];
-
-          fprintf (stream, "%s,\177%d,%ld\n",
-                   etag->name, etag->line, etag->char_offset);
-        }
-    }
-}
-
-/* Keeping track of names, line numbers and character offsets of functions
-   found in source files. */
-static EMACS_TAG_BLOCK *
-make_emacs_tag_block (char *filename)
-{
-  EMACS_TAG_BLOCK *block;
-
-  block = xmalloc (sizeof (EMACS_TAG_BLOCK));
-  block->filename = xstrdup (filename);
-  block->entrylen = 0;
-  block->entries = NULL;
-  block->entries_index = 0;
-  block->entries_slots = 0;
-  return block;
-}
-
-static void
-add_tag_to_block (EMACS_TAG_BLOCK *block,
-    char *name, int line, long int char_offset)
-{
-  EMACS_TAG *tag;
-
-  tag = xmalloc (sizeof (EMACS_TAG));
-  tag->name = name;
-  tag->line = line;
-  tag->char_offset = char_offset;
-  add_pointer_to_array (tag, block->entries_index, block->entries,
-                        block->entries_slots, 50);
 }
 
 /* Read the file represented by FILENAME into core, and search it for Info
@@ -263,7 +149,6 @@ process_one_file (char *filename, FILE *doc_stream, FILE *funs_stream)
   struct stat finfo;
   long offset;
   long file_size;
-  EMACS_TAG_BLOCK *block;
 
   if (stat (filename, &finfo) == -1)
     fatal_file_error (filename);
@@ -284,8 +169,6 @@ process_one_file (char *filename, FILE *doc_stream, FILE *funs_stream)
   offset = 0;
   decl_str = DECLARATION_STRING;
   decl_len = strlen (decl_str);
-
-  block = make_emacs_tag_block (filename);
 
   while (1)
     {
@@ -348,16 +231,6 @@ process_one_file (char *filename, FILE *doc_stream, FILE *funs_stream)
       func = xmalloc (1 + (offset - point));
       strncpy (func, buffer + point, offset - point);
       func[offset - point] = '\0';
-
-      /* Remember this tag in the current block. */
-      {
-        char *tag_name;
-
-        tag_name = xmalloc (1 + (offset - line_start));
-        strncpy (tag_name, buffer + line_start, offset - line_start);
-        tag_name[offset - line_start] = '\0';
-        add_tag_to_block (block, tag_name, line_number, point);
-      }
 
       /* Generate the user-visible function name from the function's name. */
       {
@@ -449,17 +322,6 @@ process_one_file (char *filename, FILE *doc_stream, FILE *funs_stream)
       free (doc);
     }
   free (buffer);
-
-  /* If we created any tags, remember this file on our global list.  Otherwise,
-     free the memory already allocated to it. */
-  if (block->entries)
-    add_pointer_to_array (block, emacs_tags_index, emacs_tags,
-                          emacs_tags_slots, 10);
-  else
-    {
-      free (block->filename);
-      free (block);
-    }
 }
 
 static void

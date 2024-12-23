@@ -1,5 +1,19 @@
 2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	makedoc: remove -tags option
+
+	* info/makedoc.c (EMACS_TAG, EMACS_TAG_BLOCK, emacs_tags):
+	Remove.
+	(maybe_dump_tags): Remove.
+
+	(main, process_one_file): Remove all handling of -tags option or
+	tag blocks.
+
+	"makedoc -tags" appeared to be used to generate an Emacs tags
+	table, but the purpose of this is unknown.
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove system.h includes
 
 	* system.h, info/info.h, install-info/install-info.c:
