@@ -227,10 +227,7 @@ translate_string (const char *string, const char *in_lang,
   We need to set LC_MESSAGES to a valid locale other than "C" or "POSIX"
   for translation via LANGUAGE to work.  (The locale is "C" if the
   tests are being run.)
-    LC_MESSAGES was reported not to exist for Perl on MS-Windows.  We
-  could use LC_ALL instead, but (a) it's not clear if this would help,
-  and (b) this could interfere with the LC_CTYPE setting in XSParagraph.
-   */
+  LC_MESSAGES was reported not to exist for Perl on MS-Windows. */
 
 # ifndef _WIN32
   /* In
