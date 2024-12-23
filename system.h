@@ -67,11 +67,9 @@
 # ifdef __MSDOS__
 #  include <limits.h>
 #  ifdef __DJGPP__
-#   define HAVE_LONG_FILENAMES(dir)  (pathconf (dir, _PC_NAME_MAX) > 12)
 #   define NULL_DEVICE	"/dev/null"
 #   define DEFAULT_INFOPATH "c:/djgpp/info;/usr/local/info;/usr/info;."
 #  else  /* O_BINARY && !__DJGPP__ */
-#   define HAVE_LONG_FILENAMES(dir)  (0)
 #   define NULL_DEVICE	"NUL"
 #  endif /* O_BINARY && !__DJGPP__ */
 #  define SET_SCREEN_SIZE_HELPER terminal_prep_terminal()
@@ -80,7 +78,6 @@
 #  ifndef setmode
 #   define setmode(f,m)  _setmode(f,m)
 #  endif
-#  define HAVE_LONG_FILENAMES(dir)   (1)
 #  define NULL_DEVICE	"NUL"
 # endif  /* O_BINARY && !__MSDOS__ */
 # ifdef __CYGWIN__
@@ -119,7 +116,6 @@ extern int kill (pid_t, int);
 # define IS_ABSOLUTE(n)	((n)[0] == '/')
 # define FILENAME_CMP	strcmp
 # define FILENAME_CMPN	strncmp
-# define HAVE_LONG_FILENAMES(dir)   (1)
 # define PATH_SEP	":"
 # define STRIP_DOT_EXE	0
 # define NULL_DEVICE	"/dev/null"

@@ -1,5 +1,10 @@
 2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* system.h (HAVE_LONG_FILENAMES): Remove as it is not used
+	anywhere.
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/info.h, install-info/install-info.c:
 	Include <unistd.h> instead of relying on system.h including it.
 
