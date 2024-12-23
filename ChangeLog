@@ -1,5 +1,9 @@
 2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* system.h (SET_BINARY): Remove now unused.
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* configure.ac (AC_CONFIG_HEADERS): Elaborate on config.in
 	naming.  Information from Eli.
 

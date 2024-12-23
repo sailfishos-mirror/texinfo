@@ -99,10 +99,8 @@ extern int kill (pid_t, int);
 # define IS_SLASH(c)	((c) == '/' || (c) == '\\')
 # define HAS_SLASH(s)	(strchr ((s), '/') || strchr ((s), '\\'))
 # define IS_ABSOLUTE(n)	(IS_SLASH((n)[0]) || HAVE_DRIVE(n))
-# define SET_BINARY(f)  do {if (!isatty(f)) setmode(f,O_BINARY);} while(0)
 
 #else  /* not O_BINARY, i.e., Unix */
-# define SET_BINARY(f)	(void)0
 # define FOPEN_RBIN	"r"
 # define FOPEN_WBIN	"w"
 # define IS_SLASH(c)	((c) == '/')
