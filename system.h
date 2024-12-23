@@ -66,9 +66,6 @@ extern int errno;
 #endif
 
 #include <sys/stat.h>
-#if STAT_MACROS_BROKEN
-# undef S_ISDIR
-#endif
 #if !defined(S_ISDIR) && defined(S_IFDIR)
 # define S_ISDIR(mode) (((mode) & S_IFMT) == S_IFDIR)
 #endif

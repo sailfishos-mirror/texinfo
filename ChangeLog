@@ -2,6 +2,14 @@
 
 	Remove system.h defines
 
+	* system.h [STAT_MACROS_BROKEN]: Remove section as this symbol
+	is not set anywhere.  It was formerly set by AC_HEADER_STAT in
+	configure.ac but this macro is now obsolescent..
+
+2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Remove system.h defines
+
 	* system.h, info/tilde.c: move include of <pwd.h> to tilde.c.
 
 2024-12-23  Gavin Smith <gavinsmith0123@gmail.com>
