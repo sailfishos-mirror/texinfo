@@ -928,9 +928,9 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
       if (command_data(data_cmd).flags & CF_root)
         {
-          ELEMENT *argument = new_element (ET_argument);
-          add_to_element_contents (current, argument);
-          add_to_element_contents (argument, arg);
+          ELEMENT *arguments = new_element (ET_arguments_line);
+          add_to_element_contents (current, arguments);
+          add_to_element_contents (arguments, arg);
         }
       else /* def or line command */
         add_to_element_contents (current, arg);
@@ -1173,9 +1173,9 @@ handle_block_command (ELEMENT *current, const char **line_inout,
   bla_element = new_element (ET_block_line_arg);
   if (!(command_data(cmd).flags & CF_def))
     {
-      ELEMENT *argument = new_element (ET_argument);
-      add_to_element_contents (block_line_e, argument);
-      add_to_element_contents (argument, bla_element);
+      ELEMENT *arguments = new_element (ET_arguments_line);
+      add_to_element_contents (block_line_e, arguments);
+      add_to_element_contents (arguments, bla_element);
     }
   else
     {

@@ -33,7 +33,7 @@ $result_trees{'bad_ifclear_argument'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'R#something

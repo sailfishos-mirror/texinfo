@@ -24,7 +24,7 @@ $result_trees{'empty_line_in_example_end'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

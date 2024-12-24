@@ -30,7 +30,7 @@ $result_trees{'entry_after_detailmenu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -52,7 +52,7 @@ $result_trees{'entry_after_detailmenu'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'detailmenu',
@@ -69,7 +69,7 @@ $result_trees{'entry_after_detailmenu'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -253,7 +253,7 @@ $result_trees{'entry_after_detailmenu'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -457,7 +457,7 @@ $result_trees{'entry_after_detailmenu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -493,7 +493,7 @@ $result_trees{'entry_after_detailmenu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

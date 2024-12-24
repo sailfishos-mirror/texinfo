@@ -75,7 +75,7 @@ $result_trees{'syncode_index_print_both'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -111,7 +111,7 @@ $result_trees{'syncode_index_print_both'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -149,7 +149,7 @@ $result_trees{'syncode_index_print_both'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -186,7 +186,7 @@ $result_trees{'syncode_index_print_both'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

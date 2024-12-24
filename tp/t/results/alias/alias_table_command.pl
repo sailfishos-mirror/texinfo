@@ -73,7 +73,7 @@ $result_trees{'alias_table_command'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

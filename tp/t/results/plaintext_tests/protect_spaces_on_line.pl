@@ -81,7 +81,7 @@ $result_trees{'protect_spaces_on_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'exdent',

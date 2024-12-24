@@ -25,7 +25,7 @@ $result_trees{'macro_expansion'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'result of a macro with \\arg1\\ and 
@@ -158,7 +158,7 @@ $result_trees{'macro_expansion'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'second arg
@@ -283,7 +283,7 @@ $result_trees{'macro_expansion'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '
@@ -378,7 +378,7 @@ $result_trees{'macro_expansion'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '
@@ -496,7 +496,7 @@ $result_trees{'macro_expansion'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@macroone{nested second arg}
@@ -614,7 +614,7 @@ $result_trees{'macro_expansion'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '{} \\ 
@@ -750,7 +750,7 @@ now'
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'arg3

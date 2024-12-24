@@ -20,7 +20,7 @@ $result_trees{'bye_in_macro'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'Text

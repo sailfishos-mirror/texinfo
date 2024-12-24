@@ -33,7 +33,7 @@ $result_trees{'bad_ifset_argument'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'Ra&b

@@ -30,7 +30,7 @@ $result_trees{'comment_on_menu_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -58,7 +58,7 @@ $result_trees{'comment_on_menu_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -185,7 +185,7 @@ $result_trees{'comment_on_menu_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -220,7 +220,7 @@ $result_trees{'comment_on_menu_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

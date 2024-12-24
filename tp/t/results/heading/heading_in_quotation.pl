@@ -24,7 +24,7 @@ $result_trees{'heading_in_quotation'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '

@@ -30,7 +30,7 @@ $result_trees{'sections'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

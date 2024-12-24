@@ -55,7 +55,7 @@ $result_trees{'unclosed_verb_on_section_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

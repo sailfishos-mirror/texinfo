@@ -20,7 +20,7 @@ $result_trees{'end_conditional_in_linemacro'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\a\\
@@ -92,7 +92,7 @@ $result_trees{'end_conditional_in_linemacro'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -224,7 +224,7 @@ $result_trees{'end_conditional_in_linemacro'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@lm {text

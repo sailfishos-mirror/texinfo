@@ -30,7 +30,7 @@ $result_trees{'recursive_down_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -66,7 +66,7 @@ $result_trees{'recursive_down_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -104,7 +104,7 @@ $result_trees{'recursive_down_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -140,7 +140,7 @@ $result_trees{'recursive_down_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -162,7 +162,7 @@ $result_trees{'recursive_down_menu'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

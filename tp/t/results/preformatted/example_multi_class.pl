@@ -71,7 +71,7 @@ $result_trees{'example_multi_class'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

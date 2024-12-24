@@ -32,7 +32,7 @@ $result_trees{'item_in_ref'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

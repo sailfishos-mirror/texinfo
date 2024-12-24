@@ -20,7 +20,7 @@ $result_trees{'unpaired_backslash_in_macro_body'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'In macro \\not arg

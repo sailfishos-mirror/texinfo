@@ -25,7 +25,7 @@ $result_trees{'empty_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -113,7 +113,7 @@ $result_trees{'empty_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'info' => {

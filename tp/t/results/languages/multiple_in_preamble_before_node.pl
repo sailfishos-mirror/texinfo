@@ -61,7 +61,7 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'cmdname' => 'defivar',
@@ -451,7 +451,7 @@ $result_trees{'multiple_in_preamble_before_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -487,7 +487,7 @@ $result_trees{'multiple_in_preamble_before_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -525,7 +525,7 @@ $result_trees{'multiple_in_preamble_before_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -561,7 +561,7 @@ $result_trees{'multiple_in_preamble_before_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

@@ -41,7 +41,7 @@ $result_trees{'empty_label_no_space_comment'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',

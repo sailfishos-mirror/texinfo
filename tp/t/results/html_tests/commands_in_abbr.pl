@@ -83,7 +83,7 @@ $result_trees{'commands_in_abbr'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

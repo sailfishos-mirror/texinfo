@@ -30,7 +30,7 @@ $result_trees{'formats_in_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -52,7 +52,7 @@ $result_trees{'formats_in_menu'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -119,7 +119,7 @@ $result_trees{'formats_in_menu'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'contents' => [
@@ -296,7 +296,7 @@ $result_trees{'formats_in_menu'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'text' => 'some @ verb{x atim
@@ -406,7 +406,7 @@ $result_trees{'formats_in_menu'} = {
                                   'type' => 'block_line_arg'
                                 }
                               ],
-                              'type' => 'argument'
+                              'type' => 'arguments_line'
                             },
                             {
                               'contents' => [
@@ -571,7 +571,7 @@ $result_trees{'formats_in_menu'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [

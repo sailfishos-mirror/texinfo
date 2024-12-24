@@ -27,7 +27,7 @@ $result_trees{'verbatim_in_smallformat'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'verbatim',
@@ -44,7 +44,7 @@ $result_trees{'verbatim_in_smallformat'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '... still verbatim, but in a smaller font ...

@@ -20,7 +20,7 @@ $result_trees{'braces_after_text'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@defline \\a\\ \\b\\ \\c\\
@@ -143,7 +143,7 @@ $result_trees{'braces_after_text'} = {
                   'status' => 'start'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'defline',

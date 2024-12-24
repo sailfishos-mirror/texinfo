@@ -20,7 +20,7 @@ $result_trees{'macro_zero'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '0

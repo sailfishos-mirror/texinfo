@@ -50,7 +50,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -87,7 +87,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -126,7 +126,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -163,7 +163,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -194,7 +194,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -348,7 +348,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'type' => 'before_item'
@@ -557,7 +557,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -706,7 +706,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -813,7 +813,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -952,7 +952,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1087,7 +1087,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1221,7 +1221,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1360,7 +1360,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'type' => 'before_item'
@@ -1581,7 +1581,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1726,7 +1726,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1911,7 +1911,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -2268,7 +2268,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -2443,7 +2443,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -2608,7 +2608,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -2783,7 +2783,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -2948,7 +2948,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -3114,7 +3114,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -3275,7 +3275,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -3436,7 +3436,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -3681,7 +3681,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -3719,7 +3719,7 @@ $result_trees{'indices_in_begin_tables_lists_entries_after_item'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

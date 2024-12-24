@@ -35,7 +35,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -71,7 +71,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -93,7 +93,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -286,7 +286,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -323,7 +323,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -509,7 +509,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -545,7 +545,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -732,7 +732,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

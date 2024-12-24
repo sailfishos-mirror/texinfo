@@ -20,7 +20,7 @@ $result_trees{'nested_linemacro_calls'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'inside {\\a\\ operator \\b\\}
@@ -85,7 +85,7 @@ $result_trees{'nested_linemacro_calls'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@defline \\one\\ {\\two\\} \\three\\
@@ -214,7 +214,7 @@ $result_trees{'nested_linemacro_calls'} = {
                   'status' => 'start'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'defline',

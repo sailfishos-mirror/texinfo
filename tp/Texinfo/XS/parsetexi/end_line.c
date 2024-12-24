@@ -887,7 +887,7 @@ end_line_starting_block (ELEMENT *current)
     }
 
   current = current->parent;
-  if (current->type == ET_argument)
+  if (current->type == ET_arguments_line)
     current = current->parent;
   if (counter_value (&count_remaining_args, current) != -1)
     counter_pop (&count_remaining_args);
@@ -1242,7 +1242,7 @@ end_line_misc_line (ELEMENT *current)
   ELEMENT *command_element;
   ELEMENT *line_arg = 0;
 
-  if (current->parent->type == ET_argument)
+  if (current->parent->type == ET_arguments_line)
     {
       command_element = current->parent->parent;
       line_arg = command_element->e.c->contents.list[0]->e.c->contents.list[0];

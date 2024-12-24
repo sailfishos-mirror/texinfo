@@ -20,7 +20,7 @@ $result_trees{'expansion_order'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@machin{}
@@ -84,7 +84,7 @@ $result_trees{'expansion_order'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\\\arg\\\\

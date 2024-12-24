@@ -101,7 +101,7 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -164,7 +164,7 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'not html
@@ -313,7 +313,7 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'll /g/

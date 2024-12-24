@@ -6864,7 +6864,7 @@ foreach my $type ('ignorable_spaces_after_command', 'postamble_after_end',
             'preamble_before_setfilename',
             'spaces_at_end',
             'spaces_before_paragraph',
-            'spaces_after_close_brace', 'argument') {
+            'spaces_after_close_brace', 'arguments_line') {
   $default_types_conversion{$type} = undef;
 }
 
@@ -13605,7 +13605,7 @@ sub _convert($$;$)
         my $arguments_list;
         if ($element->{'contents'}
             and $element->{'contents'}->[0]->{'type'}
-            and $element->{'contents'}->[0]->{'type'} eq 'argument') {
+            and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
           $arguments_list = $element->{'contents'}->[0]->{'contents'};
         } else {
           $arguments_list = $element->{'contents'};

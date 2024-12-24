@@ -47,7 +47,7 @@ $result_trees{'macro_in_ifset_set'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'truc
@@ -117,7 +117,7 @@ $result_trees{'macro_in_ifset_set'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -162,7 +162,7 @@ $result_trees{'macro_in_ifset_set'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in ifset

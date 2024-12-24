@@ -50,7 +50,7 @@ $result_trees{'simplest_test_prefix'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

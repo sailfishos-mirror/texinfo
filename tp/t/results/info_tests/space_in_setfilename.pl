@@ -87,7 +87,7 @@ $result_trees{'space_in_setfilename'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

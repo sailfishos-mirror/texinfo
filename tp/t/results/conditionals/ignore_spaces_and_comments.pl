@@ -24,7 +24,7 @@ $result_trees{'ignore_spaces_and_comments'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'No space no comment
@@ -86,7 +86,7 @@ $result_trees{'ignore_spaces_and_comments'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'Spaces no comment
@@ -154,7 +154,7 @@ $result_trees{'ignore_spaces_and_comments'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'Comment
@@ -222,7 +222,7 @@ $result_trees{'ignore_spaces_and_comments'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'Space Comment
@@ -295,7 +295,7 @@ $result_trees{'ignore_spaces_and_comments'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'Space Comment no argument

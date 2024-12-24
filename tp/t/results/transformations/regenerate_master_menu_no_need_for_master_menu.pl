@@ -30,7 +30,7 @@ $result_trees{'regenerate_master_menu_no_need_for_master_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -66,7 +66,7 @@ $result_trees{'regenerate_master_menu_no_need_for_master_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -88,7 +88,7 @@ $result_trees{'regenerate_master_menu_no_need_for_master_menu'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -207,7 +207,7 @@ $result_trees{'regenerate_master_menu_no_need_for_master_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -243,7 +243,7 @@ $result_trees{'regenerate_master_menu_no_need_for_master_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

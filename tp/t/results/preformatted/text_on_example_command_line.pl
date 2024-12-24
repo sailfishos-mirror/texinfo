@@ -29,7 +29,7 @@ $result_trees{'text_on_example_command_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',
@@ -96,7 +96,7 @@ $result_trees{'text_on_example_command_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -167,7 +167,7 @@ $result_trees{'text_on_example_command_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -233,7 +233,7 @@ $result_trees{'text_on_example_command_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'example',
@@ -250,7 +250,7 @@ $result_trees{'text_on_example_command_line'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'cmdname' => 'end',

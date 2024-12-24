@@ -55,7 +55,7 @@ $result_trees{'end_ifset_in_format'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -91,7 +91,7 @@ $result_trees{'end_ifset_in_format'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@end ifset
@@ -204,7 +204,7 @@ $result_trees{'end_ifset_in_format'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -240,7 +240,7 @@ $result_trees{'end_ifset_in_format'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@end ifset
@@ -343,7 +343,7 @@ $result_trees{'end_ifset_in_format'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {

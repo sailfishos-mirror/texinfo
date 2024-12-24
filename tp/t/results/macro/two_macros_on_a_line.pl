@@ -20,7 +20,7 @@ $result_trees{'two_macros_on_a_line'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in mymacro
@@ -82,7 +82,7 @@ $result_trees{'two_macros_on_a_line'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in with args

@@ -57,7 +57,7 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'contents' => [

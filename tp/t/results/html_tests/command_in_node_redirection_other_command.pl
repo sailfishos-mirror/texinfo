@@ -35,7 +35,7 @@ $result_trees{'command_in_node_redirection_other_command'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -87,7 +87,7 @@ $result_trees{'command_in_node_redirection_other_command'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

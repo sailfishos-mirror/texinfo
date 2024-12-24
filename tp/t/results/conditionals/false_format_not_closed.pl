@@ -24,7 +24,7 @@ $result_trees{'false_format_not_closed'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

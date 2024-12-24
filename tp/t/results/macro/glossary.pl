@@ -78,7 +78,7 @@ $result_trees{'glossary'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '@table @asis
@@ -142,7 +142,7 @@ $result_trees{'glossary'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '@glossarytext
@@ -216,7 +216,7 @@ $result_trees{'glossary'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '@ifhtml
@@ -379,7 +379,7 @@ $result_trees{'glossary'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -416,7 +416,7 @@ $result_trees{'glossary'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -438,7 +438,7 @@ $result_trees{'glossary'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -598,7 +598,7 @@ $result_trees{'glossary'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       }
                     ],
                     'source_info' => {
@@ -705,7 +705,7 @@ $result_trees{'glossary'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => 'name1 (@pxref{id1})
@@ -782,7 +782,7 @@ $result_trees{'glossary'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '@unmacro glossarytext
@@ -909,7 +909,7 @@ $result_trees{'glossary'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '@glossarytext{}
@@ -1051,7 +1051,7 @@ $result_trees{'glossary'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       }
                     ],
                     'source_info' => {
@@ -1159,7 +1159,7 @@ $result_trees{'glossary'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => 'name2 (@pxref{id2})
@@ -1236,7 +1236,7 @@ $result_trees{'glossary'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '@unmacro glossarytext
@@ -1363,7 +1363,7 @@ $result_trees{'glossary'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '@glossarytext{}
@@ -1482,7 +1482,7 @@ $result_trees{'glossary'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -1519,7 +1519,7 @@ $result_trees{'glossary'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'source_marks' => [

@@ -50,7 +50,7 @@ $result_trees{'htmlxref_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -87,7 +87,7 @@ $result_trees{'htmlxref_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -109,7 +109,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -336,7 +336,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -479,7 +479,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -638,7 +638,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -781,7 +781,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -966,7 +966,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1130,7 +1130,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1259,7 +1259,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1390,7 +1390,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1521,7 +1521,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1667,7 +1667,7 @@ $result_trees{'htmlxref_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -1704,7 +1704,7 @@ $result_trees{'htmlxref_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1726,7 +1726,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1857,7 +1857,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1925,7 +1925,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -2205,7 +2205,7 @@ $result_trees{'htmlxref_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'example',
@@ -2222,7 +2222,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -2361,7 +2361,7 @@ $result_trees{'htmlxref_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'example',
@@ -2378,7 +2378,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -2501,7 +2501,7 @@ $result_trees{'htmlxref_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'example',
@@ -2518,7 +2518,7 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

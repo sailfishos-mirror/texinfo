@@ -1250,7 +1250,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
   enum command_id outer;
   unsigned long outer_flags;
 
-  if (current->parent->type == ET_argument)
+  if (current->parent->type == ET_arguments_line)
     parent_command = current->parent->parent;
   else
     parent_command = current->parent;

@@ -1395,7 +1395,7 @@ sub is_content_empty($;$)
       }
     }
     next if ($content->{'type'}
-             and $content->{'type'} eq 'argument');
+             and $content->{'type'} eq 'arguments_line');
     if ($content->{'cmdname'}) {
       if ($content->{'type'} and $content->{'type'} eq 'index_entry_command') {
         if ($do_not_ignore_index_entries) {

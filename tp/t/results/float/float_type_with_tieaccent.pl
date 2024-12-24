@@ -113,7 +113,7 @@ $result_trees{'float_type_with_tieaccent'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

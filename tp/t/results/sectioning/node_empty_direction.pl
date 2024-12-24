@@ -32,7 +32,7 @@ $result_trees{'node_empty_direction'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

@@ -50,7 +50,7 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'cindex',
@@ -237,7 +237,7 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -402,7 +402,7 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'contents' => [
@@ -619,7 +619,7 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -768,7 +768,7 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'menu',
@@ -785,7 +785,7 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1045,7 +1045,7 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1248,7 +1248,7 @@ $result_trees{'index_nodes_no_split_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'cindex',

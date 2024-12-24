@@ -35,7 +35,7 @@ $result_trees{'special_characters_in_float_type'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -71,7 +71,7 @@ $result_trees{'special_characters_in_float_type'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -109,7 +109,7 @@ $result_trees{'special_characters_in_float_type'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -145,7 +145,7 @@ $result_trees{'special_characters_in_float_type'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -227,7 +227,7 @@ $result_trees{'special_characters_in_float_type'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

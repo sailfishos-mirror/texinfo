@@ -56,7 +56,7 @@ $result_trees{'something_before_columnfractions'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',

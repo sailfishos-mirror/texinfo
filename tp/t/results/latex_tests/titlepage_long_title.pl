@@ -26,7 +26,7 @@ $result_trees{'titlepage_long_title'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'cmdname' => 'title',
@@ -132,7 +132,7 @@ $result_trees{'titlepage_long_title'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -168,7 +168,7 @@ $result_trees{'titlepage_long_title'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -206,7 +206,7 @@ $result_trees{'titlepage_long_title'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -242,7 +242,7 @@ $result_trees{'titlepage_long_title'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

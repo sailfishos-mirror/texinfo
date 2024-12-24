@@ -51,7 +51,7 @@ $result_trees{'enumerate_in_style_command'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',

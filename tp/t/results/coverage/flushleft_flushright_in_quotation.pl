@@ -29,7 +29,7 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'flushleft',
@@ -46,7 +46,7 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '   ',
@@ -116,7 +116,7 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '  ',

@@ -20,7 +20,7 @@ $result_trees{'macro_in_end_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'cartouche
@@ -86,7 +86,7 @@ $result_trees{'macro_in_end_argument'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',

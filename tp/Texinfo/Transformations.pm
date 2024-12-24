@@ -172,12 +172,12 @@ sub fill_gaps_in_sectioning($;$)
         };
         $new_section->{'info'} = {'spaces_before_argument' =>
                                               {'text' => ' ',}};
-        my $argument = {'type' => 'argument', 'parent' => $new_section};
+        my $arguments = {'type' => 'arguments_line', 'parent' => $new_section};
 
-        my $line_arg = {'type' => 'line_arg', 'parent' => $argument,
+        my $line_arg = {'type' => 'line_arg', 'parent' => $arguments,
                         'info' => {'spaces_after_argument'
                                                  => {'text' => "\n",}}};
-        $argument->{'contents'} = [$line_arg];
+        $arguments->{'contents'} = [$line_arg];
 
         my $line_content;
         if ($commands_heading_content) {
@@ -193,7 +193,7 @@ sub fill_gaps_in_sectioning($;$)
           $line_content = $asis_command;
         }
         $line_arg->{'contents'} = [$line_content];
-        $new_section->{'contents'} = [$argument,
+        $new_section->{'contents'} = [$arguments,
                                       {'type' => 'empty_line',
                                        'text' => "\n",
                                        'parent' => $new_section}];
@@ -377,7 +377,7 @@ sub _new_node($$;$)
     $node = {'cmdname' => 'node', 'extra' => {}};
     $node->{'info'} = {'spaces_before_argument' => {'text' => ' '}};
 
-    my $argument = {'type' => 'argument', 'parent' => $node};
+    my $argument = {'type' => 'arguments_line', 'parent' => $node};
     $node->{'contents'} = [$argument];
 
     my $node_line_arg = {'type' => 'line_arg', 'parent' => $argument};
@@ -872,7 +872,7 @@ sub _protect_hashchar_at_line_beginning($$$)
         # protect if first in container, or if after a newline
         if ($i == 0
             or ($i == 1 and $parent->{'contents'}->[0]->{'type'}
-                and $parent->{'contents'}->[0]->{'type'} eq 'argument')
+                and $parent->{'contents'}->[0]->{'type'} eq 'arguments_line')
             or ($parent->{'contents'}->[$i-1]->{'text'}
                 and $parent->{'contents'}->[$i-1]->{'text'} =~ /\n$/)) {
           # do not actually protect in raw block command, but warn

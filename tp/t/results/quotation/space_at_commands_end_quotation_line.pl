@@ -30,7 +30,7 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -127,7 +127,7 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

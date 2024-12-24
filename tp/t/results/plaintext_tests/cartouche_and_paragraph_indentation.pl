@@ -30,7 +30,7 @@ $result_trees{'cartouche_and_paragraph_indentation'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -66,7 +66,7 @@ $result_trees{'cartouche_and_paragraph_indentation'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -104,7 +104,7 @@ $result_trees{'cartouche_and_paragraph_indentation'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -140,7 +140,7 @@ $result_trees{'cartouche_and_paragraph_indentation'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -195,7 +195,7 @@ $result_trees{'cartouche_and_paragraph_indentation'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '
@@ -308,7 +308,7 @@ $result_trees{'cartouche_and_paragraph_indentation'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -344,7 +344,7 @@ $result_trees{'cartouche_and_paragraph_indentation'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -371,7 +371,7 @@ $result_trees{'cartouche_and_paragraph_indentation'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '

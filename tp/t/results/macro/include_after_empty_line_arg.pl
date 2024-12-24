@@ -20,7 +20,7 @@ $result_trees{'include_after_empty_line_arg'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@code{\\body\\}

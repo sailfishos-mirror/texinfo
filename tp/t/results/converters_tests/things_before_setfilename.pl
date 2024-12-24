@@ -281,7 +281,7 @@ $result_trees{'things_before_setfilename'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -418,7 +418,7 @@ $result_trees{'things_before_setfilename'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -552,7 +552,7 @@ $result_trees{'things_before_setfilename'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -825,7 +825,7 @@ $result_trees{'things_before_setfilename'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -862,7 +862,7 @@ $result_trees{'things_before_setfilename'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -901,7 +901,7 @@ $result_trees{'things_before_setfilename'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -938,7 +938,7 @@ $result_trees{'things_before_setfilename'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

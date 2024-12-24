@@ -45,7 +45,7 @@ $result_trees{'contents_with_only_top_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

@@ -20,7 +20,7 @@ $result_trees{'macro_expansion_end_in_conditional_line'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@ifset fl
@@ -137,7 +137,7 @@ $result_trees{'macro_expansion_end_in_conditional_line'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {

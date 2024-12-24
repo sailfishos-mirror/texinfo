@@ -20,7 +20,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@defline Parameter @var{\\param\\} @code{ : \\type\\}
@@ -80,7 +80,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@defline {Return Value} @var{\\param\\} @code{ : \\type\\}
@@ -140,7 +140,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@defline {Exception} \\exception\\
@@ -243,7 +243,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'defline',
@@ -553,7 +553,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                           'status' => 'start'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'cmdname' => 'defline',

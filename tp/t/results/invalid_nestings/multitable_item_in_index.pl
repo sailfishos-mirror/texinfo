@@ -51,7 +51,7 @@ $result_trees{'multitable_item_in_index'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

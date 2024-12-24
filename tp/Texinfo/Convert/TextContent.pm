@@ -134,7 +134,7 @@ sub _convert($$)
 
   return '' if (!($element->{'type'} and $element->{'type'} eq 'def_line')
      and (($element->{'type'} and $ignored_types{$element->{'type'}})
-          or ($element->{'type'} and $element->{'type'} eq 'argument'
+          or ($element->{'type'} and $element->{'type'} eq 'arguments_line'
               and $Texinfo::Commands::blockitem_commands{
                                 $element->{'parent'}->{'cmdname'}})
           or ($element->{'cmdname'}

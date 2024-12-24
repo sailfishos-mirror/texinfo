@@ -33,7 +33,7 @@ $result_trees{'command_conditionals'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -122,7 +122,7 @@ $result_trees{'command_conditionals'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'Bad, @@nodexyz is defined.
@@ -194,7 +194,7 @@ $result_trees{'command_conditionals'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -292,7 +292,7 @@ $result_trees{'command_conditionals'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -381,7 +381,7 @@ $result_trees{'command_conditionals'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => 'Bad, @@node is not defined.
@@ -462,7 +462,7 @@ $result_trees{'command_conditionals'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'Unfortunately, @@mathcode is defined.
@@ -534,7 +534,7 @@ $result_trees{'command_conditionals'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {

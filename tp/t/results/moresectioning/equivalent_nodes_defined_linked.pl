@@ -62,7 +62,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -84,7 +84,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -219,7 +219,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -270,7 +270,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

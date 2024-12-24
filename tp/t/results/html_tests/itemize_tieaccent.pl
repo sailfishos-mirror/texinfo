@@ -45,7 +45,7 @@ $result_trees{'itemize_tieaccent'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -192,7 +192,7 @@ $result_trees{'itemize_tieaccent'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -350,7 +350,7 @@ $result_trees{'itemize_tieaccent'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -500,7 +500,7 @@ $result_trees{'itemize_tieaccent'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -639,7 +639,7 @@ $result_trees{'itemize_tieaccent'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -775,7 +775,7 @@ $result_trees{'itemize_tieaccent'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',

@@ -20,7 +20,7 @@ $result_trees{'double_macro_definition'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',
@@ -77,7 +77,7 @@ $result_trees{'double_macro_definition'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',

@@ -37,7 +37,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -59,7 +59,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -353,7 +353,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -408,7 +408,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -462,7 +462,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

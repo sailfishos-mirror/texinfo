@@ -27,7 +27,7 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -49,7 +49,7 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -316,7 +316,7 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -367,7 +367,7 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           },
           {
             'text' => '
@@ -409,7 +409,7 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -469,7 +469,7 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

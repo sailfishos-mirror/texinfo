@@ -20,7 +20,7 @@ $result_trees{'macro_for_ignored_line_command'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@page

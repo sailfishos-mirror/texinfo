@@ -20,7 +20,7 @@ $result_trees{'paragraph_no_paragraph'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\a\\, \\b\\ \\c\\

@@ -42,7 +42,7 @@ $result_trees{'accent_argument'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -146,7 +146,7 @@ $result_trees{'accent_argument'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -255,7 +255,7 @@ $result_trees{'accent_argument'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',

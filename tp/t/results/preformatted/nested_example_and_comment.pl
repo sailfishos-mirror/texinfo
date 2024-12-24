@@ -24,7 +24,7 @@ $result_trees{'nested_example_and_comment'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -59,7 +59,7 @@ $result_trees{'nested_example_and_comment'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -169,7 +169,7 @@ $result_trees{'nested_example_and_comment'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -204,7 +204,7 @@ $result_trees{'nested_example_and_comment'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -323,7 +323,7 @@ $result_trees{'nested_example_and_comment'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -358,7 +358,7 @@ $result_trees{'nested_example_and_comment'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [

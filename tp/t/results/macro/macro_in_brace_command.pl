@@ -20,7 +20,7 @@ $result_trees{'macro_in_brace_command'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'foo-expansion
@@ -82,7 +82,7 @@ $result_trees{'macro_in_brace_command'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'bar-expansion
@@ -156,7 +156,7 @@ $result_trees{'macro_in_brace_command'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',

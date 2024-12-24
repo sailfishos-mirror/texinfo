@@ -21,7 +21,7 @@ my $manual_tree = { 'cmdname' => 'multitable',
     },
   },
   'contents' => [
-     {'type' => 'argument',
+     {'type' => 'arguments_line',
       'contents' => [
         { 'type' => 'block_line_arg',
           'info' => {

@@ -41,7 +41,7 @@ $result_trees{'no_empty_line_after_section'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'contents' => [
@@ -88,7 +88,7 @@ $result_trees{'no_empty_line_after_section'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'c',
@@ -157,7 +157,7 @@ $result_trees{'no_empty_line_after_section'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'contents' => [
@@ -254,7 +254,7 @@ $result_trees{'no_empty_line_after_section'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'indent',

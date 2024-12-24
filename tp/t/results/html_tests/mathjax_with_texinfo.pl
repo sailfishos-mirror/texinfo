@@ -24,7 +24,7 @@ $result_trees{'mathjax_with_texinfo'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'a'

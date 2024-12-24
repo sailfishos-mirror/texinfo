@@ -20,7 +20,7 @@ $result_trees{'blockitem_no_item'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\a\\, \\b\\ \\c\\
@@ -98,7 +98,7 @@ $result_trees{'blockitem_no_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

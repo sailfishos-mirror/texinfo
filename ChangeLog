@@ -1,5 +1,22 @@
 2024-11-24  Patrice Dumas  <pertusus@free.fr>
 
+	rename argument type as arguments_line
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line)
+	(_handle_line_command, _handle_block_command),
+	tp/Texinfo/Structuring.pm (new_block_command),
+	tp/Texinfo/Transformations.pm (_new_node),
+	tp/Texinfo/XS/main/element_types.txt,
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command)
+	(handle_block_command), tp/Texinfo/XS/parsetexi/macro.c
+	(parse_macro_command_line),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (new_block_command),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning, new_node): rename argument type as
+	arguments_line.  Update users.
+
+2024-11-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line): reorganize
 	code to be more similar with the corresponding C code.
 

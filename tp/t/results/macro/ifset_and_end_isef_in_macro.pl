@@ -20,7 +20,7 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@ifset a
@@ -82,7 +82,7 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@end ifset
@@ -172,7 +172,7 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'in ifset

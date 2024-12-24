@@ -55,7 +55,7 @@ $result_trees{'footnote_in_center'} = {
                                   'type' => 'block_line_arg'
                                 }
                               ],
-                              'type' => 'argument'
+                              'type' => 'arguments_line'
                             },
                             {
                               'cmdname' => 'table',
@@ -80,7 +80,7 @@ $result_trees{'footnote_in_center'} = {
                                       'type' => 'block_line_arg'
                                     }
                                   ],
-                                  'type' => 'argument'
+                                  'type' => 'arguments_line'
                                 },
                                 {
                                   'contents' => [

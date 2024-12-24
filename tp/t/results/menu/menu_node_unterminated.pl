@@ -30,7 +30,7 @@ $result_trees{'menu_node_unterminated'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -52,7 +52,7 @@ $result_trees{'menu_node_unterminated'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

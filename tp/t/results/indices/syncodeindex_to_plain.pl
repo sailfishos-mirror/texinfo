@@ -75,7 +75,7 @@ $result_trees{'syncodeindex_to_plain'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -111,7 +111,7 @@ $result_trees{'syncodeindex_to_plain'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

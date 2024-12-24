@@ -51,7 +51,7 @@ $result_trees{'paragraph_in_cells'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

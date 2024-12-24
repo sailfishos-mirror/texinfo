@@ -20,7 +20,7 @@ $result_trees{'form_feeds'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'f \\a\\ n \\b\\
@@ -85,7 +85,7 @@ $result_trees{'form_feeds'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'g \\c\\ v

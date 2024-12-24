@@ -66,7 +66,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
 {
   const ELEMENT *elt;
 
-  if (e->flags & EF_inserted || e->type == ET_argument)
+  if (e->flags & EF_inserted || e->type == ET_arguments_line)
     {}
   else if (type_data[e->type].flags & TF_text)
     {
@@ -108,15 +108,17 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
                 return;
             }
           else if (e->e.c->contents.number > 0
-                   && e->e.c->contents.list[0]->type == ET_argument)
+                   && e->e.c->contents.list[0]->type == ET_arguments_line)
             {
            /* root commands and block commands that are not def commands */
-              const ELEMENT *argument = e->e.c->contents.list[0];
+              const ELEMENT *arguments = e->e.c->contents.list[0];
 
               if (spc_before_arg)
                 ADD((char *)spc_before_arg->e.text->text);
 
-              convert_args (argument, result);
+           /* used for @macro too, in that case the whole line is the
+              only argument, there is no separation by commas */
+              convert_args (arguments, result);
             }
       /* arg_line set for line_commands with type lineraw that have
          arguments and for @macro. */

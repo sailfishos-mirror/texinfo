@@ -29,7 +29,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -78,7 +78,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -199,7 +199,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -260,7 +260,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -347,7 +347,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -469,7 +469,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -518,7 +518,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -639,7 +639,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -716,7 +716,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -803,7 +803,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -932,7 +932,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -1056,7 +1056,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -1101,7 +1101,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'cmdname' => 'item',
@@ -1267,7 +1267,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',

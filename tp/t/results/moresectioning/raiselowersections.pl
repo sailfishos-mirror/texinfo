@@ -55,7 +55,7 @@ $result_trees{'raiselowersections'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -86,7 +86,7 @@ $result_trees{'raiselowersections'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'menu',
@@ -103,7 +103,7 @@ $result_trees{'raiselowersections'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -263,7 +263,7 @@ $result_trees{'raiselowersections'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -299,7 +299,7 @@ $result_trees{'raiselowersections'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -321,7 +321,7 @@ $result_trees{'raiselowersections'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'source_marks' => [
@@ -347,7 +347,7 @@ $result_trees{'raiselowersections'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       }
                     ],
                     'info' => {
@@ -545,7 +545,7 @@ $result_trees{'raiselowersections'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -644,7 +644,7 @@ $result_trees{'raiselowersections'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@node Top
@@ -764,7 +764,7 @@ $result_trees{'raiselowersections'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -801,7 +801,7 @@ $result_trees{'raiselowersections'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -823,7 +823,7 @@ $result_trees{'raiselowersections'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -949,7 +949,7 @@ $result_trees{'raiselowersections'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -986,7 +986,7 @@ $result_trees{'raiselowersections'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1008,7 +1008,7 @@ $result_trees{'raiselowersections'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1134,7 +1134,7 @@ $result_trees{'raiselowersections'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -1171,7 +1171,7 @@ $result_trees{'raiselowersections'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'source_marks' => [
@@ -1197,7 +1197,7 @@ $result_trees{'raiselowersections'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@menu
@@ -1303,7 +1303,7 @@ $result_trees{'raiselowersections'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@contents
@@ -1475,7 +1475,7 @@ $result_trees{'raiselowersections'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -1511,7 +1511,7 @@ $result_trees{'raiselowersections'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

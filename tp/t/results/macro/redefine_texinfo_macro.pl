@@ -20,7 +20,7 @@ $result_trees{'redefine_texinfo_macro'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@emph{\\arg\\}

@@ -32,7 +32,7 @@ $result_trees{'comment_and_itemx_before_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

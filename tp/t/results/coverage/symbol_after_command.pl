@@ -32,7 +32,7 @@ $result_trees{'symbol_after_command'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

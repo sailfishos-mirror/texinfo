@@ -25,7 +25,7 @@ $result_trees{'macro_in_menu'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '*
@@ -87,7 +87,7 @@ $result_trees{'macro_in_menu'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '* 
@@ -149,7 +149,7 @@ $result_trees{'macro_in_menu'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '  
@@ -211,7 +211,7 @@ $result_trees{'macro_in_menu'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => ' 
@@ -273,7 +273,7 @@ $result_trees{'macro_in_menu'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '::
@@ -335,7 +335,7 @@ $result_trees{'macro_in_menu'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => ':
@@ -401,7 +401,7 @@ $result_trees{'macro_in_menu'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

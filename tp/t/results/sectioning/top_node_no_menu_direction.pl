@@ -30,7 +30,7 @@ $result_trees{'top_node_no_menu_direction'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -52,7 +52,7 @@ $result_trees{'top_node_no_menu_direction'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -255,7 +255,7 @@ $result_trees{'top_node_no_menu_direction'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

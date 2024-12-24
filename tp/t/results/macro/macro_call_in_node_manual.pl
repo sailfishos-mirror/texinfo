@@ -20,7 +20,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '(
@@ -82,7 +82,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '(begin
@@ -144,7 +144,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'last
@@ -206,7 +206,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'last)
@@ -268,7 +268,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'last)   
@@ -330,7 +330,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'last)  mynode
@@ -396,7 +396,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

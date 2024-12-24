@@ -177,7 +177,7 @@ $result_trees{'documentation_examples_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -213,7 +213,7 @@ $result_trees{'documentation_examples_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -251,7 +251,7 @@ $result_trees{'documentation_examples_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -287,7 +287,7 @@ $result_trees{'documentation_examples_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -605,7 +605,7 @@ $result_trees{'documentation_examples_texi2html'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'example',
@@ -622,7 +622,7 @@ $result_trees{'documentation_examples_texi2html'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -799,7 +799,7 @@ $result_trees{'documentation_examples_texi2html'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -887,7 +887,7 @@ $result_trees{'documentation_examples_texi2html'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\frac'
@@ -1255,7 +1255,7 @@ $result_trees{'documentation_examples_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -1291,7 +1291,7 @@ $result_trees{'documentation_examples_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1416,7 +1416,7 @@ $result_trees{'documentation_examples_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -1453,7 +1453,7 @@ $result_trees{'documentation_examples_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

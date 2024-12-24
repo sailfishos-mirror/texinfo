@@ -22,7 +22,7 @@ $result_trees{'if_not_closed'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'source_info' => {

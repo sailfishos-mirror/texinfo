@@ -30,7 +30,7 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -66,7 +66,7 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -104,7 +104,7 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -140,7 +140,7 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -180,7 +180,7 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'subheading',
@@ -263,7 +263,7 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -421,7 +421,7 @@ $result_trees{'headings_after_lone_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -488,7 +488,7 @@ $result_trees{'headings_after_lone_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in ignore
@@ -549,7 +549,7 @@ $result_trees{'headings_after_lone_nodes'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'in iftex
@@ -672,7 +672,7 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -760,7 +760,7 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -782,7 +782,7 @@ $result_trees{'headings_after_lone_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -900,7 +900,7 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -922,7 +922,7 @@ $result_trees{'headings_after_lone_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1040,7 +1040,7 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1151,7 +1151,7 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1173,7 +1173,7 @@ $result_trees{'headings_after_lone_nodes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1328,7 +1328,7 @@ $result_trees{'headings_after_lone_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

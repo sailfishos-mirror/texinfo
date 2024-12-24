@@ -35,7 +35,7 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -71,7 +71,7 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -109,7 +109,7 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -146,7 +146,7 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

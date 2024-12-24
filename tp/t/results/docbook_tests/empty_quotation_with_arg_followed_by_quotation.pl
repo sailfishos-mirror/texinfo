@@ -29,7 +29,7 @@ $result_trees{'empty_quotation_with_arg_followed_by_quotation'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',
@@ -91,7 +91,7 @@ $result_trees{'empty_quotation_with_arg_followed_by_quotation'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

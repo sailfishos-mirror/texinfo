@@ -20,7 +20,7 @@ $result_trees{'macro_one_arg_end_of_file'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'Arg \\arg\\.

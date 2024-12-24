@@ -139,7 +139,7 @@ $result_trees{'example_at_commands_arguments'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

@@ -1749,7 +1749,7 @@ $result_trees{'bib_example'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '@set mybibrefnode \\node\\
@@ -1840,7 +1840,7 @@ $result_trees{'bib_example'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '@value{mybibrefnode}
@@ -1929,7 +1929,7 @@ $result_trees{'bib_example'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '@set mybibtable true
@@ -2040,7 +2040,7 @@ $result_trees{'bib_example'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '@set mybiblist true
@@ -2146,7 +2146,7 @@ $result_trees{'bib_example'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '@ifclear mybibrefnode
@@ -2247,7 +2247,7 @@ $result_trees{'bib_example'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '(See item [\\ref\\] in @ref{\\node\\, \\ref\\}.)
@@ -2329,7 +2329,7 @@ $result_trees{'bib_example'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '@ifclear mybiblist
@@ -2526,7 +2526,7 @@ $result_trees{'bib_example'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => '@clear mybibtable
@@ -2675,7 +2675,7 @@ $result_trees{'bib_example'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -2712,7 +2712,7 @@ $result_trees{'bib_example'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -2734,7 +2734,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -2968,7 +2968,7 @@ $result_trees{'bib_example'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -3005,7 +3005,7 @@ $result_trees{'bib_example'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -3064,7 +3064,7 @@ $result_trees{'bib_example'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => '@mybibmakeref{mybibsetrefnode was not used, LaTeX2e}
@@ -3153,7 +3153,7 @@ $result_trees{'bib_example'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       }
                     ],
                     'info' => {
@@ -3419,7 +3419,7 @@ $result_trees{'bib_example'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -3495,7 +3495,7 @@ $result_trees{'bib_example'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -3531,7 +3531,7 @@ $result_trees{'bib_example'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -3581,7 +3581,7 @@ $result_trees{'bib_example'} = {
                                 'type' => 'block_line_arg'
                               }
                             ],
-                            'type' => 'argument'
+                            'type' => 'arguments_line'
                           },
                           {
                             'text' => '@ifclear mybibtable
@@ -3667,7 +3667,7 @@ $result_trees{'bib_example'} = {
                                 'type' => 'block_line_arg'
                               }
                             ],
-                            'type' => 'argument'
+                            'type' => 'arguments_line'
                           }
                         ],
                         'info' => {
@@ -3801,7 +3801,7 @@ $result_trees{'bib_example'} = {
                                     'type' => 'block_line_arg'
                                   }
                                 ],
-                                'type' => 'argument'
+                                'type' => 'arguments_line'
                               },
                               {
                                 'text' => '@item @anchor{LaTeX2e}[LaTeX2e]

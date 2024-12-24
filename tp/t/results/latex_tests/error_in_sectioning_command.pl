@@ -56,7 +56,7 @@ $result_trees{'error_in_sectioning_command'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -92,7 +92,7 @@ $result_trees{'error_in_sectioning_command'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -169,7 +169,7 @@ $result_trees{'error_in_sectioning_command'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -244,7 +244,7 @@ $result_trees{'error_in_sectioning_command'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

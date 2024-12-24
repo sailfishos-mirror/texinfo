@@ -20,7 +20,7 @@ $result_trees{'protect_comma_macro_line'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'we get \\arg\\ and another \\arg\\

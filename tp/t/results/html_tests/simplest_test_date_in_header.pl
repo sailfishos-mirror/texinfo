@@ -50,7 +50,7 @@ $result_trees{'simplest_test_date_in_header'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

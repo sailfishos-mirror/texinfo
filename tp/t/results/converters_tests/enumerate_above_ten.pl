@@ -29,7 +29,7 @@ $result_trees{'enumerate_above_ten'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',

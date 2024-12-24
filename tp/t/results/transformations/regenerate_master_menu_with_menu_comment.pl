@@ -30,7 +30,7 @@ $result_trees{'regenerate_master_menu_with_menu_comment'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -66,7 +66,7 @@ $result_trees{'regenerate_master_menu_with_menu_comment'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -88,7 +88,7 @@ $result_trees{'regenerate_master_menu_with_menu_comment'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -175,7 +175,7 @@ $result_trees{'regenerate_master_menu_with_menu_comment'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -355,7 +355,7 @@ $result_trees{'regenerate_master_menu_with_menu_comment'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -391,7 +391,7 @@ $result_trees{'regenerate_master_menu_with_menu_comment'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -431,7 +431,7 @@ $result_trees{'regenerate_master_menu_with_menu_comment'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -467,7 +467,7 @@ $result_trees{'regenerate_master_menu_with_menu_comment'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

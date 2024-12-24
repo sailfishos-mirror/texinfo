@@ -20,7 +20,7 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@ifset a
@@ -112,7 +112,7 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'source_marks' => [

@@ -33,7 +33,7 @@ $result_trees{'displaymath'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '--'
@@ -137,7 +137,7 @@ $result_trees{'displaymath'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'code',
@@ -261,7 +261,7 @@ $result_trees{'displaymath'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => ' \\underline'
@@ -420,7 +420,7 @@ $result_trees{'displaymath'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'c',

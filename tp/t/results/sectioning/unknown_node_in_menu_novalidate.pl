@@ -50,7 +50,7 @@ $result_trees{'unknown_node_in_menu_novalidate'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -72,7 +72,7 @@ $result_trees{'unknown_node_in_menu_novalidate'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

@@ -82,7 +82,7 @@ $result_trees{'equivalent_nodes_novalidate'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -104,7 +104,7 @@ $result_trees{'equivalent_nodes_novalidate'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -252,7 +252,7 @@ $result_trees{'equivalent_nodes_novalidate'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

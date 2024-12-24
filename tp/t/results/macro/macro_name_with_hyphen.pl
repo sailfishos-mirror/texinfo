@@ -20,7 +20,7 @@ $result_trees{'macro_name_with_hyphen'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'This \\arg-one\\ and that \\arg2\\.

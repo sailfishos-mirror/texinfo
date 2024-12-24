@@ -27,7 +27,7 @@ $result_trees{'deftypeline'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'deftypeline',

@@ -35,7 +35,7 @@ $result_trees{'info_js_dir_html_file_js_weblabels_file_undef'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -71,7 +71,7 @@ $result_trees{'info_js_dir_html_file_js_weblabels_file_undef'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -109,7 +109,7 @@ $result_trees{'info_js_dir_html_file_js_weblabels_file_undef'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -145,7 +145,7 @@ $result_trees{'info_js_dir_html_file_js_weblabels_file_undef'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

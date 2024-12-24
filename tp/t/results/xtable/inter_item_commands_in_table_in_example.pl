@@ -27,7 +27,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'table',
@@ -52,7 +52,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [

@@ -27,7 +27,7 @@ $result_trees{'unnumbered_before_top_node'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -70,7 +70,7 @@ $result_trees{'unnumbered_before_top_node'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           },
           {
             'contents' => [

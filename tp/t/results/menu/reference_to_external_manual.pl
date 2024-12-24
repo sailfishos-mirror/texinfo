@@ -37,7 +37,7 @@ $result_trees{'reference_to_external_manual'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -59,7 +59,7 @@ $result_trees{'reference_to_external_manual'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

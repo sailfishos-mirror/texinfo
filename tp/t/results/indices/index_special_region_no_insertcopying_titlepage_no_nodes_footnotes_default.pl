@@ -41,7 +41,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '
@@ -333,7 +333,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '
@@ -606,7 +606,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -643,7 +643,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {},
@@ -686,7 +686,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1025,7 +1025,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1160,7 +1160,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1285,7 +1285,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -1323,7 +1323,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes_footnote
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

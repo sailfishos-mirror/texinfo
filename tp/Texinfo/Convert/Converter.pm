@@ -1343,7 +1343,7 @@ sub format_comment_or_return_end_line($$)
   my $line_arg;
   if ($element->{'contents'}
       and $element->{'contents'}->[0]->{'type'}
-      and $element->{'contents'}->[0]->{'type'} eq 'argument') {
+      and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
     $line_arg = $element->{'contents'}->[0]->{'contents'}->[-1];
   } elsif ($element->{'contents'}) {
     $line_arg = $element->{'contents'}->[-1];

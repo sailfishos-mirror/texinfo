@@ -24,7 +24,7 @@ $result_trees{'normal_font_in_monospace'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

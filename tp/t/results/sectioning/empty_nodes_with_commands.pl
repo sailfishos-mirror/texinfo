@@ -38,7 +38,7 @@ $result_trees{'empty_nodes_with_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -70,7 +70,7 @@ $result_trees{'empty_nodes_with_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'info' => {
@@ -102,7 +102,7 @@ $result_trees{'empty_nodes_with_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'info' => {
@@ -147,7 +147,7 @@ $result_trees{'empty_nodes_with_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'info' => {

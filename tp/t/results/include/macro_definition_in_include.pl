@@ -60,7 +60,7 @@ $result_trees{'macro_definition_in_include'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in themacro

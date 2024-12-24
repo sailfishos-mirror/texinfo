@@ -32,7 +32,7 @@ $result_trees{'asis_as_itemize_argument'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',

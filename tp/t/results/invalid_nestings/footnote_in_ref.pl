@@ -30,7 +30,7 @@ $result_trees{'footnote_in_ref'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

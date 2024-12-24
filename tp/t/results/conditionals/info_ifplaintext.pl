@@ -28,7 +28,7 @@ $result_trees{'info_ifplaintext'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'this text will only appear in plain text.

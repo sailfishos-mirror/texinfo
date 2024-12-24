@@ -30,7 +30,7 @@ $result_trees{'appendix_and_associated_part_in_generated_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -66,7 +66,7 @@ $result_trees{'appendix_and_associated_part_in_generated_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -104,7 +104,7 @@ $result_trees{'appendix_and_associated_part_in_generated_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -140,7 +140,7 @@ $result_trees{'appendix_and_associated_part_in_generated_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -180,7 +180,7 @@ $result_trees{'appendix_and_associated_part_in_generated_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -216,7 +216,7 @@ $result_trees{'appendix_and_associated_part_in_generated_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -256,7 +256,7 @@ $result_trees{'appendix_and_associated_part_in_generated_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -294,7 +294,7 @@ $result_trees{'appendix_and_associated_part_in_generated_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -330,7 +330,7 @@ $result_trees{'appendix_and_associated_part_in_generated_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -371,7 +371,7 @@ $result_trees{'appendix_and_associated_part_in_generated_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -409,7 +409,7 @@ $result_trees{'appendix_and_associated_part_in_generated_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -445,7 +445,7 @@ $result_trees{'appendix_and_associated_part_in_generated_menu'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

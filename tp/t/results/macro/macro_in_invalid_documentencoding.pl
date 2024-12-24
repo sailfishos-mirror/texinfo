@@ -20,7 +20,7 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'badm

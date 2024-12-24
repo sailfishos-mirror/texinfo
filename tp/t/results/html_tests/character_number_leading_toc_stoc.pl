@@ -30,7 +30,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {},
@@ -63,7 +63,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -98,7 +98,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {},
@@ -131,7 +131,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

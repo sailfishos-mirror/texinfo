@@ -37,7 +37,7 @@ $result_trees{'ref_in_def'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

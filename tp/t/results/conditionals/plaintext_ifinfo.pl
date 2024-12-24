@@ -28,7 +28,7 @@ $result_trees{'plaintext_ifinfo'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'source_info' => {

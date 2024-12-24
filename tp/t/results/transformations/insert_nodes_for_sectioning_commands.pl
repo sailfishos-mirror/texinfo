@@ -30,7 +30,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -63,7 +63,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -101,7 +101,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -163,7 +163,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -212,7 +212,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -253,7 +253,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -289,7 +289,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -329,7 +329,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -362,7 +362,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -397,7 +397,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -430,7 +430,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -484,7 +484,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -526,7 +526,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -566,7 +566,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -599,7 +599,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -642,7 +642,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -675,7 +675,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -718,7 +718,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -746,7 +746,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -787,7 +787,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -828,7 +828,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

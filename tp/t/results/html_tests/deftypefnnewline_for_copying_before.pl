@@ -66,7 +66,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'deftypefun',
@@ -299,7 +299,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -335,7 +335,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -373,7 +373,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -409,7 +409,7 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

@@ -27,7 +27,7 @@ $result_trees{'comment_index_before_defline'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

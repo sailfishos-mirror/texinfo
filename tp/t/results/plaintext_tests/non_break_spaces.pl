@@ -74,7 +74,7 @@ $result_trees{'non_break_spaces'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

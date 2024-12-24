@@ -89,7 +89,7 @@ $result_trees{'cpp_line_latin1'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -121,7 +121,7 @@ $result_trees{'cpp_line_latin1'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -155,7 +155,7 @@ $result_trees{'cpp_line_latin1'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

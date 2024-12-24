@@ -65,7 +65,7 @@ $result_trees{'fullwidth_in_prototype'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

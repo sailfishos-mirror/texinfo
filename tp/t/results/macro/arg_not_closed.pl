@@ -20,7 +20,7 @@ $result_trees{'arg_not_closed'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'foo

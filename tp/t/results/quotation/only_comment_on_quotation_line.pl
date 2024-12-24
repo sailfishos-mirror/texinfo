@@ -30,7 +30,7 @@ $result_trees{'only_comment_on_quotation_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

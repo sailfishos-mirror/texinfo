@@ -38,7 +38,7 @@ $result_trees{'table_command_comment'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

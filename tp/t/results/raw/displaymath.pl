@@ -24,7 +24,7 @@ $result_trees{'displaymath'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\int_D ('
@@ -122,7 +122,7 @@ $result_trees{'displaymath'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\int_D ('

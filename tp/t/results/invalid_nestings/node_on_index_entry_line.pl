@@ -174,7 +174,7 @@ $result_trees{'node_on_index_entry_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

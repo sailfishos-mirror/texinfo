@@ -20,7 +20,7 @@ $result_trees{'arobase_brace_in_linemacro_call'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'first: \\arg1\\|

@@ -75,7 +75,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -106,7 +106,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -139,7 +139,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -176,7 +176,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

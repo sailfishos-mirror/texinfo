@@ -32,7 +32,7 @@ $result_trees{'email_table_command_as_argument'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

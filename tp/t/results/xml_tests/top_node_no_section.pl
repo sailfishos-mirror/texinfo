@@ -30,7 +30,7 @@ $result_trees{'top_node_no_section'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

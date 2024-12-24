@@ -29,7 +29,7 @@ $result_trees{'empty_line_in_command_in_expanded_not_expanded'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -126,7 +126,7 @@ $result_trees{'empty_line_in_command_in_expanded_not_expanded'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

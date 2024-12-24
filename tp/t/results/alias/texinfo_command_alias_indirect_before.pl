@@ -20,7 +20,7 @@ $result_trees{'texinfo_command_alias_indirect_before'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '!!\\arg\\!!

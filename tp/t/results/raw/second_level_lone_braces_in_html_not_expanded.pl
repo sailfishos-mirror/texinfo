@@ -24,7 +24,7 @@ $result_trees{'second_level_lone_braces_in_html_not_expanded'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -96,7 +96,7 @@ $result_trees{'second_level_lone_braces_in_html_not_expanded'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

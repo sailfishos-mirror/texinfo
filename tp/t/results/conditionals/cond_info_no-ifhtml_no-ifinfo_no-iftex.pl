@@ -56,7 +56,7 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -124,7 +124,7 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => 'This is ifhtml text.
@@ -195,7 +195,7 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       }
                     ],
                     'source_info' => {
@@ -291,7 +291,7 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -328,7 +328,7 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -367,7 +367,7 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -393,7 +393,7 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'This is ifinfo text.
@@ -464,7 +464,7 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'source_info' => {
@@ -554,7 +554,7 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -622,7 +622,7 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'This is iftex text.
@@ -693,7 +693,7 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'source_info' => {

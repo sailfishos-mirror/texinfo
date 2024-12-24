@@ -24,7 +24,7 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

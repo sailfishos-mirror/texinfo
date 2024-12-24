@@ -20,7 +20,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@table @kbd
@@ -251,7 +251,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -374,7 +374,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -489,7 +489,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'table',
@@ -518,7 +518,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -636,7 +636,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -872,7 +872,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -995,7 +995,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1110,7 +1110,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'table',
@@ -1136,7 +1136,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -1250,7 +1250,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -1482,7 +1482,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1601,7 +1601,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1715,7 +1715,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'table',
@@ -1741,7 +1741,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -1855,7 +1855,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [

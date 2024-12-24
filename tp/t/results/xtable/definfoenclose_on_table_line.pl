@@ -79,7 +79,7 @@ $result_trees{'definfoenclose_on_table_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

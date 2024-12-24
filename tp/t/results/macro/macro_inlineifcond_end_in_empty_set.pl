@@ -20,7 +20,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'ag,

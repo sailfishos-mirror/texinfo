@@ -36,7 +36,7 @@ $result_trees{'section_on_itemize_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             }
           ],
           'extra' => {
@@ -74,7 +74,7 @@ $result_trees{'section_on_itemize_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -111,7 +111,7 @@ $result_trees{'section_on_itemize_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             }
           ],
           'info' => {
@@ -156,7 +156,7 @@ $result_trees{'section_on_itemize_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -180,7 +180,7 @@ $result_trees{'section_on_itemize_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             }
           ],
           'extra' => {
@@ -228,7 +228,7 @@ $result_trees{'section_on_itemize_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -257,7 +257,7 @@ $result_trees{'section_on_itemize_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             }
           ],
           'info' => {
@@ -302,7 +302,7 @@ $result_trees{'section_on_itemize_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

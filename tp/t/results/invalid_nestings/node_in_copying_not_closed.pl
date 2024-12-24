@@ -24,7 +24,7 @@ $result_trees{'node_in_copying_not_closed'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '
@@ -78,7 +78,7 @@ $result_trees{'node_in_copying_not_closed'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -114,7 +114,7 @@ $result_trees{'node_in_copying_not_closed'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

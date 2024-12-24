@@ -157,7 +157,7 @@ $result_trees{'in_errormsg'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

@@ -42,7 +42,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -133,7 +133,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -237,7 +237,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -347,7 +347,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -438,7 +438,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -529,7 +529,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -623,7 +623,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -766,7 +766,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -906,7 +906,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -1025,7 +1025,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -1133,7 +1133,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -1238,7 +1238,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -1343,7 +1343,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -1440,7 +1440,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -1537,7 +1537,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -1637,7 +1637,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -1748,7 +1748,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -1856,7 +1856,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -1969,7 +1969,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -2088,7 +2088,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -2201,7 +2201,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -2320,7 +2320,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -2470,7 +2470,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -2657,7 +2657,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -2908,7 +2908,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -3223,7 +3223,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -3529,7 +3529,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -3729,7 +3729,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -3848,7 +3848,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -3973,7 +3973,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -4114,7 +4114,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -4239,7 +4239,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -4355,7 +4355,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -4474,7 +4474,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -4617,7 +4617,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -4736,7 +4736,7 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',

@@ -24,7 +24,7 @@ $result_trees{'menu_no_closed_star'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

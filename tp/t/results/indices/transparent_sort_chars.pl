@@ -59,7 +59,7 @@ $result_trees{'transparent_sort_chars'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -90,7 +90,7 @@ $result_trees{'transparent_sort_chars'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -123,7 +123,7 @@ $result_trees{'transparent_sort_chars'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

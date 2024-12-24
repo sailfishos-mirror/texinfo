@@ -50,7 +50,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -87,7 +87,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -126,7 +126,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -168,7 +168,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -205,7 +205,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

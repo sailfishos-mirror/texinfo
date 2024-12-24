@@ -59,7 +59,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -90,7 +90,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -123,7 +123,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

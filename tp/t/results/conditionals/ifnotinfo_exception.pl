@@ -28,7 +28,7 @@ $result_trees{'ifnotinfo_exception'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'in ifnotinfo

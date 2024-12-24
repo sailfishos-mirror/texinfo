@@ -125,7 +125,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -161,7 +161,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -218,7 +218,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -254,7 +254,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -357,7 +357,7 @@ $result_trees{'custom_heading_with_include'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@node Top
@@ -477,7 +477,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -514,7 +514,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -536,7 +536,7 @@ $result_trees{'custom_heading_with_include'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -661,7 +661,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -698,7 +698,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -720,7 +720,7 @@ $result_trees{'custom_heading_with_include'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -845,7 +845,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -882,7 +882,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'source_marks' => [
@@ -908,7 +908,7 @@ $result_trees{'custom_heading_with_include'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@menu
@@ -1014,7 +1014,7 @@ $result_trees{'custom_heading_with_include'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@contents
@@ -1164,7 +1164,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1205,7 +1205,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1246,7 +1246,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'source_marks' => [
@@ -1272,7 +1272,7 @@ $result_trees{'custom_heading_with_include'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@subsubsection Subsubsection
@@ -1424,7 +1424,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1465,7 +1465,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1506,7 +1506,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'source_marks' => [
@@ -1532,7 +1532,7 @@ $result_trees{'custom_heading_with_include'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@subsubsection Subsubsection Include
@@ -1686,7 +1686,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1727,7 +1727,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1768,7 +1768,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'source_marks' => [
@@ -1794,7 +1794,7 @@ $result_trees{'custom_heading_with_include'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@subsubsection Subsubsection
@@ -1959,7 +1959,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -2000,7 +2000,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -2041,7 +2041,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'source_marks' => [
@@ -2067,7 +2067,7 @@ $result_trees{'custom_heading_with_include'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@subsubsection Subsubsection
@@ -2176,7 +2176,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -2212,7 +2212,7 @@ $result_trees{'custom_heading_with_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

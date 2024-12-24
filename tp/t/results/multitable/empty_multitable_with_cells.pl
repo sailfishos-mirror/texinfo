@@ -24,7 +24,7 @@ $result_trees{'empty_multitable_with_cells'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

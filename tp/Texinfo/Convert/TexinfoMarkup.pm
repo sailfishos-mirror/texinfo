@@ -466,7 +466,7 @@ sub _end_line_spaces
   my $end_spaces = '';
   my $arguments_list;
   if ($element->{'contents'}->[0]->{'type'}
-      and $element->{'contents'}->[0]->{'type'} eq 'argument') {
+      and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
     $arguments_list = $element->{'contents'}->[0]->{'contents'};
   } else {
     $arguments_list = $element->{'contents'};
@@ -570,7 +570,7 @@ sub _convert_argument_and_end_line($$)
 
   my $line_arg;
   if ($element->{'contents'}->[0]->{'type'}
-      and $element->{'contents'}->[0]->{'type'} eq 'argument') {
+      and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
     $line_arg = $element->{'contents'}->[0]->{'contents'}->[-1];
   } else {
     $line_arg = $element->{'contents'}->[-1];
@@ -1436,7 +1436,7 @@ sub _convert($$;$)
         my $arguments_list;
         if ($element->{'contents'} and scalar(@{$element->{'contents'}})
             and $element->{'contents'}->[0]->{'type'}
-            and $element->{'contents'}->[0]->{'type'} eq 'argument') {
+            and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
           $arguments_list = $element->{'contents'}->[0]->{'contents'};
         }
         if ($arguments_list) {
@@ -1606,7 +1606,7 @@ sub _convert($$;$)
   }
   if ($element->{'type'}) {
 
-    if ($element->{'type'} eq 'argument'
+    if ($element->{'type'} eq 'arguments_line'
         or ($container_ignored_if_empty{$element->{'type'}}
             and !$element->{'contents'})) {
       return $result;

@@ -20,7 +20,7 @@ $result_trees{'nested_macro_call'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '(machin)
@@ -82,7 +82,7 @@ $result_trees{'nested_macro_call'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@machin{}

@@ -28,7 +28,7 @@ $result_trees{'additional_space_in_end_conditional'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'not html

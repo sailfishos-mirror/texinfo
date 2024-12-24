@@ -26,7 +26,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -118,7 +118,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'cmdname' => 'title',
@@ -270,7 +270,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -306,7 +306,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -344,7 +344,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -380,7 +380,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

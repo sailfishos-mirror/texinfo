@@ -20,7 +20,7 @@ $result_trees{'macro_name_zero'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in macro

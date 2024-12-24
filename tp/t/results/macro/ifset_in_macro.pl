@@ -20,7 +20,7 @@ $result_trees{'ifset_in_macro'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@ifset notes 
@@ -131,7 +131,7 @@ $result_trees{'ifset_in_macro'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'arg

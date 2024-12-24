@@ -32,7 +32,7 @@ $result_trees{'style_not_closed_in_table_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

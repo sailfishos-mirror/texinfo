@@ -35,7 +35,7 @@ $result_trees{'complex_float'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -71,7 +71,7 @@ $result_trees{'complex_float'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -146,7 +146,7 @@ $result_trees{'complex_float'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -265,7 +265,7 @@ $result_trees{'complex_float'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -327,7 +327,7 @@ $result_trees{'complex_float'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => 'An example.
@@ -510,7 +510,7 @@ $result_trees{'complex_float'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -643,7 +643,7 @@ $result_trees{'complex_float'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'cmdname' => 'item',
@@ -1043,7 +1043,7 @@ $result_trees{'complex_float'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'contents' => [
@@ -1156,7 +1156,7 @@ $result_trees{'complex_float'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'contents' => [
@@ -1308,7 +1308,7 @@ $result_trees{'complex_float'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'contents' => [
@@ -1550,7 +1550,7 @@ $result_trees{'complex_float'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'cmdname' => 'item',
@@ -2223,7 +2223,7 @@ $result_trees{'complex_float'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -2259,7 +2259,7 @@ $result_trees{'complex_float'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -2297,7 +2297,7 @@ $result_trees{'complex_float'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '
@@ -2365,7 +2365,7 @@ $result_trees{'complex_float'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'contents' => [
@@ -2448,7 +2448,7 @@ $result_trees{'complex_float'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'contents' => [
@@ -2600,7 +2600,7 @@ $result_trees{'complex_float'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'contents' => [
@@ -2842,7 +2842,7 @@ $result_trees{'complex_float'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'cmdname' => 'item',

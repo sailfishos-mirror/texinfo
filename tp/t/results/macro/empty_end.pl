@@ -20,7 +20,7 @@ $result_trees{'empty_end'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in foo

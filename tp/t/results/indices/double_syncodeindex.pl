@@ -108,7 +108,7 @@ $result_trees{'double_syncodeindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -144,7 +144,7 @@ $result_trees{'double_syncodeindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

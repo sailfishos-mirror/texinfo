@@ -1344,7 +1344,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
               const ELEMENT_LIST *arguments_list = 0;
 
               if (element->e.c->contents.number > 0
-                       && element->e.c->contents.list[0]->type == ET_argument)
+                  && element->e.c->contents.list[0]->type == ET_arguments_line)
                 {
                   const ELEMENT *argument = element->e.c->contents.list[0];
                   /* TODO most likely always true */

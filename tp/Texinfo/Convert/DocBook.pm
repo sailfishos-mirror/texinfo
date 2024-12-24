@@ -232,7 +232,7 @@ foreach my $type (
             'postamble_after_end',
             'preamble_before_beginning',
             'preamble_before_setfilename',
-            'spaces_at_end', 'argument',
+            'spaces_at_end', 'arguments_line',
   ) {
   $ignored_types{$type} = 1;
 }
@@ -701,7 +701,7 @@ sub _convert_argument_and_end_line($$)
 
   my $line_arg;
   if ($element->{'contents'}->[0]->{'type'}
-      and $element->{'contents'}->[0]->{'type'} eq 'argument') {
+      and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
     $line_arg = $element->{'contents'}->[0]->{'contents'}->[-1];
   } else {
     $line_arg = $element->{'contents'}->[-1];

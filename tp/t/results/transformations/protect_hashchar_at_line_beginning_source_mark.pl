@@ -32,7 +32,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '#line 30 "toto"
@@ -150,7 +150,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '#
@@ -264,7 +264,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\arg\\ "titi" 3\\arg\\

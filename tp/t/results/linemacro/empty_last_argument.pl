@@ -52,7 +52,7 @@ $result_trees{'empty_last_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@BIindex \\symbol\\
@@ -166,7 +166,7 @@ $result_trees{'empty_last_argument'} = {
                   'status' => 'start'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

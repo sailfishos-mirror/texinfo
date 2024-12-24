@@ -45,7 +45,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -82,7 +82,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -121,7 +121,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -158,7 +158,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -270,7 +270,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -320,7 +320,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

@@ -82,7 +82,7 @@ $result_trees{'commands_in_alt'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

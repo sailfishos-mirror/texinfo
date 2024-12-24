@@ -59,7 +59,7 @@ $result_trees{'style_not_closed_before_first_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'contents' => [

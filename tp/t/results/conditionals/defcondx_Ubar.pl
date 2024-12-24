@@ -92,7 +92,7 @@ $result_trees{'defcondx_Ubar'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -165,7 +165,7 @@ $result_trees{'defcondx_Ubar'} = {
                                 'type' => 'block_line_arg'
                               }
                             ],
-                            'type' => 'argument'
+                            'type' => 'arguments_line'
                           },
                           {
                             'text' => '@deffnx bar

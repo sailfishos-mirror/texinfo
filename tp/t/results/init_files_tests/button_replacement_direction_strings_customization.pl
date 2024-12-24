@@ -56,7 +56,7 @@ $result_trees{'button_replacement_direction_strings_customization'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -92,7 +92,7 @@ $result_trees{'button_replacement_direction_strings_customization'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -130,7 +130,7 @@ $result_trees{'button_replacement_direction_strings_customization'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -166,7 +166,7 @@ $result_trees{'button_replacement_direction_strings_customization'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

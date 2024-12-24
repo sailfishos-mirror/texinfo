@@ -24,7 +24,7 @@ $result_trees{'bye_on_end_command_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

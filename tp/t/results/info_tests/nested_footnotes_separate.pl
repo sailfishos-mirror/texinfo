@@ -64,7 +64,7 @@ $result_trees{'nested_footnotes_separate'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

@@ -68,7 +68,7 @@ $result_trees{'accentenc_enable_encoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -104,7 +104,7 @@ $result_trees{'accentenc_enable_encoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

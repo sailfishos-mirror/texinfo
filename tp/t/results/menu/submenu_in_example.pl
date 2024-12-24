@@ -30,7 +30,7 @@ $result_trees{'submenu_in_example'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -52,7 +52,7 @@ $result_trees{'submenu_in_example'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -88,7 +88,7 @@ $result_trees{'submenu_in_example'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -124,7 +124,7 @@ $result_trees{'submenu_in_example'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'cmdname' => 'end',
@@ -191,7 +191,7 @@ $result_trees{'submenu_in_example'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -272,7 +272,7 @@ $result_trees{'submenu_in_example'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -291,7 +291,7 @@ $result_trees{'submenu_in_example'} = {
                                   'type' => 'block_line_arg'
                                 }
                               ],
-                              'type' => 'argument'
+                              'type' => 'arguments_line'
                             },
                             {
                               'contents' => [
@@ -440,7 +440,7 @@ $result_trees{'submenu_in_example'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'cmdname' => 'item',

@@ -46,7 +46,7 @@ $result_trees{'bad_style_nesting'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

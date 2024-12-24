@@ -20,7 +20,7 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',
@@ -111,7 +111,7 @@ $result_trees{'macro_in_multitable_empty_before_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

@@ -27,7 +27,7 @@ $result_trees{'chapter_sections'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -74,7 +74,7 @@ $result_trees{'chapter_sections'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -120,7 +120,7 @@ $result_trees{'chapter_sections'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -166,7 +166,7 @@ $result_trees{'chapter_sections'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -212,7 +212,7 @@ $result_trees{'chapter_sections'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -258,7 +258,7 @@ $result_trees{'chapter_sections'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -304,7 +304,7 @@ $result_trees{'chapter_sections'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -350,7 +350,7 @@ $result_trees{'chapter_sections'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

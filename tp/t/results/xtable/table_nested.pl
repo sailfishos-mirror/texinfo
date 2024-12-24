@@ -20,7 +20,7 @@ $result_trees{'table_nested'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@vtable @asis
@@ -213,7 +213,7 @@ $result_trees{'table_nested'} = {
                   'status' => 'start'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'vtable',
@@ -239,7 +239,7 @@ $result_trees{'table_nested'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -538,7 +538,7 @@ $result_trees{'table_nested'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -770,7 +770,7 @@ $result_trees{'table_nested'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'source_marks' => [
@@ -817,7 +817,7 @@ $result_trees{'table_nested'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -1116,7 +1116,7 @@ $result_trees{'table_nested'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -1348,7 +1348,7 @@ $result_trees{'table_nested'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'quotation',
@@ -1383,7 +1383,7 @@ $result_trees{'table_nested'} = {
                       'status' => 'start'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'cmdname' => 'vtable',
@@ -1409,7 +1409,7 @@ $result_trees{'table_nested'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -1708,7 +1708,7 @@ $result_trees{'table_nested'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [

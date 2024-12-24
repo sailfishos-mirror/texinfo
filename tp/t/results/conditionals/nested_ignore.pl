@@ -24,7 +24,7 @@ $result_trees{'nested_ignore'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@ignore

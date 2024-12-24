@@ -46,7 +46,7 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',

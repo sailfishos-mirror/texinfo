@@ -29,7 +29,7 @@ $result_trees{'empty_multitable_in_itemize'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -67,7 +67,7 @@ $result_trees{'empty_multitable_in_itemize'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'cmdname' => 'end',

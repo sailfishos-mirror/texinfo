@@ -83,7 +83,7 @@ $result_trees{'paragraph_indent_asis'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '  ',

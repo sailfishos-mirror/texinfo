@@ -20,7 +20,7 @@ $result_trees{'comment_at_end_of_linemacro_call'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'c \\a\\ d

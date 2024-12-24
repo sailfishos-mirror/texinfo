@@ -55,7 +55,7 @@ $result_trees{'novalidate_empty_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -169,7 +169,7 @@ $result_trees{'novalidate_empty_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'info' => {
@@ -201,7 +201,7 @@ $result_trees{'novalidate_empty_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'info' => {
@@ -246,7 +246,7 @@ $result_trees{'novalidate_empty_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'info' => {

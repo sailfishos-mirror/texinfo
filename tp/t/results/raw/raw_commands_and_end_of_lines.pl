@@ -29,7 +29,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -101,7 +101,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -183,7 +183,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -261,7 +261,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -335,7 +335,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -413,7 +413,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -482,7 +482,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -554,7 +554,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -632,7 +632,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -710,7 +710,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -784,7 +784,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -862,7 +862,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -931,7 +931,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'Surrounded by empty lines.
@@ -1002,7 +1002,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in block
@@ -1081,7 +1081,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in block
@@ -1160,7 +1160,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in block
@@ -1230,7 +1230,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in block
@@ -1309,7 +1309,7 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in block

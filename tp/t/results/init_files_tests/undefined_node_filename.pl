@@ -35,7 +35,7 @@ $result_trees{'undefined_node_filename'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -76,7 +76,7 @@ $result_trees{'undefined_node_filename'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

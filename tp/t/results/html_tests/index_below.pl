@@ -27,7 +27,7 @@ $result_trees{'index_below'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -74,7 +74,7 @@ $result_trees{'index_below'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -120,7 +120,7 @@ $result_trees{'index_below'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

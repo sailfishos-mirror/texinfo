@@ -118,7 +118,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -154,7 +154,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {},
@@ -187,7 +187,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

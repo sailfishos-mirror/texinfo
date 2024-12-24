@@ -29,7 +29,7 @@ $result_trees{'enumerate_in_example'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'enumerate',
@@ -46,7 +46,7 @@ $result_trees{'enumerate_in_example'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'cmdname' => 'item',

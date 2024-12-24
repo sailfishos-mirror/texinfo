@@ -24,7 +24,7 @@ $result_trees{'menu_entry_node_comments'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

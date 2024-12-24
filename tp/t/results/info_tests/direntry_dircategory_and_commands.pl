@@ -70,7 +70,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -236,7 +236,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -380,7 +380,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -416,7 +416,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

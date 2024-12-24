@@ -20,7 +20,7 @@ $result_trees{'protection_of_end_of_line_by_command'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\one\\bullet{}

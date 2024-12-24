@@ -24,7 +24,7 @@ $result_trees{'table_in_display_in_example'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'display',
@@ -41,7 +41,7 @@ $result_trees{'table_in_display_in_example'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'cmdname' => 'table',
@@ -66,7 +66,7 @@ $result_trees{'table_in_display_in_example'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [

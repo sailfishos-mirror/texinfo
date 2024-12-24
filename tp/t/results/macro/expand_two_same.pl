@@ -20,7 +20,7 @@ $result_trees{'expand_two_same'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'With a doubles arg \\arg\\ and re \\arg\\

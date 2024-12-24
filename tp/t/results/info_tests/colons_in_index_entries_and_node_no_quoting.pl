@@ -35,7 +35,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -57,7 +57,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -295,7 +295,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -430,7 +430,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -642,7 +642,7 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

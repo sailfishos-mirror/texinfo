@@ -24,7 +24,7 @@ $result_trees{'multitable_in_example_extraneous_item_tab'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'multitable',
@@ -46,7 +46,7 @@ $result_trees{'multitable_in_example_extraneous_item_tab'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [

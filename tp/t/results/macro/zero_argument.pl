@@ -20,7 +20,7 @@ $result_trees{'zero_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in foo
@@ -82,7 +82,7 @@ $result_trees{'zero_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in bar

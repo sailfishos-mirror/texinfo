@@ -20,7 +20,7 @@ $result_trees{'simple_imbricated_macro'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'truc.
@@ -121,7 +121,7 @@ $result_trees{'simple_imbricated_macro'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => 'bidule.

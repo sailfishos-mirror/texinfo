@@ -30,7 +30,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -81,7 +81,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -452,7 +452,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

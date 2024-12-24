@@ -24,7 +24,7 @@ $result_trees{'flushright_example_nested'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'flushright',
@@ -41,7 +41,7 @@ $result_trees{'flushright_example_nested'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -147,7 +147,7 @@ $result_trees{'flushright_example_nested'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'example',
@@ -164,7 +164,7 @@ $result_trees{'flushright_example_nested'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [

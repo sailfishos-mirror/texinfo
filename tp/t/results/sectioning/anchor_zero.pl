@@ -30,7 +30,7 @@ $result_trees{'anchor_zero'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

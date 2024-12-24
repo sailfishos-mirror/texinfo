@@ -50,7 +50,7 @@ $result_trees{'contents_in_middle_chapter_inline'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -87,7 +87,7 @@ $result_trees{'contents_in_middle_chapter_inline'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -123,7 +123,7 @@ $result_trees{'contents_in_middle_chapter_inline'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -246,7 +246,7 @@ $result_trees{'contents_in_middle_chapter_inline'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -283,7 +283,7 @@ $result_trees{'contents_in_middle_chapter_inline'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -334,7 +334,7 @@ $result_trees{'contents_in_middle_chapter_inline'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -459,7 +459,7 @@ $result_trees{'contents_in_middle_chapter_inline'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -496,7 +496,7 @@ $result_trees{'contents_in_middle_chapter_inline'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

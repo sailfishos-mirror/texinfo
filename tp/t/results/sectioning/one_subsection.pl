@@ -35,7 +35,7 @@ $result_trees{'one_subsection'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

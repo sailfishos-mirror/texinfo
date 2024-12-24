@@ -69,7 +69,7 @@ $result_trees{'unknown_node_direction_novalidate'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

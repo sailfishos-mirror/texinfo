@@ -32,7 +32,7 @@ $result_trees{'no_argument_for_table'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

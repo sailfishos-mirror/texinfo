@@ -20,7 +20,7 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'some text .,

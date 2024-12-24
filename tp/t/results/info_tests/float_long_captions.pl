@@ -30,7 +30,7 @@ $result_trees{'float_long_captions'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -68,7 +68,7 @@ $result_trees{'float_long_captions'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'caption',
@@ -181,7 +181,7 @@ $result_trees{'float_long_captions'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'caption',

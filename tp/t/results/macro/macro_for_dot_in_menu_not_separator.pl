@@ -20,7 +20,7 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '.
@@ -86,7 +86,7 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

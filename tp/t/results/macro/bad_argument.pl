@@ -20,7 +20,7 @@ $result_trees{'bad_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in macro
@@ -81,7 +81,7 @@ $result_trees{'bad_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in
@@ -144,7 +144,7 @@ $result_trees{'bad_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in macro
@@ -209,7 +209,7 @@ $result_trees{'bad_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in #

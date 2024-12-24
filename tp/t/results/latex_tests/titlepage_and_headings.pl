@@ -26,7 +26,7 @@ $result_trees{'titlepage_and_headings'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [

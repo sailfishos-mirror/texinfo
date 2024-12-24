@@ -20,7 +20,7 @@ $result_trees{'macro_before_specific_line_command_args'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => ' cp fn

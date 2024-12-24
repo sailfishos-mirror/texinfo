@@ -35,7 +35,7 @@ $result_trees{'reference_for_formatting_customizations'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -72,7 +72,7 @@ $result_trees{'reference_for_formatting_customizations'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -111,7 +111,7 @@ $result_trees{'reference_for_formatting_customizations'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -148,7 +148,7 @@ $result_trees{'reference_for_formatting_customizations'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

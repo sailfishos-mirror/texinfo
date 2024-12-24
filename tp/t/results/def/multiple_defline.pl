@@ -27,7 +27,7 @@ $result_trees{'multiple_defline'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'defline',

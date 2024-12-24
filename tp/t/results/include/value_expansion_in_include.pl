@@ -123,7 +123,7 @@ $result_trees{'value_expansion_in_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -159,7 +159,7 @@ $result_trees{'value_expansion_in_include'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

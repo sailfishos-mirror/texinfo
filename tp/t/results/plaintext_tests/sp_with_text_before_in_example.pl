@@ -29,7 +29,7 @@ $result_trees{'sp_with_text_before_in_example'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

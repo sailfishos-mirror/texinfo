@@ -35,7 +35,7 @@ $result_trees{'section_below_unnumbered_no_top'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {},
@@ -68,7 +68,7 @@ $result_trees{'section_below_unnumbered_no_top'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {},

@@ -53,7 +53,7 @@ $result_trees{'multitable_two_columns_too_much_cells'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

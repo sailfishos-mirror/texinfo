@@ -30,7 +30,7 @@ $result_trees{'ref_to_top_in_anchor'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'anchor',

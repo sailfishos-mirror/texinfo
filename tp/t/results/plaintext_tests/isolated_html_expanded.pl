@@ -29,7 +29,7 @@ $result_trees{'isolated_html_expanded'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

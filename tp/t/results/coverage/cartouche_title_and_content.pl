@@ -45,7 +45,7 @@ $result_trees{'cartouche_title_and_content'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

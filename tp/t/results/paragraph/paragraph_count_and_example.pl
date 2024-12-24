@@ -24,7 +24,7 @@ $result_trees{'paragraph_count_and_example'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

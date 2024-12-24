@@ -34,7 +34,7 @@ $result_trees{'spurious_arg_on_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -110,7 +110,7 @@ $result_trees{'spurious_arg_on_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in verbatim
@@ -182,7 +182,7 @@ $result_trees{'spurious_arg_on_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

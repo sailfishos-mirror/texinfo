@@ -20,7 +20,7 @@ $result_trees{'missing_formal_arg'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\a\\ and \\b\\.

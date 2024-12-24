@@ -100,7 +100,7 @@ $result_trees{'float_with_at_commands'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '

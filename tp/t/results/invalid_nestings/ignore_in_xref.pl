@@ -30,7 +30,7 @@ $result_trees{'ignore_in_xref'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -75,7 +75,7 @@ $result_trees{'ignore_in_xref'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'text' => 'ignore me

@@ -30,7 +30,7 @@ $result_trees{'shortcontents_no_top'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -70,7 +70,7 @@ $result_trees{'shortcontents_no_top'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -110,7 +110,7 @@ $result_trees{'shortcontents_no_top'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

@@ -29,7 +29,7 @@ $result_trees{'quote_dash_in_display'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

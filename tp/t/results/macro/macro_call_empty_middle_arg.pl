@@ -20,7 +20,7 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'first \\aa\\,

@@ -32,7 +32,7 @@ $result_trees{'include_in_removed_before_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

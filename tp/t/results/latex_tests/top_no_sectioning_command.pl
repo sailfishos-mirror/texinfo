@@ -35,7 +35,7 @@ $result_trees{'top_no_sectioning_command'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -76,7 +76,7 @@ $result_trees{'top_no_sectioning_command'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -112,7 +112,7 @@ $result_trees{'top_no_sectioning_command'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

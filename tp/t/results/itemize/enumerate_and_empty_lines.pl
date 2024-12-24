@@ -24,7 +24,7 @@ $result_trees{'enumerate_and_empty_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -73,7 +73,7 @@ $result_trees{'enumerate_and_empty_lines'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -194,7 +194,7 @@ $result_trees{'enumerate_and_empty_lines'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -271,7 +271,7 @@ $result_trees{'enumerate_and_empty_lines'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -358,7 +358,7 @@ $result_trees{'enumerate_and_empty_lines'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -470,7 +470,7 @@ $result_trees{'enumerate_and_empty_lines'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',

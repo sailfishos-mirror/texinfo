@@ -20,7 +20,7 @@ $result_trees{'spaces_after_command_in_call'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@defblock
@@ -153,7 +153,7 @@ $result_trees{'spaces_after_command_in_call'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'defline',

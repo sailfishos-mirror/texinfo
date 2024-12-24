@@ -46,7 +46,7 @@ $result_trees{'verbatim_in_brace_command'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in verbatim

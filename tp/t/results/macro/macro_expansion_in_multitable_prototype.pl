@@ -20,7 +20,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'ab
@@ -82,7 +82,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'c\\arg\\d}
@@ -395,7 +395,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

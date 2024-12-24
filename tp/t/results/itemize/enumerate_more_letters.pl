@@ -29,7 +29,7 @@ $result_trees{'enumerate_more_letters'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',

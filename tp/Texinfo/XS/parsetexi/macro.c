@@ -133,7 +133,7 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
 {
   const char *line = *line_inout;
   const char *pline = line;
-  ELEMENT *macro, *argument, *macro_line;
+  ELEMENT *macro, *arguments, *macro_line;
   char *name;
   const char *args_ptr;
   STRING_LIST *formal_args;
@@ -143,12 +143,12 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
   macro = new_command_element (ET_block_command, cmd);
   macro->e.c->source_info = current_source_info;
 
-  argument = new_element (ET_argument);
-  add_to_element_contents (macro, argument);
+  arguments = new_element (ET_arguments_line);
+  add_to_element_contents (macro, arguments);
 
   macro_line = new_text_element (ET_macro_line);
   text_append (macro_line->e.text, line);
-  add_to_element_contents (argument, macro_line);
+  add_to_element_contents (arguments, macro_line);
 
   pline += strspn (pline, whitespace_chars);
   name = read_command_name (&pline);

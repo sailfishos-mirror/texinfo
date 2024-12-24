@@ -73,7 +73,7 @@ $result_trees{'encoding_us_ascii'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

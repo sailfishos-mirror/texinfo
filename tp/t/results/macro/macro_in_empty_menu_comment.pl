@@ -20,7 +20,7 @@ $result_trees{'macro_in_empty_menu_comment'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '
@@ -86,7 +86,7 @@ $result_trees{'macro_in_empty_menu_comment'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

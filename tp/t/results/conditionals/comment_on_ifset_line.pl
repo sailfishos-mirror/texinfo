@@ -56,7 +56,7 @@ $result_trees{'comment_on_ifset_line'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -145,7 +145,7 @@ $result_trees{'comment_on_ifset_line'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       }
                     ],
                     'info' => {
@@ -231,7 +231,7 @@ $result_trees{'comment_on_ifset_line'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       }
                     ],
                     'info' => {
@@ -320,7 +320,7 @@ $result_trees{'comment_on_ifset_line'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       }
                     ],
                     'info' => {
@@ -409,7 +409,7 @@ $result_trees{'comment_on_ifset_line'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       }
                     ],
                     'info' => {
@@ -498,7 +498,7 @@ $result_trees{'comment_on_ifset_line'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       }
                     ],
                     'info' => {

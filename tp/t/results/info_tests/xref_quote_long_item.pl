@@ -32,7 +32,7 @@ $result_trees{'xref_quote_long_item'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

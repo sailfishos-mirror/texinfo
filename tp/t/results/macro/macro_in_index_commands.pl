@@ -20,7 +20,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'cp
@@ -77,7 +77,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'fn
@@ -134,7 +134,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@syncodeindex
@@ -343,7 +343,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'truc
@@ -482,7 +482,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@trucindex
@@ -544,7 +544,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'codeidx
@@ -670,7 +670,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'a @var{index entry} t@\'e @^{@dotless{i}}
@@ -744,7 +744,7 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -780,7 +780,7 @@ $result_trees{'macro_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'source_marks' => [

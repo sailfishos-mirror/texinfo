@@ -35,7 +35,7 @@ $result_trees{'recursive_self_section_reference'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -95,7 +95,7 @@ $result_trees{'recursive_self_section_reference'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

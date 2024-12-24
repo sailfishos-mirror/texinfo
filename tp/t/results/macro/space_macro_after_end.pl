@@ -20,7 +20,7 @@ $result_trees{'space_macro_after_end'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '  
@@ -86,7 +86,7 @@ $result_trees{'space_macro_after_end'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

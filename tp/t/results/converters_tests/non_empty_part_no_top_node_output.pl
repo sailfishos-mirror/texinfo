@@ -30,7 +30,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -82,7 +82,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -118,7 +118,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -140,7 +140,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -307,7 +307,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -359,7 +359,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -400,7 +400,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -452,7 +452,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -488,7 +488,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -540,7 +540,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -581,7 +581,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -633,7 +633,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -685,7 +685,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -726,7 +726,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -778,7 +778,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -819,7 +819,7 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

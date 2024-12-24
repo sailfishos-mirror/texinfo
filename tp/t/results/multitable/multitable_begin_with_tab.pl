@@ -51,7 +51,7 @@ $result_trees{'multitable_begin_with_tab'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -161,7 +161,7 @@ $result_trees{'multitable_begin_with_tab'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

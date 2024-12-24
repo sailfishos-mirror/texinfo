@@ -24,7 +24,7 @@ $result_trees{'style_not_closed_in_block_command'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

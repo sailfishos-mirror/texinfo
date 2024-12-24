@@ -84,7 +84,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => '@documentlanguage ja
@@ -145,7 +145,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       }
                     ],
                     'source_info' => {
@@ -255,7 +255,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -291,7 +291,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -313,7 +313,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -646,7 +646,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -682,7 +682,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1006,7 +1006,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -1042,7 +1042,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1366,7 +1366,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -1402,7 +1402,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1690,7 +1690,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -1726,7 +1726,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1796,7 +1796,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -1832,7 +1832,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

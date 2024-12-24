@@ -20,7 +20,7 @@ $result_trees{'kbdinputstyle'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@code{in code out of example @code{in nested code}}.
@@ -394,7 +394,7 @@ $result_trees{'kbdinputstyle'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -883,7 +883,7 @@ $result_trees{'kbdinputstyle'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -1354,7 +1354,7 @@ $result_trees{'kbdinputstyle'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

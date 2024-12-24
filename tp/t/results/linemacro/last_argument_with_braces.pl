@@ -20,7 +20,7 @@ $result_trees{'last_argument_with_braces'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@defline \\symbol\\ f r
@@ -134,7 +134,7 @@ $result_trees{'last_argument_with_braces'} = {
                   'status' => 'start'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'defline',

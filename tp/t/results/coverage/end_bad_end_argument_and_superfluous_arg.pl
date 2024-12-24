@@ -24,7 +24,7 @@ $result_trees{'end_bad_end_argument_and_superfluous_arg'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

@@ -18,7 +18,7 @@ $result_trees{'section_on_cartouche_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             }
           ],
           'source_info' => {
@@ -48,7 +48,7 @@ $result_trees{'section_on_cartouche_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -64,7 +64,7 @@ $result_trees{'section_on_cartouche_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             }
           ],
           'info' => {
@@ -109,7 +109,7 @@ $result_trees{'section_on_cartouche_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

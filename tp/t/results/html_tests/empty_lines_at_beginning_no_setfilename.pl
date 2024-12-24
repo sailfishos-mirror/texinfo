@@ -72,7 +72,7 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -109,7 +109,7 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

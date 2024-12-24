@@ -30,7 +30,7 @@ $result_trees{'menu_in_example'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -52,7 +52,7 @@ $result_trees{'menu_in_example'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'menu',
@@ -69,7 +69,7 @@ $result_trees{'menu_in_example'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -128,7 +128,7 @@ $result_trees{'menu_in_example'} = {
                                   'type' => 'block_line_arg'
                                 }
                               ],
-                              'type' => 'argument'
+                              'type' => 'arguments_line'
                             },
                             {
                               'contents' => [
@@ -210,7 +210,7 @@ $result_trees{'menu_in_example'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'contents' => [

@@ -28,7 +28,7 @@ $result_trees{'end_conditional_not_at_line_begining'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'inhtml

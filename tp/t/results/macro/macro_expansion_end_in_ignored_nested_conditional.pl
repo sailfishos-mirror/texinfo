@@ -20,7 +20,7 @@ $result_trees{'macro_expansion_end_in_ignored_nested_conditional'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@ifset a
@@ -117,7 +117,7 @@ $result_trees{'macro_expansion_end_in_ignored_nested_conditional'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@ifset b

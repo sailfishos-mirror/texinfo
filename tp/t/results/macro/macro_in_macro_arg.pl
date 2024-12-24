@@ -25,7 +25,7 @@ $result_trees{'macro_in_macro_arg'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'a, @macrotwo
@@ -87,7 +87,7 @@ $result_trees{'macro_in_macro_arg'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'hello \\arg\\ after arg
@@ -151,7 +151,7 @@ $result_trees{'macro_in_macro_arg'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\text\\

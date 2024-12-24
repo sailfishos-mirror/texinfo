@@ -28,7 +28,7 @@ $result_trees{'quotation_beginning_and_end_on_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',

@@ -28,7 +28,7 @@ $result_trees{'conditional_not_closed'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'in ifhtml

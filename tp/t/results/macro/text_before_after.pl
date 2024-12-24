@@ -25,7 +25,7 @@ $result_trees{'text_before_after'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => 'in macro

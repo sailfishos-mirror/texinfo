@@ -27,7 +27,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -74,7 +74,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           },
           {
             'text' => '
@@ -96,7 +96,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                     'type' => 'block_line_arg'
                   }
                 ],
-                'type' => 'argument'
+                'type' => 'arguments_line'
               },
               {
                 'contents' => [
@@ -270,7 +270,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -309,7 +309,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           },
           {
             'text' => '
@@ -870,7 +870,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -909,7 +909,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           },
           {
             'text' => '
@@ -931,7 +931,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                     'type' => 'block_line_arg'
                   }
                 ],
-                'type' => 'argument'
+                'type' => 'arguments_line'
               },
               {
                 'contents' => [
@@ -1215,7 +1215,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1314,7 +1314,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1397,7 +1397,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

@@ -44,7 +44,7 @@ $result_trees{'undef_split_and_big_rule'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -82,7 +82,7 @@ $result_trees{'undef_split_and_big_rule'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -118,7 +118,7 @@ $result_trees{'undef_split_and_big_rule'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -158,7 +158,7 @@ $result_trees{'undef_split_and_big_rule'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -194,7 +194,7 @@ $result_trees{'undef_split_and_big_rule'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

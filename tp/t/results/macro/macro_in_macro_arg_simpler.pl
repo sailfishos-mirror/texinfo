@@ -20,7 +20,7 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'a, macro2
@@ -82,7 +82,7 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\text\\

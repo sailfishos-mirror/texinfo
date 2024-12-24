@@ -72,7 +72,7 @@ $result_trees{'translation_in_parser_in_translation'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -108,7 +108,7 @@ $result_trees{'translation_in_parser_in_translation'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -146,7 +146,7 @@ $result_trees{'translation_in_parser_in_translation'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -182,7 +182,7 @@ $result_trees{'translation_in_parser_in_translation'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

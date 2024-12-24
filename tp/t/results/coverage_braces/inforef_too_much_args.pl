@@ -30,7 +30,7 @@ $result_trees{'inforef_too_much_args'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

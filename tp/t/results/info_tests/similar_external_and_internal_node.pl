@@ -63,7 +63,7 @@ $result_trees{'similar_external_and_internal_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

@@ -24,7 +24,7 @@ $result_trees{'flushright_not_closed_and_format'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -55,7 +55,7 @@ $result_trees{'flushright_not_closed_and_format'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [

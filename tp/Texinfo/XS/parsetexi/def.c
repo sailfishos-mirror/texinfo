@@ -59,7 +59,7 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
   contents_count = current->e.c->contents.number;
   /* For @defline at the beginning of @defblock. */
   if (contents_count == 1
-      && current->e.c->contents.list[0]->type == ET_argument)
+      && current->e.c->contents.list[0]->type == ET_arguments_line)
     return;
 
   /* Starting from the end, determine the number of elements that are not
@@ -68,7 +68,7 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
     {
       ELEMENT *last_child = contents_child_by_index (current, pos -1);
       if (last_child->flags & EF_def_line
-          || last_child->type == ET_argument)
+          || last_child->type == ET_arguments_line)
         break;
     }
 

@@ -24,7 +24,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb
@@ -95,7 +95,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in verbatime
@@ -166,7 +166,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -192,7 +192,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => 'In verbatim in quotation
@@ -303,7 +303,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'In verbatim test text
@@ -410,7 +410,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -561,7 +561,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -592,7 +592,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => 'In verbatim in example
@@ -704,7 +704,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -735,7 +735,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => 'In verbatim in quotation with spaces
@@ -842,7 +842,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -873,7 +873,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => 'In verbatim in quotation

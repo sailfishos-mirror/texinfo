@@ -256,7 +256,7 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

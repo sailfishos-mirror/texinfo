@@ -20,7 +20,7 @@ $result_trees{'text_arguments'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\three\\@bullet{}\\two\\@minus{}\\one\\

@@ -31,7 +31,7 @@ $result_trees{'top_node_and_bye'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           },
           {
             'text' => '

@@ -56,7 +56,7 @@ $result_trees{'no_argument_and_contents'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -102,7 +102,7 @@ $result_trees{'no_argument_and_contents'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

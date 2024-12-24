@@ -183,7 +183,7 @@ $result_trees{'at_commands_in_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

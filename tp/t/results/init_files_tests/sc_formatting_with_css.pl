@@ -105,7 +105,7 @@ $result_trees{'sc_formatting_with_css'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

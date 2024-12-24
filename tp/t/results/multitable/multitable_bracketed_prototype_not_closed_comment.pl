@@ -46,7 +46,7 @@ $result_trees{'multitable_bracketed_prototype_not_closed_comment'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',

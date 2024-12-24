@@ -20,7 +20,7 @@ $result_trees{'protect_first_parenthesis_after_parenthesis_source_mark'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '(

@@ -20,7 +20,7 @@ $result_trees{'macro_in_ifset_end_in_arg'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@end ifset
@@ -92,7 +92,7 @@ $result_trees{'macro_in_ifset_end_in_arg'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@macroone{

@@ -28,7 +28,7 @@ $result_trees{'ifnot_format_conditional'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'source_info' => {

@@ -43,7 +43,7 @@ $result_trees{'multiple_spaces_in_float_type'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

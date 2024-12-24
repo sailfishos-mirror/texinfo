@@ -27,7 +27,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -76,7 +76,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -122,7 +122,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -168,7 +168,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -214,7 +214,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -243,7 +243,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
                   'type' => 'line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '
@@ -299,7 +299,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -345,7 +345,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -389,7 +389,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -435,7 +435,7 @@ $result_trees{'sectioning_part_appendix_no_top'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

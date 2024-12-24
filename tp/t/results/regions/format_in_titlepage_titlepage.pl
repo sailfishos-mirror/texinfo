@@ -26,7 +26,7 @@ $result_trees{'format_in_titlepage_titlepage'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '
@@ -48,7 +48,7 @@ $result_trees{'format_in_titlepage_titlepage'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -165,7 +165,7 @@ $result_trees{'format_in_titlepage_titlepage'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -201,7 +201,7 @@ $result_trees{'format_in_titlepage_titlepage'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

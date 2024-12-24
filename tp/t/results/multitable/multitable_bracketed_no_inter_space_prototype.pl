@@ -53,7 +53,7 @@ $result_trees{'multitable_bracketed_no_inter_space_prototype'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',

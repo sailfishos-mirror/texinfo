@@ -35,7 +35,7 @@ $result_trees{'raw_expanded_in_style'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'contents' => [

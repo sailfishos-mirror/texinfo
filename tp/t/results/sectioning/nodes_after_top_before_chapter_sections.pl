@@ -27,7 +27,7 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -66,7 +66,7 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           },
           {
             'contents' => [
@@ -92,7 +92,7 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
                     'type' => 'block_line_arg'
                   }
                 ],
-                'type' => 'argument'
+                'type' => 'arguments_line'
               },
               {
                 'contents' => [
@@ -313,7 +313,7 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           },
           {
             'text' => '
@@ -403,7 +403,7 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           }
         ],
         'extra' => {

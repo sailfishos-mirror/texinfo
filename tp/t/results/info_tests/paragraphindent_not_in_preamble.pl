@@ -26,7 +26,7 @@ $result_trees{'paragraphindent_not_in_preamble'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -117,7 +117,7 @@ $result_trees{'paragraphindent_not_in_preamble'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -159,7 +159,7 @@ $result_trees{'paragraphindent_not_in_preamble'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

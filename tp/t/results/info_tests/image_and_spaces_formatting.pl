@@ -30,7 +30,7 @@ $result_trees{'image_and_spaces_formatting'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

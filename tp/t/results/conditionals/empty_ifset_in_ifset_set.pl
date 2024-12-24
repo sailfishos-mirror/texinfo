@@ -55,7 +55,7 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -91,7 +91,7 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@ifset

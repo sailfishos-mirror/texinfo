@@ -59,7 +59,7 @@ $result_trees{'settitle_and_empty_top'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

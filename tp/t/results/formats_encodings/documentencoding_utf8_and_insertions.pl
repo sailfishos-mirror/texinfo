@@ -112,7 +112,7 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

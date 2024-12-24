@@ -478,7 +478,7 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -514,7 +514,7 @@ $result_trees{'value_in_index_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'source_marks' => [

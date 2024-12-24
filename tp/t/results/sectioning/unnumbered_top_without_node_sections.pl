@@ -27,7 +27,7 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -115,7 +115,7 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           }
         ],
         'extra' => {
@@ -156,7 +156,7 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'contents' => [
@@ -209,7 +209,7 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -286,7 +286,7 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           }
         ],
         'extra' => {

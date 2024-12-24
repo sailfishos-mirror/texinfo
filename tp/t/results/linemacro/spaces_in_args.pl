@@ -20,7 +20,7 @@ $result_trees{'spaces_in_args'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@defblock
@@ -156,7 +156,7 @@ $result_trees{'spaces_in_args'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'defline',

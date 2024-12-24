@@ -20,7 +20,7 @@ $result_trees{'macro_call_in_inlinefmtifelse_format'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'ex, before, after

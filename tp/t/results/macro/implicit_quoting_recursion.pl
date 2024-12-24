@@ -20,7 +20,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\a\\\\b\\

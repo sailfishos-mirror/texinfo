@@ -19,7 +19,7 @@ $result_trees{'macro_no_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             }
           ],
           'extra' => {

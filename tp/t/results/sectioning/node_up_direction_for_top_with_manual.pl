@@ -66,7 +66,7 @@ $result_trees{'node_up_direction_for_top_with_manual'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

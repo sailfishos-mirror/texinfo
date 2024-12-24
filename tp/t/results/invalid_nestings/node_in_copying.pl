@@ -24,7 +24,7 @@ $result_trees{'node_in_copying'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             }
           ],
           'source_info' => {
@@ -54,7 +54,7 @@ $result_trees{'node_in_copying'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

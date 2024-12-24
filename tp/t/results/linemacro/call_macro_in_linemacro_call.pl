@@ -20,7 +20,7 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@quotation \\a\\
@@ -90,7 +90,7 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@table \\c\\
@@ -217,7 +217,7 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'source_marks' => [
@@ -285,7 +285,7 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [

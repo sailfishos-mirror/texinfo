@@ -20,7 +20,7 @@ $result_trees{'recursive_call_in_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'a

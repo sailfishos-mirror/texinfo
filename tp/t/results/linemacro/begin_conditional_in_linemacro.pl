@@ -20,7 +20,7 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'b \\a\\ a
@@ -133,7 +133,7 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => 'in ifset
@@ -256,7 +256,7 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       }
                     ],
                     'info' => {

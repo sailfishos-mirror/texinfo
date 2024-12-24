@@ -20,7 +20,7 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'first |\\a\\|
@@ -90,7 +90,7 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'macro \\a\\ text

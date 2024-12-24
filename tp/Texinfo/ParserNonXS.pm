@@ -1316,11 +1316,11 @@ sub _parse_macro_command_line($$$$$;$)
 
   my $macro = { 'cmdname' => $command, 'parent' => $parent,
                 'source_info' => $source_info };
-  my $argument = {'type' => 'argument', 'parent' => $macro};
-  $macro->{'contents'} = [$argument];
+  my $arguments = {'type' => 'arguments_line', 'parent' => $macro};
+  $macro->{'contents'} = [$arguments];
   my $macro_line = {'type' => 'macro_line', 'text' => $line,
-                    'parent' => $argument};
-  $argument->{'contents'} = [$macro_line];
+                    'parent' => $arguments};
+  $arguments->{'contents'} = [$macro_line];
 
   # REMACRO
   my $macro_name;
@@ -1963,7 +1963,7 @@ sub _gather_def_item($$;$)
   # For @defline at the beginning of @defblock.
   return if scalar($contents_count == 1
                    and $current->{'contents'}->[0]->{'type'}
-                   and $current->{'contents'}->[0]->{'type'} eq 'argument');
+            and $current->{'contents'}->[0]->{'type'} eq 'arguments_line');
 
   my $def_item = {'type' => $type,
                   'parent' => $current,
@@ -1974,7 +1974,7 @@ sub _gather_def_item($$;$)
     if (($current->{'contents'}->[-1]->{'extra'}
          and $current->{'contents'}->[-1]->{'extra'}->{'def_command'})
         or ($current->{'contents'}->[-1]->{'type'}
-            and $current->{'contents'}->[-1]->{'type'} eq 'argument')) {
+            and $current->{'contents'}->[-1]->{'type'} eq 'arguments_line')) {
       last;
     } else {
       my $item_content = _pop_element_from_contents($self, $current);
@@ -3660,7 +3660,7 @@ sub _end_line_misc_line($$$)
   my $command_element;
   my $line_arg;
   if ($current->{'parent'}->{'type'}
-      and $current->{'parent'}->{'type'} eq 'argument') {
+      and $current->{'parent'}->{'type'} eq 'arguments_line') {
     $command_element = $current->{'parent'}->{'parent'};
     $line_arg = $command_element->{'contents'}->[0]->{'contents'}->[0];
   } else {
@@ -4260,7 +4260,7 @@ sub _end_line_starting_block($$$)
     }
   }
   $current = $current->{'parent'};
-  if ($current->{'type'} and $current->{'type'} eq 'argument') {
+  if ($current->{'type'} and $current->{'type'} eq 'arguments_line') {
     $current = $current->{'parent'};
   }
   delete $current->{'remaining_args'};
@@ -5067,7 +5067,7 @@ sub _check_valid_nesting {
   if ($current->{'parent'}) {
     my $parent_command;
     if ($current->{'parent'}->{'type'}
-        and $current->{'parent'}->{'type'} eq 'argument') {
+        and $current->{'parent'}->{'type'} eq 'arguments_line') {
       $parent_command = $current->{'parent'}->{'parent'};
     } else {
       $parent_command = $current->{'parent'};
@@ -5665,7 +5665,7 @@ sub _handle_other_command($$$$$)
           push @{$parent->{'contents'}}, $row;
           # Note that the "row_number" extra value
           # isn't actually used anywhere at present.
-          # -2 because of the 'argument'
+          # -2 because of the 'arguments_line'
           $row->{'extra'}
               = {'row_number' => scalar(@{$parent->{'contents'}}) - 2};
           $command_e = { 'cmdname' => $command,
@@ -5978,10 +5978,10 @@ sub _handle_line_command($$$$$$)
     }
     $current = $current->{'contents'}->[-1];
     if ($root_commands{$data_cmdname}) {
-      my $argument = {'type' => 'argument', 'parent' => $current};
-      $current->{'contents'} = [$argument];
-      $argument->{'contents'} = [{ 'type' => 'line_arg',
-                                  'parent' => $argument }];
+      my $arguments = {'type' => 'arguments_line', 'parent' => $current};
+      $current->{'contents'} = [$arguments];
+      $arguments->{'contents'} = [{ 'type' => 'line_arg',
+                                  'parent' => $arguments }];
     } else {# def or line command
       $current->{'contents'} = [{ 'type' => 'line_arg',
                                   'parent' => $current }];
@@ -6203,16 +6203,14 @@ sub _handle_block_command($$$$$)
   my $bla_element;
 
   if (!$def_commands{$command}) {
-    my $argument = {'type' => 'argument', 'parent' => $block_line_e};
-    $block_line_e->{'contents'} = [$argument];
-    $bla_element = {
-                 'type' => 'block_line_arg',
-                 'parent' => $argument};
-    $argument->{'contents'} = [$bla_element];
+    my $arguments = {'type' => 'arguments_line', 'parent' => $block_line_e};
+    $block_line_e->{'contents'} = [$arguments];
+    $bla_element = {'type' => 'block_line_arg',
+                    'parent' => $arguments};
+    $arguments->{'contents'} = [$bla_element];
   } else {
-    $bla_element = {
-                 'type' => 'block_line_arg',
-                 'parent' => $block_line_e};
+    $bla_element = {'type' => 'block_line_arg',
+                    'parent' => $block_line_e};
 
     $block_line_e->{'contents'} = [$bla_element];
   }
@@ -6722,7 +6720,7 @@ sub _handle_comma($$$$)
   #                          and $type ne 'line_arg');
   my $command_element;
   my $argument = $current->{'parent'};
-  if ($argument->{'type'} and $argument->{'type'} eq 'argument') {
+  if ($argument->{'type'} and $argument->{'type'} eq 'arguments_line') {
     $command_element = $argument->{'parent'};
   } else {
     $command_element = $current->{'parent'};

@@ -33,7 +33,7 @@ $result_trees{'ignored_in_ifset'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@ignore
@@ -121,7 +121,7 @@ $result_trees{'ignored_in_ifset'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@verbatim
@@ -200,7 +200,7 @@ $result_trees{'ignored_in_ifset'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@verb{%

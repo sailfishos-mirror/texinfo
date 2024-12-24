@@ -20,7 +20,7 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'first |\\a\\|

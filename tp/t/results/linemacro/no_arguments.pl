@@ -20,7 +20,7 @@ $result_trees{'no_arguments'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'Body.

@@ -25,7 +25,7 @@ $result_trees{'arg_body_expansion_order'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'initial
@@ -87,7 +87,7 @@ $result_trees{'arg_body_expansion_order'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@unmacro othermacro
@@ -208,7 +208,7 @@ $result_trees{'arg_body_expansion_order'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'different

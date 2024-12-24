@@ -20,7 +20,7 @@ $result_trees{'protect_comma_source_mark'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'some text ,,

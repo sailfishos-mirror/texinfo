@@ -20,7 +20,7 @@ $result_trees{'macro_end_call_in_ignored_inlineraw'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'Para @inlineraw{tex, in@something

@@ -38,7 +38,7 @@ $result_trees{'quotation_and_author'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'author',
@@ -153,7 +153,7 @@ $result_trees{'quotation_and_author'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'author',
@@ -259,7 +259,7 @@ $result_trees{'quotation_and_author'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'author',

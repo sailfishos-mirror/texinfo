@@ -54,7 +54,7 @@ $result_trees{'nodes_no_node_top_explicit_directions'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'contents' => [
@@ -85,7 +85,7 @@ $result_trees{'nodes_no_node_top_explicit_directions'} = [
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -251,7 +251,7 @@ $result_trees{'nodes_no_node_top_explicit_directions'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'contents' => [

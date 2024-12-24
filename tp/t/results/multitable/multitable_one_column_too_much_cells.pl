@@ -37,7 +37,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

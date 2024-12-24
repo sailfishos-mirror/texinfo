@@ -33,7 +33,7 @@ $result_trees{'ifclear_in_ifset'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@ifclear ok  - ok, ignored

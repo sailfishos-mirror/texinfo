@@ -25,7 +25,7 @@ $result_trees{'nested_ifset_ifclear'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@ifset somevar
@@ -183,7 +183,7 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -221,7 +221,7 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -302,7 +302,7 @@ $result_trees{'nested_ifset_ifclear'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => 'Somevar is set, anothervar is not.
@@ -479,7 +479,7 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -517,7 +517,7 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'Both somevar and anothervar are set.
@@ -590,7 +590,7 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -774,7 +774,7 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@ifset anothervar
@@ -929,7 +929,7 @@ $result_trees{'nested_ifset_ifclear'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@ifset anothervar

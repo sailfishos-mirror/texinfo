@@ -25,7 +25,7 @@ $result_trees{'verb_with_brace_in_macro_call'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\a\\|\\b\\|\\c\\

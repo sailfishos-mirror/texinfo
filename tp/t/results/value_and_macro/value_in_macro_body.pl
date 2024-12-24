@@ -42,7 +42,7 @@ $result_trees{'value_in_macro_body'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'result: @emph{\\@value{bodyarg}\\  }

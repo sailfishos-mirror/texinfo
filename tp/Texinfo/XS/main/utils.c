@@ -1614,7 +1614,7 @@ is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries)
             }
         }
 
-      if (content->type == ET_argument)
+      if (content->type == ET_arguments_line)
         continue;
 
       data_cmd = element_builtin_data_cmd (content);

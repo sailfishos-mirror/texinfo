@@ -74,7 +74,7 @@ $result_trees{'brace_in_index'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => '{'

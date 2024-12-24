@@ -41,7 +41,7 @@ $result_trees{'ignored_text'} = {
                                 'type' => 'block_line_arg'
                               }
                             ],
-                            'type' => 'argument'
+                            'type' => 'arguments_line'
                           }
                         ],
                         'source_info' => {
@@ -58,7 +58,7 @@ $result_trees{'ignored_text'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'contents' => [

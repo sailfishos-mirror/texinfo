@@ -20,7 +20,7 @@ $result_trees{'macro_name_with_digit'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'macro1
@@ -82,7 +82,7 @@ $result_trees{'macro_name_with_digit'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'expand \\arg\\

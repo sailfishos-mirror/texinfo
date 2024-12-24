@@ -22,7 +22,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{} @*
@@ -109,7 +109,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '@quotes{}
@@ -255,7 +255,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -558,7 +558,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -939,7 +939,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -1383,7 +1383,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -1479,7 +1479,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -1515,7 +1515,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1553,7 +1553,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -1589,7 +1589,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1897,7 +1897,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -2278,7 +2278,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -2692,7 +2692,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -2995,7 +2995,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -3376,7 +3376,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [

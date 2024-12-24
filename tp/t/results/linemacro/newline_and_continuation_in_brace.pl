@@ -25,7 +25,7 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@defline category \\first\\ \\second\\ \\rest\\
@@ -150,7 +150,7 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                   'status' => 'start'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'defline',

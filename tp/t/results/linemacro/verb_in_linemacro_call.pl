@@ -20,7 +20,7 @@ $result_trees{'verb_in_linemacro_call'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'first \\a\\
@@ -106,7 +106,7 @@ $result_trees{'verb_in_linemacro_call'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

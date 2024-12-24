@@ -45,7 +45,7 @@ $result_trees{'ifset_in_command'} = {
                                     'type' => 'block_line_arg'
                                   }
                                 ],
-                                'type' => 'argument'
+                                'type' => 'arguments_line'
                               },
                               {
                                 'text' => 'xset
@@ -117,7 +117,7 @@ $result_trees{'ifset_in_command'} = {
                                     'type' => 'block_line_arg'
                                   }
                                 ],
-                                'type' => 'argument'
+                                'type' => 'arguments_line'
                               }
                             ],
                             'info' => {

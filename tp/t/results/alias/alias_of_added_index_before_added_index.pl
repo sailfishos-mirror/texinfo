@@ -107,7 +107,7 @@ $result_trees{'alias_of_added_index_before_added_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -143,7 +143,7 @@ $result_trees{'alias_of_added_index_before_added_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -223,7 +223,7 @@ $result_trees{'alias_of_added_index_before_added_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -260,7 +260,7 @@ $result_trees{'alias_of_added_index_before_added_index'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

@@ -25,7 +25,7 @@ $result_trees{'double_recursive_macro_call'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@mactwo{}
@@ -89,7 +89,7 @@ $result_trees{'double_recursive_macro_call'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@macone{}

@@ -35,7 +35,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -71,7 +71,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -93,7 +93,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -304,7 +304,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -344,7 +344,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -380,7 +380,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -420,7 +420,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -521,7 +521,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -557,7 +557,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -579,7 +579,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -700,7 +700,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -740,7 +740,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -776,7 +776,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -816,7 +816,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -856,7 +856,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -896,7 +896,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -936,7 +936,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1011,7 +1011,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -1047,7 +1047,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -1087,7 +1087,7 @@ $result_trees{'more_sections_than_nodes_texi2html'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

@@ -111,7 +111,7 @@ $result_trees{'multitable_prototypes'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

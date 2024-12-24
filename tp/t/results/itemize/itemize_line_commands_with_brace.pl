@@ -37,7 +37,7 @@ $result_trees{'itemize_line_commands_with_brace'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',
@@ -139,7 +139,7 @@ $result_trees{'itemize_line_commands_with_brace'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',

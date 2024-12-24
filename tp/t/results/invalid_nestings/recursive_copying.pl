@@ -24,7 +24,7 @@ $result_trees{'recursive_copying'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '

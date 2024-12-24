@@ -37,7 +37,7 @@ $result_trees{'index_command_before_end_table'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

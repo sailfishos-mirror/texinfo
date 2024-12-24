@@ -32,7 +32,7 @@ $result_trees{'text_between_item_itemx'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

@@ -20,7 +20,7 @@ $result_trees{'complex_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'coucou \\arg\\ after arg
@@ -84,7 +84,7 @@ $result_trees{'complex_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '1
@@ -161,7 +161,7 @@ $result_trees{'complex_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\text\\
@@ -455,7 +455,7 @@ macroseven defined
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@macrotwo
@@ -514,7 +514,7 @@ macroseven defined
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@macrofour
@@ -569,7 +569,7 @@ macroseven defined
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@emph{\\truc\\}
@@ -640,7 +640,7 @@ macroseven defined
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => '@macrofour
@@ -704,7 +704,7 @@ macroseven defined
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => '@macrotwo{aa,bb}

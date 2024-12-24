@@ -61,7 +61,7 @@ $result_trees{'multiple_documentlanguage'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'cmdname' => 'defivar',
@@ -367,7 +367,7 @@ $result_trees{'multiple_documentlanguage'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -403,7 +403,7 @@ $result_trees{'multiple_documentlanguage'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -441,7 +441,7 @@ $result_trees{'multiple_documentlanguage'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -478,7 +478,7 @@ $result_trees{'multiple_documentlanguage'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

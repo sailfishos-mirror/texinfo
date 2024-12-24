@@ -20,7 +20,7 @@ $result_trees{'bad_macro_name_with_underscore'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'In macro

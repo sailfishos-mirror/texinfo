@@ -20,7 +20,7 @@ $result_trees{'alias_macro_target_removed'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '!!\\arg\\!!

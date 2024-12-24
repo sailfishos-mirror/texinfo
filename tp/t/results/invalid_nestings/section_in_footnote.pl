@@ -69,7 +69,7 @@ $result_trees{'section_in_footnote'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

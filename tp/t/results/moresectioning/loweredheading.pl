@@ -42,7 +42,7 @@ $result_trees{'loweredheading'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'heading',

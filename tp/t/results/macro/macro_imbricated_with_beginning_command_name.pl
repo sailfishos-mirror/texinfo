@@ -20,7 +20,7 @@ $result_trees{'macro_imbricated_with_beginning_command_name'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '

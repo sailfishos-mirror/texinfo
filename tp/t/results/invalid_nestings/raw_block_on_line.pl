@@ -29,7 +29,7 @@ $result_trees{'raw_block_on_line'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     }
                   ],
                   'source_info' => {

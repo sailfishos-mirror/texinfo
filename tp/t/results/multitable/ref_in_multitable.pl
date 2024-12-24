@@ -114,7 +114,7 @@ $result_trees{'ref_in_multitable'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

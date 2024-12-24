@@ -144,7 +144,7 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',

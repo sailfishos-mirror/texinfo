@@ -69,7 +69,7 @@ $result_trees{'anchor_in_footnote_separate_split_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -105,7 +105,7 @@ $result_trees{'anchor_in_footnote_separate_split_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -191,7 +191,7 @@ $result_trees{'anchor_in_footnote_separate_split_node'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -310,7 +310,7 @@ $result_trees{'anchor_in_footnote_separate_split_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -346,7 +346,7 @@ $result_trees{'anchor_in_footnote_separate_split_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

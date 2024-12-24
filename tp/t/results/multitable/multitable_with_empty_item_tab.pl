@@ -53,7 +53,7 @@ $result_trees{'multitable_with_empty_item_tab'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

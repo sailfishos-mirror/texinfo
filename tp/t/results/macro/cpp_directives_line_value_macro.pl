@@ -32,7 +32,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                       'type' => 'macro_line'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '#line 30 "toto"
@@ -137,7 +137,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '#
@@ -239,7 +239,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '\\arg\\ "titi" 3\\arg\\

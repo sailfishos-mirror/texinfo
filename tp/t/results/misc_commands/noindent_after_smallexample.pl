@@ -33,7 +33,7 @@ $result_trees{'noindent_after_smallexample'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

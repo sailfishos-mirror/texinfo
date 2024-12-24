@@ -93,9 +93,10 @@ preformatted
 rawpreformatted
 
 # @-commands arguments containers
-argument
-brace_container
+arguments_line
 brace_command_context
+# @-commands containers for one argument content
+brace_container
 # with separate leading spaces in info, and trailing (if not in inline)
 brace_arg                                  spaces_before,spaces_after
 # with comment_at_end

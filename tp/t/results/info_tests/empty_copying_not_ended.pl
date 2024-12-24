@@ -29,7 +29,7 @@ $result_trees{'empty_copying_not_ended'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             }
           ],
           'source_info' => {

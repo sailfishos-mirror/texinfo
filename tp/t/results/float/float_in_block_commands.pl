@@ -27,7 +27,7 @@ $result_trees{'float_in_block_commands'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'float',
@@ -60,7 +60,7 @@ $result_trees{'float_in_block_commands'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'cmdname' => 'caption',
@@ -200,7 +200,7 @@ $result_trees{'float_in_block_commands'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'float',
@@ -233,7 +233,7 @@ $result_trees{'float_in_block_commands'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'cmdname' => 'caption',
@@ -365,7 +365,7 @@ $result_trees{'float_in_block_commands'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'float',
@@ -398,7 +398,7 @@ $result_trees{'float_in_block_commands'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'cmdname' => 'caption',

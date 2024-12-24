@@ -20,7 +20,7 @@ $result_trees{'empty_macro_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'text
@@ -209,7 +209,7 @@ $result_trees{'empty_macro_argument'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'X\\arg\\X

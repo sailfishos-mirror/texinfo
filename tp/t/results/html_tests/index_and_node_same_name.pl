@@ -30,7 +30,7 @@ $result_trees{'index_and_node_same_name'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {},
@@ -63,7 +63,7 @@ $result_trees{'index_and_node_same_name'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

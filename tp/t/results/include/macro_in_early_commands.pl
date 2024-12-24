@@ -20,7 +20,7 @@ $result_trees{'macro_in_early_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'macro_in_pass
@@ -77,7 +77,7 @@ $result_trees{'macro_in_early_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'texi_commands.\\ext\\
@@ -231,7 +231,7 @@ $result_trees{'macro_in_early_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'ISO-8859-1
@@ -293,7 +293,7 @@ $result_trees{'macro_in_early_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@documentencoding
@@ -438,7 +438,7 @@ $result_trees{'macro_in_early_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'macro_included.texi
@@ -517,7 +517,7 @@ $result_trees{'macro_in_early_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -553,7 +553,7 @@ $result_trees{'macro_in_early_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -591,7 +591,7 @@ $result_trees{'macro_in_early_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'source_marks' => [
@@ -661,7 +661,7 @@ $result_trees{'macro_in_early_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in themacro

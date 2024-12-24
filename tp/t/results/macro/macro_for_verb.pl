@@ -20,7 +20,7 @@ $result_trees{'macro_for_verb'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@verb{

@@ -20,7 +20,7 @@ $result_trees{'nested_macros'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in macro \\arg\\

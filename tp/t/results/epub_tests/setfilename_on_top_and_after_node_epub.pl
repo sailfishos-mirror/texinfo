@@ -35,7 +35,7 @@ $result_trees{'setfilename_on_top_and_after_node_epub'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -95,7 +95,7 @@ $result_trees{'setfilename_on_top_and_after_node_epub'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

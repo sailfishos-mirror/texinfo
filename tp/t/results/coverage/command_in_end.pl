@@ -24,7 +24,7 @@ $result_trees{'command_in_end'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -95,7 +95,7 @@ $result_trees{'command_in_end'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [
@@ -172,7 +172,7 @@ $result_trees{'command_in_end'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -249,7 +249,7 @@ $result_trees{'command_in_end'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'contents' => [
@@ -329,7 +329,7 @@ $result_trees{'command_in_end'} = {
                                   'type' => 'block_line_arg'
                                 }
                               ],
-                              'type' => 'argument'
+                              'type' => 'arguments_line'
                             },
                             {
                               'contents' => [
@@ -409,7 +409,7 @@ $result_trees{'command_in_end'} = {
                                   'type' => 'block_line_arg'
                                 }
                               ],
-                              'type' => 'argument'
+                              'type' => 'arguments_line'
                             },
                             {
                               'contents' => [
@@ -489,7 +489,7 @@ $result_trees{'command_in_end'} = {
                                   'type' => 'block_line_arg'
                                 }
                               ],
-                              'type' => 'argument'
+                              'type' => 'arguments_line'
                             },
                             {
                               'contents' => [
@@ -569,7 +569,7 @@ $result_trees{'command_in_end'} = {
                                   'type' => 'block_line_arg'
                                 }
                               ],
-                              'type' => 'argument'
+                              'type' => 'arguments_line'
                             },
                             {
                               'text' => 'In verbatim

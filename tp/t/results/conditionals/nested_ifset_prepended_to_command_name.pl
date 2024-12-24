@@ -33,7 +33,7 @@ $result_trees{'nested_ifset_prepended_to_command_name'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@ifsettoto b

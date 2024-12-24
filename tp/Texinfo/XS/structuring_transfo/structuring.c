@@ -52,8 +52,8 @@
 void
 new_block_command (ELEMENT *element)
 {
-  ELEMENT *args = new_element (ET_block_line_arg);
-  ELEMENT *argument = new_element (ET_argument);
+  ELEMENT *block_line_arg = new_element (ET_block_line_arg);
+  ELEMENT *arguments = new_element (ET_arguments_line);
   ELEMENT *arg_spaces_after = new_text_element (ET_other_text);
   ELEMENT *end = new_command_element (ET_line_command, CM_end);
   ELEMENT *end_args = new_element (ET_line_arg);
@@ -63,10 +63,10 @@ new_block_command (ELEMENT *element)
   const char *command_name = builtin_command_name (element->e.c->cmd);
 
   text_append (arg_spaces_after->e.text, "\n");
-  args->elt_info[eit_spaces_after_argument] = arg_spaces_after;
-  add_to_element_contents (argument, args);
+  block_line_arg->elt_info[eit_spaces_after_argument] = arg_spaces_after;
+  add_to_element_contents (arguments, block_line_arg);
 
-  insert_into_contents (element, argument, 0);
+  insert_into_contents (element, arguments, 0);
 
   add_extra_string_dup (end, AI_key_text_arg, command_name);
   text_append (end_spaces_before->e.text, " ");

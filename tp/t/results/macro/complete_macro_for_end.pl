@@ -20,7 +20,7 @@ $result_trees{'complete_macro_for_end'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@end cartouche
@@ -104,7 +104,7 @@ $result_trees{'complete_macro_for_end'} = {
                   'status' => 'start'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',

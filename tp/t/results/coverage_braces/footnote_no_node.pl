@@ -30,7 +30,7 @@ $result_trees{'footnote_no_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

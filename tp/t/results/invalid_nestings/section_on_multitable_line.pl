@@ -18,7 +18,7 @@ $result_trees{'section_on_multitable_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             }
           ],
           'extra' => {
@@ -56,7 +56,7 @@ $result_trees{'section_on_multitable_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -95,7 +95,7 @@ $result_trees{'section_on_multitable_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             }
           ],
           'extra' => {
@@ -143,7 +143,7 @@ $result_trees{'section_on_multitable_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -191,7 +191,7 @@ $result_trees{'section_on_multitable_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             }
           ],
           'extra' => {
@@ -239,7 +239,7 @@ $result_trees{'section_on_multitable_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

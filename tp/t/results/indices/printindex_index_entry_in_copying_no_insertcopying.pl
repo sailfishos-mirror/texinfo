@@ -26,7 +26,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'text' => '
@@ -352,7 +352,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                           'type' => 'block_line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'contents' => [
@@ -583,7 +583,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -619,7 +619,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -655,7 +655,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -774,7 +774,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -811,7 +811,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

@@ -37,7 +37,7 @@ $result_trees{'part_chapter_appendix'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -75,7 +75,7 @@ $result_trees{'part_chapter_appendix'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -116,7 +116,7 @@ $result_trees{'part_chapter_appendix'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

@@ -20,7 +20,7 @@ $result_trees{'call_macro_in_linemacro_body'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@mymacro{@code{}
@@ -95,7 +95,7 @@ $result_trees{'call_macro_in_linemacro_body'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@table \\c\\
@@ -277,7 +277,7 @@ now second arg: gg '
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

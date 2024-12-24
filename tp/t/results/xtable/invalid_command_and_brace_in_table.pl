@@ -32,7 +32,7 @@ $result_trees{'invalid_command_and_brace_in_table'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

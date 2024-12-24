@@ -30,7 +30,7 @@ $result_trees{'top_no_argument_and_content'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

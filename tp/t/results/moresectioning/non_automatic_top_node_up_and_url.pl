@@ -180,7 +180,7 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -221,7 +221,7 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           },
           {
             'text' => '
@@ -243,7 +243,7 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                     'type' => 'block_line_arg'
                   }
                 ],
-                'type' => 'argument'
+                'type' => 'arguments_line'
               },
               {
                 'contents' => [
@@ -460,7 +460,7 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

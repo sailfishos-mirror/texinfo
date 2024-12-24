@@ -30,7 +30,7 @@ $result_trees{'no_empty_line_between_headings'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'subheading',
@@ -91,7 +91,7 @@ $result_trees{'no_empty_line_between_headings'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -126,7 +126,7 @@ $result_trees{'no_empty_line_between_headings'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

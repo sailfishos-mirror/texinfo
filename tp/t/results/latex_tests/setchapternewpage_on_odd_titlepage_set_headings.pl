@@ -100,7 +100,7 @@ $result_trees{'setchapternewpage_on_odd_titlepage_set_headings'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [

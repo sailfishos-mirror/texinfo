@@ -20,7 +20,7 @@ $result_trees{'macro_in_def_delimiters'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'aa(b *c)

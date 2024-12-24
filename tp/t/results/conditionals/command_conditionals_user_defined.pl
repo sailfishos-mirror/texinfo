@@ -20,7 +20,7 @@ $result_trees{'command_conditionals_user_defined'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'machin
@@ -204,7 +204,7 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -290,7 +290,7 @@ $result_trees{'command_conditionals_user_defined'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => '@@macro truc is wrongly not defined
@@ -371,7 +371,7 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -460,7 +460,7 @@ $result_trees{'command_conditionals_user_defined'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => 'index command @@authindex is wrongly not defined
@@ -541,7 +541,7 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -630,7 +630,7 @@ $result_trees{'command_conditionals_user_defined'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => 'definfoenclose @@infoencl is wrongly not defined
@@ -711,7 +711,7 @@ $result_trees{'command_conditionals_user_defined'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'info' => {
@@ -800,7 +800,7 @@ $result_trees{'command_conditionals_user_defined'} = {
                             'type' => 'block_line_arg'
                           }
                         ],
-                        'type' => 'argument'
+                        'type' => 'arguments_line'
                       },
                       {
                         'text' => 'strongalias @@alias is wrongly not defined

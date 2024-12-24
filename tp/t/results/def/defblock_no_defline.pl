@@ -27,7 +27,7 @@ $result_trees{'defblock_no_defline'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

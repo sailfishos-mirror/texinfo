@@ -28,7 +28,7 @@ $result_trees{'consecutive_conditionals'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'in ifinfo
@@ -89,7 +89,7 @@ $result_trees{'consecutive_conditionals'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'in iftex
@@ -182,7 +182,7 @@ $result_trees{'consecutive_conditionals'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'in ifclear
@@ -254,7 +254,7 @@ $result_trees{'consecutive_conditionals'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'in ifset

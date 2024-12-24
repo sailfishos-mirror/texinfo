@@ -89,7 +89,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -126,7 +126,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -165,7 +165,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -202,7 +202,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

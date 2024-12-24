@@ -33,7 +33,7 @@ $result_trees{'text_on_conditional_line'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => 'a

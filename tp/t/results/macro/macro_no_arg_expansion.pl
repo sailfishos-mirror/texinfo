@@ -20,7 +20,7 @@ $result_trees{'macro_no_arg_expansion'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'res1

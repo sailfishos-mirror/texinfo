@@ -71,7 +71,7 @@ $result_trees{'all_spaces'} = {
               "type" => "line_arg"
             }
           ],
-          "type" => "argument"
+          "type" => "arguments_line"
         }
       ],
       "extra" => {
@@ -107,7 +107,7 @@ $result_trees{'all_spaces'} = {
               "type" => "line_arg"
             }
           ],
-          "type" => "argument"
+          "type" => "arguments_line"
         },
         {
           "text" => "\n",

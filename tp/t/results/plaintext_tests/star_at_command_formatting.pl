@@ -20,7 +20,7 @@ $result_trees{'star_at_command_formatting'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'Some text @*
@@ -388,7 +388,7 @@ $result_trees{'star_at_command_formatting'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -686,7 +686,7 @@ $result_trees{'star_at_command_formatting'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

@@ -27,7 +27,7 @@ $result_trees{'two_nodes_between_chapters'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -49,7 +49,7 @@ $result_trees{'two_nodes_between_chapters'} = [
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -269,7 +269,7 @@ $result_trees{'two_nodes_between_chapters'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           }
         ],
         'extra' => {
@@ -310,7 +310,7 @@ $result_trees{'two_nodes_between_chapters'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -412,7 +412,7 @@ $result_trees{'two_nodes_between_chapters'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           }
         ],
         'extra' => {
@@ -449,7 +449,7 @@ $result_trees{'two_nodes_between_chapters'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           },
           {
             'text' => '
@@ -494,7 +494,7 @@ $result_trees{'two_nodes_between_chapters'} = [
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -530,7 +530,7 @@ $result_trees{'two_nodes_between_chapters'} = [
                 'type' => 'line_arg'
               }
             ],
-            'type' => 'argument'
+            'type' => 'arguments_line'
           }
         ],
         'extra' => {

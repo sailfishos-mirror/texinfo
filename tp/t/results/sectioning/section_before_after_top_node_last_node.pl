@@ -35,7 +35,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -73,7 +73,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -109,7 +109,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -147,7 +147,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -201,7 +201,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

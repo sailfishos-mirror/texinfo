@@ -629,7 +629,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
   type = current->type;
   command_element = current->parent;
   argument = current->parent;
-  if (argument->type == ET_argument)
+  if (argument->type == ET_arguments_line)
     command_element = argument->parent;
   else
     command_element = argument;

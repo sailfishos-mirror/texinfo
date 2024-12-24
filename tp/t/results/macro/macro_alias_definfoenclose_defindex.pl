@@ -30,7 +30,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -66,7 +66,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -104,7 +104,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -141,7 +141,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -159,7 +159,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '||\\arg\\||
@@ -544,7 +544,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '!!\\arg\\!!
@@ -722,7 +722,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '!!\\arg\\!!
@@ -1104,7 +1104,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '%%\\arg\\%%

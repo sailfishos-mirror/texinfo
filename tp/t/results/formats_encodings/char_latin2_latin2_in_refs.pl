@@ -89,7 +89,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -127,7 +127,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -236,7 +236,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -359,7 +359,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -396,7 +396,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

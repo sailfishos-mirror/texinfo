@@ -28,7 +28,7 @@ $result_trees{'superfluous_argument_to_end'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   }
                 ],
                 'source_info' => {

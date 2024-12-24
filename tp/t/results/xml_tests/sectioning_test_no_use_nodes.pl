@@ -30,7 +30,7 @@ $result_trees{'sectioning_test_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -66,7 +66,7 @@ $result_trees{'sectioning_test_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -118,7 +118,7 @@ $result_trees{'sectioning_test_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -154,7 +154,7 @@ $result_trees{'sectioning_test_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -208,7 +208,7 @@ $result_trees{'sectioning_test_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -244,7 +244,7 @@ $result_trees{'sectioning_test_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -298,7 +298,7 @@ $result_trees{'sectioning_test_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -334,7 +334,7 @@ $result_trees{'sectioning_test_no_use_nodes'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

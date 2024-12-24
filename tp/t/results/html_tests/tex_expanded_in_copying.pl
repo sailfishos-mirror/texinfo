@@ -24,7 +24,7 @@ $result_trees{'tex_expanded_in_copying'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'tex',
@@ -41,7 +41,7 @@ $result_trees{'tex_expanded_in_copying'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [

@@ -70,7 +70,7 @@ $result_trees{'a_comma_after_node'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

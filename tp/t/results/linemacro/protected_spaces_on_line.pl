@@ -20,7 +20,7 @@ $result_trees{'protected_spaces_on_line'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@deffn Function \\first\\ \\rest\\

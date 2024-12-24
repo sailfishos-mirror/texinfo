@@ -20,7 +20,7 @@ $result_trees{'closing_brace_in_macro_call_in_ignored_inline'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '}

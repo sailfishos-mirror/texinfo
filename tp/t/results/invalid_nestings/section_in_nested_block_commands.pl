@@ -32,7 +32,7 @@ $result_trees{'section_in_nested_block_commands'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -99,7 +99,7 @@ $result_trees{'section_in_nested_block_commands'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'text' => '
@@ -167,7 +167,7 @@ $result_trees{'section_in_nested_block_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

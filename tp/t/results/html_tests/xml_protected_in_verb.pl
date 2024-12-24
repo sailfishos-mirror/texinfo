@@ -24,7 +24,7 @@ $result_trees{'xml_protected_in_verb'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '<a>

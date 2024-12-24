@@ -25,7 +25,7 @@ $result_trees{'macro_in_ifset'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'truc
@@ -95,7 +95,7 @@ $result_trees{'macro_in_ifset'} = {
                         'type' => 'block_line_arg'
                       }
                     ],
-                    'type' => 'argument'
+                    'type' => 'arguments_line'
                   },
                   {
                     'text' => '@unmacro truc

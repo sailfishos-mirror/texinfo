@@ -24,7 +24,7 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'source_marks' => [

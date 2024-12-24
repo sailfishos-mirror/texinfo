@@ -59,7 +59,7 @@ $result_trees{'definfoenclose_replaced_by_macro'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '||\\arg\\||

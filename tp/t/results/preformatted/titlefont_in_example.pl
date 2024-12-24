@@ -24,7 +24,7 @@ $result_trees{'titlefont_in_example'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'titlefont',

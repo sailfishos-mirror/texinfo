@@ -228,7 +228,7 @@ sub tex4ht_prepare($$)
               and ($tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command'
                    or $tree->{'contents'}->[0]->{'type'} eq 'elided_brace_command_arg'
                    or $tree->{'contents'}->[0]->{'type'} eq 'elided_rawpreformatted'
-                   or $tree->{'contents'}->[0]->{'type'} eq 'argument')) {
+                   or $tree->{'contents'}->[0]->{'type'} eq 'arguments_line')) {
             shift @{$tree->{'contents'}};
           }
           if ($tree->{'contents'}->[-1]->{'cmdname'}

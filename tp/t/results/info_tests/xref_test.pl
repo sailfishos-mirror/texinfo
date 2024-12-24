@@ -37,7 +37,7 @@ $result_trees{'xref_test'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

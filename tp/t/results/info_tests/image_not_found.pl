@@ -30,7 +30,7 @@ $result_trees{'image_not_found'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'image',

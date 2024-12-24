@@ -24,7 +24,7 @@ $result_trees{'nested_ignore_comment_no_eol'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@ignore @c comment',

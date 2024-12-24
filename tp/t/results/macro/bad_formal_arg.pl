@@ -25,7 +25,7 @@ $result_trees{'bad_formal_arg'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in bad macro
@@ -91,7 +91,7 @@ $result_trees{'bad_formal_arg'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'bad space
@@ -157,7 +157,7 @@ $result_trees{'bad_formal_arg'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in bar

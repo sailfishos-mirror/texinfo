@@ -20,7 +20,7 @@ $result_trees{'line_end_accent_command_macro_call'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@center A @ringaccent 
@@ -167,7 +167,7 @@ $result_trees{'line_end_accent_command_macro_call'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@center B @ringaccent

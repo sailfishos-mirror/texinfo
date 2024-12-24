@@ -24,7 +24,7 @@ $result_trees{'command_in_end_ignored_raw_command_after'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

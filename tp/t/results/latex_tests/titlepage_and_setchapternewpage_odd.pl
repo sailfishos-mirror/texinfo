@@ -63,7 +63,7 @@ $result_trees{'titlepage_and_setchapternewpage_odd'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'contents' => [

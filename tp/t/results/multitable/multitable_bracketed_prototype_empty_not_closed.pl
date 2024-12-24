@@ -37,7 +37,7 @@ $result_trees{'multitable_bracketed_prototype_empty_not_closed'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'end',

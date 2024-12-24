@@ -24,7 +24,7 @@ $result_trees{'headitem_itemx_in_enumerate'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',

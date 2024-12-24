@@ -218,7 +218,8 @@ sub _convert_to_texinfo($)
 
   return '' if (($element->{'info'}
                  and $element->{'info'}->{'inserted'})
-                or ($element->{'type'} and $element->{'type'} eq 'argument'));
+                or ($element->{'type'}
+                    and $element->{'type'} eq 'arguments_line'));
 
   if (defined($element->{'text'})) {
     $result .= $element->{'text'};
@@ -256,7 +257,7 @@ sub _convert_to_texinfo($)
         return $result if (!$element->{'contents'});
       } elsif ($element->{'contents'}
           and ($element->{'contents'}->[0]->{'type'}
-               and $element->{'contents'}->[0]->{'type'} eq 'argument')) {
+               and $element->{'contents'}->[0]->{'type'} eq 'arguments_line')) {
         # root commands and block commands that are not def commands
         $result .= $spc_before_arg;
         $result .= _convert_args($element->{'contents'}->[0]);

@@ -29,7 +29,7 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

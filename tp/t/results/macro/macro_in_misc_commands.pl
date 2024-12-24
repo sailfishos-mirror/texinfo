@@ -20,7 +20,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'atext
@@ -82,7 +82,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'Top
@@ -164,7 +164,7 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -244,7 +244,7 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'cmdname' => 'subheading',
@@ -348,7 +348,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'en
@@ -405,7 +405,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@documentlanguage
@@ -612,7 +612,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '200mm,150mm
@@ -674,7 +674,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@afourpaper
@@ -989,7 +989,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '0.1
@@ -1115,7 +1115,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@raisesections
@@ -1205,7 +1205,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@lowersections
@@ -1388,7 +1388,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'phi
@@ -1549,7 +1549,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@strong
@@ -1606,7 +1606,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'strong
@@ -1917,7 +1917,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'code
@@ -2075,7 +2075,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -2156,7 +2156,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'asis
@@ -2213,7 +2213,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '0
@@ -2270,7 +2270,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'none
@@ -2327,7 +2327,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '4
@@ -2384,7 +2384,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '6
@@ -2805,7 +2805,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'end
@@ -2862,7 +2862,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'separate 
@@ -3042,7 +3042,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'on
@@ -3099,7 +3099,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'off
@@ -3289,7 +3289,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '10
@@ -3415,7 +3415,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'false
@@ -3472,7 +3472,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'true
@@ -3657,7 +3657,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@page
@@ -3714,7 +3714,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@noindent
@@ -3771,7 +3771,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@refill
@@ -4332,7 +4332,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@contents
@@ -4447,7 +4447,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@exdent
@@ -4562,7 +4562,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '2
@@ -4683,7 +4683,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@result
@@ -4771,7 +4771,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -4940,7 +4940,7 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -4976,7 +4976,7 @@ $result_trees{'macro_in_misc_commands'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'source_marks' => [
@@ -5039,7 +5039,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@shortcontents
@@ -5139,7 +5139,7 @@ $result_trees{'macro_in_misc_commands'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '@bye

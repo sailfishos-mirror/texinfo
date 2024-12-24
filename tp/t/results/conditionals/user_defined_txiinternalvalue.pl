@@ -20,7 +20,7 @@ $result_trees{'user_defined_txiinternalvalue'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'user internalvalue

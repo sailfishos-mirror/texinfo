@@ -32,7 +32,7 @@ $result_trees{'not_closed_itemize'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             }
           ],
           'extra' => {

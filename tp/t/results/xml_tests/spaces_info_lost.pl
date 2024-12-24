@@ -29,7 +29,7 @@ $result_trees{'spaces_info_lost'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -100,7 +100,7 @@ $result_trees{'spaces_info_lost'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => 'in verbatim @g 

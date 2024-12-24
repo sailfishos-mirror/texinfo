@@ -39,7 +39,7 @@ $result_trees{'section_on_float_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             }
           ],
           'extra' => {
@@ -79,7 +79,7 @@ $result_trees{'section_on_float_line'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

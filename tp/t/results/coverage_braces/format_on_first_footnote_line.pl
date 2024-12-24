@@ -34,7 +34,7 @@ $result_trees{'format_on_first_footnote_line'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'contents' => [
@@ -126,7 +126,7 @@ $result_trees{'format_on_first_footnote_line'} = {
                               'type' => 'block_line_arg'
                             }
                           ],
-                          'type' => 'argument'
+                          'type' => 'arguments_line'
                         },
                         {
                           'contents' => [

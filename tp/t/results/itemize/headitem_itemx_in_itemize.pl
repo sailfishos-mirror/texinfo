@@ -32,7 +32,7 @@ $result_trees{'headitem_itemx_in_itemize'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',

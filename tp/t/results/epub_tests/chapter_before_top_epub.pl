@@ -35,7 +35,7 @@ $result_trees{'chapter_before_top_epub'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -76,7 +76,7 @@ $result_trees{'chapter_before_top_epub'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -112,7 +112,7 @@ $result_trees{'chapter_before_top_epub'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -152,7 +152,7 @@ $result_trees{'chapter_before_top_epub'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -190,7 +190,7 @@ $result_trees{'chapter_before_top_epub'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

@@ -71,7 +71,7 @@ $result_trees{'inlineraw_not_closed'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {

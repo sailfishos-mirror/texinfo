@@ -30,7 +30,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -66,7 +66,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -88,7 +88,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
@@ -318,7 +318,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -338,7 +338,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'anchor',
@@ -523,7 +523,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
-                  'type' => 'argument'
+                  'type' => 'arguments_line'
                 },
                 {
                   'cmdname' => 'image',
@@ -630,7 +630,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                           'type' => 'line_arg'
                         }
                       ],
-                      'type' => 'argument'
+                      'type' => 'arguments_line'
                     },
                     {
                       'text' => '
@@ -750,7 +750,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         }
       ],
       'extra' => {
@@ -787,7 +787,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '
@@ -884,7 +884,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

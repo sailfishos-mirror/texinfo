@@ -20,7 +20,7 @@ $result_trees{'macro_in_empty_text'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '
@@ -109,7 +109,7 @@ $result_trees{'macro_in_empty_text'} = {
                   'status' => 'end'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

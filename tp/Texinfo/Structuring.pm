@@ -1286,11 +1286,12 @@ sub new_block_command($$)
 
   $element->{'cmdname'} = $command_name;
 
-  my $argument = {'type' => 'argument', 'parent' => $element};
-  $argument->{'contents'} = [{'type' => 'block_line_arg', 'parent' => $argument,
-                           'info' => { 'spaces_after_argument' =>
-                                        {'text' => "\n",}}}];
-  unshift @{$element->{'contents'}}, $argument;
+  my $arguments = {'type' => 'arguments_line', 'parent' => $element};
+  $arguments->{'contents'} = [{'type' => 'block_line_arg',
+                               'parent' => $arguments,
+                                'info' => { 'spaces_after_argument' =>
+                                               {'text' => "\n",}}}];
+  unshift @{$element->{'contents'}}, $arguments;
 
   my $end = {'cmdname' => 'end', 'parent' => $element,
              'extra' => {'text_arg' => $command_name}};

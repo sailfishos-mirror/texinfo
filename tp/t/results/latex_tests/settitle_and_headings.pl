@@ -112,7 +112,7 @@ $result_trees{'settitle_and_headings'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

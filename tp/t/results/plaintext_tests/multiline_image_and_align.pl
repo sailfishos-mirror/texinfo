@@ -228,7 +228,7 @@ $result_trees{'multiline_image_and_align'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [

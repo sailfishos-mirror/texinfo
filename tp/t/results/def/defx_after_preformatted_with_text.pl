@@ -24,7 +24,7 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'deffn',

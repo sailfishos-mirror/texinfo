@@ -30,7 +30,7 @@ $result_trees{'note_in_strong'} = {
               'type' => 'line_arg'
             }
           ],
-          'type' => 'argument'
+          'type' => 'arguments_line'
         },
         {
           'text' => '

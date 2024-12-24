@@ -29,7 +29,7 @@ $result_trees{'commands_in_math'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'strong',
@@ -177,7 +177,7 @@ $result_trees{'commands_in_math'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => '"',
@@ -857,7 +857,7 @@ $result_trees{'commands_in_math'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'click',
@@ -1447,7 +1447,7 @@ $result_trees{'commands_in_math'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'quotedblleft',

@@ -30,7 +30,7 @@ $result_trees{'comment_first_on_enumerate_line'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'cmdname' => 'item',

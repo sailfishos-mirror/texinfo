@@ -20,7 +20,7 @@ $result_trees{'non_ascii_in_macro_name'} = {
                   'type' => 'macro_line'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'text' => '(@`{\\a\\})

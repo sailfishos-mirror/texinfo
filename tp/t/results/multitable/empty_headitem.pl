@@ -54,7 +54,7 @@ $result_trees{'empty_headitem'} = {
                   'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'argument'
+              'type' => 'arguments_line'
             },
             {
               'contents' => [
