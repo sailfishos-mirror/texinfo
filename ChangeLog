@@ -136,7 +136,7 @@
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_convertxs_la_SOURCES),
 	tp/Texinfo/XS/convert/call_conversion_perl.c
 	(call_config_GNUT_load_init_file, call_init_perl, call_finish_perl),
-	tp/Texinfo/XS/main/call_perl_function.c: move code calle dfrom
+	tp/Texinfo/XS/main/call_perl_function.c: move code called from
 	embedded Perl to the new convert/call_conversion_perl.c file.
 
 	* tp/Texinfo/XS/convert/call_conversion_perl.c
@@ -222,7 +222,7 @@
 2024-12-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%valid_tree_transformations),
-	tp/Texinfo/XS/convert/texinfo.h: reordervalid transformations.  Add
+	tp/Texinfo/XS/convert/texinfo.h: reorder valid transformations.  Add
 	STTF_fill_gaps_in_sectioning.
 
 2024-12-21  Patrice Dumas  <pertusus@free.fr>
@@ -255,7 +255,7 @@
 	* tp/Texinfo/XS/teximakehtml.c (add_to_option_list)
 	(remove_from_option_list, set_expansion, unset_expansion)
 	(main): add add_to_option_list and remove_from_option_list, use in
-	set_expansion, unset_expansion nad to set EXPANDED_FORMATS.
+	set_expansion, unset_expansion and to set EXPANDED_FORMATS.
 
 	* tp/Texinfo/XS/teximakehtml.c (long_options, main): add css-include
 	and css-ref options.
@@ -291,8 +291,8 @@
 	tp/Texinfo/XS/parsetexi/macro.c (store_value_parsed_document)
 	(store_parser_value_parsed_document, clear_value_parsed_document)
 	(clear_parser_value_parsed_document): move the part of store_value
-	and clear_value strctly related to setting or clearing values in a
-	values list to utils.c, adding a vluaes list argument to clear_value.
+	and clear_value strictly related to setting or clearing values in a
+	values list to utils.c, adding a values list argument to clear_value.
 	Rename functions in macro.c that apply on parser and also set internal
 	flags in parsed document to store_value_parsed_document,
 	store_parser_value_parsed_document, clear_value_parsed_document and
@@ -310,7 +310,7 @@
 	converters.
 
 	* tp/Texinfo/XS/convert/texinfo.c (txi_parser): rearrange code for the
-	case of cinclude directories not set, and put the current directory in
+	case of include directories not set, and put the current directory in
 	front.
 
 2024-12-21  Patrice Dumas  <pertusus@free.fr>
@@ -564,7 +564,7 @@
 	(%default_parser_customization_values)
 	($common_parser_regular_options_defaults): add %array_parser_options
 	for array reference parser options and use Texinfo::Options
-	parser options to gt the other customization options. Remove
+	parser options to get the other customization options. Remove
 	%common_parser_customization and %parser_customization.
 
 	* util/txicustomvars: use Texinfo::Options::parser_options only to get
