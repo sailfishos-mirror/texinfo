@@ -1,5 +1,9 @@
 2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	* po/POTFILES.in: replace teximakehtml.c by texi2any.c.
+
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/texi2any.c, tp/Texinfo/XS/Makefile.am
 	(teximakehtml_SOURCES, ctexi2any_SOURCES): rename teximakehtml.c as
 	texi2any.c.

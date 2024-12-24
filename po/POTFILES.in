@@ -51,7 +51,7 @@ tp/ext/highlight_syntax.pm
 tp/ext/latex2html.pm
 tp/ext/tex4ht.pm
 tp/texi2any.pl
-tp/Texinfo/XS/teximakehtml.c
+tp/Texinfo/XS/texi2any.c
 tp/Texinfo/XS/convert/converter.c
 tp/Texinfo/XS/convert/convert_html.c
 tp/Texinfo/XS/convert/format_html.c
