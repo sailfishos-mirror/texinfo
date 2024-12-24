@@ -1418,7 +1418,7 @@ if ($call_texi2dvi) {
   if (defined(get_conf('OUTFILE')) and @ARGV > 1) {
     die _encode_message(
       sprintf(
- __('%s: when generating %s, only one input FILE may be specified with -o'."\n"),
+ __('%s: when generating %s, only one input FILE may be specified with -o')."\n",
                 $real_command_name, format_name($output_format)));
   }
 } elsif($Xopt_arg_nr) {
@@ -1669,8 +1669,8 @@ my @input_files = @ARGV;
 # use STDIN if not a tty, like makeinfo does
 @input_files = ('-') if (!scalar(@input_files) and !-t STDIN);
 die _encode_message(
-    sprintf(__("%s: missing file argument.\n"), $real_command_name)
-   .sprintf(__("Try `%s --help' for more information.\n"), $real_command_name))
+    sprintf(__("%s: missing file argument.")."\n", $real_command_name)
+   .sprintf(__("Try `%s --help' for more information.")."\n", $real_command_name))
      unless (scalar(@input_files) >= 1);
 
 # XS parser and not explicitly unset
@@ -2050,7 +2050,7 @@ while(@input_files) {
         $main_unclosed_files{$unclosed_file} = $fh;
       } else {
         if (!close($fh)) {
-          warn(sprintf(__("%s: error on closing %s: %s\n"),
+          warn(sprintf(__("%s: error on closing %s: %s")."\n",
                            $real_command_name, $unclosed_file, $!));
           $error_count++;
           _exit($error_count, \%opened_files);
@@ -2081,7 +2081,7 @@ while(@input_files) {
       print $internal_links_fh $internal_links_text;
 
       if (!close ($internal_links_fh)) {
-        warn(sprintf(__("%s: error on closing internal links file %s: %s\n"),
+        warn(sprintf(__("%s: error on closing internal links file %s: %s")."\n",
                       $real_command_name, $internal_links_file_name, $!));
         $error_internal_links_file = 1;
       }
@@ -2089,7 +2089,7 @@ while(@input_files) {
                                      $internal_links_files_information,
                                      $encoded_internal_links_file_name);
     } else {
-      warn(sprintf(__("%s: could not open %s for writing: %s\n"),
+      warn(sprintf(__("%s: could not open %s for writing: %s")."\n",
                       $real_command_name, $internal_links_file_name,
                       $error_message));
       $error_internal_links_file = 1;
@@ -2159,7 +2159,7 @@ while(@input_files) {
       print $sort_element_count_fh $sort_element_count_text;
 
       if (!close ($sort_element_count_fh)) {
-        warn(sprintf(__("%s: error on closing elements size file %s: %s\n"),
+        warn(sprintf(__("%s: error on closing elements size file %s: %s")."\n",
                       $real_command_name, $sort_element_count_file_name, $!));
         $error_sort_element_count_file = 1;
       }
@@ -2167,7 +2167,7 @@ while(@input_files) {
                                         $sort_elem_files_information,
                                         $encoded_sort_element_count_file_name);
     } else {
-      warn(sprintf(__("%s: could not open %s for writing: %s\n"),
+      warn(sprintf(__("%s: could not open %s for writing: %s")."\n",
                     $real_command_name, $sort_element_count_file_name, $!));
       $error_sort_element_count_file = 1;
     }
@@ -2197,7 +2197,7 @@ while(@input_files) {
 
 foreach my $unclosed_file (keys(%main_unclosed_files)) {
   if (!close($main_unclosed_files{$unclosed_file})) {
-    warn(sprintf(__("%s: error on closing %s: %s\n"),
+    warn(sprintf(__("%s: error on closing %s: %s")."\n",
                      $real_command_name, $unclosed_file, $!));
     $error_count++;
     _exit($error_count, \%opened_files);
