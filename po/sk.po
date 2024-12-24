@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-24 10:20+0100\n"
+"POT-Creation-Date: 2024-12-24 10:24+0100\n"
 "PO-Revision-Date: 2024-12-17 13:14+0100\n"
 "Last-Translator: Marek Felšöci <marek@felsoci.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -457,6 +457,7 @@ msgstr ""
 
 #: info/info.c:1165 install-info/install-info.c:588
 #: Pod-Simple-Texinfo/pod2texi.pl:173 tp/texi2any.pl:1128
+#: tp/Texinfo/XS/teximakehtml.c:1734
 msgid ""
 "Email bug reports to bug-texinfo@gnu.org,\n"
 "general questions and discussion to help-texinfo@gnu.org.\n"
@@ -2106,8 +2107,8 @@ msgstr "%s nie je platné označenie jazyka"
 msgid "%s is not a valid region code"
 msgstr "%s nie je platné označenie oblasti"
 
-#: tp/Texinfo/Config.pm:140 tp/texi2any.pl:579
-#, perl-format
+#: tp/Texinfo/Config.pm:140 tp/texi2any.pl:579 tp/Texinfo/XS/teximakehtml.c:202
+#, c-format, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s"
 msgstr "%s: varovanie: %s"
@@ -3849,8 +3850,8 @@ msgstr "nepodarilo sa prečítať súbor rozšírenia %s"
 msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'"
 msgstr "preskakuje sa nerozpoznaná hodnota „%s“ pre TEXINFO_OUTPUT_FORMAT\n"
 
-#: tp/texi2any.pl:975
-#, fuzzy, perl-format
+#: tp/texi2any.pl:975 tp/Texinfo/XS/teximakehtml.c:1552
+#, fuzzy, c-format, perl-format
 #| msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
 msgid "Usage: %s [OPTION]... TEXINFO-FILE..."
 msgstr "Použitie: %s [PREPÍNAČ]... TEXINFO-SÚBOR...\n"
@@ -3871,11 +3872,11 @@ msgstr ""
 "„texi2any“; správanie je zhodné a nezáleží na názve, pod ktorým je program\n"
 "nainštalovaný.\n"
 
-#: tp/texi2any.pl:984
+#: tp/texi2any.pl:984 tp/Texinfo/XS/teximakehtml.c:1557
 msgid "General options:"
 msgstr "Všeobecné možnosti:"
 
-#: tp/texi2any.pl:985
+#: tp/texi2any.pl:985 tp/Texinfo/XS/teximakehtml.c:1560
 msgid ""
 "      --document-language=STR locale to use in translating Texinfo keywords\n"
 "                                for the output document (default C)."
@@ -3885,40 +3886,40 @@ msgstr ""
 "                                kľúčových slov Texinfa vo výstupnom "
 "dokumente (predvolené je C)."
 
-#: tp/texi2any.pl:987
-#, perl-format
+#: tp/texi2any.pl:987 tp/Texinfo/XS/teximakehtml.c:1563
+#, c-format, perl-format
 msgid "      --error-limit=NUM       quit after NUM errors (default %d)."
 msgstr ""
 "      --error-limit=N       ukončiť po N chybách (predvolená hodnota je %d)."
 
-#: tp/texi2any.pl:989
+#: tp/texi2any.pl:989 tp/Texinfo/XS/teximakehtml.c:1567
 msgid "      --force                 preserve output even if errors."
 msgstr "      --force                 zachovať výstup aj v prípade chýb."
 
-#: tp/texi2any.pl:990
+#: tp/texi2any.pl:990 tp/Texinfo/XS/teximakehtml.c:1570
 msgid "      --help                  display this help and exit."
 msgstr "    --help                  zobraziť túto nápovedu a skončiť."
 
-#: tp/texi2any.pl:991
+#: tp/texi2any.pl:991 tp/Texinfo/XS/teximakehtml.c:1573
 msgid "      --no-validate           suppress node cross-reference validation."
 msgstr "      --no-validate           vypnúť overenie krížových odkazov."
 
-#: tp/texi2any.pl:992
+#: tp/texi2any.pl:992 tp/Texinfo/XS/teximakehtml.c:1582
 msgid "      --no-warn               suppress warnings (but not errors)."
 msgstr "      --no-warn               vypnúť varovania (ale nie chyby)."
 
-#: tp/texi2any.pl:993
+#: tp/texi2any.pl:993 tp/Texinfo/XS/teximakehtml.c:1576
 msgid ""
 "      --conf-dir=DIR          search also for initialization files in DIR."
 msgstr ""
 "      --conf-dir=PRIEČINOK          hľadať úvodné súbory aj v PRIEČINKU."
 
-#: tp/texi2any.pl:994
+#: tp/texi2any.pl:994 tp/Texinfo/XS/teximakehtml.c:1579
 msgid "      --init-file=FILE        load FILE to modify the default behavior."
 msgstr ""
 "      --init-file=SÚBOR        načítať SÚBOR na zmenu predvoleného správania."
 
-#: tp/texi2any.pl:995
+#: tp/texi2any.pl:995 tp/Texinfo/XS/teximakehtml.c:1585
 msgid ""
 "  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n"
 "                                to value VAL."
@@ -3926,15 +3927,15 @@ msgstr ""
 "  -c, --set-customization-variable PREMENNÁ=HODNOTA  nastaviť PREMENNÚ\n"
 "                                prispôsobenia na HODNOTU."
 
-#: tp/texi2any.pl:997
+#: tp/texi2any.pl:997 tp/Texinfo/XS/teximakehtml.c:1588
 msgid "      --trace-includes        print names of included files."
 msgstr "      --trace-includes        vypísať názvy zahrnutých súborov."
 
-#: tp/texi2any.pl:998
+#: tp/texi2any.pl:998 tp/Texinfo/XS/teximakehtml.c:1591
 msgid "  -v, --verbose               explain what is being done."
 msgstr "  -v, --verbose               vysvetľovať, čo sa práve deje."
 
-#: tp/texi2any.pl:999
+#: tp/texi2any.pl:999 tp/Texinfo/XS/teximakehtml.c:1594
 msgid "      --version               display version information and exit."
 msgstr "    --version               zobraziť údaje o verzii a skončiť."
 
@@ -3946,7 +3947,7 @@ msgstr "Výber výstupného formátu (predvolene sa vytvorí Info):"
 msgid "      --docbook               output Docbook XML."
 msgstr "      --docbook               vytvoriť Docbook XML."
 
-#: tp/texi2any.pl:1003
+#: tp/texi2any.pl:1003 tp/Texinfo/XS/teximakehtml.c:1600
 msgid "      --html                  output HTML."
 msgstr "      --html                  vytvoriť HTML."
 
@@ -3975,11 +3976,11 @@ msgstr ""
 "zadaného\n"
 "                                výstupu po overení platnosti TEXINFO-SÚBORU."
 
-#: tp/texi2any.pl:1012
+#: tp/texi2any.pl:1012 tp/Texinfo/XS/teximakehtml.c:1603
 msgid "General output options:"
 msgstr "Všeobecné možnosti výstupu:"
 
-#: tp/texi2any.pl:1014
+#: tp/texi2any.pl:1014 tp/Texinfo/XS/teximakehtml.c:1606
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename."
@@ -3987,7 +3988,7 @@ msgstr ""
 "  -E, --macro-expand=SÚBOR    zapísať výstup s rozšírenými makrami do\n"
 "                                SÚBORU vynechajúc všetky @setfilename."
 
-#: tp/texi2any.pl:1017
+#: tp/texi2any.pl:1017 tp/Texinfo/XS/teximakehtml.c:1609
 msgid ""
 "      --no-headers            suppress node separators, Node: lines, and "
 "menus\n"
@@ -4007,7 +4008,7 @@ msgstr ""
 "                                pri vytváraní súboru Info predvolene\n"
 "                                vypisovať na štandardný výstup."
 
-#: tp/texi2any.pl:1023
+#: tp/texi2any.pl:1023 tp/Texinfo/XS/teximakehtml.c:1612
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file."
@@ -4015,7 +4016,7 @@ msgstr ""
 "      --no-split              vynechať akékoľvek rozdelenie výstupu;\n"
 "                                vytvoriť len jeden výstupný súbor."
 
-#: tp/texi2any.pl:1026
+#: tp/texi2any.pl:1026 tp/Texinfo/XS/teximakehtml.c:1615
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on."
@@ -4023,7 +4024,7 @@ msgstr ""
 "      --[no-]number-sections  očíslovať kapitoly a oddiely;\n"
 "                                predvolene zapnuté."
 
-#: tp/texi2any.pl:1029
+#: tp/texi2any.pl:1029 tp/Texinfo/XS/teximakehtml.c:1618
 msgid ""
 "  -o, --output=DEST           output to DEST.\n"
 "                                With split output, create DEST as a "
@@ -4043,7 +4044,7 @@ msgstr ""
 "                                V ostatných prípadoch, CIEĽ označuje\n"
 "                                výstupný súbor."
 
-#: tp/texi2any.pl:1037
+#: tp/texi2any.pl:1037 tp/Texinfo/XS/teximakehtml.c:1621
 msgid ""
 "      --disable-encoding      do not output accented and special characters\n"
 "                                in Info and plain text output based on "
@@ -4055,25 +4056,25 @@ msgstr ""
 "                                s diakritikou pri vytváraní Info alebo "
 "čistého textu."
 
-#: tp/texi2any.pl:1041
+#: tp/texi2any.pl:1041 tp/Texinfo/XS/teximakehtml.c:1624
 msgid "      --enable-encoding       override --disable-encoding (default)."
 msgstr ""
 "      --enable-encoding       prepísať --disable-encoding (predvolené)."
 
-#: tp/texi2any.pl:1043
+#: tp/texi2any.pl:1043 tp/Texinfo/XS/teximakehtml.c:1627
 #, perl-format
 msgid "Options for Info and plain text:"
 msgstr "Možnosti súborov Info a čistého textu:"
 
-#: tp/texi2any.pl:1045
-#, perl-format
+#: tp/texi2any.pl:1045 tp/Texinfo/XS/teximakehtml.c:1630
+#, c-format, perl-format
 msgid ""
 "      --fill-column=NUM       break Info lines at NUM columns (default %d)."
 msgstr ""
 "      --fill-column=POČET     zalomiť riadky v Info po POČTE znakov "
 "(predvolene %d)."
 
-#: tp/texi2any.pl:1047
+#: tp/texi2any.pl:1047 tp/Texinfo/XS/teximakehtml.c:1634
 #, perl-format
 msgid ""
 "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n"
@@ -4089,8 +4090,8 @@ msgstr ""
 "ktorom\n"
 "                                sú zadané (toto je predvolené nastavenie)."
 
-#: tp/texi2any.pl:1052
-#, perl-format
+#: tp/texi2any.pl:1052 tp/Texinfo/XS/teximakehtml.c:1641
+#, c-format, perl-format
 msgid ""
 "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default "
 "%d).\n"
@@ -4102,19 +4103,19 @@ msgstr ""
 "                                Ak HOD je „none“, neodsadzovať; ak HOD je\n"
 "                                „asis“, zachovať pôvodné odsadenie."
 
-#: tp/texi2any.pl:1056
-#, perl-format
+#: tp/texi2any.pl:1056 tp/Texinfo/XS/teximakehtml.c:1645
+#, c-format, perl-format
 msgid ""
 "      --split-size=NUM        split Info files at size NUM (default %d)."
 msgstr ""
 "      --split-size=VEĽKOSŤ    rozdeliť Info súbory na základe VEĽKOSTI "
 "(predvolená %d)."
 
-#: tp/texi2any.pl:1062
+#: tp/texi2any.pl:1062 tp/Texinfo/XS/teximakehtml.c:1649
 msgid "Options for HTML:"
 msgstr ""
 
-#: tp/texi2any.pl:1063
+#: tp/texi2any.pl:1063 tp/Texinfo/XS/teximakehtml.c:1652
 #, fuzzy
 #| msgid ""
 #| "      --no-split              suppress any splitting of the output;\n"
@@ -4126,7 +4127,7 @@ msgstr ""
 "      --no-split              vynechať akékoľvek rozdelenie výstupu;\n"
 "                                vytvoriť len jeden výstupný súbor."
 
-#: tp/texi2any.pl:1065
+#: tp/texi2any.pl:1065 tp/Texinfo/XS/teximakehtml.c:1655
 msgid "      --css-ref=URL           generate CSS reference to URL."
 msgstr ""
 
@@ -4134,7 +4135,7 @@ msgstr ""
 msgid "      --internal-links=FILE   produce list of internal links in FILE."
 msgstr ""
 
-#: tp/texi2any.pl:1067
+#: tp/texi2any.pl:1067 tp/Texinfo/XS/teximakehtml.c:1658
 #, fuzzy
 #| msgid ""
 #| "      --no-split              suppress any splitting of the output;\n"
@@ -4146,12 +4147,12 @@ msgstr ""
 "      --no-split              vynechať akékoľvek rozdelenie výstupu;\n"
 "                                vytvoriť len jeden výstupný súbor."
 
-#: tp/texi2any.pl:1069
+#: tp/texi2any.pl:1069 tp/Texinfo/XS/teximakehtml.c:1661
 msgid ""
 "      --transliterate-file-names  use file names in ASCII transliteration."
 msgstr ""
 
-#: tp/texi2any.pl:1070
+#: tp/texi2any.pl:1070 tp/Texinfo/XS/teximakehtml.c:1664
 #, fuzzy
 #| msgid ""
 #| "      --no-split              suppress any splitting of the output;\n"
@@ -4172,43 +4173,43 @@ msgstr ""
 "      --Xopt=PREPÍNAČ          posunúť PREPÍNAČ programu texi2dvi; aj "
 "opakovane.\n"
 
-#: tp/texi2any.pl:1077
+#: tp/texi2any.pl:1077 tp/Texinfo/XS/teximakehtml.c:1667
 msgid "Input file options:"
 msgstr "Možnosti vstupného súboru:"
 
-#: tp/texi2any.pl:1078
+#: tp/texi2any.pl:1078 tp/Texinfo/XS/teximakehtml.c:1670
 msgid " -D VAR                       define the variable VAR, as with @set."
 msgstr " -D PREMENNÁ                  zadať PREMENNÚ, podobne ako so @set."
 
-#: tp/texi2any.pl:1079
+#: tp/texi2any.pl:1079 tp/Texinfo/XS/teximakehtml.c:1673
 msgid " -D 'VAR VAL'                 define VAR to VAL (one shell argument)."
 msgstr ""
 " -D 'PREMENNÁ HODNOTA'        priradiť HODNOTU PREMENNEJ (jeden shellovský "
 "parameter)."
 
-#: tp/texi2any.pl:1080
+#: tp/texi2any.pl:1080 tp/Texinfo/XS/teximakehtml.c:1676
 msgid " -I DIR                       append DIR to the @include search path."
 msgstr ""
 " -I PRIEČINOK                 pridať PRIEČINOK na koniec cesty vyhľadávania "
 "@include."
 
-#: tp/texi2any.pl:1081
+#: tp/texi2any.pl:1081 tp/Texinfo/XS/teximakehtml.c:1679
 msgid " -P DIR                       prepend DIR to the @include search path."
 msgstr ""
 " -P PRIEČINOK                 pridať PRIEČINOK na začiatok cesty "
 "vyhľadávania @include."
 
-#: tp/texi2any.pl:1082
+#: tp/texi2any.pl:1082 tp/Texinfo/XS/teximakehtml.c:1682
 msgid ""
 " -U VAR                       undefine the variable VAR, as with @clear."
 msgstr ""
 " -U PREMENNÁ                  zrušiť zadanie PREMENNEJ, podobne ako s @clear."
 
-#: tp/texi2any.pl:1084
+#: tp/texi2any.pl:1084 tp/Texinfo/XS/teximakehtml.c:1685
 msgid "Conditional processing in input:"
 msgstr "Podmienečné spracovanie vstupu:"
 
-#: tp/texi2any.pl:1085
+#: tp/texi2any.pl:1085 tp/Texinfo/XS/teximakehtml.c:1688
 msgid ""
 "  --ifdocbook       process @ifdocbook and @docbook even if\n"
 "                      not generating Docbook."
@@ -4216,63 +4217,63 @@ msgstr ""
 "  --ifdocbook       spracovať @ifdocbook a @docbook aj keď sa\n"
 "                      nevytvára Docbook."
 
-#: tp/texi2any.pl:1087
+#: tp/texi2any.pl:1087 tp/Texinfo/XS/teximakehtml.c:1691
 msgid ""
 "  --ifhtml          process @ifhtml and @html even if not generating HTML."
 msgstr ""
 "  --ifhtml          spracovať @ifhtml a @html aj keď sa nevytvára HTML."
 
-#: tp/texi2any.pl:1088
+#: tp/texi2any.pl:1088 tp/Texinfo/XS/teximakehtml.c:1694
 msgid "  --ifinfo          process @ifinfo even if not generating Info."
 msgstr "  --ifinfo          spracovať @ifinfo aj keď sa nevytvára Info."
 
-#: tp/texi2any.pl:1089
+#: tp/texi2any.pl:1089 tp/Texinfo/XS/teximakehtml.c:1697
 msgid "  --iflatex         process @iflatex and @latex."
 msgstr "  --iflatex         spracovať @iflatex a @latex."
 
-#: tp/texi2any.pl:1090
+#: tp/texi2any.pl:1090 tp/Texinfo/XS/teximakehtml.c:1700
 msgid ""
 "  --ifplaintext     process @ifplaintext even if not generating plain text."
 msgstr ""
 "  --ifplaintext     spracovať @ifplaintext aj keď sa nevytvára čistý text."
 
-#: tp/texi2any.pl:1091
+#: tp/texi2any.pl:1091 tp/Texinfo/XS/teximakehtml.c:1703
 msgid "  --iftex           process @iftex and @tex."
 msgstr "  --iftex           spracovať @iftex a @tex."
 
-#: tp/texi2any.pl:1092
+#: tp/texi2any.pl:1092 tp/Texinfo/XS/teximakehtml.c:1706
 msgid "  --ifxml           process @ifxml and @xml."
 msgstr "  --ifxml           spracovať @ifxml a @xml."
 
-#: tp/texi2any.pl:1093
+#: tp/texi2any.pl:1093 tp/Texinfo/XS/teximakehtml.c:1709
 msgid "  --no-ifdocbook    do not process @ifdocbook and @docbook text."
 msgstr "  --no-ifdocbook    nespracovávať @ifdocbook ani @docbook text."
 
-#: tp/texi2any.pl:1094
+#: tp/texi2any.pl:1094 tp/Texinfo/XS/teximakehtml.c:1712
 msgid "  --no-ifhtml       do not process @ifhtml and @html text."
 msgstr "  --no-ifhtml       nespracovávať @ifhtml ani @html text."
 
-#: tp/texi2any.pl:1095
+#: tp/texi2any.pl:1095 tp/Texinfo/XS/teximakehtml.c:1715
 msgid "  --no-ifinfo       do not process @ifinfo text."
 msgstr "  --no-ifinfo       nespracovávať @ifinfo text."
 
-#: tp/texi2any.pl:1096
+#: tp/texi2any.pl:1096 tp/Texinfo/XS/teximakehtml.c:1718
 msgid "  --no-iflatex      do not process @iflatex and @latex text."
 msgstr "  --no-iflatex      nespracovávať @iflatex ani @latex text."
 
-#: tp/texi2any.pl:1097
+#: tp/texi2any.pl:1097 tp/Texinfo/XS/teximakehtml.c:1721
 msgid "  --no-ifplaintext  do not process @ifplaintext text."
 msgstr "  --no-ifplaintext  nespracovávať @ifplaintext text."
 
-#: tp/texi2any.pl:1098
+#: tp/texi2any.pl:1098 tp/Texinfo/XS/teximakehtml.c:1724
 msgid "  --no-iftex        do not process @iftex and @tex text."
 msgstr "  --no-iftex        nespracovávať @iftex ani @tex text."
 
-#: tp/texi2any.pl:1099
+#: tp/texi2any.pl:1099 tp/Texinfo/XS/teximakehtml.c:1727
 msgid "  --no-ifxml        do not process @ifxml and @xml text."
 msgstr "  --no-ifxml        nespracovávať @ifxml ani @xml text."
 
-#: tp/texi2any.pl:1101
+#: tp/texi2any.pl:1101 tp/Texinfo/XS/teximakehtml.c:1731
 msgid "  Also, for the --no-ifFORMAT options, do process @ifnotFORMAT text."
 msgstr ""
 "  Okrem toho, pri použití prepínačov --no-ifFORMÁT, nespracovávať "
@@ -4330,8 +4331,8 @@ msgstr ""
 "oddielmi\n"
 "  makeinfo --no-split súbor.texi           zapísať jeden veľký Info súbor\n"
 
-#: tp/texi2any.pl:1142
-#, fuzzy, perl-format
+#: tp/texi2any.pl:1142 tp/Texinfo/XS/teximakehtml.c:1380
+#, fuzzy, c-format, perl-format
 #| msgid ""
 #| "Copyright (C) %s Free Software Foundation, Inc.\n"
 #| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
@@ -4351,8 +4352,8 @@ msgstr ""
 "Toto je slobodný program: môžete ho meniť a ďalej šíriť.\n"
 "V rozsahu, ktorý umožňuje právny poriadok, sa neposkytuje ŽIADNA ZÁRUKA.\n"
 
-#: tp/texi2any.pl:1169
-#, fuzzy, perl-format
+#: tp/texi2any.pl:1169 tp/Texinfo/XS/teximakehtml.c:1406
+#, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'."
 msgstr ""
@@ -4433,6 +4434,27 @@ msgstr "%s: chyba pri zatváraní súboru vnútorných odkazov %s: %s\n"
 #, perl-format
 msgid "%s: error on closing elements size file %s: %s\n"
 msgstr "%s: chyba pri zatváraní súboru veľkostí položiek %s: %s\n"
+
+#: tp/Texinfo/XS/teximakehtml.c:1434
+#, fuzzy, c-format
+#| msgid ""
+#| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
+msgid "%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
+msgstr ""
+"%s: parameter pre --paragraph-indent musí byť číselný/„none“/„asis“, nie "
+"„%s“.\n"
+
+#: tp/Texinfo/XS/teximakehtml.c:2023
+#, fuzzy, c-format
+#| msgid "%s: missing file argument.\n"
+msgid "%s: missing file argument."
+msgstr "%s: chýba parameter súboru.\n"
+
+#: tp/Texinfo/XS/teximakehtml.c:2031
+#, fuzzy, c-format
+#| msgid "Try `%s --help' for more information.\n"
+msgid "Try `%s --help' for more information."
+msgstr "Skúste „%s --help“ pre viac podrobností.\n"
 
 #: tp/Texinfo/XS/convert/convert_html.c:2158
 #, c-format

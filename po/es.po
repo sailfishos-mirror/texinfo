@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo-7.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-24 10:20+0100\n"
+"POT-Creation-Date: 2024-12-24 10:24+0100\n"
 "PO-Revision-Date: 2024-11-10 10:13+0100\n"
 "Last-Translator: Antonio Ceballos <aceballos@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
@@ -485,6 +485,7 @@ msgstr ""
 
 #: info/info.c:1165 install-info/install-info.c:588
 #: Pod-Simple-Texinfo/pod2texi.pl:173 tp/texi2any.pl:1128
+#: tp/Texinfo/XS/teximakehtml.c:1734
 msgid ""
 "Email bug reports to bug-texinfo@gnu.org,\n"
 "general questions and discussion to help-texinfo@gnu.org.\n"
@@ -2213,8 +2214,8 @@ msgstr "'%s' no es válido como código de lenguaje"
 msgid "%s is not a valid region code"
 msgstr "'%s' no es válido como código de región"
 
-#: tp/Texinfo/Config.pm:140 tp/texi2any.pl:579
-#, perl-format
+#: tp/Texinfo/Config.pm:140 tp/texi2any.pl:579 tp/Texinfo/XS/teximakehtml.c:202
+#, c-format, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s"
 msgstr "%s: precaución: %s"
@@ -3990,8 +3991,8 @@ msgstr "no se ha podido leer el fichero de extensiones %s"
 msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'"
 msgstr "ignorando valor desconocido de TEXINFO_OUTPUT_FORMAT ('%s').\n"
 
-#: tp/texi2any.pl:975
-#, fuzzy, perl-format
+#: tp/texi2any.pl:975 tp/Texinfo/XS/teximakehtml.c:1552
+#, fuzzy, c-format, perl-format
 #| msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
 msgid "Usage: %s [OPTION]... TEXINFO-FILE..."
 msgstr "Modo de empleo: %s [OPCIÓN]... FICHERO-TEXINFO...\n"
@@ -4014,11 +4015,11 @@ msgstr ""
 "el comportamiento es idéntico, y no depende del nombre que se haya "
 "instalado.\n"
 
-#: tp/texi2any.pl:984
+#: tp/texi2any.pl:984 tp/Texinfo/XS/teximakehtml.c:1557
 msgid "General options:"
 msgstr "Opciones generales:"
 
-#: tp/texi2any.pl:985
+#: tp/texi2any.pl:985 tp/Texinfo/XS/teximakehtml.c:1560
 msgid ""
 "      --document-language=STR locale to use in translating Texinfo keywords\n"
 "                                for the output document (default C)."
@@ -4027,47 +4028,47 @@ msgstr ""
 "                                clave de Texinfo en el documento de salida\n"
 "                                (predeterminado a C)."
 
-#: tp/texi2any.pl:987
-#, perl-format
+#: tp/texi2any.pl:987 tp/Texinfo/XS/teximakehtml.c:1563
+#, c-format, perl-format
 msgid "      --error-limit=NUM       quit after NUM errors (default %d)."
 msgstr ""
 "      --error-limit=NUM       termina después de NUM errores\n"
 "                                (predeterminado a %d)."
 
-#: tp/texi2any.pl:989
+#: tp/texi2any.pl:989 tp/Texinfo/XS/teximakehtml.c:1567
 msgid "      --force                 preserve output even if errors."
 msgstr ""
 "      --force                 preserva la salida incluso si hay errores."
 
-#: tp/texi2any.pl:990
+#: tp/texi2any.pl:990 tp/Texinfo/XS/teximakehtml.c:1570
 msgid "      --help                  display this help and exit."
 msgstr "      --help                  muestra este texto de ayuda y termina."
 
-#: tp/texi2any.pl:991
+#: tp/texi2any.pl:991 tp/Texinfo/XS/teximakehtml.c:1573
 msgid "      --no-validate           suppress node cross-reference validation."
 msgstr ""
 "      --no-validate           suprime la validación de referencias cruzadas "
 "entre nodos."
 
-#: tp/texi2any.pl:992
+#: tp/texi2any.pl:992 tp/Texinfo/XS/teximakehtml.c:1582
 msgid "      --no-warn               suppress warnings (but not errors)."
 msgstr ""
 "      --no-warn               suprime los avisos (pero no los errores)."
 
-#: tp/texi2any.pl:993
+#: tp/texi2any.pl:993 tp/Texinfo/XS/teximakehtml.c:1576
 msgid ""
 "      --conf-dir=DIR          search also for initialization files in DIR."
 msgstr ""
 "      --conf-dir=DIR          busca también ficheros de inicialización en "
 "DIR."
 
-#: tp/texi2any.pl:994
+#: tp/texi2any.pl:994 tp/Texinfo/XS/teximakehtml.c:1579
 msgid "      --init-file=FILE        load FILE to modify the default behavior."
 msgstr ""
 "      --init-file=FICHERO     carga FICHERO para modificar el comportamiento "
 "predefinido."
 
-#: tp/texi2any.pl:995
+#: tp/texi2any.pl:995 tp/Texinfo/XS/teximakehtml.c:1585
 msgid ""
 "  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n"
 "                                to value VAL."
@@ -4076,16 +4077,16 @@ msgstr ""
 "personalización\n"
 "                                VAR con el valor VAL."
 
-#: tp/texi2any.pl:997
+#: tp/texi2any.pl:997 tp/Texinfo/XS/teximakehtml.c:1588
 msgid "      --trace-includes        print names of included files."
 msgstr ""
 "      --trace-includes        imprime los nombres de los ficheros incluidos."
 
-#: tp/texi2any.pl:998
+#: tp/texi2any.pl:998 tp/Texinfo/XS/teximakehtml.c:1591
 msgid "  -v, --verbose               explain what is being done."
 msgstr "  -v, --verbose               explica lo que se está haciendo."
 
-#: tp/texi2any.pl:999
+#: tp/texi2any.pl:999 tp/Texinfo/XS/teximakehtml.c:1594
 msgid "      --version               display version information and exit."
 msgstr ""
 "      --version               muestra la información de la versión y termina."
@@ -4098,7 +4099,7 @@ msgstr "Selección del formato de salida (lo predeterminado es Info):"
 msgid "      --docbook               output Docbook XML."
 msgstr "      --docbook               salida XML Docbook."
 
-#: tp/texi2any.pl:1003
+#: tp/texi2any.pl:1003 tp/Texinfo/XS/teximakehtml.c:1600
 msgid "      --html                  output HTML."
 msgstr "      --html                  salida HTML."
 
@@ -4127,11 +4128,11 @@ msgstr ""
 "                                salida indicada tras comprobar la validez\n"
 "                                de FICHERO-TEXINFO."
 
-#: tp/texi2any.pl:1012
+#: tp/texi2any.pl:1012 tp/Texinfo/XS/teximakehtml.c:1603
 msgid "General output options:"
 msgstr "Opciones de salida generales:"
 
-#: tp/texi2any.pl:1014
+#: tp/texi2any.pl:1014 tp/Texinfo/XS/teximakehtml.c:1606
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename."
@@ -4139,7 +4140,7 @@ msgstr ""
 "  -E, --macro-expand=FICHERO  envía el fuente con las macros expandidas a\n"
 "                                FICHERO, ignorando cualquier @setfilename."
 
-#: tp/texi2any.pl:1017
+#: tp/texi2any.pl:1017 tp/Texinfo/XS/teximakehtml.c:1609
 msgid ""
 "      --no-headers            suppress node separators, Node: lines, and "
 "menus\n"
@@ -4160,7 +4161,7 @@ msgstr ""
 "Info,\n"
 "                                escribe en la salida estándar por omisión."
 
-#: tp/texi2any.pl:1023
+#: tp/texi2any.pl:1023 tp/Texinfo/XS/teximakehtml.c:1612
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file."
@@ -4168,7 +4169,7 @@ msgstr ""
 "      --no-split              suprime todo tipo de división en la salida;\n"
 "                                solo genera un fichero de salida."
 
-#: tp/texi2any.pl:1026
+#: tp/texi2any.pl:1026 tp/Texinfo/XS/teximakehtml.c:1615
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on."
@@ -4176,7 +4177,7 @@ msgstr ""
 "      --[no-]number-sections  saca números de capítulo y de sección;\n"
 "                                activado por omisión."
 
-#: tp/texi2any.pl:1029
+#: tp/texi2any.pl:1029 tp/Texinfo/XS/teximakehtml.c:1618
 msgid ""
 "  -o, --output=DEST           output to DEST.\n"
 "                                With split output, create DEST as a "
@@ -4198,7 +4199,7 @@ msgstr ""
 "                                En caso contrario, DEST es el nombre del\n"
 "                                fichero de salida."
 
-#: tp/texi2any.pl:1037
+#: tp/texi2any.pl:1037 tp/Texinfo/XS/teximakehtml.c:1621
 msgid ""
 "      --disable-encoding      do not output accented and special characters\n"
 "                                in Info and plain text output based on "
@@ -4211,25 +4212,25 @@ msgstr ""
 "la\n"
 "                                codificación del documento."
 
-#: tp/texi2any.pl:1041
+#: tp/texi2any.pl:1041 tp/Texinfo/XS/teximakehtml.c:1624
 msgid "      --enable-encoding       override --disable-encoding (default)."
 msgstr ""
 "      --enable-encoding       anula --disable-encoding (predeterminado)."
 
-#: tp/texi2any.pl:1043
+#: tp/texi2any.pl:1043 tp/Texinfo/XS/teximakehtml.c:1627
 #, perl-format
 msgid "Options for Info and plain text:"
 msgstr "Opciones para Info y texto plano:"
 
-#: tp/texi2any.pl:1045
-#, perl-format
+#: tp/texi2any.pl:1045 tp/Texinfo/XS/teximakehtml.c:1630
+#, c-format, perl-format
 msgid ""
 "      --fill-column=NUM       break Info lines at NUM columns (default %d)."
 msgstr ""
 "      --fill-column=NÚM       parte las líneas de Info en NÚM columnas\n"
 "                                (predeterminado: %d)."
 
-#: tp/texi2any.pl:1047
+#: tp/texi2any.pl:1047 tp/Texinfo/XS/teximakehtml.c:1634
 #, perl-format
 msgid ""
 "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n"
@@ -4244,8 +4245,8 @@ msgstr ""
 "que\n"
 "                                están definidas (esto es lo predeterminado)."
 
-#: tp/texi2any.pl:1052
-#, perl-format
+#: tp/texi2any.pl:1052 tp/Texinfo/XS/teximakehtml.c:1641
+#, c-format, perl-format
 msgid ""
 "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default "
 "%d).\n"
@@ -4259,21 +4260,21 @@ msgstr ""
 "sangrado\n"
 "                                existente."
 
-#: tp/texi2any.pl:1056
-#, perl-format
+#: tp/texi2any.pl:1056 tp/Texinfo/XS/teximakehtml.c:1645
+#, c-format, perl-format
 msgid ""
 "      --split-size=NUM        split Info files at size NUM (default %d)."
 msgstr ""
 "      --split-size=NÚM        parte los ficheros Info por tamaño NÚM (lo\n"
 "                                predefinido es %d)."
 
-#: tp/texi2any.pl:1062
+#: tp/texi2any.pl:1062 tp/Texinfo/XS/teximakehtml.c:1649
 #, fuzzy
 #| msgid "Options:"
 msgid "Options for HTML:"
 msgstr "Opciones:"
 
-#: tp/texi2any.pl:1063
+#: tp/texi2any.pl:1063 tp/Texinfo/XS/teximakehtml.c:1652
 #, fuzzy
 #| msgid ""
 #| "      --no-split              suppress any splitting of the output;\n"
@@ -4285,7 +4286,7 @@ msgstr ""
 "      --no-split              suprime todo tipo de división en la salida;\n"
 "                                solo genera un fichero de salida."
 
-#: tp/texi2any.pl:1065
+#: tp/texi2any.pl:1065 tp/Texinfo/XS/teximakehtml.c:1655
 msgid "      --css-ref=URL           generate CSS reference to URL."
 msgstr ""
 
@@ -4293,7 +4294,7 @@ msgstr ""
 msgid "      --internal-links=FILE   produce list of internal links in FILE."
 msgstr ""
 
-#: tp/texi2any.pl:1067
+#: tp/texi2any.pl:1067 tp/Texinfo/XS/teximakehtml.c:1658
 #, fuzzy
 #| msgid ""
 #| "      --no-split              suppress any splitting of the output;\n"
@@ -4305,12 +4306,12 @@ msgstr ""
 "      --no-split              suprime todo tipo de división en la salida;\n"
 "                                solo genera un fichero de salida."
 
-#: tp/texi2any.pl:1069
+#: tp/texi2any.pl:1069 tp/Texinfo/XS/teximakehtml.c:1661
 msgid ""
 "      --transliterate-file-names  use file names in ASCII transliteration."
 msgstr ""
 
-#: tp/texi2any.pl:1070
+#: tp/texi2any.pl:1070 tp/Texinfo/XS/teximakehtml.c:1664
 #, fuzzy
 #| msgid ""
 #| "      --no-split              suppress any splitting of the output;\n"
@@ -4330,43 +4331,43 @@ msgstr ""
 "Opciones para DVI/PS/PDF:\n"
 "      --Xopt=OPC              pasa OPC a text2dvi; puede repetirse.\n"
 
-#: tp/texi2any.pl:1077
+#: tp/texi2any.pl:1077 tp/Texinfo/XS/teximakehtml.c:1667
 msgid "Input file options:"
 msgstr "Opciones del fichero de entrada:"
 
-#: tp/texi2any.pl:1078
+#: tp/texi2any.pl:1078 tp/Texinfo/XS/teximakehtml.c:1670
 msgid " -D VAR                       define the variable VAR, as with @set."
 msgstr " -D VAR                       define la variable VAR, igual que @set."
 
-#: tp/texi2any.pl:1079
+#: tp/texi2any.pl:1079 tp/Texinfo/XS/teximakehtml.c:1673
 msgid " -D 'VAR VAL'                 define VAR to VAL (one shell argument)."
 msgstr ""
 " -D 'VAR VAL'                 define VAR a VAL (un argumento de «shell»)."
 
-#: tp/texi2any.pl:1080
+#: tp/texi2any.pl:1080 tp/Texinfo/XS/teximakehtml.c:1676
 msgid " -I DIR                       append DIR to the @include search path."
 msgstr ""
 " -I DIR                       añade DIR a la ruta de búsqueda de @include."
 
-#: tp/texi2any.pl:1081
+#: tp/texi2any.pl:1081 tp/Texinfo/XS/teximakehtml.c:1679
 msgid " -P DIR                       prepend DIR to the @include search path."
 msgstr ""
 " -P DIR                       inserta DIR al principio de la ruta de "
 "búsqueda\n"
 "                                de @include."
 
-#: tp/texi2any.pl:1082
+#: tp/texi2any.pl:1082 tp/Texinfo/XS/teximakehtml.c:1682
 msgid ""
 " -U VAR                       undefine the variable VAR, as with @clear."
 msgstr ""
 " -U VAR                       anula la definición de la variable VAR,\n"
 "                                que @clear."
 
-#: tp/texi2any.pl:1084
+#: tp/texi2any.pl:1084 tp/Texinfo/XS/teximakehtml.c:1685
 msgid "Conditional processing in input:"
 msgstr "Procesamiento condicional de la entrada:"
 
-#: tp/texi2any.pl:1085
+#: tp/texi2any.pl:1085 tp/Texinfo/XS/teximakehtml.c:1688
 msgid ""
 "  --ifdocbook       process @ifdocbook and @docbook even if\n"
 "                      not generating Docbook."
@@ -4374,62 +4375,62 @@ msgstr ""
 "  --ifdocbook       procesa @ifdocbook y @docbook aunque no\n"
 "                      se genere Docbook."
 
-#: tp/texi2any.pl:1087
+#: tp/texi2any.pl:1087 tp/Texinfo/XS/teximakehtml.c:1691
 msgid ""
 "  --ifhtml          process @ifhtml and @html even if not generating HTML."
 msgstr "  --ifhtml          procesa @ifhtml y @html aunque no se genere HTML."
 
-#: tp/texi2any.pl:1088
+#: tp/texi2any.pl:1088 tp/Texinfo/XS/teximakehtml.c:1694
 msgid "  --ifinfo          process @ifinfo even if not generating Info."
 msgstr "  --ifinfo          procesa @ifinfo aunque no se genere Info."
 
-#: tp/texi2any.pl:1089
+#: tp/texi2any.pl:1089 tp/Texinfo/XS/teximakehtml.c:1697
 msgid "  --iflatex         process @iflatex and @latex."
 msgstr "  --iflatex         procesa @iflatex y @latex."
 
-#: tp/texi2any.pl:1090
+#: tp/texi2any.pl:1090 tp/Texinfo/XS/teximakehtml.c:1700
 msgid ""
 "  --ifplaintext     process @ifplaintext even if not generating plain text."
 msgstr ""
 "  --ifplaintext     procesa @ifplaintext aunque no se genere texto plano."
 
-#: tp/texi2any.pl:1091
+#: tp/texi2any.pl:1091 tp/Texinfo/XS/teximakehtml.c:1703
 msgid "  --iftex           process @iftex and @tex."
 msgstr "  --iftex           procesa @iftex y @tex."
 
-#: tp/texi2any.pl:1092
+#: tp/texi2any.pl:1092 tp/Texinfo/XS/teximakehtml.c:1706
 msgid "  --ifxml           process @ifxml and @xml."
 msgstr "  --ifxml           procesa @ifxml y @xml."
 
-#: tp/texi2any.pl:1093
+#: tp/texi2any.pl:1093 tp/Texinfo/XS/teximakehtml.c:1709
 msgid "  --no-ifdocbook    do not process @ifdocbook and @docbook text."
 msgstr "  --no-ifdocbook    no procesa texto @ifdocbook ni @docbook."
 
-#: tp/texi2any.pl:1094
+#: tp/texi2any.pl:1094 tp/Texinfo/XS/teximakehtml.c:1712
 msgid "  --no-ifhtml       do not process @ifhtml and @html text."
 msgstr "  --no-ifhtml       no procesa texto @ifhtml ni @html."
 
-#: tp/texi2any.pl:1095
+#: tp/texi2any.pl:1095 tp/Texinfo/XS/teximakehtml.c:1715
 msgid "  --no-ifinfo       do not process @ifinfo text."
 msgstr "  --no-ifinfo       no procesa texto @ifinfo."
 
-#: tp/texi2any.pl:1096
+#: tp/texi2any.pl:1096 tp/Texinfo/XS/teximakehtml.c:1718
 msgid "  --no-iflatex      do not process @iflatex and @latex text."
 msgstr "  --no-iflatex      no procesa texto @iflatex ni @latex."
 
-#: tp/texi2any.pl:1097
+#: tp/texi2any.pl:1097 tp/Texinfo/XS/teximakehtml.c:1721
 msgid "  --no-ifplaintext  do not process @ifplaintext text."
 msgstr "  --no-ifplaintext  no procesa texto @ifplaintext."
 
-#: tp/texi2any.pl:1098
+#: tp/texi2any.pl:1098 tp/Texinfo/XS/teximakehtml.c:1724
 msgid "  --no-iftex        do not process @iftex and @tex text."
 msgstr "  --no-iftex        no procesa texto @iftex ni @tex."
 
-#: tp/texi2any.pl:1099
+#: tp/texi2any.pl:1099 tp/Texinfo/XS/teximakehtml.c:1727
 msgid "  --no-ifxml        do not process @ifxml and @xml text."
 msgstr "  --no-ifxml        no procesa texto @ifxml ni @xml."
 
-#: tp/texi2any.pl:1101
+#: tp/texi2any.pl:1101 tp/Texinfo/XS/teximakehtml.c:1731
 msgid "  Also, for the --no-ifFORMAT options, do process @ifnotFORMAT text."
 msgstr ""
 " También, para las opciones --no-ifFORMATO, procesa texto @ifnotFORMATO."
@@ -4531,8 +4532,8 @@ msgstr ""
 "cuán\n"
 "                                         grande sea.\n"
 
-#: tp/texi2any.pl:1142
-#, fuzzy, perl-format
+#: tp/texi2any.pl:1142 tp/Texinfo/XS/teximakehtml.c:1380
+#, fuzzy, c-format, perl-format
 #| msgid ""
 #| "Copyright (C) %s Free Software Foundation, Inc.\n"
 #| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
@@ -4552,8 +4553,8 @@ msgstr ""
 "Esto es software libre: usted es libre de cambiarlo y redistribuirlo.\n"
 "Dicho software es provisto SIN GARANTÍA, hasta donde permite la ley.\n"
 
-#: tp/texi2any.pl:1169
-#, fuzzy, perl-format
+#: tp/texi2any.pl:1169 tp/Texinfo/XS/teximakehtml.c:1406
+#, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'."
 msgstr ""
@@ -4634,6 +4635,27 @@ msgstr "%s: error al cerrar el fichero de enlaces internos %s: %s\n"
 #, perl-format
 msgid "%s: error on closing elements size file %s: %s\n"
 msgstr "%s: error al cerrar el fichero de tamaño de los elementos %s: %s\n"
+
+#: tp/Texinfo/XS/teximakehtml.c:1434
+#, fuzzy, c-format
+#| msgid ""
+#| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
+msgid "%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
+msgstr ""
+"%s: `--paragraph-indent' toma un argumento numérico/`none'/`asis', y no "
+"'%s'.\n"
+
+#: tp/Texinfo/XS/teximakehtml.c:2023
+#, fuzzy, c-format
+#| msgid "%s: missing file argument.\n"
+msgid "%s: missing file argument."
+msgstr "%s: se necesita nombre de fichero que procesar.\n"
+
+#: tp/Texinfo/XS/teximakehtml.c:2031
+#, fuzzy, c-format
+#| msgid "Try `%s --help' for more information.\n"
+msgid "Try `%s --help' for more information."
+msgstr "Pruebe `%s --help' para obtener más información.\n"
 
 #: tp/Texinfo/XS/convert/convert_html.c:2158
 #, c-format
