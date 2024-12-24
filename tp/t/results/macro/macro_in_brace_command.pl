@@ -62,10 +62,6 @@ $result_trees{'macro_in_brace_command'} = {
             'macro_name' => 'foo',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' foo
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -127,10 +123,6 @@ $result_trees{'macro_in_brace_command'} = {
           'extra' => {
             'macro_name' => 'abar',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' abar
-'
           },
           'source_info' => {
             'line_nr' => 5

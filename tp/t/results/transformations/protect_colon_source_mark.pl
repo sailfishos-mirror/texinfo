@@ -64,10 +64,6 @@ $result_trees{'protect_colon_source_mark'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' klm {arg}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

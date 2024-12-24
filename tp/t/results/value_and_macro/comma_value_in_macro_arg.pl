@@ -87,10 +87,6 @@ $result_trees{'comma_value_in_macro_arg'} = {
               'arg2'
             ]
           },
-          'info' => {
-            'arg_line' => ' macro1 { arg1 , arg2 }
-'
-          },
           'source_info' => {
             'line_nr' => 3
           }

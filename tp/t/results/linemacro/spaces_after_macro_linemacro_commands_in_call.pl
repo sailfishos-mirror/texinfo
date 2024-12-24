@@ -76,10 +76,6 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
               'rest'
             ]
           },
-          'info' => {
-            'arg_line' => ' mylinecommand {first, second, rest}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -143,10 +139,6 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
             'misc_args' => [
               'arg1'
             ]
-          },
-          'info' => {
-            'arg_line' => ' mymac {arg1}
-'
           },
           'source_info' => {
             'line_nr' => 7
@@ -212,10 +204,6 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
               'name',
               'rest'
             ]
-          },
-          'info' => {
-            'arg_line' => ' mylinemac {name, rest}
-'
           },
           'source_info' => {
             'line_nr' => 11

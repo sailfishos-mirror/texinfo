@@ -72,10 +72,6 @@ $result_trees{'line_after_recursive_call'} = {
             'macro_name' => 'mac',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' mac
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -64,10 +64,6 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
               'string'
             ]
           },
-          'info' => {
-            'arg_line' => ' witherror{string}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

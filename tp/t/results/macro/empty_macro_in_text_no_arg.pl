@@ -57,10 +57,6 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
             'macro_name' => 'texnl',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' texnl{}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -155,10 +151,6 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
           'extra' => {
             'macro_name' => 'texnltwo',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' texnltwo
-'
           },
           'source_info' => {
             'line_nr' => 6

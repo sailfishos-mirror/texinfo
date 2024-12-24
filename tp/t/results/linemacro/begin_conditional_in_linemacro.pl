@@ -64,10 +64,6 @@ $result_trees{'begin_conditional_in_linemacro'} = {
               'a'
             ]
           },
-          'info' => {
-            'arg_line' => ' lm {a}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

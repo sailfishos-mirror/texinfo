@@ -62,10 +62,6 @@ $result_trees{'space_macro_after_end_verbatim'} = {
             'macro_name' => 'spaces',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' spaces
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -64,10 +64,6 @@ $result_trees{'texinfo_command_alias_indirect'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' mystrong {arg}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

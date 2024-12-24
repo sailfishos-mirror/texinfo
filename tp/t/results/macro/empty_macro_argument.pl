@@ -62,10 +62,6 @@ $result_trees{'empty_macro_argument'} = {
             'macro_name' => 'mymacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' mymacro{}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -256,10 +252,6 @@ $result_trees{'empty_macro_argument'} = {
             'misc_args' => [
               'arg'
             ]
-          },
-          'info' => {
-            'arg_line' => ' mytwo{arg}
-'
           },
           'source_info' => {
             'line_nr' => 7

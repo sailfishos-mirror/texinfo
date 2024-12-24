@@ -66,10 +66,6 @@ $result_trees{'braces_after_text'} = {
               'c'
             ]
           },
-          'info' => {
-            'arg_line' => ' mymacro {a, b, c}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -57,10 +57,6 @@ $result_trees{'paragraph_and_macro'} = {
             'macro_name' => 'aempty',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' aempty
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -123,10 +119,6 @@ $result_trees{'paragraph_and_macro'} = {
             'macro_name' => 'aspace',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' aspace
-'
-          },
           'source_info' => {
             'line_nr' => 4
           }
@@ -188,10 +180,6 @@ $result_trees{'paragraph_and_macro'} = {
           'extra' => {
             'macro_name' => 'word',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' word
-'
           },
           'source_info' => {
             'line_nr' => 8

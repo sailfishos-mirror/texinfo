@@ -65,10 +65,6 @@ $result_trees{'macro_name_with_hyphen'} = {
               'arg2'
             ]
           },
-          'info' => {
-            'arg_line' => ' macro-one {arg-one, arg2}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

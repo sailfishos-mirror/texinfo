@@ -102,10 +102,6 @@ $result_trees{'empty_last_argument'} = {
               'rest'
             ]
           },
-          'info' => {
-            'arg_line' => ' defbuiltin {symbol, rest}
-'
-          },
           'source_info' => {
             'line_nr' => 2
           }

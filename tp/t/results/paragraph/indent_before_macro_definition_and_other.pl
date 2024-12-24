@@ -357,10 +357,6 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
               'g'
             ]
           },
-          'info' => {
-            'arg_line' => ' aaa {g}
-'
-          },
           'source_info' => {
             'line_nr' => 15
           }

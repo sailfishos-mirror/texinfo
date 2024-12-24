@@ -76,10 +76,6 @@ $result_trees{'macro_call_empty_middle_arg'} = {
               'cc'
             ]
           },
-          'info' => {
-            'arg_line' => ' threea {aa, bb, cc}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

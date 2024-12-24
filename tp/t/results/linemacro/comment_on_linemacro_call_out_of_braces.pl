@@ -76,10 +76,6 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
               'c'
             ]
           },
-          'info' => {
-            'arg_line' => ' lm {a, b, c}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -128,10 +128,6 @@ $result_trees{'backslash_in_arg'} = {
               'TEXT'
             ]
           },
-          'info' => {
-            'arg_line' => ' funindex {TEXT}
-'
-          },
           'source_info' => {
             'line_nr' => 4
           }

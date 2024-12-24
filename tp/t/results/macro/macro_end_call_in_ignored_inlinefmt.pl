@@ -62,10 +62,6 @@ $result_trees{'macro_end_call_in_ignored_inlinefmt'} = {
             'macro_name' => 'startfmt',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' startfmt
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

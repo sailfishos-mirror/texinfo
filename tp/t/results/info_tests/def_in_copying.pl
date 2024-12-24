@@ -77,10 +77,6 @@ $result_trees{'def_in_copying'} = {
             'macro_name' => 'mymacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' mymacro
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -62,10 +62,6 @@ $result_trees{'closing_brace_in_macro_call_in_ignored_inline'} = {
             'macro_name' => 'closebrace',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' closebrace
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

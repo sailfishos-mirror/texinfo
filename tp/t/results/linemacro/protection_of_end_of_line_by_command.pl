@@ -64,10 +64,6 @@ $result_trees{'protection_of_end_of_line_by_command'} = {
               'one'
             ]
           },
-          'info' => {
-            'arg_line' => ' lm {one}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

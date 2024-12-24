@@ -62,10 +62,6 @@ $result_trees{'protect_comma_source_mark'} = {
             'macro_name' => 'vvv',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' vvv {}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

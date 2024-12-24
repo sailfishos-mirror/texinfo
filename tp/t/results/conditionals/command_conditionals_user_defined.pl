@@ -62,10 +62,6 @@ $result_trees{'command_conditionals_user_defined'} = {
             'macro_name' => 'truc',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' truc
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

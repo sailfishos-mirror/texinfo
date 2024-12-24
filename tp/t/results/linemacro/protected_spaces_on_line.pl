@@ -75,10 +75,6 @@ $result_trees{'protected_spaces_on_line'} = {
               'rest'
             ]
           },
-          'info' => {
-            'arg_line' => ' test {first, rest}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

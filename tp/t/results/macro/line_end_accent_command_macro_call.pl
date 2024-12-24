@@ -62,10 +62,6 @@ $result_trees{'line_end_accent_command_macro_call'} = {
             'macro_name' => 'expand',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' expand {}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -212,10 +208,6 @@ $result_trees{'line_end_accent_command_macro_call'} = {
           'extra' => {
             'macro_name' => 'nospace',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' nospace {}
-'
           },
           'source_info' => {
             'line_nr' => 8

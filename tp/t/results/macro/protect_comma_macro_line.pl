@@ -79,10 +79,6 @@ $result_trees{'protect_comma_macro_line'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' macrotwo { arg }
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -72,10 +72,6 @@ $result_trees{'test_image'} = {
             'macro_name' => 'files-char',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' files-char
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

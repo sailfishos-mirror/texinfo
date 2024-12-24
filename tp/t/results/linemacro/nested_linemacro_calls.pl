@@ -65,10 +65,6 @@ $result_trees{'nested_linemacro_calls'} = {
               'b'
             ]
           },
-          'info' => {
-            'arg_line' => ' inside {a, b}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -139,10 +135,6 @@ $result_trees{'nested_linemacro_calls'} = {
               'two',
               'three'
             ]
-          },
-          'info' => {
-            'arg_line' => ' outside {one, two, three}
-'
           },
           'source_info' => {
             'line_nr' => 5

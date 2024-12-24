@@ -61,10 +61,6 @@ $result_trees{'non_ascii_in_macro_name'} = {
           'extra' => {
             'invalid_syntax' => 1
           },
-          'info' => {
-            'arg_line' => " parenbr\x{e8}ve {a}
-"
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -86,10 +86,6 @@ $result_trees{'value_in_macro_body'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' testvaluebody { arg }
-'
-          },
           'source_info' => {
             'line_nr' => 3
           }

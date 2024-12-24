@@ -64,10 +64,6 @@ $result_trees{'complex_argument'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' macrotwo{arg}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -145,10 +141,6 @@ $result_trees{'complex_argument'} = {
             'macro_name' => 'macrofour',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' macrofour {}
-'
-          },
           'source_info' => {
             'line_nr' => 5
           }
@@ -218,10 +210,6 @@ $result_trees{'complex_argument'} = {
               'text',
               'arg'
             ]
-          },
-          'info' => {
-            'arg_line' => ' macrothree{text, arg}
-'
           },
           'source_info' => {
             'line_nr' => 12
@@ -625,10 +613,6 @@ macroseven defined
             'misc_args' => [
               'truc'
             ]
-          },
-          'info' => {
-            'arg_line' => ' macroseven {truc}
-'
           },
           'source_info' => {
             'line_nr' => 38,

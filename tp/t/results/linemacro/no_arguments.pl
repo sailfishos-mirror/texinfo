@@ -62,10 +62,6 @@ $result_trees{'no_arguments'} = {
             'macro_name' => 'noarg',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' noarg
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

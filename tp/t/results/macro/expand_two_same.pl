@@ -69,10 +69,6 @@ $result_trees{'expand_two_same'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' macrotwo { arg }
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

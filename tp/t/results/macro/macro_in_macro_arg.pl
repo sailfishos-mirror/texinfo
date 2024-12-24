@@ -67,10 +67,6 @@ $result_trees{'macro_in_macro_arg'} = {
             'macro_name' => 'macroone',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' macroone
-'
-          },
           'source_info' => {
             'line_nr' => 2
           }
@@ -134,10 +130,6 @@ $result_trees{'macro_in_macro_arg'} = {
             'misc_args' => [
               'arg'
             ]
-          },
-          'info' => {
-            'arg_line' => ' macrotwo{arg}
-'
           },
           'source_info' => {
             'line_nr' => 6
@@ -208,10 +200,6 @@ $result_trees{'macro_in_macro_arg'} = {
               'text',
               'arg'
             ]
-          },
-          'info' => {
-            'arg_line' => ' macrothree{text, arg}
-'
           },
           'source_info' => {
             'line_nr' => 10

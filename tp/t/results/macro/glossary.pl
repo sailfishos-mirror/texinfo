@@ -121,10 +121,6 @@ $result_trees{'glossary'} = {
                 'macro_name' => 'glossarytext',
                 'misc_args' => []
               },
-              'info' => {
-                'arg_line' => ' glossarytext
-'
-              },
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 5
@@ -198,10 +194,6 @@ $result_trees{'glossary'} = {
               'extra' => {
                 'macro_name' => 'glossary',
                 'misc_args' => []
-              },
-              'info' => {
-                'arg_line' => ' glossary
-'
               },
               'source_info' => {
                 'file_name' => 'glossary.texi',
@@ -350,10 +342,6 @@ $result_trees{'glossary'} = {
                   'name',
                   'text'
                 ]
-              },
-              'info' => {
-                'arg_line' => ' gentry {id, name, text}
-'
               },
               'source_info' => {
                 'file_name' => 'glossary.texi',
@@ -865,10 +853,6 @@ $result_trees{'glossary'} = {
                   'glossary'
                 ]
               },
-              'info' => {
-                'arg_line' => ' expandglossary{glossary}
-'
-              },
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 42,
@@ -986,10 +970,6 @@ $result_trees{'glossary'} = {
               'extra' => {
                 'macro_name' => 'glossarytext',
                 'misc_args' => []
-              },
-              'info' => {
-                'arg_line' => ' glossarytext
-'
               },
               'source_info' => {
                 'file_name' => 'glossary.texi',
@@ -1327,10 +1307,6 @@ $result_trees{'glossary'} = {
                   'glossary'
                 ]
               },
-              'info' => {
-                'arg_line' => ' expandglossary{glossary}
-'
-              },
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 43,
@@ -1448,10 +1424,6 @@ $result_trees{'glossary'} = {
               'extra' => {
                 'macro_name' => 'glossarytext',
                 'misc_args' => []
-              },
-              'info' => {
-                'arg_line' => ' glossarytext
-'
               },
               'source_info' => {
                 'file_name' => 'glossary.texi',

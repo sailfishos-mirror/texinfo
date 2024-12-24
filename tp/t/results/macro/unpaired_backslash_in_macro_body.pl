@@ -69,10 +69,6 @@ $result_trees{'unpaired_backslash_in_macro_body'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' mymacro {arg}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

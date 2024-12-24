@@ -62,10 +62,6 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
             'macro_name' => 'beginifset',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' beginifset {}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -127,10 +123,6 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
           'extra' => {
             'macro_name' => 'endifset',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' endifset {}
-'
           },
           'source_info' => {
             'line_nr' => 5

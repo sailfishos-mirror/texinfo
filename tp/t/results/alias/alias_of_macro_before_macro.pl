@@ -102,10 +102,6 @@ $result_trees{'alias_of_macro_before_macro'} = {
               'thearg'
             ]
           },
-          'info' => {
-            'arg_line' => ' mymacro {thearg}
-'
-          },
           'source_info' => {
             'line_nr' => 3
           }

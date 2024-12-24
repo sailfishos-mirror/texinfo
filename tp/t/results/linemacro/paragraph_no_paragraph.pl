@@ -66,10 +66,6 @@ $result_trees{'paragraph_no_paragraph'} = {
               'c'
             ]
           },
-          'info' => {
-            'arg_line' => ' mycommand {a, b, c}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

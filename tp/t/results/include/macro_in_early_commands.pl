@@ -62,10 +62,6 @@ $result_trees{'macro_in_early_commands'} = {
             'macro_name' => 'begin-file',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' begin-file
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -124,10 +120,6 @@ $result_trees{'macro_in_early_commands'} = {
             'misc_args' => [
               'ext'
             ]
-          },
-          'info' => {
-            'arg_line' => ' end-file-name {ext}
-'
           },
           'source_info' => {
             'line_nr' => 4
@@ -281,10 +273,6 @@ $result_trees{'macro_in_early_commands'} = {
             'macro_name' => 'latin1',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' latin1 
-'
-          },
           'source_info' => {
             'line_nr' => 10
           }
@@ -346,10 +334,6 @@ $result_trees{'macro_in_early_commands'} = {
           'extra' => {
             'macro_name' => 'documentencoding-command',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' documentencoding-command
-'
           },
           'source_info' => {
             'line_nr' => 14
@@ -500,10 +484,6 @@ $result_trees{'macro_in_early_commands'} = {
           'extra' => {
             'macro_name' => 'multiinclude',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' multiinclude
-'
           },
           'source_info' => {
             'line_nr' => 20
@@ -723,10 +703,6 @@ $result_trees{'macro_in_early_commands'} = {
           'extra' => {
             'macro_name' => 'themacro',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' themacro
-'
           },
           'source_info' => {
             'file_name' => 'macro_included.texi',

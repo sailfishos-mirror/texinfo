@@ -67,10 +67,6 @@ $result_trees{'arg_body_expansion_order'} = {
             'macro_name' => 'othermacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' othermacro
-'
-          },
           'source_info' => {
             'line_nr' => 2
           }
@@ -154,10 +150,6 @@ $result_trees{'arg_body_expansion_order'} = {
             'misc_args' => [
               'arg'
             ]
-          },
-          'info' => {
-            'arg_line' => ' redefineothermacro {arg}
-'
           },
           'source_info' => {
             'line_nr' => 6
@@ -258,10 +250,6 @@ $result_trees{'arg_body_expansion_order'} = {
           'extra' => {
             'macro_name' => 'othermacro',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' othermacro
-'
           },
           'source_info' => {
             'line_nr' => 14,

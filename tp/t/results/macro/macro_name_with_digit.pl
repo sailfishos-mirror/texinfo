@@ -62,10 +62,6 @@ $result_trees{'macro_name_with_digit'} = {
             'macro_name' => 'macro1',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' macro1
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -129,10 +125,6 @@ $result_trees{'macro_name_with_digit'} = {
             'misc_args' => [
               'arg'
             ]
-          },
-          'info' => {
-            'arg_line' => ' macro11 {arg}
-'
           },
           'source_info' => {
             'line_nr' => 5

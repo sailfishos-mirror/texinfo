@@ -85,10 +85,6 @@ $result_trees{'macro_expansion'} = {
               'arg2'
             ]
           },
-          'info' => {
-            'arg_line' => ' macroone {arg1, arg2 }
-'
-          },
           'source_info' => {
             'line_nr' => 2
           }

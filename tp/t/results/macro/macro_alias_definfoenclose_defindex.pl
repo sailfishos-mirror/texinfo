@@ -203,10 +203,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' phooindex {arg}
-'
-          },
           'source_info' => {
             'line_nr' => 7
           }
@@ -592,10 +588,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' phooindex {arg}
-'
-          },
           'source_info' => {
             'line_nr' => 24
           }
@@ -773,10 +765,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             'misc_args' => [
               'arg'
             ]
-          },
-          'info' => {
-            'arg_line' => ' phooindex {arg}
-'
           },
           'source_info' => {
             'line_nr' => 32
@@ -1159,10 +1147,6 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             'misc_args' => [
               'arg'
             ]
-          },
-          'info' => {
-            'arg_line' => ' phooindex {arg}
-'
           },
           'source_info' => {
             'line_nr' => 49

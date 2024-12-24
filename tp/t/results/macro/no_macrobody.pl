@@ -59,10 +59,6 @@ $result_trees{'no_macrobody'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' nomacrobody {arg}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

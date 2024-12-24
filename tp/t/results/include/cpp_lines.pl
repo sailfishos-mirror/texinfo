@@ -309,10 +309,6 @@ $result_trees{'cpp_lines'} = {
             'macro_name' => 'macr',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' macr
-'
-          },
           'source_info' => {
             'file_name' => 'g_f',
             'line_nr' => 53
@@ -481,10 +477,6 @@ $result_trees{'cpp_lines'} = {
           'extra' => {
             'macro_name' => 'macrtwo',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' macrtwo
-'
           },
           'source_info' => {
             'file_name' => 'g_f',

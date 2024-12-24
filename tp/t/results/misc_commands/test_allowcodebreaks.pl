@@ -158,10 +158,6 @@ $result_trees{'test_allowcodebreaks'} = {
               'nr'
             ]
           },
-          'info' => {
-            'arg_line' => ' testallowcodebreakspara {nr}
-'
-          },
           'source_info' => {
             'line_nr' => 4
           }
@@ -238,10 +234,6 @@ $result_trees{'test_allowcodebreaks'} = {
           'extra' => {
             'macro_name' => 'testallowcodebreaksexample',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' testallowcodebreaksexample{}
-'
           },
           'source_info' => {
             'line_nr' => 13

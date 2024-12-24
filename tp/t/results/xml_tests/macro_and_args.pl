@@ -60,10 +60,6 @@ $result_trees{'macro_and_args'} = {
               '2b-bb'
             ]
           },
-          'info' => {
-            'arg_line' => ' good { aaa, 2b-bb}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -125,10 +121,6 @@ $result_trees{'macro_and_args'} = {
               'nnn_b',
               'ccc v'
             ]
-          },
-          'info' => {
-            'arg_line' => ' bad { ggg"@@^_ ff, nnn_b, ccc v}
-'
           },
           'source_info' => {
             'line_nr' => 4

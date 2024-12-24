@@ -61,10 +61,6 @@ $result_trees{'bad_argument'} = {
           'extra' => {
             'invalid_syntax' => 1
           },
-          'info' => {
-            'arg_line' => '
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -127,10 +123,6 @@ $result_trees{'bad_argument'} = {
             'invalid_syntax' => 1,
             'macro_name' => 'abar',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' abar aaa
-'
           },
           'source_info' => {
             'line_nr' => 5
@@ -197,10 +189,6 @@ $result_trees{'bad_argument'} = {
               'ggg'
             ]
           },
-          'info' => {
-            'arg_line' => ' aftername {ggg} more  
-'
-          },
           'source_info' => {
             'line_nr' => 9
           }
@@ -261,10 +249,6 @@ $result_trees{'bad_argument'} = {
           ],
           'extra' => {
             'invalid_syntax' => 1
-          },
-          'info' => {
-            'arg_line' => ' #badname
-'
           },
           'source_info' => {
             'line_nr' => 13

@@ -65,10 +65,6 @@ $result_trees{'api_doc_with_linemacro'} = {
               'type'
             ]
           },
-          'info' => {
-            'arg_line' => ' param {param, type}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -129,10 +125,6 @@ $result_trees{'api_doc_with_linemacro'} = {
               'type'
             ]
           },
-          'info' => {
-            'arg_line' => ' returns {param, type}
-'
-          },
           'source_info' => {
             'line_nr' => 4
           }
@@ -191,10 +183,6 @@ $result_trees{'api_doc_with_linemacro'} = {
             'misc_args' => [
               'exception'
             ]
-          },
-          'info' => {
-            'arg_line' => ' raises {exception}
-'
           },
           'source_info' => {
             'line_nr' => 7

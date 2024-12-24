@@ -62,10 +62,6 @@ $result_trees{'nested_macro_call'} = {
             'macro_name' => 'machin',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' machin{}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -132,10 +128,6 @@ $result_trees{'nested_macro_call'} = {
           'extra' => {
             'macro_name' => 'truc',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' truc{}
-'
           },
           'source_info' => {
             'line_nr' => 5

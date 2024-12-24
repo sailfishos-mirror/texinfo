@@ -71,10 +71,6 @@ $result_trees{'bad_formal_arg'} = {
               'not_empty'
             ]
           },
-          'info' => {
-            'arg_line' => ' bad  { , not_empty}
-'
-          },
           'source_info' => {
             'line_nr' => 2
           }
@@ -140,10 +136,6 @@ $result_trees{'bad_formal_arg'} = {
               'first',
               'in 2arg'
             ]
-          },
-          'info' => {
-            'arg_line' => ' badspace{first, in 2arg}
-'
           },
           'source_info' => {
             'line_nr' => 6
@@ -224,10 +216,6 @@ $result_trees{'bad_formal_arg'} = {
             'misc_args' => [
               ':::'
             ]
-          },
-          'info' => {
-            'arg_line' => ' abar {:::}
-'
           },
           'source_info' => {
             'line_nr' => 10

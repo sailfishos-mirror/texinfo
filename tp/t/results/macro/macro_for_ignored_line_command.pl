@@ -62,10 +62,6 @@ $result_trees{'macro_for_ignored_line_command'} = {
             'macro_name' => 'pagemacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' pagemacro
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

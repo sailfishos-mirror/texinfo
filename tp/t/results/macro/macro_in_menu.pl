@@ -67,10 +67,6 @@ $result_trees{'macro_in_menu'} = {
             'macro_name' => 'astar',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' astar
-'
-          },
           'source_info' => {
             'line_nr' => 2
           }
@@ -132,10 +128,6 @@ $result_trees{'macro_in_menu'} = {
           'extra' => {
             'macro_name' => 'starspaces',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' starspaces
-'
           },
           'source_info' => {
             'line_nr' => 6
@@ -199,10 +191,6 @@ $result_trees{'macro_in_menu'} = {
             'macro_name' => 'spaces',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' spaces
-'
-          },
           'source_info' => {
             'line_nr' => 10
           }
@@ -264,10 +252,6 @@ $result_trees{'macro_in_menu'} = {
           'extra' => {
             'macro_name' => 'aspace',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' aspace
-'
           },
           'source_info' => {
             'line_nr' => 14
@@ -331,10 +315,6 @@ $result_trees{'macro_in_menu'} = {
             'macro_name' => 'twocolon',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' twocolon
-'
-          },
           'source_info' => {
             'line_nr' => 18
           }
@@ -396,10 +376,6 @@ $result_trees{'macro_in_menu'} = {
           'extra' => {
             'macro_name' => 'acolon',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' acolon
-'
           },
           'source_info' => {
             'line_nr' => 22

@@ -126,10 +126,6 @@ $result_trees{'at_commands_in_raw'} = {
             'macro_name' => 'othermacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' othermacro{}
-'
-          },
           'source_info' => {
             'line_nr' => 4
           }

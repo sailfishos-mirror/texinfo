@@ -72,10 +72,6 @@ $result_trees{'macro_imbricated_with_beginning_command_name'} = {
             'macro_name' => 'foo',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' foo
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -64,10 +64,6 @@ $result_trees{'recursive_call_in_argument'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' anorecurse{arg}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

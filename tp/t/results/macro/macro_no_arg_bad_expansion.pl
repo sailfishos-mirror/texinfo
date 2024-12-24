@@ -62,10 +62,6 @@ $result_trees{'macro_no_arg_bad_expansion'} = {
             'macro_name' => 'testone',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' testone
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

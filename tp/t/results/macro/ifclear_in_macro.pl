@@ -74,10 +74,6 @@ $result_trees{'ifclear_in_macro'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' note {arg}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

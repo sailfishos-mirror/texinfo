@@ -72,10 +72,6 @@ $result_trees{'macro_in_value'} = {
             'macro_name' => 'ab',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' ab
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

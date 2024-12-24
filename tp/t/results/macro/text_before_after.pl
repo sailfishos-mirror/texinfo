@@ -67,10 +67,6 @@ $result_trees{'text_before_after'} = {
                 'macro_name' => 'mymacro',
                 'misc_args' => []
               },
-              'info' => {
-                'arg_line' => ' mymacro
-'
-              },
               'source_info' => {
                 'line_nr' => 1
               }

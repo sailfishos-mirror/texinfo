@@ -62,10 +62,6 @@ $result_trees{'user_defined_txiinternalvalue'} = {
             'macro_name' => 'txiinternalvalue',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' txiinternalvalue
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

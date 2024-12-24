@@ -70,10 +70,6 @@ $result_trees{'too_much_args'} = {
               'second'
             ]
           },
-          'info' => {
-            'arg_line' => ' twoargs {first, second}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -77,10 +77,6 @@ $result_trees{'cpp_directives_in_macro'} = {
                   'out'
                 ]
               },
-              'info' => {
-                'arg_line' => ' simplemacro{out}
-'
-              },
               'source_info' => {
                 'file_name' => 'cpp_directives_in_macro.texi',
                 'line_nr' => 2

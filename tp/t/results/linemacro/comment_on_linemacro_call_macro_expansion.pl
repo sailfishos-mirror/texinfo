@@ -70,10 +70,6 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
               'b'
             ]
           },
-          'info' => {
-            'arg_line' => ' lm {a, b}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -142,10 +138,6 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
             'misc_args' => [
               'a'
             ]
-          },
-          'info' => {
-            'arg_line' => ' mymacro {a}
-'
           },
           'source_info' => {
             'line_nr' => 6

@@ -62,10 +62,6 @@ $result_trees{'macro_call_in_node_manual'} = {
             'macro_name' => 'openbrace',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' openbrace
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -127,10 +123,6 @@ $result_trees{'macro_call_in_node_manual'} = {
           'extra' => {
             'macro_name' => 'openbracetext',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' openbracetext
-'
           },
           'source_info' => {
             'line_nr' => 5
@@ -194,10 +186,6 @@ $result_trees{'macro_call_in_node_manual'} = {
             'macro_name' => 'manualnameend',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' manualnameend
-'
-          },
           'source_info' => {
             'line_nr' => 9
           }
@@ -259,10 +247,6 @@ $result_trees{'macro_call_in_node_manual'} = {
           'extra' => {
             'macro_name' => 'manualnameendbrace',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' manualnameendbrace
-'
           },
           'source_info' => {
             'line_nr' => 13
@@ -326,10 +310,6 @@ $result_trees{'macro_call_in_node_manual'} = {
             'macro_name' => 'manualnameendbracespace',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' manualnameendbracespace
-'
-          },
           'source_info' => {
             'line_nr' => 17
           }
@@ -391,10 +371,6 @@ $result_trees{'macro_call_in_node_manual'} = {
           'extra' => {
             'macro_name' => 'manualnameendbracespacetext',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' manualnameendbracespacetext
-'
           },
           'source_info' => {
             'line_nr' => 21

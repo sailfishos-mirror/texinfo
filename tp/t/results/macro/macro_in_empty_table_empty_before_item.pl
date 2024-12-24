@@ -57,10 +57,6 @@ $result_trees{'macro_in_empty_table_empty_before_item'} = {
             'macro_name' => 'emptymacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' emptymacro
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

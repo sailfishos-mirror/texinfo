@@ -62,10 +62,6 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
             'macro_name' => 'macrodot',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' macrodot
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

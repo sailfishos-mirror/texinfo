@@ -66,10 +66,6 @@ $result_trees{'text_arguments'} = {
               'three'
             ]
           },
-          'info' => {
-            'arg_line' => ' nospace{one, two, three}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

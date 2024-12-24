@@ -62,10 +62,6 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
             'macro_name' => 'setargendignored',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' setargendignored
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

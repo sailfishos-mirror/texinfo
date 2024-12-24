@@ -71,10 +71,6 @@ $result_trees{'verb_with_brace_in_macro_call'} = {
               'c'
             ]
           },
-          'info' => {
-            'arg_line' => ' mycommand {a, b, c}
-'
-          },
           'source_info' => {
             'line_nr' => 2
           }

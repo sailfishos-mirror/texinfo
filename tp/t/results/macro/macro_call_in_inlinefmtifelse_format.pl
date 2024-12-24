@@ -62,10 +62,6 @@ $result_trees{'macro_call_in_inlinefmtifelse_format'} = {
             'macro_name' => 'inlinefirstarg',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' inlinefirstarg
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

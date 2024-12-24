@@ -1409,7 +1409,11 @@ sub _convert($$;$)
             }
           }
         }
-        push @$attribute, $self->_arg_line($element);
+        my $line = $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
+        chomp($line);
+        if ($line ne '') {
+          push @$attribute, ['line', $line];
+        }
       }
       if ($self->{'expanded_formats'}->{$element->{'cmdname'}}) {
         $self->{'document_context'}->[-1]->{'raw'} = 1;

@@ -77,10 +77,6 @@ $result_trees{'simple_imbricated_macro'} = {
             'macro_name' => 'truc',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' truc {}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -175,10 +171,6 @@ $result_trees{'simple_imbricated_macro'} = {
               'extra' => {
                 'macro_name' => 'bidule',
                 'misc_args' => []
-              },
-              'info' => {
-                'arg_line' => ' bidule {}
-'
               },
               'source_info' => {
                 'line_nr' => 8,

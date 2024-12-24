@@ -76,10 +76,6 @@ $result_trees{'spaces_in_args'} = {
               'rest'
             ]
           },
-          'info' => {
-            'arg_line' => ' mylinecommand {first, second, rest}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

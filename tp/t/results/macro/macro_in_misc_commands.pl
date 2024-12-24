@@ -62,10 +62,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'text',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' text 
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -127,10 +123,6 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'macro_name' => 'Top',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' Top
-'
           },
           'source_info' => {
             'line_nr' => 5
@@ -398,10 +390,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'en',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' en 
-'
-          },
           'source_info' => {
             'line_nr' => 16
           }
@@ -458,10 +446,6 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'macro_name' => 'documentlanguagecommand',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' documentlanguagecommand 
-'
           },
           'source_info' => {
             'line_nr' => 19
@@ -670,10 +654,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'pagesizesarg',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' pagesizesarg
-'
-          },
           'source_info' => {
             'line_nr' => 29
           }
@@ -735,10 +715,6 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'macro_name' => 'afourpapermacro',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' afourpapermacro 
-'
           },
           'source_info' => {
             'line_nr' => 33
@@ -1055,10 +1031,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'needarg',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' needarg
-'
-          },
           'source_info' => {
             'line_nr' => 43
           }
@@ -1185,10 +1157,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'raisesectionsmacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' raisesectionsmacro 
-'
-          },
           'source_info' => {
             'line_nr' => 49
           },
@@ -1278,10 +1246,6 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'macro_name' => 'lowersectionsmacro',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' lowersectionsmacro 
-'
           },
           'source_info' => {
             'line_nr' => 53
@@ -1466,10 +1430,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'definfoenclosename',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' definfoenclosename 
-'
-          },
           'source_info' => {
             'line_nr' => 62
           }
@@ -1631,10 +1591,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'strongmacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' strongmacro 
-'
-          },
           'source_info' => {
             'line_nr' => 69
           }
@@ -1691,10 +1647,6 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'macro_name' => 'strongname',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' strongname 
-'
           },
           'source_info' => {
             'line_nr' => 72
@@ -2007,10 +1959,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'kbdinputstylearg',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' kbdinputstylearg 
-'
-          },
           'source_info' => {
             'line_nr' => 84
           }
@@ -2250,10 +2198,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'asisarg',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' asisarg 
-'
-          },
           'source_info' => {
             'line_nr' => 95
           }
@@ -2310,10 +2254,6 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'macro_name' => 'zero',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' zero 
-'
           },
           'source_info' => {
             'line_nr' => 98
@@ -2372,10 +2312,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'nonearg',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' nonearg 
-'
-          },
           'source_info' => {
             'line_nr' => 101
           }
@@ -2433,10 +2369,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'four',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' four 
-'
-          },
           'source_info' => {
             'line_nr' => 104
           }
@@ -2493,10 +2425,6 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'macro_name' => 'six',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' six 
-'
           },
           'source_info' => {
             'line_nr' => 107
@@ -2919,10 +2847,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'endarg',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' endarg 
-'
-          },
           'source_info' => {
             'line_nr' => 118
           }
@@ -2979,10 +2903,6 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'macro_name' => 'separatearg',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' separatearg 
-'
           },
           'source_info' => {
             'line_nr' => 121
@@ -3164,10 +3084,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'onarg',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' onarg 
-'
-          },
           'source_info' => {
             'line_nr' => 127
           }
@@ -3224,10 +3140,6 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'macro_name' => 'offarg',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' offarg 
-'
           },
           'source_info' => {
             'line_nr' => 130
@@ -3419,10 +3331,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'ten',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' ten 
-'
-          },
           'source_info' => {
             'line_nr' => 137
           }
@@ -3549,10 +3457,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'falsearg',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' falsearg 
-'
-          },
           'source_info' => {
             'line_nr' => 142
           }
@@ -3609,10 +3513,6 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'macro_name' => 'truearg',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' truearg
-'
           },
           'source_info' => {
             'line_nr' => 145
@@ -3799,10 +3699,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'pagemacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' pagemacro 
-'
-          },
           'source_info' => {
             'line_nr' => 152
           }
@@ -3860,10 +3756,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'noindentmacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' noindentmacro 
-'
-          },
           'source_info' => {
             'line_nr' => 155
           }
@@ -3920,10 +3812,6 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'macro_name' => 'refillmacro',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' refillmacro 
-'
           },
           'source_info' => {
             'line_nr' => 158
@@ -4486,10 +4374,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'contentsmacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' contentsmacro 
-'
-          },
           'source_info' => {
             'line_nr' => 176
           },
@@ -4605,10 +4489,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'exdentmacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' exdentmacro 
-'
-          },
           'source_info' => {
             'line_nr' => 183
           },
@@ -4723,10 +4603,6 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'macro_name' => 'two',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' two 
-'
           },
           'source_info' => {
             'line_nr' => 188
@@ -4848,10 +4724,6 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'macro_name' => 'resultmacro',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' resultmacro 
-'
           },
           'source_info' => {
             'line_nr' => 193
@@ -5209,10 +5081,6 @@ $result_trees{'macro_in_misc_commands'} = {
             'macro_name' => 'shortcontentsmacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' shortcontentsmacro 
-'
-          },
           'source_info' => {
             'line_nr' => 208
           },
@@ -5312,10 +5180,6 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'macro_name' => 'byemacro',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' byemacro
-'
           },
           'source_info' => {
             'line_nr' => 213

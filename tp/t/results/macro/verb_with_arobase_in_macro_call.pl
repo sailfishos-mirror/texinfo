@@ -70,10 +70,6 @@ $result_trees{'verb_with_arobase_in_macro_call'} = {
               'b'
             ]
           },
-          'info' => {
-            'arg_line' => ' showarg {a, b}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -67,10 +67,6 @@ $result_trees{'missing_formal_arg'} = {
               'b'
             ]
           },
-          'info' => {
-            'arg_line' => ' mymacro {a, , b}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

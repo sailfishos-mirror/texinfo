@@ -75,10 +75,6 @@ $result_trees{'cpp_directives_after_macros'} = {
                 'macro_name' => 'noargsspaces',
                 'misc_args' => []
               },
-              'info' => {
-                'arg_line' => ' noargsspaces
-'
-              },
               'source_info' => {
                 'file_name' => 'cpp_directives_after_macros.texi',
                 'line_nr' => 2
@@ -142,10 +138,6 @@ $result_trees{'cpp_directives_after_macros'} = {
               'extra' => {
                 'macro_name' => 'emptyexpansion',
                 'misc_args' => []
-              },
-              'info' => {
-                'arg_line' => ' emptyexpansion
-'
               },
               'source_info' => {
                 'file_name' => 'cpp_directives_after_macros.texi',

@@ -62,10 +62,6 @@ $result_trees{'macro_zero'} = {
             'macro_name' => 'zero',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' zero
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

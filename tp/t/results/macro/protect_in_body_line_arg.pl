@@ -65,10 +65,6 @@ $result_trees{'protect_in_body_line_arg'} = {
               'arg2'
             ]
           },
-          'info' => {
-            'arg_line' => ' macroone { arg1 , arg2 }
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

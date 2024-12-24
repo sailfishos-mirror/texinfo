@@ -88,10 +88,6 @@ $result_trees{'value_in_macro_formal_arg'} = {
               'the@value{argument'
             ]
           },
-          'info' => {
-            'arg_line' => ' testvalue { arg , the@value{argument} }
-'
-          },
           'source_info' => {
             'line_nr' => 3
           }

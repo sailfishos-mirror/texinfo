@@ -72,10 +72,6 @@ $result_trees{'macro_expansion_end_in_ignored_nested_conditional'} = {
             'macro_name' => 'beginnestedcond',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' beginnestedcond
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

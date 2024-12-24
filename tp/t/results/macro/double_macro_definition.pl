@@ -57,10 +57,6 @@ $result_trees{'double_macro_definition'} = {
             'macro_name' => 'foo',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' foo
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -117,10 +113,6 @@ $result_trees{'double_macro_definition'} = {
           'extra' => {
             'macro_name' => 'foo',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' foo
-'
           },
           'source_info' => {
             'line_nr' => 4

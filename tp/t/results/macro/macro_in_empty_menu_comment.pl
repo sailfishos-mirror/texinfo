@@ -62,10 +62,6 @@ $result_trees{'macro_in_empty_menu_comment'} = {
             'macro_name' => 'emptystring',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' emptystring
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

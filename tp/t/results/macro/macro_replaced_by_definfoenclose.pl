@@ -64,10 +64,6 @@ $result_trees{'macro_replaced_by_definfoenclose'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' phoo {arg}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -62,10 +62,6 @@ $result_trees{'two_macros_on_a_line'} = {
             'macro_name' => 'mymacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' mymacro
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -139,10 +135,6 @@ $result_trees{'two_macros_on_a_line'} = {
             'misc_args' => [
               'arg'
             ]
-          },
-          'info' => {
-            'arg_line' => ' mymacrowithargs{arg}
-'
           },
           'source_info' => {
             'line_nr' => 5

@@ -65,10 +65,6 @@ $result_trees{'recursive_linemacro_in_call'} = {
               'other'
             ]
           },
-          'info' => {
-            'arg_line' => ' anorecurse {arg, other}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

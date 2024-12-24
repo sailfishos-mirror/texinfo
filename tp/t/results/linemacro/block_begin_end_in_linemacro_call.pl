@@ -64,10 +64,6 @@ $result_trees{'block_begin_end_in_linemacro_call'} = {
               'a'
             ]
           },
-          'info' => {
-            'arg_line' => ' lm {a}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -706,10 +702,6 @@ args \\e\\|\\f\\|
                   'e',
                   'f'
                 ]
-              },
-              'info' => {
-                'arg_line' => ' mymac {e, f}
-'
               },
               'source_info' => {
                 'line_nr' => 34,

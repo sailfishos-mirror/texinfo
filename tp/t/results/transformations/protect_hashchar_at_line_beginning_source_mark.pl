@@ -75,10 +75,6 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                 'macro_name' => 'vvv',
                 'misc_args' => []
               },
-              'info' => {
-                'arg_line' => ' vvv {}
-'
-              },
               'source_info' => {
                 'file_name' => 'cpp_directives_line_value_macro.texi',
                 'line_nr' => 2
@@ -197,10 +193,6 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
             'macro_name' => 'machash',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' machash {}
-'
-          },
           'source_info' => {
             'file_name' => 'cpp_directives_line_value_macro.texi',
             'line_nr' => 8
@@ -316,10 +308,6 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
             'misc_args' => [
               'arg'
             ]
-          },
-          'info' => {
-            'arg_line' => ' numberfileflag {arg}
-'
           },
           'source_info' => {
             'file_name' => 'cpp_directives_line_value_macro.texi',

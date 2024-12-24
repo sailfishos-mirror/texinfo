@@ -64,10 +64,6 @@ $result_trees{'arg_not_closed'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' foo {arg}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

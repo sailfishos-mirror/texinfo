@@ -70,10 +70,6 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'bb'
             ]
           },
-          'info' => {
-            'arg_line' => ' twoa {aa, bb}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

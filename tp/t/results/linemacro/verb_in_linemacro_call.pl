@@ -82,10 +82,6 @@ $result_trees{'verb_in_linemacro_call'} = {
               'd'
             ]
           },
-          'info' => {
-            'arg_line' => ' mycommand {a, b, c, d}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -162,10 +162,6 @@ $result_trees{'table_nested'} = {
             'macro_name' => 'myvtable',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' myvtable
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -62,10 +62,6 @@ $result_trees{'macro_in_end_argument'} = {
             'macro_name' => 'acartouche',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' acartouche
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

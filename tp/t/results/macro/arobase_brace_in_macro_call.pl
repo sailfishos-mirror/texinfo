@@ -70,10 +70,6 @@ $result_trees{'arobase_brace_in_macro_call'} = {
               'arg2'
             ]
           },
-          'info' => {
-            'arg_line' => ' simplemac { arg1 , arg2 }
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

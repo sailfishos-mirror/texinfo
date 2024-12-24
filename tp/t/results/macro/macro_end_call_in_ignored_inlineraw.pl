@@ -62,10 +62,6 @@ $result_trees{'macro_end_call_in_ignored_inlineraw'} = {
             'macro_name' => 'startraw',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' startraw
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

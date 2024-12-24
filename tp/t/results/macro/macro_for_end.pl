@@ -62,10 +62,6 @@ $result_trees{'macro_for_end'} = {
             'macro_name' => 'myend',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' myend
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -67,10 +67,6 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
             'macro_name' => 'beginifsetcontent',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' beginifsetcontent
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

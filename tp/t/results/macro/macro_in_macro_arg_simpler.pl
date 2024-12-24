@@ -62,10 +62,6 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
             'macro_name' => 'macrooneone',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' macrooneone
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -135,10 +131,6 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
               'text',
               'arg'
             ]
-          },
-          'info' => {
-            'arg_line' => ' macrothree{text, arg}
-'
           },
           'source_info' => {
             'line_nr' => 5

@@ -1794,10 +1794,6 @@ $result_trees{'bib_example'} = {
                   'node'
                 ]
               },
-              'info' => {
-                'arg_line' => ' mybibsetrefnode{node}
-'
-              },
               'source_info' => {
                 'file_name' => 'my-bib-macros.texi',
                 'line_nr' => 162
@@ -1886,10 +1882,6 @@ $result_trees{'bib_example'} = {
               'extra' => {
                 'macro_name' => 'mybibnode',
                 'misc_args' => []
-              },
-              'info' => {
-                'arg_line' => ' mybibnode{}
-'
               },
               'source_info' => {
                 'file_name' => 'my-bib-macros.texi',
@@ -2002,10 +1994,6 @@ $result_trees{'bib_example'} = {
                   'node'
                 ]
               },
-              'info' => {
-                'arg_line' => ' mybibusetable{node}
-'
-              },
               'source_info' => {
                 'file_name' => 'my-bib-macros.texi',
                 'line_nr' => 176
@@ -2116,10 +2104,6 @@ $result_trees{'bib_example'} = {
                 'misc_args' => [
                   'node'
                 ]
-              },
-              'info' => {
-                'arg_line' => ' mybibuselist{node}
-'
               },
               'source_info' => {
                 'file_name' => 'my-bib-macros.texi',
@@ -2242,10 +2226,6 @@ $result_trees{'bib_example'} = {
                   'ref'
                 ]
               },
-              'info' => {
-                'arg_line' => ' mybibcite{ref}
-'
-              },
               'source_info' => {
                 'file_name' => 'my-bib-macros.texi',
                 'line_nr' => 198
@@ -2312,10 +2292,6 @@ $result_trees{'bib_example'} = {
                   'node',
                   'ref'
                 ]
-              },
-              'info' => {
-                'arg_line' => ' mybibmakeref{node, ref}
-'
               },
               'source_info' => {
                 'file_name' => 'my-bib-macros.texi',
@@ -2462,10 +2438,6 @@ $result_trees{'bib_example'} = {
                 'misc_args' => [
                   'ref'
                 ]
-              },
-              'info' => {
-                'arg_line' => ' mybibitem{ref}
-'
               },
               'source_info' => {
                 'file_name' => 'my-bib-macros.texi',

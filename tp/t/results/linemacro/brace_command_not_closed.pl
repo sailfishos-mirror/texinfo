@@ -66,10 +66,6 @@ $result_trees{'brace_command_not_closed'} = {
               'c'
             ]
           },
-          'info' => {
-            'arg_line' => ' mycommand {a, b, c}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

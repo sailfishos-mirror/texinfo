@@ -62,10 +62,6 @@ $result_trees{'zero_argument_comment'} = {
             'macro_name' => 'foo',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' foo {}@c foo c
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -121,10 +117,6 @@ $result_trees{'zero_argument_comment'} = {
           'extra' => {
             'macro_name' => 'abar',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' abar@comment bar comment
-'
           },
           'source_info' => {
             'line_nr' => 5

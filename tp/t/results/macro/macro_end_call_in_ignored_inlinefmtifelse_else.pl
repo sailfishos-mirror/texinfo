@@ -62,10 +62,6 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse_else'} = {
             'macro_name' => 'endcallinignoredinlineelse',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' endcallinignoredinlineelse
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

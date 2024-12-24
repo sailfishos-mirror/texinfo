@@ -90,10 +90,6 @@ $result_trees{'nested_macros'} = {
               'ex'
             ]
           },
-          'info' => {
-            'arg_line' => ' truc   { arg,  ex}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -117,10 +117,6 @@ $result_trees{'star_at_command_formatting'} = {
             'macro_name' => 'mymacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' mymacro
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

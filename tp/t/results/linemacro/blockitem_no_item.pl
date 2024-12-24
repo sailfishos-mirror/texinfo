@@ -66,10 +66,6 @@ $result_trees{'blockitem_no_item'} = {
               'c'
             ]
           },
-          'info' => {
-            'arg_line' => ' mycommand {a, b, c}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

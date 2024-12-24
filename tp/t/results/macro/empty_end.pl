@@ -58,10 +58,6 @@ $result_trees{'empty_end'} = {
               'aaa'
             ]
           },
-          'info' => {
-            'arg_line' => ' foo {aaa, }
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

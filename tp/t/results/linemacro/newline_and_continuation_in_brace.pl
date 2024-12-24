@@ -71,10 +71,6 @@ $result_trees{'newline_and_continuation_in_brace'} = {
               'rest'
             ]
           },
-          'info' => {
-            'arg_line' => ' mylinecommand {first, second, rest}
-'
-          },
           'source_info' => {
             'line_nr' => 2
           }

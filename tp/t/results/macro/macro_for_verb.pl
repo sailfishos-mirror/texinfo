@@ -62,10 +62,6 @@ $result_trees{'macro_for_verb'} = {
             'macro_name' => 'verbopen',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' verbopen {}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

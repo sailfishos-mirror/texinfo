@@ -62,10 +62,6 @@ $result_trees{'zero_argument'} = {
             'macro_name' => 'foo',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' foo {}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -121,10 +117,6 @@ $result_trees{'zero_argument'} = {
           'extra' => {
             'macro_name' => 'abar',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' abar
-'
           },
           'source_info' => {
             'line_nr' => 5

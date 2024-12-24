@@ -25,9 +25,6 @@ $result_trees{'macro_no_argument'} = {
           'extra' => {
             'invalid_syntax' => 1
           },
-          'info' => {
-            'arg_line' => ''
-          },
           'source_info' => {
             'line_nr' => 1
           }

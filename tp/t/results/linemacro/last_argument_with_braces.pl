@@ -70,10 +70,6 @@ $result_trees{'last_argument_with_braces'} = {
               'rest'
             ]
           },
-          'info' => {
-            'arg_line' => ' defbuiltin {symbol, rest}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

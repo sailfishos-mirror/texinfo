@@ -138,13 +138,10 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
   const char *args_ptr;
   STRING_LIST *formal_args;
 
- /* TODO not sure about using lineraw_command. There is an arg_line info,
-    which is consistent with lineraw_command, but the *macro are block
-    commands. block_command could be used instead */
-  macro = new_command_element (ET_lineraw_command, cmd);
+  /* NOTE macro element is block command, but it has extra misc_args like
+     lineraw line commands */
+  macro = new_command_element (ET_block_command, cmd);
   macro->e.c->source_info = current_source_info;
-
-  macro->e.c->string_info[sit_arg_line] = strdup (line);
 
   argument = new_element (ET_argument);
   add_to_element_contents (macro, argument);

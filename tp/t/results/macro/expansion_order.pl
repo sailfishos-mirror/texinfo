@@ -64,10 +64,6 @@ $result_trees{'expansion_order'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' bidule{arg}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -134,10 +130,6 @@ $result_trees{'expansion_order'} = {
           'extra' => {
             'macro_name' => 'machin',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' machin
-'
           },
           'source_info' => {
             'line_nr' => 5

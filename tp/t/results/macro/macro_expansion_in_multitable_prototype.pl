@@ -62,10 +62,6 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
             'macro_name' => 'simple',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' simple
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -129,10 +125,6 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
             'misc_args' => [
               'arg'
             ]
-          },
-          'info' => {
-            'arg_line' => ' endbrace {arg}
-'
           },
           'source_info' => {
             'line_nr' => 5

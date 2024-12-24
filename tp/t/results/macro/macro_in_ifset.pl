@@ -64,10 +64,6 @@ $result_trees{'macro_in_ifset'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' macroone {arg}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

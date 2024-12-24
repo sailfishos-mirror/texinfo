@@ -102,10 +102,6 @@ $result_trees{'nested_ifset_ifclear'} = {
             'macro_name' => 'conditionals',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' conditionals{}
-'
-          },
           'source_info' => {
             'line_nr' => 2
           }

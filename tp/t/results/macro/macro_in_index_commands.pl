@@ -62,10 +62,6 @@ $result_trees{'macro_in_index_commands'} = {
             'macro_name' => 'cp',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' cp
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -123,10 +119,6 @@ $result_trees{'macro_in_index_commands'} = {
             'macro_name' => 'fn',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' fn 
-'
-          },
           'source_info' => {
             'line_nr' => 4
           }
@@ -183,10 +175,6 @@ $result_trees{'macro_in_index_commands'} = {
           'extra' => {
             'macro_name' => 'syncodeindexcommand',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' syncodeindexcommand 
-'
           },
           'source_info' => {
             'line_nr' => 7
@@ -397,10 +385,6 @@ $result_trees{'macro_in_index_commands'} = {
             'macro_name' => 'truc',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' truc 
-'
-          },
           'source_info' => {
             'line_nr' => 14
           }
@@ -540,10 +524,6 @@ $result_trees{'macro_in_index_commands'} = {
             'macro_name' => 'trucindexcommand',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' trucindexcommand 
-'
-          },
           'source_info' => {
             'line_nr' => 22
           }
@@ -605,10 +585,6 @@ $result_trees{'macro_in_index_commands'} = {
           'extra' => {
             'macro_name' => 'codeidx',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' codeidx 
-'
           },
           'source_info' => {
             'line_nr' => 26
@@ -735,10 +711,6 @@ $result_trees{'macro_in_index_commands'} = {
           'extra' => {
             'macro_name' => 'defcodeindexentry',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' defcodeindexentry 
-'
           },
           'source_info' => {
             'line_nr' => 32

@@ -89,10 +89,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                 'macro_name' => 'quotes',
                 'misc_args' => []
               },
-              'info' => {
-                'arg_line' => ' quotes
-'
-              },
               'source_info' => {
                 'line_nr' => 1
               }
@@ -234,10 +230,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               'extra' => {
                 'macro_name' => 'allquotes',
                 'misc_args' => []
-              },
-              'info' => {
-                'arg_line' => ' allquotes
-'
               },
               'source_info' => {
                 'line_nr' => 10

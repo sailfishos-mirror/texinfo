@@ -107,6 +107,17 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
               if (e->e.c->contents.number == 0)
                 return;
             }
+          else if (e->e.c->contents.number > 0
+                   && e->e.c->contents.list[0]->type == ET_argument)
+            {
+           /* root commands and block commands that are not def commands */
+              const ELEMENT *argument = e->e.c->contents.list[0];
+
+              if (spc_before_arg)
+                ADD((char *)spc_before_arg->e.text->text);
+
+              convert_args (argument, result);
+            }
       /* arg_line set for line_commands with type lineraw that have
          arguments and for @macro. */
       /* if there is no arg_line, the end of line is in rawline_arg in contents
@@ -120,9 +131,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
                 ADD((char *)spc_before_arg->e.text->text);
 
               ADD(arg_line);
-
-              if (!(builtin_command_data[cmd].flags & CF_block))
-                return;
+              return;
             }
           else if (builtin_command_data[cmd].flags & CF_brace
                    || builtin_command_data[cmd].flags & CF_INFOENCLOSE)
@@ -159,17 +168,6 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
               if (braces)
                 ADD("}");
               return;
-            }
-          else if (e->e.c->contents.number > 0
-                   && e->e.c->contents.list[0]->type == ET_argument)
-            {
-           /* root commands and block commands that are not def commands */
-              const ELEMENT *argument = e->e.c->contents.list[0];
-
-              if (spc_before_arg)
-                ADD((char *)spc_before_arg->e.text->text);
-
-              convert_args (argument, result);
             }
           else if (builtin_command_data[cmd].flags & CF_line
                    || e->type == ET_index_entry_command)

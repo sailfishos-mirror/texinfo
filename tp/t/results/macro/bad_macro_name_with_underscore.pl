@@ -65,10 +65,6 @@ $result_trees{'bad_macro_name_with_underscore'} = {
               'arg2'
             ]
           },
-          'info' => {
-            'arg_line' => ' the_macro {arg1, arg2}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

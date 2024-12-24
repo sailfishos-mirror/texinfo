@@ -74,10 +74,6 @@ $result_trees{'ifset_in_macro_set'} = {
               'arg'
             ]
           },
-          'info' => {
-            'arg_line' => ' note {arg}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

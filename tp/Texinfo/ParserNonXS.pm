@@ -1315,7 +1315,7 @@ sub _parse_macro_command_line($$$$$;$)
   my ($self, $command, $line, $parent, $source_info) = @_;
 
   my $macro = { 'cmdname' => $command, 'parent' => $parent,
-               'info' => {'arg_line' => $line}, 'source_info' => $source_info };
+                'source_info' => $source_info };
   my $argument = {'type' => 'argument', 'parent' => $macro};
   $macro->{'contents'} = [$argument];
   my $macro_line = {'type' => 'macro_line', 'text' => $line,

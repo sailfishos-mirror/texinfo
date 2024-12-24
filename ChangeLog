@@ -1,5 +1,21 @@
 2024-11-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line),
+	tp/Texinfo/XS/parsetexi/macro.c (parse_macro_command_line): do not set
+	info arg_line for @*macro as the information is already in first
+	content argument text content.  Make @macro element a block command
+	type in C.
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): get @*macro line
+	from text in argument, the first content.
+
+	* tp/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (convert_to_texinfo_internal):
+	handle command with line arguments in first content before line
+	commands with arg_line.
+
+2024-11-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line)
 	(_expand_macro_arguments, _expand_linemacro_arguments)
 	(_lookup_macro_parameter, _expand_macro_body, _handle_macro)

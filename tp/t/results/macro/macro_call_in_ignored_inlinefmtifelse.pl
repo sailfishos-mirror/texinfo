@@ -62,10 +62,6 @@ $result_trees{'macro_call_in_ignored_inlinefmtifelse'} = {
             'macro_name' => 'commafmt',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' commafmt
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

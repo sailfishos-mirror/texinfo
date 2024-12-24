@@ -70,10 +70,6 @@ $result_trees{'comment_in_linemacro_call'} = {
               'b'
             ]
           },
-          'info' => {
-            'arg_line' => ' lm {a, b}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -103,10 +103,6 @@ $result_trees{'macro_definition_in_include'} = {
             'macro_name' => 'themacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' themacro
-'
-          },
           'source_info' => {
             'file_name' => 'macro_included.texi',
             'line_nr' => 1

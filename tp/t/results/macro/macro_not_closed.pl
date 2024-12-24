@@ -32,10 +32,6 @@ $result_trees{'macro_not_closed'} = {
             'macro_name' => 'name',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' name
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

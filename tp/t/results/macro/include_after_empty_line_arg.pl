@@ -64,10 +64,6 @@ $result_trees{'include_after_empty_line_arg'} = {
               'body'
             ]
           },
-          'info' => {
-            'arg_line' => ' mymacro{body}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

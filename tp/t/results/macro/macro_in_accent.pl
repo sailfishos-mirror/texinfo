@@ -62,10 +62,6 @@ $result_trees{'macro_in_accent'} = {
             'macro_name' => 'aletter',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' aletter
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -127,10 +123,6 @@ $result_trees{'macro_in_accent'} = {
           'extra' => {
             'macro_name' => 'aspace',
             'misc_args' => []
-          },
-          'info' => {
-            'arg_line' => ' aspace
-'
           },
           'source_info' => {
             'line_nr' => 5

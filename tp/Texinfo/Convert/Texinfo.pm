@@ -219,6 +219,7 @@ sub _convert_to_texinfo($)
   return '' if (($element->{'info'}
                  and $element->{'info'}->{'inserted'})
                 or ($element->{'type'} and $element->{'type'} eq 'argument'));
+
   if (defined($element->{'text'})) {
     $result .= $element->{'text'};
   } else {
@@ -253,6 +254,12 @@ sub _convert_to_texinfo($)
         # tree, not associated to the command element.
         # item, tab and headitem are nobrace commands with contents
         return $result if (!$element->{'contents'});
+      } elsif ($element->{'contents'}
+          and ($element->{'contents'}->[0]->{'type'}
+               and $element->{'contents'}->[0]->{'type'} eq 'argument')) {
+        # root commands and block commands that are not def commands
+        $result .= $spc_before_arg;
+        $result .= _convert_args($element->{'contents'}->[0]);
      # arg_line set for line_commands with type lineraw that have
      # arguments and for @macro.
      # if there is no arg_line, the end of line is in rawline_arg in contents
@@ -261,9 +268,7 @@ sub _convert_to_texinfo($)
       } elsif ($element->{'info'} and defined($element->{'info'}->{'arg_line'})) {
         $result .= $spc_before_arg;
         $result .= $element->{'info'}->{'arg_line'};
-        if (!$block_commands{$cmdname}) {
-          return $result;
-        }
+        return $result;
       } elsif (exists($brace_commands{$cmdname})
                or ($element->{'type'}
                    and $element->{'type'} eq 'definfoenclose_command')) {
@@ -284,12 +289,6 @@ sub _convert_to_texinfo($)
         }
         $result .= '}' if ($braces);
         return $result;
-      } elsif ($element->{'contents'}
-               and ($element->{'contents'}->[0]->{'type'}
-                    and $element->{'contents'}->[0]->{'type'} eq 'argument')) {
-        # root commands and block commands that are not def commands
-        $result .= $spc_before_arg;
-        $result .= _convert_args($element->{'contents'}->[0]);
       } elsif ($line_commands{$data_cmdname}
                or ($element->{'type'}
                    and $element->{'type'} eq 'index_entry_command')) {

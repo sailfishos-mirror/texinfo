@@ -69,10 +69,6 @@ $result_trees{'implicit_quoting_one_arg'} = {
               'a'
             ]
           },
-          'info' => {
-            'arg_line' => ' FIXAME{a}
-'
-          },
           'source_info' => {
             'line_nr' => 2
           }

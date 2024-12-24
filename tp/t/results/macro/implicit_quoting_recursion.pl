@@ -65,10 +65,6 @@ $result_trees{'implicit_quoting_recursion'} = {
               'b'
             ]
           },
-          'info' => {
-            'arg_line' => ' cat{a,b}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }

@@ -75,10 +75,6 @@ $result_trees{'call_macro_in_linemacro_body'} = {
               'b'
             ]
           },
-          'info' => {
-            'arg_line' => ' lm {a, b}
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
@@ -153,10 +149,6 @@ $result_trees{'call_macro_in_linemacro_body'} = {
               'c',
               'd'
             ]
-          },
-          'info' => {
-            'arg_line' => ' mymacro {c, d}
-'
           },
           'source_info' => {
             'line_nr' => 7

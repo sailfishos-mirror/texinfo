@@ -77,10 +77,6 @@ $result_trees{'bye_in_macro'} = {
             'macro_name' => 'byeinmacro',
             'misc_args' => []
           },
-          'info' => {
-            'arg_line' => ' byeinmacro
-'
-          },
           'source_info' => {
             'line_nr' => 1
           }
