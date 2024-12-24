@@ -616,7 +616,7 @@ endif
 teximakehtml_SOURCES = \
                        $(C_libtexinfo_sources) \
                        $(C_libtexinfo_convert_sources) \
-                       teximakehtml.c \
+                       texi2any.c \
                        main/replace_perl_api_call.c \
                        convert/replace_perl_call_html_function.c \
                        convert/replace_call_conversion_perl.c
@@ -636,7 +636,7 @@ endif
 endif
 
 ctexi2any_SOURCES = \
-                       teximakehtml.c
+                       texi2any.c
 
 # NOTE PERL_LIBS is needed on GNU/Linux too, but see just below ExtUtils::Embed
 # should be used

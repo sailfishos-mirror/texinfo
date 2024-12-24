@@ -1,4 +1,4 @@
-/* teximakehtml.c -- conversion of Texinfo to HTML
+/* texi2any.c -- conversion of Texinfo
 
    Copyright 2010-2024 Free Software Foundation, Inc.
 
@@ -1589,8 +1589,15 @@ main (int argc, char *argv[], char *env[])
                    _("Usage: %s [OPTION]... TEXINFO-FILE..."), program_file);
       text_append_n (&help_message, "\n\n", 2);
       /* no added translations, reuse translations with they already exist */
-      text_append (&help_message,
-     "Translate Texinfo source documentation to various other formats.\n\n");
+      if (default_is_html)
+        text_append (&help_message,
+        "Translate Texinfo source documentation to various other formats.");
+      else
+    /* lie on the name, but this is no such a big lie */
+        text_append (&help_message,
+   _("Translate Texinfo source documentation to various other formats, by default\nInfo files suitable for reading online with Emacs or standalone GNU Info.\n\nThis program is commonly installed as both `makeinfo' and `texi2any';\nthe behavior is identical, and does not depend on the installed name."));
+      text_append_n (&help_message, "\n\n", 2);
+
       text_append (&help_message, _("General options:"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,

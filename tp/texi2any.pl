@@ -979,7 +979,7 @@ __("Translate Texinfo source documentation to various other formats, by default
 Info files suitable for reading online with Emacs or standalone GNU Info.
 
 This program is commonly installed as both `makeinfo' and `texi2any';
-the behavior is identical, and does not depend on the installed name.\n")
+the behavior is identical, and does not depend on the installed name.")."\n"
 ."\n";
   $makeinfo_help .= __("General options:")."\n"
 .__("      --document-language=STR locale to use in translating Texinfo keywords
