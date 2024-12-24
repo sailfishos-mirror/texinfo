@@ -1,16 +1,16 @@
-2024-11-24  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm: remove _print_command_args_texi, it
 	is better to call Texinfo::Convert::Texinfo functions.
 
-2024-11-24  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert),
 	tp/Texinfo/XS/convert/convert_html.c (html_convert_tree_append):
 	remove the condition on arguments_list being set, it is always the
 	case.
 
-2024-11-24  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert),
 	tp/Texinfo/XS/convert/convert_html.c (html_convert_tree_append): check
@@ -19,7 +19,7 @@
 
 	* tp/Texinfo/Convert/Text.pm: change in comments.
 
-2024-11-24  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	always use arguments being line_arg to determine if item in table
 
@@ -34,7 +34,7 @@
 	is to be considered a line command, in a @table or similar, instead of
 	using the type of the parent element,
 
-2024-11-24  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	rename argument type as arguments_line
 
@@ -51,12 +51,12 @@
 	(fill_gaps_in_sectioning, new_node): rename argument type as
 	arguments_line.  Update users.
 
-2024-11-24  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line): reorganize
 	code to be more similar with the corresponding C code.
 
-2024-11-24  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line),
 	tp/Texinfo/XS/parsetexi/macro.c (parse_macro_command_line): do not set
@@ -72,7 +72,7 @@
 	handle command with line arguments in first content before line
 	commands with arg_line.
 
-2024-11-24  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line)
 	(_expand_macro_arguments, _expand_linemacro_arguments)
@@ -90,7 +90,7 @@
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): adapt to change in
 	tree.
 
-2024-11-24  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo, _convert_args),
 	tp/Texinfo/XS/main/convert_to_texinfo.c (convert_args)
@@ -101,7 +101,7 @@
 	tp/Texinfo/XS/main/convert_to_texinfo.c (convert_to_texinfo_internal):
 	change conditions to group more by type of commands.
 
-2024-11-23  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Text.pm (_convert): check line_commands instead
 	of converted_formattable_line_commands.  Remove
@@ -113,7 +113,7 @@
 	* tp/maintain/regenerate_commands_perl_info.pl: remove unused
 	%converter_flag variable.
 
-2024-11-23  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	remove remaining args from line commands and from Texinfo tree
 
@@ -221,7 +221,7 @@
 	* tp/t/01use.t ($manual_tree): update for replacement of args by
 	contents.
 
-2024-11-14  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	root line commands in 'argument' container in contents
 
@@ -281,7 +281,7 @@
 	tp/init/chm.pm (chm_init): update conversion code for change in root
 	commands tree.
 
-2024-11-12  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	use contents for definition lines instead of args
 
@@ -318,7 +318,7 @@
 	for change in definition line in tree.  Format argument container type
 	like any other container.
 
-2024-11-12  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	remaining non-definition block commands 'argument' container in contents
 
@@ -343,7 +343,7 @@
 	tp/ext/tex4ht.pm (tex4ht_prepare): update for change in quotation,
 	cartouche and example tree.
 
-2024-11-12  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	block commands with items in 'argument' container in contents
 
@@ -371,7 +371,7 @@
 	tp/init/html32.pm (html32_convert_item_command): update conversion for
 	change in block commands with items tree.
 
-2024-11-11  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	@float arguments in 'argument' container in contents instead of args
 
@@ -405,7 +405,7 @@
 	contents, and prepare more generally for block commands with arguments
 	in 'argument' container in contents.
 
-2024-11-11  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	@*macro arguments in 'argument' container in contents instead of args
 
@@ -433,12 +433,12 @@
 	* tp/Texinfo/Convert/LaTeX.pm (convert_math_to_images): use contents
 	instead of args for @math.
 
-2024-11-11  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/element_types.txt: remove unused internal type
 	internal_spaces_after_cmd_before_arg.
 
-2024-11-11  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	Use contents instead of args for brace commands in Texinfo tree
 
@@ -524,7 +524,7 @@
 
 	* tp/t/09indices.t: change code order.
 
-2024-11-10  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_expand_macro_arguments)
 	(_expand_linemacro_arguments, _handle_macro),
@@ -532,7 +532,7 @@
 	(expand_linemacro_arguments, expand_macro_body, handle_macro): use
 	contents instead of args for macro call elements.
 
-2024-11-09  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_place_source_mark)
 	(_process_remaining_on_line), tp/Texinfo/XS/parsetexi/close.c,
