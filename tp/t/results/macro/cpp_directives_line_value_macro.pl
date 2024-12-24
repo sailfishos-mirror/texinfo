@@ -27,8 +27,9 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'vvv',
-                      'type' => 'macro_name'
+                      'text' => ' vvv {}
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -70,6 +71,10 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'vvv',
+                'misc_args' => []
+              },
               'info' => {
                 'arg_line' => ' vvv {}
 '
@@ -131,8 +136,9 @@ $result_trees{'cpp_directives_line_value_macro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'machash',
-                  'type' => 'macro_name'
+                  'text' => ' machash {}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -174,6 +180,10 @@ $result_trees{'cpp_directives_line_value_macro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'machash',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' machash {}
 '
@@ -232,12 +242,9 @@ $result_trees{'cpp_directives_line_value_macro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'numberfileflag',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' numberfileflag {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -279,6 +286,12 @@ $result_trees{'cpp_directives_line_value_macro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'numberfileflag',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' numberfileflag {arg}
 '

@@ -15,16 +15,9 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
             {
               'contents' => [
                 {
-                  'text' => 'lm',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'a',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'b',
-                  'type' => 'macro_arg'
+                  'text' => ' lm {a, b}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -70,6 +63,13 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'lm',
+            'misc_args' => [
+              'a',
+              'b'
+            ]
+          },
           'info' => {
             'arg_line' => ' lm {a, b}
 '
@@ -89,12 +89,9 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mymacro',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'a',
-                  'type' => 'macro_arg'
+                  'text' => ' mymacro {a}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -140,6 +137,12 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mymacro',
+            'misc_args' => [
+              'a'
+            ]
+          },
           'info' => {
             'arg_line' => ' mymacro {a}
 '

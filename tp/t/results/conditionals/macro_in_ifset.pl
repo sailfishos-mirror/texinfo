@@ -20,8 +20,9 @@ $result_trees{'macro_in_ifset'} = {
             {
               'contents' => [
                 {
-                  'text' => 'truc',
-                  'type' => 'macro_name'
+                  'text' => ' truc {}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -62,6 +63,10 @@ $result_trees{'macro_in_ifset'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'truc',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' truc {}
 '

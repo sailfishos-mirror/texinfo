@@ -15,12 +15,9 @@ $result_trees{'block_begin_end_in_linemacro_call'} = {
             {
               'contents' => [
                 {
-                  'text' => 'lm',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'a',
-                  'type' => 'macro_arg'
+                  'text' => ' lm {a}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -61,6 +58,12 @@ $result_trees{'block_begin_end_in_linemacro_call'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'lm',
+            'misc_args' => [
+              'a'
+            ]
+          },
           'info' => {
             'arg_line' => ' lm {a}
 '
@@ -632,16 +635,9 @@ args \\e\\|\\f\\|
                 {
                   'contents' => [
                     {
-                      'text' => 'mymac',
-                      'type' => 'macro_name'
-                    },
-                    {
-                      'text' => 'e',
-                      'type' => 'macro_arg'
-                    },
-                    {
-                      'text' => 'f',
-                      'type' => 'macro_arg'
+                      'text' => ' mymac {e, f}
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -704,6 +700,13 @@ args \\e\\|\\f\\|
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'mymac',
+                'misc_args' => [
+                  'e',
+                  'f'
+                ]
+              },
               'info' => {
                 'arg_line' => ' mymac {e, f}
 '

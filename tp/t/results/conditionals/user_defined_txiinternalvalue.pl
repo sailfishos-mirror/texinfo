@@ -15,8 +15,9 @@ $result_trees{'user_defined_txiinternalvalue'} = {
             {
               'contents' => [
                 {
-                  'text' => 'txiinternalvalue',
-                  'type' => 'macro_name'
+                  'text' => ' txiinternalvalue
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'user_defined_txiinternalvalue'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'txiinternalvalue',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' txiinternalvalue
 '

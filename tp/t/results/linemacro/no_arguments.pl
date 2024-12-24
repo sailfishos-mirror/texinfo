@@ -15,8 +15,9 @@ $result_trees{'no_arguments'} = {
             {
               'contents' => [
                 {
-                  'text' => 'noarg',
-                  'type' => 'macro_name'
+                  'text' => ' noarg
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'no_arguments'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'noarg',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' noarg
 '

@@ -73,8 +73,9 @@ $result_trees{'glossary'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'glossarytext',
-                      'type' => 'macro_name'
+                      'text' => ' glossarytext
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -116,6 +117,10 @@ $result_trees{'glossary'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'glossarytext',
+                'misc_args' => []
+              },
               'info' => {
                 'arg_line' => ' glossarytext
 '
@@ -136,8 +141,9 @@ $result_trees{'glossary'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'glossary',
-                      'type' => 'macro_name'
+                      'text' => ' glossary
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -189,6 +195,10 @@ $result_trees{'glossary'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'glossary',
+                'misc_args' => []
+              },
               'info' => {
                 'arg_line' => ' glossary
 '
@@ -209,20 +219,9 @@ $result_trees{'glossary'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'gentry',
-                      'type' => 'macro_name'
-                    },
-                    {
-                      'text' => 'id',
-                      'type' => 'macro_arg'
-                    },
-                    {
-                      'text' => 'name',
-                      'type' => 'macro_arg'
-                    },
-                    {
-                      'text' => 'text',
-                      'type' => 'macro_arg'
+                      'text' => ' gentry {id, name, text}
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -344,6 +343,14 @@ $result_trees{'glossary'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'gentry',
+                'misc_args' => [
+                  'id',
+                  'name',
+                  'text'
+                ]
+              },
               'info' => {
                 'arg_line' => ' gentry {id, name, text}
 '
@@ -782,12 +789,9 @@ $result_trees{'glossary'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'expandglossary',
-                      'type' => 'macro_name'
-                    },
-                    {
-                      'text' => 'glossary',
-                      'type' => 'macro_arg'
+                      'text' => ' expandglossary{glossary}
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -855,6 +859,12 @@ $result_trees{'glossary'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'expandglossary',
+                'misc_args' => [
+                  'glossary'
+                ]
+              },
               'info' => {
                 'arg_line' => ' expandglossary{glossary}
 '
@@ -910,8 +920,9 @@ $result_trees{'glossary'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'glossarytext',
-                      'type' => 'macro_name'
+                      'text' => ' glossarytext
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -972,6 +983,10 @@ $result_trees{'glossary'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'glossarytext',
+                'misc_args' => []
+              },
               'info' => {
                 'arg_line' => ' glossarytext
 '
@@ -1236,12 +1251,9 @@ $result_trees{'glossary'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'expandglossary',
-                      'type' => 'macro_name'
-                    },
-                    {
-                      'text' => 'glossary',
-                      'type' => 'macro_arg'
+                      'text' => ' expandglossary{glossary}
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -1309,6 +1321,12 @@ $result_trees{'glossary'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'expandglossary',
+                'misc_args' => [
+                  'glossary'
+                ]
+              },
               'info' => {
                 'arg_line' => ' expandglossary{glossary}
 '
@@ -1364,8 +1382,9 @@ $result_trees{'glossary'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'glossarytext',
-                      'type' => 'macro_name'
+                      'text' => ' glossarytext
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -1426,6 +1445,10 @@ $result_trees{'glossary'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'glossarytext',
+                'misc_args' => []
+              },
               'info' => {
                 'arg_line' => ' glossarytext
 '

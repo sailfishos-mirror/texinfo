@@ -15,16 +15,9 @@ $result_trees{'macro_and_args'} = {
             {
               'contents' => [
                 {
-                  'text' => 'good',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'aaa',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => '2b-bb',
-                  'type' => 'macro_arg'
+                  'text' => ' good { aaa, 2b-bb}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -60,6 +53,13 @@ $result_trees{'macro_and_args'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'good',
+            'misc_args' => [
+              'aaa',
+              '2b-bb'
+            ]
+          },
           'info' => {
             'arg_line' => ' good { aaa, 2b-bb}
 '
@@ -79,20 +79,9 @@ $result_trees{'macro_and_args'} = {
             {
               'contents' => [
                 {
-                  'text' => 'bad',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'ggg"@@^_ ff',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'nnn_b',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'ccc v',
-                  'type' => 'macro_arg'
+                  'text' => ' bad { ggg"@@^_ ff, nnn_b, ccc v}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -129,7 +118,13 @@ $result_trees{'macro_and_args'} = {
             }
           ],
           'extra' => {
-            'invalid_syntax' => 1
+            'invalid_syntax' => 1,
+            'macro_name' => 'bad',
+            'misc_args' => [
+              'ggg"@@^_ ff',
+              'nnn_b',
+              'ccc v'
+            ]
           },
           'info' => {
             'arg_line' => ' bad { ggg"@@^_ ff, nnn_b, ccc v}

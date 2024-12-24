@@ -15,8 +15,9 @@ $result_trees{'zero_argument_comment'} = {
             {
               'contents' => [
                 {
-                  'text' => 'foo',
-                  'type' => 'macro_name'
+                  'text' => ' foo {}@c foo c
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'zero_argument_comment'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'foo',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' foo {}@c foo c
 '
@@ -76,8 +81,9 @@ $result_trees{'zero_argument_comment'} = {
             {
               'contents' => [
                 {
-                  'text' => 'abar',
-                  'type' => 'macro_name'
+                  'text' => ' abar@comment bar comment
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -112,6 +118,10 @@ $result_trees{'zero_argument_comment'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'abar',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' abar@comment bar comment
 '

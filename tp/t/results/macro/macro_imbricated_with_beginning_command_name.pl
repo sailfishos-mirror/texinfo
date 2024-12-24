@@ -15,8 +15,9 @@ $result_trees{'macro_imbricated_with_beginning_command_name'} = {
             {
               'contents' => [
                 {
-                  'text' => 'foo',
-                  'type' => 'macro_name'
+                  'text' => ' foo
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -67,6 +68,10 @@ $result_trees{'macro_imbricated_with_beginning_command_name'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'foo',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' foo
 '

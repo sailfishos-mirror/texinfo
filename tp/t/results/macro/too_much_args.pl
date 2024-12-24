@@ -15,16 +15,9 @@ $result_trees{'too_much_args'} = {
             {
               'contents' => [
                 {
-                  'text' => 'twoargs',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'first',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'second',
-                  'type' => 'macro_arg'
+                  'text' => ' twoargs {first, second}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -70,6 +63,13 @@ $result_trees{'too_much_args'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'twoargs',
+            'misc_args' => [
+              'first',
+              'second'
+            ]
+          },
           'info' => {
             'arg_line' => ' twoargs {first, second}
 '

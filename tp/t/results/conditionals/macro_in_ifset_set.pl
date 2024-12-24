@@ -42,8 +42,9 @@ $result_trees{'macro_in_ifset_set'} = {
             {
               'contents' => [
                 {
-                  'text' => 'truc',
-                  'type' => 'macro_name'
+                  'text' => ' truc {}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -84,6 +85,10 @@ $result_trees{'macro_in_ifset_set'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'truc',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' truc {}
 '
@@ -156,8 +161,9 @@ $result_trees{'macro_in_ifset_set'} = {
             {
               'contents' => [
                 {
-                  'text' => 'truc',
-                  'type' => 'macro_name'
+                  'text' => ' truc{}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -198,6 +204,10 @@ $result_trees{'macro_in_ifset_set'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'truc',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' truc{}
 '

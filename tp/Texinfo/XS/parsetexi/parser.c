@@ -1544,15 +1544,9 @@ process_macro_block_contents (ELEMENT *current, const char **line_out)
                                  "beginning of a line",
                                  command_name(top_stack_cmd));
                     }
-                  if (current->e.c->contents.number > 0
-                      && current->e.c->contents.list[0]
-                                        ->e.c->contents.number > 0)
+                  name = lookup_extra_string (current, AI_key_macro_name);
+                  if (name)
                     {
-                      const ELEMENT *macro_name_e
-                          = contents_child_by_index (
-                              contents_child_by_index (current, 0), 0);
-                      name = macro_name_e->e.text->text;
-
                       existing = lookup_command (name);
                       if (existing)
                         {

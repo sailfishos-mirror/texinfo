@@ -20,8 +20,9 @@ $result_trees{'text_before_after'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'mymacro',
-                      'type' => 'macro_name'
+                      'text' => ' mymacro
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -62,6 +63,10 @@ $result_trees{'text_before_after'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'mymacro',
+                'misc_args' => []
+              },
               'info' => {
                 'arg_line' => ' mymacro
 '

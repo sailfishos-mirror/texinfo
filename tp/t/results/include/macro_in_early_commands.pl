@@ -15,8 +15,9 @@ $result_trees{'macro_in_early_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'begin-file',
-                  'type' => 'macro_name'
+                  'text' => ' begin-file
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_in_early_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'begin-file',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' begin-file
 '
@@ -71,12 +76,9 @@ $result_trees{'macro_in_early_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'end-file-name',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'ext',
-                  'type' => 'macro_arg'
+                  'text' => ' end-file-name {ext}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -117,6 +119,12 @@ $result_trees{'macro_in_early_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'end-file-name',
+            'misc_args' => [
+              'ext'
+            ]
+          },
           'info' => {
             'arg_line' => ' end-file-name {ext}
 '
@@ -226,8 +234,9 @@ $result_trees{'macro_in_early_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'latin1',
-                  'type' => 'macro_name'
+                  'text' => ' latin1 
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -268,6 +277,10 @@ $result_trees{'macro_in_early_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'latin1',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' latin1 
 '
@@ -287,8 +300,9 @@ $result_trees{'macro_in_early_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'documentencoding-command',
-                  'type' => 'macro_name'
+                  'text' => ' documentencoding-command
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -329,6 +343,10 @@ $result_trees{'macro_in_early_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'documentencoding-command',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' documentencoding-command
 '
@@ -431,8 +449,9 @@ $result_trees{'macro_in_early_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'multiinclude',
-                  'type' => 'macro_name'
+                  'text' => ' multiinclude
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -478,6 +497,10 @@ $result_trees{'macro_in_early_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'multiinclude',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' multiinclude
 '
@@ -653,8 +676,9 @@ $result_trees{'macro_in_early_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'themacro',
-                  'type' => 'macro_name'
+                  'text' => ' themacro
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -696,6 +720,10 @@ $result_trees{'macro_in_early_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'themacro',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' themacro
 '

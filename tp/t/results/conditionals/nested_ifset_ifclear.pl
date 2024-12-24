@@ -20,8 +20,9 @@ $result_trees{'nested_ifset_ifclear'} = {
             {
               'contents' => [
                 {
-                  'text' => 'conditionals',
-                  'type' => 'macro_name'
+                  'text' => ' conditionals{}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -97,6 +98,10 @@ $result_trees{'nested_ifset_ifclear'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'conditionals',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' conditionals{}
 '

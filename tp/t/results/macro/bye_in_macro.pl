@@ -15,8 +15,9 @@ $result_trees{'bye_in_macro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'byeinmacro',
-                  'type' => 'macro_name'
+                  'text' => ' byeinmacro
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -72,6 +73,10 @@ $result_trees{'bye_in_macro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'byeinmacro',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' byeinmacro
 '

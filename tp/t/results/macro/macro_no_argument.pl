@@ -13,6 +13,12 @@ $result_trees{'macro_no_argument'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'text' => '',
+                  'type' => 'macro_line'
+                }
+              ],
               'type' => 'argument'
             }
           ],

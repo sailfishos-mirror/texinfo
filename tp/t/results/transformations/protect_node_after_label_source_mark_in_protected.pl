@@ -15,8 +15,9 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
             {
               'contents' => [
                 {
-                  'text' => 'vvv',
-                  'type' => 'macro_name'
+                  'text' => ' vvv {}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'vvv',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' vvv {}
 '

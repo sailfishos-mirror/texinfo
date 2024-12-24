@@ -15,8 +15,9 @@ $result_trees{'table_nested'} = {
             {
               'contents' => [
                 {
-                  'text' => 'myvtable',
-                  'type' => 'macro_name'
+                  'text' => ' myvtable
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -157,6 +158,10 @@ $result_trees{'table_nested'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'myvtable',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' myvtable
 '

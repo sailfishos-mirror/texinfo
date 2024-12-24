@@ -15,8 +15,9 @@ $result_trees{'nested_macro_call'} = {
             {
               'contents' => [
                 {
-                  'text' => 'machin',
-                  'type' => 'macro_name'
+                  'text' => ' machin{}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'nested_macro_call'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'machin',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' machin{}
 '
@@ -76,8 +81,9 @@ $result_trees{'nested_macro_call'} = {
             {
               'contents' => [
                 {
-                  'text' => 'truc',
-                  'type' => 'macro_name'
+                  'text' => ' truc{}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -123,6 +129,10 @@ $result_trees{'nested_macro_call'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'truc',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' truc{}
 '

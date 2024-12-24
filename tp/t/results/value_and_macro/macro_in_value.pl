@@ -15,8 +15,9 @@ $result_trees{'macro_in_value'} = {
             {
               'contents' => [
                 {
-                  'text' => 'ab',
-                  'type' => 'macro_name'
+                  'text' => ' ab
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -67,6 +68,10 @@ $result_trees{'macro_in_value'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'ab',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' ab
 '

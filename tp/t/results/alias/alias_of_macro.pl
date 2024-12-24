@@ -15,12 +15,9 @@ $result_trees{'alias_of_macro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mymacro',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'thearg',
-                  'type' => 'macro_arg'
+                  'text' => ' mymacro {thearg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -61,6 +58,12 @@ $result_trees{'alias_of_macro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mymacro',
+            'misc_args' => [
+              'thearg'
+            ]
+          },
           'info' => {
             'arg_line' => ' mymacro {thearg}
 '

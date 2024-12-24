@@ -20,20 +20,9 @@ $result_trees{'newline_and_continuation_in_brace'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mylinecommand',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'first',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'second',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'rest',
-                  'type' => 'macro_arg'
+                  'text' => ' mylinecommand {first, second, rest}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -74,6 +63,14 @@ $result_trees{'newline_and_continuation_in_brace'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mylinecommand',
+            'misc_args' => [
+              'first',
+              'second',
+              'rest'
+            ]
+          },
           'info' => {
             'arg_line' => ' mylinecommand {first, second, rest}
 '

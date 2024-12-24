@@ -15,8 +15,9 @@ $result_trees{'simple_imbricated_macro_rmacro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'truc',
-                  'type' => 'macro_name'
+                  'text' => ' truc {}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -72,6 +73,10 @@ $result_trees{'simple_imbricated_macro_rmacro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'truc',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' truc {}
 '
@@ -115,8 +120,9 @@ $result_trees{'simple_imbricated_macro_rmacro'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'bidule',
-                      'type' => 'macro_name'
+                      'text' => ' bidule {}
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -166,6 +172,10 @@ $result_trees{'simple_imbricated_macro_rmacro'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'bidule',
+                'misc_args' => []
+              },
               'info' => {
                 'arg_line' => ' bidule {}
 '

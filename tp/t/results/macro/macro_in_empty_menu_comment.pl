@@ -15,8 +15,9 @@ $result_trees{'macro_in_empty_menu_comment'} = {
             {
               'contents' => [
                 {
-                  'text' => 'emptystring',
-                  'type' => 'macro_name'
+                  'text' => ' emptystring
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_in_empty_menu_comment'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'emptystring',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' emptystring
 '

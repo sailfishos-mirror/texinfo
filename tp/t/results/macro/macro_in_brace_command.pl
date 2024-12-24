@@ -15,8 +15,9 @@ $result_trees{'macro_in_brace_command'} = {
             {
               'contents' => [
                 {
-                  'text' => 'foo',
-                  'type' => 'macro_name'
+                  'text' => ' foo
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_in_brace_command'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'foo',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' foo
 '
@@ -76,8 +81,9 @@ $result_trees{'macro_in_brace_command'} = {
             {
               'contents' => [
                 {
-                  'text' => 'abar',
-                  'type' => 'macro_name'
+                  'text' => ' abar
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -118,6 +124,10 @@ $result_trees{'macro_in_brace_command'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'abar',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' abar
 '

@@ -54,12 +54,9 @@ $result_trees{'definfoenclose_replaced_by_macro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'phoo',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' phoo {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -100,6 +97,12 @@ $result_trees{'definfoenclose_replaced_by_macro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'phoo',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' phoo {arg}
 '

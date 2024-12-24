@@ -15,16 +15,9 @@ $result_trees{'implicit_quoting_recursion'} = {
             {
               'contents' => [
                 {
-                  'text' => 'cat',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'a',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'b',
-                  'type' => 'macro_arg'
+                  'text' => ' cat{a,b}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -65,6 +58,13 @@ $result_trees{'implicit_quoting_recursion'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'cat',
+            'misc_args' => [
+              'a',
+              'b'
+            ]
+          },
           'info' => {
             'arg_line' => ' cat{a,b}
 '

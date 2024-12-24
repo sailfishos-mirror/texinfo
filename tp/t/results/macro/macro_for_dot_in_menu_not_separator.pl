@@ -15,8 +15,9 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macrodot',
-                  'type' => 'macro_name'
+                  'text' => ' macrodot
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macrodot',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' macrodot
 '

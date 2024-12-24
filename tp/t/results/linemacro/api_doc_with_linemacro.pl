@@ -15,16 +15,9 @@ $result_trees{'api_doc_with_linemacro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'param',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'param',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'type',
-                  'type' => 'macro_arg'
+                  'text' => ' param {param, type}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -65,6 +58,13 @@ $result_trees{'api_doc_with_linemacro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'param',
+            'misc_args' => [
+              'param',
+              'type'
+            ]
+          },
           'info' => {
             'arg_line' => ' param {param, type}
 '
@@ -79,16 +79,9 @@ $result_trees{'api_doc_with_linemacro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'returns',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'param',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'type',
-                  'type' => 'macro_arg'
+                  'text' => ' returns {param, type}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -129,6 +122,13 @@ $result_trees{'api_doc_with_linemacro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'returns',
+            'misc_args' => [
+              'param',
+              'type'
+            ]
+          },
           'info' => {
             'arg_line' => ' returns {param, type}
 '
@@ -143,12 +143,9 @@ $result_trees{'api_doc_with_linemacro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'raises',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'exception',
-                  'type' => 'macro_arg'
+                  'text' => ' raises {exception}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -189,6 +186,12 @@ $result_trees{'api_doc_with_linemacro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'raises',
+            'misc_args' => [
+              'exception'
+            ]
+          },
           'info' => {
             'arg_line' => ' raises {exception}
 '

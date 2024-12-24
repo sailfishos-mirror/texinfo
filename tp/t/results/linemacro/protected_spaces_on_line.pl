@@ -15,16 +15,9 @@ $result_trees{'protected_spaces_on_line'} = {
             {
               'contents' => [
                 {
-                  'text' => 'test',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'first',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'rest',
-                  'type' => 'macro_arg'
+                  'text' => ' test {first, rest}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -75,6 +68,13 @@ $result_trees{'protected_spaces_on_line'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'test',
+            'misc_args' => [
+              'first',
+              'rest'
+            ]
+          },
           'info' => {
             'arg_line' => ' test {first, rest}
 '

@@ -15,20 +15,9 @@ $result_trees{'macro_call_empty_middle_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'threea',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'aa',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'bb',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'cc',
-                  'type' => 'macro_arg'
+                  'text' => ' threea {aa, bb, cc}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -79,6 +68,14 @@ $result_trees{'macro_call_empty_middle_arg'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'threea',
+            'misc_args' => [
+              'aa',
+              'bb',
+              'cc'
+            ]
+          },
           'info' => {
             'arg_line' => ' threea {aa, bb, cc}
 '

@@ -15,8 +15,9 @@ $result_trees{'macro_expansion_end_in_conditional_line'} = {
             {
               'contents' => [
                 {
-                  'text' => 'begincond',
-                  'type' => 'macro_name'
+                  'text' => ' begincond
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_expansion_end_in_conditional_line'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'begincond',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' begincond
 '

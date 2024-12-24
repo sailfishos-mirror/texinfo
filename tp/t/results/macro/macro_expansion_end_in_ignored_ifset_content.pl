@@ -15,8 +15,9 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
             {
               'contents' => [
                 {
-                  'text' => 'beginifsetcontent',
-                  'type' => 'macro_name'
+                  'text' => ' beginifsetcontent
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -62,6 +63,10 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'beginifsetcontent',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' beginifsetcontent
 '

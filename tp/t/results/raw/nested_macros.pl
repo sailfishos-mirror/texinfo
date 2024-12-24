@@ -15,16 +15,9 @@ $result_trees{'nested_macros'} = {
             {
               'contents' => [
                 {
-                  'text' => 'truc',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'ex',
-                  'type' => 'macro_arg'
+                  'text' => ' truc   { arg,  ex}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -90,6 +83,13 @@ $result_trees{'nested_macros'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'truc',
+            'misc_args' => [
+              'arg',
+              'ex'
+            ]
+          },
           'info' => {
             'arg_line' => ' truc   { arg,  ex}
 '

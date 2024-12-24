@@ -15,20 +15,9 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
             {
               'contents' => [
                 {
-                  'text' => 'lm',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'a',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'b',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'c',
-                  'type' => 'macro_arg'
+                  'text' => ' lm {a, b, c}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -79,6 +68,14 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'lm',
+            'misc_args' => [
+              'a',
+              'b',
+              'c'
+            ]
+          },
           'info' => {
             'arg_line' => ' lm {a, b, c}
 '

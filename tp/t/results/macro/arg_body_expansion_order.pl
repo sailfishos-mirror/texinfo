@@ -20,8 +20,9 @@ $result_trees{'arg_body_expansion_order'} = {
             {
               'contents' => [
                 {
-                  'text' => 'othermacro',
-                  'type' => 'macro_name'
+                  'text' => ' othermacro
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -62,6 +63,10 @@ $result_trees{'arg_body_expansion_order'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'othermacro',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' othermacro
 '
@@ -81,12 +86,9 @@ $result_trees{'arg_body_expansion_order'} = {
             {
               'contents' => [
                 {
-                  'text' => 'redefineothermacro',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' redefineothermacro {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -147,6 +149,12 @@ $result_trees{'arg_body_expansion_order'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'redefineothermacro',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' redefineothermacro {arg}
 '
@@ -203,8 +211,9 @@ $result_trees{'arg_body_expansion_order'} = {
             {
               'contents' => [
                 {
-                  'text' => 'othermacro',
-                  'type' => 'macro_name'
+                  'text' => ' othermacro
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -246,6 +255,10 @@ $result_trees{'arg_body_expansion_order'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'othermacro',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' othermacro
 '

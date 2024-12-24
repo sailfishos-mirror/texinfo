@@ -15,8 +15,9 @@ $result_trees{'macro_not_closed'} = {
             {
               'contents' => [
                 {
-                  'text' => 'name',
-                  'type' => 'macro_name'
+                  'text' => ' name
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -27,6 +28,10 @@ $result_trees{'macro_not_closed'} = {
               'type' => 'raw'
             }
           ],
+          'extra' => {
+            'macro_name' => 'name',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' name
 '

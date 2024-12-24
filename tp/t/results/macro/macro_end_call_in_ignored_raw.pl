@@ -15,8 +15,9 @@ $result_trees{'macro_end_call_in_ignored_raw'} = {
             {
               'contents' => [
                 {
-                  'text' => 'startraw',
-                  'type' => 'macro_name'
+                  'text' => ' startraw
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -62,6 +63,10 @@ $result_trees{'macro_end_call_in_ignored_raw'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'startraw',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' startraw
 '

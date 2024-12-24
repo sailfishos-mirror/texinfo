@@ -15,12 +15,9 @@ $result_trees{'empty_end'} = {
             {
               'contents' => [
                 {
-                  'text' => 'foo',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'aaa',
-                  'type' => 'macro_arg'
+                  'text' => ' foo {aaa, }
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -55,6 +52,12 @@ $result_trees{'empty_end'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'foo',
+            'misc_args' => [
+              'aaa'
+            ]
+          },
           'info' => {
             'arg_line' => ' foo {aaa, }
 '

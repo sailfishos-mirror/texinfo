@@ -15,12 +15,9 @@ $result_trees{'protect_colon_source_mark'} = {
             {
               'contents' => [
                 {
-                  'text' => 'klm',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' klm {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -61,6 +58,12 @@ $result_trees{'protect_colon_source_mark'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'klm',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' klm {arg}
 '

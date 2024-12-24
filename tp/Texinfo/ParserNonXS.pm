@@ -1318,6 +1318,9 @@ sub _parse_macro_command_line($$$$$;$)
                'info' => {'arg_line' => $line}, 'source_info' => $source_info };
   my $argument = {'type' => 'argument', 'parent' => $macro};
   $macro->{'contents'} = [$argument];
+  my $macro_line = {'type' => 'macro_line', 'text' => $line,
+                    'parent' => $argument};
+  $argument->{'contents'} = [$macro_line];
 
   # REMACRO
   my $macro_name;
@@ -1338,9 +1341,7 @@ sub _parse_macro_command_line($$$$$;$)
     print STDERR "MACRO \@$command $macro_name\n"
                            if ($self->{'conf'}->{'DEBUG'});
 
-    $argument->{'contents'} = [
-         { 'type' => 'macro_name', 'text' => $macro_name,
-            'parent' => $argument } ];
+    $macro->{'extra'} = {'macro_name' => $macro_name};
 
     my $args_def = $line;
     $args_def =~ s/^\s*//;
@@ -1350,14 +1351,13 @@ sub _parse_macro_command_line($$$$$;$)
       @args = split(/\s*,\s*/, $1);
     }
 
+    $macro->{'extra'}->{'misc_args'} = [];
     foreach my $formal_arg (@args) {
-      push @{$argument->{'contents'}},
-        { 'type' => 'macro_arg', 'text' => $formal_arg,
-          'parent' => $argument};
+      push @{$macro->{'extra'}->{'misc_args'}}, $formal_arg;
       if ($formal_arg !~ /^[\w\-]+$/) {
         $self->_line_error(sprintf(__("bad or empty \@%s formal argument: %s"),
                                    $command, $formal_arg), $source_info);
-        $macro->{'extra'} = {'invalid_syntax' => 1};
+        $macro->{'extra'}->{'invalid_syntax'} = 1;
       }
     }
     # accept an @-command after the arguments in case there is a @c or
@@ -1368,7 +1368,7 @@ sub _parse_macro_command_line($$$$$;$)
       $self->_line_error(sprintf(__("bad syntax for \@%s argument: %s"),
                                  $command, $no_eol_args),
                          $source_info);
-      $macro->{'extra'} = {'invalid_syntax' => 1};
+      $macro->{'extra'}->{'invalid_syntax'} = 1;
     }
   }
   return $macro;
@@ -2706,9 +2706,8 @@ sub _expand_macro_arguments($$$$$)
                           'parent' => $argument};
   push @{$argument->{'contents'}}, $argument_content;
 
-  my $macro_definition_arg = $macro->{'contents'}->[0];
-  my $args_total = scalar(@{$macro_definition_arg->{'contents'}}) -1;
-  my $name = $macro_definition_arg->{'contents'}->[0]->{'text'};
+  my $args_total = scalar(@{$macro->{'extra'}->{'misc_args'}});
+  my $name = $macro->{'extra'}->{'macro_name'};
 
   my $source_info_orig = $source_info;
 
@@ -2819,9 +2818,8 @@ sub _expand_linemacro_arguments($$$$$)
     $current->{'info'} = {} if (!$current->{'info'});
     $current->{'info'}->{'spaces_before_argument'} = {'text' => $1};
   }
-  my $macro_definition_arg = $macro->{'contents'}->[0];
-  my $args_total = scalar(@{$macro_definition_arg->{'contents'}}) -1;
-  my $name = $macro_definition_arg->{'contents'}->[0]->{'text'};
+  my $args_total = scalar(@{$macro->{'extra'}->{'misc_args'}});
+  my $name = $macro->{'extra'}->{'macro_name'};
 
   while (1) {
     # spaces based on whitespace_chars_except_newline in XS parser
@@ -2952,16 +2950,14 @@ sub _lookup_macro_parameter($$) {
   my $macro = shift;
   my $name = shift;
 
-  my $macro_definition_arg = $macro->{'element'}->{'contents'}->[0];
-  my $args_total = scalar(@{$macro_definition_arg->{'contents'}}) -1;
+  my $args_array = $macro->{'element'}->{'extra'}->{'misc_args'};
+  my $args_total = scalar(@$args_array);
   if ($args_total > 0) {
     my $arg_index;
-    # the first argument is the macro name
-    for ($arg_index=1; $arg_index<=$args_total; $arg_index++) {
-      if (defined($macro_definition_arg->{'contents'}->[$arg_index])
-          and $macro_definition_arg->{'contents'}->[$arg_index]->{'text'}
-                                                                   eq $name) {
-        return $arg_index - 1;
+    for ($arg_index = 0; $arg_index <= $args_total; $arg_index++) {
+      if (defined($args_array->[$arg_index])
+          and $args_array->[$arg_index] eq $name) {
+        return $arg_index;
       }
     }
   }
@@ -2992,10 +2988,10 @@ sub _expand_macro_body($$$$) {
             $result .= $args->[$formal_arg_index]->{'contents'}->[0]->{'text'};
           }
         } else {
-          my $macro_definition_arg = $macro->{'element'}->{'contents'}->[0];
+          my $macro_name = $macro->{'element'}->{'extra'}->{'macro_name'};
           $self->_line_error(sprintf(__(
          "\\ in \@%s expansion followed `%s' instead of parameter name or \\"),
-             $macro_definition_arg->{'contents'}->[0]->{'text'}, $arg),
+             $macro_name, $arg),
              $source_info);
           $result .= '\\' . $arg;
         }
@@ -5217,7 +5213,6 @@ sub _handle_macro($$$$$)
   my $command = shift;
 
   my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
-  my $macro_definition_arg = $expanded_macro->{'contents'}->[0];
 
   # It is important to check for expansion before the expansion and
   # not after, as during the expansion, the text may go past the
@@ -5262,7 +5257,7 @@ sub _handle_macro($$$$$)
      = _expand_linemacro_arguments($self, $expanded_macro, $line, $source_info,
                                    $macro_call_element);
   } else {
-    my $args_number = scalar(@{$macro_definition_arg->{'contents'}}) -1;
+    my $args_number = scalar(@{$expanded_macro->{'extra'}->{'misc_args'}});
     if ($line =~ /^\s*{/) { # } macro with args
       if ($line =~ s/^(\s+)//) {
         my $spaces_element = {'text' => $1};
@@ -5363,7 +5358,7 @@ sub _handle_macro($$$$$)
 
   # Put expansion in front of the current line.
   _input_push_text($self, $expanded_macro_text, $source_info->{'line_nr'},
-                   $macro_definition_arg->{'contents'}->[0]->{'text'});
+                   $expanded_macro->{'extra'}->{'macro_name'});
 
   $self->{'input'}->[0]->{'input_source_mark'} = $macro_source_mark;
 
@@ -6951,10 +6946,9 @@ sub _process_macro_block_contents($$)
                 __("\@end %s should only appear at the beginning of a line"),
                                    $current->{'cmdname'}), $source_info);
         }
-        if ($current->{'contents'} and $current->{'contents'}->[0]
-            and $current->{'contents'}->[0]->{'contents'}
-            and $current->{'contents'}->[0]->{'contents'}->[0]) {
-          my $name = $current->{'contents'}->[0]->{'contents'}->[0]->{'text'};
+        if ($current->{'extra'}
+            and defined($current->{'extra'}->{'macro_name'})) {
+          my $name = $current->{'extra'}->{'macro_name'};
           if (exists($self->{'macros'}->{$name})) {
             $self->_line_warn(sprintf(__("macro `%s' previously defined"),
                                       $name), $current->{'source_info'});

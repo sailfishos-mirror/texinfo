@@ -15,12 +15,9 @@ $result_trees{'redefine_texinfo_macro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'code',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' code{arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -61,6 +58,12 @@ $result_trees{'redefine_texinfo_macro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'code',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' code{arg}
 '

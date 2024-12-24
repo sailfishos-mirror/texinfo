@@ -15,8 +15,9 @@ $result_trees{'macro_zero'} = {
             {
               'contents' => [
                 {
-                  'text' => 'zero',
-                  'type' => 'macro_name'
+                  'text' => ' zero
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_zero'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'zero',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' zero
 '

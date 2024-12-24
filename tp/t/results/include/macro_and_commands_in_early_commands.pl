@@ -15,8 +15,9 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'begin-file',
-                  'type' => 'macro_name'
+                  'text' => ' begin-file
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'begin-file',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' begin-file
 '
@@ -143,8 +148,9 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'latin1',
-                  'type' => 'macro_name'
+                  'text' => ' latin1 
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -185,6 +191,10 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'latin1',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' latin1 
 '
@@ -269,8 +279,9 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'multiinclude',
-                  'type' => 'macro_name'
+                  'text' => ' multiinclude
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -316,6 +327,10 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'multiinclude',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' multiinclude
 '
@@ -491,8 +506,9 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'themacro',
-                  'type' => 'macro_name'
+                  'text' => ' themacro
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -534,6 +550,10 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'themacro',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' themacro
 '

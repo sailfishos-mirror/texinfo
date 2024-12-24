@@ -154,12 +154,9 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             {
               'contents' => [
                 {
-                  'text' => 'phooindex',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' phooindex {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -200,6 +197,12 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'phooindex',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' phooindex {arg}
 '
@@ -540,12 +543,9 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             {
               'contents' => [
                 {
-                  'text' => 'phooindex',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' phooindex {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -586,6 +586,12 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'phooindex',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' phooindex {arg}
 '
@@ -719,12 +725,9 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             {
               'contents' => [
                 {
-                  'text' => 'phooindex',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' phooindex {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -765,6 +768,12 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'phooindex',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' phooindex {arg}
 '
@@ -1102,12 +1111,9 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
             {
               'contents' => [
                 {
-                  'text' => 'phooindex',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' phooindex {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -1148,6 +1154,12 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'phooindex',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' phooindex {arg}
 '

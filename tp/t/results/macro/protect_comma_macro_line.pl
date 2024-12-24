@@ -15,12 +15,9 @@ $result_trees{'protect_comma_macro_line'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macrotwo',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' macrotwo { arg }
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -76,6 +73,12 @@ $result_trees{'protect_comma_macro_line'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macrotwo',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' macrotwo { arg }
 '

@@ -79,12 +79,9 @@ $result_trees{'backslash_in_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'funindex',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'TEXT',
-                  'type' => 'macro_arg'
+                  'text' => ' funindex {TEXT}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -125,6 +122,12 @@ $result_trees{'backslash_in_arg'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'funindex',
+            'misc_args' => [
+              'TEXT'
+            ]
+          },
           'info' => {
             'arg_line' => ' funindex {TEXT}
 '

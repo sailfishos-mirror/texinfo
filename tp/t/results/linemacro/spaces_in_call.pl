@@ -15,20 +15,9 @@ $result_trees{'spaces_in_call'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mylinecommand',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'first',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'second',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'rest',
-                  'type' => 'macro_arg'
+                  'text' => ' mylinecommand {first, second, rest}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -79,6 +68,14 @@ $result_trees{'spaces_in_call'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mylinecommand',
+            'misc_args' => [
+              'first',
+              'second',
+              'rest'
+            ]
+          },
           'info' => {
             'arg_line' => ' mylinecommand {first, second, rest}
 '

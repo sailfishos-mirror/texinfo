@@ -84,12 +84,9 @@ $result_trees{'test_allowcodebreaks'} = {
             {
               'contents' => [
                 {
-                  'text' => 'testallowcodebreakspara',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'nr',
-                  'type' => 'macro_arg'
+                  'text' => ' testallowcodebreakspara {nr}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -155,6 +152,12 @@ $result_trees{'test_allowcodebreaks'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'testallowcodebreakspara',
+            'misc_args' => [
+              'nr'
+            ]
+          },
           'info' => {
             'arg_line' => ' testallowcodebreakspara {nr}
 '
@@ -174,8 +177,9 @@ $result_trees{'test_allowcodebreaks'} = {
             {
               'contents' => [
                 {
-                  'text' => 'testallowcodebreaksexample',
-                  'type' => 'macro_name'
+                  'text' => ' testallowcodebreaksexample{}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -231,6 +235,10 @@ $result_trees{'test_allowcodebreaks'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'testallowcodebreaksexample',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' testallowcodebreaksexample{}
 '

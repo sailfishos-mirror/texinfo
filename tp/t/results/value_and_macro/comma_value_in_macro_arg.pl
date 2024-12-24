@@ -37,16 +37,9 @@ $result_trees{'comma_value_in_macro_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macro1',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg1',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'arg2',
-                  'type' => 'macro_arg'
+                  'text' => ' macro1 { arg1 , arg2 }
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -87,6 +80,13 @@ $result_trees{'comma_value_in_macro_arg'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macro1',
+            'misc_args' => [
+              'arg1',
+              'arg2'
+            ]
+          },
           'info' => {
             'arg_line' => ' macro1 { arg1 , arg2 }
 '

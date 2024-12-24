@@ -15,16 +15,9 @@ $result_trees{'verb_with_arobase_in_macro_call'} = {
             {
               'contents' => [
                 {
-                  'text' => 'showarg',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'a',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'b',
-                  'type' => 'macro_arg'
+                  'text' => ' showarg {a, b}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -70,6 +63,13 @@ $result_trees{'verb_with_arobase_in_macro_call'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'showarg',
+            'misc_args' => [
+              'a',
+              'b'
+            ]
+          },
           'info' => {
             'arg_line' => ' showarg {a, b}
 '

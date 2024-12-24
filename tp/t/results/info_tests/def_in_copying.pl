@@ -15,8 +15,9 @@ $result_trees{'def_in_copying'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mymacro',
-                  'type' => 'macro_name'
+                  'text' => ' mymacro
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -72,6 +73,10 @@ $result_trees{'def_in_copying'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mymacro',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' mymacro
 '

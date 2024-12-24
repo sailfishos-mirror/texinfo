@@ -15,8 +15,9 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse_else'} = {
             {
               'contents' => [
                 {
-                  'text' => 'endcallinignoredinlineelse',
-                  'type' => 'macro_name'
+                  'text' => ' endcallinignoredinlineelse
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse_else'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'endcallinignoredinlineelse',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' endcallinignoredinlineelse
 '

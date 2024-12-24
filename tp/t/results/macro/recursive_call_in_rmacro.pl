@@ -20,8 +20,9 @@ $result_trees{'recursive_call_in_rmacro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'rec',
-                  'type' => 'macro_name'
+                  'text' => ' rec
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -62,6 +63,10 @@ $result_trees{'recursive_call_in_rmacro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'rec',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' rec
 '

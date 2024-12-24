@@ -15,8 +15,9 @@ $result_trees{'kbdinputstyle'} = {
             {
               'contents' => [
                 {
-                  'text' => 'codekbdmacro',
-                  'type' => 'macro_name'
+                  'text' => ' codekbdmacro
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -112,6 +113,10 @@ $result_trees{'kbdinputstyle'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'codekbdmacro',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' codekbdmacro
 '

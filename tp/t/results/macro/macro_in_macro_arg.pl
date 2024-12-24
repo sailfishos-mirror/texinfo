@@ -20,8 +20,9 @@ $result_trees{'macro_in_macro_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macroone',
-                  'type' => 'macro_name'
+                  'text' => ' macroone
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -62,6 +63,10 @@ $result_trees{'macro_in_macro_arg'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macroone',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' macroone
 '
@@ -81,12 +86,9 @@ $result_trees{'macro_in_macro_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macrotwo',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' macrotwo{arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -127,6 +129,12 @@ $result_trees{'macro_in_macro_arg'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macrotwo',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' macrotwo{arg}
 '
@@ -146,16 +154,9 @@ $result_trees{'macro_in_macro_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macrothree',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'text',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' macrothree{text, arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -201,6 +202,13 @@ $result_trees{'macro_in_macro_arg'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macrothree',
+            'misc_args' => [
+              'text',
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' macrothree{text, arg}
 '

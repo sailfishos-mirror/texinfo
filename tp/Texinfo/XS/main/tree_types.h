@@ -94,6 +94,7 @@ enum directions {
   ai_key(format) \
   ai_key(index_ignore_chars) \
   ai_key(input_encoding_name) \
+  ai_key(macro_name) \
   ai_key(normalized) \
   ai_key(original_def_cmdname) \
   ai_key(section_number) \

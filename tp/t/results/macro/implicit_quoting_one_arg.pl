@@ -20,12 +20,9 @@ $result_trees{'implicit_quoting_one_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'FIXAME',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'a',
-                  'type' => 'macro_arg'
+                  'text' => ' FIXAME{a}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -66,6 +63,12 @@ $result_trees{'implicit_quoting_one_arg'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'FIXAME',
+            'misc_args' => [
+              'a'
+            ]
+          },
           'info' => {
             'arg_line' => ' FIXAME{a}
 '

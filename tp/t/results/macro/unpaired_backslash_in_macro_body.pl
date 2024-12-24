@@ -15,12 +15,9 @@ $result_trees{'unpaired_backslash_in_macro_body'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mymacro',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' mymacro {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -66,6 +63,12 @@ $result_trees{'unpaired_backslash_in_macro_body'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mymacro',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' mymacro {arg}
 '

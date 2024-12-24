@@ -15,8 +15,9 @@ $result_trees{'double_macro_definition'} = {
             {
               'contents' => [
                 {
-                  'text' => 'foo',
-                  'type' => 'macro_name'
+                  'text' => ' foo
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -52,6 +53,10 @@ $result_trees{'double_macro_definition'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'foo',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' foo
 '
@@ -71,8 +76,9 @@ $result_trees{'double_macro_definition'} = {
             {
               'contents' => [
                 {
-                  'text' => 'foo',
-                  'type' => 'macro_name'
+                  'text' => ' foo
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -108,6 +114,10 @@ $result_trees{'double_macro_definition'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'foo',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' foo
 '

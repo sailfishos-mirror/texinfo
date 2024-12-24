@@ -15,8 +15,9 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse'} = {
             {
               'contents' => [
                 {
-                  'text' => 'inlinefirstfmt',
-                  'type' => 'macro_name'
+                  'text' => ' inlinefirstfmt
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'inlinefirstfmt',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' inlinefirstfmt
 '

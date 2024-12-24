@@ -15,12 +15,9 @@ $result_trees{'texinfo_command_alias'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mystrong',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' mystrong {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -61,6 +58,12 @@ $result_trees{'texinfo_command_alias'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mystrong',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' mystrong {arg}
 '

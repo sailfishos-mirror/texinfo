@@ -15,8 +15,9 @@ $result_trees{'macro_in_index_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'cp',
-                  'type' => 'macro_name'
+                  'text' => ' cp
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_in_index_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'cp',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' cp
 '
@@ -71,8 +76,9 @@ $result_trees{'macro_in_index_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'fn',
-                  'type' => 'macro_name'
+                  'text' => ' fn 
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -113,6 +119,10 @@ $result_trees{'macro_in_index_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'fn',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' fn 
 '
@@ -127,8 +137,9 @@ $result_trees{'macro_in_index_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'syncodeindexcommand',
-                  'type' => 'macro_name'
+                  'text' => ' syncodeindexcommand 
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -169,6 +180,10 @@ $result_trees{'macro_in_index_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'syncodeindexcommand',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' syncodeindexcommand 
 '
@@ -335,8 +350,9 @@ $result_trees{'macro_in_index_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'truc',
-                  'type' => 'macro_name'
+                  'text' => ' truc 
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -377,6 +393,10 @@ $result_trees{'macro_in_index_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'truc',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' truc 
 '
@@ -473,8 +493,9 @@ $result_trees{'macro_in_index_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'trucindexcommand',
-                  'type' => 'macro_name'
+                  'text' => ' trucindexcommand 
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -515,6 +536,10 @@ $result_trees{'macro_in_index_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'trucindexcommand',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' trucindexcommand 
 '
@@ -534,8 +559,9 @@ $result_trees{'macro_in_index_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'codeidx',
-                  'type' => 'macro_name'
+                  'text' => ' codeidx 
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -576,6 +602,10 @@ $result_trees{'macro_in_index_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'codeidx',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' codeidx 
 '
@@ -659,8 +689,9 @@ $result_trees{'macro_in_index_commands'} = {
             {
               'contents' => [
                 {
-                  'text' => 'defcodeindexentry',
-                  'type' => 'macro_name'
+                  'text' => ' defcodeindexentry 
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -701,6 +732,10 @@ $result_trees{'macro_in_index_commands'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'defcodeindexentry',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' defcodeindexentry 
 '

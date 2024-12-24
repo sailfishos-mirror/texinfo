@@ -15,16 +15,9 @@ $result_trees{'arobase_brace_in_macro_call'} = {
             {
               'contents' => [
                 {
-                  'text' => 'simplemac',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg1',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'arg2',
-                  'type' => 'macro_arg'
+                  'text' => ' simplemac { arg1 , arg2 }
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -70,6 +63,13 @@ $result_trees{'arobase_brace_in_macro_call'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'simplemac',
+            'misc_args' => [
+              'arg1',
+              'arg2'
+            ]
+          },
           'info' => {
             'arg_line' => ' simplemac { arg1 , arg2 }
 '

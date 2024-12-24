@@ -15,8 +15,9 @@ $result_trees{'macro_before_specific_line_command_args'} = {
             {
               'contents' => [
                 {
-                  'text' => 'cpfn',
-                  'type' => 'macro_name'
+                  'text' => ' cpfn
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_before_specific_line_command_args'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'cpfn',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' cpfn
 '

@@ -15,8 +15,9 @@ $result_trees{'macro_no_arg_expansion'} = {
             {
               'contents' => [
                 {
-                  'text' => 'testone',
-                  'type' => 'macro_name'
+                  'text' => ' testone
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_no_arg_expansion'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'testone',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' testone
 '

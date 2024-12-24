@@ -15,8 +15,9 @@ $result_trees{'macro_in_end_argument'} = {
             {
               'contents' => [
                 {
-                  'text' => 'acartouche',
-                  'type' => 'macro_name'
+                  'text' => ' acartouche
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_in_end_argument'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'acartouche',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' acartouche
 '

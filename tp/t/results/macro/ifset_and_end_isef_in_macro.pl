@@ -15,8 +15,9 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'beginifset',
-                  'type' => 'macro_name'
+                  'text' => ' beginifset {}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'beginifset',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' beginifset {}
 '
@@ -76,8 +81,9 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'endifset',
-                  'type' => 'macro_name'
+                  'text' => ' endifset {}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -118,6 +124,10 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'endifset',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' endifset {}
 '

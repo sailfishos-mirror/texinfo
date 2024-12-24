@@ -15,8 +15,9 @@ $result_trees{'closing_brace_in_macro_call_in_ignored_inline'} = {
             {
               'contents' => [
                 {
-                  'text' => 'closebrace',
-                  'type' => 'macro_name'
+                  'text' => ' closebrace
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'closing_brace_in_macro_call_in_ignored_inline'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'closebrace',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' closebrace
 '

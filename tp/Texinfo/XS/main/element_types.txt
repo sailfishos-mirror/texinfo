@@ -123,8 +123,7 @@ internal_spaces_before_context_argument    text,leading_space
 # on @*index commands line before brace specific @-command
 internal_spaces_before_brace_in_index      text
 
-macro_name                                 text
-macro_arg                                  text
+macro_line                                 text
 
 # structure of block commands
 before_item

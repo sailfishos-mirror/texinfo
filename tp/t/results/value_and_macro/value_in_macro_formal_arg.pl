@@ -37,16 +37,9 @@ $result_trees{'value_in_macro_formal_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'testvalue',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'the@value{argument',
-                  'type' => 'macro_arg'
+                  'text' => ' testvalue { arg , the@value{argument} }
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -88,7 +81,12 @@ $result_trees{'value_in_macro_formal_arg'} = {
             }
           ],
           'extra' => {
-            'invalid_syntax' => 1
+            'invalid_syntax' => 1,
+            'macro_name' => 'testvalue',
+            'misc_args' => [
+              'arg',
+              'the@value{argument'
+            ]
           },
           'info' => {
             'arg_line' => ' testvalue { arg , the@value{argument} }

@@ -37,12 +37,9 @@ $result_trees{'value_in_macro_body'} = {
             {
               'contents' => [
                 {
-                  'text' => 'testvaluebody',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' testvaluebody { arg }
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -83,6 +80,12 @@ $result_trees{'value_in_macro_body'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'testvaluebody',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' testvaluebody { arg }
 '

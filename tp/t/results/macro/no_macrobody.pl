@@ -15,12 +15,9 @@ $result_trees{'no_macrobody'} = {
             {
               'contents' => [
                 {
-                  'text' => 'nomacrobody',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' nomacrobody {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -56,6 +53,12 @@ $result_trees{'no_macrobody'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'nomacrobody',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' nomacrobody {arg}
 '

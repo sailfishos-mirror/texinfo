@@ -15,8 +15,9 @@ $result_trees{'macro_call_in_node_manual'} = {
             {
               'contents' => [
                 {
-                  'text' => 'openbrace',
-                  'type' => 'macro_name'
+                  'text' => ' openbrace
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_call_in_node_manual'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'openbrace',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' openbrace
 '
@@ -76,8 +81,9 @@ $result_trees{'macro_call_in_node_manual'} = {
             {
               'contents' => [
                 {
-                  'text' => 'openbracetext',
-                  'type' => 'macro_name'
+                  'text' => ' openbracetext
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -118,6 +124,10 @@ $result_trees{'macro_call_in_node_manual'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'openbracetext',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' openbracetext
 '
@@ -137,8 +147,9 @@ $result_trees{'macro_call_in_node_manual'} = {
             {
               'contents' => [
                 {
-                  'text' => 'manualnameend',
-                  'type' => 'macro_name'
+                  'text' => ' manualnameend
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -179,6 +190,10 @@ $result_trees{'macro_call_in_node_manual'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'manualnameend',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' manualnameend
 '
@@ -198,8 +213,9 @@ $result_trees{'macro_call_in_node_manual'} = {
             {
               'contents' => [
                 {
-                  'text' => 'manualnameendbrace',
-                  'type' => 'macro_name'
+                  'text' => ' manualnameendbrace
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -240,6 +256,10 @@ $result_trees{'macro_call_in_node_manual'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'manualnameendbrace',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' manualnameendbrace
 '
@@ -259,8 +279,9 @@ $result_trees{'macro_call_in_node_manual'} = {
             {
               'contents' => [
                 {
-                  'text' => 'manualnameendbracespace',
-                  'type' => 'macro_name'
+                  'text' => ' manualnameendbracespace
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -301,6 +322,10 @@ $result_trees{'macro_call_in_node_manual'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'manualnameendbracespace',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' manualnameendbracespace
 '
@@ -320,8 +345,9 @@ $result_trees{'macro_call_in_node_manual'} = {
             {
               'contents' => [
                 {
-                  'text' => 'manualnameendbracespacetext',
-                  'type' => 'macro_name'
+                  'text' => ' manualnameendbracespacetext
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -362,6 +388,10 @@ $result_trees{'macro_call_in_node_manual'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'manualnameendbracespacetext',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' manualnameendbracespacetext
 '

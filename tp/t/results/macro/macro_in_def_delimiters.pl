@@ -15,8 +15,9 @@ $result_trees{'macro_in_def_delimiters'} = {
             {
               'contents' => [
                 {
-                  'text' => 'string',
-                  'type' => 'macro_name'
+                  'text' => ' string
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_in_def_delimiters'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'string',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' string
 '

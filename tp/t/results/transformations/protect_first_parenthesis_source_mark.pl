@@ -15,8 +15,9 @@ $result_trees{'protect_first_parenthesis_source_mark'} = {
             {
               'contents' => [
                 {
-                  'text' => 'vvv',
-                  'type' => 'macro_name'
+                  'text' => ' vvv {}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'protect_first_parenthesis_source_mark'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'vvv',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' vvv {}
 '

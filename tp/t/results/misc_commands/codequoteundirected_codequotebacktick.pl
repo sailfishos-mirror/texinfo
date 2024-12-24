@@ -17,8 +17,9 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'quotes',
-                      'type' => 'macro_name'
+                      'text' => ' quotes
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -84,6 +85,10 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'quotes',
+                'misc_args' => []
+              },
               'info' => {
                 'arg_line' => ' quotes
 '
@@ -103,8 +108,9 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'allquotes',
-                      'type' => 'macro_name'
+                      'text' => ' allquotes
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -225,6 +231,10 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'allquotes',
+                'misc_args' => []
+              },
               'info' => {
                 'arg_line' => ' allquotes
 '

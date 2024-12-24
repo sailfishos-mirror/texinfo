@@ -13,6 +13,13 @@ $result_trees{'bad_argument'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'text' => '
+',
+                  'type' => 'macro_line'
+                }
+              ],
               'type' => 'argument'
             },
             {
@@ -73,8 +80,9 @@ $result_trees{'bad_argument'} = {
             {
               'contents' => [
                 {
-                  'text' => 'abar',
-                  'type' => 'macro_name'
+                  'text' => ' abar aaa
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -116,7 +124,9 @@ $result_trees{'bad_argument'} = {
             }
           ],
           'extra' => {
-            'invalid_syntax' => 1
+            'invalid_syntax' => 1,
+            'macro_name' => 'abar',
+            'misc_args' => []
           },
           'info' => {
             'arg_line' => ' abar aaa
@@ -137,12 +147,9 @@ $result_trees{'bad_argument'} = {
             {
               'contents' => [
                 {
-                  'text' => 'aftername',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'ggg',
-                  'type' => 'macro_arg'
+                  'text' => ' aftername {ggg} more  
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -184,7 +191,11 @@ $result_trees{'bad_argument'} = {
             }
           ],
           'extra' => {
-            'invalid_syntax' => 1
+            'invalid_syntax' => 1,
+            'macro_name' => 'aftername',
+            'misc_args' => [
+              'ggg'
+            ]
           },
           'info' => {
             'arg_line' => ' aftername {ggg} more  
@@ -203,6 +214,13 @@ $result_trees{'bad_argument'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'text' => ' #badname
+',
+                  'type' => 'macro_line'
+                }
+              ],
               'type' => 'argument'
             },
             {

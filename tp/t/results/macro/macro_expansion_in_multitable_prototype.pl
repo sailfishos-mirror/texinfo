@@ -15,8 +15,9 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
             {
               'contents' => [
                 {
-                  'text' => 'simple',
-                  'type' => 'macro_name'
+                  'text' => ' simple
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'simple',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' simple
 '
@@ -76,12 +81,9 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
             {
               'contents' => [
                 {
-                  'text' => 'endbrace',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' endbrace {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -122,6 +124,12 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'endbrace',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' endbrace {arg}
 '

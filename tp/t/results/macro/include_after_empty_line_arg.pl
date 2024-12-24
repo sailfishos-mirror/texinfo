@@ -15,12 +15,9 @@ $result_trees{'include_after_empty_line_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mymacro',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'body',
-                  'type' => 'macro_arg'
+                  'text' => ' mymacro{body}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -61,6 +58,12 @@ $result_trees{'include_after_empty_line_arg'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mymacro',
+            'misc_args' => [
+              'body'
+            ]
+          },
           'info' => {
             'arg_line' => ' mymacro{body}
 '

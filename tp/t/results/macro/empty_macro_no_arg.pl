@@ -15,8 +15,9 @@ $result_trees{'empty_macro_no_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'foo',
-                  'type' => 'macro_name'
+                  'text' => ' foo
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -52,6 +53,10 @@ $result_trees{'empty_macro_no_arg'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'foo',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' foo
 '

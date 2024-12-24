@@ -15,8 +15,9 @@ $result_trees{'macro_name_with_digit'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macro1',
-                  'type' => 'macro_name'
+                  'text' => ' macro1
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_name_with_digit'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macro1',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' macro1
 '
@@ -76,12 +81,9 @@ $result_trees{'macro_name_with_digit'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macro11',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' macro11 {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -122,6 +124,12 @@ $result_trees{'macro_name_with_digit'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macro11',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' macro11 {arg}
 '

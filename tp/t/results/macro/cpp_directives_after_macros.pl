@@ -27,8 +27,9 @@ $result_trees{'cpp_directives_after_macros'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'noargsspaces',
-                      'type' => 'macro_name'
+                      'text' => ' noargsspaces
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -70,6 +71,10 @@ $result_trees{'cpp_directives_after_macros'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'noargsspaces',
+                'misc_args' => []
+              },
               'info' => {
                 'arg_line' => ' noargsspaces
 '
@@ -90,8 +95,9 @@ $result_trees{'cpp_directives_after_macros'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'emptyexpansion',
-                      'type' => 'macro_name'
+                      'text' => ' emptyexpansion
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -133,6 +139,10 @@ $result_trees{'cpp_directives_after_macros'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'emptyexpansion',
+                'misc_args' => []
+              },
               'info' => {
                 'arg_line' => ' emptyexpansion
 '

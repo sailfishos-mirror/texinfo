@@ -15,8 +15,9 @@ $result_trees{'two_macros_on_a_line'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mymacro',
-                  'type' => 'macro_name'
+                  'text' => ' mymacro
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'two_macros_on_a_line'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mymacro',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' mymacro
 '
@@ -76,12 +81,9 @@ $result_trees{'two_macros_on_a_line'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mymacrowithargs',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' mymacrowithargs{arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -132,6 +134,12 @@ $result_trees{'two_macros_on_a_line'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mymacrowithargs',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' mymacrowithargs{arg}
 '

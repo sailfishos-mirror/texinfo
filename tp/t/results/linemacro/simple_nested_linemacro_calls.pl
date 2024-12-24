@@ -43,20 +43,9 @@ $result_trees{'simple_nested_linemacro_calls'} = {
             {
               'contents' => [
                 {
-                  'text' => 'inside',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'a',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'b',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'rest',
-                  'type' => 'macro_arg'
+                  'text' => ' inside {a, b, rest}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -97,6 +86,14 @@ $result_trees{'simple_nested_linemacro_calls'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'inside',
+            'misc_args' => [
+              'a',
+              'b',
+              'rest'
+            ]
+          },
           'info' => {
             'arg_line' => ' inside {a, b, rest}
 '
@@ -116,20 +113,9 @@ $result_trees{'simple_nested_linemacro_calls'} = {
             {
               'contents' => [
                 {
-                  'text' => 'outside',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'one',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'two',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'three',
-                  'type' => 'macro_arg'
+                  'text' => ' outside {one, two, three}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -175,6 +161,14 @@ $result_trees{'simple_nested_linemacro_calls'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'outside',
+            'misc_args' => [
+              'one',
+              'two',
+              'three'
+            ]
+          },
           'info' => {
             'arg_line' => ' outside {one, two, three}
 '

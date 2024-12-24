@@ -15,16 +15,9 @@ $result_trees{'form_feeds'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mymacro',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'a',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'b',
-                  'type' => 'macro_arg'
+                  'text' => ' mymacro{a, b}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -65,6 +58,13 @@ $result_trees{'form_feeds'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mymacro',
+            'misc_args' => [
+              'a',
+              'b'
+            ]
+          },
           'info' => {
             'arg_line' => ' mymacro{a, b}
 '
@@ -84,12 +84,9 @@ $result_trees{'form_feeds'} = {
             {
               'contents' => [
                 {
-                  'text' => 'oneargmacro',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'c',
-                  'type' => 'macro_arg'
+                  'text' => ' oneargmacro{c}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -130,6 +127,12 @@ $result_trees{'form_feeds'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'oneargmacro',
+            'misc_args' => [
+              'c'
+            ]
+          },
           'info' => {
             'arg_line' => ' oneargmacro{c}
 '

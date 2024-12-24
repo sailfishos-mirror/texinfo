@@ -261,8 +261,9 @@ $result_trees{'cpp_lines'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macr',
-                  'type' => 'macro_name'
+                  'text' => ' macr
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -304,6 +305,10 @@ $result_trees{'cpp_lines'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macr',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' macr
 '
@@ -424,8 +429,9 @@ $result_trees{'cpp_lines'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macrtwo',
-                  'type' => 'macro_name'
+                  'text' => ' macrtwo
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -472,6 +478,10 @@ $result_trees{'cpp_lines'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macrtwo',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' macrtwo
 '

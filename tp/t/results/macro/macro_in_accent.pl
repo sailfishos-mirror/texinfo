@@ -15,8 +15,9 @@ $result_trees{'macro_in_accent'} = {
             {
               'contents' => [
                 {
-                  'text' => 'aletter',
-                  'type' => 'macro_name'
+                  'text' => ' aletter
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_in_accent'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'aletter',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' aletter
 '
@@ -76,8 +81,9 @@ $result_trees{'macro_in_accent'} = {
             {
               'contents' => [
                 {
-                  'text' => 'aspace',
-                  'type' => 'macro_name'
+                  'text' => ' aspace
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -118,6 +124,10 @@ $result_trees{'macro_in_accent'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'aspace',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' aspace
 '

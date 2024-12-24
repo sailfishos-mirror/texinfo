@@ -15,12 +15,9 @@ $result_trees{'complex_argument'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macrotwo',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' macrotwo{arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -61,6 +58,12 @@ $result_trees{'complex_argument'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macrotwo',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' macrotwo{arg}
 '
@@ -80,8 +83,9 @@ $result_trees{'complex_argument'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macrofour',
-                  'type' => 'macro_name'
+                  'text' => ' macrofour {}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -137,6 +141,10 @@ $result_trees{'complex_argument'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macrofour',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' macrofour {}
 '
@@ -156,16 +164,9 @@ $result_trees{'complex_argument'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macrothree',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'text',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' macrothree{text, arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -211,6 +212,13 @@ $result_trees{'complex_argument'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macrothree',
+            'misc_args' => [
+              'text',
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' macrothree{text, arg}
 '
@@ -568,12 +576,9 @@ macroseven defined
             {
               'contents' => [
                 {
-                  'text' => 'macroseven',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'truc',
-                  'type' => 'macro_arg'
+                  'text' => ' macroseven {truc}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -615,6 +620,12 @@ macroseven defined
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macroseven',
+            'misc_args' => [
+              'truc'
+            ]
+          },
           'info' => {
             'arg_line' => ' macroseven {truc}
 '

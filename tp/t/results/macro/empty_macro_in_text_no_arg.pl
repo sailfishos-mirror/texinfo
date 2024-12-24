@@ -15,8 +15,9 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'texnl',
-                  'type' => 'macro_name'
+                  'text' => ' texnl{}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -52,6 +53,10 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'texnl',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' texnl{}
 '
@@ -109,8 +114,9 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'texnltwo',
-                  'type' => 'macro_name'
+                  'text' => ' texnltwo
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -146,6 +152,10 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'texnltwo',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' texnltwo
 '

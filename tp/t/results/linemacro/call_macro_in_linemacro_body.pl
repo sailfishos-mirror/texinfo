@@ -15,16 +15,9 @@ $result_trees{'call_macro_in_linemacro_body'} = {
             {
               'contents' => [
                 {
-                  'text' => 'lm',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'a',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'b',
-                  'type' => 'macro_arg'
+                  'text' => ' lm {a, b}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -75,6 +68,13 @@ $result_trees{'call_macro_in_linemacro_body'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'lm',
+            'misc_args' => [
+              'a',
+              'b'
+            ]
+          },
           'info' => {
             'arg_line' => ' lm {a, b}
 '
@@ -94,16 +94,9 @@ $result_trees{'call_macro_in_linemacro_body'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mymacro',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'c',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'd',
-                  'type' => 'macro_arg'
+                  'text' => ' mymacro {c, d}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -154,6 +147,13 @@ $result_trees{'call_macro_in_linemacro_body'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mymacro',
+            'misc_args' => [
+              'c',
+              'd'
+            ]
+          },
           'info' => {
             'arg_line' => ' mymacro {c, d}
 '

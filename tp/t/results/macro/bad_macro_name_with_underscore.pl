@@ -15,16 +15,9 @@ $result_trees{'bad_macro_name_with_underscore'} = {
             {
               'contents' => [
                 {
-                  'text' => 'the_macro',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg1',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'arg2',
-                  'type' => 'macro_arg'
+                  'text' => ' the_macro {arg1, arg2}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -65,6 +58,13 @@ $result_trees{'bad_macro_name_with_underscore'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'the_macro',
+            'misc_args' => [
+              'arg1',
+              'arg2'
+            ]
+          },
           'info' => {
             'arg_line' => ' the_macro {arg1, arg2}
 '

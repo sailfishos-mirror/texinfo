@@ -15,8 +15,9 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
             {
               'contents' => [
                 {
-                  'text' => 'badmacro',
-                  'type' => 'macro_name'
+                  'text' => ' badmacro
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'badmacro',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' badmacro
 '

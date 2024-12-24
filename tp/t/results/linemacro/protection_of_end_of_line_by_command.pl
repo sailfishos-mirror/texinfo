@@ -15,12 +15,9 @@ $result_trees{'protection_of_end_of_line_by_command'} = {
             {
               'contents' => [
                 {
-                  'text' => 'lm',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'one',
-                  'type' => 'macro_arg'
+                  'text' => ' lm {one}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -61,6 +58,12 @@ $result_trees{'protection_of_end_of_line_by_command'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'lm',
+            'misc_args' => [
+              'one'
+            ]
+          },
           'info' => {
             'arg_line' => ' lm {one}
 '

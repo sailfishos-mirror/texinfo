@@ -15,8 +15,9 @@ $result_trees{'leading_spaces_no_ignore'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mymacro',
-                  'type' => 'macro_name'
+                  'text' => ' mymacro
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -62,6 +63,10 @@ $result_trees{'leading_spaces_no_ignore'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mymacro',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' mymacro
 '

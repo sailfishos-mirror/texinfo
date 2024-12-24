@@ -15,12 +15,9 @@ $result_trees{'recursive_call_in_argument'} = {
             {
               'contents' => [
                 {
-                  'text' => 'anorecurse',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' anorecurse{arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -61,6 +58,12 @@ $result_trees{'recursive_call_in_argument'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'anorecurse',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' anorecurse{arg}
 '

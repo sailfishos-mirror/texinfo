@@ -15,20 +15,9 @@ $result_trees{'braces_after_text'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mymacro',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'a',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'b',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'c',
-                  'type' => 'macro_arg'
+                  'text' => ' mymacro {a, b, c}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -69,6 +58,14 @@ $result_trees{'braces_after_text'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mymacro',
+            'misc_args' => [
+              'a',
+              'b',
+              'c'
+            ]
+          },
           'info' => {
             'arg_line' => ' mymacro {a, b, c}
 '

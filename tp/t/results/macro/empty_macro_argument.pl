@@ -15,8 +15,9 @@ $result_trees{'empty_macro_argument'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mymacro',
-                  'type' => 'macro_name'
+                  'text' => ' mymacro{}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'empty_macro_argument'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mymacro',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' mymacro{}
 '
@@ -203,12 +208,9 @@ $result_trees{'empty_macro_argument'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mytwo',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' mytwo{arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -249,6 +251,12 @@ $result_trees{'empty_macro_argument'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mytwo',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' mytwo{arg}
 '

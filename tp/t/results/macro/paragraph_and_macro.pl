@@ -15,8 +15,9 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'aempty',
-                  'type' => 'macro_name'
+                  'text' => ' aempty
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -52,6 +53,10 @@ $result_trees{'paragraph_and_macro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'aempty',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' aempty
 '
@@ -71,8 +76,9 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'aspace',
-                  'type' => 'macro_name'
+                  'text' => ' aspace
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -113,6 +119,10 @@ $result_trees{'paragraph_and_macro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'aspace',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' aspace
 '
@@ -132,8 +142,9 @@ $result_trees{'paragraph_and_macro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'word',
-                  'type' => 'macro_name'
+                  'text' => ' word
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -174,6 +185,10 @@ $result_trees{'paragraph_and_macro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'word',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' word
 '

@@ -15,8 +15,9 @@ $result_trees{'line_end_accent_command_macro_call'} = {
             {
               'contents' => [
                 {
-                  'text' => 'expand',
-                  'type' => 'macro_name'
+                  'text' => ' expand {}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'line_end_accent_command_macro_call'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'expand',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' expand {}
 '
@@ -161,8 +166,9 @@ $result_trees{'line_end_accent_command_macro_call'} = {
             {
               'contents' => [
                 {
-                  'text' => 'nospace',
-                  'type' => 'macro_name'
+                  'text' => ' nospace {}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -203,6 +209,10 @@ $result_trees{'line_end_accent_command_macro_call'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'nospace',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' nospace {}
 '

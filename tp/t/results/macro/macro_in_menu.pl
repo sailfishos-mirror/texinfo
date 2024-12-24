@@ -20,8 +20,9 @@ $result_trees{'macro_in_menu'} = {
             {
               'contents' => [
                 {
-                  'text' => 'astar',
-                  'type' => 'macro_name'
+                  'text' => ' astar
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -62,6 +63,10 @@ $result_trees{'macro_in_menu'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'astar',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' astar
 '
@@ -81,8 +86,9 @@ $result_trees{'macro_in_menu'} = {
             {
               'contents' => [
                 {
-                  'text' => 'starspaces',
-                  'type' => 'macro_name'
+                  'text' => ' starspaces
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -123,6 +129,10 @@ $result_trees{'macro_in_menu'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'starspaces',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' starspaces
 '
@@ -142,8 +152,9 @@ $result_trees{'macro_in_menu'} = {
             {
               'contents' => [
                 {
-                  'text' => 'spaces',
-                  'type' => 'macro_name'
+                  'text' => ' spaces
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -184,6 +195,10 @@ $result_trees{'macro_in_menu'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'spaces',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' spaces
 '
@@ -203,8 +218,9 @@ $result_trees{'macro_in_menu'} = {
             {
               'contents' => [
                 {
-                  'text' => 'aspace',
-                  'type' => 'macro_name'
+                  'text' => ' aspace
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -245,6 +261,10 @@ $result_trees{'macro_in_menu'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'aspace',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' aspace
 '
@@ -264,8 +284,9 @@ $result_trees{'macro_in_menu'} = {
             {
               'contents' => [
                 {
-                  'text' => 'twocolon',
-                  'type' => 'macro_name'
+                  'text' => ' twocolon
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -306,6 +327,10 @@ $result_trees{'macro_in_menu'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'twocolon',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' twocolon
 '
@@ -325,8 +350,9 @@ $result_trees{'macro_in_menu'} = {
             {
               'contents' => [
                 {
-                  'text' => 'acolon',
-                  'type' => 'macro_name'
+                  'text' => ' acolon
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -367,6 +393,10 @@ $result_trees{'macro_in_menu'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'acolon',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' acolon
 '

@@ -27,8 +27,9 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'vvv',
-                      'type' => 'macro_name'
+                      'text' => ' vvv {}
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -70,6 +71,10 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'vvv',
+                'misc_args' => []
+              },
               'info' => {
                 'arg_line' => ' vvv {}
 '
@@ -144,8 +149,9 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
             {
               'contents' => [
                 {
-                  'text' => 'machash',
-                  'type' => 'macro_name'
+                  'text' => ' machash {}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -187,6 +193,10 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'machash',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' machash {}
 '
@@ -257,12 +267,9 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
             {
               'contents' => [
                 {
-                  'text' => 'numberfileflag',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' numberfileflag {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -304,6 +311,12 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'numberfileflag',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' numberfileflag {arg}
 '

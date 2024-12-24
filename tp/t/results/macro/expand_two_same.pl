@@ -15,12 +15,9 @@ $result_trees{'expand_two_same'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macrotwo',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' macrotwo { arg }
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -66,6 +63,12 @@ $result_trees{'expand_two_same'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macrotwo',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' macrotwo { arg }
 '

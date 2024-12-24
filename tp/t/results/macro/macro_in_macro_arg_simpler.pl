@@ -15,8 +15,9 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macrooneone',
-                  'type' => 'macro_name'
+                  'text' => ' macrooneone
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macrooneone',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' macrooneone
 '
@@ -76,16 +81,9 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macrothree',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'text',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' macrothree{text, arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -131,6 +129,13 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macrothree',
+            'misc_args' => [
+              'text',
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' macrothree{text, arg}
 '

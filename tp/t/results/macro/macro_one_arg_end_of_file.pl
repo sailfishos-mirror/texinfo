@@ -15,12 +15,9 @@ $result_trees{'macro_one_arg_end_of_file'} = {
             {
               'contents' => [
                 {
-                  'text' => 'onearg',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' onearg{arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -61,6 +58,12 @@ $result_trees{'macro_one_arg_end_of_file'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'onearg',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' onearg{arg}
 '

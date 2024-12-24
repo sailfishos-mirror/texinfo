@@ -15,8 +15,9 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
             {
               'contents' => [
                 {
-                  'text' => 'clearargendignored',
-                  'type' => 'macro_name'
+                  'text' => ' clearargendignored
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'clearargendignored',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' clearargendignored
 '

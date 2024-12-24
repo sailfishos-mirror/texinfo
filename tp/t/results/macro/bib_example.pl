@@ -1744,12 +1744,9 @@ $result_trees{'bib_example'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'mybibsetrefnode',
-                      'type' => 'macro_name'
-                    },
-                    {
-                      'text' => 'node',
-                      'type' => 'macro_arg'
+                      'text' => ' mybibsetrefnode{node}
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -1791,6 +1788,12 @@ $result_trees{'bib_example'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'mybibsetrefnode',
+                'misc_args' => [
+                  'node'
+                ]
+              },
               'info' => {
                 'arg_line' => ' mybibsetrefnode{node}
 '
@@ -1836,8 +1839,9 @@ $result_trees{'bib_example'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'mybibnode',
-                      'type' => 'macro_name'
+                      'text' => ' mybibnode{}
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -1879,6 +1883,10 @@ $result_trees{'bib_example'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'mybibnode',
+                'misc_args' => []
+              },
               'info' => {
                 'arg_line' => ' mybibnode{}
 '
@@ -1924,12 +1932,9 @@ $result_trees{'bib_example'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'mybibusetable',
-                      'type' => 'macro_name'
-                    },
-                    {
-                      'text' => 'node',
-                      'type' => 'macro_arg'
+                      'text' => ' mybibusetable{node}
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -1991,6 +1996,12 @@ $result_trees{'bib_example'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'mybibusetable',
+                'misc_args' => [
+                  'node'
+                ]
+              },
               'info' => {
                 'arg_line' => ' mybibusetable{node}
 '
@@ -2036,12 +2047,9 @@ $result_trees{'bib_example'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'mybibuselist',
-                      'type' => 'macro_name'
-                    },
-                    {
-                      'text' => 'node',
-                      'type' => 'macro_arg'
+                      'text' => ' mybibuselist{node}
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -2103,6 +2111,12 @@ $result_trees{'bib_example'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'mybibuselist',
+                'misc_args' => [
+                  'node'
+                ]
+              },
               'info' => {
                 'arg_line' => ' mybibuselist{node}
 '
@@ -2143,12 +2157,9 @@ $result_trees{'bib_example'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'mybibcite',
-                      'type' => 'macro_name'
-                    },
-                    {
-                      'text' => 'ref',
-                      'type' => 'macro_arg'
+                      'text' => ' mybibcite{ref}
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -2225,6 +2236,12 @@ $result_trees{'bib_example'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'mybibcite',
+                'misc_args' => [
+                  'ref'
+                ]
+              },
               'info' => {
                 'arg_line' => ' mybibcite{ref}
 '
@@ -2245,16 +2262,9 @@ $result_trees{'bib_example'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'mybibmakeref',
-                      'type' => 'macro_name'
-                    },
-                    {
-                      'text' => 'node',
-                      'type' => 'macro_arg'
-                    },
-                    {
-                      'text' => 'ref',
-                      'type' => 'macro_arg'
+                      'text' => ' mybibmakeref{node, ref}
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -2296,6 +2306,13 @@ $result_trees{'bib_example'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'mybibmakeref',
+                'misc_args' => [
+                  'node',
+                  'ref'
+                ]
+              },
               'info' => {
                 'arg_line' => ' mybibmakeref{node, ref}
 '
@@ -2331,12 +2348,9 @@ $result_trees{'bib_example'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'mybibitem',
-                      'type' => 'macro_name'
-                    },
-                    {
-                      'text' => 'ref',
-                      'type' => 'macro_arg'
+                      'text' => ' mybibitem{ref}
+',
+                      'type' => 'macro_line'
                     }
                   ],
                   'type' => 'argument'
@@ -2443,6 +2457,12 @@ $result_trees{'bib_example'} = {
                   }
                 }
               ],
+              'extra' => {
+                'macro_name' => 'mybibitem',
+                'misc_args' => [
+                  'ref'
+                ]
+              },
               'info' => {
                 'arg_line' => ' mybibitem{ref}
 '

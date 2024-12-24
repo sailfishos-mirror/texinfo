@@ -15,12 +15,9 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
             {
               'contents' => [
                 {
-                  'text' => 'witherror',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'string',
-                  'type' => 'macro_arg'
+                  'text' => ' witherror{string}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -61,6 +58,12 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'witherror',
+            'misc_args' => [
+              'string'
+            ]
+          },
           'info' => {
             'arg_line' => ' witherror{string}
 '

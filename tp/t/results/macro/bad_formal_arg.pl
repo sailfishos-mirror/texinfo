@@ -20,16 +20,9 @@ $result_trees{'bad_formal_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'bad',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => '',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'not_empty',
-                  'type' => 'macro_arg'
+                  'text' => ' bad  { , not_empty}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -71,7 +64,12 @@ $result_trees{'bad_formal_arg'} = {
             }
           ],
           'extra' => {
-            'invalid_syntax' => 1
+            'invalid_syntax' => 1,
+            'macro_name' => 'bad',
+            'misc_args' => [
+              '',
+              'not_empty'
+            ]
           },
           'info' => {
             'arg_line' => ' bad  { , not_empty}
@@ -92,16 +90,9 @@ $result_trees{'bad_formal_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'badspace',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'first',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'in 2arg',
-                  'type' => 'macro_arg'
+                  'text' => ' badspace{first, in 2arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -143,7 +134,12 @@ $result_trees{'bad_formal_arg'} = {
             }
           ],
           'extra' => {
-            'invalid_syntax' => 1
+            'invalid_syntax' => 1,
+            'macro_name' => 'badspace',
+            'misc_args' => [
+              'first',
+              'in 2arg'
+            ]
           },
           'info' => {
             'arg_line' => ' badspace{first, in 2arg}
@@ -164,12 +160,9 @@ $result_trees{'bad_formal_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'abar',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => ':::',
-                  'type' => 'macro_arg'
+                  'text' => ' abar {:::}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -226,7 +219,11 @@ $result_trees{'bad_formal_arg'} = {
             }
           ],
           'extra' => {
-            'invalid_syntax' => 1
+            'invalid_syntax' => 1,
+            'macro_name' => 'abar',
+            'misc_args' => [
+              ':::'
+            ]
           },
           'info' => {
             'arg_line' => ' abar {:::}

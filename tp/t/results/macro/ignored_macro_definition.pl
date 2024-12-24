@@ -15,8 +15,9 @@ $result_trees{'ignored_macro_definition'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mymacro',
-                  'type' => 'macro_name'
+                  'text' => ' mymacro{}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'ignored_macro_definition'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mymacro',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' mymacro{}
 '

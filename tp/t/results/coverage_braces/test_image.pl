@@ -15,8 +15,9 @@ $result_trees{'test_image'} = {
             {
               'contents' => [
                 {
-                  'text' => 'files-char',
-                  'type' => 'macro_name'
+                  'text' => ' files-char
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -67,6 +68,10 @@ $result_trees{'test_image'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'files-char',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' files-char
 '

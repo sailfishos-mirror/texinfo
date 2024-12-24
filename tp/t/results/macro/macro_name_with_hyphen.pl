@@ -15,16 +15,9 @@ $result_trees{'macro_name_with_hyphen'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macro-one',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg-one',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'arg2',
-                  'type' => 'macro_arg'
+                  'text' => ' macro-one {arg-one, arg2}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -65,6 +58,13 @@ $result_trees{'macro_name_with_hyphen'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macro-one',
+            'misc_args' => [
+              'arg-one',
+              'arg2'
+            ]
+          },
           'info' => {
             'arg_line' => ' macro-one {arg-one, arg2}
 '

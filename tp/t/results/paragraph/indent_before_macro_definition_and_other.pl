@@ -308,12 +308,9 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
             {
               'contents' => [
                 {
-                  'text' => 'aaa',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'g',
-                  'type' => 'macro_arg'
+                  'text' => ' aaa {g}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -354,6 +351,12 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'aaa',
+            'misc_args' => [
+              'g'
+            ]
+          },
           'info' => {
             'arg_line' => ' aaa {g}
 '

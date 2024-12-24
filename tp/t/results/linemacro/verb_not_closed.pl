@@ -15,20 +15,9 @@ $result_trees{'verb_not_closed'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mycommand',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'a',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'b',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'c',
-                  'type' => 'macro_arg'
+                  'text' => ' mycommand {a, b, c}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -69,6 +58,14 @@ $result_trees{'verb_not_closed'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'mycommand',
+            'misc_args' => [
+              'a',
+              'b',
+              'c'
+            ]
+          },
           'info' => {
             'arg_line' => ' mycommand {a, b, c}
 '

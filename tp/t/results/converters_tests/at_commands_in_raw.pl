@@ -79,8 +79,9 @@ $result_trees{'at_commands_in_raw'} = {
             {
               'contents' => [
                 {
-                  'text' => 'othermacro',
-                  'type' => 'macro_name'
+                  'text' => ' othermacro{}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -121,6 +122,10 @@ $result_trees{'at_commands_in_raw'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'othermacro',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' othermacro{}
 '

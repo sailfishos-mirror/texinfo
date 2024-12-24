@@ -20,16 +20,9 @@ $result_trees{'macro_expansion'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macroone',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg1',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'arg2',
-                  'type' => 'macro_arg'
+                  'text' => ' macroone {arg1, arg2 }
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -85,6 +78,13 @@ $result_trees{'macro_expansion'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macroone',
+            'misc_args' => [
+              'arg1',
+              'arg2'
+            ]
+          },
           'info' => {
             'arg_line' => ' macroone {arg1, arg2 }
 '

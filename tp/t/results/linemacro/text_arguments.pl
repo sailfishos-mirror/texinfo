@@ -15,20 +15,9 @@ $result_trees{'text_arguments'} = {
             {
               'contents' => [
                 {
-                  'text' => 'nospace',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'one',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'two',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'three',
-                  'type' => 'macro_arg'
+                  'text' => ' nospace{one, two, three}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -69,6 +58,14 @@ $result_trees{'text_arguments'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'nospace',
+            'misc_args' => [
+              'one',
+              'two',
+              'three'
+            ]
+          },
           'info' => {
             'arg_line' => ' nospace{one, two, three}
 '

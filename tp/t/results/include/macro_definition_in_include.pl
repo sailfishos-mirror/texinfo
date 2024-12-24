@@ -55,8 +55,9 @@ $result_trees{'macro_definition_in_include'} = {
             {
               'contents' => [
                 {
-                  'text' => 'themacro',
-                  'type' => 'macro_name'
+                  'text' => ' themacro
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -98,6 +99,10 @@ $result_trees{'macro_definition_in_include'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'themacro',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' themacro
 '

@@ -15,12 +15,9 @@ $result_trees{'macro_in_ifset'} = {
             {
               'contents' => [
                 {
-                  'text' => 'macroone',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' macroone {arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -61,6 +58,12 @@ $result_trees{'macro_in_ifset'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'macroone',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' macroone {arg}
 '

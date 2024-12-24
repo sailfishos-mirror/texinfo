@@ -15,8 +15,9 @@ $result_trees{'macro_call_in_inlinefmtifelse_format'} = {
             {
               'contents' => [
                 {
-                  'text' => 'inlinefirstarg',
-                  'type' => 'macro_name'
+                  'text' => ' inlinefirstarg
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'macro_call_in_inlinefmtifelse_format'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'inlinefirstarg',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' inlinefirstarg
 '

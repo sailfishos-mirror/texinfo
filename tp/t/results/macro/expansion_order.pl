@@ -15,12 +15,9 @@ $result_trees{'expansion_order'} = {
             {
               'contents' => [
                 {
-                  'text' => 'bidule',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'arg',
-                  'type' => 'macro_arg'
+                  'text' => ' bidule{arg}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -61,6 +58,12 @@ $result_trees{'expansion_order'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'bidule',
+            'misc_args' => [
+              'arg'
+            ]
+          },
           'info' => {
             'arg_line' => ' bidule{arg}
 '
@@ -80,8 +83,9 @@ $result_trees{'expansion_order'} = {
             {
               'contents' => [
                 {
-                  'text' => 'machin',
-                  'type' => 'macro_name'
+                  'text' => ' machin
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -127,6 +131,10 @@ $result_trees{'expansion_order'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'machin',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' machin
 '

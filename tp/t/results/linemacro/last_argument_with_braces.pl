@@ -15,16 +15,9 @@ $result_trees{'last_argument_with_braces'} = {
             {
               'contents' => [
                 {
-                  'text' => 'defbuiltin',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'symbol',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'rest',
-                  'type' => 'macro_arg'
+                  'text' => ' defbuiltin {symbol, rest}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -70,6 +63,13 @@ $result_trees{'last_argument_with_braces'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'defbuiltin',
+            'misc_args' => [
+              'symbol',
+              'rest'
+            ]
+          },
           'info' => {
             'arg_line' => ' defbuiltin {symbol, rest}
 '

@@ -1,5 +1,23 @@
 2024-11-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line)
+	(_expand_macro_arguments, _expand_linemacro_arguments)
+	(_lookup_macro_parameter, _expand_macro_body, _handle_macro)
+	(_process_macro_block_contents), tp/Texinfo/XS/main/element_types.txt,
+	tp/Texinfo/XS/parsetexi/macro.c (parse_macro_command_line)
+	(lookup_macro_parameter, expand_macro_arguments)
+	(expand_linemacro_arguments, expand_macro_body, handle_macro),
+	tp/Texinfo/XS/parsetexi/parser.c (process_macro_block_contents): put
+	@*macro line in first content argument element as macro_line text
+	type.  Put macro name in extra "macro_name" and formal args array in
+	extra "misc_args".  Remove macro_name and macro_arg types, add
+	macro_name extra item.
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): adapt to change in
+	tree.
+
+2024-11-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo, _convert_args),
 	tp/Texinfo/XS/main/convert_to_texinfo.c (convert_args)
 	(convert_to_texinfo_internal): add convert_args for expansion of

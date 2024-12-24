@@ -13,6 +13,13 @@ $result_trees{'non_ascii_in_macro_name'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'text' => " parenbr\x{e8}ve {a}
+",
+                  'type' => 'macro_line'
+                }
+              ],
               'type' => 'argument'
             },
             {

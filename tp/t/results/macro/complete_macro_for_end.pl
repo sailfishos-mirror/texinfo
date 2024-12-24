@@ -15,8 +15,9 @@ $result_trees{'complete_macro_for_end'} = {
             {
               'contents' => [
                 {
-                  'text' => 'theend',
-                  'type' => 'macro_name'
+                  'text' => ' theend
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -57,6 +58,10 @@ $result_trees{'complete_macro_for_end'} = {
               }
             }
           ],
+          'extra' => {
+            'macro_name' => 'theend',
+            'misc_args' => []
+          },
           'info' => {
             'arg_line' => ' theend
 '

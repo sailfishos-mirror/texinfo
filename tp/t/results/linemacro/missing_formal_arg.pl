@@ -15,20 +15,9 @@ $result_trees{'missing_formal_arg'} = {
             {
               'contents' => [
                 {
-                  'text' => 'mymacro',
-                  'type' => 'macro_name'
-                },
-                {
-                  'text' => 'a',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => '',
-                  'type' => 'macro_arg'
-                },
-                {
-                  'text' => 'b',
-                  'type' => 'macro_arg'
+                  'text' => ' mymacro {a, , b}
+',
+                  'type' => 'macro_line'
                 }
               ],
               'type' => 'argument'
@@ -70,7 +59,13 @@ $result_trees{'missing_formal_arg'} = {
             }
           ],
           'extra' => {
-            'invalid_syntax' => 1
+            'invalid_syntax' => 1,
+            'macro_name' => 'mymacro',
+            'misc_args' => [
+              'a',
+              '',
+              'b'
+            ]
           },
           'info' => {
             'arg_line' => ' mymacro {a, , b}
