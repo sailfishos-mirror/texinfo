@@ -10,11 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Report --number-footnotes not documented in texi2any --help
-
-tp/Texinfo/XS/main/build_perl_info.c (pass_generic_converter_to_converter_sv):
-fix typo in opened_files key string.
- "opened_files_hv" -> "opened_files"
 
 Bugs
 ====
@@ -62,11 +57,6 @@ Document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
 
 Delayed bugs/features
 =====================
-
-Update search directories in C codes for the XDG Base Directory Specification
-based on what is done in Perl.  Need to wait to be clear on what is done
-in Perl.
-
 
 Gavin on using CSV files and a Perl script to generate code for Perl and C.
 For something like html_style_commands_element.csv, it could potentially
