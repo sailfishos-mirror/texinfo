@@ -21,6 +21,12 @@
 #include "perl.h"
 #include "XSUB.h"
 
+/*
+Uses PERL_UNUSED_CONTEXT, which depends on PERL_UNUSED_ARG
+Uses pTHX_
+ */
+#include "ppport.h"
+
 #undef context
 
 #include "tree_types.h"
@@ -124,7 +130,7 @@ call_convert_converter (const char *module_name,
   int count;
   CONVERTER *result;
   SV *result_sv;
-  
+
   dTHX;
 
   /* TODO add a function to build from CONVERTER_INITIALIZATION_INFO */
@@ -133,7 +139,7 @@ call_convert_converter (const char *module_name,
 
   dSP;
 
-  ENTER; 
+  ENTER;
   SAVETMPS;
 
   PUSHMARK(SP);
@@ -178,9 +184,9 @@ call_converter_output (const char *module_name, CONVERTER *self,
   STRLEN len;
   SV *result_sv;
   HV *hv_stash;
-  
+
   dTHX;
-  
+
   document_sv = get_document (document->descriptor);
   SvREFCNT_inc (document_sv);
 
@@ -192,7 +198,7 @@ call_converter_output (const char *module_name, CONVERTER *self,
 
   dSP;
 
-  ENTER; 
+  ENTER;
   SAVETMPS;
 
   PUSHMARK(SP);

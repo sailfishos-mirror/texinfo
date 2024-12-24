@@ -1,5 +1,11 @@
 2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	README-hacking, tp/Texinfo/XS/convert/call_conversion_perl.c: add
+	call_conversion_perl as needing ppport.h, and follow ppport.h
+	suggestion to include ppport.h.
+
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	Update po files.
 
 2024-12-24  Patrice Dumas  <pertusus@free.fr>
