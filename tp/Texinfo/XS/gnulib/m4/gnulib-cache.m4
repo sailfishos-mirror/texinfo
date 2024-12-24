@@ -39,6 +39,7 @@
 #  --macro-prefix=gl \
 #  euidaccess \
 #  getline \
+#  getopt-gnu \
 #  gettext-h \
 #  iconv \
 #  libunistring \
@@ -78,6 +79,7 @@ gl_LOCAL_DIR([])
 gl_MODULES([
   euidaccess
   getline
+  getopt-gnu
   gettext-h
   iconv
   libunistring

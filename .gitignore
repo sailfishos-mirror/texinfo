@@ -60,6 +60,7 @@ gnulib/lib/errno.h
 gnulib/lib/error.h
 gnulib/lib/fcntl.h
 gnulib/lib/getopt.h
+gnulib/lib/getopt-cdefs.h
 gnulib/lib/inttypes.h
 gnulib/lib/langinfo.h
 gnulib/lib/locale.h
@@ -101,6 +102,8 @@ gnulib/po/stamp-po
 
 tp/Texinfo/XS/teximakehtml
 
+tp/Texinfo/XS/gnulib/lib/getopt.h
+tp/Texinfo/XS/gnulib/lib/getopt-cdefs.h
 tp/Texinfo/XS/gnulib/lib/locale.h
 tp/Texinfo/XS/gnulib/lib/inttypes.h
 tp/Texinfo/XS/gnulib/lib/float.h

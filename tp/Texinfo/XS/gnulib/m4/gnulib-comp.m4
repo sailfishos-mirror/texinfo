@@ -71,7 +71,10 @@ AC_DEFUN([gl_EARLY],
   # Code from module getdtablesize:
   # Code from module getgroups:
   # Code from module getline:
+  # Code from module getopt-gnu:
+  # Code from module getopt-posix:
   # Code from module gettext-h:
+  # Code from module gnulib-i18n:
   # Code from module gperf:
   # Code from module group-member:
   # Code from module havelib:
@@ -93,6 +96,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module msvc-inval:
   # Code from module msvc-nothrow:
   # Code from module multiarch:
+  # Code from module nocrash:
   # Code from module pathmax:
   # Code from module rawmemchr:
   # Code from module root-uid:
@@ -278,8 +282,24 @@ AC_DEFUN([gl_INIT],
     gl_PREREQ_GETLINE
   ])
   gl_STDIO_MODULE_INDICATOR([getline])
+  gl_FUNC_GETOPT_GNU
+  dnl Because of the way gl_FUNC_GETOPT_GNU is implemented (the gl_getopt_required
+  dnl mechanism), there is no need to do any AC_LIBOBJ or AC_SUBST here; they are
+  dnl done in the getopt-posix module.
+  gl_FUNC_GETOPT_POSIX
+  gl_CONDITIONAL_HEADER([getopt.h])
+  gl_CONDITIONAL_HEADER([getopt-cdefs.h])
+  AC_PROG_MKDIR_P
+  gl_CONDITIONAL([GL_COND_OBJ_GETOPT], [test $REPLACE_GETOPT = 1])
+  AM_COND_IF([GL_COND_OBJ_GETOPT], [
+    dnl Define the substituted variable GNULIB_UNISTD_H_GETOPT to 1.
+    gl_UNISTD_H_REQUIRE_DEFAULTS
+    gl_MODULE_INDICATOR_INIT_VARIABLE([GNULIB_UNISTD_H_GETOPT], [1])
+  ])
+  gl_UNISTD_MODULE_INDICATOR([getopt-posix])
   AC_SUBST([LIBINTL])
   AC_SUBST([LTLIBINTL])
+  GNULIB_I18N
   gl_FUNC_GROUP_MEMBER
   gl_CONDITIONAL([GL_COND_OBJ_GROUP_MEMBER], [test $HAVE_GROUP_MEMBER = 0])
   AM_COND_IF([GL_COND_OBJ_GROUP_MEMBER], [
@@ -758,6 +778,15 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/getdtablesize.c
   lib/getgroups.c
   lib/getline.c
+  lib/getopt-cdefs.in.h
+  lib/getopt-core.h
+  lib/getopt-ext.h
+  lib/getopt-pfx-core.h
+  lib/getopt-pfx-ext.h
+  lib/getopt.c
+  lib/getopt.in.h
+  lib/getopt1.c
+  lib/getopt_int.h
   lib/gettext.h
   lib/group-member.c
   lib/idx.h
@@ -917,6 +946,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/access.m4
   m4/alloca.m4
   m4/assert_h.m4
+  m4/build-to-host.m4
   m4/c-bool.m4
   m4/close.m4
   m4/codeset.m4
@@ -937,7 +967,9 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/getdtablesize.m4
   m4/getgroups.m4
   m4/getline.m4
+  m4/getopt.m4
   m4/gnulib-common.m4
+  m4/gnulib-i18n.m4
   m4/group-member.m4
   m4/host-cpu-c-abi.m4
   m4/iconv.m4
@@ -968,6 +1000,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/msvc-nothrow.m4
   m4/multiarch.m4
   m4/musl.m4
+  m4/nocrash.m4
   m4/off64_t.m4
   m4/off_t.m4
   m4/pathmax.m4
@@ -989,6 +1022,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/string_h.m4
   m4/strndup.m4
   m4/strnlen.m4
+  m4/sys_cdefs_h.m4
   m4/sys_stat_h.m4
   m4/sys_types_h.m4
   m4/time_h.m4

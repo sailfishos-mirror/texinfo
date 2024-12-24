@@ -34,6 +34,7 @@
 #  --macro-prefix=gl \
 #  euidaccess \
 #  getline \
+#  getopt-gnu \
 #  gettext-h \
 #  iconv \
 #  libunistring \
@@ -395,6 +396,50 @@ libgnu_la_SOURCES += getline.c
 endif
 
 ## end   gnulib module getline
+
+## begin gnulib module getopt-posix
+
+BUILT_SOURCES += $(GETOPT_H) $(GETOPT_CDEFS_H)
+
+# We need the following in order to create <getopt.h> when the system
+# doesn't have one that works with the given compiler.
+if GL_GENERATE_GETOPT_H
+getopt.h: getopt.in.h $(top_builddir)/config.status $(ARG_NONNULL_H)
+	$(gl_V_at)$(SED_HEADER_STDOUT) \
+	      -e 's|@''GUARD_PREFIX''@|GL|g' \
+	      -e 's|@''HAVE_GETOPT_H''@|$(HAVE_GETOPT_H)|g' \
+	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
+	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
+	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
+	      -e 's|@''NEXT_GETOPT_H''@|$(NEXT_GETOPT_H)|g' \
+	      -e '/definition of _GL_ARG_NONNULL/r $(ARG_NONNULL_H)' \
+	      $(srcdir)/getopt.in.h > $@-t
+	$(AM_V_at)mv $@-t $@
+else
+getopt.h: $(top_builddir)/config.status
+	rm -f $@
+endif
+
+if GL_GENERATE_GETOPT_CDEFS_H
+getopt-cdefs.h: getopt-cdefs.in.h $(top_builddir)/config.status
+	$(AM_V_GEN)$(SED_HEADER_STDOUT) \
+	  -e 's|@''HAVE_SYS_CDEFS_H''@|$(HAVE_SYS_CDEFS_H)|g' \
+	  $(srcdir)/getopt-cdefs.in.h > $@-t
+	$(AM_V_at)mv $@-t $@
+else
+getopt-cdefs.h: $(top_builddir)/config.status
+	rm -f $@
+endif
+
+MOSTLYCLEANFILES += getopt.h getopt.h-t getopt-cdefs.h getopt-cdefs.h-t
+
+if GL_COND_OBJ_GETOPT
+libgnu_la_SOURCES += getopt.c getopt1.c
+endif
+
+EXTRA_DIST += getopt-cdefs.in.h getopt-core.h getopt-ext.h getopt-pfx-core.h getopt-pfx-ext.h getopt.in.h getopt_int.h
+
+## end   gnulib module getopt-posix
 
 ## begin gnulib module gettext-h
 
