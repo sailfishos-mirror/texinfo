@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.2\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-17 21:26+0000\n"
+"POT-Creation-Date: 2024-12-24 10:20+0100\n"
 "PO-Revision-Date: 2002-04-03 12:31+0300\n"
 "Last-Translator: Eli Zaretskii <eliz@gnu.org>\n"
 "Language-Team: Hebrew <eliz@gnu.org>\n"
@@ -319,13 +319,13 @@ msgstr "Info הנתשמ לש ךרע הנש"
 msgid "Try --help for more information.\n"
 msgstr ".רתוי בר עדימ תגצהל --help הסנ\n"
 
-#: info/info.c:875 install-info/install-info.c:2270
-#: Pod-Simple-Texinfo/pod2texi.pl:199 tp/texi2any.pl:1143
+#: info/info.c:875 install-info/install-info.c:2280
+#: Pod-Simple-Texinfo/pod2texi.pl:199
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
-"html>\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+"gpl.html>\n"
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
@@ -431,8 +431,8 @@ msgstr ""
 msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
 msgstr ""
 
-#: info/info.c:1165 install-info/install-info.c:578
-#: Pod-Simple-Texinfo/pod2texi.pl:173 tp/texi2any.pl:1129
+#: info/info.c:1165 install-info/install-info.c:588
+#: Pod-Simple-Texinfo/pod2texi.pl:173 tp/texi2any.pl:1128
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -928,7 +928,7 @@ msgstr "גצומה ןולחה הבוג תא הנש"
 msgid "Set screen height to (%d): "
 msgstr "Set screen height to (%d): "
 
-#: info/makedoc.c:139
+#: info/makedoc.c:104
 #, c-format
 msgid ""
 "   Source files groveled to make this file include:\n"
@@ -937,14 +937,12 @@ msgstr ""
 "                  :םיללוכ הז ץבוקל ודבועש רוקמ יצבק\n"
 "\n"
 
-#: info/makedoc.c:468
+#: info/makedoc.c:330
 #, c-format
 msgid "Couldn't manipulate the file %s.\n"
 msgstr ".%s ץבוק דבעל ןתינ אל\n"
 
-#. TRANSLATORS: The "\n* Menu:\n\n" part of this should not be translated, as
-#. it is part of the Info syntax.
-#: info/nodemenu.c:35
+#: info/nodemenu.c:33
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -952,9 +950,6 @@ msgstr ".%s ץבוק דבעל ןתינ אל\n"
 #| "  (File)Node                        Lines   Size   Containing File\n"
 #| "  ----------                        -----   ----   ---------------"
 msgid ""
-"\n"
-"* Menu:\n"
-"\n"
 "  (File)Node                        Lines   Size   Containing File\n"
 "  ----------                        -----   ----   ---------------"
 msgstr ""
@@ -963,7 +958,7 @@ msgstr ""
 "  (ץבוק)הקסיפ                    תורוש 'סמ  לדוג        בא-ץבוק\n"
 "  -----------                    ---------  ----        -------"
 
-#: info/nodemenu.c:187
+#: info/nodemenu.c:185
 #, fuzzy
 #| msgid ""
 #| "Here is the menu of nodes you have recently visited.\n"
@@ -1757,39 +1752,39 @@ msgstr "Set %s to value (%s): "
 msgid "-----Info: (), lines ----, "
 msgstr "-----Info: (), lines ----, "
 
-#: install-info/install-info.c:291
+#: install-info/install-info.c:301
 #, c-format
 msgid "%s: empty file"
 msgstr "קיר וניה %s ץבוק"
 
-#: install-info/install-info.c:293
+#: install-info/install-info.c:303
 #, fuzzy, c-format
 #| msgid " for %s"
 msgid "%s for %s"
 msgstr " for %s"
 
-#: install-info/install-info.c:495
+#: install-info/install-info.c:505
 #, c-format
 msgid "\tTry `%s --help' for a complete list of options.\n"
 msgstr ".םינייפאמ לש האלמ המישר תלבקל `%s --help' הסנ\n"
 
-#: install-info/install-info.c:503
+#: install-info/install-info.c:513
 #, fuzzy, c-format
 #| msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
 msgid "Usage: %s [OPTION]... [INFO-FILE [DIR-FILE]]\n"
 msgstr "%s [םינייפאמ]... TEXINFO-ץבוק... :שומישה ןפוא\n"
 
-#: install-info/install-info.c:505
+#: install-info/install-info.c:515
 msgid "Add or remove entries in INFO-FILE from the Info directory DIR-FILE."
 msgstr ""
 
-#: install-info/install-info.c:506
+#: install-info/install-info.c:516
 msgid ""
 "INFO-FILE and DIR-FILE are required unless the --info-file\n"
 "or --dir-file (or --info-dir) options are given, respectively."
 msgstr ""
 
-#: install-info/install-info.c:510
+#: install-info/install-info.c:520
 msgid ""
 "Options:\n"
 " --add-once          add only to first matching section, not all.\n"
@@ -1798,7 +1793,7 @@ msgid ""
 "                       start at column COL."
 msgstr ""
 
-#: install-info/install-info.c:517
+#: install-info/install-info.c:527
 msgid ""
 " --debug             report what is being done.\n"
 " --delete            delete existing entries for INFO-FILE from DIR-FILE;\n"
@@ -1814,7 +1809,7 @@ msgid ""
 " --dry-run           same as --test."
 msgstr ""
 
-#: install-info/install-info.c:530
+#: install-info/install-info.c:540
 msgid ""
 " --entry=TEXT        insert TEXT as an Info directory entry,\n"
 "                      overriding any corresponding entry from DIR-FILE.\n"
@@ -1826,7 +1821,7 @@ msgid ""
 "                       from information in the Info file itself."
 msgstr ""
 
-#: install-info/install-info.c:539
+#: install-info/install-info.c:549
 msgid ""
 " --help              display this help and exit.\n"
 " --info-dir=DIR      same as --dir-file=DIR/dir.\n"
@@ -1836,7 +1831,7 @@ msgid ""
 " --keep-old          do not replace entries, or remove empty sections."
 msgstr ""
 
-#: install-info/install-info.c:547
+#: install-info/install-info.c:557
 msgid ""
 " --maxwidth, --max-width=COL  wrap description at column COL.\n"
 " --menuentry=TEXT    same as --name=TEXT.\n"
@@ -1846,7 +1841,7 @@ msgid ""
 " --quiet             suppress warnings."
 msgstr ""
 
-#: install-info/install-info.c:555
+#: install-info/install-info.c:565
 msgid ""
 " --regex=R           put this file's entries in all sections that match the\n"
 "                      regular expression R (ignoring case).\n"
@@ -1865,14 +1860,14 @@ msgid ""
 " --section R SEC     equivalent to --regex=R --section=SEC --add-once."
 msgstr ""
 
-#: install-info/install-info.c:571
+#: install-info/install-info.c:581
 msgid ""
 " --silent            suppress warnings.\n"
 " --test              suppress updating of DIR-FILE.\n"
 " --version           display version information and exit."
 msgstr ""
 
-#: install-info/install-info.c:604
+#: install-info/install-info.c:614
 #, fuzzy, c-format
 #| msgid ""
 #| "This is the file .../info/dir, which contains the\n"
@@ -1924,69 +1919,69 @@ msgstr ""
 "\n"
 "* Menu:\n"
 
-#: install-info/install-info.c:628
+#: install-info/install-info.c:638
 #, fuzzy, c-format
 #| msgid "%s: could not read (%s) and could not create (%s)\n"
 msgid "%s: could not read (%s) and could not create (%s)"
 msgstr "%s ץבוק לש (%s) האירקב ןהו (%s) הריציב ןה הלקת\n"
 
-#: install-info/install-info.c:1173 install-info/install-info.c:1215
+#: install-info/install-info.c:1183 install-info/install-info.c:1225
 #, c-format
 msgid "START-INFO-DIR-ENTRY without matching END-INFO-DIR-ENTRY"
 msgstr "םאות END-INFO-DIR-ENTRY אלל START-INFO-DIR-ENTRY"
 
-#: install-info/install-info.c:1210
+#: install-info/install-info.c:1220
 #, c-format
 msgid "END-INFO-DIR-ENTRY without matching START-INFO-DIR-ENTRY"
 msgstr "םאות START-INFO-DIR-ENTRY אלל END-INFO-DIR-ENTRY"
 
-#: install-info/install-info.c:2095 install-info/install-info.c:2105
+#: install-info/install-info.c:2105 install-info/install-info.c:2115
 #, c-format
 msgid "%s: already have dir file: %s\n"
 msgstr ""
 
-#: install-info/install-info.c:2201
+#: install-info/install-info.c:2211
 #, c-format
 msgid "%s: Specify the Info file only once.\n"
 msgstr ".דבלב תחא םעפ %s-ל Info ץבוק ןייצל ןתינ\n"
 
-#: install-info/install-info.c:2234
+#: install-info/install-info.c:2244
 #, c-format
 msgid "Extra regular expression specified, ignoring `%s'"
 msgstr ""
 
-#: install-info/install-info.c:2246
+#: install-info/install-info.c:2256
 #, c-format
 msgid "Error in regular expression `%s': %s"
 msgstr ""
 
-#: install-info/install-info.c:2308
+#: install-info/install-info.c:2318
 #, c-format
 msgid "excess command line argument `%s'"
 msgstr "`%s' רתוימ טנמוגרא"
 
-#: install-info/install-info.c:2312
+#: install-info/install-info.c:2322
 #, c-format
 msgid "No input file specified; try --help for more information."
 msgstr ".הרזע תלבקל --help הסנ ;טלק ץבוק ןויצ ןיא"
 
-#: install-info/install-info.c:2314
+#: install-info/install-info.c:2324
 #, c-format
 msgid "No dir file specified; try --help for more information."
 msgstr ".הרזע תלבקל --help הסנ ;dir ץבוק ןויצ ןיא"
 
-#: install-info/install-info.c:2335
+#: install-info/install-info.c:2345
 #, fuzzy, c-format
 #| msgid "Could not create output file `%s'."
 msgid "Could not read %s."
 msgstr ".`%s' טלפ ץבוק תריציב הלקת"
 
-#: install-info/install-info.c:2482
+#: install-info/install-info.c:2492
 #, c-format
 msgid "no info dir entry in `%s'"
 msgstr "`%s'-ב ישאר טירפת יפיעס ןיא"
 
-#: install-info/install-info.c:2730
+#: install-info/install-info.c:2740
 #, c-format
 msgid "no entries found for `%s'; nothing deleted"
 msgstr "קחמנ אל םולכ ;`%s' רובע טירפת יפיעס ואצמנ אל"
@@ -2107,7 +2102,7 @@ msgstr "`%s' היקית תריציב (%s) הלקת"
 msgid "%s: missing file argument\n"
 msgstr ".ץבוק םש רסח %s תינכתל\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:254 tp/texi2any.pl:1672
+#: Pod-Simple-Texinfo/pod2texi.pl:254 tp/texi2any.pl:1673
 #, perl-format
 msgid "Try `%s --help' for more information.\n"
 msgstr ".`%s --help' הסנ רתי טורפל\n"
@@ -2123,7 +2118,7 @@ msgid "%s: same manual name `%s' for different files: %s and %s"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:504 Pod-Simple-Texinfo/pod2texi.pl:612
-#: tp/texi2any.pl:2084 tp/texi2any.pl:2162
+#: tp/texi2any.pl:2092 tp/texi2any.pl:2170
 #, fuzzy, perl-format
 #| msgid "%s: could not read (%s) and could not create (%s)\n"
 msgid "%s: could not open %s for writing: %s\n"
@@ -2135,7 +2130,7 @@ msgid "%s: could not open %s: %s\n"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:563 Pod-Simple-Texinfo/pod2texi.pl:661
-#: tp/texi2any.pl:2045 tp/texi2any.pl:2192
+#: tp/texi2any.pl:2053 tp/texi2any.pl:2200
 #, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr ""
@@ -2156,84 +2151,86 @@ msgstr ""
 msgid "%s: error on closing stdout: %s\n"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tp/Texinfo/Common.pm:672 tp/Texinfo/XS/parsetexi/end_line.c:1515
+#: tp/Texinfo/Common.pm:644 tp/Texinfo/XS/parsetexi/end_line.c:1515
 #: tp/Texinfo/XS/parsetexi/end_line.c:1524
 #, fuzzy, c-format, perl-format
 #| msgid "%s is not a valid ISO 639 language code"
 msgid "%s is not a valid language code"
 msgstr "ISO 639 י\"ע םירכומה ןושלה ינמיסמ דחא וניא %s"
 
-#: tp/Texinfo/Common.pm:677 tp/Texinfo/XS/parsetexi/end_line.c:1542
+#: tp/Texinfo/Common.pm:649 tp/Texinfo/XS/parsetexi/end_line.c:1542
 #, fuzzy, c-format, perl-format
 #| msgid "%s is not a valid ISO 639 language code"
 msgid "%s is not a valid region code"
 msgstr "ISO 639 י\"ע םירכומה ןושלה ינמיסמ דחא וניא %s"
 
-#: tp/Texinfo/Config.pm:141 tp/texi2any.pl:577
+#: tp/Texinfo/Config.pm:140 tp/texi2any.pl:579
 #, fuzzy, perl-format
 #| msgid "%s: warning: "
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s"
 msgstr "%s: warning: "
 
-#: tp/Texinfo/Config.pm:149
+#: tp/Texinfo/Config.pm:147
 #, perl-format
 msgctxt "program name: error_message"
 msgid "%s: %s"
 msgstr ""
 
-#: tp/Texinfo/Config.pm:170
+#: tp/Texinfo/Config.pm:168
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "error parsing %s: %s"
 msgstr "`%s'-ל הביתכב הלקת"
 
-#: tp/Texinfo/Config.pm:174 tp/Texinfo/XS/convert/convert_html.c:2462
+#: tp/Texinfo/Config.pm:172 tp/Texinfo/XS/convert/convert_html.c:2462
 #, fuzzy, c-format, perl-format
 #| msgid "error writing to `%s'"
 msgid "error reading %s: %s"
 msgstr "`%s'-ל הביתכב הלקת"
 
-#: tp/Texinfo/Config.pm:195
+#: tp/Texinfo/Config.pm:193
 #, perl-format
 msgctxt "init file: error_message"
 msgid "%s: %s"
 msgstr ""
 
-#: tp/Texinfo/Config.pm:201
+#: tp/Texinfo/Config.pm:199
 #, fuzzy, perl-format
 #| msgid "%s: warning: "
 msgctxt "init file: warning: warning_message"
 msgid "%s: warning: %s"
 msgstr "%s: warning: "
 
-#: tp/Texinfo/Config.pm:236
+#: tp/Texinfo/Config.pm:234
 #, perl-format
 msgid "obsolete option: %s"
 msgstr ""
 
-#: tp/Texinfo/Config.pm:261
+#: tp/Texinfo/Config.pm:259
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "%s: unknown variable %s"
 msgstr "העודי הנניא `%s' הדוקפ"
 
-#: tp/Texinfo/Config.pm:286
-#, perl-format
-msgid "unknown variable from command line: %s\n"
-msgstr ""
-
-#: tp/Texinfo/Config.pm:648 tp/Texinfo/Config.pm:684 tp/Texinfo/Config.pm:706
-#: tp/Texinfo/Config.pm:729
+#: tp/Texinfo/Config.pm:284
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
-msgid "%s: unknown formatting context %s\n"
+msgid "unknown variable from command line: %s"
 msgstr "העודי הנניא `%s' הדוקפ"
 
-#: tp/Texinfo/Config.pm:838
-#, perl-format
-msgid "%s: unknown special element information type %s\n"
-msgstr ""
+#: tp/Texinfo/Config.pm:646 tp/Texinfo/Config.pm:682 tp/Texinfo/Config.pm:704
+#: tp/Texinfo/Config.pm:727
+#, fuzzy, perl-format
+#| msgid "unknown action `%s'"
+msgid "%s: unknown formatting context %s"
+msgstr "העודי הנניא `%s' הדוקפ"
+
+#: tp/Texinfo/Config.pm:836
+#, fuzzy, perl-format
+#| msgid "unknown action `%s'"
+msgid "%s: unknown special element information type %s"
+msgstr "העודי הנניא `%s' הדוקפ"
 
 #: tp/Texinfo/Document.pm:405 tp/Texinfo/XS/main/targets.c:173
 #: tp/Texinfo/XS/parsetexi/labels.c:154
@@ -2249,19 +2246,19 @@ msgstr "םדןק רדגוה רבכ `%s' ורקאמ"
 msgid "here is the previous definition as @%s"
 msgstr "הנושארל רדגוה `%s' ןאכ"
 
-#: tp/Texinfo/Convert/Converter.pm:401 tp/Texinfo/Convert/HTML.pm:11831
-#: tp/Texinfo/Convert/HTML.pm:12819 tp/Texinfo/Convert/HTML.pm:13017
+#: tp/Texinfo/Convert/Converter.pm:402 tp/Texinfo/Convert/HTML.pm:11835
+#: tp/Texinfo/Convert/HTML.pm:12823 tp/Texinfo/Convert/HTML.pm:13021
 #: tp/Texinfo/Convert/IXIN.pm:356 tp/Texinfo/Convert/Info.pm:395
 #: tp/Texinfo/Convert/LaTeX.pm:1100 tp/Texinfo/Convert/Plaintext.pm:744
 #: tp/Texinfo/Convert/Plaintext.pm:791 tp/Texinfo/Convert/Text.pm:1029
-#: tp/Texinfo/XS/convert/convert_html.c:1899
+#: tp/texi2any.pl:1860 tp/Texinfo/XS/convert/convert_html.c:1899
 #: tp/Texinfo/XS/convert/convert_html.c:2256
 #, c-format, perl-format
 msgid "could not open %s for writing: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:424 tp/Texinfo/Convert/HTML.pm:11826
-#: tp/Texinfo/Convert/HTML.pm:12839 tp/Texinfo/Convert/IXIN.pm:1024
+#: tp/Texinfo/Convert/Converter.pm:425 tp/Texinfo/Convert/HTML.pm:11830
+#: tp/Texinfo/Convert/HTML.pm:12843 tp/Texinfo/Convert/IXIN.pm:1024
 #: tp/Texinfo/Convert/Info.pm:204 tp/Texinfo/Convert/Info.pm:233
 #: tp/Texinfo/Convert/Info.pm:288 tp/Texinfo/Convert/Info.pm:365
 #: tp/Texinfo/Convert/LaTeX.pm:1169 tp/Texinfo/Convert/Plaintext.pm:765
@@ -2274,27 +2271,27 @@ msgstr ""
 msgid "error on closing %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tp/Texinfo/Convert/Converter.pm:574 tp/Texinfo/Convert/Converter.pm:593
-#: tp/Texinfo/Convert/Converter.pm:617
+#: tp/Texinfo/Convert/Converter.pm:575 tp/Texinfo/Convert/Converter.pm:594
+#: tp/Texinfo/Convert/Converter.pm:618
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "unknown customization variable: %s"
 msgstr "העודי הנניא `%s' הדוקפ"
 
-#: tp/Texinfo/Convert/Converter.pm:1015 tp/Texinfo/Convert/Text.pm:991
-#: tp/Texinfo/Convert/Text.pm:1010 tp/Texinfo/XS/convert/converter.c:873
+#: tp/Texinfo/Convert/Converter.pm:1016 tp/Texinfo/Convert/Text.pm:991
+#: tp/Texinfo/Convert/Text.pm:1010 tp/Texinfo/XS/convert/converter.c:926
 #, fuzzy, c-format, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "could not create directory `%s': %s"
 msgstr "`%s' היקית תריציב (%s) הלקת"
 
-#: tp/Texinfo/Convert/Converter.pm:1393
+#: tp/Texinfo/Convert/Converter.pm:1394
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing image text file %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tp/Texinfo/Convert/Converter.pm:1402
+#: tp/Texinfo/Convert/Converter.pm:1403
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image רובע `%s' ץבוק תאירקב (%s) הלקת"
@@ -2305,148 +2302,149 @@ msgstr "@image רובע `%s' ץבוק תאירקב (%s) הלקת"
 msgid "@image file `%s' not found, using `%s'"
 msgstr "@image רובע `%s' ץבוק תאירקב (%s) הלקת"
 
-#: tp/Texinfo/Convert/HTML.pm:3567 tp/ext/epub3.pm:287
+#: tp/Texinfo/Convert/HTML.pm:3570 tp/ext/epub3.pm:287
 #: tp/Texinfo/XS/convert/format_html.c:6497
 #, fuzzy, c-format, perl-format
 #| msgid "@image file `%s' (for HTML) not readable: %s"
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "(HTML רובע שרדנ) @image רובע `%s' ץבוק תאירקב (%s) הלקת"
 
-#: tp/Texinfo/Convert/HTML.pm:4808 tp/Texinfo/XS/convert/format_html.c:8020
+#: tp/Texinfo/Convert/HTML.pm:4811 tp/Texinfo/XS/convert/format_html.c:8020
 #, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:6454 tp/Texinfo/XS/convert/format_html.c:10308
+#: tp/Texinfo/Convert/HTML.pm:6457 tp/Texinfo/XS/convert/format_html.c:10308
 #, fuzzy, c-format, perl-format
 #| msgid "Entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr "הקסיפ לכל ץוחמ רדגומ `%s' סקדניא טירפ"
 
-#: tp/Texinfo/Convert/HTML.pm:6485 tp/Texinfo/XS/convert/format_html.c:10348
+#: tp/Texinfo/Convert/HTML.pm:6488 tp/Texinfo/XS/convert/format_html.c:10348
 #, fuzzy, c-format, perl-format
 #| msgid "Entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr "הקסיפ לכל ץוחמ רדגומ `%s' סקדניא טירפ"
 
-#: tp/Texinfo/Convert/HTML.pm:8425
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:857
+#: tp/Texinfo/Convert/HTML.pm:8429
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:845
 #, c-format, perl-format
 msgid "could not open html refs config file %s: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8453
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:966
+#: tp/Texinfo/Convert/HTML.pm:8457
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:954
 #, fuzzy, c-format, perl-format
 #| msgid "missing action name"
 msgid "missing type"
 msgstr "הדוקפ םש רסח"
 
-#: tp/Texinfo/Convert/HTML.pm:8457
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:976
+#: tp/Texinfo/Convert/HTML.pm:8461
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:964
 #, fuzzy, c-format, perl-format
 #| msgid "%s: unrecognized option `--%s'\n"
 msgid "unrecognized type: %s"
 msgstr "%s תינכת רובע `--%s' ההוזמ-יתלב ןייפאמ\n"
 
-#: tp/Texinfo/Convert/HTML.pm:8491
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:1074
+#: tp/Texinfo/Convert/HTML.pm:8495
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:1062
 #, fuzzy, c-format, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing html refs config file %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tp/Texinfo/Convert/HTML.pm:8517
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:1114
+#: tp/Texinfo/Convert/HTML.pm:8521
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:1102
 #, c-format, perl-format
 msgid "could not find html refs config file %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8571 tp/texi2any.pl:603
-#, fuzzy, perl-format
+#: tp/Texinfo/Convert/HTML.pm:8575 tp/texi2any.pl:605
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:1192
+#, fuzzy, c-format, perl-format
 #| msgid "%c%s is obsolete; use %c%s instead"
 msgid "%s directory is deprecated. Use %s instead"
 msgstr "%c%s-ב שמתשהל ףידע ;תנשוימ הניה %c%s הארוה"
 
-#: tp/Texinfo/Convert/HTML.pm:8967
+#: tp/Texinfo/Convert/HTML.pm:8971
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8983
+#: tp/Texinfo/Convert/HTML.pm:8987
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "Unknown formatting function: %s"
 msgstr "העודי הנניא `%s' הדוקפ"
 
-#: tp/Texinfo/Convert/HTML.pm:9332
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:3157
+#: tp/Texinfo/Convert/HTML.pm:9336
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:3187
 #, c-format, perl-format
 msgid "string not closed in css file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9334
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:3164
+#: tp/Texinfo/Convert/HTML.pm:9338
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:3194
 #, c-format, perl-format
 msgid "--css-include ended in comment"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9336
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:3171
+#: tp/Texinfo/Convert/HTML.pm:9340
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:3201
 #, c-format, perl-format
 msgid "@import not finished in css file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9370
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:3223
+#: tp/Texinfo/Convert/HTML.pm:9374
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:3253
 #, c-format, perl-format
 msgid "CSS file %s not found"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9380
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:3245
+#: tp/Texinfo/Convert/HTML.pm:9384
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:3275
 #, fuzzy, c-format, perl-format
 #| msgid "cannot open input file `%s'"
 msgid "could not open --include-file %s: %s"
 msgstr "`%s' טלק ץבוק תחיתפב הלקת"
 
-#: tp/Texinfo/Convert/HTML.pm:9399
+#: tp/Texinfo/Convert/HTML.pm:9403
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing CSS file %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tp/Texinfo/Convert/HTML.pm:9613
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:4178
+#: tp/Texinfo/Convert/HTML.pm:9617
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:4208
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9943
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:5126
+#: tp/Texinfo/Convert/HTML.pm:9947
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:5156
 #, fuzzy, c-format, perl-format
 #| msgid "Making %s file `%s' from `%s'.\n"
 msgid "resetting %s file path %s to %s"
 msgstr ".%s טמרופב `%s'-ל `%s' ץבוק דבעמ\n"
 
-#: tp/Texinfo/Convert/HTML.pm:9947
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:5136
+#: tp/Texinfo/Convert/HTML.pm:9951
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:5166
 #, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9951
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:5145
+#: tp/Texinfo/Convert/HTML.pm:9955
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:5175
 #, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:10693 tp/Texinfo/XS/convert/format_html.c:801
+#: tp/Texinfo/Convert/HTML.pm:10697 tp/Texinfo/XS/convert/format_html.c:801
 #, c-format, perl-format
 msgid "do not set %s suffix in reference for manual `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:10726 tp/Texinfo/Convert/HTML.pm:10732
+#: tp/Texinfo/Convert/HTML.pm:10730 tp/Texinfo/Convert/HTML.pm:10736
 #: tp/Texinfo/XS/convert/format_html.c:847
 #: tp/Texinfo/XS/convert/format_html.c:858
 #, fuzzy, c-format, perl-format
@@ -2454,112 +2452,112 @@ msgstr ""
 msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "`%s' תזורחמ םיליכמה סקדניא יטירפ ןיא\n"
 
-#: tp/Texinfo/Convert/HTML.pm:11223 tp/Texinfo/XS/convert/format_html.c:3827
+#: tp/Texinfo/Convert/HTML.pm:11227 tp/Texinfo/XS/convert/format_html.c:3827
 #, fuzzy, c-format, perl-format
 #| msgid "@%s not meaningful inside `@%s' block"
 msgid "%s not meaningful for non-split output"
 msgstr "`@%s' ךותב @%s-ל תועמשמ ןיא"
 
-#: tp/Texinfo/Convert/HTML.pm:11772 tp/Texinfo/XS/convert/convert_html.c:2340
+#: tp/Texinfo/Convert/HTML.pm:11776 tp/Texinfo/XS/convert/convert_html.c:2340
 #, c-format, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:11817 tp/Texinfo/XS/convert/convert_html.c:2363
+#: tp/Texinfo/Convert/HTML.pm:11821 tp/Texinfo/XS/convert/convert_html.c:2363
 #, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12469 tp/Texinfo/XS/convert/convert_html.c:727
+#: tp/Texinfo/Convert/HTML.pm:12473 tp/Texinfo/XS/convert/convert_html.c:727
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12476 tp/Texinfo/XS/convert/convert_html.c:739
+#: tp/Texinfo/Convert/HTML.pm:12480 tp/Texinfo/XS/convert/convert_html.c:739
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12526
+#: tp/Texinfo/Convert/HTML.pm:12530
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "error on copying %s into %s"
 msgstr "`%s'-ל הביתכב הלקת"
 
-#: tp/Texinfo/Convert/HTML.pm:12535 tp/Texinfo/XS/convert/convert_html.c:2584
+#: tp/Texinfo/Convert/HTML.pm:12539 tp/Texinfo/XS/convert/convert_html.c:2584
 #, fuzzy, c-format, perl-format
 #| msgid "error writing to `%s'"
 msgid "error on creating empty %s: %s"
 msgstr "`%s'-ל הביתכב הלקת"
 
-#: tp/Texinfo/Convert/HTML.pm:12540 tp/Texinfo/XS/convert/convert_html.c:2596
+#: tp/Texinfo/Convert/HTML.pm:12544 tp/Texinfo/XS/convert/convert_html.c:2596
 #, fuzzy, c-format, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing empty %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tp/Texinfo/Convert/HTML.pm:12650 tp/Texinfo/Convert/HTML.pm:12654
+#: tp/Texinfo/Convert/HTML.pm:12654 tp/Texinfo/Convert/HTML.pm:12658
 #: tp/Texinfo/XS/convert/convert_html.c:953
 #: tp/Texinfo/XS/convert/convert_html.c:958
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12916 tp/Texinfo/XS/convert/convert_html.c:2771
+#: tp/Texinfo/Convert/HTML.pm:12920 tp/Texinfo/XS/convert/convert_html.c:2771
 #, c-format, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12933 tp/Texinfo/XS/convert/convert_html.c:2786
+#: tp/Texinfo/Convert/HTML.pm:12937 tp/Texinfo/XS/convert/convert_html.c:2786
 #, c-format, perl-format
 msgid "conflict with whole document file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12936 tp/Texinfo/XS/convert/convert_html.c:2789
+#: tp/Texinfo/Convert/HTML.pm:12940 tp/Texinfo/XS/convert/convert_html.c:2789
 #, c-format, perl-format
 msgid "conflict with Top file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12939 tp/Texinfo/XS/convert/convert_html.c:2792
+#: tp/Texinfo/Convert/HTML.pm:12943 tp/Texinfo/XS/convert/convert_html.c:2792
 #, c-format, perl-format
 msgid "conflict with user-defined file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12942 tp/Texinfo/XS/convert/convert_html.c:2795
+#: tp/Texinfo/Convert/HTML.pm:12946 tp/Texinfo/XS/convert/convert_html.c:2795
 #, c-format, perl-format
 msgid "conflict with unknown node file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12945 tp/Texinfo/XS/convert/convert_html.c:2799
+#: tp/Texinfo/Convert/HTML.pm:12949 tp/Texinfo/XS/convert/convert_html.c:2799
 #, c-format, perl-format
 msgid "conflict with file without known source"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12951 tp/Texinfo/XS/convert/convert_html.c:2811
+#: tp/Texinfo/Convert/HTML.pm:12955 tp/Texinfo/XS/convert/convert_html.c:2811
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12962 tp/Texinfo/XS/convert/convert_html.c:2825
+#: tp/Texinfo/Convert/HTML.pm:12966 tp/Texinfo/XS/convert/convert_html.c:2825
 #, c-format, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12972 tp/Texinfo/XS/convert/convert_html.c:2840
+#: tp/Texinfo/Convert/HTML.pm:12976 tp/Texinfo/XS/convert/convert_html.c:2840
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:12984 tp/Texinfo/XS/convert/convert_html.c:2853
+#: tp/Texinfo/Convert/HTML.pm:12988 tp/Texinfo/XS/convert/convert_html.c:2853
 #, c-format, perl-format
 msgid "conflict with %s special element"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:13025
+#: tp/Texinfo/Convert/HTML.pm:13029
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing redirection node file %s: %s"
@@ -3992,29 +3990,30 @@ msgstr ""
 msgid "tex4ht.pm: processing retrieved %d items in HTML; collected %d for @%s"
 msgstr ""
 
-#: tp/texi2any.pl:624
+#: tp/texi2any.pl:626
 #, fuzzy, perl-format
 #| msgid "Could not create output file `%s'."
 msgid "could not read init file %s"
 msgstr ".`%s' טלפ ץבוק תריציב הלקת"
 
-#: tp/texi2any.pl:649
+#: tp/texi2any.pl:651
 #, fuzzy, perl-format
 #| msgid "Could not create output file `%s'."
 msgid "could not read extension file %s"
 msgstr ".`%s' טלפ ץבוק תריציב הלקת"
 
-#: tp/texi2any.pl:912
+#: tp/texi2any.pl:913
 #, perl-format
-msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"
+msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'"
 msgstr ""
 
-#: tp/texi2any.pl:974
-#, perl-format
-msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
+#: tp/texi2any.pl:975
+#, fuzzy, perl-format
+#| msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
+msgid "Usage: %s [OPTION]... TEXINFO-FILE..."
 msgstr "%s [םינייפאמ]... TEXINFO-ץבוק... :שומישה ןפוא\n"
 
-#: tp/texi2any.pl:977
+#: tp/texi2any.pl:978
 #, fuzzy
 #| msgid ""
 #| "Translate Texinfo source documentation to various other formats, by "
@@ -4031,115 +4030,115 @@ msgstr ""
 " לדחמ תרירבכ ,םירחא םינוש םיטמרופל Texinfo רוקמ תפשב דועית םגרת\n"
 ".GNU Info  תינכת וא Emacs תרזעב האירקל םימיאתמה Info יצבק רציימ \n"
 
-#: tp/texi2any.pl:983
+#: tp/texi2any.pl:984
 #, fuzzy
 #| msgid "One completion:\n"
 msgid "General options:"
 msgstr "             :תחא המלשה\n"
 
-#: tp/texi2any.pl:984
+#: tp/texi2any.pl:985
 msgid ""
 "      --document-language=STR locale to use in translating Texinfo keywords\n"
 "                                for the output document (default C)."
 msgstr ""
 
-#: tp/texi2any.pl:986
+#: tp/texi2any.pl:987
 #, perl-format
 msgid "      --error-limit=NUM       quit after NUM errors (default %d)."
 msgstr ""
 
-#: tp/texi2any.pl:988
+#: tp/texi2any.pl:989
 msgid "      --force                 preserve output even if errors."
 msgstr ""
 
-#: tp/texi2any.pl:989
+#: tp/texi2any.pl:990
 #, fuzzy
 #| msgid "display this help and exit"
 msgid "      --help                  display this help and exit."
 msgstr "תינכתהמ אצו הז הרזע ךסמ גצה"
 
-#: tp/texi2any.pl:990
+#: tp/texi2any.pl:991
 msgid "      --no-validate           suppress node cross-reference validation."
 msgstr ""
 
-#: tp/texi2any.pl:991
+#: tp/texi2any.pl:992
 msgid "      --no-warn               suppress warnings (but not errors)."
 msgstr ""
 
-#: tp/texi2any.pl:992
+#: tp/texi2any.pl:993
 msgid ""
 "      --conf-dir=DIR          search also for initialization files in DIR."
 msgstr ""
 
-#: tp/texi2any.pl:993
+#: tp/texi2any.pl:994
 msgid "      --init-file=FILE        load FILE to modify the default behavior."
 msgstr ""
 
-#: tp/texi2any.pl:994
+#: tp/texi2any.pl:995
 msgid ""
 "  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n"
 "                                to value VAL."
 msgstr ""
 
-#: tp/texi2any.pl:996
+#: tp/texi2any.pl:997
 msgid "      --trace-includes        print names of included files."
 msgstr ""
 
-#: tp/texi2any.pl:997
+#: tp/texi2any.pl:998
 msgid "  -v, --verbose               explain what is being done."
 msgstr ""
 
-#: tp/texi2any.pl:998
+#: tp/texi2any.pl:999
 #, fuzzy
 #| msgid "display version information and exit"
 msgid "      --version               display version information and exit."
 msgstr "אצו תינכתה תסריג לע עדימ גצה"
 
-#: tp/texi2any.pl:1000
+#: tp/texi2any.pl:1001
 msgid "Output format selection (default is to produce Info):"
 msgstr ""
 
-#: tp/texi2any.pl:1001
+#: tp/texi2any.pl:1002
 msgid "      --docbook               output Docbook XML."
 msgstr ""
 
-#: tp/texi2any.pl:1002
+#: tp/texi2any.pl:1003
 msgid "      --html                  output HTML."
 msgstr ""
 
-#: tp/texi2any.pl:1003
+#: tp/texi2any.pl:1004
 msgid "      --epub3                 output EPUB 3."
 msgstr ""
 
-#: tp/texi2any.pl:1004
+#: tp/texi2any.pl:1005
 msgid "      --latex                 output LaTeX."
 msgstr ""
 
-#: tp/texi2any.pl:1005
+#: tp/texi2any.pl:1006
 msgid "      --plaintext             output plain text rather than Info."
 msgstr ""
 
-#: tp/texi2any.pl:1006
+#: tp/texi2any.pl:1007
 msgid "      --xml                   output Texinfo XML."
 msgstr ""
 
-#: tp/texi2any.pl:1007
+#: tp/texi2any.pl:1008
 msgid ""
 "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
 "                                after checking validity of TEXINFO-FILE."
 msgstr ""
 
-#: tp/texi2any.pl:1011
+#: tp/texi2any.pl:1012
 msgid "General output options:"
 msgstr ""
 
-#: tp/texi2any.pl:1013
+#: tp/texi2any.pl:1014
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename."
 msgstr ""
 
-#: tp/texi2any.pl:1016
+#: tp/texi2any.pl:1017
 #, fuzzy
 #| msgid ""
 #| "General output options:\n"
@@ -4177,19 +4176,19 @@ msgstr ""
 "               .טלפ ץבוקב תואקסיפו םיקרפ ררפס      --number-sections\n"
 "     .(HTML טלפ םא היקית) FILE ץבוקל טלפ בותכ  -o, --output=FILE\n"
 
-#: tp/texi2any.pl:1022
+#: tp/texi2any.pl:1023
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file."
 msgstr ""
 
-#: tp/texi2any.pl:1025
+#: tp/texi2any.pl:1026
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on."
 msgstr ""
 
-#: tp/texi2any.pl:1028
+#: tp/texi2any.pl:1029
 msgid ""
 "  -o, --output=DEST           output to DEST.\n"
 "                                With split output, create DEST as a "
@@ -4201,7 +4200,7 @@ msgid ""
 "                                Otherwise, DEST names the output file."
 msgstr ""
 
-#: tp/texi2any.pl:1036
+#: tp/texi2any.pl:1037
 msgid ""
 "      --disable-encoding      do not output accented and special characters\n"
 "                                in Info and plain text output based on "
@@ -4209,22 +4208,22 @@ msgid ""
 "                                encoding."
 msgstr ""
 
-#: tp/texi2any.pl:1040
+#: tp/texi2any.pl:1041
 msgid "      --enable-encoding       override --disable-encoding (default)."
 msgstr ""
 
-#: tp/texi2any.pl:1042
+#: tp/texi2any.pl:1043
 #, perl-format
 msgid "Options for Info and plain text:"
 msgstr ""
 
-#: tp/texi2any.pl:1044
+#: tp/texi2any.pl:1045
 #, perl-format
 msgid ""
 "      --fill-column=NUM       break Info lines at NUM columns (default %d)."
 msgstr ""
 
-#: tp/texi2any.pl:1046
+#: tp/texi2any.pl:1047
 #, perl-format
 msgid ""
 "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n"
@@ -4234,7 +4233,7 @@ msgid ""
 "                                which they are defined (this is the default)."
 msgstr ""
 
-#: tp/texi2any.pl:1051
+#: tp/texi2any.pl:1052
 #, perl-format
 msgid ""
 "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default "
@@ -4243,126 +4242,147 @@ msgid ""
 "                                `asis', preserve existing indentation."
 msgstr ""
 
-#: tp/texi2any.pl:1055
+#: tp/texi2any.pl:1056
 #, perl-format
 msgid ""
 "      --split-size=NUM        split Info files at size NUM (default %d)."
 msgstr ""
 
-#: tp/texi2any.pl:1063
-msgid ""
-"Options for HTML:\n"
-"      --css-include=FILE      include FILE in HTML <style> output;\n"
-"                                read stdin if FILE is -.\n"
-"      --css-ref=URL           generate CSS reference to URL.\n"
-"      --internal-links=FILE   produce list of internal links in FILE.\n"
-"      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',\n"
-"                                `section' or `node'.\n"
-"      --transliterate-file-names  use file names in ASCII transliteration.\n"
-"      --node-files            produce redirection files for nodes and \n"
-"                                anchors; default is set only if split.\n"
+#: tp/texi2any.pl:1062
+msgid "Options for HTML:"
 msgstr ""
 
-#: tp/texi2any.pl:1075
+#: tp/texi2any.pl:1063
+msgid ""
+"      --css-include=FILE      include FILE in HTML <style> output;\n"
+"                                read stdin if FILE is -."
+msgstr ""
+
+#: tp/texi2any.pl:1065
+msgid "      --css-ref=URL           generate CSS reference to URL."
+msgstr ""
+
+#: tp/texi2any.pl:1066
+msgid "      --internal-links=FILE   produce list of internal links in FILE."
+msgstr ""
+
+#: tp/texi2any.pl:1067
+msgid ""
+"      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',\n"
+"                                `section' or `node'."
+msgstr ""
+
+#: tp/texi2any.pl:1069
+msgid ""
+"      --transliterate-file-names  use file names in ASCII transliteration."
+msgstr ""
+
+#: tp/texi2any.pl:1070
+msgid ""
+"      --node-files            produce redirection files for nodes and\n"
+"                                anchors; default is set only if split."
+msgstr ""
+
+#: tp/texi2any.pl:1074
 msgid ""
 "Options for DVI/PS/PDF:\n"
 "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n"
 msgstr ""
 
-#: tp/texi2any.pl:1078
+#: tp/texi2any.pl:1077
 msgid "Input file options:"
 msgstr ""
 
-#: tp/texi2any.pl:1079
+#: tp/texi2any.pl:1078
 msgid " -D VAR                       define the variable VAR, as with @set."
 msgstr ""
 
-#: tp/texi2any.pl:1080
+#: tp/texi2any.pl:1079
 msgid " -D 'VAR VAL'                 define VAR to VAL (one shell argument)."
 msgstr ""
 
-#: tp/texi2any.pl:1081
+#: tp/texi2any.pl:1080
 msgid " -I DIR                       append DIR to the @include search path."
 msgstr ""
 
-#: tp/texi2any.pl:1082
+#: tp/texi2any.pl:1081
 msgid " -P DIR                       prepend DIR to the @include search path."
 msgstr ""
 
-#: tp/texi2any.pl:1083
+#: tp/texi2any.pl:1082
 msgid ""
 " -U VAR                       undefine the variable VAR, as with @clear."
 msgstr ""
 
-#: tp/texi2any.pl:1085
+#: tp/texi2any.pl:1084
 msgid "Conditional processing in input:"
 msgstr ""
 
-#: tp/texi2any.pl:1086
+#: tp/texi2any.pl:1085
 msgid ""
 "  --ifdocbook       process @ifdocbook and @docbook even if\n"
 "                      not generating Docbook."
 msgstr ""
 
-#: tp/texi2any.pl:1088
+#: tp/texi2any.pl:1087
 msgid ""
 "  --ifhtml          process @ifhtml and @html even if not generating HTML."
 msgstr ""
 
-#: tp/texi2any.pl:1089
+#: tp/texi2any.pl:1088
 msgid "  --ifinfo          process @ifinfo even if not generating Info."
 msgstr ""
 
-#: tp/texi2any.pl:1090
+#: tp/texi2any.pl:1089
 msgid "  --iflatex         process @iflatex and @latex."
 msgstr ""
 
-#: tp/texi2any.pl:1091
+#: tp/texi2any.pl:1090
 msgid ""
 "  --ifplaintext     process @ifplaintext even if not generating plain text."
 msgstr ""
 
-#: tp/texi2any.pl:1092
+#: tp/texi2any.pl:1091
 msgid "  --iftex           process @iftex and @tex."
 msgstr ""
 
-#: tp/texi2any.pl:1093
+#: tp/texi2any.pl:1092
 msgid "  --ifxml           process @ifxml and @xml."
 msgstr ""
 
-#: tp/texi2any.pl:1094
+#: tp/texi2any.pl:1093
 msgid "  --no-ifdocbook    do not process @ifdocbook and @docbook text."
 msgstr ""
 
-#: tp/texi2any.pl:1095
+#: tp/texi2any.pl:1094
 msgid "  --no-ifhtml       do not process @ifhtml and @html text."
 msgstr ""
 
-#: tp/texi2any.pl:1096
+#: tp/texi2any.pl:1095
 msgid "  --no-ifinfo       do not process @ifinfo text."
 msgstr ""
 
-#: tp/texi2any.pl:1097
+#: tp/texi2any.pl:1096
 msgid "  --no-iflatex      do not process @iflatex and @latex text."
 msgstr ""
 
-#: tp/texi2any.pl:1098
+#: tp/texi2any.pl:1097
 msgid "  --no-ifplaintext  do not process @ifplaintext text."
 msgstr ""
 
-#: tp/texi2any.pl:1099
+#: tp/texi2any.pl:1098
 msgid "  --no-iftex        do not process @iftex and @tex text."
 msgstr ""
 
-#: tp/texi2any.pl:1100
+#: tp/texi2any.pl:1099
 msgid "  --no-ifxml        do not process @ifxml and @xml text."
 msgstr ""
 
-#: tp/texi2any.pl:1102
+#: tp/texi2any.pl:1101
 msgid "  Also, for the --no-ifFORMAT options, do process @ifnotFORMAT text."
 msgstr ""
 
-#: tp/texi2any.pl:1106
+#: tp/texi2any.pl:1105
 #, fuzzy
 #| msgid ""
 #| "  The defaults for the @if... conditionals depend on the output format:\n"
@@ -4383,7 +4403,7 @@ msgstr ""
 "        .םילעפומ םניא רתיה לכו לעפומ --ifinfo  ,טסכט וא Info אוה טלפה םא\n"
 "           .םילעפומ םניא רתיה לכו לעפומ --ifplaintext  ,טסכט אוה טלפה םא\n"
 
-#: tp/texi2any.pl:1117
+#: tp/texi2any.pl:1116
 #, fuzzy
 #| msgid ""
 #| "Examples:\n"
@@ -4421,92 +4441,100 @@ msgstr ""
 " @setfilename י\"ע ןותנה ץבוקל XML טלפ  makeinfo --xml foo.texi\n"
 "        @setfilename-ל DocBook XML טלפ  makeinfo --docbook foo.texi\n"
 "               ינקת טלפ ץורעל טסכט טלפ  makeinfo --no-headers foo.texi\n"
-"      םיטירפת אללו תורתוכ אלל HTML טלפ  makeinfo --html --no-headers foo."
-"texi\n"
+"      םיטירפת אללו תורתוכ אלל HTML טלפ  makeinfo --html --no-headers "
+"foo.texi\n"
 "             תואקסיפ רורפס םע Info טלפ  makeinfo --number-sections foo.texi\n"
 "   היהיש לככ לודג ,דיחי ץבוקב Info טלפ  makeinfo --no-split foo.texi\n"
 
-#: tp/texi2any.pl:1170
+#: tp/texi2any.pl:1142
 #, perl-format
-msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+"gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law."
+msgstr ""
+
+#: tp/texi2any.pl:1169
+#, fuzzy, perl-format
+#| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
+msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'."
 msgstr ""
 "%s: `%s' אל ,`end' וא `separate' תויהל --footnote-style לש טנמוגרא לע\n"
 
-#: tp/texi2any.pl:1177
+#: tp/texi2any.pl:1176
 #, perl-format
 msgid "%s is not a valid split possibility"
 msgstr ""
 
 #: tp/texi2any.pl:1290
-#, perl-format
-msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
+#, fuzzy, perl-format
+#| msgid ""
+#| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
+msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
 msgstr ""
 "%s: `%s' אל ,`asis'/`none'/ירמונ תויהל --paragraph-indent לש טנמוגרא לע\n"
 
-#: tp/texi2any.pl:1426
+#: tp/texi2any.pl:1421
 #, perl-format
 msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
 msgstr ""
 
-#: tp/texi2any.pl:1430
+#: tp/texi2any.pl:1425
 msgid "--Xopt option without printed output"
 msgstr ""
 
-#: tp/texi2any.pl:1502
+#: tp/texi2any.pl:1497
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "overwriting file: %s"
 msgstr "`%s'-ל הביתכב הלקת"
 
-#: tp/texi2any.pl:1552
+#: tp/texi2any.pl:1547
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "unknown tree transformation %s"
 msgstr "העודי הנניא `%s' הדוקפ"
 
-#: tp/texi2any.pl:1572
+#: tp/texi2any.pl:1573
 #, perl-format
 msgid "ignoring splitting for converted format %s (for %s)"
 msgstr ""
 
-#: tp/texi2any.pl:1575
+#: tp/texi2any.pl:1576
 #, perl-format
 msgid "ignoring splitting for format %s"
 msgstr ""
 
-#: tp/texi2any.pl:1593
+#: tp/texi2any.pl:1594
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "error loading %s: %s"
 msgstr "`%s'-ל הביתכב הלקת"
 
-#: tp/texi2any.pl:1671
+#: tp/texi2any.pl:1672
 #, perl-format
 msgid "%s: missing file argument.\n"
 msgstr ".ץבוק םש רסח %s תינכתל\n"
 
-#: tp/texi2any.pl:1702
+#: tp/texi2any.pl:1703
 #, perl-format
 msgid "input file %s; did you mean %s?"
 msgstr ""
 
-#: tp/texi2any.pl:1848
+#: tp/texi2any.pl:1855
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
-msgid "error on closing macro expand file %s: %s\n"
+msgid "error on closing macro expand file %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tp/texi2any.pl:1853
-#, perl-format
-msgid "could not open %s for writing: %s\n"
-msgstr ""
-
-#: tp/texi2any.pl:2076
+#: tp/texi2any.pl:2084
 #, perl-format
 msgid "%s: error on closing internal links file %s: %s\n"
 msgstr ""
 
-#: tp/texi2any.pl:2154
+#: tp/texi2any.pl:2162
 #, perl-format
 msgid "%s: error on closing elements size file %s: %s\n"
 msgstr ""
@@ -4559,7 +4587,7 @@ msgstr "`%s'-ל הביתכב הלקת"
 msgid "error closing %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tp/Texinfo/XS/convert/html_prepare_converter.c:3272
+#: tp/Texinfo/XS/convert/html_prepare_converter.c:3302
 #, fuzzy, c-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing CSS file  %s: %s"
@@ -4744,8 +4772,7 @@ msgstr ""
 #~ "\n"
 #~ "                        .Info טמרופב םיכורעה דועית יצבקב ןייע\n"
 #~ "\n"
-#~ "                                                                :"
-#~ "םינייפאמ\n"
+#~ "                                                                :םינייפאמ\n"
 #~ "     .שמתשמל ךירדמ לכ לש םיסקדניאה לכב SUBJECT שפח      --"
 #~ "apropos=SUBJECT\n"
 #~ "                 .INFOPATH-ב המישרל DIR היקית ףסוה  -d, --directory=DIR\n"
@@ -4778,8 +4805,7 @@ msgstr ""
 #~ "                                                     .הגצוהש הנושארה "
 #~ "הקסיפב\n"
 #~ "\n"
-#~ "                                                                   :"
-#~ "תואמגוד\n"
+#~ "                                                                   :תואמגוד\n"
 #~ "                          dir ץבוקמ בא-טירפת גצה  info\n"
 #~ "       emacs טירפ עיבצמ הילא הקסיפל ךל בא-טירפתמ  info emacs\n"
 #~ "buffers טירפל ךשמה םשמו emacs ףיעסל ךל בא-טירפתמ  info emacs buffers\n"
@@ -5005,8 +5031,8 @@ msgstr ""
 #~ "Usage: %s [OPTION]... [INPUT-FILE]\n"
 #~ "\n"
 #~ "Compile infokey source file to infokey file.  Reads INPUT-FILE (default\n"
-#~ "$HOME/.infokey) and writes compiled key file to (by default) $HOME/."
-#~ "info.\n"
+#~ "$HOME/.infokey) and writes compiled key file to (by default) "
+#~ "$HOME/.info.\n"
 #~ "\n"
 #~ "Options:\n"
 #~ "  --output FILE        output to FILE instead of $HOME/.info\n"
@@ -5017,11 +5043,10 @@ msgstr ""
 #~ "\n"
 #~ ":לדחמה תרירב) טלק-ץבוק ארוק .infokey ץבוקל םישקמ תורדגה לש רוקמ ץבוק "
 #~ "לפמק\n"
-#~ "      .(תרחא תנייצ אל םא) $HOME/.info-ל לפמוקמ ץבוק בתוכו ($HOME/."
-#~ "infokey\n"
+#~ "      .(תרחא תנייצ אל םא) $HOME/.info-ל לפמוקמ ץבוק בתוכו "
+#~ "($HOME/.infokey\n"
 #~ "\n"
-#~ "                                                                :"
-#~ "םינייפאמ\n"
+#~ "                                                                :םינייפאמ\n"
 #~ "       .$HOME/.info-ב םוקמב FILE ץבוקב טלפ םושר   --output FILE\n"
 #~ "                   .תינכתהמ אצו הז הרזע ךסמ גצה   --help\n"
 #~ "                  .אצו תינכתה תסריג לע עדימ גצה   --version\n"
@@ -5751,8 +5776,7 @@ msgstr ""
 #~ msgstr ""
 #~ "          %s [OPTION]... [INFO-FILE [DIR-FILE]] :שומישה ןפוא\n"
 #~ "\n"
-#~ "                                                                :"
-#~ "םינייפאמ\n"
+#~ "                                                                :םינייפאמ\n"
 #~ "  ;INFO-FILE רובע םימייק טירפת יפיעס DIR-FILE-מ קחמ   --delete\n"
 #~ "                      .םישדח טירפת יפיעס ףיסות לא\n"
 #~ "                   .ישאר Info טירפת לש ץבוק םש ןייצ   --dir-file=NAME\n"
