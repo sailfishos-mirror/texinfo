@@ -1,4 +1,4 @@
-2024-10-31  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	tp/tests/run_parser_all.sh (check_info_math2img, no_dvipng)
 	(post_process_output): add support for INFO_MATH_IMAGES tests.
@@ -8,12 +8,12 @@
 	tp/tests/info_tex/Makefile.am, tp/tests/info_tex/tex_math.texi: add
 	test of INFO_MATH_IMAGES.
 
-2024-10-31  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/LaTeX.pm (convert_math_to_images): return png
 	files relative to the directory where the info file is created.
 
-2024-09-03  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	Implement INFO_MATH_IMAGES in Info
 
@@ -41,7 +41,7 @@
 	@image formatting, and use it for INFO_MATH_IMAGES @math and
 	@displaymath formatting.
 
-2024-09-01  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Plaintext.pm (conversion_initialization)
 	(_convert): set block_math_commands to always be
@@ -49,7 +49,7 @@
 	default_format_context_commands.  Do not set dynamically anymore the
 	'preformatted_context_commands' and 'format_context_commands'.
 
-2024-09-01  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/LaTeX.pm (convert_math_to_images): render math
 	@-commands Texinfo tree elements as images using LaTeX with the
