@@ -184,23 +184,28 @@ $result_trees{'command_conditionals_user_defined'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifcommanddefined',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'truc'
+                        'contents' => [
+                          {
+                            'text' => 'truc'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifcommanddefined',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '
@@ -265,24 +270,27 @@ $result_trees{'command_conditionals_user_defined'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifcommandnotdefined',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'text' => 'truc'
+                            'contents' => [
+                              {
+                                'text' => 'truc'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
                         ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'cmdname' => 'ifcommandnotdefined',
-                    'contents' => [
+                        'type' => 'argument'
+                      },
                       {
                         'text' => '@@macro truc is wrongly not defined
 ',
@@ -343,23 +351,28 @@ $result_trees{'command_conditionals_user_defined'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifcommanddefined',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'authindex'
+                        'contents' => [
+                          {
+                            'text' => 'authindex'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifcommanddefined',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '
@@ -427,24 +440,27 @@ $result_trees{'command_conditionals_user_defined'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifcommandnotdefined',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'text' => 'authindex'
+                            'contents' => [
+                              {
+                                'text' => 'authindex'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
                         ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'cmdname' => 'ifcommandnotdefined',
-                    'contents' => [
+                        'type' => 'argument'
+                      },
                       {
                         'text' => 'index command @@authindex is wrongly not defined
 ',
@@ -505,23 +521,28 @@ $result_trees{'command_conditionals_user_defined'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifcommanddefined',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'infoencl'
+                        'contents' => [
+                          {
+                            'text' => 'infoencl'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifcommanddefined',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '
@@ -589,24 +610,27 @@ $result_trees{'command_conditionals_user_defined'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifcommandnotdefined',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'text' => 'infoencl'
+                            'contents' => [
+                              {
+                                'text' => 'infoencl'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
                         ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'cmdname' => 'ifcommandnotdefined',
-                    'contents' => [
+                        'type' => 'argument'
+                      },
                       {
                         'text' => 'definfoenclose @@infoencl is wrongly not defined
 ',
@@ -667,23 +691,28 @@ $result_trees{'command_conditionals_user_defined'} = {
             {
               'counter' => 4,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifcommanddefined',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'strongalias'
+                        'contents' => [
+                          {
+                            'text' => 'strongalias'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifcommanddefined',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '
@@ -751,24 +780,27 @@ $result_trees{'command_conditionals_user_defined'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifcommandnotdefined',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'text' => 'strongalias'
+                            'contents' => [
+                              {
+                                'text' => 'strongalias'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
                         ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'cmdname' => 'ifcommandnotdefined',
-                    'contents' => [
+                        'type' => 'argument'
+                      },
                       {
                         'text' => 'strongalias @@alias is wrongly not defined
 ',

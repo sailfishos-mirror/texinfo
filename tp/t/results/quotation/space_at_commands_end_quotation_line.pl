@@ -10,25 +10,28 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'quotation',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => ' at the end of line '
-                },
-                {
-                  'cmdname' => '
+                  'contents' => [
+                    {
+                      'cmdname' => '@'
+                    },
+                    {
+                      'text' => ' at the end of line '
+                    },
+                    {
+                      'cmdname' => '
 '
+                    }
+                  ],
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'quotation',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -96,33 +99,36 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'quotation',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => '@'
-                },
-                {
-                  'cmdname' => ' '
-                },
-                {
-                  'text' => ' at the end of line '
-                },
-                {
-                  'cmdname' => ' '
+                  'contents' => [
+                    {
+                      'cmdname' => '@'
+                    },
+                    {
+                      'cmdname' => ' '
+                    },
+                    {
+                      'text' => ' at the end of line '
+                    },
+                    {
+                      'cmdname' => ' '
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'quotation',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

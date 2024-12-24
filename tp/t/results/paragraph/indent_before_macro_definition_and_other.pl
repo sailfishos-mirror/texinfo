@@ -87,19 +87,22 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
           'cmdname' => 'vskip'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'html',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -147,19 +150,22 @@ $result_trees{'indent_before_macro_definition_and_other'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
                 'cmdname' => 'ifnothtml',
                 'contents' => [
+                  {
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'type' => 'argument'
+                  },
                   {
                     'text' => 'not html
 ',

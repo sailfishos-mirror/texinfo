@@ -14,18 +14,23 @@ $result_trees{'plaintext_ifinfo_ifnotplaintext'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifinfo',
+                'contents' => [
                   {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
-                    },
-                    'type' => 'block_line_arg'
+                    ],
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifinfo',
                 'source_info' => {
                   'line_nr' => 1
                 }
@@ -36,19 +41,22 @@ $result_trees{'plaintext_ifinfo_ifnotplaintext'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
                 'cmdname' => 'ifnotplaintext',
                 'contents' => [
+                  {
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'type' => 'argument'
+                  },
                   {
                     'text' => 'This will be in Info, but not plain text.
 ',

@@ -238,19 +238,22 @@ $result_trees{'api_doc_with_linemacro'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'defblock',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -506,65 +509,60 @@ $result_trees{'api_doc_with_linemacro'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
                   'cmdname' => 'defblock',
                   'contents' => [
                     {
                       'contents' => [
                         {
-                          'source_marks' => [
-                            {
-                              'counter' => 1,
-                              'element' => {
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
+                        }
+                      ],
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'element' => {
+                            'contents' => [
+                              {
                                 'contents' => [
                                   {
-                                    'contents' => [
-                                      {
-                                        'text' => 'a'
-                                      }
-                                    ],
-                                    'type' => 'line_arg'
-                                  },
+                                    'text' => 'a'
+                                  }
+                                ],
+                                'type' => 'line_arg'
+                              },
+                              {
+                                'contents' => [
                                   {
-                                    'contents' => [
-                                      {
-                                        'text' => 'array_like'
-                                      }
-                                    ],
-                                    'info' => {
-                                      'spaces_before_argument' => {
-                                        'text' => ' '
-                                      }
-                                    },
-                                    'type' => 'line_arg'
+                                    'text' => 'array_like'
                                   }
                                 ],
                                 'info' => {
-                                  'command_name' => 'param',
                                   'spaces_before_argument' => {
                                     'text' => ' '
                                   }
                                 },
-                                'type' => 'linemacro_call'
-                              },
-                              'sourcemark_type' => 'linemacro_expansion',
-                              'status' => 'start'
-                            }
-                          ],
-                          'text' => ''
+                                'type' => 'line_arg'
+                              }
+                            ],
+                            'info' => {
+                              'command_name' => 'param',
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            },
+                            'type' => 'linemacro_call'
+                          },
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'start'
                         }
                       ],
-                      'type' => 'before_defline'
+                      'type' => 'argument'
                     },
                     {
                       'args' => [

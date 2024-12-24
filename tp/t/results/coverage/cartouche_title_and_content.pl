@@ -10,40 +10,43 @@ $result_trees{'cartouche_title_and_content'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'cartouche',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'Box title on '
-                },
-                {
-                  'cmdname' => 'emph',
                   'contents' => [
                     {
+                      'text' => 'Box title on '
+                    },
+                    {
+                      'cmdname' => 'emph',
                       'contents' => [
                         {
-                          'text' => 'documentation'
+                          'contents' => [
+                            {
+                              'text' => 'documentation'
+                            }
+                          ],
+                          'type' => 'brace_container'
                         }
                       ],
-                      'type' => 'brace_container'
+                      'source_info' => {
+                        'line_nr' => 1
+                      }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'cartouche',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

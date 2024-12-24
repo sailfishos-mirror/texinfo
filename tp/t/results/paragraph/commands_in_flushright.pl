@@ -10,26 +10,10 @@ $result_trees{'commands_in_flushright'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'flushright',
           'contents' => [
             {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'args' => [
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -40,8 +24,30 @@ $result_trees{'commands_in_flushright'} = {
                   'type' => 'block_line_arg'
                 }
               ],
+              'type' => 'argument'
+            },
+            {
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
               'cmdname' => 'group',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -92,24 +98,27 @@ $result_trees{'commands_in_flushright'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'quotation',
+              'contents' => [
                 {
                   'contents' => [
                     {
-                      'text' => 'type'
+                      'contents' => [
+                        {
+                          'text' => 'type'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
                     }
                   ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'cmdname' => 'quotation',
-              'contents' => [
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -852,19 +861,22 @@ $result_trees{'commands_in_flushright'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'smallexample',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -915,19 +927,22 @@ $result_trees{'commands_in_flushright'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'format',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -978,19 +993,22 @@ $result_trees{'commands_in_flushright'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'flushleft',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -1113,10 +1131,10 @@ $result_trees{'commands_in_flushright'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'extra'}{'columnfractions'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'contents'}[4]{'extra'}{'float'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11];
-$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'extra'}{'caption'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'contents'}[4];
+$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'extra'}{'command_as_argument'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'extra'}{'columnfractions'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[4]{'extra'}{'float'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[12];
+$result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'extra'}{'caption'} = $result_trees{'commands_in_flushright'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[4];
 
 $result_texis{'commands_in_flushright'} = '@flushright
 

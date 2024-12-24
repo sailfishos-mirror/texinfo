@@ -10,12 +10,17 @@ $result_trees{'section_on_cartouche_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'cartouche',
+          'contents' => [
             {
-              'type' => 'block_line_arg'
+              'contents' => [
+                {
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
             }
           ],
-          'cmdname' => 'cartouche',
           'source_info' => {
             'line_nr' => 1
           }
@@ -48,12 +53,17 @@ $result_trees{'section_on_cartouche_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cartouche',
+          'contents' => [
             {
-              'type' => 'block_line_arg'
+              'contents' => [
+                {
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
             }
           ],
-          'cmdname' => 'cartouche',
           'info' => {
             'spaces_before_argument' => {
               'text' => ' '

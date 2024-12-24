@@ -36,23 +36,28 @@ $result_trees{'end_ifset_in_format'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifset',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'notset'
+                        'contents' => [
+                          {
+                            'text' => 'notset'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifset',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '
@@ -72,19 +77,22 @@ $result_trees{'end_ifset_in_format'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'ignore',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@end ifset
 ',
@@ -177,23 +185,28 @@ $result_trees{'end_ifset_in_format'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifset',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'notset'
+                        'contents' => [
+                          {
+                            'text' => 'notset'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifset',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '
@@ -213,19 +226,22 @@ $result_trees{'end_ifset_in_format'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'verbatim',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@end ifset
 ',
@@ -308,23 +324,28 @@ $result_trees{'end_ifset_in_format'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifset',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'notset'
+                        'contents' => [
+                          {
+                            'text' => 'notset'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifset',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '

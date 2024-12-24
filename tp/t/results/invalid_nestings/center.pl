@@ -176,18 +176,23 @@ $result_trees{'center'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'quotation',
+                  'contents' => [
                     {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
+                      'contents' => [
+                        {
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
+                          },
+                          'type' => 'block_line_arg'
                         }
-                      },
-                      'type' => 'block_line_arg'
+                      ],
+                      'type' => 'argument'
                     }
                   ],
-                  'cmdname' => 'quotation',
                   'source_info' => {
                     'line_nr' => 5
                   }

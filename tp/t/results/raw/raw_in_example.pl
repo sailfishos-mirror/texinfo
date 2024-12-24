@@ -10,35 +10,41 @@ $result_trees{'raw_in_example'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'example',
           'contents' => [
             {
               'contents' => [
                 {
-                  'args' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
 '
-                        }
-                      },
-                      'type' => 'block_line_arg'
                     }
-                  ],
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
+            {
+              'contents' => [
+                {
                   'cmdname' => 'html',
                   'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
+                        }
+                      ],
+                      'type' => 'argument'
+                    },
                     {
                       'contents' => [
                         {
@@ -127,19 +133,22 @@ $result_trees{'raw_in_example'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'example',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -148,19 +157,22 @@ $result_trees{'raw_in_example'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
                   'cmdname' => 'html',
                   'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
+                        }
+                      ],
+                      'type' => 'argument'
+                    },
                     {
                       'contents' => [
                         {
@@ -221,19 +233,22 @@ $result_trees{'raw_in_example'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
                   'cmdname' => 'tex',
                   'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
+                        }
+                      ],
+                      'type' => 'argument'
+                    },
                     {
                       'contents' => [
                         {

@@ -10,19 +10,22 @@ $result_trees{'insertcopying'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'copying',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -38,19 +41,22 @@ $result_trees{'insertcopying'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'quotation',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => ' 
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {

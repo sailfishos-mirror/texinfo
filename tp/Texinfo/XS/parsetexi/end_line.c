@@ -787,6 +787,8 @@ ELEMENT *
 end_line_starting_block (ELEMENT *current)
 {
   KEY_PAIR *k;
+  const ELEMENT *argument;
+  ELEMENT *block_line_arg;
 
   enum command_id command;
 
@@ -884,10 +886,12 @@ end_line_starting_block (ELEMENT *current)
   if (counter_value (&count_remaining_args, current) != -1)
     counter_pop (&count_remaining_args);
 
+  argument = current->e.c->contents.list[0];
+  block_line_arg = argument->e.c->contents.list[0];
+
   if (command == CM_float)
     {
       char *float_type;
-      const ELEMENT *argument = current->e.c->contents.list[0];
 
       current->e.c->source_info = current_source_info;
       if (argument->e.c->contents.number >= 2)
@@ -910,8 +914,6 @@ end_line_starting_block (ELEMENT *current)
       if (command == CM_enumerate)
         {
           const char *spec = "1";
-          const ELEMENT *argument = current->e.c->contents.list[0];
-          const ELEMENT *block_line_arg = argument->e.c->contents.list[0];
 
           if (block_line_arg->e.c->contents.number > 0)
             {
@@ -943,8 +945,6 @@ end_line_starting_block (ELEMENT *current)
           k_command_as_arg = lookup_extra (current, AI_key_command_as_argument);
           if (!k_command_as_arg)
             {
-              const ELEMENT *argument = current->e.c->contents.list[0];
-              const ELEMENT *block_line_arg = argument->e.c->contents.list[0];
               if (block_line_arg->e.c->contents.number > 0)
                 {
                   char *texi_arg;
@@ -987,22 +987,21 @@ end_line_starting_block (ELEMENT *current)
           if (k_command_as_arg)
             {
               size_t i;
-              const ELEMENT *argument = contents_child_by_index (current, 0);
-              const ELEMENT *line_arg = contents_child_by_index (argument, 0);
               const ELEMENT *command_as_arg_e = k_command_as_arg->k.element;
 
-              for (i = 0; i < line_arg->e.c->contents.number; i++)
+              for (i = 0; i < block_line_arg->e.c->contents.number; i++)
                 {
-                  if (contents_child_by_index (line_arg, i) == command_as_arg_e)
+                  if (contents_child_by_index (block_line_arg, i)
+                                                     == command_as_arg_e)
                     {
                       i++;
                       break;
                     }
                 }
-              for (; i < line_arg->e.c->contents.number; i++)
+              for (; i < block_line_arg->e.c->contents.number; i++)
                 {
                   int not_command_as_arg = 0;
-                  ELEMENT *f = contents_child_by_index (line_arg, i);
+                  ELEMENT *f = contents_child_by_index (block_line_arg, i);
                   if (f->type == ET_normal_text)
                     {
                       if (f->e.text->end > 0
@@ -1060,9 +1059,6 @@ end_line_starting_block (ELEMENT *current)
          @itemize, and @asis for @table. */
       if (command == CM_itemize)
         {
-          const ELEMENT *argument = current->e.c->contents.list[0];
-          ELEMENT *block_line_arg = argument->e.c->contents.list[0];
-
           if (block_line_arg->e.c->contents.number == 0)
             {
               ELEMENT *e
@@ -1075,8 +1071,6 @@ end_line_starting_block (ELEMENT *current)
       else if (command_data(command).data == BLOCK_item_line
                && !lookup_extra_element (current, AI_key_command_as_argument))
         {
-          const ELEMENT *argument = current->e.c->contents.list[0];
-          ELEMENT *block_line_arg = argument->e.c->contents.list[0];
           ELEMENT *e;
 
           e = new_command_element (ET_brace_command, CM_asis);
@@ -1093,13 +1087,12 @@ end_line_starting_block (ELEMENT *current)
     } /* CF_blockitem */
   else if (command_data (command).args_number == 0
            && (! (command_data (command).flags & CF_variadic))
-           && current->e.c->args.number > 0
-           && current->e.c->args.list[0]->e.c->contents.number > 0)
+           && block_line_arg->e.c->contents.number > 0)
     {
       char *texi_arg;
 
       /* expand the contents to avoid surrounding spaces */
-      texi_arg = convert_contents_to_texinfo (current->e.c->args.list[0]);
+      texi_arg = convert_contents_to_texinfo (block_line_arg);
       command_warn (current, "unexpected argument on @%s line: %s",
                      command_name(command), texi_arg);
       free (texi_arg);
@@ -1113,10 +1106,9 @@ end_line_starting_block (ELEMENT *current)
           || command == CM_ifcommanddefined
           || command == CM_ifcommandnotdefined)
         {
-          if (current->e.c->args.number == 1
-              && current->e.c->args.list[0]->e.c->contents.number == 1)
+          if (block_line_arg->e.c->contents.number == 1)
             {
-              ELEMENT *arg_elt = current->e.c->args.list[0]->e.c->contents.list[0];
+              ELEMENT *arg_elt = block_line_arg->e.c->contents.list[0];
               if (arg_elt->type == ET_normal_text && arg_elt->e.text->end > 0)
                 {
                   const char *p = arg_elt->e.text->text;

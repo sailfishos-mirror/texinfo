@@ -285,18 +285,23 @@ $result_trees{'value_in_misc_commands'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifnottex',
+                'contents' => [
                   {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
-                    },
-                    'type' => 'block_line_arg'
+                    ],
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifnottex',
                 'source_info' => {
                   'line_nr' => 16
                 }
@@ -634,18 +639,23 @@ $result_trees{'value_in_misc_commands'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifnottex',
+                'contents' => [
                   {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
-                    },
-                    'type' => 'block_line_arg'
+                    ],
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifnottex',
                 'source_info' => {
                   'line_nr' => 26
                 }
@@ -887,18 +897,23 @@ $result_trees{'value_in_misc_commands'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifnottex',
+                'contents' => [
                   {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
-                    },
-                    'type' => 'block_line_arg'
+                    ],
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifnottex',
                 'source_info' => {
                   'line_nr' => 36
                 }
@@ -1574,19 +1589,22 @@ $result_trees{'value_in_misc_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'example',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

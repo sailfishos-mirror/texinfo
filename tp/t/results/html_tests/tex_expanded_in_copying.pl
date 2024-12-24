@@ -10,21 +10,10 @@ $result_trees{'tex_expanded_in_copying'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'copying',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -35,8 +24,25 @@ $result_trees{'tex_expanded_in_copying'} = {
                   'type' => 'block_line_arg'
                 }
               ],
+              'type' => 'argument'
+            },
+            {
               'cmdname' => 'tex',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {

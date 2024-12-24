@@ -32,19 +32,22 @@ $result_trees{'node_part_chapter_after_top'} = [
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'menu',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -285,7 +288,7 @@ $result_trees{'node_part_chapter_after_top'} = [
     'unit_type' => 'unit'
   }
 ];
-$result_trees{'node_part_chapter_after_top'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_part_chapter_after_top'}[0]{'unit_command'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'node_part_chapter_after_top'}[0]{'unit_command'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_part_chapter_after_top'}[0]{'unit_command'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'node_part_chapter_after_top'}[0]{'unit_contents'}[2] = $result_trees{'node_part_chapter_after_top'}[0]{'unit_command'};
 $result_trees{'node_part_chapter_after_top'}[1]{'unit_contents'}[1] = $result_trees{'node_part_chapter_after_top'}[1]{'unit_command'}{'extra'}{'associated_part'};
 $result_trees{'node_part_chapter_after_top'}[1]{'unit_contents'}[2] = $result_trees{'node_part_chapter_after_top'}[1]{'unit_command'};

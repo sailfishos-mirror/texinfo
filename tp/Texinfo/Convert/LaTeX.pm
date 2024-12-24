@@ -2356,14 +2356,16 @@ sub _set_environment_options($$$)
 
   if (exists($LaTeX_environment_options{$command})) {
    my $option = $LaTeX_environment_options{$command};
-   if ($command eq 'cartouche'
-       and $element->{'args'} and $element->{'args'}->[0]
-       and $element->{'args'}->[0]->{'contents'}
-       and @{$element->{'args'}->[0]->{'contents'}}) {
-      $option
-        = {'mdframed' => $option->{'mdframed'}
-                      . ', frametitle={' . $self->_convert({'contents'
-                           => $element->{'args'}->[0]->{'contents'}}) .'}'};
+   if ($command eq 'cartouche') {
+     my $argument = $element->{'contents'}->[0];
+     my $block_line_arg = $argument->{'contents'}->[0];
+     if ($block_line_arg->{'contents'}
+         and scalar(@{$block_line_arg->{'contents'}})) {
+        $option
+          = {'mdframed' => $option->{'mdframed'} . ', frametitle={'
+               . $self->_convert({'contents' => $block_line_arg->{'contents'}})
+               .'}'};
+      }
     }
     return $option;
   }
@@ -3879,11 +3881,12 @@ sub _convert($$)
         # this is only used to avoid @author converted as
         # a @titlepage author, for a @quotation in @titlepage @author
         $self->{'formatting_context'}->[-1]->{'in_quotation'} += 1;
-        if ($element->{'args'} and $element->{'args'}->[0]
-            and $element->{'args'}->[0]->{'contents'}
-            and @{$element->{'args'}->[0]->{'contents'}}) {
+        my $argument = $element->{'contents'}->[0];
+        my $block_line_arg = $argument->{'contents'}->[0];
+        if ($block_line_arg->{'contents'}
+            and scalar(@{$block_line_arg->{'contents'}})) {
           my $prepended = $self->cdt('@b{{quotation_arg}:} ',
-                      {'quotation_arg' => $element->{'args'}->[0]});
+                                {'quotation_arg' => $block_line_arg});
           $result .= $self->_convert($prepended);
         }
       } elsif ($cmdname eq 'multitable') {
@@ -4482,7 +4485,7 @@ sub _convert($$)
         _pop_context($self);
       }
     } elsif ($cmdname eq 'quotation'
-               or $cmdname eq 'smallquotation') {
+             or $cmdname eq 'smallquotation') {
       if ($element->{'extra'} and $element->{'extra'}->{'authors'}) {
         # NOTE when @quotation is in a preformatted environment (@example...),
         # we are not in a preformatted type here, such that the conversion
@@ -4600,6 +4603,8 @@ sub convert_math_to_images($$$;$)
       $tree = $element->{'contents'}->[0];
     } elsif ($element->{'contents'}) {
       $tree = {'contents' => [@{$element->{'contents'}}]};
+      # remove the line argument
+      shift @{$tree->{'contents'}};
       if (scalar(@{$tree->{'contents'}})
           and $tree->{'contents'}->[0]->{'type'}
           and ($tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command'

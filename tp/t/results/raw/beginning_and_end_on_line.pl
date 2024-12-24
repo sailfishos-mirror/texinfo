@@ -15,23 +15,26 @@ $result_trees{'beginning_and_end_on_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'tex',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'in tex'
+                  'contents' => [
+                    {
+                      'text' => 'in tex'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'tex',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -78,23 +81,26 @@ $result_trees{'beginning_and_end_on_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'verbatim',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'in verbatim'
+                  'contents' => [
+                    {
+                      'text' => 'in verbatim'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'verbatim',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {
@@ -141,23 +147,26 @@ $result_trees{'beginning_and_end_on_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'html',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'in html'
+                  'contents' => [
+                    {
+                      'text' => 'in html'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'html',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

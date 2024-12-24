@@ -97,24 +97,27 @@ $result_trees{'macro_expansion_end_in_ignored_nested_different_conditional'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifset',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'a'
+                        'contents' => [
+                          {
+                            'text' => 'a'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
-                'cmdname' => 'ifset',
-                'contents' => [
+                    'type' => 'argument'
+                  },
                   {
                     'text' => '@ifclear b
 ',

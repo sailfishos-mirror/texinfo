@@ -14,23 +14,28 @@ $result_trees{'command_conditionals'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifset',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'txicommandconditionals'
+                        'contents' => [
+                          {
+                            'text' => 'txicommandconditionals'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifset',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '
@@ -98,24 +103,27 @@ $result_trees{'command_conditionals'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifcommanddefined',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'nodexyz'
+                        'contents' => [
+                          {
+                            'text' => 'nodexyz'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
-                'cmdname' => 'ifcommanddefined',
-                'contents' => [
+                    'type' => 'argument'
+                  },
                   {
                     'text' => 'Bad, @@nodexyz is defined.
 ',
@@ -167,23 +175,28 @@ $result_trees{'command_conditionals'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifcommandnotdefined',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'nodexyz'
+                        'contents' => [
+                          {
+                            'text' => 'nodexyz'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifcommandnotdefined',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '
@@ -260,23 +273,28 @@ $result_trees{'command_conditionals'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifcommanddefined',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'node'
+                        'contents' => [
+                          {
+                            'text' => 'node'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifcommanddefined',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '
@@ -344,24 +362,27 @@ $result_trees{'command_conditionals'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifcommandnotdefined',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'text' => 'node'
+                            'contents' => [
+                              {
+                                'text' => 'node'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
                         ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'cmdname' => 'ifcommandnotdefined',
-                    'contents' => [
+                        'type' => 'argument'
+                      },
                       {
                         'text' => 'Bad, @@node is not defined.
 ',
@@ -422,24 +443,27 @@ $result_trees{'command_conditionals'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifcommanddefined',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'mathcode'
+                        'contents' => [
+                          {
+                            'text' => 'mathcode'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
-                'cmdname' => 'ifcommanddefined',
-                'contents' => [
+                    'type' => 'argument'
+                  },
                   {
                     'text' => 'Unfortunately, @@mathcode is defined.
 ',
@@ -491,23 +515,28 @@ $result_trees{'command_conditionals'} = {
             {
               'counter' => 4,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifcommandnotdefined',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'mathcode'
+                        'contents' => [
+                          {
+                            'text' => 'mathcode'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifcommandnotdefined',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '

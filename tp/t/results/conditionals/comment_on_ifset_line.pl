@@ -31,29 +31,34 @@ $result_trees{'comment_on_ifset_line'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifset',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'x'
-                      }
-                    ],
-                    'info' => {
-                      'comment_at_end' => {
-                        'args' => [
+                        'contents' => [
                           {
-                            'text' => '
-',
-                            'type' => 'rawline_arg'
+                            'text' => 'x'
                           }
                         ],
-                        'cmdname' => 'c'
+                        'info' => {
+                          'comment_at_end' => {
+                            'args' => [
+                              {
+                                'text' => '
+',
+                                'type' => 'rawline_arg'
+                              }
+                            ],
+                            'cmdname' => 'c'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
-                    },
-                    'type' => 'block_line_arg'
+                    ],
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifset',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '
@@ -115,29 +120,34 @@ $result_trees{'comment_on_ifset_line'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifset',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'text' => 'x'
-                          }
-                        ],
-                        'info' => {
-                          'comment_at_end' => {
-                            'args' => [
+                            'contents' => [
                               {
-                                'text' => ' comm
-',
-                                'type' => 'rawline_arg'
+                                'text' => 'x'
                               }
                             ],
-                            'cmdname' => 'c'
+                            'info' => {
+                              'comment_at_end' => {
+                                'args' => [
+                                  {
+                                    'text' => ' comm
+',
+                                    'type' => 'rawline_arg'
+                                  }
+                                ],
+                                'cmdname' => 'c'
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
-                        },
-                        'type' => 'block_line_arg'
+                        ],
+                        'type' => 'argument'
                       }
                     ],
-                    'cmdname' => 'ifset',
                     'info' => {
                       'spaces_before_argument' => {
                         'text' => ' '
@@ -196,29 +206,34 @@ $result_trees{'comment_on_ifset_line'} = {
                 {
                   'counter' => 3,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifset',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'text' => 'x'
-                          }
-                        ],
-                        'info' => {
-                          'comment_at_end' => {
-                            'args' => [
+                            'contents' => [
                               {
-                                'text' => '@ggg
-',
-                                'type' => 'rawline_arg'
+                                'text' => 'x'
                               }
                             ],
-                            'cmdname' => 'c'
+                            'info' => {
+                              'comment_at_end' => {
+                                'args' => [
+                                  {
+                                    'text' => '@ggg
+',
+                                    'type' => 'rawline_arg'
+                                  }
+                                ],
+                                'cmdname' => 'c'
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
-                        },
-                        'type' => 'block_line_arg'
+                        ],
+                        'type' => 'argument'
                       }
                     ],
-                    'cmdname' => 'ifset',
                     'info' => {
                       'spaces_before_argument' => {
                         'text' => ' '
@@ -277,32 +292,37 @@ $result_trees{'comment_on_ifset_line'} = {
                 {
                   'counter' => 4,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifset',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'text' => 'x'
-                          }
-                        ],
-                        'info' => {
-                          'comment_at_end' => {
-                            'args' => [
+                            'contents' => [
                               {
-                                'text' => '
-',
-                                'type' => 'rawline_arg'
+                                'text' => 'x'
                               }
                             ],
-                            'cmdname' => 'c'
-                          },
-                          'spaces_after_argument' => {
-                            'text' => ' '
+                            'info' => {
+                              'comment_at_end' => {
+                                'args' => [
+                                  {
+                                    'text' => '
+',
+                                    'type' => 'rawline_arg'
+                                  }
+                                ],
+                                'cmdname' => 'c'
+                              },
+                              'spaces_after_argument' => {
+                                'text' => ' '
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
-                        },
-                        'type' => 'block_line_arg'
+                        ],
+                        'type' => 'argument'
                       }
                     ],
-                    'cmdname' => 'ifset',
                     'info' => {
                       'spaces_before_argument' => {
                         'text' => ' '
@@ -361,32 +381,37 @@ $result_trees{'comment_on_ifset_line'} = {
                 {
                   'counter' => 5,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifset',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'text' => 'x'
-                          }
-                        ],
-                        'info' => {
-                          'comment_at_end' => {
-                            'args' => [
+                            'contents' => [
                               {
-                                'text' => ' comm
-',
-                                'type' => 'rawline_arg'
+                                'text' => 'x'
                               }
                             ],
-                            'cmdname' => 'c'
-                          },
-                          'spaces_after_argument' => {
-                            'text' => ' '
+                            'info' => {
+                              'comment_at_end' => {
+                                'args' => [
+                                  {
+                                    'text' => ' comm
+',
+                                    'type' => 'rawline_arg'
+                                  }
+                                ],
+                                'cmdname' => 'c'
+                              },
+                              'spaces_after_argument' => {
+                                'text' => ' '
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
-                        },
-                        'type' => 'block_line_arg'
+                        ],
+                        'type' => 'argument'
                       }
                     ],
-                    'cmdname' => 'ifset',
                     'info' => {
                       'spaces_before_argument' => {
                         'text' => ' '
@@ -445,32 +470,37 @@ $result_trees{'comment_on_ifset_line'} = {
                 {
                   'counter' => 6,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifset',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'text' => 'x'
-                          }
-                        ],
-                        'info' => {
-                          'comment_at_end' => {
-                            'args' => [
+                            'contents' => [
                               {
-                                'text' => '@ggg
-',
-                                'type' => 'rawline_arg'
+                                'text' => 'x'
                               }
                             ],
-                            'cmdname' => 'c'
-                          },
-                          'spaces_after_argument' => {
-                            'text' => ' '
+                            'info' => {
+                              'comment_at_end' => {
+                                'args' => [
+                                  {
+                                    'text' => '@ggg
+',
+                                    'type' => 'rawline_arg'
+                                  }
+                                ],
+                                'cmdname' => 'c'
+                              },
+                              'spaces_after_argument' => {
+                                'text' => ' '
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
-                        },
-                        'type' => 'block_line_arg'
+                        ],
+                        'type' => 'argument'
                       }
                     ],
-                    'cmdname' => 'ifset',
                     'info' => {
                       'spaces_before_argument' => {
                         'text' => ' '

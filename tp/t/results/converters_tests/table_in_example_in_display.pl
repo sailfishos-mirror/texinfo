@@ -10,21 +10,10 @@ $result_trees{'table_in_example_in_display'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'display',
           'contents' => [
             {
-              'args' => [
+              'contents' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -35,8 +24,25 @@ $result_trees{'table_in_example_in_display'} = {
                   'type' => 'block_line_arg'
                 }
               ],
+              'type' => 'argument'
+            },
+            {
               'cmdname' => 'example',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'cmdname' => 'table',
                   'contents' => [
@@ -232,7 +238,7 @@ $result_trees{'table_in_example_in_display'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'table_in_example_in_display'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'table_in_example_in_display'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'table_in_example_in_display'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table_in_example_in_display'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'table_in_example_in_display'} = '@display
 @example

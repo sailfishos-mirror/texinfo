@@ -15,18 +15,23 @@ $result_trees{'empty_copying_not_ended'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'copying',
+          'contents' => [
             {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
 '
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
-              },
-              'type' => 'block_line_arg'
+              ],
+              'type' => 'argument'
             }
           ],
-          'cmdname' => 'copying',
           'source_info' => {
             'line_nr' => 2
           }

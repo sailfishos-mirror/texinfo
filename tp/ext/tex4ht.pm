@@ -220,12 +220,15 @@ sub tex4ht_prepare($$)
         if ($cmdname eq 'math') {
           $tree = $element->{'contents'}->[0];
         } elsif ($element->{'contents'}) {
+          my $contents_nr = scalar(@{$element->{'contents'}});
+          next if ($contents_nr <= 1);
           $tree = {'contents' => [@{$element->{'contents'}}]};
-          if (scalar(@{$tree->{'contents'}})
+          while (scalar(@{$tree->{'contents'}})
               and $tree->{'contents'}->[0]->{'type'}
               and ($tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command'
                    or $tree->{'contents'}->[0]->{'type'} eq 'elided_brace_command_arg'
-                   or $tree->{'contents'}->[0]->{'type'} eq 'elided_rawpreformatted')) {
+                   or $tree->{'contents'}->[0]->{'type'} eq 'elided_rawpreformatted'
+                   or $tree->{'contents'}->[0]->{'type'} eq 'argument')) {
             shift @{$tree->{'contents'}};
           }
           if ($tree->{'contents'}->[-1]->{'cmdname'}

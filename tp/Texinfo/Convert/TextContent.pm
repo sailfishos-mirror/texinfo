@@ -174,7 +174,6 @@ sub _convert($$)
   }
   my $result = '';
   if ($element->{'args'}) {
-    my $args;
     foreach my $arg (@{$element->{'args'}}) {
       $result .= _convert($self, $arg);
       if ($arg->{'type'}
@@ -187,6 +186,22 @@ sub _convert($$)
   }
   if ($element->{'contents'}) {
     my $contents_nr = scalar(@{$element->{'contents'}});
+    if ($contents_nr and $element->{'contents'}->[0]->{'type'}
+        and $element->{'contents'}->[0]->{'type'} eq 'argument'
+        and (!$element->{'cmdname'}
+         or !$Texinfo::Commands::blockitem_commands{$element->{'cmdname'}})) {
+      my $argument = $element->{'contents'}->[0];
+      foreach my $arg (@{$argument->{'contents'}}) {
+        $result .= _convert($self, $arg);
+        if ($arg->{'type'}
+            and $arg->{'type'} eq 'block_line_arg'
+            and $arg->{'info'} and $arg->{'info'}->{'spaces_after_argument'}
+            and $result =~ /\S/) {
+          $result .= $arg->{'info'}->{'spaces_after_argument'}->{'text'};
+        }
+      }
+    }
+
     my $start = 0;
     if ($element->{'cmdname'}
         and $Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}) {

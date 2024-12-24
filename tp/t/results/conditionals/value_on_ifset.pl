@@ -48,31 +48,36 @@ $result_trees{'value_on_ifset'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifset',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'source_marks' => [
+                        'contents' => [
                           {
-                            'counter' => 1,
-                            'position' => 1,
-                            'sourcemark_type' => 'value_expansion',
-                            'status' => 'end'
+                            'source_marks' => [
+                              {
+                                'counter' => 1,
+                                'position' => 1,
+                                'sourcemark_type' => 'value_expansion',
+                                'status' => 'end'
+                              }
+                            ],
+                            'text' => 'x'
                           }
                         ],
-                        'text' => 'x'
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifset',
                 'info' => {
                   'spaces_before_argument' => {
                     'source_marks' => [
@@ -165,24 +170,27 @@ $result_trees{'value_on_ifset'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifset',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'b'
+                        'contents' => [
+                          {
+                            'text' => 'b'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
-                'cmdname' => 'ifset',
-                'contents' => [
+                    'type' => 'argument'
+                  },
                   {
                     'text' => '@ifset @value{xval}
 ',

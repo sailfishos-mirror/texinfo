@@ -42,19 +42,22 @@ $result_trees{'cond_info_ifhtml_ifinfo_iftex'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'html',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -106,18 +109,23 @@ $result_trees{'cond_info_ifhtml_ifinfo_iftex'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifhtml',
+                    'contents' => [
                       {
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
+                        'contents' => [
+                          {
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
 '
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
-                        },
-                        'type' => 'block_line_arg'
+                        ],
+                        'type' => 'argument'
                       }
                     ],
-                    'cmdname' => 'ifhtml',
                     'source_info' => {
                       'file_name' => 'cond.texi',
                       'line_nr' => 9
@@ -188,19 +196,22 @@ $result_trees{'cond_info_ifhtml_ifinfo_iftex'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
                 'cmdname' => 'ifnothtml',
                 'contents' => [
+                  {
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'type' => 'argument'
+                  },
                   {
                     'text' => 'This is ifnothtml text.
 ',
@@ -356,18 +367,23 @@ $result_trees{'cond_info_ifhtml_ifinfo_iftex'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifinfo',
+                'contents' => [
                   {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
-                    },
-                    'type' => 'block_line_arg'
+                    ],
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifinfo',
                 'source_info' => {
                   'file_name' => 'cond.texi',
                   'line_nr' => 23
@@ -435,19 +451,22 @@ $result_trees{'cond_info_ifhtml_ifinfo_iftex'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
-                  {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
                 'cmdname' => 'ifnotinfo',
                 'contents' => [
+                  {
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'type' => 'argument'
+                  },
                   {
                     'text' => 'This is ifnotinfo text.
 ',
@@ -509,19 +528,22 @@ $result_trees{'cond_info_ifhtml_ifinfo_iftex'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'tex',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -573,18 +595,23 @@ $result_trees{'cond_info_ifhtml_ifinfo_iftex'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'cmdname' => 'iftex',
+                'contents' => [
                   {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
-                    },
-                    'type' => 'block_line_arg'
+                    ],
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'iftex',
                 'source_info' => {
                   'file_name' => 'cond.texi',
                   'line_nr' => 36
@@ -652,19 +679,22 @@ $result_trees{'cond_info_ifhtml_ifinfo_iftex'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
-                  {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
                 'cmdname' => 'ifnottex',
                 'contents' => [
+                  {
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'type' => 'argument'
+                  },
                   {
                     'text' => 'This is ifnottex text.
 ',

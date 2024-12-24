@@ -237,24 +237,27 @@ $result_trees{'definfoenclose_texinfo_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'quotation',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'important'
+                  'contents' => [
+                    {
+                      'text' => 'important'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'quotation',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

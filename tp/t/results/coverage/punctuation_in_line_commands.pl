@@ -184,24 +184,27 @@ $result_trees{'punctuation_in_line_commands'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'quotation',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'quotation arg! After punc'
+                  'contents' => [
+                    {
+                      'text' => 'quotation arg! After punc'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'quotation',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

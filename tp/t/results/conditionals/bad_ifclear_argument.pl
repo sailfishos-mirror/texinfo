@@ -14,24 +14,27 @@ $result_trees{'bad_ifclear_argument'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifclear',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => '#something'
+                        'contents' => [
+                          {
+                            'text' => '#something'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
-                'cmdname' => 'ifclear',
-                'contents' => [
+                    'type' => 'argument'
+                  },
                   {
                     'text' => 'R#something
 ',

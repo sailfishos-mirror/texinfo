@@ -92,24 +92,27 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifset',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'a'
+                        'contents' => [
+                          {
+                            'text' => 'a'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
-                'cmdname' => 'ifset',
-                'contents' => [
+                    'type' => 'argument'
+                  },
                   {
                     'source_marks' => [
                       {

@@ -1337,6 +1337,14 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                   if (element->e.c->contents.number > 0)
                     arguments_list = &element->e.c->contents;
                 }
+              else if (element->e.c->contents.number > 0
+                       && element->e.c->contents.list[0]->type == ET_argument)
+                {
+                  const ELEMENT *argument = element->e.c->contents.list[0];
+                  /* TODO most likely always true */
+                  if (argument->e.c->contents.number > 0)
+                    arguments_list = &argument->e.c->contents;
+                }
               else
                 {
                   if (element->e.c->args.number > 0)

@@ -14,18 +14,23 @@ $result_trees{'raw_block_on_line'} = {
             {
               'contents' => [
                 {
-                  'args' => [
+                  'cmdname' => 'tex',
+                  'contents' => [
                     {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
+                      'contents' => [
+                        {
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
+                          },
+                          'type' => 'block_line_arg'
                         }
-                      },
-                      'type' => 'block_line_arg'
+                      ],
+                      'type' => 'argument'
                     }
                   ],
-                  'cmdname' => 'tex',
                   'source_info' => {
                     'line_nr' => 1
                   }

@@ -42,19 +42,22 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'html',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -106,18 +109,23 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifhtml',
+                    'contents' => [
                       {
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
+                        'contents' => [
+                          {
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
 '
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
-                        },
-                        'type' => 'block_line_arg'
+                        ],
+                        'type' => 'argument'
                       }
                     ],
-                    'cmdname' => 'ifhtml',
                     'source_info' => {
                       'file_name' => 'cond.texi',
                       'line_nr' => 9
@@ -188,19 +196,22 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
                 'cmdname' => 'ifnothtml',
                 'contents' => [
+                  {
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'type' => 'argument'
+                  },
                   {
                     'text' => 'This is ifnothtml text.
 ',
@@ -356,18 +367,23 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifinfo',
+                'contents' => [
                   {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
-                    },
-                    'type' => 'block_line_arg'
+                    ],
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifinfo',
                 'source_info' => {
                   'file_name' => 'cond.texi',
                   'line_nr' => 23
@@ -435,19 +451,22 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
-                  {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
                 'cmdname' => 'ifnotinfo',
                 'contents' => [
+                  {
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'type' => 'argument'
+                  },
                   {
                     'text' => 'This is ifnotinfo text.
 ',
@@ -509,19 +528,22 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'tex',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -574,19 +596,22 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
-                  {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
                 'cmdname' => 'iftex',
                 'contents' => [
+                  {
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'type' => 'argument'
+                  },
                   {
                     'text' => 'This is iftex text.
 ',
@@ -642,18 +667,23 @@ $result_trees{'cond_ifhtml_ifinfo'} = {
             {
               'counter' => 3,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifnottex',
+                'contents' => [
                   {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
-                    },
-                    'type' => 'block_line_arg'
+                    ],
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifnottex',
                 'source_info' => {
                   'file_name' => 'cond.texi',
                   'line_nr' => 40

@@ -14,18 +14,23 @@ $result_trees{'additional_space_in_end_conditional_expanded'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifnothtml',
+                'contents' => [
                   {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
 '
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
-                    },
-                    'type' => 'block_line_arg'
+                    ],
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifnothtml',
                 'source_info' => {
                   'line_nr' => 1
                 }

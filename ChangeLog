@@ -1,5 +1,30 @@
 2024-11-12  Patrice Dumas  <pertusus@free.fr>
 
+	remaining non-definition block commands 'argument' container in contents
+
+	* tp/Texinfo/ParserNonXS.pm (_gather_def_item)
+	(_end_line_starting_block, _handle_block_command),
+	tp/Texinfo/XS/parsetexi/def.c (gather_def_item),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command): put
+	arguments of block commands with items in the first content in the
+	argument container type, remove args.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert), tp/Texinfo/Convert/HTML.pm
+	(_convert_preformatted_command, _open_quotation_command, _convert),
+	tp/Texinfo/Convert/LaTeX.pm (_set_environment_options, _convert)
+	(convert_math_to_images), tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/TextContent.pm (_convert),
+	tp/Texinfo/XS/convert/convert_html.c (html_convert_tree_append),
+	tp/Texinfo/XS/convert/format_html.c
+	(html_convert_preformatted_command, html_open_quotation_command),
+	tp/ext/highlight_syntax.pm (_get_language)
+	(highlight_preformatted_command), tp/ext/latex2html.pm (l2h_process),
+	tp/ext/tex4ht.pm (tex4ht_prepare): update for change in quotation,
+	cartouche and example tree.
+
+2024-11-12  Patrice Dumas  <pertusus@free.fr>
+
 	block commands with items in 'argument' container in contents
 
 	* tp/Texinfo/ParserNonXS.pm (_gather_previous_item)

@@ -21,19 +21,22 @@ $result_trees{'raw_in_style'} = {
 '
                     },
                     {
-                      'args' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
                       'cmdname' => 'html',
                       'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'block_line_arg'
+                            }
+                          ],
+                          'type' => 'argument'
+                        },
                         {
                           'contents' => [
                             {

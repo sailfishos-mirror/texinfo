@@ -74,23 +74,28 @@ $result_trees{'end_conditional_in_linemacro'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifclear',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'aa'
+                        'contents' => [
+                          {
+                            'text' => 'aa'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifclear',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '
@@ -201,24 +206,27 @@ $result_trees{'end_conditional_in_linemacro'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifset',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'b'
+                        'contents' => [
+                          {
+                            'text' => 'b'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
-                'cmdname' => 'ifset',
-                'contents' => [
+                    'type' => 'argument'
+                  },
                   {
                     'text' => '@lm {text
 ',

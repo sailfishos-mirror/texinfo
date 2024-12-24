@@ -1153,7 +1153,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
   add_to_element_contents (current, block);
 
   bla_element = new_element (ET_block_line_arg);
-  if (cmd == CM_float || command_data(cmd).flags & CF_blockitem)
+  if (!(command_data(cmd).flags & CF_def))
     {
       ELEMENT *argument = new_element (ET_argument);
       add_to_element_contents (block_line_e, argument);

@@ -109,31 +109,36 @@ $result_trees{'macro_expansion_end_in_conditional_line'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifset',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'source_marks' => [
+                        'contents' => [
                           {
-                            'counter' => 1,
-                            'position' => 2,
-                            'sourcemark_type' => 'macro_expansion',
-                            'status' => 'end'
+                            'source_marks' => [
+                              {
+                                'counter' => 1,
+                                'position' => 2,
+                                'sourcemark_type' => 'macro_expansion',
+                                'status' => 'end'
+                              }
+                            ],
+                            'text' => 'flag'
                           }
                         ],
-                        'text' => 'flag'
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifset',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '

@@ -215,10 +215,11 @@ sub _get_language($$$)
   my $converted_language;
 
   if ($cmdname eq 'example') {
-    if ($command->{'args'} and scalar(@{$command->{'args'}}) > 0) {
+    my $argument = $command->{'contents'}->[0];
+    if ($argument->{'contents'} and scalar(@{$argument->{'contents'}}) > 0) {
       $converted_language
         = Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
-                                                     $command->{'args'}->[0]);
+                                                 $command->{'contents'}->[0]);
       if ($converted_language eq '') {
         $converted_language = undef;
       }
@@ -671,8 +672,9 @@ sub highlight_preformatted_command($$$$$)
         # TODO is it correct?  What should be done with @example arguments?
         my @classes;
         if ($cmdname eq 'example') {
-          if ($command->{'args'}) {
-            for my $example_arg (@{$command->{'args'}}) {
+          my $argument = $command->{'contents'}->[0];
+          if ($argument->{'contents'}) {
+            for my $example_arg (@{$argument->{'contents'}}) {
               # convert or remove all @-commands, using simple ascii and unicode
               # characters
               my $converted_arg

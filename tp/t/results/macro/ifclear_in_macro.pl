@@ -113,23 +113,28 @@ $result_trees{'ifclear_in_macro'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifclear',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'notes'
+                        'contents' => [
+                          {
+                            'text' => 'notes'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => ' 
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => ' 
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifclear',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '

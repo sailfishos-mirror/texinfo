@@ -14,12 +14,17 @@ $result_trees{'if_not_closed'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'iftex',
+                'contents' => [
                   {
-                    'type' => 'block_line_arg'
+                    'contents' => [
+                      {
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'iftex',
                 'source_info' => {
                   'line_nr' => 1
                 }

@@ -74,19 +74,22 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
             'type' => 'empty_line'
           },
           {
-            'args' => [
-              {
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'block_line_arg'
-              }
-            ],
             'cmdname' => 'menu',
             'contents' => [
+              {
+                'contents' => [
+                  {
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'type' => 'argument'
+              },
               {
                 'contents' => [
                   {
@@ -890,19 +893,22 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
             'type' => 'empty_line'
           },
           {
-            'args' => [
-              {
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'block_line_arg'
-              }
-            ],
             'cmdname' => 'menu',
             'contents' => [
+              {
+                'contents' => [
+                  {
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'type' => 'argument'
+              },
               {
                 'contents' => [
                   {
@@ -1397,8 +1403,8 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
   }
 ];
 $result_trees{'character_and_spaces_in_refs_out'}[0]{'unit_contents'}[1] = $result_trees{'character_and_spaces_in_refs_out'}[0]{'unit_command'};
-$result_trees{'character_and_spaces_in_refs_out'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'character_and_spaces_in_refs_out'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'character_and_spaces_in_refs_out'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_command'};
 $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[0];
@@ -1414,9 +1420,9 @@ $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_command'}{'args'}[1]{
 $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_command'}{'args'}[2]{'contents'}[0];
 $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_command'}{'args'}[3]{'contents'}[0];
 $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_command'};
-$result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[1]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0];
 $result_trees{'character_and_spaces_in_refs_out'}[3]{'unit_command'}{'args'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[3]{'unit_command'}{'args'}[1]{'contents'}[0];
 $result_trees{'character_and_spaces_in_refs_out'}[3]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[3]{'unit_command'}{'args'}[2]{'contents'}[0];
 $result_trees{'character_and_spaces_in_refs_out'}[3]{'unit_command'}{'args'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[3]{'unit_command'}{'args'}[3]{'contents'}[0];

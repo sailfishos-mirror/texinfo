@@ -206,24 +206,27 @@ $result_trees{'call_macro_in_linemacro_call'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'quotation',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'aa'
+                  'contents' => [
+                    {
+                      'text' => 'aa'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'quotation',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'source_marks' => [
                 {
@@ -476,7 +479,7 @@ $result_trees{'call_macro_in_linemacro_call'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'call_macro_in_linemacro_call'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'call_macro_in_linemacro_call'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'call_macro_in_linemacro_call'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'call_macro_in_linemacro_call'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'call_macro_in_linemacro_call'} = '@linemacro lm {a, b}
 @quotation \\a\\

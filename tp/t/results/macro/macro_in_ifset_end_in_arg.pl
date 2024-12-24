@@ -74,24 +74,27 @@ $result_trees{'macro_in_ifset_end_in_arg'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifset',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'a'
+                        'contents' => [
+                          {
+                            'text' => 'a'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
-                'cmdname' => 'ifset',
-                'contents' => [
+                    'type' => 'argument'
+                  },
                   {
                     'text' => '@macroone{
 ',

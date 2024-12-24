@@ -10,19 +10,22 @@ $result_trees{'command_in_end'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'quotation',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -78,19 +81,22 @@ $result_trees{'command_in_end'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'quotation',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -152,19 +158,22 @@ $result_trees{'command_in_end'} = {
                   'type' => 'empty_line'
                 },
                 {
-                  'args' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
                   'cmdname' => 'quotation',
                   'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
+                        }
+                      ],
+                      'type' => 'argument'
+                    },
                     {
                       'contents' => [
                         {
@@ -226,19 +235,22 @@ $result_trees{'command_in_end'} = {
                       'type' => 'empty_line'
                     },
                     {
-                      'args' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
                       'cmdname' => 'quotation',
                       'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'block_line_arg'
+                            }
+                          ],
+                          'type' => 'argument'
+                        },
                         {
                           'contents' => [
                             {
@@ -303,19 +315,22 @@ $result_trees{'command_in_end'} = {
                           'type' => 'empty_line'
                         },
                         {
-                          'args' => [
-                            {
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
                           'cmdname' => 'quotation',
                           'contents' => [
+                            {
+                              'contents' => [
+                                {
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'block_line_arg'
+                                }
+                              ],
+                              'type' => 'argument'
+                            },
                             {
                               'contents' => [
                                 {
@@ -380,19 +395,22 @@ $result_trees{'command_in_end'} = {
                           'type' => 'empty_line'
                         },
                         {
-                          'args' => [
-                            {
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
                           'cmdname' => 'quotation',
                           'contents' => [
+                            {
+                              'contents' => [
+                                {
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'block_line_arg'
+                                }
+                              ],
+                              'type' => 'argument'
+                            },
                             {
                               'contents' => [
                                 {
@@ -457,19 +475,22 @@ $result_trees{'command_in_end'} = {
                           'type' => 'empty_line'
                         },
                         {
-                          'args' => [
-                            {
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
                           'cmdname' => 'quotation',
                           'contents' => [
+                            {
+                              'contents' => [
+                                {
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'block_line_arg'
+                                }
+                              ],
+                              'type' => 'argument'
+                            },
                             {
                               'contents' => [
                                 {
@@ -534,19 +555,22 @@ $result_trees{'command_in_end'} = {
                           'type' => 'empty_line'
                         },
                         {
-                          'args' => [
-                            {
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
                           'cmdname' => 'verbatim',
                           'contents' => [
+                            {
+                              'contents' => [
+                                {
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'block_line_arg'
+                                }
+                              ],
+                              'type' => 'argument'
+                            },
                             {
                               'text' => 'In verbatim
 ',

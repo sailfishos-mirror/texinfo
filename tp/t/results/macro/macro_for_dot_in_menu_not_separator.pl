@@ -71,19 +71,22 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'menu',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -233,7 +236,7 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_for_dot_in_menu_not_separator'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_for_dot_in_menu_not_separator'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[0];
+$result_trees{'macro_for_dot_in_menu_not_separator'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_for_dot_in_menu_not_separator'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[0];
 
 $result_texis{'macro_for_dot_in_menu_not_separator'} = '@macro macrodot
 .

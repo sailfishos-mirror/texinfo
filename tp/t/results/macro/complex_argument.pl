@@ -445,19 +445,22 @@ macroseven defined
           'type' => 'paragraph'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'verbatim',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@macrotwo
 ',
@@ -501,19 +504,22 @@ macroseven defined
           }
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'ignore',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'text' => '@macrofour
 ',
@@ -625,19 +631,22 @@ macroseven defined
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
-                      {
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
                     'cmdname' => 'ifinfo',
                     'contents' => [
+                      {
+                        'contents' => [
+                          {
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'block_line_arg'
+                          }
+                        ],
+                        'type' => 'argument'
+                      },
                       {
                         'text' => '@macrofour
 ',
@@ -686,19 +695,22 @@ macroseven defined
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
-                      {
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
                     'cmdname' => 'iftex',
                     'contents' => [
+                      {
+                        'contents' => [
+                          {
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'block_line_arg'
+                          }
+                        ],
+                        'type' => 'argument'
+                      },
                       {
                         'text' => '@macrotwo{aa,bb}
 ',

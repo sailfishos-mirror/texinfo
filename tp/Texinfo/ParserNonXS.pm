@@ -1959,11 +1959,11 @@ sub _gather_def_item($$;$)
   # but otherwise the end of line will lead to the command closing
   return if (!$current->{'cmdname'} or $current->{'cmdname'} =~ /x$/);
 
-  # For @defline at the beginning of @defblock.
-  return if !defined($current->{'contents'});
-
   my $contents_count = scalar(@{$current->{'contents'}});
-  return if $contents_count == 0;
+  # For @defline at the beginning of @defblock.
+  return if scalar($contents_count == 1
+                   and $current->{'contents'}->[0]->{'type'}
+                   and $current->{'contents'}->[0]->{'type'} eq 'argument');
 
   my $def_item = {'type' => $type,
                   'parent' => $current,
@@ -1971,8 +1971,10 @@ sub _gather_def_item($$;$)
   # remove everything that is not a def_line to put it in the def_item,
   # starting from the end.
   for (my $i = 0; $i < $contents_count; $i++) {
-    if ($current->{'contents'}->[-1]->{'extra'}
-        and $current->{'contents'}->[-1]->{'extra'}->{'def_command'}) {
+    if (($current->{'contents'}->[-1]->{'extra'}
+         and $current->{'contents'}->[-1]->{'extra'}->{'def_command'})
+        or ($current->{'contents'}->[-1]->{'type'}
+            and $current->{'contents'}->[-1]->{'type'} eq 'argument')) {
       last;
     } else {
       my $item_content = _pop_element_from_contents($self, $current);
@@ -1983,8 +1985,8 @@ sub _gather_def_item($$;$)
   my $gathered_content_count = scalar(@{$def_item->{'contents'}});
   if ($gathered_content_count) {
     if ($current->{'cmdname'} eq 'defblock'
-      # all content between @defblock and first @def*line
-        and $gathered_content_count == $contents_count) {
+      # all content between @defblock argument and first @def*line
+        and $gathered_content_count == $contents_count -1) {
       $def_item->{'type'} = 'before_defline';
     }
     push @{$current->{'contents'}}, $def_item;
@@ -4266,9 +4268,11 @@ sub _end_line_starting_block($$$)
   }
   delete $current->{'remaining_args'};
 
+  my $argument = $current->{'contents'}->[0];
+  my $block_line_arg = $argument->{'contents'}->[0];
+
   # @float args
   if ($command eq 'float') {
-    my $argument = $current->{'contents'}->[0];
     if (scalar(@{$argument->{'contents'}} >= 2)) {
       my $float_label_element = $argument->{'contents'}->[1];
       _check_register_target_element_label($self, $float_label_element,
@@ -4287,8 +4291,6 @@ sub _end_line_starting_block($$$)
   } elsif ($blockitem_commands{$command}) {
     if ($command eq 'enumerate') {
       my $spec = '1';
-      my $argument = $current->{'contents'}->[0];
-      my $block_line_arg = $argument->{'contents'}->[0];
       if ($block_line_arg->{'contents'}) {
         if (scalar(@{$block_line_arg->{'contents'}}) > 1) {
           $self->_command_error($current,
@@ -4308,8 +4310,6 @@ sub _end_line_starting_block($$$)
     } elsif ($block_commands{$command} eq 'item_line') {
       if (!$current->{'extra'}
           or !$current->{'extra'}->{'command_as_argument'}) {
-        my $argument = $current->{'contents'}->[0];
-        my $block_line_arg = $argument->{'contents'}->[0];
         if ($block_line_arg->{'contents'}
             and scalar(@{$block_line_arg->{'contents'}})) {
           # expand the contents to avoid surrounding spaces
@@ -4342,17 +4342,15 @@ sub _end_line_starting_block($$$)
       # This code checks that the command_as_argument of the @itemize
       # is alone on the line, otherwise it is not a command_as_argument.
       my $i;
-      my $argument = $current->{'contents'}->[0];
-      my $line_arg = $argument->{'contents'}->[0];
-      my $contents_nr = scalar(@{$line_arg->{'contents'}});
+      my $contents_nr = scalar(@{$block_line_arg->{'contents'}});
       for ($i = 0; $i < $contents_nr; $i++) {
-        if ($line_arg->{'contents'}->[$i] eq $command_as_argument) {
+        if ($block_line_arg->{'contents'}->[$i] eq $command_as_argument) {
           $i++;
           last;
         }
       }
       for (; $i < $contents_nr; $i++) {
-        my $arg = $line_arg->{'contents'}->[$i];
+        my $arg = $block_line_arg->{'contents'}->[$i];
         if (!(($arg->{'cmdname'}
                and ($arg->{'cmdname'} eq 'c'
                     or $arg->{'cmdname'} eq 'comment'))
@@ -4392,8 +4390,6 @@ sub _end_line_starting_block($$$)
       }
     }
     if ($command eq 'itemize') {
-      my $argument = $current->{'contents'}->[0];
-      my $block_line_arg = $argument->{'contents'}->[0];
       if (!$block_line_arg->{'contents'}) {
         my $inserted = { 'cmdname' => 'bullet',
                          'info' => {'inserted' => 1},
@@ -4419,13 +4415,11 @@ sub _end_line_starting_block($$$)
     $current = $current->{'contents'}->[-1];
   } elsif (not $commands_args_number{$command}
            and not exists($variadic_commands{$command})
-           and $current->{'args'}
-           and scalar(@{$current->{'args'}})
-           and $current->{'args'}->[0]->{'contents'}
-           and scalar(@{$current->{'args'}->[0]->{'contents'}})) {
+           and $block_line_arg->{'contents'}
+           and scalar(@{$block_line_arg->{'contents'}})) {
     # expand the contents to avoid surrounding spaces
     my $texi_arg = Texinfo::Convert::Texinfo::convert_to_texinfo(
-                       {'contents' => $current->{'args'}->[0]->{'contents'}});
+                       {'contents' => $block_line_arg->{'contents'}});
     $self->_command_warn($current,
                          __("unexpected argument on \@%s line: %s"),
                          $command, $texi_arg);
@@ -4436,11 +4430,10 @@ sub _end_line_starting_block($$$)
     if ($command eq 'ifclear' or $command eq 'ifset'
         or $command eq 'ifcommanddefined'
         or $command eq 'ifcommandnotdefined') {
-      if ($current->{'args'} and scalar(@{$current->{'args'}} == 1)
-          and $current->{'args'}->[0]->{'contents'}
-          and scalar(@{$current->{'args'}->[0]->{'contents'}} == 1)) {
-        if (defined($current->{'args'}->[0]->{'contents'}->[0]->{'text'})) {
-          my $name = $current->{'args'}->[0]->{'contents'}->[0]->{'text'};
+      if ($block_line_arg->{'contents'}
+          and scalar(@{$block_line_arg->{'contents'}} == 1)) {
+        if (defined($block_line_arg->{'contents'}->[0]->{'text'})) {
+          my $name = $block_line_arg->{'contents'}->[0]->{'text'};
           if ($name !~ /\S/) {
             $self->_line_error(sprintf(
                 __("\@%s requires a name"), $command), $source_info);
@@ -6193,7 +6186,8 @@ sub _handle_block_command($$$$$)
   # bla = block line argument
   my $bla_element;
 
-  if ($command eq 'float' or $blockitem_commands{$command}) {
+  #if ($command eq 'float' or $blockitem_commands{$command}) {
+  if (!$def_commands{$command}) {
     my $argument = {'type' => 'argument', 'parent' => $block_line_e};
     $block_line_e->{'contents'} = [$argument];
     $bla_element = {

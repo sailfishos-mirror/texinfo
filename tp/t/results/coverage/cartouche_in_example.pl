@@ -10,30 +10,10 @@ $result_trees{'cartouche_in_example'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'example',
           'contents' => [
             {
               'contents' => [
-                {
-                  'text' => 'In example
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'args' => [
                 {
                   'info' => {
                     'spaces_after_argument' => {
@@ -44,8 +24,34 @@ $result_trees{'cartouche_in_example'} = {
                   'type' => 'block_line_arg'
                 }
               ],
+              'type' => 'argument'
+            },
+            {
+              'contents' => [
+                {
+                  'text' => 'In example
+'
+                }
+              ],
+              'type' => 'preformatted'
+            },
+            {
               'cmdname' => 'cartouche',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {

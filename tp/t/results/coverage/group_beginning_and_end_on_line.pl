@@ -10,23 +10,26 @@ $result_trees{'group_beginning_and_end_on_line'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'group',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'within'
+                  'contents' => [
+                    {
+                      'text' => 'within'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'group',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

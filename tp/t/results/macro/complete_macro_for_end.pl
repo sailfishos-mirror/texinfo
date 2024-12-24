@@ -71,20 +71,20 @@ $result_trees{'complete_macro_for_end'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'cartouche',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -103,7 +103,7 @@ $result_trees{'complete_macro_for_end'} = {
                   'status' => 'start'
                 }
               ],
-              'text' => ''
+              'type' => 'argument'
             },
             {
               'args' => [

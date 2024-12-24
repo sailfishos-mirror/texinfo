@@ -14,19 +14,22 @@ $result_trees{'conditional_not_closed'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
-                  {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
                 'cmdname' => 'ifhtml',
                 'contents' => [
+                  {
+                    'contents' => [
+                      {
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
+                      }
+                    ],
+                    'type' => 'argument'
+                  },
                   {
                     'text' => 'in ifhtml
 ',

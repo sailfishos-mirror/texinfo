@@ -277,10 +277,11 @@ sub l2h_process($$)
         $tree = $element->{'contents'}->[0];
       } else {
         $tree = {'contents' => [@{$element->{'contents'}}]};
-        if ($tree->{'contents'}->[0]
-            and $tree->{'contents'}->[0]->{'type'}
-            and ($tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command'
-                 or $tree->{'contents'}->[0]->{'type'} eq 'elided_rawpreformatted')) {
+        while (scalar(@{$tree->{'contents'}})
+               and $tree->{'contents'}->[0]->{'type'}
+               and ($tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command'
+                   or $tree->{'contents'}->[0]->{'type'} eq 'elided_rawpreformatted'
+                   or $tree->{'contents'}->[0]->{'type'} eq 'argument')) {
           shift @{$tree->{'contents'}};
         }
         if ($tree->{'contents'}->[-1]->{'cmdname'}

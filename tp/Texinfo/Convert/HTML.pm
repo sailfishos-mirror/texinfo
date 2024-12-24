@@ -4911,16 +4911,15 @@ sub _convert_preformatted_command($$$$$)
   }
 
   if ($cmdname eq 'example') {
-    if ($command->{'args'}) {
-      for my $example_arg (@{$command->{'args'}}) {
-        # convert or remove all @-commands, using simple ascii and unicode
-        # characters
-        my $converted_arg
-          = Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
-                                                                 $example_arg);
-        if ($converted_arg ne '') {
-          push @classes, 'user-' . $converted_arg;
-        }
+    my $argument = $command->{'contents'}->[0];
+    foreach my $example_arg (@{$argument->{'contents'}}) {
+      # convert or remove all @-commands, using simple ascii and unicode
+      # characters
+      my $converted_arg
+        = Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
+                                                               $example_arg);
+      if ($converted_arg ne '') {
+        push @classes, 'user-' . $converted_arg;
       }
     }
   } elsif ($main_cmdname eq 'lisp') {
@@ -6788,12 +6787,13 @@ sub _open_quotation_command($$$)
   my $command = shift;
 
   my $formatted_quotation_arg_to_prepend;
-  if ($command->{'args'} and $command->{'args'}->[0]
-      and $command->{'args'}->[0]->{'contents'}
-      and @{$command->{'args'}->[0]->{'contents'}}) {
+  my $argument = $command->{'contents'}->[0];
+  my $block_line_args = $argument->{'contents'}->[0];
+  if ($block_line_args->{'contents'}
+      and scalar(@{$block_line_args->{'contents'}})) {
     $formatted_quotation_arg_to_prepend
      = $self->convert_tree($self->cdt('@b{{quotation_arg}:} ',
-             {'quotation_arg' => $command->{'args'}->[0]}),
+                        {'quotation_arg' => $block_line_args}),
                            "open $cmdname prepended arg");
   }
   $self->register_pending_formatted_inline_content($cmdname,
@@ -13584,6 +13584,11 @@ sub _convert($$;$)
         my $arguments_list;
         if ($brace_commands{$command_name}) {
           $arguments_list = $element->{'contents'};
+        } elsif ($element->{'contents'}
+                 and scalar(@{$element->{'contents'}})
+                 and $element->{'contents'}->[0]->{'type'}
+                 and $element->{'contents'}->[0]->{'type'} eq 'argument') {
+          $arguments_list = $element->{'contents'}->[0]->{'contents'};
         } else {
           $arguments_list = $element->{'args'};
         }

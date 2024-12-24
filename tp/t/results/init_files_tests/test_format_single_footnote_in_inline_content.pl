@@ -201,19 +201,22 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
                       'type' => 'empty_line'
                     },
                     {
-                      'args' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
                       'cmdname' => 'example',
                       'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'block_line_arg'
+                            }
+                          ],
+                          'type' => 'argument'
+                        },
                         {
                           'contents' => [
                             {
@@ -334,24 +337,27 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'cmdname' => 'quotation',
+                      'contents' => [
                         {
                           'contents' => [
                             {
-                              'text' => 'qtitle'
+                              'contents' => [
+                                {
+                                  'text' => 'qtitle'
+                                }
+                              ],
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'block_line_arg'
                             }
                           ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'cmdname' => 'quotation',
-                      'contents' => [
+                          'type' => 'argument'
+                        },
                         {
                           'args' => [
                             {
@@ -474,8 +480,8 @@ $result_trees{'test_format_single_footnote_in_inline_content'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'quotation'} = $result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'authors'}[0] = $result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'quotation'} = $result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'authors'}[0] = $result_trees{'test_format_single_footnote_in_inline_content'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 
 $result_texis{'test_format_single_footnote_in_inline_content'} = '@node Top
 @top top

@@ -944,11 +944,12 @@ find tp/Texinfo  -type f -name '*.pm' -execdir perl -wpli -e 's/^no autovivifica
 patch -p1 < build_perl_info_fix_typo.diff
 patch -p1 < avoid_deprecated_dirs_autovivification.diff
 patch -p1 < test_sort_init_config_customization.diff
+patch -p1 < Parsetexi_check_conf_defined.diff
 
 patch -R -p1 < build_perl_info_fix_typo.diff
 patch -R -p1 < avoid_deprecated_dirs_autovivification.diff
 patch -R -p1 < test_sort_init_config_customization.diff
-
+patch -R -p1 < Parsetexi_check_conf_defined.diff
 
 
 Setting flags

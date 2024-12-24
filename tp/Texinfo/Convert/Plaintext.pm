@@ -3451,10 +3451,11 @@ sub _convert($$)
         }
       }
       if ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
-        if ($element->{'args'}
-            and $element->{'args'}->[0]->{'contents'}) {
+        my $argument = $element->{'contents'}->[0];
+        my $block_line_arg = $argument->{'contents'}->[0];
+        if ($block_line_arg->{'contents'}) {
           my $prepended = $self->cdt('@b{{quotation_arg}:} ',
-             {'quotation_arg' => $element->{'args'}->[0]});
+                                {'quotation_arg' => $block_line_arg});
           $prepended->{'type'} = 'frenchspacing';
           #_convert($self, $prepended);
           my ($converted, $width, $extra_lines)
@@ -3505,10 +3506,11 @@ sub _convert($$)
           _anchor($self, $element);
         }
       } elsif ($cmdname eq 'cartouche') {
-        if ($element->{'args'}
-            and $element->{'args'}->[0]->{'contents'}) {
+        my $argument = $element->{'contents'}->[0];
+        my $block_line_arg = $argument->{'contents'}->[0];
+        if ($block_line_arg->{'contents'}) {
           my $prepended = $self->cdt('@center @b{{cartouche_arg}}',
-             {'cartouche_arg' => $element->{'args'}->[0]});
+                                 {'cartouche_arg' => $block_line_arg});
           $prepended->{'type'} = 'frenchspacing';
           # Do not consider the title to be like a paragraph
           my $previous_paragraph_count

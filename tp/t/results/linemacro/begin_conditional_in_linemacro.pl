@@ -107,32 +107,35 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifset',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'source_marks' => [
+                            'contents' => [
                               {
-                                'counter' => 1,
-                                'position' => 1,
-                                'sourcemark_type' => 'linemacro_expansion',
-                                'status' => 'end'
+                                'source_marks' => [
+                                  {
+                                    'counter' => 1,
+                                    'position' => 1,
+                                    'sourcemark_type' => 'linemacro_expansion',
+                                    'status' => 'end'
+                                  }
+                                ],
+                                'text' => 'a'
                               }
                             ],
-                            'text' => 'a'
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
                         ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'cmdname' => 'ifset',
-                    'contents' => [
+                        'type' => 'argument'
+                      },
                       {
                         'text' => 'in ifset
 ',
@@ -227,31 +230,36 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifclear',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'source_marks' => [
+                            'contents' => [
                               {
-                                'counter' => 2,
-                                'position' => 1,
-                                'sourcemark_type' => 'linemacro_expansion',
-                                'status' => 'end'
+                                'source_marks' => [
+                                  {
+                                    'counter' => 2,
+                                    'position' => 1,
+                                    'sourcemark_type' => 'linemacro_expansion',
+                                    'status' => 'end'
+                                  }
+                                ],
+                                'text' => 'a'
                               }
                             ],
-                            'text' => 'a'
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
                         ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
+                        'type' => 'argument'
                       }
                     ],
-                    'cmdname' => 'ifclear',
                     'info' => {
                       'spaces_before_argument' => {
                         'text' => ' '

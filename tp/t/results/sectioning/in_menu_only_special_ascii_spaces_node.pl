@@ -69,18 +69,21 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
           "type" => "empty_line"
         },
         {
-          "args" => [
-            {
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "block_line_arg"
-            }
-          ],
           "cmdname" => "menu",
           "contents" => [
+            {
+              "contents" => [
+                {
+                  "info" => {
+                    "spaces_after_argument" => {
+                      "text" => "\n"
+                    }
+                  },
+                  "type" => "block_line_arg"
+                }
+              ],
+              "type" => "argument"
+            },
             {
               "contents" => [
                 {

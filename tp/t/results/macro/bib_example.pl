@@ -2515,24 +2515,27 @@ $result_trees{'bib_example'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifset',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'text' => 'mybibtable'
+                            'contents' => [
+                              {
+                                'text' => 'mybibtable'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
                         ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'cmdname' => 'ifset',
-                    'contents' => [
+                        'type' => 'argument'
+                      },
                       {
                         'text' => '@clear mybibtable
 ',
@@ -2717,19 +2720,22 @@ $result_trees{'bib_example'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'menu',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -3031,24 +3037,27 @@ $result_trees{'bib_example'} = {
                 {
                   'counter' => 2,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifclear',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'text' => 'mybibrefnode'
+                            'contents' => [
+                              {
+                                'text' => 'mybibrefnode'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
                         ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'cmdname' => 'ifclear',
-                    'contents' => [
+                        'type' => 'argument'
+                      },
                       {
                         'text' => '@mybibmakeref{mybibsetrefnode was not used, LaTeX2e}
 ',
@@ -3117,23 +3126,28 @@ $result_trees{'bib_example'} = {
                 {
                   'counter' => 1,
                   'element' => {
-                    'args' => [
+                    'cmdname' => 'ifset',
+                    'contents' => [
                       {
                         'contents' => [
                           {
-                            'text' => 'mybibrefnode'
+                            'contents' => [
+                              {
+                                'text' => 'mybibrefnode'
+                              }
+                            ],
+                            'info' => {
+                              'spaces_after_argument' => {
+                                'text' => '
+'
+                              }
+                            },
+                            'type' => 'block_line_arg'
                           }
                         ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
+                        'type' => 'argument'
                       }
                     ],
-                    'cmdname' => 'ifset',
                     'info' => {
                       'spaces_before_argument' => {
                         'text' => ' '
@@ -3532,24 +3546,27 @@ $result_trees{'bib_example'} = {
                     {
                       'counter' => 3,
                       'element' => {
-                        'args' => [
+                        'cmdname' => 'ifclear',
+                        'contents' => [
                           {
                             'contents' => [
                               {
-                                'text' => 'mybiblist'
+                                'contents' => [
+                                  {
+                                    'text' => 'mybiblist'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_after_argument' => {
+                                    'text' => '
+'
+                                  }
+                                },
+                                'type' => 'block_line_arg'
                               }
                             ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'cmdname' => 'ifclear',
-                        'contents' => [
+                            'type' => 'argument'
+                          },
                           {
                             'text' => '@ifclear mybibtable
 ',
@@ -3615,23 +3632,28 @@ $result_trees{'bib_example'} = {
                     {
                       'counter' => 2,
                       'element' => {
-                        'args' => [
+                        'cmdname' => 'ifset',
+                        'contents' => [
                           {
                             'contents' => [
                               {
-                                'text' => 'mybiblist'
+                                'contents' => [
+                                  {
+                                    'text' => 'mybiblist'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_after_argument' => {
+                                    'text' => '
+'
+                                  }
+                                },
+                                'type' => 'block_line_arg'
                               }
                             ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
+                            'type' => 'argument'
                           }
                         ],
-                        'cmdname' => 'ifset',
                         'info' => {
                           'spaces_before_argument' => {
                             'text' => ' '
@@ -3744,24 +3766,27 @@ $result_trees{'bib_example'} = {
                         {
                           'counter' => 4,
                           'element' => {
-                            'args' => [
+                            'cmdname' => 'ifset',
+                            'contents' => [
                               {
                                 'contents' => [
                                   {
-                                    'text' => 'mybibtable'
+                                    'contents' => [
+                                      {
+                                        'text' => 'mybibtable'
+                                      }
+                                    ],
+                                    'info' => {
+                                      'spaces_after_argument' => {
+                                        'text' => '
+'
+                                      }
+                                    },
+                                    'type' => 'block_line_arg'
                                   }
                                 ],
-                                'info' => {
-                                  'spaces_after_argument' => {
-                                    'text' => '
-'
-                                  }
-                                },
-                                'type' => 'block_line_arg'
-                              }
-                            ],
-                            'cmdname' => 'ifset',
-                            'contents' => [
+                                'type' => 'argument'
+                              },
                               {
                                 'text' => '@item @anchor{LaTeX2e}[LaTeX2e]
 ',
@@ -3937,8 +3962,8 @@ $result_trees{'bib_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[0];
 $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 

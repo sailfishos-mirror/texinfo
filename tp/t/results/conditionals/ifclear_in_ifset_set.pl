@@ -36,23 +36,28 @@ $result_trees{'ifclear_in_ifset_set'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifset',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'a'
+                        'contents' => [
+                          {
+                            'text' => 'a'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifset',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '
@@ -69,32 +74,37 @@ $result_trees{'ifclear_in_ifset_set'} = {
             {
               'counter' => 2,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifclear',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'ok'
-                      }
-                    ],
-                    'info' => {
-                      'comment_at_end' => {
-                        'args' => [
+                        'contents' => [
                           {
-                            'text' => ' - ok, ignored
-',
-                            'type' => 'rawline_arg'
+                            'text' => 'ok'
                           }
                         ],
-                        'cmdname' => 'c'
-                      },
-                      'spaces_after_argument' => {
-                        'text' => ' '
+                        'info' => {
+                          'comment_at_end' => {
+                            'args' => [
+                              {
+                                'text' => ' - ok, ignored
+',
+                                'type' => 'rawline_arg'
+                              }
+                            ],
+                            'cmdname' => 'c'
+                          },
+                          'spaces_after_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
-                    },
-                    'type' => 'block_line_arg'
+                    ],
+                    'type' => 'argument'
                   }
                 ],
-                'cmdname' => 'ifclear',
                 'info' => {
                   'spaces_before_argument' => {
                     'text' => ' '

@@ -139,19 +139,22 @@ $result_trees{'non_automatic_top_node_up_url'} = [
             'type' => 'empty_line'
           },
           {
-            'args' => [
-              {
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'block_line_arg'
-              }
-            ],
             'cmdname' => 'menu',
             'contents' => [
+              {
+                'contents' => [
+                  {
+                    'info' => {
+                      'spaces_after_argument' => {
+                        'text' => '
+'
+                      }
+                    },
+                    'type' => 'block_line_arg'
+                  }
+                ],
+                'type' => 'argument'
+              },
               {
                 'contents' => [
                   {
@@ -347,7 +350,7 @@ $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[1]{'ex
 $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[2]{'contents'}[1];
 $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'}{'args'}[3]{'contents'}[1];
 $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_contents'}[1] = $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_command'};
-$result_trees{'non_automatic_top_node_up_url'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'non_automatic_top_node_up_url'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_url'}[0]{'unit_contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'non_automatic_top_node_up_url'}[1]{'unit_command'}{'args'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_url'}[1]{'unit_command'}{'args'}[2]{'contents'}[0];
 $result_trees{'non_automatic_top_node_up_url'}[1]{'unit_command'}{'args'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'non_automatic_top_node_up_url'}[1]{'unit_command'}{'args'}[3]{'contents'}[1];
 $result_trees{'non_automatic_top_node_up_url'}[1]{'unit_contents'}[0] = $result_trees{'non_automatic_top_node_up_url'}[1]{'unit_command'};

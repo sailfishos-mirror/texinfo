@@ -160,24 +160,27 @@ $result_trees{'cartouche_and_paragraph_indentation'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cartouche',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'toto'
+                  'contents' => [
+                    {
+                      'text' => 'toto'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'cartouche',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',
@@ -325,24 +328,27 @@ $result_trees{'cartouche_and_paragraph_indentation'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cartouche',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'titi'
+                  'contents' => [
+                    {
+                      'text' => 'titi'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'cartouche',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'text' => '
 ',

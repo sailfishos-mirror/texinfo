@@ -10,25 +10,28 @@ $result_trees{'raw_and_comments'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'info' => {
-                'comment_at_end' => {
-                  'args' => [
-                    {
-                      'text' => ' comment
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ],
-                  'cmdname' => 'c'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'tex',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'comment_at_end' => {
+                      'args' => [
+                        {
+                          'text' => ' comment
+',
+                          'type' => 'rawline_arg'
+                        }
+                      ],
+                      'cmdname' => 'c'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -99,25 +102,28 @@ $result_trees{'raw_and_comments'} = {
 '
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'comment_at_end' => {
-                      'args' => [
-                        {
-                          'text' => ' in xml comment
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ],
-                      'cmdname' => 'c'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'xml',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'comment_at_end' => {
+                          'args' => [
+                            {
+                              'text' => ' in xml comment
+',
+                              'type' => 'rawline_arg'
+                            }
+                          ],
+                          'cmdname' => 'c'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {

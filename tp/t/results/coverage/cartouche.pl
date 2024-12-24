@@ -10,19 +10,22 @@ $result_trees{'cartouche'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'cartouche',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -73,37 +76,40 @@ $result_trees{'cartouche'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'cartouche',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'emph',
                   'contents' => [
                     {
+                      'cmdname' => 'emph',
                       'contents' => [
                         {
-                          'text' => 'Title of box'
+                          'contents' => [
+                            {
+                              'text' => 'Title of box'
+                            }
+                          ],
+                          'type' => 'brace_container'
                         }
                       ],
-                      'type' => 'brace_container'
+                      'source_info' => {
+                        'line_nr' => 5
+                      }
                     }
                   ],
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'cartouche',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

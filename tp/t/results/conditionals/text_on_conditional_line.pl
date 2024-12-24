@@ -14,24 +14,27 @@ $result_trees{'text_on_conditional_line'} = {
             {
               'counter' => 1,
               'element' => {
-                'args' => [
+                'cmdname' => 'ifnothtml',
+                'contents' => [
                   {
                     'contents' => [
                       {
-                        'text' => 'text following ifnothtml,'
+                        'contents' => [
+                          {
+                            'text' => 'text following ifnothtml,'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_after_argument' => {
+                            'text' => '
+'
+                          }
+                        },
+                        'type' => 'block_line_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
-                'cmdname' => 'ifnothtml',
-                'contents' => [
+                    'type' => 'argument'
+                  },
                   {
                     'text' => 'a
 ',

@@ -12,19 +12,22 @@ $result_trees{'titlepage_with_commands_classical'} = {
         {
           'contents' => [
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'copying',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'contents' => [
                     {
@@ -75,19 +78,22 @@ $result_trees{'titlepage_with_commands_classical'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'titlepage',
               'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => '
+'
+                        }
+                      },
+                      'type' => 'block_line_arg'
+                    }
+                  ],
+                  'type' => 'argument'
+                },
                 {
                   'args' => [
                     {
@@ -271,19 +277,22 @@ $result_trees{'titlepage_with_commands_classical'} = {
                                   'type' => 'paragraph'
                                 },
                                 {
-                                  'args' => [
-                                    {
-                                      'info' => {
-                                        'spaces_after_argument' => {
-                                          'text' => '
-'
-                                        }
-                                      },
-                                      'type' => 'block_line_arg'
-                                    }
-                                  ],
                                   'cmdname' => 'displaymath',
                                   'contents' => [
+                                    {
+                                      'contents' => [
+                                        {
+                                          'info' => {
+                                            'spaces_after_argument' => {
+                                              'text' => '
+'
+                                            }
+                                          },
+                                          'type' => 'block_line_arg'
+                                        }
+                                      ],
+                                      'type' => 'argument'
+                                    },
                                     {
                                       'text' => '\\frac'
                                     },
@@ -631,8 +640,8 @@ $result_trees{'titlepage_with_commands_classical'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'titlepage_with_commands_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[3]{'extra'}{'titlepage'} = $result_trees{'titlepage_with_commands_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'titlepage_with_commands_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[4]{'extra'}{'titlepage'} = $result_trees{'titlepage_with_commands_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'titlepage_with_commands_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[5]{'extra'}{'titlepage'} = $result_trees{'titlepage_with_commands_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 
 $result_texis{'titlepage_with_commands_classical'} = '@copying
 in Copying

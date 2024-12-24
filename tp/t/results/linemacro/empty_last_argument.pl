@@ -116,64 +116,64 @@ $result_trees{'empty_last_argument'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'defblock',
           'contents' => [
             {
               'contents' => [
                 {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'element' => {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'contents' => [
+                      {
                         'contents' => [
                           {
-                            'contents' => [
-                              {
-                                'text' => 'foo'
-                              }
-                            ],
-                            'type' => 'line_arg'
-                          },
+                            'text' => 'foo'
+                          }
+                        ],
+                        'type' => 'line_arg'
+                      },
+                      {
+                        'contents' => [
                           {
-                            'contents' => [
-                              {
-                                'text' => '',
-                                'type' => 'bracketed_linemacro_arg'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'type' => 'line_arg'
+                            'text' => '',
+                            'type' => 'bracketed_linemacro_arg'
                           }
                         ],
                         'info' => {
-                          'command_name' => 'defbuiltin',
                           'spaces_before_argument' => {
                             'text' => ' '
                           }
                         },
-                        'type' => 'linemacro_call'
-                      },
-                      'sourcemark_type' => 'linemacro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ''
-                },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'info' => {
+                      'command_name' => 'defbuiltin',
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'type' => 'linemacro_call'
+                  },
+                  'sourcemark_type' => 'linemacro_expansion',
+                  'status' => 'start'
+                }
+              ],
+              'type' => 'argument'
+            },
+            {
+              'contents' => [
                 {
                   'args' => [
                     {

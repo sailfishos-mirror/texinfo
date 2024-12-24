@@ -10,19 +10,22 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'example',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'cmdname' => 'multitable',
               'contents' => [
@@ -143,19 +146,22 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                               'type' => 'preformatted'
                             },
                             {
-                              'args' => [
-                                {
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'block_line_arg'
-                                }
-                              ],
                               'cmdname' => 'verbatim',
                               'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'info' => {
+                                        'spaces_after_argument' => {
+                                          'text' => '
+'
+                                        }
+                                      },
+                                      'type' => 'block_line_arg'
+                                    }
+                                  ],
+                                  'type' => 'argument'
+                                },
                                 {
                                   'text' => 'in first column, verbatim
 ',
@@ -350,7 +356,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'verbatim_in_multitable_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'verbatim_in_multitable_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'verbatim_in_multitable_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'columnfractions'} = $result_trees{'verbatim_in_multitable_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 
 $result_texis{'verbatim_in_multitable_in_example'} = '@example
 @multitable @columnfractions 0.5 0.5

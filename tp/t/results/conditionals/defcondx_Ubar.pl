@@ -143,24 +143,27 @@ $result_trees{'defcondx_Ubar'} = {
                     {
                       'counter' => 1,
                       'element' => {
-                        'args' => [
+                        'cmdname' => 'ifset',
+                        'contents' => [
                           {
                             'contents' => [
                               {
-                                'text' => 'bar'
+                                'contents' => [
+                                  {
+                                    'text' => 'bar'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_after_argument' => {
+                                    'text' => '
+'
+                                  }
+                                },
+                                'type' => 'block_line_arg'
                               }
                             ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'cmdname' => 'ifset',
-                        'contents' => [
+                            'type' => 'argument'
+                          },
                           {
                             'text' => '@deffnx bar
 ',

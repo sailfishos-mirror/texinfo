@@ -174,117 +174,120 @@ $result_trees{'on_block_command_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'quotation',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'cmdname' => 'indent',
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
-                },
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'cmdname' => 'titlefont',
                   'contents' => [
                     {
-                      'contents' => [
-                        {
-                          'text' => 'in titlefont'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'anchor',
-                  'contents' => [
+                      'cmdname' => 'indent',
+                      'source_info' => {
+                        'line_nr' => 5
+                      }
+                    },
                     {
-                      'contents' => [
-                        {
-                          'text' => 'in quotation anchor'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'is_target' => 1,
-                    'normalized' => 'in-quotation-anchor'
-                  },
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
-                },
-                {
-                  'cmdname' => 'footnote',
-                  'contents' => [
+                      'text' => ' ',
+                      'type' => 'ignorable_spaces_after_command'
+                    },
                     {
+                      'cmdname' => 'titlefont',
                       'contents' => [
                         {
                           'contents' => [
                             {
-                              'text' => 'footnote'
+                              'text' => 'in titlefont'
                             }
                           ],
-                          'type' => 'paragraph'
+                          'type' => 'brace_container'
                         }
                       ],
-                      'type' => 'brace_command_context'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'args' => [
+                      'extra' => {},
+                      'source_info' => {
+                        'line_nr' => 5
+                      }
+                    },
                     {
+                      'text' => ' '
+                    },
+                    {
+                      'cmdname' => 'anchor',
                       'contents' => [
                         {
-                          'text' => 'exdent'
+                          'contents' => [
+                            {
+                              'text' => 'in quotation anchor'
+                            }
+                          ],
+                          'type' => 'brace_arg'
                         }
                       ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
+                      'extra' => {
+                        'is_target' => 1,
+                        'normalized' => 'in-quotation-anchor'
+                      },
+                      'source_info' => {
+                        'line_nr' => 5
+                      }
+                    },
+                    {
+                      'cmdname' => 'footnote',
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'footnote'
+                                }
+                              ],
+                              'type' => 'paragraph'
+                            }
+                          ],
+                          'type' => 'brace_command_context'
+                        }
+                      ],
+                      'extra' => {},
+                      'source_info' => {
+                        'line_nr' => 5
+                      }
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'exdent'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
 '
+                            }
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'exdent',
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
                         }
                       },
-                      'type' => 'line_arg'
+                      'source_info' => {
+                        'line_nr' => 5
+                      }
                     }
                   ],
-                  'cmdname' => 'exdent',
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'quotation',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'args' => [
                 {

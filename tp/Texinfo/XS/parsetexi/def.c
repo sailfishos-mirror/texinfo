@@ -57,7 +57,9 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
     return;
 
   contents_count = current->e.c->contents.number;
-  if (contents_count == 0)
+  /* For @defline at the beginning of @defblock. */
+  if (contents_count == 1
+      && current->e.c->contents.list[0]->type == ET_argument)
     return;
 
   /* Starting from the end, determine the number of elements that are not
@@ -65,7 +67,8 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
   for (pos = contents_count; pos > 0; pos--)
     {
       ELEMENT *last_child = contents_child_by_index (current, pos -1);
-      if (last_child->flags & EF_def_line)
+      if (last_child->flags & EF_def_line
+          || last_child->type == ET_argument)
         break;
     }
 
@@ -77,8 +80,8 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
       ELEMENT *def_item;
 
       if (current->e.c->cmd == CM_defblock
-       /* all content between @defblock and first @def*line */
-          && pos == 0)
+       /* all content between @defblock argument and first @def*line */
+          && pos == 1)
         type = ET_before_defline;
       else if (next_command
           && next_command != CM_defline && next_command != CM_deftypeline)

@@ -169,19 +169,22 @@ $result_trees{'no_monolithic'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'menu',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -450,7 +453,7 @@ $result_trees{'no_monolithic'} = {
   'type' => 'document_root'
 };
 $result_trees{'no_monolithic'}{'contents'}[2]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'no_monolithic'}{'contents'}[1];
-$result_trees{'no_monolithic'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'no_monolithic'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'no_monolithic'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'no_monolithic'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'no_monolithic'} = '\\input texinfo @c -*-texinfo-*-
 

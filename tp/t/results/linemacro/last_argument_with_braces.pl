@@ -84,66 +84,61 @@ $result_trees{'last_argument_with_braces'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'defblock',
           'contents' => [
             {
               'contents' => [
                 {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'element' => {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'contents' => [
+                      {
                         'contents' => [
                           {
-                            'contents' => [
-                              {
-                                'text' => 'my foo',
-                                'type' => 'bracketed_linemacro_arg'
-                              }
-                            ],
-                            'type' => 'line_arg'
-                          },
+                            'text' => 'my foo',
+                            'type' => 'bracketed_linemacro_arg'
+                          }
+                        ],
+                        'type' => 'line_arg'
+                      },
+                      {
+                        'contents' => [
                           {
-                            'contents' => [
-                              {
-                                'text' => 'a last {} arg{ument}'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'type' => 'line_arg'
+                            'text' => 'a last {} arg{ument}'
                           }
                         ],
                         'info' => {
-                          'command_name' => 'defbuiltin',
                           'spaces_before_argument' => {
                             'text' => ' '
                           }
                         },
-                        'type' => 'linemacro_call'
-                      },
-                      'sourcemark_type' => 'linemacro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ''
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'info' => {
+                      'command_name' => 'defbuiltin',
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'type' => 'linemacro_call'
+                  },
+                  'sourcemark_type' => 'linemacro_expansion',
+                  'status' => 'start'
                 }
               ],
-              'type' => 'before_defline'
+              'type' => 'argument'
             },
             {
               'args' => [

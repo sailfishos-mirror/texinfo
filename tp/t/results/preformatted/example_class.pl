@@ -10,24 +10,27 @@ $result_trees{'example_class'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'example',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'perl'
+                  'contents' => [
+                    {
+                      'text' => 'perl'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'example',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {

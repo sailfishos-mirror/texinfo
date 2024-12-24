@@ -8095,24 +8095,22 @@ html_convert_preformatted_command (CONVERTER *self, const enum command_id cmd,
 
   if (cmd == CM_example)
     {
-      if (element->e.c->args.number > 0)
+      const ELEMENT *argument = element->e.c->contents.list[0];
+      size_t i;
+      for (i = 0; i < argument->e.c->contents.number; i++)
         {
-          size_t i;
-          for (i = 0; i < element->e.c->args.number; i++)
-            {
-              const ELEMENT *example_arg = element->e.c->args.list[i];
+          const ELEMENT *example_arg = argument->e.c->contents.list[i];
        /* convert or remove all @-commands, using simple ascii and unicode
           characters */
-              char *converted_arg = convert_to_normalized (example_arg);
-              if (strlen (converted_arg))
-                {
-                  char *class_name;
-                  xasprintf (&class_name, "user-%s", converted_arg);
-                  add_string (class_name, additional_classes);
-                  free (class_name);
-                }
-              free (converted_arg);
+          char *converted_arg = convert_to_normalized (example_arg);
+          if (strlen (converted_arg))
+            {
+              char *class_name;
+              xasprintf (&class_name, "user-%s", converted_arg);
+              add_string (class_name, additional_classes);
+              free (class_name);
             }
+          free (converted_arg);
         }
     }
   else if (main_cmd == CM_lisp)
@@ -10871,14 +10869,16 @@ html_open_quotation_command (CONVERTER *self, const enum command_id cmd,
 {
   const char *cmdname = element_command_name (element);
   char *formatted_quotation_arg_to_prepend = 0;
-  if (element->e.c->args.number > 0
-      && element->e.c->args.list[0]->e.c->contents.number > 0)
+  const ELEMENT *argument = element->e.c->contents.list[0];
+  const ELEMENT *block_line_args = argument->e.c->contents.list[0];
+
+  if (block_line_args->e.c->contents.number > 0)
     {
       ELEMENT *tree;
       char *explanation;
       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
-      ELEMENT *quotation_arg_copy = copy_tree (element->e.c->args.list[0]);
+      ELEMENT *quotation_arg_copy = copy_tree (block_line_args);
       add_element_to_named_string_element_list (substrings,
                           "quotation_arg", quotation_arg_copy);
       tree = html_cdt_tree ("@b{{quotation_arg}:} ",

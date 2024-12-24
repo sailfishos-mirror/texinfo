@@ -71,20 +71,20 @@ $result_trees{'macro_in_empty_text'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'indentedblock',
           'contents' => [
             {
+              'contents' => [
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -108,7 +108,7 @@ $result_trees{'macro_in_empty_text'} = {
                   'status' => 'end'
                 }
               ],
-              'text' => ''
+              'type' => 'argument'
             },
             {
               'contents' => [

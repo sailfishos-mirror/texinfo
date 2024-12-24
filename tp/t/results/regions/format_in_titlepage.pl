@@ -12,26 +12,10 @@ $result_trees{'format_in_titlepage'} = {
         {
           'contents' => [
             {
-              'args' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
               'cmdname' => 'titlepage',
               'contents' => [
                 {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'args' => [
+                  'contents' => [
                     {
                       'info' => {
                         'spaces_after_argument' => {
@@ -42,8 +26,30 @@ $result_trees{'format_in_titlepage'} = {
                       'type' => 'block_line_arg'
                     }
                   ],
+                  'type' => 'argument'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'empty_line'
+                },
+                {
                   'cmdname' => 'format',
                   'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
+                          'type' => 'block_line_arg'
+                        }
+                      ],
+                      'type' => 'argument'
+                    },
                     {
                       'contents' => [
                         {

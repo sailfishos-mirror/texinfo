@@ -10,37 +10,40 @@ $result_trees{'example_empty_arguments'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'type' => 'block_line_arg'
-            },
-            {
-              'type' => 'block_line_arg'
-            },
-            {
-              'type' => 'block_line_arg'
-            },
-            {
-              'type' => 'block_line_arg'
-            },
-            {
-              'type' => 'block_line_arg'
-            },
-            {
-              'type' => 'block_line_arg'
-            },
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'example',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -96,47 +99,50 @@ $result_trees{'example_empty_arguments'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'type' => 'block_line_arg'
-            },
-            {
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'block_line_arg'
-            },
-            {
-              'type' => 'block_line_arg'
-            },
-            {
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '  '
-                }
-              },
-              'type' => 'block_line_arg'
-            },
-            {
-              'type' => 'block_line_arg'
-            },
-            {
-              'type' => 'block_line_arg'
-            },
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' 
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'example',
           'contents' => [
+            {
+              'contents' => [
+                {
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'info' => {
+                    'spaces_before_argument' => {
+                      'text' => ' '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'info' => {
+                    'spaces_before_argument' => {
+                      'text' => '  '
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => ' 
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -192,42 +198,45 @@ $result_trees{'example_empty_arguments'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'type' => 'block_line_arg'
-            },
-            {
-              'type' => 'block_line_arg'
-            },
-            {
-              'type' => 'block_line_arg'
-            },
+          'cmdname' => 'example',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'nonempty'
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'text' => 'nonempty'
+                    }
+                  ],
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'type' => 'block_line_arg'
+                },
+                {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'type' => 'block_line_arg'
+              'type' => 'argument'
             },
-            {
-              'type' => 'block_line_arg'
-            },
-            {
-              'type' => 'block_line_arg'
-            },
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'example',
-          'contents' => [
             {
               'contents' => [
                 {

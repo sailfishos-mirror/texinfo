@@ -1699,28 +1699,28 @@ sub _convert($$;$)
             }
           }
         }
-        if ($element->{'args'}
-            and $element->{'args'}->[0]->{'contents'}) {
+        my $argument = $element->{'contents'}->[0];
+        my $block_line_arg = $argument->{'contents'}->[0];
+        if ($block_line_arg->{'contents'}) {
           my $quotation_arg_text
-            = Texinfo::Convert::Text::convert_to_text(
-                          $element->{'args'}->[0],
-                            $self->{'convert_text_options'});
+            = Texinfo::Convert::Text::convert_to_text($block_line_arg,
+                                       $self->{'convert_text_options'});
           if ($docbook_special_quotations{lc($quotation_arg_text)}) {
             $format_element = lc($quotation_arg_text);
           } else {
             $self->{'pending_prepend'}
               = _convert($self, $self->cdt('@b{{quotation_arg}:} ',
-                            {'quotation_arg' =>
-                                  $element->{'args'}->[0]}));
+                            {'quotation_arg' => $block_line_arg}));
           }
         }
         $format_element = 'blockquote' if (!defined($format_element));
         push @format_elements, $format_element;
       } elsif ($cmdname eq 'cartouche') {
         push @format_elements, 'sidebar';
-        if ($element->{'args'}
-            and $element->{'args'}->[0]->{'contents'}) {
-          my $title = _convert($self, $element->{'args'}->[0]);
+        my $argument = $element->{'contents'}->[0];
+        my $block_line_arg = $argument->{'contents'}->[0];
+        if ($block_line_arg->{'contents'}) {
+          my $title = _convert($self, $block_line_arg);
           if ($title ne '') {
             $appended .= '<title>'.$title.'</title>'."\n";
           }

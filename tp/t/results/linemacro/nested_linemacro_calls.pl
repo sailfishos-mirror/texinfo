@@ -157,80 +157,75 @@ $result_trees{'nested_linemacro_calls'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
           'cmdname' => 'defblock',
           'contents' => [
             {
               'contents' => [
                 {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'element' => {
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'contents' => [
+                      {
                         'contents' => [
                           {
-                            'contents' => [
-                              {
-                                'text' => 'type',
-                                'type' => 'bracketed_linemacro_arg'
-                              }
-                            ],
-                            'type' => 'line_arg'
-                          },
+                            'text' => 'type',
+                            'type' => 'bracketed_linemacro_arg'
+                          }
+                        ],
+                        'type' => 'line_arg'
+                      },
+                      {
+                        'contents' => [
                           {
-                            'contents' => [
-                              {
-                                'text' => '@inside {X} {Y}',
-                                'type' => 'bracketed_linemacro_arg'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'type' => 'line_arg'
-                          },
-                          {
-                            'contents' => [
-                              {
-                                'text' => '( remaining, type typed )'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'type' => 'line_arg'
+                            'text' => '@inside {X} {Y}',
+                            'type' => 'bracketed_linemacro_arg'
                           }
                         ],
                         'info' => {
-                          'command_name' => 'outside',
                           'spaces_before_argument' => {
                             'text' => ' '
                           }
                         },
-                        'type' => 'linemacro_call'
+                        'type' => 'line_arg'
                       },
-                      'sourcemark_type' => 'linemacro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ''
+                      {
+                        'contents' => [
+                          {
+                            'text' => '( remaining, type typed )'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'info' => {
+                      'command_name' => 'outside',
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'type' => 'linemacro_call'
+                  },
+                  'sourcemark_type' => 'linemacro_expansion',
+                  'status' => 'start'
                 }
               ],
-              'type' => 'before_defline'
+              'type' => 'argument'
             },
             {
               'args' => [

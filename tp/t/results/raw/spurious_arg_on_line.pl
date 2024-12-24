@@ -15,24 +15,27 @@ $result_trees{'spurious_arg_on_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'tex',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'argt'
+                  'contents' => [
+                    {
+                      'text' => 'argt'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'tex',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
@@ -88,24 +91,27 @@ $result_trees{'spurious_arg_on_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'verbatim',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'argverbatim'
+                  'contents' => [
+                    {
+                      'text' => 'argverbatim'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'verbatim',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'text' => 'in verbatim
 ',
@@ -157,24 +163,27 @@ $result_trees{'spurious_arg_on_line'} = {
           'type' => 'empty_line'
         },
         {
-          'args' => [
+          'cmdname' => 'html',
+          'contents' => [
             {
               'contents' => [
                 {
-                  'text' => 'argh'
+                  'contents' => [
+                    {
+                      'text' => 'argh'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => {
+                      'text' => '
+'
+                    }
+                  },
+                  'type' => 'block_line_arg'
                 }
               ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'html',
-          'contents' => [
+              'type' => 'argument'
+            },
             {
               'contents' => [
                 {
