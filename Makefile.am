@@ -118,6 +118,8 @@ update-po:
 # Note that pgettext is not matched to avoid a false positive in
 # tp/Texinfo/Translations.pm, but it is not problematic as it appears
 # only in errors.c, which matches other function names.
+# False positive in ConvertXS.c with function definition but no
+# translated strings
 po-check:
 	@if test -f po/POTFILES.in; then				\
 	  grep -E -v '^(#|$$)' po/POTFILES.in				\
@@ -134,6 +136,7 @@ po-check:
               tp/maintain/* ) continue;;				\
               tp/t/results* ) continue;;				\
 	      tp/Texinfo/XS/gnulib/lib/*) continue;;			\
+	      tp/Texinfo/XS/convert/ConvertXS.c) continue;;			\
 	    esac;							\
 	    files="$$files $$file";					\
 	  done;								\
