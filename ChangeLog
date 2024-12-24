@@ -1,3 +1,8 @@
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/LaTeX.pm (convert_math_to_images): use contents
+	instead of args for @math.
+
 2024-11-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/element_types.txt: remove unused internal type

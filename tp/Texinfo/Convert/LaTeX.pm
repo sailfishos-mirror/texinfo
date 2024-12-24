@@ -4580,7 +4580,7 @@ sub convert_math_to_images($$$;$)
     my $cmdname = $element->{'cmdname'};
     my $tree;
     if ($cmdname eq 'math') {
-      $tree = $element->{'args'}->[0];
+      $tree = $element->{'contents'}->[0];
     } elsif ($element->{'contents'}) {
       $tree = {'contents' => [@{$element->{'contents'}}]};
       if (scalar(@{$tree->{'contents'}})
