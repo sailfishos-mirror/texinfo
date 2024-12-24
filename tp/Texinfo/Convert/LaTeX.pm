@@ -4545,8 +4545,8 @@ sub convert_math_to_images($$$;$)
   my ($encoded_math2img_latex_basefile, $latex_basefile_name_encoding)
      = $self->encoded_output_file_name($math2img_latex_basefile);
 
-  my $math2img_latex_file_path_name = File::Spec->catfile($math2img_out_dir,
-                                                   $math2img_latex_basefile);
+  my $math2img_latex_file_path_name
+    = "$math2img_out_dir/$math2img_latex_basefile";
 
   my ($encoded_math2img_latex_file_path_name, $math2img_latex_path_encoding)
      = $self->encoded_output_file_name($math2img_latex_file_path_name);
@@ -4655,8 +4655,6 @@ sub convert_math_to_images($$$;$)
     }
     print $fh "\\end{preview}\n\n";
 
-    #my $png_file_name = File::Spec->catfile($math2img_out_dir,
-    #                                    $math2img_basename.$counter.'.png');
     my $png_file_name = $math2img_basename.$counter.'.png';
     $result->{$element} = $png_file_name;
   }
@@ -4724,8 +4722,7 @@ sub convert_math_to_images($$$;$)
   my ($encoded_math2img_dvi_basefile, $dvi_basefile_name_encoding)
      = $self->encoded_output_file_name($math2img_dvi_basefile);
 
-  my $math2img_dvi_file_path_name = File::Spec->catfile($math2img_out_dir,
-                                                   $math2img_dvi_basefile);
+  my $math2img_dvi_file_path_name = "$math2img_out_dir/$math2img_dvi_basefile";
 
   my ($encoded_math2img_dvi_file_path_name, $math2img_dvi_path_encoding)
      = $self->encoded_output_file_name($math2img_dvi_file_path_name);
