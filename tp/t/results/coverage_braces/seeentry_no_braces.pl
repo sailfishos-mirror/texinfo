@@ -399,12 +399,9 @@ $result_converted{'html_text'}->{'seeentry_no_braces'} = '<div class="top-level-
 <h2 class="chapter" id="chap-1"><span>1 chap<a class="copiable-link" href="#chap-1"> &para;</a></span></h2>
 
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_cp_letter-A">A</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-aa">aa</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-A">A</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-aa">aa</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 </table>
 </div>
 

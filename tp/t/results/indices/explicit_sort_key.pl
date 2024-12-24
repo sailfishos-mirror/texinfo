@@ -840,7 +840,7 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top-level-e
 <a class="url" href="and%20cmd%20">and cmd </a>.
 </p>
 <div class="printindex SK-printindex">
-<table class="SK-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_SK_symbol-1"><b>0</b></a>
+<table class="index-letters-header-printindex SK-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_SK_symbol-1"><b>0</b></a>
  &nbsp; 
 <br>
 <a class="summary-letter-printindex" href="#chap_SK_letter-A"><b>A</b></a>
@@ -848,21 +848,16 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top-level-e
 <a class="summary-letter-printindex" href="#chap_SK_letter-B"><b>B</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="SK-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_SK_symbol-1">0</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-zero-sort-key">zero sort key</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_SK_letter-A">A</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-bbbbbbb-_0028first_0029">bbbbbbb (first)</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa-"><b class="b">aaa </b></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_SK_letter-B">B</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-aaaaaaa-_0028second_0029">aaaaaaa (second)</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex SK-entries-printindex">
+<tr><th class="index-letter-header-printindex SK-letter-header-printindex" colspan="2" id="chap_SK_symbol-1">0</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-zero-sort-key">zero sort key</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex SK-letter-header-printindex" colspan="2" id="chap_SK_letter-A">A</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-bbbbbbb-_0028first_0029">bbbbbbb (first)</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-aaa-"><b class="b">aaa </b></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex SK-letter-header-printindex" colspan="2" id="chap_SK_letter-B">B</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-aaaaaaa-_0028second_0029">aaaaaaa (second)</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 </table>
-<table class="SK-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_SK_symbol-1"><b>0</b></a>
+<table class="index-letters-footer-printindex SK-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_SK_symbol-1"><b>0</b></a>
  &nbsp; 
 <br>
 <a class="summary-letter-printindex" href="#chap_SK_letter-A"><b>A</b></a>

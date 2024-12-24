@@ -6155,9 +6155,6 @@ sub _convert_printindex_command($$$$)
   # FIXME not part of the API
   $self->_new_document_context($cmdname);
 
-  my $rule = $self->get_conf('DEFAULT_RULE');
-  $rule = '' if (!defined($rule));
-
   my %formatted_letters;
   # Next do the entries to determine the letters that are not empty
   my @letter_entries;
@@ -6286,7 +6283,7 @@ sub _convert_printindex_command($$$$)
         if ($level > 0) {
           push @td_entry_classes, "index-entry-level-$level";
         }
-        $entries_text .= '<tr><td></td>'
+        $entries_text .= '<tr>'
          # TODO same class used for leading entry rows here and
          # last element of the entry with the href below.  Could be different.
          .$self->html_attribute_class('td', \@td_entry_classes).'>'
@@ -6385,7 +6382,7 @@ sub _convert_printindex_command($$$$)
         if ($last_entry_level > 0) {
           push @td_entry_classes, "index-entry-level-$last_entry_level";
         }
-        $entries_text .= '<tr><td></td>'
+        $entries_text .= '<tr>'
          .$self->html_attribute_class('td', \@td_entry_classes).'>'
          . $entry .
           $delimiter . '</td>'
@@ -6434,7 +6431,7 @@ sub _convert_printindex_command($$$$)
         if ($last_entry_level > 0) {
           push @td_entry_classes, "index-entry-level-$last_entry_level";
         }
-        $entries_text .= '<tr><td></td>'
+        $entries_text .= '<tr>'
           .$self->html_attribute_class('td', \@td_entry_classes).'>'
            . $formatted_entry . $self->get_conf('INDEX_ENTRY_COLON') . '</td>';
 
@@ -6545,9 +6542,10 @@ sub _convert_printindex_command($$$$)
       $formatted_letters{$letter} = $formatted_letter;
 
       $result_index_entries .= '<tr>' .
-        "<th id=\"$letter_id{$letter}\">".$formatted_letter
-        . "</th></tr>\n" . $entries_text
-        . "<tr><td colspan=\"3\">${rule}</td></tr>\n";
+        $self->html_attribute_class('th', ["index-letter-header-$cmdname",
+                                     "$index_name-letter-header-$cmdname"])
+           ." colspan=\"2\" id=\"$letter_id{$letter}\">".$formatted_letter
+        . "</th></tr>\n" . $entries_text;
       push @letter_entries, $letter_entry;
     }
   }
@@ -6595,7 +6593,8 @@ sub _convert_printindex_command($$$$)
   # format the summary
   if (scalar(@non_alpha) + scalar(@alpha) > 1) {
     my $summary_header = $self->html_attribute_class('table',
-            ["$index_name-letters-header-$cmdname"]).'><tr><th>'
+            ["index-letters-header-$cmdname",
+             "$index_name-letters-header-$cmdname"]).'><tr><th>'
         # TRANSLATORS: before list of letters and symbols grouping index entries
       . $self->convert_tree($self->cdt('Jump to'), 'Tr letters header text')
       . ": $non_breaking_space </th><td>" .
@@ -6606,17 +6605,8 @@ sub _convert_printindex_command($$$$)
 
   # now format the index entries
   $result
-   .= $self->html_attribute_class('table', ["$index_name-entries-$cmdname"])
-   .">\n" . '<tr><td></td>'
-   . $self->html_attribute_class('th', ["entries-header-$cmdname"]).'>'
-     # TRANSLATORS: index entries column header in index formatting
-   . $self->convert_tree($self->cdt('Index Entry'), 'Tr th idx entries 1')
-   .'</th>'
-   . $self->html_attribute_class('th', ["sections-header-$cmdname"]).'>'
-     # TRANSLATORS: section of index entry column header in index formatting
-   . $self->convert_tree($self->cdt('Section'), 'Tr th idx entries 2')
-   ."</th></tr>\n"
-   . "<tr><td colspan=\"3\">${rule}</td></tr>\n";
+   .= $self->html_attribute_class('table', ["index-entries-$cmdname",
+                                    "$index_name-entries-$cmdname"]).">\n";
   $result .= $result_index_entries;
   $result .= "</table>\n";
 
@@ -6624,7 +6614,8 @@ sub _convert_printindex_command($$$$)
 
   if (scalar(@non_alpha) + scalar(@alpha) > 1) {
     my $summary_footer = $self->html_attribute_class('table',
-                 ["$index_name-letters-footer-$cmdname"]).'><tr><th>'
+                 ["index-letters-footer-$cmdname",
+                  "$index_name-letters-footer-$cmdname"]).'><tr><th>'
         # TRANSLATORS: before list of letters and symbols grouping index entries
       . $self->convert_tree($self->cdt('Jump to'), 'Tr letters footer text')
       . ": $non_breaking_space </th><td>"

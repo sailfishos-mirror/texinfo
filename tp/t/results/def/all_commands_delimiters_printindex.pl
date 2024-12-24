@@ -14866,10 +14866,10 @@ a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-link {visibility: visible}
 strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+table.index-entries-printindex {border-spacing: 0 0.5em}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
-th.entries-header-printindex {text-align:left}
-th.sections-header-printindex {text-align:left; padding-left: 1em}
+th.index-letter-header-printindex {text-align: left; font-size: 150%; padding-bottom: 0.5em; padding-top: 0.5em; border-width: thin; border-top-style: solid}
 -->
 </style>
 
@@ -15079,7 +15079,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; [<a href="#chap
 
 <h3 class="heading" id="Functions"><span>Functions<a class="copiable-link" href="#Functions"> &para;</a></span></h3>
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_fn_symbol-1"><b>,</b></a>
+<table class="index-letters-header-printindex fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_fn_symbol-1"><b>,</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chap_fn_symbol-2"><b>;</b></a>
  &nbsp; 
@@ -15097,59 +15097,49 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; [<a href="#chap
 <a class="summary-letter-printindex" href="#chap_fn_letter-P"><b>P</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="fn-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_fn_symbol-1">,</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_002cexpose-on-_002cWindow"><code>,expose on ,Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_002cexpose-on-_002cWindow-1"><code>,expose on ,Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_fn_symbol-2">;</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_003bexpose-on-_003bWindow"><code>;expose on ;Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_003bexpose-on-_003bWindow-1"><code>;expose on ;Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_fn_symbol-3">)</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_0029expose-on-_0029Window"><code>)expose on )Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_0029expose-on-_0029Window-1"><code>)expose on )Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_fn_letter-A">A</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A2"><code><var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A2-1"><code><code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A3"><code><var class="var">A3</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A3-1"><code><code class="code">A3</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A3-on-A2"><code><var class="var">A3</var> on <var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A3-on-A2-1"><code><code class="code">A3</code> on <code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A4-on-A2"><code><var class="var">A4</var> on <var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A4-on-A2-1"><code><code class="code">A4</code> on <code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-apply"><code>apply</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_fn_letter-E">E</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-e_002cxpose-on-W_002cindow"><code>e,xpose on W,indow</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-e_002cxpose-on-W_002cindow-1"><code>e,xpose on W,indow</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-e_003bxpose-on-W_003bindow"><code>e;xpose on W;indow</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-e_003bxpose-on-W_003bindow-1"><code>e;xpose on W;indow</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-e_0029xpose-on-W_0029indow"><code>e)xpose on W)indow</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-e_0029xpose-on-W_0029indow-1"><code>e)xpose on W)indow</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-expose-on-W_002cindow"><code>expose on W,indow</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-expose-on-Window"><code>expose on Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-expose-on-windows"><code>expose on windows</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_fn_letter-F">F</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-foobar"><code>foobar</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-foobar-1"><code>foobar</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-foobug"><code>foobug</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-forward_002d_002dchar"><code><var class="var">forward--char</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-fun_005fname"><code>fun_name</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-fun_005fname1"><code>fun_name1</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_fn_letter-N">N</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-name-on-Windowint"><code>name on Window<code class="code">int</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_fn_letter-P">P</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-push"><code>push</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex fn-entries-printindex">
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chap_fn_symbol-1">,</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-_002cexpose-on-_002cWindow"><code>,expose on ,Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-_002cexpose-on-_002cWindow-1"><code>,expose on ,Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chap_fn_symbol-2">;</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-_003bexpose-on-_003bWindow"><code>;expose on ;Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-_003bexpose-on-_003bWindow-1"><code>;expose on ;Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chap_fn_symbol-3">)</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-_0029expose-on-_0029Window"><code>)expose on )Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-_0029expose-on-_0029Window-1"><code>)expose on )Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chap_fn_letter-A">A</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A2"><code><var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A2-1"><code><code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A3"><code><var class="var">A3</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A3-1"><code><code class="code">A3</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A3-on-A2"><code><var class="var">A3</var> on <var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A3-on-A2-1"><code><code class="code">A3</code> on <code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A4-on-A2"><code><var class="var">A4</var> on <var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A4-on-A2-1"><code><code class="code">A4</code> on <code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-apply"><code>apply</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chap_fn_letter-E">E</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-e_002cxpose-on-W_002cindow"><code>e,xpose on W,indow</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-e_002cxpose-on-W_002cindow-1"><code>e,xpose on W,indow</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-e_003bxpose-on-W_003bindow"><code>e;xpose on W;indow</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-e_003bxpose-on-W_003bindow-1"><code>e;xpose on W;indow</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-e_0029xpose-on-W_0029indow"><code>e)xpose on W)indow</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-e_0029xpose-on-W_0029indow-1"><code>e)xpose on W)indow</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-expose-on-W_002cindow"><code>expose on W,indow</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-expose-on-Window"><code>expose on Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-expose-on-windows"><code>expose on windows</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chap_fn_letter-F">F</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-foobar"><code>foobar</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-foobar-1"><code>foobar</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-foobug"><code>foobug</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-forward_002d_002dchar"><code><var class="var">forward--char</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-fun_005fname"><code>fun_name</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-fun_005fname1"><code>fun_name1</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chap_fn_letter-N">N</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-name-on-Windowint"><code>name on Window<code class="code">int</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chap_fn_letter-P">P</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-push"><code>push</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_fn_symbol-1"><b>,</b></a>
+<table class="index-letters-footer-printindex fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_fn_symbol-1"><b>,</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chap_fn_symbol-2"><b>;</b></a>
  &nbsp; 
@@ -15171,24 +15161,20 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; [<a href="#chap
 
 <h3 class="heading" id="Types"><span>Types<a class="copiable-link" href="#Types"> &para;</a></span></h3>
 <div class="printindex tp-printindex">
-<table class="tp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_tp_letter-A"><b>A</b></a>
+<table class="index-letters-header-printindex tp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_tp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chap_tp_letter-P"><b>P</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="tp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_tp_letter-A">A</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A2-2"><code><var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A2-3"><code><code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A2-4"><code><code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_tp_letter-P">P</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-pair"><code>pair</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex tp-entries-printindex">
+<tr><th class="index-letter-header-printindex tp-letter-header-printindex" colspan="2" id="chap_tp_letter-A">A</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A2-2"><code><var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A2-3"><code><code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A2-4"><code><code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex tp-letter-header-printindex" colspan="2" id="chap_tp_letter-P">P</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-pair"><code>pair</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 </table>
-<table class="tp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_tp_letter-A"><b>A</b></a>
+<table class="index-letters-footer-printindex tp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_tp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chap_tp_letter-P"><b>P</b></a>
  &nbsp; 
@@ -15197,7 +15183,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; [<a href="#chap
 
 <h3 class="heading" id="Variables"><span>Variables<a class="copiable-link" href="#Variables"> &para;</a></span></h3>
 <div class="printindex vr-printindex">
-<table class="vr-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_vr_letter-A"><b>A</b></a>
+<table class="index-letters-header-printindex vr-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_vr_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chap_vr_letter-B"><b>B</b></a>
  &nbsp; 
@@ -15206,30 +15192,24 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; [<a href="#chap
 <a class="summary-letter-printindex" href="#chap_vr_letter-F"><b>F</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="vr-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_vr_letter-A">A</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A2-5"><code><var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A2-6"><code><code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A3-2"><code><var class="var">A3</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A3-3"><code><code class="code">A3</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A3-4"><code><var class="var">A3</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A4-of-A2"><code><var class="var">A4</var> of <var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A4-of-A2-1"><code><code class="code">A4</code> of <code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_vr_letter-B">B</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-border_002dpattern"><code>border-pattern</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-border_002dpattern-of-Window"><code>border-pattern of Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_vr_letter-E">E</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-enable"><code>enable</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_vr_letter-F">F</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-fill_002dcolumn"><code>fill-column</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex vr-entries-printindex">
+<tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="chap_vr_letter-A">A</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A2-5"><code><var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A2-6"><code><code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A3-2"><code><var class="var">A3</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A3-3"><code><code class="code">A3</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A3-4"><code><var class="var">A3</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A4-of-A2"><code><var class="var">A4</var> of <var class="var">A2</var></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A4-of-A2-1"><code><code class="code">A4</code> of <code class="code">A2</code></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="chap_vr_letter-B">B</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-border_002dpattern"><code>border-pattern</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-border_002dpattern-of-Window"><code>border-pattern of Window</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="chap_vr_letter-E">E</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-enable"><code>enable</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="chap_vr_letter-F">F</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-fill_002dcolumn"><code>fill-column</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 </table>
-<table class="vr-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_vr_letter-A"><b>A</b></a>
+<table class="index-letters-footer-printindex vr-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_vr_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chap_vr_letter-B"><b>B</b></a>
  &nbsp; 

@@ -845,12 +845,9 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 <h3 class="heading" id="Heading-"><span>Heading &nbsp;<a class="copiable-link" href="#Heading-"> &para;</a></span></h3>
 
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_cp_letter-I">I</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-index-entry-">index entry &nbsp;</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-I">I</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-index-entry-">index entry &nbsp;</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 </table>
 </div>
 

@@ -1740,7 +1740,7 @@ after
 
 <p>pg
 </p><div class="printindex pg-printindex">
-<table class="pg-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Chapter-index_pg_letter-A"><b>A</b></a>
+<table class="index-letters-header-printindex pg-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Chapter-index_pg_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Chapter-index_pg_letter-D"><b>D</b></a>
  &nbsp; 
@@ -1749,23 +1749,17 @@ after
 <a class="summary-letter-printindex" href="#Chapter-index_pg_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="pg-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Chapter-index_pg_letter-A">A</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-abc-index-entry">abc index entry</a></td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Chapter-index_pg_letter-D">D</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-defg-index-entry">defg index entry</a></td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Chapter-index_pg_letter-P">P</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-pindex-codeidx"><code>pindex codeidx</code></a></td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Chapter-index_pg_letter-T">T</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-truc-kindex"><code>truc kindex</code></a></td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex pg-entries-printindex">
+<tr><th class="index-letter-header-printindex pg-letter-header-printindex" colspan="2" id="Chapter-index_pg_letter-A">A</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-abc-index-entry">abc index entry</a></td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
+<tr><th class="index-letter-header-printindex pg-letter-header-printindex" colspan="2" id="Chapter-index_pg_letter-D">D</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-defg-index-entry">defg index entry</a></td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
+<tr><th class="index-letter-header-printindex pg-letter-header-printindex" colspan="2" id="Chapter-index_pg_letter-P">P</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-pindex-codeidx"><code>pindex codeidx</code></a></td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
+<tr><th class="index-letter-header-printindex pg-letter-header-printindex" colspan="2" id="Chapter-index_pg_letter-T">T</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-truc-kindex"><code>truc kindex</code></a></td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
 </table>
-<table class="pg-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Chapter-index_pg_letter-A"><b>A</b></a>
+<table class="index-letters-footer-printindex pg-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Chapter-index_pg_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Chapter-index_pg_letter-D"><b>D</b></a>
  &nbsp; 
@@ -1792,22 +1786,18 @@ after
 </p>
 <p>fn
 </p><div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Chapter-index_fn_letter-C"><b>C</b></a>
+<table class="index-letters-header-printindex fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Chapter-index_fn_letter-C"><b>C</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Chapter-index_fn_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="fn-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Chapter-index_fn_letter-C">C</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-cindex-entry"><code>cindex entry</code></a></td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Chapter-index_fn_letter-I">I</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-index-truc">index truc</a></td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex fn-entries-printindex">
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="Chapter-index_fn_letter-C">C</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-cindex-entry"><code>cindex entry</code></a></td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="Chapter-index_fn_letter-I">I</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-index-truc">index truc</a></td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Chapter-index_fn_letter-C"><b>C</b></a>
+<table class="index-letters-footer-printindex fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Chapter-index_fn_letter-C"><b>C</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Chapter-index_fn_letter-I"><b>I</b></a>
  &nbsp; 

@@ -784,30 +784,25 @@ $result_converted{'html_text'}->{'same_only_seealso_seeentry'} = '<div class="to
 
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#node_cp_letter-A"><b>A</b></a>
+<table class="index-letters-header-printindex cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#node_cp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#node_cp_letter-B"><b>B</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#node_cp_letter-C"><b>C</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="node_cp_letter-A">A</th></tr>
-<tr><td></td><td class="printindex-index-entry">aaa</td><td class="printindex-index-see-also"><em class="emph">See also</em> sss</td></tr>
-<tr><td></td><td class="printindex-index-entry">aaa</td><td class="printindex-index-see-also"><em class="emph">See also</em> 123</td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="node_cp_letter-B">B</th></tr>
-<tr><td></td><td class="printindex-index-see-entry">bbb, <em class="emph">See</em> yyy</td><td class="printindex-index-see-entry-section"></td></tr>
-<tr><td></td><td class="printindex-index-see-entry">bbb, <em class="emph">See</em> ttt</td><td class="printindex-index-see-entry-section"></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="node_cp_letter-C">C</th></tr>
-<tr><td></td><td class="printindex-index-entry">ccc</td><td class="printindex-index-see-also"><em class="emph">See also</em> also</td></tr>
-<tr><td></td><td class="printindex-index-see-entry">ccc, <em class="emph">See</em> entry</td><td class="printindex-index-see-entry-section"></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="node_cp_letter-A">A</th></tr>
+<tr><td class="printindex-index-entry">aaa</td><td class="printindex-index-see-also"><em class="emph">See also</em> sss</td></tr>
+<tr><td class="printindex-index-entry">aaa</td><td class="printindex-index-see-also"><em class="emph">See also</em> 123</td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="node_cp_letter-B">B</th></tr>
+<tr><td class="printindex-index-see-entry">bbb, <em class="emph">See</em> yyy</td><td class="printindex-index-see-entry-section"></td></tr>
+<tr><td class="printindex-index-see-entry">bbb, <em class="emph">See</em> ttt</td><td class="printindex-index-see-entry-section"></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="node_cp_letter-C">C</th></tr>
+<tr><td class="printindex-index-entry">ccc</td><td class="printindex-index-see-also"><em class="emph">See also</em> also</td></tr>
+<tr><td class="printindex-index-see-entry">ccc, <em class="emph">See</em> entry</td><td class="printindex-index-see-entry-section"></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#node_cp_letter-A"><b>A</b></a>
+<table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#node_cp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#node_cp_letter-B"><b>B</b></a>
  &nbsp; 

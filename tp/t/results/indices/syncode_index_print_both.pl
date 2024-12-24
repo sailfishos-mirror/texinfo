@@ -661,22 +661,18 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 <p>Print cp
 </p>
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-index_cp_letter-C"><b>C</b></a>
+<table class="index-letters-header-printindex cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-index_cp_letter-C"><b>C</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chapter-index_cp_letter-F"><b>F</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chapter-index_cp_letter-C">C</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-c_002d_002d_002doncept">c&mdash;oncept</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chapter-index_cp_letter-F">F</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-f_002d_002d_002dun"><code>f---un</code></a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chapter-index_cp_letter-C">C</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-c_002d_002d_002doncept">c&mdash;oncept</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chapter-index_cp_letter-F">F</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-f_002d_002d_002dun"><code>f---un</code></a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-index_cp_letter-C"><b>C</b></a>
+<table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-index_cp_letter-C"><b>C</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chapter-index_cp_letter-F"><b>F</b></a>
  &nbsp; 

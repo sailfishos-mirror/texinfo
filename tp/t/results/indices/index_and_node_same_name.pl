@@ -480,12 +480,9 @@ $result_converted{'html_text'}->{'index_and_node_same_name'} = '<div class="top-
 <p>in index node node, with the same name than index entry.
 </p>
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="index-node_cp_letter-N">N</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-node-2">node</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="index-node_cp_letter-N">N</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-node-2">node</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 </table>
 </div>
 </div>

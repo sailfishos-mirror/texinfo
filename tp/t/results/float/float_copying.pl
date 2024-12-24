@@ -1312,10 +1312,10 @@ the author abandon his copyright.
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-link {visibility: visible}
+table.index-entries-printindex {border-spacing: 0 0.5em}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
-th.entries-header-printindex {text-align:left}
-th.sections-header-printindex {text-align:left; padding-left: 1em}
+th.index-letter-header-printindex {text-align: left; font-size: 150%; padding-bottom: 0.5em; padding-top: 0.5em; border-width: thin; border-top-style: solid}
 -->
 </style>
 
@@ -1382,32 +1382,25 @@ the author abandon his copyright.
 </dl>
 
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Copying-and-floats_cp_letter-I">I</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-copying-indexed-caption">indexed caption</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-copying-indexed-caption-copying-footnote">indexed caption copying footnote</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Copying-and-floats_cp_letter-I">I</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-copying-indexed-caption">indexed caption</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-copying-indexed-caption-copying-footnote">indexed caption copying footnote</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 </table>
 </div>
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Copying-and-floats_fn_letter-I"><b>I</b></a>
+<table class="index-letters-header-printindex fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Copying-and-floats_fn_letter-I"><b>I</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Copying-and-floats_fn_letter-P"><b>P</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="fn-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Copying-and-floats_fn_letter-I">I</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-copying-indexed-caption-function"><code>indexed caption function</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Copying-and-floats_fn_letter-P">P</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-copying-public-domain-function"><code>public domain function</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex fn-entries-printindex">
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="Copying-and-floats_fn_letter-I">I</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-copying-indexed-caption-function"><code>indexed caption function</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="Copying-and-floats_fn_letter-P">P</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-copying-public-domain-function"><code>public domain function</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Copying-and-floats_fn_letter-I"><b>I</b></a>
+<table class="index-letters-footer-printindex fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Copying-and-floats_fn_letter-I"><b>I</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Copying-and-floats_fn_letter-P"><b>P</b></a>
  &nbsp; 

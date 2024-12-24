@@ -8,7 +8,7 @@ typedef struct HTML_DEFAULT_DIRECTION_STRING_TRANSLATED {
     const char *to_convert;
 } HTML_DEFAULT_DIRECTION_STRING_TRANSLATED;
 
-#define BASE_DEFAULT_CSS_ELEMENT_CLASS_STYLE_NR 50
+#define BASE_DEFAULT_CSS_ELEMENT_CLASS_STYLE_NR 52
 
 enum special_unit_info_type {
    SUI_type_none = -1,

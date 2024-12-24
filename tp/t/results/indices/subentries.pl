@@ -1181,7 +1181,7 @@ $result_converted{'html_text'}->{'subentries'} = '<div class="top-level-extent" 
 <a class="index-entry-id" id="index-f_002d_002d_002dggg-f_002d_002d_002dhhh-fjjj-f_002d_002d_002dkkk-f_002d_002d_002dlll"></a>
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-index_cp_letter-A"><b>A</b></a>
+<table class="index-letters-header-printindex cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-index_cp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chapter-index_cp_letter-B"><b>B</b></a>
  &nbsp; 
@@ -1190,28 +1190,22 @@ $result_converted{'html_text'}->{'subentries'} = '<div class="top-level-extent" 
 <a class="summary-letter-printindex" href="#chapter-index_cp_letter-G"><b>G</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chapter-index_cp_letter-A">A</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-a_002d_002d_002da">a&mdash;a</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chapter-index_cp_letter-B">B</th></tr>
-<tr><td></td><td class="printindex-index-entry">b&mdash;b</td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-b_002d_002d_002db-c_002d_002d_002dc">c&mdash;c</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chapter-index_cp_letter-D">D</th></tr>
-<tr><td></td><td class="printindex-index-entry">d&mdash;dd</td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-1">e&mdash;ee</td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-2"><a href="#index-d_002d_002d_002ddd-e_002d_002d_002dee-f_002d_002d_002dff">f&mdash;ff</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chapter-index_cp_letter-G">G</th></tr>
-<tr><td></td><td class="printindex-index-entry">g&mdash;gg</td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-1">h&mdash;hh jjj</td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-2"><a href="#index-g_002d_002d_002dgg-h_002d_002d_002dhh-jjj-k_002d_002d_002dkk-l_002d_002d_002dll">k&mdash;kk, l&mdash;ll</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chapter-index_cp_letter-A">A</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-a_002d_002d_002da">a&mdash;a</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chapter-index_cp_letter-B">B</th></tr>
+<tr><td class="printindex-index-entry">b&mdash;b</td><td></td></tr>
+<tr><td class="printindex-index-entry index-entry-level-1"><a href="#index-b_002d_002d_002db-c_002d_002d_002dc">c&mdash;c</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chapter-index_cp_letter-D">D</th></tr>
+<tr><td class="printindex-index-entry">d&mdash;dd</td><td></td></tr>
+<tr><td class="printindex-index-entry index-entry-level-1">e&mdash;ee</td><td></td></tr>
+<tr><td class="printindex-index-entry index-entry-level-2"><a href="#index-d_002d_002d_002ddd-e_002d_002d_002dee-f_002d_002d_002dff">f&mdash;ff</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chapter-index_cp_letter-G">G</th></tr>
+<tr><td class="printindex-index-entry">g&mdash;gg</td><td></td></tr>
+<tr><td class="printindex-index-entry index-entry-level-1">h&mdash;hh jjj</td><td></td></tr>
+<tr><td class="printindex-index-entry index-entry-level-2"><a href="#index-g_002d_002d_002dgg-h_002d_002d_002dhh-jjj-k_002d_002d_002dkk-l_002d_002d_002dll">k&mdash;kk, l&mdash;ll</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-index_cp_letter-A"><b>A</b></a>
+<table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-index_cp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chapter-index_cp_letter-B"><b>B</b></a>
  &nbsp; 
@@ -1222,20 +1216,17 @@ $result_converted{'html_text'}->{'subentries'} = '<div class="top-level-extent" 
 </td></tr></table>
 </div>
 <div class="printindex fn-printindex">
-<table class="fn-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chapter-index_fn_letter-F">F</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-f_002d_002d_002daa"><code>f---aa</code></a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><code>f---bb</code></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-f_002d_002d_002dbb-f_002d_002d_002dcc"><code>f---cc</code></a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><code>f---ddd</code></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-1"><code>f---eee</code></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-2"><a href="#index-f_002d_002d_002dddd-f_002d_002d_002deee-ffff"><code>ffff</code></a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><code>f---ggg</code></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-1"><code>f---hhh fjjj</code></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-2"><a href="#index-f_002d_002d_002dggg-f_002d_002d_002dhhh-fjjj-f_002d_002d_002dkkk-f_002d_002d_002dlll"><code>f---kkk, f---lll</code></a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex fn-entries-printindex">
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chapter-index_fn_letter-F">F</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-f_002d_002d_002daa"><code>f---aa</code></a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td class="printindex-index-entry"><code>f---bb</code></td><td></td></tr>
+<tr><td class="printindex-index-entry index-entry-level-1"><a href="#index-f_002d_002d_002dbb-f_002d_002d_002dcc"><code>f---cc</code></a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td class="printindex-index-entry"><code>f---ddd</code></td><td></td></tr>
+<tr><td class="printindex-index-entry index-entry-level-1"><code>f---eee</code></td><td></td></tr>
+<tr><td class="printindex-index-entry index-entry-level-2"><a href="#index-f_002d_002d_002dddd-f_002d_002d_002deee-ffff"><code>ffff</code></a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td class="printindex-index-entry"><code>f---ggg</code></td><td></td></tr>
+<tr><td class="printindex-index-entry index-entry-level-1"><code>f---hhh fjjj</code></td><td></td></tr>
+<tr><td class="printindex-index-entry index-entry-level-2"><a href="#index-f_002d_002d_002dggg-f_002d_002d_002dhhh-fjjj-f_002d_002d_002dkkk-f_002d_002d_002dlll"><code>f---kkk, f---lll</code></a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 </table>
 </div>
 </div>

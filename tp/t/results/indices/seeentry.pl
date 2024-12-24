@@ -688,35 +688,28 @@ $result_converted{'html_text'}->{'seeentry'} = '<div class="top-level-extent" id
 
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-index_cp_letter-A"><b>A</b></a>
+<table class="index-letters-header-printindex cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-index_cp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chapter-index_cp_letter-D"><b>D</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chapter-index_cp_letter-A">A</th></tr>
-<tr><td></td><td class="printindex-index-see-entry">aaa, <em class="emph">See</em> bbb</td><td class="printindex-index-see-entry-section"></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chapter-index_cp_letter-D">D</th></tr>
-<tr><td></td><td class="printindex-index-entry">ddd</td><td class="printindex-index-see-also"><em class="emph">See also</em> ccc</td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chapter-index_cp_letter-A">A</th></tr>
+<tr><td class="printindex-index-see-entry">aaa, <em class="emph">See</em> bbb</td><td class="printindex-index-see-entry-section"></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chapter-index_cp_letter-D">D</th></tr>
+<tr><td class="printindex-index-entry">ddd</td><td class="printindex-index-see-also"><em class="emph">See also</em> ccc</td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-index_cp_letter-A"><b>A</b></a>
+<table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-index_cp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chapter-index_cp_letter-D"><b>D</b></a>
  &nbsp; 
 </td></tr></table>
 </div>
 <div class="printindex fn-printindex">
-<table class="fn-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chapter-index_fn_letter-F">F</th></tr>
-<tr><td></td><td class="printindex-index-see-entry"><code class="code">f---aaa</code>, <em class="emph">See</em> <code class="code">f---bbb</code></td><td class="printindex-index-see-entry-section"></td></tr>
-<tr><td></td><td class="printindex-index-entry"><code>f---ddd</code></td><td class="printindex-index-see-also"><em class="emph">See also</em> f---ccc</td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex fn-entries-printindex">
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chapter-index_fn_letter-F">F</th></tr>
+<tr><td class="printindex-index-see-entry"><code class="code">f---aaa</code>, <em class="emph">See</em> <code class="code">f---bbb</code></td><td class="printindex-index-see-entry-section"></td></tr>
+<tr><td class="printindex-index-entry"><code>f---ddd</code></td><td class="printindex-index-see-also"><em class="emph">See also</em> f---ccc</td></tr>
 </table>
 </div>
 </div>

@@ -20,6 +20,7 @@ span.program-in-footer {font-size: smaller}
 span:hover a.copiable-link {visibility: visible}
 strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 table.direction-about {border-collapse: collapse}
+table.index-entries-printindex {border-spacing: 0 0.5em}
 td.button-direction-about {text-align: center; border-width: thin; border-right-style: solid}
 td.description-direction-about {border-width: thin; border-right-style: solid; border-left-style: solid}
 td.example-direction-about {border-width: thin; border-left-style: solid}
@@ -30,10 +31,9 @@ td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
 th.button-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid}
 th.description-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid}
-th.entries-header-printindex {text-align:left}
 th.example-direction-about {border-width: thin; border-bottom-style: solid; border-left-style: solid}
+th.index-letter-header-printindex {text-align: left; font-size: 150%; padding-bottom: 0.5em; padding-top: 0.5em; border-width: thin; border-top-style: solid}
 th.name-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid}
-th.sections-header-printindex {text-align:left; padding-left: 1em}
 -->
 </style>
 
@@ -85,12 +85,9 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 </p></dd></dl>
 
 <div class="printindex fn-printindex">
-<table class="fn-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Entr&eacute;e d&rsquo;index</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Chapter_fn_letter-N">N</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-name-on-class"><code>name de class</code></a></td><td class="printindex-index-section"><a href="#chapter">1 Chapter</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex fn-entries-printindex">
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="Chapter_fn_letter-N">N</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-name-on-class"><code>name de class</code></a></td><td class="printindex-index-section"><a href="#chapter">1 Chapter</a></td></tr>
 </table>
 </div>
 

@@ -485,10 +485,10 @@ $result_converted{'html'}->{'cindex_in_caption'} = '<!DOCTYPE html>
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-link {visibility: visible}
+table.index-entries-printindex {border-spacing: 0 0.5em}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
-th.entries-header-printindex {text-align:left}
-th.sections-header-printindex {text-align:left; padding-left: 1em}
+th.index-letter-header-printindex {text-align: left; font-size: 150%; padding-bottom: 0.5em; padding-top: 0.5em; border-width: thin; border-top-style: solid}
 -->
 </style>
 
@@ -519,12 +519,9 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; [<a href="#chap
 <a class="index-entry-id" id="index-index-entry"></a>
 </p></div></div>
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_cp_letter-I">I</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-index-entry">index entry</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-I">I</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-index-entry">index entry</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 </table>
 </div>
 

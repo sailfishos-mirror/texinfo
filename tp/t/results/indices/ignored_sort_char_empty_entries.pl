@@ -519,23 +519,19 @@ $result_converted{'html_text'}->{'ignored_sort_char_empty_entries'} = '
 <a class="index-entry-id" id="index-_002d_002d-1"></a>
 
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_fn_symbol-1"><b>-</b></a>
+<table class="index-letters-header-printindex fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_fn_symbol-1"><b>-</b></a>
  &nbsp; 
 <br>
 <a class="summary-letter-printindex" href="#chap_fn_letter-A"><b>A</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="fn-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_fn_symbol-1">-</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002d-1"><code>--</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_fn_letter-A">A</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A"><code>A</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex fn-entries-printindex">
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chap_fn_symbol-1">-</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-_002d_002d-1"><code>--</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chap_fn_letter-A">A</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-A"><code>A</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_fn_symbol-1"><b>-</b></a>
+<table class="index-letters-footer-printindex fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_fn_symbol-1"><b>-</b></a>
  &nbsp; 
 <br>
 <a class="summary-letter-printindex" href="#chap_fn_letter-A"><b>A</b></a>

@@ -540,24 +540,20 @@ end paragraph.
 <p>Last paragraph.
 </p>
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-E"><b>E</b></a>
+<table class="index-letters-header-printindex cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-E"><b>E</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chap_cp_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_cp_letter-E">E</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-entry-at-end-of-paragraph_002e">entry at end of paragraph.</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Entry-before-paragraph">Entry before paragraph</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-entry-in-paragraph">entry in paragraph</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_cp_letter-L">L</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lone-entry">lone entry</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-E">E</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-entry-at-end-of-paragraph_002e">entry at end of paragraph.</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-Entry-before-paragraph">Entry before paragraph</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-entry-in-paragraph">entry in paragraph</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-L">L</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-lone-entry">lone entry</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-E"><b>E</b></a>
+<table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-E"><b>E</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chap_cp_letter-L"><b>L</b></a>
  &nbsp; 

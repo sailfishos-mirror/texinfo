@@ -478,23 +478,19 @@ $result_converted{'html_text'}->{'transparent_sort_chars'} = '
 <a class="index-entry-id" id="index-Semantic-markup"></a>
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-S"><b>S</b></a>
+<table class="index-letters-header-printindex cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-S"><b>S</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chap_cp_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_cp_letter-S">S</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Semantic-markup">Semantic markup</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Source-file-format">Source file format</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_cp_letter-V">V</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002dversion_002c-for-install_002dinfo"><code class="code">--version</code>, for <code class="command">install-info</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-S">S</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-Semantic-markup">Semantic markup</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-Source-file-format">Source file format</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-V">V</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-_002d_002dversion_002c-for-install_002dinfo"><code class="code">--version</code>, for <code class="command">install-info</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-S"><b>S</b></a>
+<table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-S"><b>S</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chap_cp_letter-V"><b>V</b></a>
  &nbsp; 

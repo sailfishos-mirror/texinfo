@@ -628,13 +628,10 @@ $result_converted{'html_text'}->{'sections_and_printindex'} = '<div class="top-l
 <h2 class="appendix"><span>Appendix A App<a class="copiable-link" href="#App"> &para;</a></span></h2>
 
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="sec_cp_letter-E">E</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-entry1">entry1</a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-entry2">entry2</a></td><td class="printindex-index-section"><a href="#sec">sec</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="sec_cp_letter-E">E</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-entry1">entry1</a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-entry2">entry2</a></td><td class="printindex-index-section"><a href="#sec">sec</a></td></tr>
 </table>
 </div>
 

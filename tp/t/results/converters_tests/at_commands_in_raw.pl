@@ -1484,12 +1484,9 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<div class="top-level-
 <p>newidx entry
 </p>
 <div class="printindex fn-printindex">
-<table class="fn-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_fn_letter-F">F</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-fentry2"><code>fentry2</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex fn-entries-printindex">
+<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chap_fn_letter-F">F</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-fentry2"><code>fentry2</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 </table>
 </div>
 

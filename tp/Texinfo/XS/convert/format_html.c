@@ -9563,12 +9563,17 @@ printindex_letters_head_foot_internal (CONVERTER *self, const char *index_name,
                            const char *non_alpha_text, TEXT *result)
 {
   char *index_name_cmd_class;
+  char *generic_cmd_class;
   char *attribute_class;
 
+  xasprintf (&generic_cmd_class, "index-letters-%s-%s",
+             head_or_foot, builtin_command_name (cmd));
   xasprintf (&index_name_cmd_class, "%s-letters-%s-%s",
              index_name, head_or_foot, builtin_command_name (cmd));
+  add_string (generic_cmd_class, entry_classes);
   add_string (index_name_cmd_class, entry_classes);
   free (index_name_cmd_class);
+  free (generic_cmd_class);
   attribute_class = html_attribute_class (self, "table", entry_classes);
   clear_strings_list (entry_classes);
   text_append (result, attribute_class);
@@ -9664,6 +9669,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   TEXT entries_text;
   TEXT result_index_entries;
   char *index_name_cmd_class;
+  char *generic_cmd_class;
+  char *generic_letter_header_class;
   char *alpha_text = 0;
   char *non_alpha_text = 0;
   char *language;
@@ -9782,6 +9789,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                                    builtin_command_name (cmd));
   xasprintf (&summary_letter_cmd, "summary-letter-%s",
                                    builtin_command_name (cmd));
+  xasprintf (&generic_letter_header_class, "index-letter-header-%s",
+                                           builtin_command_name (cmd));
 
   text_init (&entries_text);
   text_init (&result_index_entries);
@@ -10006,7 +10015,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                       add_string (index_entry_level, entry_classes);
                       free (index_entry_level);
                     }
-                  text_append_n (&entries_text, "<tr><td></td>", 13);
+                  text_append_n (&entries_text, "<tr>", 4);
                   attribute_class = html_attribute_class (self, "td",
                                                           entry_classes);
                   text_append (&entries_text, attribute_class);
@@ -10156,7 +10165,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
               destroy_named_string_element_list (substrings);
 
-              text_append_n (&entries_text, "<tr><td></td>", 13);
+              text_append_n (&entries_text, "<tr>", 4);
               if (last_entry_level > 0)
                 {
                   char *index_entry_level;
@@ -10256,7 +10265,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                       add_string (index_entry_level, entry_classes);
                       free (index_entry_level);
                     }
-                  text_append_n (&entries_text, "<tr><td></td>", 13);
+                  text_append_n (&entries_text, "<tr>", 4);
                   attribute_class = html_attribute_class (self, "td",
                                                           entry_classes);
                   text_append (&entries_text, attribute_class);
@@ -10410,6 +10419,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
       if (entries_text.end > 0)
         {
           char *formatted_letter;
+          char *index_name_letter_header_class;
           const ELEMENT *letter_command = 0;
           enum command_id letter_cmd = 0;
 
@@ -10472,15 +10482,20 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           formatted_letters[i] = formatted_letter;
 
           text_append_n (&result_index_entries, "<tr>", 4);
-          text_printf (&result_index_entries, "<th id=\"%s\">", letter_id[i]);
+          xasprintf (&index_name_letter_header_class, "%s-letter-header-%s",
+                     index_name, builtin_command_name (cmd));
+          add_string (generic_letter_header_class, entry_classes);
+          add_string (index_name_letter_header_class, entry_classes);
+          free (index_name_letter_header_class);
+          attribute_class = html_attribute_class (self, "th", entry_classes);
+          text_append (&result_index_entries, attribute_class);
+          clear_strings_list (entry_classes);
+          free (attribute_class);
+          text_printf (&result_index_entries, " colspan=\"2\" id=\"%s\">",
+                                                              letter_id[i]);
           text_append (&result_index_entries, formatted_letter);
           text_append_n (&result_index_entries, "</th></tr>\n", 11);
           text_append (&result_index_entries, entries_text.text);
-          text_append_n (&result_index_entries, "<tr><td colspan=\"3\">", 20);
-          if (self->conf->DEFAULT_RULE.o.string)
-            text_append (&result_index_entries,
-                         self->conf->DEFAULT_RULE.o.string);
-          text_append_n (&result_index_entries, "</td></tr>\n", 11);
         }
       else
         {
@@ -10530,6 +10545,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   free (section_class_seealso);
   free (cmd_index_section_class);
   free (summary_letter_cmd);
+  free (generic_letter_header_class);
 
   destroy_strings_list (section_classes);
 
@@ -10615,48 +10631,21 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
     }
   free (alpha);
 
+  xasprintf (&generic_cmd_class, "index-entries-%s",
+                                 builtin_command_name (cmd));
   /* now format the index entries */
   xasprintf (&index_name_cmd_class, "%s-entries-%s",
              index_name, builtin_command_name (cmd));
+  add_string (generic_cmd_class, entry_classes);
   add_string (index_name_cmd_class, entry_classes);
   free (index_name_cmd_class);
+  free (generic_cmd_class);
   attribute_class = html_attribute_class (self, "table", entry_classes);
   clear_strings_list (entry_classes);
   text_append (result, attribute_class);
   free (attribute_class);
-  text_append_n (result, ">\n<tr><td></td>", 15);
+  text_append_n (result, ">\n", 2);
 
-  xasprintf (&index_name_cmd_class, "entries-header-%s",
-             builtin_command_name (cmd));
-  add_string (index_name_cmd_class, entry_classes);
-  free (index_name_cmd_class);
-  attribute_class = html_attribute_class (self, "th", entry_classes);
-  clear_strings_list (entry_classes);
-  text_append (result, attribute_class);
-  free (attribute_class);
-  text_append_n (result, ">", 1);
-  /* TRANSLATORS: index entries column header in index formatting */
-  html_translate_convert_tree_append ("Index Entry", self, 0, 0, result,
-                                      "Tr th idx entries 1");
-  text_append_n (result, "</th>", 5);
-
-  xasprintf (&index_name_cmd_class, "sections-header-%s",
-             builtin_command_name (cmd));
-  add_string (index_name_cmd_class, entry_classes);
-  free (index_name_cmd_class);
-  attribute_class = html_attribute_class (self, "th", entry_classes);
-  clear_strings_list (entry_classes);
-  text_append (result, attribute_class);
-  free (attribute_class);
-  text_append_n (result, ">", 1);
-  /* TRANSLATORS: section of index entry column header in index formatting */
-  html_translate_convert_tree_append ("Section", self, 0, 0, result,
-                                      "Tr th idx entries 2");
-  text_append_n (result, "</th></tr>\n", 11);
-  text_append_n (result, "<tr><td colspan=\"3\">", 20);
-  if (self->conf->DEFAULT_RULE.o.string)
-    text_append (result, self->conf->DEFAULT_RULE.o.string);
-  text_append_n (result, "</td></tr>\n", 11);
   text_append (result, result_index_entries.text);
   text_append_n (result, "</table>\n", 9);
 

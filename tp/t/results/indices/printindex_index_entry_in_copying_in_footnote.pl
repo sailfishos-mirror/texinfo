@@ -746,12 +746,9 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_in_footnote'
 <p>Copying<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
 </p>
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Top_cp_letter-C">C</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-copying-Copying-this-document">Copying this document</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Top_cp_letter-C">C</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-copying-Copying-this-document">Copying this document</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 </table>
 </div>
 
@@ -772,12 +769,9 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_in_footnote'
 <p>Copying<a class="footnote" id="DOCF1_2" href="#FOOT1_2"><sup>2</sup></a>.
 </p>
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chapter_cp_letter-C">C</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-copying-Copying-this-document">Copying this document</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chapter_cp_letter-C">C</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-copying-Copying-this-document">Copying this document</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 </table>
 </div>
 

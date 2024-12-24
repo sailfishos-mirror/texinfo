@@ -612,15 +612,12 @@ $result_converted{'html_text'}->{'seealso_duplicate'} = '<a class="node-id" id="
 </p>
 
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="chap_cp_letter-A">A</th></tr>
-<tr><td></td><td class="printindex-index-entry"><code class="command">awk</code></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-awk-POSIX-and">POSIX and</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry index-entry-level-1">POSIX and</td><td class="printindex-index-see-also"><em class="emph">See also</em> POSIX <code class="command">awk</code></td></tr>
-<tr><td></td><td class="printindex-index-see-entry index-entry-level-1">POSIX and, <em class="emph">See</em> Another entry</td><td class="printindex-index-see-entry-section"></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-A">A</th></tr>
+<tr><td class="printindex-index-entry"><code class="command">awk</code></td><td></td></tr>
+<tr><td class="printindex-index-entry index-entry-level-1"><a href="#index-awk-POSIX-and">POSIX and</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td class="printindex-index-entry index-entry-level-1">POSIX and</td><td class="printindex-index-see-also"><em class="emph">See also</em> POSIX <code class="command">awk</code></td></tr>
+<tr><td class="printindex-index-see-entry index-entry-level-1">POSIX and, <em class="emph">See</em> Another entry</td><td class="printindex-index-see-entry-section"></td></tr>
 </table>
 </div>
 ';
