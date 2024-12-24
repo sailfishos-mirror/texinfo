@@ -1,5 +1,11 @@
 2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/pod2texi.pl: move end of lines out of translated
+	messages.
+	Update po files
+
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl: move end of lines out of translated messages.
 
 2024-12-24  Patrice Dumas  <pertusus@free.fr>

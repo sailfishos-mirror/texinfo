@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.1\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-24 10:24+0100\n"
+"POT-Creation-Date: 2024-12-24 10:39+0100\n"
 "PO-Revision-Date: 2002-03-08 04:56+0800\n"
 "Last-Translator: Abel Cheung <maddog@linux.org.hk>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -312,8 +312,7 @@ msgid "Try --help for more information.\n"
 msgstr "試試 --help 以取得更多的資訊.\n"
 
 #: info/info.c:875 install-info/install-info.c:2280
-#: Pod-Simple-Texinfo/pod2texi.pl:199
-#, c-format, perl-format
+#, c-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
 "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
@@ -2034,9 +2033,20 @@ msgstr ""
 msgid "    --version               display version information and exit"
 msgstr "顯示版本資訊, 然後離開"
 
+#: Pod-Simple-Texinfo/pod2texi.pl:199 tp/texi2any.pl:1142
+#: tp/Texinfo/XS/teximakehtml.c:1380
+#, c-format, perl-format
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+"gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law."
+msgstr ""
+
 #: Pod-Simple-Texinfo/pod2texi.pl:210
 #, perl-format
-msgid "%s: wrong argument for --base-level\n"
+msgid "%s: wrong argument for --base-level"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:239
@@ -2047,18 +2057,21 @@ msgstr ""
 #: Pod-Simple-Texinfo/pod2texi.pl:253
 #, fuzzy, perl-format
 #| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument\n"
+msgid "%s: missing file argument"
 msgstr "%s: 遺漏檔案引數.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:254 tp/texi2any.pl:1673
-#, perl-format
-msgid "Try `%s --help' for more information.\n"
+#: tp/Texinfo/XS/teximakehtml.c:2031
+#, fuzzy, c-format, perl-format
+#| msgid "Try `%s --help' for more information.\n"
+msgid "Try `%s --help' for more information."
 msgstr "試試 `%s --help' 以取得更多的資訊.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:281
-#, perl-format
-msgid "%s: warning: %s without content\n"
-msgstr ""
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgid "%s: warning: %s without content"
+msgstr "%s: 警告: "
 
 #: Pod-Simple-Texinfo/pod2texi.pl:296
 #, perl-format
@@ -2069,33 +2082,34 @@ msgstr ""
 #: tp/texi2any.pl:2092 tp/texi2any.pl:2170
 #, fuzzy, perl-format
 #| msgid "%s: could not read (%s) and could not create (%s)\n"
-msgid "%s: could not open %s for writing: %s\n"
+msgid "%s: could not open %s for writing: %s"
 msgstr "%s: 無法讀取 (%s), 而且無法建立 (%s)\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:550
-#, perl-format
-msgid "%s: could not open %s: %s\n"
-msgstr ""
+#, fuzzy, perl-format
+#| msgid "%s: could not read (%s) and could not create (%s)\n"
+msgid "%s: could not open %s: %s"
+msgstr "%s: 無法讀取 (%s), 而且無法建立 (%s)\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:563 Pod-Simple-Texinfo/pod2texi.pl:661
 #: tp/texi2any.pl:2053 tp/texi2any.pl:2200
-#, perl-format
-msgid "%s: error on closing %s: %s\n"
-msgstr ""
+#, fuzzy, perl-format
+msgid "%s: error on closing %s: %s"
+msgstr "無法建立輸出檔案 `%s'."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:569
 #, perl-format
-msgid "%s: removing %s as input file %s has no content\n"
+msgid "%s: removing %s as input file %s has no content"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:598
 #, perl-format
-msgid "%s: rename %s failed: %s\n"
+msgid "%s: rename %s failed: %s"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:667
 #, fuzzy, perl-format
-msgid "%s: error on closing stdout: %s\n"
+msgid "%s: error on closing stdout: %s"
 msgstr "無法建立輸出檔案 `%s'."
 
 #: tp/Texinfo/Common.pm:644 tp/Texinfo/XS/parsetexi/end_line.c:1515
@@ -4292,16 +4306,6 @@ msgstr ""
 "程式臭蟲, 請以電子郵件 (英文) 回報至 bug-texinfo@gnu.org,\n"
 "一般問題與討論, 請以電子郵件 (英文) 寄到 help-texinfo@gnu.org."
 
-#: tp/texi2any.pl:1142 tp/Texinfo/XS/teximakehtml.c:1380
-#, c-format, perl-format
-msgid ""
-"Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-"gpl.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law."
-msgstr ""
-
 #: tp/texi2any.pl:1169 tp/Texinfo/XS/teximakehtml.c:1406
 #, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
@@ -4322,7 +4326,7 @@ msgstr "%s: --paragraph-indent 的引數必須為 數值/`none'/`asis', 而不是 `%s'.\n"
 
 #: tp/texi2any.pl:1421
 #, perl-format
-msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
+msgid "%s: when generating %s, only one input FILE may be specified with -o"
 msgstr ""
 
 #: tp/texi2any.pl:1425
@@ -4354,9 +4358,10 @@ msgstr ""
 msgid "error loading %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
 
-#: tp/texi2any.pl:1672
-#, perl-format
-msgid "%s: missing file argument.\n"
+#: tp/texi2any.pl:1672 tp/Texinfo/XS/teximakehtml.c:2023
+#, fuzzy, c-format, perl-format
+#| msgid "%s: missing file argument.\n"
+msgid "%s: missing file argument."
 msgstr "%s: 遺漏檔案引數.\n"
 
 #: tp/texi2any.pl:1703
@@ -4370,14 +4375,14 @@ msgid "error on closing macro expand file %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
 
 #: tp/texi2any.pl:2084
-#, perl-format
-msgid "%s: error on closing internal links file %s: %s\n"
-msgstr ""
+#, fuzzy, perl-format
+msgid "%s: error on closing internal links file %s: %s"
+msgstr "無法建立輸出檔案 `%s'."
 
 #: tp/texi2any.pl:2162
-#, perl-format
-msgid "%s: error on closing elements size file %s: %s\n"
-msgstr ""
+#, fuzzy, perl-format
+msgid "%s: error on closing elements size file %s: %s"
+msgstr "無法建立輸出檔案 `%s'."
 
 #: tp/Texinfo/XS/teximakehtml.c:1434
 #, fuzzy, c-format
@@ -4385,18 +4390,6 @@ msgstr ""
 #| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
 msgid "%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
 msgstr "%s: --paragraph-indent 的引數必須為 數值/`none'/`asis', 而不是 `%s'.\n"
-
-#: tp/Texinfo/XS/teximakehtml.c:2023
-#, fuzzy, c-format
-#| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument."
-msgstr "%s: 遺漏檔案引數.\n"
-
-#: tp/Texinfo/XS/teximakehtml.c:2031
-#, fuzzy, c-format
-#| msgid "Try `%s --help' for more information.\n"
-msgid "Try `%s --help' for more information."
-msgstr "試試 `%s --help' 以取得更多的資訊.\n"
 
 #: tp/Texinfo/XS/convert/convert_html.c:2158
 #, c-format
@@ -4552,6 +4545,19 @@ msgstr ""
 #, c-format
 msgid "bad or empty @%s formal argument: "
 msgstr ""
+
+#, perl-format
+#~ msgid "Try `%s --help' for more information.\n"
+#~ msgstr "試試 `%s --help' 以取得更多的資訊.\n"
+
+#, fuzzy, perl-format
+#~| msgid "%s: could not read (%s) and could not create (%s)\n"
+#~ msgid "%s: could not open %s for writing: %s\n"
+#~ msgstr "%s: 無法讀取 (%s), 而且無法建立 (%s)\n"
+
+#, perl-format
+#~ msgid "%s: missing file argument.\n"
+#~ msgstr "%s: 遺漏檔案引數.\n"
 
 #~ msgid "Insert this character"
 #~ msgstr "插入本字元"

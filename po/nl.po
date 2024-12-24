@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo-7.0.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-24 10:24+0100\n"
+"POT-Creation-Date: 2024-12-24 10:39+0100\n"
 "PO-Revision-Date: 2023-10-01 13:02+0200\n"
 "Last-Translator: Benno Schulenberg <vertaling@coevern.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -311,8 +311,7 @@ msgid "Try --help for more information.\n"
 msgstr "Gebruik '--help' voor meer informatie.\n"
 
 #: info/info.c:875 install-info/install-info.c:2280
-#: Pod-Simple-Texinfo/pod2texi.pl:199
-#, c-format, perl-format
+#, c-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
 "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
@@ -2061,9 +2060,32 @@ msgstr "    --unnumbered-sections   de secties niet nummeren"
 msgid "    --version               display version information and exit"
 msgstr "    --version               programmaversie tonen en stoppen"
 
+#: Pod-Simple-Texinfo/pod2texi.pl:199 tp/texi2any.pl:1142
+#: tp/Texinfo/XS/teximakehtml.c:1380
+#, fuzzy, c-format, perl-format
+#| msgid ""
+#| "Copyright (C) %s Free Software Foundation, Inc.\n"
+#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+#| "gpl.html>\n"
+#| "This is free software: you are free to change and redistribute it.\n"
+#| "There is NO WARRANTY, to the extent permitted by law.\n"
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+"gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law."
+msgstr ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"Dit is vrije software: u mag het vrijelijk wijzigen en verder verspreiden.\n"
+"De precieze licentie is GPLv3+: GNU GPL versie 3 of later;\n"
+"zie http://gnu.org/licenses/gpl.html voor de volledige tekst.\n"
+"Er is GEEN GARANTIE, voor zover de wet dit toestaat.\n"
+
 #: Pod-Simple-Texinfo/pod2texi.pl:210
-#, perl-format
-msgid "%s: wrong argument for --base-level\n"
+#, fuzzy, perl-format
+#| msgid "%s: wrong argument for --base-level\n"
+msgid "%s: wrong argument for --base-level"
 msgstr "%s: onjuist argument van --base-level\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:239
@@ -2072,19 +2094,22 @@ msgid "%s: could not create directory %s: %s"
 msgstr "%s: kan map '%s' niet aanmaken: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:253
-#, perl-format
-msgid "%s: missing file argument\n"
+#, fuzzy, perl-format
+#| msgid "%s: missing file argument\n"
+msgid "%s: missing file argument"
 msgstr "%s: ontbrekend bestandsargument\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:254 tp/texi2any.pl:1673
-#, perl-format
-msgid "Try `%s --help' for more information.\n"
+#: tp/Texinfo/XS/teximakehtml.c:2031
+#, fuzzy, c-format, perl-format
+#| msgid "Try `%s --help' for more information.\n"
+msgid "Try `%s --help' for more information."
 msgstr "Typ '%s --help' voor meer informatie.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:281
 #, fuzzy, perl-format
 #| msgid "%s: ignoring %s without content\n"
-msgid "%s: warning: %s without content\n"
+msgid "%s: warning: %s without content"
 msgstr "%s: '%s' zonder inhoud wordt genegeerd\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:296
@@ -2095,34 +2120,40 @@ msgstr "@%s-paginanaam '%s' verschilt van %s-naam '%s'"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:504 Pod-Simple-Texinfo/pod2texi.pl:612
 #: tp/texi2any.pl:2092 tp/texi2any.pl:2170
-#, perl-format
-msgid "%s: could not open %s for writing: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: could not open %s for writing: %s\n"
+msgid "%s: could not open %s for writing: %s"
 msgstr "%s: kan %s niet openen om te schrijven: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:550
-#, perl-format
-msgid "%s: could not open %s: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: could not open %s: %s\n"
+msgid "%s: could not open %s: %s"
 msgstr "@%s: kan %s niet openen: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:563 Pod-Simple-Texinfo/pod2texi.pl:661
 #: tp/texi2any.pl:2053 tp/texi2any.pl:2200
-#, perl-format
-msgid "%s: error on closing %s: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: error on closing %s: %s\n"
+msgid "%s: error on closing %s: %s"
 msgstr "%s: fout bij sluiten van %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:569
-#, perl-format
-msgid "%s: removing %s as input file %s has no content\n"
+#, fuzzy, perl-format
+#| msgid "%s: removing %s as input file %s has no content\n"
+msgid "%s: removing %s as input file %s has no content"
 msgstr "%s: %s wordt verwijderd omdat invoerbestand %s geen inhoud heeft\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:598
-#, perl-format
-msgid "%s: rename %s failed: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: rename %s failed: %s\n"
+msgid "%s: rename %s failed: %s"
 msgstr "%s: hernoemen van %s is mislukt: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:667
-#, perl-format
-msgid "%s: error on closing stdout: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: error on closing stdout: %s\n"
+msgid "%s: error on closing stdout: %s"
 msgstr "%s: fout bij sluiten van standaarduitvoer: %s\n"
 
 #: tp/Texinfo/Common.pm:644 tp/Texinfo/XS/parsetexi/end_line.c:1515
@@ -4347,27 +4378,6 @@ msgstr ""
 "  makeinfo --no-split foo.texi           één Info-bestand ongeacht de "
 "grootte\n"
 
-#: tp/texi2any.pl:1142 tp/Texinfo/XS/teximakehtml.c:1380
-#, fuzzy, c-format, perl-format
-#| msgid ""
-#| "Copyright (C) %s Free Software Foundation, Inc.\n"
-#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-#| "gpl.html>\n"
-#| "This is free software: you are free to change and redistribute it.\n"
-#| "There is NO WARRANTY, to the extent permitted by law.\n"
-msgid ""
-"Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-"gpl.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law."
-msgstr ""
-"Copyright (C) %s Free Software Foundation, Inc.\n"
-"Dit is vrije software: u mag het vrijelijk wijzigen en verder verspreiden.\n"
-"De precieze licentie is GPLv3+: GNU GPL versie 3 of later;\n"
-"zie http://gnu.org/licenses/gpl.html voor de volledige tekst.\n"
-"Er is GEEN GARANTIE, voor zover de wet dit toestaat.\n"
-
 #: tp/texi2any.pl:1169 tp/Texinfo/XS/teximakehtml.c:1406
 #, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
@@ -4390,8 +4400,10 @@ msgstr ""
 "niet '%s'.\n"
 
 #: tp/texi2any.pl:1421
-#, perl-format
-msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
+#, fuzzy, perl-format
+#| msgid ""
+#| "%s: when generating %s, only one input FILE may be specified with -o\n"
+msgid "%s: when generating %s, only one input FILE may be specified with -o"
 msgstr ""
 "%s: bij het genereren van %s kan met optie '-o' slechts één invoerbestand "
 "gegeven worden\n"
@@ -4426,9 +4438,10 @@ msgstr "het splitsen voor opmaak %s wordt genegeerd"
 msgid "error loading %s: %s"
 msgstr "fout bij laden van %s: %s"
 
-#: tp/texi2any.pl:1672
-#, perl-format
-msgid "%s: missing file argument.\n"
+#: tp/texi2any.pl:1672 tp/Texinfo/XS/teximakehtml.c:2023
+#, fuzzy, c-format, perl-format
+#| msgid "%s: missing file argument.\n"
+msgid "%s: missing file argument."
 msgstr "%s: Ontbrekend bestandsargument.\n"
 
 #: tp/texi2any.pl:1703
@@ -4443,14 +4456,15 @@ msgid "error on closing macro expand file %s: %s"
 msgstr "fout bij sluiten van %s, bestand met macro-expansies: %s\n"
 
 #: tp/texi2any.pl:2084
-#, perl-format
-msgid "%s: error on closing internal links file %s: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: error on closing internal links file %s: %s\n"
+msgid "%s: error on closing internal links file %s: %s"
 msgstr "%s: fout bij sluiten van %s, bestand met interne koppelingen: %s\n"
 
 #: tp/texi2any.pl:2162
 #, fuzzy, perl-format
 #| msgid "%s: error on closing internal links file %s: %s\n"
-msgid "%s: error on closing elements size file %s: %s\n"
+msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: fout bij sluiten van %s, bestand met interne koppelingen: %s\n"
 
 #: tp/Texinfo/XS/teximakehtml.c:1434
@@ -4461,18 +4475,6 @@ msgid "%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
 msgstr ""
 "%s: Argument van --paragraph-indent moet numeriek, 'none' of 'asis' zijn, "
 "niet '%s'.\n"
-
-#: tp/Texinfo/XS/teximakehtml.c:2023
-#, fuzzy, c-format
-#| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument."
-msgstr "%s: Ontbrekend bestandsargument.\n"
-
-#: tp/Texinfo/XS/teximakehtml.c:2031
-#, fuzzy, c-format
-#| msgid "Try `%s --help' for more information.\n"
-msgid "Try `%s --help' for more information."
-msgstr "Typ '%s --help' voor meer informatie.\n"
 
 #: tp/Texinfo/XS/convert/convert_html.c:2158
 #, c-format
@@ -4633,6 +4635,22 @@ msgstr "@subentry hoort alleen voor te komen in een index-item"
 #, c-format
 msgid "bad or empty @%s formal argument: "
 msgstr "onjuist of leeg formeel argument van @%s: "
+
+#, perl-format
+#~ msgid "Try `%s --help' for more information.\n"
+#~ msgstr "Typ '%s --help' voor meer informatie.\n"
+
+#, perl-format
+#~ msgid "%s: could not open %s for writing: %s\n"
+#~ msgstr "%s: kan %s niet openen om te schrijven: %s\n"
+
+#, perl-format
+#~ msgid "%s: error on closing %s: %s\n"
+#~ msgstr "%s: fout bij sluiten van %s: %s\n"
+
+#, perl-format
+#~ msgid "%s: missing file argument.\n"
+#~ msgstr "%s: Ontbrekend bestandsargument.\n"
 
 #~ msgid ""
 #~ "Options for HTML:\n"

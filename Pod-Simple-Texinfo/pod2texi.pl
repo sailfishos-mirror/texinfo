@@ -199,7 +199,7 @@ my $result_options = Getopt::Long::GetOptions (
     printf __("Copyright (C) %s Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.\n"), "2024";
+There is NO WARRANTY, to the extent permitted by law.")."\n", "2024";
       exit 0;},
   'base-level=s' => sub {
      if ($_[1] =~ /^[0-4]$/) {
@@ -207,7 +207,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2024";
      } elsif (defined($Texinfo::Common::command_structuring_level{$_[1]})) {
        $base_level = $Texinfo::Common::command_structuring_level{$_[1]};
      } else {
-       die sprintf(__("%s: wrong argument for --base-level\n"),
+       die sprintf(__("%s: wrong argument for --base-level")."\n",
                    $real_command_name);
      }
    },
@@ -250,8 +250,8 @@ my @input_files = @ARGV;
 
 # use STDIN if not a tty, like makeinfo does
 @input_files = ('-') if (!scalar(@input_files) and !-t STDIN);
-die sprintf(__("%s: missing file argument\n"), $real_command_name)
-   .sprintf(__("Try `%s --help' for more information.\n"), $real_command_name)
+die sprintf(__("%s: missing file argument")."\n", $real_command_name)
+   .sprintf(__("Try `%s --help' for more information.")."\n", $real_command_name)
      unless (scalar(@input_files) >= 1);
 
 my %file_manual_title;
@@ -278,7 +278,7 @@ if ($base_level > 0) {
         #print STDERR "NEW MANUAL: $manual_name\n";
       } else {
         if (!$parser->content_seen) {
-          warn sprintf(__("%s: warning: %s without content\n"),
+          warn sprintf(__("%s: warning: %s without content")."\n",
                        $real_command_name, $file);
         }
       }
@@ -501,7 +501,7 @@ foreach my $file (@input_files) {
     $fh = *STDOUT;
   } else {
     open(OUT, ">$outfile")
-               or die sprintf(__("%s: could not open %s for writing: %s\n"),
+               or die sprintf(__("%s: could not open %s for writing: %s")."\n",
                                           $real_command_name, $outfile, $!);
     $fh = *OUT;
   }
@@ -547,7 +547,7 @@ foreach my $file (@input_files) {
     if ($debug > 4) {
       # print the manual obtained before fixing the Texinfo code to a file
       open(DBGFILE, ">$outfile-dbg")
-                             or die sprintf(__("%s: could not open %s: %s\n"),
+                             or die sprintf(__("%s: could not open %s: %s")."\n",
                                       $real_command_name, "$outfile-dbg", $!);
       binmode(DBGFILE, ':encoding(utf-8)');
       print DBGFILE $manual_texi;
@@ -560,13 +560,13 @@ foreach my $file (@input_files) {
   print $fh $manual_texi;
 
   if ($outfile ne '-') {
-    close($fh) or die sprintf(__("%s: error on closing %s: %s\n"),
+    close($fh) or die sprintf(__("%s: error on closing %s: %s")."\n",
                                $real_command_name, $outfile, $!);
   }
 
   if ($base_level > 0) {
     if (!$new->content_seen) {
-      warn sprintf(__("%s: removing %s as input file %s has no content\n"),
+      warn sprintf(__("%s: removing %s as input file %s has no content")."\n",
                    $real_command_name, $outfile, $file);
       unlink ($outfile);
       pop @included;
@@ -595,7 +595,7 @@ foreach my $file (@input_files) {
 
         if ($new_outfile ne $outfile) {
           unless (rename ($outfile, $new_outfile)) {
-            die sprintf(__("%s: rename %s failed: %s\n"),
+            die sprintf(__("%s: rename %s failed: %s")."\n",
                         $real_command_name, $outfile, $!);
           }
         }
@@ -609,7 +609,7 @@ if ($base_level > 0) {
   my $fh;
   if ($output ne '-') {
     open(OUT, ">$output")
-              or die sprintf(__("%s: could not open %s for writing: %s\n"),
+              or die sprintf(__("%s: could not open %s for writing: %s")."\n",
                                           $real_command_name, $output, $!);
     $fh = *OUT;
   } else {
@@ -658,13 +658,13 @@ if ($base_level > 0) {
   print $fh "\n\@bye\n";
   
   if ($output ne '-') {
-    close($fh) or die sprintf(__("%s: error on closing %s: %s\n"),
+    close($fh) or die sprintf(__("%s: error on closing %s: %s")."\n",
                                $real_command_name, $output, $!);
   }
 }
 
 if (defined($output) and $output eq '-') {
-  close(STDOUT) or die sprintf(__("%s: error on closing stdout: %s\n"),
+  close(STDOUT) or die sprintf(__("%s: error on closing stdout: %s")."\n",
                                $real_command_name, $!);
 }
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-24 10:24+0100\n"
+"POT-Creation-Date: 2024-12-24 10:39+0100\n"
 "PO-Revision-Date: 2024-12-14 18:17+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -309,8 +309,7 @@ msgid "Try --help for more information.\n"
 msgstr "Спробуйте --help, щоб отримати більше інформації.\n"
 
 #: info/info.c:875 install-info/install-info.c:2280
-#: Pod-Simple-Texinfo/pod2texi.pl:199
-#, c-format, perl-format
+#, c-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
 "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
@@ -2049,9 +2048,33 @@ msgstr "    --unnumbered-sections   не нумерувати розділи"
 msgid "    --version               display version information and exit"
 msgstr "    --version               вивести дані щодо версії і вийти"
 
+#: Pod-Simple-Texinfo/pod2texi.pl:199 tp/texi2any.pl:1142
+#: tp/Texinfo/XS/teximakehtml.c:1380
+#, fuzzy, c-format, perl-format
+#| msgid ""
+#| "Copyright (C) %s Free Software Foundation, Inc.\n"
+#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+#| "gpl.html>\n"
+#| "This is free software: you are free to change and redistribute it.\n"
+#| "There is NO WARRANTY, to the extent permitted by law.\n"
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+"gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law."
+msgstr ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"Ліцензія GPLv3+: GNU GPL версія 3, чи новіша <http://gnu.org/licenses/"
+"gpl.html>\n"
+"Це вільне програмне забезпечення: ви можете змінювати та розповсюджувати "
+"його.\n"
+"Не надається НІЯКИХ ГАРАНТІЙ у рамках, передбачених законом.\n"
+
 #: Pod-Simple-Texinfo/pod2texi.pl:210
-#, perl-format
-msgid "%s: wrong argument for --base-level\n"
+#, fuzzy, perl-format
+#| msgid "%s: wrong argument for --base-level\n"
+msgid "%s: wrong argument for --base-level"
 msgstr "%s: помилковий аргумент --base-level\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:239
@@ -2060,18 +2083,22 @@ msgid "%s: could not create directory %s: %s"
 msgstr "%s: не вдалося створити каталог %s: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:253
-#, perl-format
-msgid "%s: missing file argument\n"
+#, fuzzy, perl-format
+#| msgid "%s: missing file argument\n"
+msgid "%s: missing file argument"
 msgstr "%s: не вказано аргумент назви файла\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:254 tp/texi2any.pl:1673
-#, perl-format
-msgid "Try `%s --help' for more information.\n"
+#: tp/Texinfo/XS/teximakehtml.c:2031
+#, fuzzy, c-format, perl-format
+#| msgid "Try `%s --help' for more information.\n"
+msgid "Try `%s --help' for more information."
 msgstr "Спробуйте `%s --help', щоб отримати більше інформації.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:281
-#, perl-format
-msgid "%s: warning: %s without content\n"
+#, fuzzy, perl-format
+#| msgid "%s: warning: %s without content\n"
+msgid "%s: warning: %s without content"
 msgstr "%s: попередження: %s не містить даних\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:296
@@ -2081,35 +2108,41 @@ msgstr "%s: та сама назва підручника «%s» для різн
 
 #: Pod-Simple-Texinfo/pod2texi.pl:504 Pod-Simple-Texinfo/pod2texi.pl:612
 #: tp/texi2any.pl:2092 tp/texi2any.pl:2170
-#, perl-format
-msgid "%s: could not open %s for writing: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: could not open %s for writing: %s\n"
+msgid "%s: could not open %s for writing: %s"
 msgstr "%s: не вдалося відкрити %s для запису даних: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:550
-#, perl-format
-msgid "%s: could not open %s: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: could not open %s: %s\n"
+msgid "%s: could not open %s: %s"
 msgstr "%s: не вдалося відкрити %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:563 Pod-Simple-Texinfo/pod2texi.pl:661
 #: tp/texi2any.pl:2053 tp/texi2any.pl:2200
-#, perl-format
-msgid "%s: error on closing %s: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: error on closing %s: %s\n"
+msgid "%s: error on closing %s: %s"
 msgstr "%s: помилка під час спроби закрити %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:569
-#, perl-format
-msgid "%s: removing %s as input file %s has no content\n"
+#, fuzzy, perl-format
+#| msgid "%s: removing %s as input file %s has no content\n"
+msgid "%s: removing %s as input file %s has no content"
 msgstr ""
 "%s: вилучаємо %s, оскільки файл вхідних даних %s не містить придатних даних\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:598
-#, perl-format
-msgid "%s: rename %s failed: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: rename %s failed: %s\n"
+msgid "%s: rename %s failed: %s"
 msgstr "%s: не вдалося перейменувати %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:667
-#, perl-format
-msgid "%s: error on closing stdout: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: error on closing stdout: %s\n"
+msgid "%s: error on closing stdout: %s"
 msgstr "%s: помилка під час спроби закрити stdout: %s\n"
 
 #: tp/Texinfo/Common.pm:644 tp/Texinfo/XS/parsetexi/end_line.c:1515
@@ -4380,28 +4413,6 @@ msgstr ""
 "  makeinfo --no-split foo.texi           записати все в один файл Info (він "
 "буде великим)\n"
 
-#: tp/texi2any.pl:1142 tp/Texinfo/XS/teximakehtml.c:1380
-#, fuzzy, c-format, perl-format
-#| msgid ""
-#| "Copyright (C) %s Free Software Foundation, Inc.\n"
-#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-#| "gpl.html>\n"
-#| "This is free software: you are free to change and redistribute it.\n"
-#| "There is NO WARRANTY, to the extent permitted by law.\n"
-msgid ""
-"Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-"gpl.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law."
-msgstr ""
-"Copyright (C) %s Free Software Foundation, Inc.\n"
-"Ліцензія GPLv3+: GNU GPL версія 3, чи новіша <http://gnu.org/licenses/"
-"gpl.html>\n"
-"Це вільне програмне забезпечення: ви можете змінювати та розповсюджувати "
-"його.\n"
-"Не надається НІЯКИХ ГАРАНТІЙ у рамках, передбачених законом.\n"
-
 #: tp/texi2any.pl:1169 tp/Texinfo/XS/teximakehtml.c:1406
 #, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
@@ -4424,8 +4435,10 @@ msgstr ""
 "`%s'.\n"
 
 #: tp/texi2any.pl:1421
-#, perl-format
-msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
+#, fuzzy, perl-format
+#| msgid ""
+#| "%s: when generating %s, only one input FILE may be specified with -o\n"
+msgid "%s: when generating %s, only one input FILE may be specified with -o"
 msgstr ""
 "%s: створення %s, за допомогою -o можна вказувати лише один файл вхідних "
 "даних\n"
@@ -4459,9 +4472,10 @@ msgstr "ігноруємо поділ для формату %s"
 msgid "error loading %s: %s"
 msgstr "помилка під час спроби завантаження %s: %s"
 
-#: tp/texi2any.pl:1672
-#, perl-format
-msgid "%s: missing file argument.\n"
+#: tp/texi2any.pl:1672 tp/Texinfo/XS/teximakehtml.c:2023
+#, fuzzy, c-format, perl-format
+#| msgid "%s: missing file argument.\n"
+msgid "%s: missing file argument."
 msgstr "%s: не вказано аргумент назви файлу.\n"
 
 #: tp/texi2any.pl:1703
@@ -4477,13 +4491,15 @@ msgstr ""
 "помилка під час спроби закрити файл розгортання макровизначень %s: %s\n"
 
 #: tp/texi2any.pl:2084
-#, perl-format
-msgid "%s: error on closing internal links file %s: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: error on closing internal links file %s: %s\n"
+msgid "%s: error on closing internal links file %s: %s"
 msgstr "%s: помилка під час спроби закрити файл внутрішніх посилань %s: %s\n"
 
 #: tp/texi2any.pl:2162
-#, perl-format
-msgid "%s: error on closing elements size file %s: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: error on closing elements size file %s: %s\n"
+msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: помилка під час спроби закрити файл розмірів елементів %s: %s\n"
 
 #: tp/Texinfo/XS/teximakehtml.c:1434
@@ -4494,18 +4510,6 @@ msgid "%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
 msgstr ""
 "%s: аргумент до --paragraph-indent має бути числом, `none' чи `asis', а не "
 "`%s'.\n"
-
-#: tp/Texinfo/XS/teximakehtml.c:2023
-#, fuzzy, c-format
-#| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument."
-msgstr "%s: не вказано аргумент назви файлу.\n"
-
-#: tp/Texinfo/XS/teximakehtml.c:2031
-#, fuzzy, c-format
-#| msgid "Try `%s --help' for more information.\n"
-msgid "Try `%s --help' for more information."
-msgstr "Спробуйте `%s --help', щоб отримати більше інформації.\n"
 
 #: tp/Texinfo/XS/convert/convert_html.c:2158
 #, c-format
@@ -4656,6 +4660,22 @@ msgstr "@subentry має використовуватися лише у запи
 #, c-format
 msgid "bad or empty @%s formal argument: "
 msgstr "помилковий або порожній формальний аргумент @%s: "
+
+#, perl-format
+#~ msgid "Try `%s --help' for more information.\n"
+#~ msgstr "Спробуйте `%s --help', щоб отримати більше інформації.\n"
+
+#, perl-format
+#~ msgid "%s: could not open %s for writing: %s\n"
+#~ msgstr "%s: не вдалося відкрити %s для запису даних: %s\n"
+
+#, perl-format
+#~ msgid "%s: error on closing %s: %s\n"
+#~ msgstr "%s: помилка під час спроби закрити %s: %s\n"
+
+#, perl-format
+#~ msgid "%s: missing file argument.\n"
+#~ msgstr "%s: не вказано аргумент назви файлу.\n"
 
 #~ msgid ""
 #~ "Options for HTML:\n"

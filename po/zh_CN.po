@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-24 10:24+0100\n"
+"POT-Creation-Date: 2024-12-24 10:39+0100\n"
 "PO-Revision-Date: 2018-01-23 10:13+0800\n"
 "Last-Translator: Boyuan Yang <073plan@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -321,8 +321,7 @@ msgid "Try --help for more information.\n"
 msgstr "尝试 --更多的求助信息。\n"
 
 #: info/info.c:875 install-info/install-info.c:2280
-#: Pod-Simple-Texinfo/pod2texi.pl:199
-#, c-format, perl-format
+#, c-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
 "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
@@ -2200,9 +2199,31 @@ msgstr ""
 msgid "    --version               display version information and exit"
 msgstr ""
 
+#: Pod-Simple-Texinfo/pod2texi.pl:199 tp/texi2any.pl:1142
+#: tp/Texinfo/XS/teximakehtml.c:1380
+#, fuzzy, c-format, perl-format
+#| msgid ""
+#| "Copyright (C) %s Free Software Foundation, Inc.\n"
+#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+#| "gpl.html>\n"
+#| "This is free software: you are free to change and redistribute it.\n"
+#| "There is NO WARRANTY, to the extent permitted by law.\n"
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+"gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law."
+msgstr ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+"gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+
 #: Pod-Simple-Texinfo/pod2texi.pl:210
 #, perl-format
-msgid "%s: wrong argument for --base-level\n"
+msgid "%s: wrong argument for --base-level"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:239
@@ -2214,18 +2235,21 @@ msgstr "无法创建目录“%s”：%s"
 #: Pod-Simple-Texinfo/pod2texi.pl:253
 #, fuzzy, perl-format
 #| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument\n"
+msgid "%s: missing file argument"
 msgstr "%s：遗漏文件参数。\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:254 tp/texi2any.pl:1673
-#, perl-format
-msgid "Try `%s --help' for more information.\n"
+#: tp/Texinfo/XS/teximakehtml.c:2031
+#, fuzzy, c-format, perl-format
+#| msgid "Try `%s --help' for more information.\n"
+msgid "Try `%s --help' for more information."
 msgstr "试用“%s --help”以获取更多信息。\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:281
-#, perl-format
-msgid "%s: warning: %s without content\n"
-msgstr ""
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgid "%s: warning: %s without content"
+msgstr "%s：警告："
 
 #: Pod-Simple-Texinfo/pod2texi.pl:296
 #, perl-format
@@ -2236,36 +2260,37 @@ msgstr ""
 #: tp/texi2any.pl:2092 tp/texi2any.pl:2170
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
-msgid "%s: could not open %s for writing: %s\n"
+msgid "%s: could not open %s for writing: %s"
 msgstr "%s: 无法打开 --css-file: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:550
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
-msgid "%s: could not open %s: %s\n"
+msgid "%s: could not open %s: %s"
 msgstr "%s: 无法打开 --css-file: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:563 Pod-Simple-Texinfo/pod2texi.pl:661
 #: tp/texi2any.pl:2053 tp/texi2any.pl:2200
-#, perl-format
-msgid "%s: error on closing %s: %s\n"
-msgstr ""
+#, fuzzy, perl-format
+#| msgid "error closing output file `%s'"
+msgid "%s: error on closing %s: %s"
+msgstr "关闭输出文件“%s”时出错"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:569
 #, perl-format
-msgid "%s: removing %s as input file %s has no content\n"
+msgid "%s: removing %s as input file %s has no content"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:598
 #, fuzzy, perl-format
 #| msgid "%s: already have dir file: %s\n"
-msgid "%s: rename %s failed: %s\n"
+msgid "%s: rename %s failed: %s"
 msgstr "%s: 已经存在了 dir 文件: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:667
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
-msgid "%s: error on closing stdout: %s\n"
+msgid "%s: error on closing stdout: %s"
 msgstr "关闭输出文件“%s”时出错"
 
 #: tp/Texinfo/Common.pm:644 tp/Texinfo/XS/parsetexi/end_line.c:1515
@@ -4577,27 +4602,6 @@ msgstr ""
 "  makeinfo --number-sections foo.texi   输出带有编号的节的 Info\n"
 "  makeinfo --no-split foo.texi          输出单个 Info 文件而不论大小\n"
 
-#: tp/texi2any.pl:1142 tp/Texinfo/XS/teximakehtml.c:1380
-#, fuzzy, c-format, perl-format
-#| msgid ""
-#| "Copyright (C) %s Free Software Foundation, Inc.\n"
-#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-#| "gpl.html>\n"
-#| "This is free software: you are free to change and redistribute it.\n"
-#| "There is NO WARRANTY, to the extent permitted by law.\n"
-msgid ""
-"Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-"gpl.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law."
-msgstr ""
-"Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-"gpl.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-
 #: tp/texi2any.pl:1169 tp/Texinfo/XS/teximakehtml.c:1406
 #, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
@@ -4618,7 +4622,7 @@ msgstr "%s：--paragraph-indent 的参数必须为数值/“none”/“asis”�
 
 #: tp/texi2any.pl:1421
 #, perl-format
-msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
+msgid "%s: when generating %s, only one input FILE may be specified with -o"
 msgstr ""
 
 #: tp/texi2any.pl:1425
@@ -4653,9 +4657,10 @@ msgstr ""
 msgid "error loading %s: %s"
 msgstr "写入“%s”时出错"
 
-#: tp/texi2any.pl:1672
-#, perl-format
-msgid "%s: missing file argument.\n"
+#: tp/texi2any.pl:1672 tp/Texinfo/XS/teximakehtml.c:2023
+#, fuzzy, c-format, perl-format
+#| msgid "%s: missing file argument.\n"
+msgid "%s: missing file argument."
 msgstr "%s：遗漏文件参数。\n"
 
 #: tp/texi2any.pl:1703
@@ -4672,13 +4677,13 @@ msgstr "关闭输出文件“%s”时出错"
 #: tp/texi2any.pl:2084
 #, fuzzy, perl-format
 #| msgid "%s: ignoring second internal links output `%s'.\n"
-msgid "%s: error on closing internal links file %s: %s\n"
+msgid "%s: error on closing internal links file %s: %s"
 msgstr "%s: 忽略二次内部连接输出“%s”。\n"
 
 #: tp/texi2any.pl:2162
 #, fuzzy, perl-format
 #| msgid "%s: ignoring second internal links output `%s'.\n"
-msgid "%s: error on closing elements size file %s: %s\n"
+msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: 忽略二次内部连接输出“%s”。\n"
 
 #: tp/Texinfo/XS/teximakehtml.c:1434
@@ -4687,18 +4692,6 @@ msgstr "%s: 忽略二次内部连接输出“%s”。\n"
 #| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
 msgid "%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
 msgstr "%s：--paragraph-indent 的参数必须为数值/“none”/“asis”，而不是“%s”。\n"
-
-#: tp/Texinfo/XS/teximakehtml.c:2023
-#, fuzzy, c-format
-#| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument."
-msgstr "%s：遗漏文件参数。\n"
-
-#: tp/Texinfo/XS/teximakehtml.c:2031
-#, fuzzy, c-format
-#| msgid "Try `%s --help' for more information.\n"
-msgid "Try `%s --help' for more information."
-msgstr "试用“%s --help”以获取更多信息。\n"
 
 #: tp/Texinfo/XS/convert/convert_html.c:2158
 #, c-format
@@ -4867,6 +4860,19 @@ msgstr ""
 #, c-format
 msgid "bad or empty @%s formal argument: "
 msgstr ""
+
+#, perl-format
+#~ msgid "Try `%s --help' for more information.\n"
+#~ msgstr "试用“%s --help”以获取更多信息。\n"
+
+#, fuzzy, perl-format
+#~| msgid "%s: could not open --css-file: %s"
+#~ msgid "%s: could not open %s for writing: %s\n"
+#~ msgstr "%s: 无法打开 --css-file: %s"
+
+#, perl-format
+#~ msgid "%s: missing file argument.\n"
+#~ msgstr "%s：遗漏文件参数。\n"
 
 #, fuzzy
 #~| msgid ""

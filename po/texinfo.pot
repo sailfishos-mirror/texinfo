@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 7.2\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-24 10:24+0100\n"
+"POT-Creation-Date: 2024-12-24 10:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -296,8 +296,7 @@ msgid "Try --help for more information.\n"
 msgstr ""
 
 #: info/info.c:875 install-info/install-info.c:2280
-#: Pod-Simple-Texinfo/pod2texi.pl:199
-#, c-format, perl-format
+#, c-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
 "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
@@ -1833,9 +1832,20 @@ msgstr ""
 msgid "    --version               display version information and exit"
 msgstr ""
 
+#: Pod-Simple-Texinfo/pod2texi.pl:199 tp/texi2any.pl:1142
+#: tp/Texinfo/XS/teximakehtml.c:1380
+#, c-format, perl-format
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+"gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law."
+msgstr ""
+
 #: Pod-Simple-Texinfo/pod2texi.pl:210
 #, perl-format
-msgid "%s: wrong argument for --base-level\n"
+msgid "%s: wrong argument for --base-level"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:239
@@ -1845,17 +1855,18 @@ msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:253
 #, perl-format
-msgid "%s: missing file argument\n"
+msgid "%s: missing file argument"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:254 tp/texi2any.pl:1673
-#, perl-format
-msgid "Try `%s --help' for more information.\n"
+#: tp/Texinfo/XS/teximakehtml.c:2031
+#, c-format, perl-format
+msgid "Try `%s --help' for more information."
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:281
 #, perl-format
-msgid "%s: warning: %s without content\n"
+msgid "%s: warning: %s without content"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:296
@@ -1866,33 +1877,33 @@ msgstr ""
 #: Pod-Simple-Texinfo/pod2texi.pl:504 Pod-Simple-Texinfo/pod2texi.pl:612
 #: tp/texi2any.pl:2092 tp/texi2any.pl:2170
 #, perl-format
-msgid "%s: could not open %s for writing: %s\n"
+msgid "%s: could not open %s for writing: %s"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:550
 #, perl-format
-msgid "%s: could not open %s: %s\n"
+msgid "%s: could not open %s: %s"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:563 Pod-Simple-Texinfo/pod2texi.pl:661
 #: tp/texi2any.pl:2053 tp/texi2any.pl:2200
 #, perl-format
-msgid "%s: error on closing %s: %s\n"
+msgid "%s: error on closing %s: %s"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:569
 #, perl-format
-msgid "%s: removing %s as input file %s has no content\n"
+msgid "%s: removing %s as input file %s has no content"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:598
 #, perl-format
-msgid "%s: rename %s failed: %s\n"
+msgid "%s: rename %s failed: %s"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:667
 #, perl-format
-msgid "%s: error on closing stdout: %s\n"
+msgid "%s: error on closing stdout: %s"
 msgstr ""
 
 #: tp/Texinfo/Common.pm:644 tp/Texinfo/XS/parsetexi/end_line.c:1515
@@ -3982,16 +3993,6 @@ msgid ""
 "  makeinfo --no-split foo.texi           write one Info file however big\n"
 msgstr ""
 
-#: tp/texi2any.pl:1142 tp/Texinfo/XS/teximakehtml.c:1380
-#, c-format, perl-format
-msgid ""
-"Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-"gpl.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law."
-msgstr ""
-
 #: tp/texi2any.pl:1169 tp/Texinfo/XS/teximakehtml.c:1406
 #, c-format, perl-format
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'."
@@ -4009,7 +4010,7 @@ msgstr ""
 
 #: tp/texi2any.pl:1421
 #, perl-format
-msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
+msgid "%s: when generating %s, only one input FILE may be specified with -o"
 msgstr ""
 
 #: tp/texi2any.pl:1425
@@ -4041,9 +4042,9 @@ msgstr ""
 msgid "error loading %s: %s"
 msgstr ""
 
-#: tp/texi2any.pl:1672
-#, perl-format
-msgid "%s: missing file argument.\n"
+#: tp/texi2any.pl:1672 tp/Texinfo/XS/teximakehtml.c:2023
+#, c-format, perl-format
+msgid "%s: missing file argument."
 msgstr ""
 
 #: tp/texi2any.pl:1703
@@ -4058,27 +4059,17 @@ msgstr ""
 
 #: tp/texi2any.pl:2084
 #, perl-format
-msgid "%s: error on closing internal links file %s: %s\n"
+msgid "%s: error on closing internal links file %s: %s"
 msgstr ""
 
 #: tp/texi2any.pl:2162
 #, perl-format
-msgid "%s: error on closing elements size file %s: %s\n"
+msgid "%s: error on closing elements size file %s: %s"
 msgstr ""
 
 #: tp/Texinfo/XS/teximakehtml.c:1434
 #, c-format
 msgid "%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
-msgstr ""
-
-#: tp/Texinfo/XS/teximakehtml.c:2023
-#, c-format
-msgid "%s: missing file argument."
-msgstr ""
-
-#: tp/Texinfo/XS/teximakehtml.c:2031
-#, c-format
-msgid "Try `%s --help' for more information."
 msgstr ""
 
 #: tp/Texinfo/XS/convert/convert_html.c:2158

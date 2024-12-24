@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.5.93\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-12-24 10:24+0100\n"
+"POT-Creation-Date: 2024-12-24 10:39+0100\n"
 "PO-Revision-Date: 2019-02-14 10:09+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -317,8 +317,7 @@ msgid "Try --help for more information.\n"
 msgstr "Prøv --help for yderligere information.\n"
 
 #: info/info.c:875 install-info/install-info.c:2280
-#: Pod-Simple-Texinfo/pod2texi.pl:199
-#, c-format, perl-format
+#, c-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
 "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
@@ -2004,9 +2003,33 @@ msgstr ""
 msgid "    --version               display version information and exit"
 msgstr ""
 
+#: Pod-Simple-Texinfo/pod2texi.pl:199 tp/texi2any.pl:1142
+#: tp/Texinfo/XS/teximakehtml.c:1380
+#, fuzzy, c-format, perl-format
+#| msgid ""
+#| "Copyright (C) %s Free Software Foundation, Inc.\n"
+#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+#| "gpl.html>\n"
+#| "This is free software: you are free to change and redistribute it.\n"
+#| "There is NO WARRANTY, to the extent permitted by law.\n"
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+"gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law."
+msgstr ""
+"Ophavsret (C) %s Free Software Foundation, Inc.\n"
+"Licens GPLv3+: GNU GPL version 3 eller senere <http://gnu.org/licenses/"
+"gpl.html>.\n"
+"Dette er et frit program: du kan frit ændre og videredistribuere "
+"programmet.\n"
+"Der er ingen GARANTI, inden for lovens udstrækning.\n"
+"\n"
+
 #: Pod-Simple-Texinfo/pod2texi.pl:210
 #, perl-format
-msgid "%s: wrong argument for --base-level\n"
+msgid "%s: wrong argument for --base-level"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:239
@@ -2018,18 +2041,21 @@ msgstr "kunne ikke oprette mappe »%s«: %s"
 #: Pod-Simple-Texinfo/pod2texi.pl:253
 #, fuzzy, perl-format
 #| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument\n"
+msgid "%s: missing file argument"
 msgstr "%s: mangler filparameter.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:254 tp/texi2any.pl:1673
-#, perl-format
-msgid "Try `%s --help' for more information.\n"
+#: tp/Texinfo/XS/teximakehtml.c:2031
+#, fuzzy, c-format, perl-format
+#| msgid "Try `%s --help' for more information.\n"
+msgid "Try `%s --help' for more information."
 msgstr "Prøv »%s --help« for yderligere information.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:281
-#, perl-format
-msgid "%s: warning: %s without content\n"
-msgstr ""
+#, fuzzy, perl-format
+#| msgid "%s: error on closing %s: %s\n"
+msgid "%s: warning: %s without content"
+msgstr "%s: der opstod en fejl under lukning af %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:296
 #, fuzzy, perl-format
@@ -2039,37 +2065,39 @@ msgstr "@%s-postemnenavn »%s« er forskellig fra %s-navn »%s«"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:504 Pod-Simple-Texinfo/pod2texi.pl:612
 #: tp/texi2any.pl:2092 tp/texi2any.pl:2170
-#, perl-format
-msgid "%s: could not open %s for writing: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: could not open %s for writing: %s\n"
+msgid "%s: could not open %s for writing: %s"
 msgstr "%s: kunne ikke åbne %s for skrivning: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:550
 #, fuzzy, perl-format
 #| msgid "@%s: could not open %s: %s"
-msgid "%s: could not open %s: %s\n"
+msgid "%s: could not open %s: %s"
 msgstr "@%s: kunne ikke åbne %s: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:563 Pod-Simple-Texinfo/pod2texi.pl:661
 #: tp/texi2any.pl:2053 tp/texi2any.pl:2200
-#, perl-format
-msgid "%s: error on closing %s: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: error on closing %s: %s\n"
+msgid "%s: error on closing %s: %s"
 msgstr "%s: der opstod en fejl under lukning af %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:569
 #, perl-format
-msgid "%s: removing %s as input file %s has no content\n"
+msgid "%s: removing %s as input file %s has no content"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:598
 #, fuzzy, perl-format
 #| msgid "rename %s failed: %s"
-msgid "%s: rename %s failed: %s\n"
+msgid "%s: rename %s failed: %s"
 msgstr "omdøbning af %s mislykkedes: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:667
 #, fuzzy, perl-format
 #| msgid "%s: error on closing %s: %s\n"
-msgid "%s: error on closing stdout: %s\n"
+msgid "%s: error on closing stdout: %s"
 msgstr "%s: der opstod en fejl under lukning af %s: %s\n"
 
 #: tp/Texinfo/Common.pm:644 tp/Texinfo/XS/parsetexi/end_line.c:1515
@@ -4339,29 +4367,6 @@ msgstr ""
 "  makeinfo --no-split xxx.texi           skriv en Info-fil, uanset "
 "størrelsen\n"
 
-#: tp/texi2any.pl:1142 tp/Texinfo/XS/teximakehtml.c:1380
-#, fuzzy, c-format, perl-format
-#| msgid ""
-#| "Copyright (C) %s Free Software Foundation, Inc.\n"
-#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-#| "gpl.html>\n"
-#| "This is free software: you are free to change and redistribute it.\n"
-#| "There is NO WARRANTY, to the extent permitted by law.\n"
-msgid ""
-"Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-"gpl.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law."
-msgstr ""
-"Ophavsret (C) %s Free Software Foundation, Inc.\n"
-"Licens GPLv3+: GNU GPL version 3 eller senere <http://gnu.org/licenses/"
-"gpl.html>.\n"
-"Dette er et frit program: du kan frit ændre og videredistribuere "
-"programmet.\n"
-"Der er ingen GARANTI, inden for lovens udstrækning.\n"
-"\n"
-
 #: tp/texi2any.pl:1169 tp/Texinfo/XS/teximakehtml.c:1406
 #, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
@@ -4383,8 +4388,10 @@ msgstr ""
 "%s: --paragraph-indent parameter skal være tal/»none«/»asis«, ikke »%s«.\n"
 
 #: tp/texi2any.pl:1421
-#, perl-format
-msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
+#, fuzzy, perl-format
+#| msgid ""
+#| "%s: when generating %s, only one input FILE may be specified with -o\n"
+msgid "%s: when generating %s, only one input FILE may be specified with -o"
 msgstr "%s: under oprettelse af %s, kan kun en inddata-FIL angivet med -o\n"
 
 #: tp/texi2any.pl:1425
@@ -4419,9 +4426,10 @@ msgstr "ignorerer opdeling for format %s"
 msgid "error loading %s: %s"
 msgstr "fejl under indlæsning af %s: %s\n"
 
-#: tp/texi2any.pl:1672
-#, perl-format
-msgid "%s: missing file argument.\n"
+#: tp/texi2any.pl:1672 tp/Texinfo/XS/teximakehtml.c:2023
+#, fuzzy, c-format, perl-format
+#| msgid "%s: missing file argument.\n"
+msgid "%s: missing file argument."
 msgstr "%s: mangler filparameter.\n"
 
 #: tp/texi2any.pl:1703
@@ -4436,14 +4444,15 @@ msgid "error on closing macro expand file %s: %s"
 msgstr "der opstod en fejl under lukning af makro udvid-filen %s: %s\n"
 
 #: tp/texi2any.pl:2084
-#, perl-format
-msgid "%s: error on closing internal links file %s: %s\n"
+#, fuzzy, perl-format
+#| msgid "%s: error on closing internal links file %s: %s\n"
+msgid "%s: error on closing internal links file %s: %s"
 msgstr "%s: der opstod en fejl under lukning af intern henvisningsfil %s: %s\n"
 
 #: tp/texi2any.pl:2162
 #, fuzzy, perl-format
 #| msgid "%s: error on closing internal links file %s: %s\n"
-msgid "%s: error on closing elements size file %s: %s\n"
+msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: der opstod en fejl under lukning af intern henvisningsfil %s: %s\n"
 
 #: tp/Texinfo/XS/teximakehtml.c:1434
@@ -4453,18 +4462,6 @@ msgstr "%s: der opstod en fejl under lukning af intern henvisningsfil %s: %s\n"
 msgid "%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
 msgstr ""
 "%s: --paragraph-indent parameter skal være tal/»none«/»asis«, ikke »%s«.\n"
-
-#: tp/Texinfo/XS/teximakehtml.c:2023
-#, fuzzy, c-format
-#| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument."
-msgstr "%s: mangler filparameter.\n"
-
-#: tp/Texinfo/XS/teximakehtml.c:2031
-#, fuzzy, c-format
-#| msgid "Try `%s --help' for more information.\n"
-msgid "Try `%s --help' for more information."
-msgstr "Prøv »%s --help« for yderligere information.\n"
 
 #: tp/Texinfo/XS/convert/convert_html.c:2158
 #, c-format
@@ -4641,6 +4638,22 @@ msgstr "@%s bør kun fremgå i et indekselement"
 #| msgid "bad or empty @%s formal argument: %s"
 msgid "bad or empty @%s formal argument: "
 msgstr "ugyldig eller tom formel @%s-parameter: %s"
+
+#, perl-format
+#~ msgid "Try `%s --help' for more information.\n"
+#~ msgstr "Prøv »%s --help« for yderligere information.\n"
+
+#, perl-format
+#~ msgid "%s: could not open %s for writing: %s\n"
+#~ msgstr "%s: kunne ikke åbne %s for skrivning: %s\n"
+
+#, perl-format
+#~ msgid "%s: error on closing %s: %s\n"
+#~ msgstr "%s: der opstod en fejl under lukning af %s: %s\n"
+
+#, perl-format
+#~ msgid "%s: missing file argument.\n"
+#~ msgstr "%s: mangler filparameter.\n"
 
 #~ msgid ""
 #~ "Options for HTML:\n"
