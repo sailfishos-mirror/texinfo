@@ -1,5 +1,11 @@
 2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/teximakehtml.c (formats_table, long_options)
+	(main): add formats with Perl modules specifications and options.
+	Load the corresponding Perl module to output the format.
+
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_conversion_perl.c (call_eval_use_module)
 	(call_config_GNUT_load_init_file), tp/Texinfo/XS/convert/texinfo.c
 	(txi_converter_output_format_setup), tp/Texinfo/XS/teximakehtml.c

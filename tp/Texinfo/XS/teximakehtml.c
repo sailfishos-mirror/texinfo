@@ -101,12 +101,30 @@ typedef struct FORMAT_SPECIFICATION {
 } FORMAT_SPECIFICATION;
 
 static FORMAT_SPECIFICATION formats_table[] = {
+  {"info", STTF_nodes_tree | STTF_floats
+           | STTF_setup_index_entries_sort_strings,
+   NULL, "Texinfo::Convert::Info", NULL},
   {"html", STTF_relate_index_entries_to_table_items
            | STTF_move_index_entries_after_items
            | STTF_no_warn_non_empty_parts
            | STTF_nodes_tree | STTF_floats | STTF_split
            | STTF_setup_index_entries_sort_strings,
    NULL, "Texinfo::Convert::HTML", NULL},
+  {"plaintext", STTF_nodes_tree | STTF_floats | STTF_split
+                | STTF_setup_index_entries_sort_strings,
+   NULL, "Texinfo::Convert::Plaintext", NULL},
+  {"latex", STTF_floats | STTF_move_index_entries_after_items
+            | STTF_no_warn_non_empty_parts,
+   NULL, "Texinfo::Convert::LaTeX", NULL},
+  {"docbook", STTF_move_index_entries_after_items
+              | STTF_no_warn_non_empty_parts,
+   NULL, "Texinfo::Convert::DocBook", NULL},
+  {"epub3", 0, "html", NULL, "epub3.pm"},
+  {"texinfoxml", STTF_nodes_tree,
+   NULL, "Texinfo::Convert::TexinfoXML", NULL},
+  {"debugtree", STTF_split,
+   NULL, "Texinfo::DebugTree", NULL},
+  {"textcontent", 0, NULL, "Texinfo::Convert::TextContent", NULL},
   {"parse", 0, NULL, NULL, NULL},
   {"structure", STTF_nodes_tree | STTF_floats | STTF_split, NULL, NULL, NULL},
   {NULL, 0, NULL, NULL, NULL}
@@ -862,8 +880,9 @@ static int embed_interpreter_p;
 #define IFXML_OPT 18
 #define NO_IFXML_OPT 19
 #define NO_WARN_OPT 20
-/* potentially 12 formats */
-#define HTML_OPT 25
+#define _FORMAT_OPT 21
+#define XML_OPT 22
+/* can add here */
 #define TRACE_INCLUDES_OPT 33
 #define NO_VERBOSE_OPT 34
 #define HEADERS_OPT 35
@@ -935,7 +954,13 @@ static struct option long_options[] = {
   {"verbose", 0, 0, 'v'},
   {"no-verbose", 0, 0, NO_VERBOSE_OPT},
   {"version", 0, 0, 'V'},
-  {"html", 0, 0, HTML_OPT},
+  {"html", 0, 0, _FORMAT_OPT},
+  {"plaintext", 0, 0, _FORMAT_OPT},
+  {"latex", 0, 0, _FORMAT_OPT},
+  {"info", 0, 0, _FORMAT_OPT},
+  {"docbook", 0, 0, _FORMAT_OPT},
+  {"epub3", 0, 0, _FORMAT_OPT},
+  {"xml", 0, 0, XML_OPT},
   IFFORMAT_TABLE(DOCBOOK, docbook)
   IFFORMAT_TABLE(INFO, info)
   IFFORMAT_TABLE(HTML, html)
@@ -1011,11 +1036,17 @@ main (int argc, char *argv[], char *env[])
   const char *curdir = ".";
   CONVERTER_INITIALIZATION_INFO *converter_init_info;
   const char *external_module = 0;
+  int default_is_html = 1;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
   free (program_file_name_and_directory[1]);
   /* command_directory = program_file_name_and_directory[1]; */
+
+#ifdef EMBED_PERL
+  embedded_interpreter = 1;
+  default_is_html = 0;
+#endif
 
   top_srcdir = getenv ("top_srcdir");
   if (top_srcdir)
@@ -1075,7 +1106,10 @@ main (int argc, char *argv[], char *env[])
   /* set default output format.  Is info in texi2any */
   /* better than making it the default value independently of the
      implementation */
-  add_option_value (&program_options, "TEXINFO_OUTPUT_FORMAT", 0, "html");
+  if (default_is_html)
+    add_option_value (&program_options, "TEXINFO_OUTPUT_FORMAT", 0, "html");
+  else
+    add_option_value (&program_options, "TEXINFO_OUTPUT_FORMAT", 0, "info");
 
   /*
    if ($^O eq 'MSWin32') {
@@ -1166,6 +1200,12 @@ main (int argc, char *argv[], char *env[])
         {
         case 0:
           /* option sets a flag, nothing to do */
+          break;
+        case _FORMAT_OPT:
+          set_cmdline_format (long_options[getopt_long_index].name);
+          break;
+        case XML_OPT:
+          set_cmdline_format ("texinfoxml");
           break;
         case 'c':
           get_cmdline_customization_option (&cmdline_options, optarg);
@@ -1490,9 +1530,6 @@ main (int argc, char *argv[], char *env[])
             free (split);
           }
           break;
-        case HTML_OPT:
-          set_cmdline_format ("html");
-          break;
 #define IFFORMAT_CASE(upcase, name) \
         case IF ## upcase ## _OPT: \
           set_expansion (&cmdline_options, &ignored_formats, #name); \
@@ -1594,10 +1631,28 @@ main (int argc, char *argv[], char *env[])
         _("      --version               display version information and exit."));
       text_append_n (&help_message, "\n\n", 2);
 
-      text_append (&help_message, "Output format selection (default is to produce HTML):");
+      if (default_is_html)
+        text_append (&help_message, "Output format selection (default is to produce HTML):");
+      else
+        text_append (&help_message, _("Output format selection (default is to produce Info):"));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("      --docbook               output Docbook XML."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _("      --html                  output HTML."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("      --epub3                 output EPUB 3."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("      --latex                 output LaTeX."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("      --plaintext             output plain text rather than Info."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("      --xml                   output Texinfo XML."));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("General output options:"));
@@ -1747,10 +1802,6 @@ main (int argc, char *argv[], char *env[])
       store_value (&values, "TEXI2HTML", "1");
     }
 
-#ifdef EMBED_PERL
-  embedded_interpreter = 1;
-#endif
-
   if (embed_interpreter_p == -1)
     embedded_interpreter = 0;
   else if (embed_interpreter_p == 1)
@@ -1890,10 +1941,23 @@ main (int argc, char *argv[], char *env[])
 
   free_strings_list (&default_expanded_formats);
 
-  if (format_specification->module && embedded_interpreter
-      && (!strcmp (converted_format, "html")
-          && loaded_init_files_nr > 0))
-    external_module = format_specification->module;
+  if (format_specification->module)
+    {
+      if (!strcmp (converted_format, "html"))
+        {
+          if (loaded_init_files_nr > 0)
+            external_module = format_specification->module;
+        }
+      else
+        external_module = format_specification->module;
+
+      if (external_module && !embedded_interpreter)
+        {
+          fprintf (stderr, "ERROR: no interpreter for %s\n",
+                   external_module);
+          exit (EXIT_FAILURE);
+        }
+     }
 
   /* corresponds to eval "require $module"; in texi2any.pl */
   txi_converter_output_format_setup (converted_format, external_module);
