@@ -464,7 +464,7 @@ distclean-local:
 	rm -rf t/include_dir
 	rm -rf po po_document
 
-CLEANFILES = texi2any makeinfo Texinfo/ModulePath.pm
+CLEANFILES = texi2any makeinfo load_txi_modules Texinfo/ModulePath.pm
 DISTCLEANFILES = maintain/catalog.xml
 MAINTAINERCLEANFILES = Texinfo/Commands.pm Texinfo/Options.pm \
       Texinfo/HTMLData.pm

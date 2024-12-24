@@ -291,6 +291,7 @@ tp/tests/many_input_files/*.trs
 tp/LocaleData
 
 tp/defs
+tp/load_txi_modules
 tp/makeinfo
 tp/t_texis
 tp/texi2any

@@ -1,5 +1,9 @@
 2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (CLEANFILES): add load_txi_modules.
+
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	tp/tests/run_parser_all.sh (check_info_math2img, no_dvipng)
 	(post_process_output): add support for INFO_MATH_IMAGES tests.
 
