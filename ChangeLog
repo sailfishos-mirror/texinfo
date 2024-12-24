@@ -1,5 +1,11 @@
 2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (convert_math_to_images): add
+	parentheses to Cwd::abs_path to avoid being considered as a bareword.
+	Found in the opencsw CI.
+
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm: remove _print_command_args_texi, it
 	is better to call Texinfo::Convert::Texinfo functions.
 

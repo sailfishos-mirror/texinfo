@@ -4722,7 +4722,7 @@ sub convert_math_to_images($$$;$)
   my ($encoded_math2img_out_dir, $math2img_out_dir_encoding)
     = $self->encoded_output_file_name($math2img_out_dir);
 
-  my $math2img_initial_dir = Cwd::abs_path;
+  my $math2img_initial_dir = Cwd::abs_path();
   unless (chdir $encoded_math2img_out_dir) {
     $self->converter_document_warn(
             sprintf(__("math to images: chdir %s failed: %s"),
