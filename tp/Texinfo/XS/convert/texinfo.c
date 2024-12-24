@@ -187,13 +187,22 @@ txi_customization_loading_finish (int embedded_interpreter)
 /* initialization of the library for a specific output format, to be
    called once */
 void
-txi_converter_output_format_setup (const char *converted_format)
+txi_converter_output_format_setup (const char *converted_format,
+                                   const char *external_module)
 {
   enum converter_format converter_format
     = find_format_name_converter_format (converted_format);
 
-  if (converter_format == COF_html)
-    html_format_setup ();
+  if (external_module)
+    call_eval_use_module (external_module);
+
+  /* TODO remove the if (!$Texinfo::XSLoader::embedded_xs) in HTML.pm and use
+     an else here? */
+    {
+      /* TODO use the table of format functions? */
+      if (converter_format == COF_html)
+        html_format_setup ();
+    }
 }
 
 /* This function should be used to get information on an output format

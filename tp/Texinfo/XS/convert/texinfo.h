@@ -42,7 +42,8 @@ void txi_set_base_default_options (OPTIONS_LIST *options,
 void txi_customization_loading_setup (int embedded_interpreter,
                    int *argc_ref, char ***argv_ref, char ***env_ref);
 
-void txi_converter_output_format_setup (const char *format_str);
+void txi_converter_output_format_setup (const char *converted_format,
+                                        const char *external_module);
 
 CONVERTER_INITIALIZATION_INFO *txi_converter_format_defaults (
                                const char *format_str,

@@ -6,6 +6,8 @@
 #include "document_types.h"
 #include "converter_types.h"
 
+void call_eval_use_module (const char *module_name);
+
 CONVERTER *call_convert_converter (const char *module_name,
                         const CONVERTER_INITIALIZATION_INFO *conf);
 char *call_converter_output (const char *module_name, CONVERTER *self,

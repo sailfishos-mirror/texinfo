@@ -492,7 +492,7 @@ sub book_unit_file_name($$$$)
       $command = $output_unit->{'unit_command'}->{'extra'}->{'associated_section'};
     }
   }
-  return undef unless ($command);
+  return (undef, undef) unless ($command);
   if ($converter->unit_is_top_output_unit($output_unit)) {
     $new_file_name = "${prefix}_top.html";
   } elsif (defined($command->{'extra'}->{'section_number'})

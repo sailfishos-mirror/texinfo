@@ -36,7 +36,19 @@
     memory allocation */
 
 
-static int texinfo_convert_html_module_loaded;
+void
+call_eval_use_module (const char *module_name)
+{
+  SV *sv_str;
+  char *str;
+
+  dTHX;
+
+  sv_str = newSVpvf("use %s;", module_name);
+  str = SvPV_nolen(sv_str);
+
+  eval_pv (str, TRUE);
+}
 
 int
 call_config_GNUT_load_init_file (const char *file_path)
@@ -44,12 +56,6 @@ call_config_GNUT_load_init_file (const char *file_path)
   int count;
 
   dTHX;
-
-  if (!texinfo_convert_html_module_loaded)
-    {
-      eval_pv ("use Texinfo::Convert::HTML;", TRUE);
-      texinfo_convert_html_module_loaded = 1;
-    }
 
   dSP;
 

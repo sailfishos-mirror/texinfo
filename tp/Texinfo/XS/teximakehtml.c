@@ -1890,8 +1890,13 @@ main (int argc, char *argv[], char *env[])
 
   free_strings_list (&default_expanded_formats);
 
+  if (format_specification->module && embedded_interpreter
+      && (!strcmp (converted_format, "html")
+          && loaded_init_files_nr > 0))
+    external_module = format_specification->module;
+
   /* corresponds to eval "require $module"; in texi2any.pl */
-  txi_converter_output_format_setup (converted_format);
+  txi_converter_output_format_setup (converted_format, external_module);
 
   /*
   For now, FORMAT_MENU is the only variable that can be set from converter
@@ -1999,11 +2004,6 @@ main (int argc, char *argv[], char *env[])
       add_option_value (&program_options, "PACKAGE_AND_VERSION", 0,
                         configured_name_version);
     }
-
-  if (format_specification->module && embedded_interpreter
-      && (!strcmp (converted_format, "html")
-          && loaded_init_files_nr > 0))
-    external_module = format_specification->module;
 
   if (optind < argc)
     {
