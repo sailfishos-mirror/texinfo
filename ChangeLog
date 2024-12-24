@@ -1,4 +1,4 @@
-2024-11-03  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	Remove letter column in printindex HTML formatting, improve formatting
 
@@ -59,7 +59,7 @@
 
 	Run gnulib --add-import under tp/Texinfo/XS.
 
-2024-12-23  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/converter.c (free_converter_paths_information)
 	(setup_converter_paths_information), tp/Texinfo/XS/convert/converter.h
@@ -72,13 +72,13 @@
 	modules initialization called from C.  Add a variable to avoid running
 	twice the code except for setting paths.
 
-2024-12-23  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (locate_and_load_init_file)
 	(locate_and_load_extension_file, main): free strings and structures to
 	avoid memory leaks found with valgrind.
 
-2024-12-23  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/texinfo.c (txi_load_init_file): add
 	embedded_interpreter argument, to be able to skip the call if there is
@@ -94,7 +94,7 @@
 	in txi_customization_loading_setup.  Avoid calling Perl functions if
 	set.
 
-2024-12-23  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/Makefile.am
 	(libcallperl_libtexinfo_convert_la_SOURCES)
@@ -119,7 +119,7 @@
 	(locate_and_load_extension_file, main): move code calling
 	call_conversion_perl.c functions out of texi2makehtml.c to texinfo.c.
 
-2024-12-23  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/call_conversion_perl.c (call_init_perl),
 	tp/Texinfo/XS/teximakehtml.c (main): call perl_run to have
@@ -129,13 +129,13 @@
 	they appear on the command line and load them only after the embedded
 	interpreter has been loaded.
 
-2024-12-23  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/load_txi_modules.pl (BEGIN): load Texinfo::XSLoader in BEGIN
 	block and call set_XS_embedded to be sure that it is done before any
 	module with XS is loaded.
 
-2024-12-23  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/texi2any.pl: use get_conf to determine if HTML_MATH and
 	HIGHLIGHT_SYNTAX are set to load extensions.  Move code around.
@@ -147,7 +147,7 @@
 	* tp/Texinfo/XS/teximakehtml.c (FORMAT_SPECIFICATION, main): handle
 	format needing an init file.
 
-2024-12-23  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/texinfo.c (txi_set_base_default_options),
 	tp/Texinfo/XS/teximakehtml.c (main): set XS_STRXFRM_COLLATION_LOCALE
@@ -158,7 +158,7 @@
 	control embedded interpreter.  Initialize embedded interpreter after
 	parsing the command-line.
 
-2024-12-23  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/replace_perl_api_call.c
 	(call_translations_translate_string),
@@ -168,7 +168,7 @@
 	In translate_string, even if use_external_translate_string is > 0,
 	continue with C gettext if there is no external translate_string.
 
-2024-12-23  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/converter.c
 	(clear_converter_initialization_info), tp/Texinfo/XS/main/utils.c
@@ -180,13 +180,13 @@
 	tp/Texinfo/XS/teximakehtml.c (main): separate
 	txi_converter_initialization_setup from txi_converter_setup.
 
-2024-12-23  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/html_prepare_converter.c
 	(html_converter_customize): modify the external_* counters before
 	resetting the status.
 
-2024-12-23  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/converter.c (free_generic_converter),
 	tp/Texinfo/XS/convert/ConvertXS.xs (generic_converter_init): hold a
@@ -207,7 +207,7 @@
 	tp converter converter and output Perl methods.  Use it for HTML if
 	init files were loaded.
 
-2024-12-22  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	force using XS when Perl interpreter is embedded
 
@@ -220,7 +220,7 @@
 	* tp/Texinfo/Convert/HTML.pm (import): do not call _XS_format_setup if
 	Perl is embedded, as it has already been called by the C code.
 
-2024-12-22  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	load initialization files in teximakehtml.c
 
@@ -238,7 +238,7 @@
 	locate_and_load_init_file when an init file is specified.  Setup
 	directory lists related to init files.
 
-2024-12-22  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.am (converterdata_SCRIPTS, load_txi_modules): install
 	load_txi_modules.
@@ -249,7 +249,7 @@
 
 	* tp/load_txi_modules.pl: add/remove loaded modules.
 
-2024-12-22  Patrice Dumas  <pertusus@free.fr>
+2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	ctexi2any C program for conversion to HTML with Perl embedding
 
@@ -270,29 +270,29 @@
 	use_external_translate_string, and to be able to avoid setting
 	XS_STRXFRM_COLLATION_LOCALE.  Update callers.
 
-2024-12-22  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (main): really handle option setting a
 	flag.  Set customization variable for debug option.
 
-2024-12-21  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%valid_tree_transformations): remove
 	indent_menu_descriptions, it has been removed long ago.
 
-2024-12-21  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%valid_tree_transformations),
 	tp/Texinfo/XS/convert/texinfo.h: reorder valid transformations.  Add
 	STTF_fill_gaps_in_sectioning.
 
-2024-12-21  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%valid_transformation), tp/t/test_utils.pl
 	(test): fix spelling of relate_index_entries_to_table_items.  Update
 	tests using that transformation.
 
-2024-12-21  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/texi2any.pl: remove end of line in translated string.
 
@@ -302,16 +302,16 @@
 	* tp/Texinfo/XS/teximakehtml.c (main): warn if input file ends with
 	.info.  Complete suffixes.  Set format if TEXI2HTML is specified.
 
-2024-12-21  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (values, main): add -D and -U options.
 
-2024-12-21  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (is_ascii_digit, main): add
 	paragraph-indent option.  Encode help message and output to stdout.
 
-2024-12-21  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (add_to_option_list)
 	(remove_from_option_list, set_expansion, unset_expansion)
@@ -332,7 +332,7 @@
 	texinfo_language_config_dirs_in txi_converter_setup argument.  Move
 	code adding top_srcdir/util to texinfo_language_config_dirs to main.
 
-2024-12-21  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/customization_options.c (clear_options_list):
 	also clear the OF_set_in_list flags.
@@ -346,7 +346,7 @@
 	* tp/Texinfo/XS/teximakehtml.c (main, set_expansion, unset_expansion):
 	always set EXPANDED_FORMATS as an added options in cmdline_options.
 
-2024-12-21  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/utils.c (store_value, clear_value),
 	tp/Texinfo/XS/parsetexi/macro.c (store_value_parsed_document)
@@ -359,12 +359,12 @@
 	store_parser_value_parsed_document, clear_value_parsed_document and
 	add clear_parser_value_parsed_document.  Update callers.
 
-2024-12-21  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (long_options, main): add command line
 	options setting customization variables simply.
 
-2024-12-21  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (main): add prepended include
 	directories options.  Correctly set include directories for parser and
@@ -374,7 +374,7 @@
 	case of include directories not set, and put the current directory in
 	front.
 
-2024-12-21  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (set_option_value)
 	(set_customization_default, set_from_cmdline): pass option number
@@ -384,17 +384,17 @@
 	* tp/Texinfo/XS/teximakehtml.c (long_options, main): add headers and
 	no headers command-line options.
 
-2024-12-21  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (long_options, main): add macro-expand
 	option and implementation.
 
-2024-12-21  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/texi2any.pl (document_warn): do not chomp input message.
 	Remove end of lines in document_warn calls.
 
-2024-12-20  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (set_customization_default): also check
 	init_files_options.
@@ -406,7 +406,7 @@
 	* tp/Texinfo/XS/teximakehtml.c (main): handle parse and structure
 	output formats.  Set do menu argument of txi_complete_document.
 
-2024-12-20  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/texinfo.c (txi_converter_setup),
 	tp/Texinfo/XS/teximakehtml.c (FORMAT_COMMAND_LINE_NAME)
@@ -431,7 +431,7 @@
 	* tp/Texinfo/XS/convert/texinfo.c: rename format_str as
 	converted_format.
 
-2024-12-20  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/texi2any.pl (%formats_table): remove internal_links for latex, it
 	is not implemented.
@@ -441,7 +441,7 @@
 	* tp/texi2any.pl (set_format): do not recognize undef for
 	TEXINFO_OUTPUT_FORMAT.
 
-2024-12-20  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/utils.c (remove_from_strings_list): free removed
 	string.
@@ -454,20 +454,20 @@
 	* tp/Texinfo/XS/teximakehtml.c (long_options, main): add force and
 	no-warn options.
 
-2024-12-19  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/errors.c (output_error_messages), tp/texi2any.pl
 	(_output_error_messages): rename handle_error_messages as
 	output_error_messages and _handle_errors as _output_error_messages.
 
-2024-12-19  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/texi2any.pl: keep track of total errors number by using the
 	handle_errors return value.  Use handle_errors for document errors.
 
 	* tp/texi2any.pl (handle_errors): change a variable name.
 
-2024-12-19  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/utils.c (remove_from_strings_list): add.
 
@@ -479,7 +479,7 @@
 	(long_options, main): handle --if*FORMAT options.  Remove
 	demo_parser_EXPANDED_FORMATS.
 
-2024-12-19  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	Handle processing more than one file in teximakehtml
 
@@ -491,7 +491,7 @@
 	file name and use the input file name directory to complete
 	converter_texinfo_language_config_dirs.
 
-2024-12-18  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (set_from_cmdline): handle "undef"
 	value.  Fix variable name.
@@ -506,7 +506,7 @@
 	split each option in a translatable string.  Report from Benno
 	Schulenberg.
 
-2024-12-18  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (set_from_cmdline, _)
 	(get_cmdline_customization_option, long_options, main): use _() for
@@ -516,7 +516,7 @@
 	files to process in a list.  Output the same error messages as in
 	texi2any when input file is missing.
 
-2024-12-18  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (set_subdir_directories): remove
 	useless leading ./.
@@ -528,7 +528,7 @@
 	and demonstration mode with long options.  Do not set TEST especially.
 	Remove run mode, using options should be enough.
 
-2024-12-17  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/customization_options.c
 	(option_number_in_option_list, options_list_add_option_number),
@@ -538,7 +538,7 @@
 	list, and remove the check_duplicates options_list_add_option_number
 	argument.  Update callers.
 
-2024-12-15  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	Use XDG base directory in teximakehtml
 
@@ -551,7 +551,7 @@
 	(set_subdir_directories): implement add_config_paths and
 	set_subdir_directories and use to set texinfo_language_config_dirs.
 
-2024-12-15  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	Deprecated directories warning in XS/C
 
@@ -576,7 +576,7 @@
 	set deprecated directories used in locate_file_in_dirs.  Warn if
 	deprecated directories are used in load_htmlxref_files.
 
-2024-12-10  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/texinfo.c (txi_parser): check that
 	input_directory is not NULL before using.
@@ -590,12 +590,12 @@
 	Add -I option, add include_dirs and set INCLUDE_DIRECTORIES option
 	based on the -I values.
 
-2024-12-08  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (main): copy the parser customizations
 	set into the parser options.
 
-2024-12-08  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/converters_defaults.txt,
 	tp/maintain/regenerate_C_options_info.pl: set defaults for parser array
@@ -605,7 +605,7 @@
 	* tp/Texinfo/Common.pm: remove %array_parser_options, it is not useful
 	anymore.
 
-2024-12-08  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/converter.c (set_global_document_commands)
 	tp/Texinfo/XS/main/customization_options.c (initialize_option)
@@ -619,7 +619,7 @@
 	parser options and options set in parser flags when initializing the
 	options.
 
-2024-12-08  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%array_parser_options)
 	(%default_parser_customization_values)
@@ -631,7 +631,7 @@
 	* util/txicustomvars: use Texinfo::Options::parser_options only to get
 	parser specific options.
 
-2024-12-08  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/maintain/regenerate_perl_options_info.pl,
 	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/HTML.pm: do not
@@ -644,7 +644,7 @@
 	(html_converter_defaults), tp/Texinfo/XS/convert/converter.c
 	(set_generic_converter_options): update names.
 
-2024-12-08  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/maintain/regenerate_C_options_info.pl,
 	tp/Texinfo/options_data.txt: add parser customization options.
@@ -652,14 +652,14 @@
 	* tp/Texinfo/Convert/converters_defaults.txt (common_parser):
 	setup common_parser options.
 
-2024-12-07  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/texinfo.c, tp/Texinfo/XS/teximakehtml.c
 	(set_customization_default, main): remove
 	txi_config_set_customization_default from texinfo.c and add the
 	similar set_customization_default function to teximakehtml.c.
 
-2024-12-07  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	Fix memory leaks in teximakehtml (from valgrind)
 
@@ -668,19 +668,19 @@
 	* tp/Texinfo/XS/teximakehtml.c (main): strdup top_builddir if coming
 	from getenv.  Free top_builddir.  Destroy format_defaults.
 
-2024-12-06  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c (get_cmdline_customization_option):
 	clear option if value is undef, case insensitive, to match what is
 	done in Perl, setting to undef.
 
-2024-12-06  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/texi2any.pl: when parsing -c/--set-customization-variable,
 	determine the variable name before checking if the value should be
 	decoded.
 
-2024-12-06  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Config.pm (_GNUT_document_warn, _GNUT_document_fatal)
 	(GNUT_set_from_cmdline, texinfo_register_no_arg_command_formatting)
@@ -690,7 +690,7 @@
 	(texinfo_register_special_unit_info): remove \n in messages.  Remove
 	chomp in _GNUT_document_warn and _GNUT_document_fatal.
 
-2024-12-06  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/html_prepare_converter.c,
 	tp/Texinfo/XS/main/base_utils.c (read_var_len): move read_var_len to
@@ -705,7 +705,7 @@
 	Use NO_WARN and TEST customization variables values for
 	txi_handle_*_error_messages arguments.
 
-2024-12-04  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/texinfo.c (txi_set_base_default_options)
 	(txi_converter_setup), tp/Texinfo/XS/teximakehtml.c (main): do not set
@@ -729,7 +729,7 @@
 	converter customization option taking into account cmdline_options.
 	Set convert_options based on program_options and cmdline_options.
 
-2024-12-04  Patrice Dumas  <pertusus@free.fr>
+2024-12-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Config.pm (texinfo_set_from_init_file)
 	(GNUT_set_customization_default): consistently use exists to determine
