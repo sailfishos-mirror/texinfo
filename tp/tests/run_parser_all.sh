@@ -211,6 +211,7 @@ prepended_command=
 #prepended_command='valgrind -q'
 
 main_command='texi2any.pl'
+#main_command='ctexi2any.pl'
 
 # formats can be specified by first line of list-of-tests.
 #commands='texi2any.pl:_html texi2any.pl:_info'

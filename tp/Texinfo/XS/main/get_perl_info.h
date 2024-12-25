@@ -63,4 +63,8 @@ const ELEMENT *find_element_from_sv (const CONVERTER *converter,
 
 SV *get_language_document_hv_sorted_indices (HV *document_hv, const char *key,
                       const char *language, HV **out_sorted_indices_hv);
+
+CONVERTER *get_sv_converter (SV *sv_in, const char *warn_string);
+CONVERTER_INITIALIZATION_INFO * get_converter_info_from_sv (SV *conf_sv,
+                                 const char *class, CONVERTER *converter);
 #endif

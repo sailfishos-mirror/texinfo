@@ -1786,6 +1786,7 @@ main (int argc, char *argv[], char *env[])
    possibly different customization variable values.
    */
   format_defaults = txi_converter_format_defaults (converted_format,
+                                                   external_module,
                                                    &cmdline_options);
 
   format_menu_option_nr = program_options.options->FORMAT_MENU.number;
@@ -2248,7 +2249,6 @@ main (int argc, char *argv[], char *env[])
 
   destroy_converter_initialization_info (converter_init_info);
 
-  free_strings_list (&opened_files);
   free_strings_list (&prepended_include_directories);
   free_options_list (&convert_options);
 
@@ -2279,6 +2279,5 @@ main (int argc, char *argv[], char *env[])
 
   txi_customization_loading_finish (embedded_interpreter);
 
-  if (errors_count > 0)
-    exit (EXIT_FAILURE);
+  free_strings_list (&opened_files);
 }

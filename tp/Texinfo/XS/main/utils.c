@@ -1931,3 +1931,4 @@ new_formatted_button_info (void)
 
   return result;
 }
+

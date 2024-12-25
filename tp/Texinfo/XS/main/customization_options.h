@@ -84,4 +84,9 @@ void set_informative_command_value (OPTIONS *options, const ELEMENT *element);
 const ELEMENT *set_global_document_command (GLOBAL_COMMANDS *global_commands,
                              OPTIONS *options, enum command_id cmd,
                              enum command_location command_location);
+
+
+
+CONVERTER_INITIALIZATION_INFO *new_converter_initialization_info (void);
+
 #endif

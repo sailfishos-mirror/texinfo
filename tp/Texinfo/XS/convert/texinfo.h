@@ -46,7 +46,8 @@ void txi_converter_output_format_setup (const char *converted_format,
                                         const char *external_module);
 
 CONVERTER_INITIALIZATION_INFO *txi_converter_format_defaults (
-                               const char *format_str,
+                               const char *converted_format,
+                               const char *external_module,
                                OPTIONS_LIST *customizations);
 
 void txi_parser (const char *file_path, const char *locale_encoding,

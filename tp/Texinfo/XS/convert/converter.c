@@ -427,17 +427,6 @@ set_converter_init_information (CONVERTER *converter,
    */
 }
 
-CONVERTER_INITIALIZATION_INFO *
-new_converter_initialization_info (void)
-{
-  CONVERTER_INITIALIZATION_INFO *result = (CONVERTER_INITIALIZATION_INFO *)
-     malloc (sizeof (CONVERTER_INITIALIZATION_INFO));
-  memset (result, 0, sizeof (CONVERTER_INITIALIZATION_INFO));
-
-  initialize_options_list (&result->conf);
-  return result;
-}
-
 void
 clear_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
 {

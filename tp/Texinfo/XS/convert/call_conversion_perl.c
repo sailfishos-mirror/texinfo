@@ -33,6 +33,7 @@ Uses pTHX_
 #include "converter_types.h"
 #include "document_types.h"
 #include "build_perl_info.h"
+#include "get_perl_info.h"
 #include "get_converter_perl_info.h"
 #include "xs_utils.h"
 #include "converter.h"
@@ -120,6 +121,54 @@ get_sv_converter (SV *sv_in, const char *warn_string)
                                                       converter_descriptor);
     }
   return converter;
+}
+
+CONVERTER_INITIALIZATION_INFO *
+call_converter_converter_defaults (const char *module_name,
+                                   OPTIONS_LIST *customizations)
+{
+  SV *options_list_sv;
+  int count;
+  SV *result_sv;
+  CONVERTER_INITIALIZATION_INFO *result;
+
+  dTHX;
+
+  options_list_sv
+    = build_sv_options_from_options_list (customizations, 0);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 2);
+
+  SvREFCNT_inc (options_list_sv);
+
+  PUSHs(sv_2mortal (newSVpv (module_name, 0)));
+  PUSHs(sv_2mortal (options_list_sv));
+  PUTBACK;
+
+  count = call_method ("converter_defaults",
+                       G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak ("call_convert_converter should return 1 item\n");
+
+  result_sv = POPs;
+
+  result = get_converter_info_from_sv (result_sv, module_name, 0);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
 }
 
 CONVERTER *

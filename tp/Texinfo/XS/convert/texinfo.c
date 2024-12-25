@@ -212,12 +212,24 @@ txi_converter_output_format_setup (const char *converted_format,
  */
 CONVERTER_INITIALIZATION_INFO *
 txi_converter_format_defaults (const char *converted_format,
+                               const char *external_module,
                                OPTIONS_LIST *customizations)
 {
-  enum converter_format converter_format
-    = find_format_name_converter_format (converted_format);
-  CONVERTER_INITIALIZATION_INFO *conf = new_converter_initialization_info ();
+  enum converter_format converter_format;
+  CONVERTER_INITIALIZATION_INFO *conf;
   CONVERTER_INITIALIZATION_INFO *format_defaults;
+
+  if (external_module)
+    {
+      format_defaults = call_converter_converter_defaults (external_module,
+                                                           customizations);
+      if (format_defaults)
+        return format_defaults;
+    }
+
+  converter_format
+    = find_format_name_converter_format (converted_format);
+  conf = new_converter_initialization_info ();
 
   if (customizations)
     copy_options_list (&conf->conf, customizations);

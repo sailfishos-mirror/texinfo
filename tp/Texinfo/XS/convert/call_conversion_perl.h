@@ -3,10 +3,15 @@
 #define CALL_CONVERSION_PERL_H
 
 #include "tree_types.h"
+#include "option_types.h"
 #include "document_types.h"
 #include "converter_types.h"
 
 void call_eval_use_module (const char *module_name);
+
+CONVERTER_INITIALIZATION_INFO *call_converter_converter_defaults (
+                                   const char *module_name,
+                                   OPTIONS_LIST *customizations);
 
 CONVERTER *call_convert_converter (const char *module_name,
                         const CONVERTER_INITIALIZATION_INFO *conf);

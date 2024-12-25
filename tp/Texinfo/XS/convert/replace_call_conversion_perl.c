@@ -17,6 +17,13 @@ call_config_GNUT_load_init_file (const char *file_path)
   return 0; 
 }
 
+CONVERTER_INITIALIZATION_INFO *
+call_converter_converter_defaults (const char *module_name,
+                                   OPTIONS_LIST *customizations)
+{
+  return 0;
+}
+
 CONVERTER *
 call_convert_converter (const char *module_name,
                         const CONVERTER_INITIALIZATION_INFO *conf)

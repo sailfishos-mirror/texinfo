@@ -157,7 +157,9 @@ Other tests requiring specific softwares
 ========================================
 Other tests requiring specific software are not run automatically, as
 they may depend on the version of these specific software and require
-these software to be present.  The required software is source-highlight.
+these software to be present.  The required software are source-highlight
+and latex with the preview package.  dvipng is also required for some
+tests, if not found the tests will be skipped.
 
 These tests may be run by
   make other-checks
