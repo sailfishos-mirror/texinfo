@@ -1,5 +1,10 @@
 2024-12-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/ctexi2any.pl: add a ctexi2any wrapper that can be called as a
+	Perl script, to be called for tests.
+
+2024-12-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/ConfigXS.xs (texinfo_set_from_init_file),
 	tp/Texinfo/XS/main/txi_config.c (warn_obsolete_options)
 	(texinfo_find_init_file_option_name, GNUT_set_from_init_file):
