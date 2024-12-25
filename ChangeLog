@@ -1,5 +1,13 @@
 2024-12-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/ConfigXS.xs (texinfo_set_from_init_file),
+	tp/Texinfo/XS/main/txi_config.c (warn_obsolete_options)
+	(texinfo_find_init_file_option_name, GNUT_set_from_init_file):
+	warn for obsolete options and ignore.  This is different from Perl
+	where values and option names may be mapped.
+
+2024-12-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (C_libtexinfo_sources),
 	tp/Texinfo/XS/main/txi_config.c (GNUT_initialize_customization)
 	(GNUT_get_conf, GNUT_decode_input, GNUT_encode_message)

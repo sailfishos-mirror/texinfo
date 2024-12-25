@@ -83,7 +83,7 @@ GNUT_get_conf (size_t number)
 
 char *
 GNUT_decode_input (char *text)
-{    
+{
   OPTION *option
     = GNUT_get_conf (program_options->options->COMMAND_LINE_ENCODING.number);
   if (option && option->o.string)
@@ -105,7 +105,7 @@ GNUT_encode_message (char *text)
     {
       int status;
       char *result = encode_string (text, option->o.string, &status, 0);
-      return result;   
+      return result;
     }
   else
     return strdup (text);
@@ -198,14 +198,6 @@ set_option_value (OPTIONS_LIST *options_list, size_t number,
 int
 GNUT_set_customization_default (size_t number, const char *value)
 {
-
- /*
-  ($var, $value) = _GNUT_map_obsolete_options($var, $value);
-  if (!defined($var)) {
-    return 1;
-  }
- */
-
   if (option_number_in_option_list (cmdline_options, number)
       || option_number_in_option_list (&init_files_options, number))
     return 0;
@@ -217,13 +209,13 @@ GNUT_set_customization_default (size_t number, const char *value)
 void
 GNUT_set_from_cmdline (OPTIONS_LIST *options_list, size_t number,
                        const char *value)
-{     
+{
   if (!strcmp (value, "undef"))
     {
       OPTION *option = options_list->sorted_options[number -1];
       clear_option (option);
       options_list_add_option_number (options_list, option->number);
-    } 
+    }
   else
     set_option_value (options_list, number, value);
 }
@@ -248,17 +240,32 @@ texinfo_find_command_line_option_name (const char *option_name)
   return option;
 }
 
+/* In Perl the values may be mapped, here we just ignore */
+static int
+warn_obsolete_options (const char *option_name)
+{
+  if (!strcmp (option_name, "L2H"))
+    {
+      txi_config_document_warn ("obsolete option: %s", option_name);
+      return 1;
+    }
+  return 0;
+}
+
 OPTION *
 texinfo_find_init_file_option_name (const char *option_name)
-{ 
-  OPTION *option = find_option_string (init_files_options.sorted_options,
-                                       option_name);
-  /*
-  ($var, $value) = _GNUT_map_obsolete_options($var, $value);
-  if (!defined($var)) {
-    return 1; 
-  } 
-  */
+{
+  OPTION *option;
+
+  if (warn_obsolete_options (option_name))
+    return 0;
+
+  option = find_option_string (init_files_options.sorted_options,
+                               option_name);
+
+  if (!option)
+    txi_config_document_warn ("%s: unknown variable %s",
+                         "texinfo_set_from_init_file", option_name);
 
   return option;
 }
@@ -270,17 +277,15 @@ texinfo_command_line_option_add_option_number (size_t number)
 }
 
 int
-GNUT_set_from_init_file (const char *option_name,
-                            const char *value)
+GNUT_set_from_init_file (const char *option_name, const char *value)
 {
-  OPTION *option = find_option_string (init_files_options.sorted_options,
-                                       option_name);
-  /*
-  ($var, $value) = _GNUT_map_obsolete_options($var, $value);
-  if (!defined($var)) {
-    return 1;
-  }
-   */
+  OPTION *option;
+
+  if (warn_obsolete_options (option_name))
+    return 0;
+
+  option = find_option_string (init_files_options.sorted_options,
+                               option_name);
 
   if (!option)
     {
@@ -292,6 +297,7 @@ GNUT_set_from_init_file (const char *option_name,
 
   if (option_number_in_option_list (cmdline_options, option->number))
     return 0;
+
   set_option_value (&init_files_options, option->number, value);
   return 1;
 }
@@ -302,7 +308,7 @@ txi_config_add_to_option_list (OPTION *option, const char *value,
 {
   STRING_LIST *str_list;
   size_t idx_option;
-  
+
   if (option->type != GOT_bytes_string_list
       && option->type != GOT_file_string_list
       && option->type != GOT_char_string_list)
@@ -329,7 +335,7 @@ txi_config_add_to_option_list (OPTION *option, const char *value,
         add_string (value, str_list);
     }
   return 1;
-}   
+}
 
 int
 txi_config_remove_from_option_list (OPTION *option, const char *value)

@@ -362,6 +362,7 @@ get_cmdline_customization_option (OPTIONS_LIST *options_list,
         }
       else
         {
+          /* in Perl obsolete options may get another error message */
           txi_config_document_warn ("unknown variable from command line: %s",
                          option_name);
         }

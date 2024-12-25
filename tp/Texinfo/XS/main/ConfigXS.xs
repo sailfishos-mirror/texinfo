@@ -69,9 +69,6 @@ texinfo_set_from_init_file (option_name, SV *value)
               status = 1;
             texinfo_command_line_option_add_option_number (option->number);
           }
-        else
-          txi_config_document_warn ("%s: unknown variable %s",
-                         "texinfo_set_from_init_file", option_name);
         RETVAL = status;
     OUTPUT:
         RETVAL

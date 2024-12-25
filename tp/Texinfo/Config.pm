@@ -249,6 +249,9 @@ sub texinfo_register_init_loading_warning($) {
 
 # L2H removed in 2021
 # return undef var when there is nothing to set.
+# NOTE this has not been done consistently, many options were renamed
+# without doing something here.
+# NOTE in C there is no mapping of values.
 sub _GNUT_map_obsolete_options($$)
 {
   my $input_var = shift;
