@@ -25,3 +25,11 @@ find Texinfo/ -name '*.pm' -o -name '*.pm.in' | xargs \
 # by XSLoader.pm init through DynaLoader to check that the XS modules
 # versions are the same than the XSLoader.pm Perl module $VERSION.
 perl -pi -e "s/^(AC_INIT\(\[[^\]]+\], *)\[([0-9.]+)\]/\$1\[$VERS\]/" Texinfo/XS/configure.ac
+
+# do the same for TEXINFO_DTD_VERSION.  It is not easy to pass information
+# from the top configure to the subdirectory configure.
+
+TEXINFO_DTD_VERS=`grep '^TEXINFO_DTD_VERSION' ../configure.ac | sed -e 's/^[^0-9]*//' -e 's/ *$//'`
+echo TEXINFO_DTD_VERSION is $TEXINFO_DTD_VERS
+perl -pi -e "s/^(TEXINFO_DTD_VERSION *= *)([0-9.]+).*/\${1}$TEXINFO_DTD_VERS/" Texinfo/XS/configure.ac
+

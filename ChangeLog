@@ -1,5 +1,17 @@
 2024-12-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/change_perl_modules_version.sh,
+	tp/Texinfo/XS/configure.ac (TEXINFO_DTD_VERSION)
+	(TEXINFO_DTD_VERSION_CONFIG): add TEXINFO_DTD_VERSION to
+	tp/Texinfo/XS/configure.ac.  Synchronize with top-level configure.ac
+	value in change_perl_modules_version.sh, set as
+	TEXINFO_DTD_VERSION_CONFIG in AC_DEFINE_UNQUOTED.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_set_base_default_options):
+	set TEXINFO_DTD_VERSION based on TEXINFO_DTD_VERSION_CONFIG.
+
+2024-12-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/texi2any.c (main): load HTML Perl module based on init
 	files being loaded but also based on customization variables values
 	requiring Perl, using the same rules as in build_html_perl_info.c

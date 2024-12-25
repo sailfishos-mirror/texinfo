@@ -109,6 +109,7 @@ txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
   const char *configured_url = PACKAGE_URL_CONFIG;
   const char *configured_name_version
     = PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG;
+  const char *configured_texinfo_dtd_version = TEXINFO_DTD_VERSION_CONFIG;
 
   initialize_options_list (main_program_set_options);
 
@@ -121,6 +122,8 @@ txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
   set_configured_information(PACKAGE_NAME, configured_name)
   set_configured_information(PACKAGE_AND_VERSION, configured_name_version)
   set_configured_information(PACKAGE_URL, configured_url)
+  set_configured_information(TEXINFO_DTD_VERSION,
+                             configured_texinfo_dtd_version);
 #undef set_configured_information
 
   err_add_option_value (main_program_set_options, "COMMAND_LINE_ENCODING", 0,

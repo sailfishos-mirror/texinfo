@@ -1687,7 +1687,7 @@ main (int argc, char *argv[], char *env[])
   if (debug_option && debug_option->o.integer > 0)
     debug = 1;
 
-  if(test_mode_set)
+  if (test_mode_set)
     {
       add_option_value (&program_options, "PACKAGE_VERSION", 0, "");
       add_option_value (&program_options, "PACKAGE", 0, "texinfo");

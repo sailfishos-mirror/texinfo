@@ -15,6 +15,9 @@ AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE
 AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4])
 
+TEXINFO_DTD_VERSION=7.2
+AC_SUBST([TEXINFO_DTD_VERSION])
+
 CONVERTER=texi2any
 AC_SUBST([CONVERTER])
 
@@ -268,6 +271,10 @@ AC_DEFINE_UNQUOTED([PACKAGE_VERSION_CONFIG], ["$PACKAGE_VERSION"],
 # Output with the _CONFIG suffix as the original is a type name
 AC_DEFINE_UNQUOTED([CONVERTER_CONFIG], ["$CONVERTER"],
                    [configure CONVERTER value])
+
+# Output with the _CONFIG suffix as the original is a type name
+AC_DEFINE_UNQUOTED([TEXINFO_DTD_VERSION_CONFIG], ["$TEXINFO_DTD_VERSION"],
+                   [configure TEXINFO_DTD_VERSION value])
 
 AC_CONFIG_FILES([Makefile gnulib/lib/Makefile])
 AC_OUTPUT
