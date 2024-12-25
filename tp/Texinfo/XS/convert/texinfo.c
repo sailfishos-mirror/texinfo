@@ -403,8 +403,6 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
   CONST_ELEMENT_LIST *sections_list;
   int use_sections = (flags & STTF_complete_menus_use_sections);
 
-  initialize_document_options (document);
-
   if (flags & STTF_relate_index_entries_to_table_items)
     relate_index_entries_to_table_items_in_tree (document->tree,
                                            &document->indices_info);

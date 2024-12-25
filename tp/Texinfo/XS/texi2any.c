@@ -57,6 +57,8 @@
 #include "utils.h"
 #include "customization_options.h"
 #include "txi_config.h"
+/* set_document_options */
+#include "document.h"
 #include "convert_to_texinfo.h"
 #include "create_buttons.h"
 /* needed because commands are used to determine expanded regions names */
@@ -2103,6 +2105,9 @@ main (int argc, char *argv[], char *env[])
         }
 
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
+
+      set_document_options (document, &program_options, &cmdline_options,
+                            init_files_options);
 
       macro_expand_option
         = GNUT_get_conf (program_options.options->MACRO_EXPAND.number);

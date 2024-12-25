@@ -1,5 +1,18 @@
 2024-12-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/document.c (set_document_options): replace
+	initialize_document_options by set_document_options, which uses a
+	temporary OPTIONS_LIST and uses program_options, cmdline_options
+	and init_files_options too to set document options.  Similar to Perl
+	code setting MainConfig, filling with document options, calling
+	get_customization_options_hash and register_document_options.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_complete_document),
+	tp/Texinfo/XS/texi2any.c (main): call set_document_options in main
+	program, not in txi_complete_document.
+
+2024-12-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/customization_options.c
 	(show_options_list_options_set), tp/Texinfo/XS/main/utils.c
 	(sort_strings_list, join_strings_list): add functions to sort and join

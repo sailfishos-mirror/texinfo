@@ -143,17 +143,30 @@ set_output_encoding (OPTIONS *customization_information, DOCUMENT *document)
 }
 
 /* not used when document options are set from Perl */
+/* mixes main program Perl code setting $main_configuration,
+   get_customization_options_hash() call and register_document_options
+ */
 void
-initialize_document_options (DOCUMENT *document)
+set_document_options (DOCUMENT *document, const OPTIONS_LIST *program_options,
+                      const OPTIONS_LIST *cmdline_options,
+                      const OPTIONS_LIST *init_files_options)
 {
+  OPTIONS_LIST document_options;
+  const ELEMENT *document_language;
   OPTIONS *options = new_options ();
   OPTION **sorted_options = new_sorted_options (options);
-  const ELEMENT *document_language;
 
-  register_document_options (document, options, sorted_options);
+  initialize_options_list (&document_options);
+  copy_options_list (&document_options, program_options);
 
+  /* specific document options based on the document */
   if (document->global_commands.novalidate)
-    document->options->novalidate.o.integer = 1;
+    {
+      OPTION *novalidate_option = &document_options.options->novalidate;
+      novalidate_option->o.integer = 1;
+      options_list_add_option_number (&document_options,
+                                      novalidate_option->number);
+    }
 
   document_language
     = get_global_document_command (&document->global_commands,
@@ -161,9 +174,34 @@ initialize_document_options (DOCUMENT *document)
   if (document_language)
     {
       const char *language = informative_command_value (document_language);
-      option_set_conf (&document->options->documentlanguage, -1, language);
+      OPTION *documentlanguage_option
+        = &document_options.options->documentlanguage;
+      option_set_conf (documentlanguage_option, -1, language);
+      options_list_add_option_number (&document_options,
+                                      documentlanguage_option->number);
     }
-  set_output_encoding (document->options, document);
+
+  /* similar to set_output_encoding but for OPTIONS_LIST */
+  if (document->global_info.input_encoding_name)
+    {
+      OPTION *output_encoding_name_option
+        = &document_options.options->OUTPUT_ENCODING_NAME;
+      option_set_conf (output_encoding_name_option, -1,
+                       document->global_info.input_encoding_name);
+      options_list_add_option_number (&document_options,
+                                      output_encoding_name_option->number);
+    }
+
+  copy_options_list (&document_options, init_files_options);
+  copy_options_list (&document_options, cmdline_options);
+
+  copy_options_list_set_configured (options,
+                                    sorted_options,
+                                    &document_options, 0);
+
+  clear_options_list (&document_options);
+
+  register_document_options (document, options, sorted_options);
 }
 
 const MERGED_INDICES *

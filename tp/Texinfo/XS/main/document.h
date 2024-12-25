@@ -24,7 +24,10 @@ void register_document_options (DOCUMENT *document, OPTIONS *options,
 void register_document_convert_index_text_options (DOCUMENT *document,
                                          struct TEXT_OPTIONS *text_options);
 
-void initialize_document_options (DOCUMENT *document);
+void set_document_options (DOCUMENT *document,
+                      const OPTIONS_LIST *program_options,
+                      const OPTIONS_LIST *cmdline_options,
+                      const OPTIONS_LIST *init_files_options);
 
 const MERGED_INDICES *document_merged_indices (DOCUMENT *document);
 const INDICES_SORT_STRINGS *document_indices_sort_strings (
