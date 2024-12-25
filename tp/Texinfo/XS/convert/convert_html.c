@@ -1403,6 +1403,11 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                               text_append (&formatted_arg, latex_content);
                               free (latex_content);
                             }
+                          else /* most probably only happens if
+                                  call_latex_convert_to_latex_math fails
+                                  in some way, otherwise an empty string
+                                  should be returned */
+                            text_append (&formatted_arg, "");
                         }
                       else
                         {

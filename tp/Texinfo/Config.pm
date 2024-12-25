@@ -56,7 +56,9 @@ our %XS_overrides = (
   "Texinfo::Config::texinfo_remove_from_option_list"
     => "Texinfo::ConfigXS::texinfo_remove_from_option_list",
   "Texinfo::Config::texinfo_set_from_init_file"
-    => "Texinfo::ConfigXS::texinfo_set_from_init_file"
+    => "Texinfo::ConfigXS::texinfo_set_from_init_file",
+  "Texinfo::Config::texinfo_set_format_from_init_file"
+    => "Texinfo::ConfigXS::texinfo_set_format_from_init_file",
 );
 
 our $module_loaded = 0;

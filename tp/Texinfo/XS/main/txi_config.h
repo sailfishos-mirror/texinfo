@@ -49,4 +49,7 @@ int txi_config_add_to_option_list (OPTION *option, const char *value,
 int txi_config_remove_from_option_list (OPTION *option, const char *value);
 
 void txi_config_document_warn (const char *format, ...);
+
+void texinfo_set_format_from_init_file (const char *init_file_format_in);
+char *GNUT_get_format_from_init_file (void);
 #endif

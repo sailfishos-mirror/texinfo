@@ -840,6 +840,7 @@ main (int argc, char *argv[], char *env[])
   CONVERTER_INITIALIZATION_INFO *converter_init_info;
   const char *external_module = 0;
   int default_is_html = 1;
+  char *init_file_format;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -1690,6 +1691,13 @@ main (int argc, char *argv[], char *env[])
       add_option_value (&program_options, "PACKAGE_URL", 0,
                                      "https://www.gnu.org/software/texinfo/");
       add_option_value (&program_options, "PROGRAM", 0, "texi2any");
+    }
+
+  init_file_format = GNUT_get_format_from_init_file ();
+  if (init_file_format)
+    {
+      set_format (init_file_format);
+      free (init_file_format);
     }
 
   texinfo_output_format_env = getenv ("TEXINFO_OUTPUT_FORMAT");

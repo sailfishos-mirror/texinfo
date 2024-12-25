@@ -356,3 +356,20 @@ txi_config_remove_from_option_list (OPTION *option, const char *value)
   return 1;
 }
 
+static char *init_file_format;
+
+void
+texinfo_set_format_from_init_file (const char *init_file_format_in)
+{
+  free (init_file_format);
+  init_file_format = strdup (init_file_format_in);
+}
+
+char *
+GNUT_get_format_from_init_file (void)
+{
+  if (init_file_format)
+    return strdup (init_file_format);
+  else
+    return 0;
+}

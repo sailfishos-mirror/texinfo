@@ -159,3 +159,7 @@ texinfo_remove_from_option_list (option_name, SV *values)
     OUTPUT:
         RETVAL
 
+void
+texinfo_set_format_from_init_file (format_name)
+        const char *format_name = (char *)SvPVbyte_nolen($arg);
+
