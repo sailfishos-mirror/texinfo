@@ -2355,6 +2355,7 @@ call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
     {
       /* NOTE this case should never happen.  If it does, we could set the
          options here dynamically */
+      fprintf (stderr, "BUG: no options_latex_math in %p\n", self->hv);
       options_latex_math = newSV (0);
     }
 

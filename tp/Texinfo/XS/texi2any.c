@@ -811,8 +811,10 @@ main (int argc, char *argv[], char *env[])
   OPTION *test_option;
   OPTION *no_warn_option;
   OPTION *format_menu_option;
+  OPTION *debug_option;
   int no_warn = 0;
   int test_mode_set = 0;
+  int debug = 0;
   size_t i;
   STRING_LIST input_files;
   STRING_LIST opened_files;
@@ -1681,6 +1683,10 @@ main (int argc, char *argv[], char *env[])
   if (no_warn_option && no_warn_option->o.integer > 0)
     no_warn = 1;
 
+  debug_option = GNUT_get_conf (program_options.options->DEBUG.number);
+  if (debug_option && debug_option->o.integer > 0)
+    debug = 1;
+
   if(test_mode_set)
     {
       add_option_value (&program_options, "PACKAGE_VERSION", 0, "");
@@ -1767,19 +1773,47 @@ main (int argc, char *argv[], char *env[])
     {
       if (!strcmp (converted_format, "html"))
         {
-          if (loaded_init_files_nr > 0)
+          OPTION *internal_links_option
+            = GNUT_get_conf (program_options.options->INTERNAL_LINKS.number);
+          /* setup of need_latex to be kept in sync with setup of
+             CONVERT_TO_LATEX_IN_MATH in html_initialize_output_state
+             based on HTML_MATH */
+          int need_latex = 0;
+          OPTION *convert_to_latex_in_math_option
+            = GNUT_get_conf (
+              program_options.options->CONVERT_TO_LATEX_IN_MATH.number);
+          if (!convert_to_latex_in_math_option
+              || convert_to_latex_in_math_option->o.integer < 0)
+            {
+              OPTION *option_html_math
+                = GNUT_get_conf (program_options.options->HTML_MATH.number);
+              if (option_html_math && option_html_math->o.string)
+                need_latex = 1;
+            }
+
+          /* to be kept in sync with build_html_perl_info.c
+              html_pass_conversion_initialization */
+          /* internal links code is in Perl */
+          if (loaded_init_files_nr > 0
+              || need_latex || (internal_links_option
+                                && internal_links_option->o.string))
             external_module = format_specification->module;
         }
       else
         external_module = format_specification->module;
 
-      if (external_module && !embedded_interpreter)
+      if (external_module)
         {
-          fprintf (stderr, "ERROR: no interpreter for %s\n",
-                   external_module);
-          exit (EXIT_FAILURE);
+          if (!embedded_interpreter)
+            {
+              fprintf (stderr, "ERROR: no interpreter for %s\n",
+                       external_module);
+              exit (EXIT_FAILURE);
+            }
+          else if (debug)
+            fprintf (stderr, "ctexi2any: loading module: %s\n", external_module);
         }
-     }
+    }
 
   /* corresponds to eval "require $module"; in texi2any.pl */
   txi_converter_output_format_setup (converted_format, external_module);

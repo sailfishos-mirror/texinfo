@@ -1,5 +1,14 @@
 2024-12-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/texi2any.c (main): load HTML Perl module based on init
+	files being loaded but also based on customization variables values
+	requiring Perl, using the same rules as in build_html_perl_info.c
+	html_pass_conversion_initialization.  Determine if
+	CONVERT_TO_LATEX_IN_MATH will be set as in
+	html_initialize_output_state.
+
+2024-12-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (%XS_overrides), tp/Texinfo/XS/main/ConfigXS.xs
 	(texinfo_set_format_from_init_file), tp/Texinfo/XS/main/txi_config.c
 	(texinfo_set_format_from_init_file, GNUT_get_format_from_init_file),
