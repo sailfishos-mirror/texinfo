@@ -347,6 +347,7 @@ tp/Texinfo/XS/gnulib/lib/uniwidth.h
 tp/Texinfo/XS/gnulib/lib/wchar.h
 tp/Texinfo/XS/gnulib/lib/sys/types.h
 
+tp/Texinfo/XS/main/ConfigXS.c
 tp/Texinfo/XS/main/DocumentXS.c
 tp/Texinfo/XS/main/IndicesXS.c
 

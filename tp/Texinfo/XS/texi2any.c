@@ -45,6 +45,7 @@
 #include <getopt.h>
 
 #include "text.h"
+#include "option_types.h"
 #include "document_types.h"
 #include "converter_types.h"
 /* read_var_len */
@@ -55,6 +56,7 @@
    wipe_values locate_file_in_dirs */
 #include "utils.h"
 #include "customization_options.h"
+#include "txi_config.h"
 #include "convert_to_texinfo.h"
 #include "create_buttons.h"
 /* needed because commands are used to determine expanded regions names */
@@ -135,105 +137,11 @@ static VALUE_LIST values;
 /* options common to parser and converter */
 static OPTIONS_LIST program_options;
 static OPTIONS_LIST cmdline_options;
-/* there are no init files in C, but this is used for the occasional
-   customization variables set to an intermediate priority */
-static OPTIONS_LIST init_files_options;
+static OPTIONS_LIST *init_files_options;
 
 static char *program_file;
 
 static int embedded_interpreter = 0;
-
-/* Texinfo::Config */
-static OPTION *
-get_conf (size_t number)
-{
-  if (option_number_in_option_list (&cmdline_options, number))
-    return cmdline_options.sorted_options[number -1];
-
-  if (option_number_in_option_list (&init_files_options, number))
-    return init_files_options.sorted_options[number -1];
-
-  if (option_number_in_option_list (&program_options, number))
-    return program_options.sorted_options[number -1];
-
-  return 0;
-}
-
-static char *
-decode_input (char *text)
-{
-  OPTION *option
-    = get_conf (program_options.options->COMMAND_LINE_ENCODING.number);
-  if (option && option->o.string)
-    {
-      int status;
-      char *result = decode_string (text, option->o.string, &status, 0);
-      return result;
-    }
-  else
-    return strdup (text);
-}
-
-static char *
-encode_message (char *text)
-{
-  OPTION *option
-    = get_conf (program_options.options->MESSAGE_ENCODING.number);
-  if (option && option->o.string)
-    {
-      int status;
-      char *result = encode_string (text, option->o.string, &status, 0);
-      return result;
-    }
-  else
-    return strdup (text);
-}
-
-static void
-document_warn (const char *format, ...)
-{
-  char *message;
-  char *encoded_message;
-  char *formatted_message;
-  OPTION *option
-    = get_conf (program_options.options->NO_WARN.number);
-
-  if (option && option->o.integer > 0)
-    return;
-
-  va_list v;
-
-  va_start (v, format);
-
-#ifdef ENABLE_NLS
-  xvasprintf (&message, gettext (format), v);
-#else
-  xvasprintf (&message, format, v);
-#endif
-  if (!message) fatal ("vasprintf failed");
-
-  va_end (v);
-
-#ifdef ENABLE_NLS
-  xasprintf (&formatted_message,
-          pgettext ("program name: warning: warning_message",
-                    "%s: warning: %s"), program_file, message);
-#else
-  xasprintf (&formatted_message, "%s: warning: %s",
-                              program_file, message);
-#endif
-  if (!formatted_message) fatal ("asprintf failed");
-  free (message);
-
-  encoded_message = encode_message (formatted_message);
-  free (formatted_message);
-
-  if (encoded_message)
-    {
-      fprintf (stderr, "%s\n", encoded_message);
-      free (encoded_message);
-    }
-}
 
 /* texi2any */
 static void
@@ -375,88 +283,6 @@ set_subdir_directories (const char *subdir,
 }
 
 static void
-set_option_value (OPTIONS_LIST *options_list, size_t number,
-                  const char *value)
-{
-  OPTION *option = options_list->sorted_options[number -1];
-
-  if (option->type == GOT_integer)
-    {
-      char *endptr;
-      long long_value = strtol (value, &endptr, 10);
-      int int_value = (int) long_value;
-      if (endptr != value && int_value >= 0)
-        {
-          option_set_conf (option, int_value, 0);
-        }
-      else
-        {
-          /* warn?  No such check in Perl */
-        }
-    }
-  else if (option->type == GOT_char
-           || option->type == GOT_bytes)
-    {
-      char *option_value;
-      if (!value)
-        option_value = strdup ("");
-      else if (option->type == GOT_char)
-        /* actually const, but constrained by protoypes */
-        option_value = decode_input ((char *) value);
-      else
-        option_value = strdup (value);
-      option_set_conf (option, 0, option_value);
-      free (option_value);
-    }
-  options_list_add_option_number (options_list, number);
-}
-
-/* Texinfo::Config::texinfo_set_from_init_file */
-/* only used for one variable */
-static void
-set_from_init_file (const char *option_name,
-                    const char *value)
-{
-  OPTION *option = find_option_string (init_files_options.sorted_options,
-                                       option_name);
-  if (!option)
-    {
-      document_warn("%s: unknown variable %s", "texinfo_set_from_init_file",
-                    option_name);
-      return;
-    }
-  set_option_value (&init_files_options, option->number, value);
-}
-
-/* Texinfo::Config::GNUT_set_customization_default */
-/* set_main_program_default in texi2any.pl */
-static int
-set_customization_default (size_t number, const char *value)
-{
-  if (option_number_in_option_list (&cmdline_options, number)
-      || option_number_in_option_list (&init_files_options, number))
-    return 0;
-
-  set_option_value (&program_options, number, value);
-  return 1;
-}
-
-/* Texinfo::Config and texi2any */
-static void
-set_from_cmdline (OPTIONS_LIST *options_list, size_t number,
-                  const char *value)
-{
-  if (!strcmp (value, "undef"))
-    {
-      OPTION *option = options_list->sorted_options[number -1];
-      clear_option (option);
-      options_list_add_option_number (options_list, option->number);
-    }
-  else
-    set_option_value (options_list, number, value);
-}
-
-static void
 set_format (const char *format_name)
 {
   size_t i;
@@ -486,11 +312,12 @@ set_format (const char *format_name)
     }
   if (!format_found)
     {
-      document_warn ("ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'",
+      txi_config_document_warn (
+             "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'",
                      format_name);
     }
   else
-    set_from_init_file ("TEXINFO_OUTPUT_FORMAT", new_output_format);
+    GNUT_set_from_init_file ("TEXINFO_OUTPUT_FORMAT", new_output_format);
 }
 
 static void
@@ -516,7 +343,7 @@ get_cmdline_customization_option (OPTIONS_LIST *options_list,
 
           if (!strcmp (option_name, "TEXINFO_OUTPUT_FORMAT"))
             {
-              char *option_value = decode_input (p);
+              char *option_value = GNUT_decode_input (p);
               set_format (option_value);
               free (option_value);
             }
@@ -529,13 +356,13 @@ get_cmdline_customization_option (OPTIONS_LIST *options_list,
                 }
               else
                 {
-                  set_from_cmdline (options_list, option->number, p);
+                  GNUT_set_from_cmdline (options_list, option->number, p);
                 }
             }
         }
       else
         {
-          document_warn ("unknown variable from command line: %s",
+          txi_config_document_warn ("unknown variable from command line: %s",
                          option_name);
         }
       free (option_name);
@@ -558,42 +385,13 @@ push_include_directory (STRING_LIST *include_dirs_list, char *text)
 }
 
 static void
-add_to_option_list (OPTION *option, const char *value)
-{
-  STRING_LIST *str_list = option->o.strlist;
-  size_t idx_option = find_string (str_list, value);
-
-  if (!idx_option)
-    add_string (value, str_list);
-}
-
-static int
-remove_from_option_list (OPTION *option, const char *value)
-{
-  STRING_LIST *str_list;
-  size_t idx_option;
-
-  if (option->type != GOT_bytes_string_list
-      && option->type != GOT_file_string_list
-      && option->type != GOT_char_string_list)
-    return 0;
-
-  str_list = option->o.strlist;
-  idx_option = find_string (str_list, value);
-
-  if (idx_option)
-    remove_from_strings_list (str_list, idx_option -1);
-  return 1;
-}
-
-static void
 set_expansion (OPTIONS_LIST *options_list, STRING_LIST *ignored_formats,
                const char *format_name)
 {
   OPTION *option = &options_list->options->EXPANDED_FORMATS;
   size_t ignored_idx = find_string (ignored_formats, format_name);
 
-  add_to_option_list (option, format_name);
+  txi_config_add_to_option_list (option, format_name, 0);
 
   if (ignored_idx)
     remove_from_strings_list (ignored_formats, ignored_idx -1);
@@ -606,7 +404,7 @@ unset_expansion (OPTIONS_LIST *options_list, STRING_LIST *ignored_formats,
   OPTION *option = &options_list->options->EXPANDED_FORMATS;
   size_t ignored_idx = find_string (ignored_formats, format_name);
 
-  remove_from_option_list (option, format_name);
+  txi_config_remove_from_option_list (option, format_name);
 
   if (!ignored_idx)
     add_string (format_name, ignored_formats);
@@ -665,9 +463,9 @@ format_expanded_formats (STRING_LIST *default_expanded_formats,
 static void
 set_cmdline_format (const char *format_name)
 {
-  set_from_cmdline(&cmdline_options,
-                   cmdline_options.options->TEXINFO_OUTPUT_FORMAT.number,
-                   format_name);
+  GNUT_set_from_cmdline (&cmdline_options,
+                    cmdline_options.options->TEXINFO_OUTPUT_FORMAT.number,
+                    format_name);
 }
 
 /* If the file overwriting becomes an error, should increase $ERROR_COUNT. */
@@ -682,7 +480,7 @@ merge_opened_files (STRING_LIST *opened_files,
         {
           char *opened_file = added_opened_files->list[i];
           if (find_string (opened_files, opened_file))
-            document_warn ("overwriting file: %s", opened_file);
+            txi_config_document_warn ("overwriting file: %s", opened_file);
           else
             add_string (opened_file, opened_files);
         }
@@ -695,9 +493,9 @@ static void
 exit_if_errors (size_t error_count, STRING_LIST *opened_files)
 {
   OPTION *error_limit_option
-     = get_conf (program_options.options->ERROR_LIMIT.number);
+     = GNUT_get_conf (program_options.options->ERROR_LIMIT.number);
   OPTION *force_option
-     = get_conf (program_options.options->FORCE.number);
+     = GNUT_get_conf (program_options.options->FORCE.number);
   int force = (force_option->o.integer > 0);
   /* implicit conversion */
   size_t error_limit = error_limit_option->o.integer;
@@ -755,10 +553,12 @@ warn_deprecated_dirs (DEPRECATED_DIRS_LIST *deprecated_dirs_used)
           char *dir_name, *replacement_dir;
           DEPRECATED_DIR_INFO *deprecated_dir_info
            = &deprecated_dirs_used->list[i];
-          dir_name = decode_input (deprecated_dir_info->obsolete_dir);
-          replacement_dir = decode_input (deprecated_dir_info->reference_dir);
+          dir_name = GNUT_decode_input (deprecated_dir_info->obsolete_dir);
+          replacement_dir
+            = GNUT_decode_input (deprecated_dir_info->reference_dir);
 
-          document_warn ("%s directory is deprecated. Use %s instead",
+          txi_config_document_warn (
+                    "%s directory is deprecated. Use %s instead",
                          dir_name, replacement_dir);
 
           free (dir_name);
@@ -787,7 +587,7 @@ locate_and_load_init_file (const char *filename, STRING_LIST *directories,
         loaded_init_files_nr++;
       else
         {
-          char *decoded_filename = decode_input ((char *) filename);
+          char *decoded_filename = GNUT_decode_input ((char *) filename);
           if (!embedded_interpreter)
             fprintf (stderr, "WARNING: no interpreter, cannot load: %s\n",
                      filename);
@@ -800,8 +600,9 @@ locate_and_load_init_file (const char *filename, STRING_LIST *directories,
     }
   else
     {
-      char *decoded_filename = decode_input ((char *) filename);
-      document_warn ("could not read init file %s", decoded_filename);
+      char *decoded_filename = GNUT_decode_input ((char *) filename);
+      txi_config_document_warn ("could not read init file %s",
+                                decoded_filename);
 
       free (decoded_filename);
     }
@@ -823,7 +624,7 @@ locate_and_load_extension_file (const char *filename, STRING_LIST *directories)
         loaded_init_files_nr++;
       else
         {
-          char *decoded_filename = decode_input ((char *) filename);
+          char *decoded_filename = GNUT_decode_input ((char *) filename);
           if (!embedded_interpreter)
             fprintf (stderr, "WARNING: no interpreter, cannot load: %s\n",
                      filename);
@@ -836,8 +637,9 @@ locate_and_load_extension_file (const char *filename, STRING_LIST *directories)
     }
   else
     {
-      char *decoded_filename = decode_input ((char *) filename);
-      document_warn ("could not read extension file %s", decoded_filename);
+      char *decoded_filename = GNUT_decode_input ((char *) filename);
+      txi_config_document_warn ("could not read extension file %s",
+                                decoded_filename);
 
       free (decoded_filename);
       exit (EXIT_FAILURE);
@@ -1183,7 +985,10 @@ main (int argc, char *argv[], char *env[])
   memset (&ignored_formats, 0, sizeof (STRING_LIST));
   memset (&init_files, 0, sizeof (STRING_LIST));
 
-  initialize_options_list (&init_files_options);
+  init_files_options =
+    GNUT_initialize_customization (program_file, &program_options,
+                                   &cmdline_options);
+  /* initialize_options_list (&init_files_options); */
 
   while (1)
     {
@@ -1211,131 +1016,131 @@ main (int argc, char *argv[], char *env[])
           get_cmdline_customization_option (&cmdline_options, optarg);
           break;
         case DOCUMENT_LANGUAGE_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->documentlanguage.number,
-                           optarg);
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->documentlanguage.number,
+                            optarg);
           break;
         case DEBUG_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->DEBUG.number,
-                           optarg);
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->DEBUG.number,
+                            optarg);
           break;
         case 'e':
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->ERROR_LIMIT.number,
-                           optarg);
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->ERROR_LIMIT.number,
+                            optarg);
           break;
         case 'f':
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->FILLCOLUMN.number,
-                           optarg);
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->FILLCOLUMN.number,
+                            optarg);
           break;
         case 'E':
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->MACRO_EXPAND.number,
-                           optarg);
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->MACRO_EXPAND.number,
+                            optarg);
           break;
         case 'F':
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->FORCE.number, "1");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->FORCE.number, "1");
           break;
         case DISABLE_ENCODING_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->ENABLE_ENCODING.number,
-                           "0");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->ENABLE_ENCODING.number,
+                            "0");
           break;
         case ENABLE_ENCODING_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->ENABLE_ENCODING.number,
-                           "1");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->ENABLE_ENCODING.number,
+                            "1");
           break;
         case NODE_FILES_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->NODE_FILES.number,
-                           "1");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->NODE_FILES.number,
+                            "1");
           break;
         case NO_NODE_FILES_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->NODE_FILES.number,
-                           "0");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->NODE_FILES.number,
+                            "0");
           break;
         case NUMBER_FOOTNOTES_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->NUMBER_FOOTNOTES.number,
-                           "1");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->NUMBER_FOOTNOTES.number,
+                            "1");
           break;
         case NO_NUMBER_FOOTNOTES_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->NUMBER_FOOTNOTES.number,
-                           "0");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->NUMBER_FOOTNOTES.number,
+                            "0");
           break;
         case NUMBER_SECTIONS_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->NUMBER_SECTIONS.number,
-                           "1");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->NUMBER_SECTIONS.number,
+                            "1");
           break;
         case NO_NUMBER_SECTIONS_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->NUMBER_SECTIONS.number,
-                           "0");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->NUMBER_SECTIONS.number,
+                            "0");
           break;
         case SPLIT_SIZE_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->SPLIT_SIZE.number,
-                           optarg);
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->SPLIT_SIZE.number,
+                            optarg);
           break;
         case TRACE_INCLUDES_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->TRACE_INCLUDES.number,
-                           "1");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->TRACE_INCLUDES.number,
+                            "1");
           break;
         case TRANSLITERATE_FILE_NAMES_OPT:
-          set_from_cmdline(&cmdline_options,
+          GNUT_set_from_cmdline (&cmdline_options,
                      cmdline_options.options->TRANSLITERATE_FILE_NAMES.number,
-                           "1");
+                            "1");
           break;
         case NO_TRANSLITERATE_FILE_NAMES_OPT:
-          set_from_cmdline(&cmdline_options,
+          GNUT_set_from_cmdline (&cmdline_options,
                      cmdline_options.options->TRANSLITERATE_FILE_NAMES.number,
-                           "0");
+                            "0");
           break;
         case NO_VALIDATE_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->novalidate.number, "1");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->novalidate.number, "1");
           break;
         case 'v':
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->VERBOSE.number, "1");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->VERBOSE.number, "1");
           break;
         case NO_VERBOSE_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->VERBOSE.number, "0");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->VERBOSE.number, "0");
           break;
         case NO_WARN_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->NO_WARN.number, "1");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->NO_WARN.number, "1");
           break;
         case NO_HEADERS_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->HEADERS.number, "0");
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->FORMAT_MENU.number,
-                           "nomenu");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->HEADERS.number, "0");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->FORMAT_MENU.number,
+                            "nomenu");
           {
             size_t option_nr
               = program_options.options->TEXINFO_OUTPUT_FORMAT.number;
-            OPTION *output_format_option = get_conf (option_nr);
+            OPTION *output_format_option = GNUT_get_conf (option_nr);
             if (output_format_option && output_format_option->o.string
                 && !strcmp (output_format_option->o.string, "info"))
-              set_customization_default (option_nr, "plaintext");
+              GNUT_set_customization_default (option_nr, "plaintext");
           }
           break;
         case HEADERS_OPT:
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->HEADERS.number, "1");
-          set_from_cmdline(&cmdline_options,
-                           cmdline_options.options->FORMAT_MENU.number,
-                           "set_format_menu_from_cmdline_header_option");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->HEADERS.number, "1");
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->FORMAT_MENU.number,
+                            "set_format_menu_from_cmdline_header_option");
           break;
         case 'I':
           {
@@ -1358,7 +1163,7 @@ main (int argc, char *argv[], char *env[])
         case CSS_REF_OPT:
           {
             OPTION *option = &cmdline_options.options->CSS_REFS;
-            char *value = decode_input((char *) optarg);
+            char *value = GNUT_decode_input ((char *) optarg);
             add_string (value, option->o.strlist);
             free (value);
           }
@@ -1372,7 +1177,7 @@ main (int argc, char *argv[], char *env[])
         case 'D':
           {
            /* actually const but constrained by prototypes */
-            char *value = decode_input((char *) optarg);
+            char *value = GNUT_decode_input ((char *) optarg);
             const char *p = value;
             size_t flag_len = strcspn (value, whitespace_chars);
             if (flag_len)
@@ -1400,7 +1205,7 @@ main (int argc, char *argv[], char *env[])
         case 'U':
           {
            /* actually const but constrained by prototypes */
-            char *value = decode_input((char *) optarg);
+            char *value = GNUT_decode_input ((char *) optarg);
             clear_value (&values, value);
             free (value);
           }
@@ -1412,14 +1217,14 @@ main (int argc, char *argv[], char *env[])
              = CONVERTER_CONFIG " (GNU texinfo) " PACKAGE_VERSION_CONFIG "\n\n";
             char *formatted_message;
 
-            encoded_message = encode_message (message);
+            encoded_message = GNUT_encode_message (message);
             printf ("%s", encoded_message);
             free (encoded_message);
 
             xasprintf (&formatted_message, _(
   "Copyright (C) %s Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law."),
                        "2024");
-            encoded_message = encode_message (formatted_message);
+            encoded_message = GNUT_encode_message (formatted_message);
             free (formatted_message);
             printf ("%s\n", encoded_message);
             free (encoded_message);
@@ -1430,12 +1235,12 @@ main (int argc, char *argv[], char *env[])
         case FOOTNOTE_STYLE_OPT:
           {
             /* actually const but constrained by prototypes */
-            char *value = decode_input((char *) optarg);
+            char *value = GNUT_decode_input ((char *) optarg);
             if (!strcmp (value, "end") || !strcmp (value, "separate"))
               {
-                set_from_cmdline(&cmdline_options,
+                GNUT_set_from_cmdline (&cmdline_options,
                           cmdline_options.options->footnotestyle.number,
-                                 value);
+                                  value);
               }
             else
               {
@@ -1445,7 +1250,7 @@ main (int argc, char *argv[], char *env[])
                 xasprintf (&formatted_message,
         _("%s: --footnote-style arg must be `separate' or `end', not `%s'."),
                   program_file, value);
-                encoded_message = encode_message (formatted_message);
+                encoded_message = GNUT_encode_message (formatted_message);
                 free (formatted_message);
                 fprintf (stderr, "%s\n", encoded_message);
                 free (encoded_message);
@@ -1457,13 +1262,13 @@ main (int argc, char *argv[], char *env[])
         case 'p':
           {
             /* actually const but constrained by prototypes */
-            char *value = decode_input((char *) optarg);
+            char *value = GNUT_decode_input ((char *) optarg);
             if (!strcmp (value, "none") || !strcmp (value, "asis")
                 || is_ascii_digit (value))
               {
-                set_from_cmdline(&cmdline_options,
+                GNUT_set_from_cmdline (&cmdline_options,
                           cmdline_options.options->paragraphindent.number,
-                                 value);
+                                  value);
               }
             else
               {
@@ -1473,7 +1278,7 @@ main (int argc, char *argv[], char *env[])
                 xasprintf (&formatted_message,
     _("%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."),
                   program_file, value);
-                encoded_message = encode_message (formatted_message);
+                encoded_message = GNUT_encode_message (formatted_message);
                 free (formatted_message);
                 fprintf (stderr, "%s\n", encoded_message);
                 free (encoded_message);
@@ -1486,7 +1291,7 @@ main (int argc, char *argv[], char *env[])
           {
             OPTION *option = &cmdline_options.options->OUTFILE;
             /* actually const but constrained by prototypes */
-            char *decoded_string = decode_input ((char *) optarg);
+            char *decoded_string = GNUT_decode_input ((char *) optarg);
             if (strcmp (optarg, "-"))
               {
                 size_t opt_len = strlen (optarg);
@@ -1495,37 +1300,38 @@ main (int argc, char *argv[], char *env[])
                 if (optarg[opt_len -1] == '/'
                     || (stat (optarg, &finfo) == 0 && S_ISDIR (finfo.st_mode)))
                   {
-                    set_from_cmdline (&cmdline_options,
+                    GNUT_set_from_cmdline (&cmdline_options,
                                       option->number, "undef");
                     option = &cmdline_options.options->SUBDIR;
                   }
               }
-            set_from_cmdline (&cmdline_options, option->number, decoded_string);
+            GNUT_set_from_cmdline (&cmdline_options,
+                                   option->number, decoded_string);
             free (decoded_string);
           }
           break;
         case NO_SPLIT_OPT:
-          set_from_cmdline (&cmdline_options,
+          GNUT_set_from_cmdline (&cmdline_options,
                             cmdline_options.options->SPLIT.number, "");
-          set_from_cmdline (&cmdline_options,
+          GNUT_set_from_cmdline (&cmdline_options,
                             cmdline_options.options->SPLIT_SIZE.number,
                             "undef");
           break;
         case SPLIT_OPT:
           {
-            char *split = decode_input (optarg);
+            char *split = GNUT_decode_input (optarg);
             size_t i;
             for (i = 0; possible_split[i]; i++)
               if (!strcmp (possible_split[i], optarg))
                 break;
             if (!possible_split[i])
               {
-                document_warn ("%s is not a valid split possibility",
+                txi_config_document_warn ("%s is not a valid split possibility",
                                split);
                 free (split);
                 split = strdup ("node");
               }
-            set_from_cmdline (&cmdline_options,
+            GNUT_set_from_cmdline (&cmdline_options,
                               cmdline_options.options->SPLIT.number, split);
             free (split);
           }
@@ -1582,7 +1388,7 @@ main (int argc, char *argv[], char *env[])
       int paragraphindent_size;
       TEXT help_message;
       OPTION *error_limit_option
-        = get_conf (program_options.options->ERROR_LIMIT.number);
+        = GNUT_get_conf (program_options.options->ERROR_LIMIT.number);
 
       text_init (&help_message);
       text_printf (&help_message,
@@ -1796,7 +1602,7 @@ main (int argc, char *argv[], char *env[])
       text_append (&help_message, _("Email bug reports to bug-texinfo@gnu.org,\ngeneral questions and discussion to help-texinfo@gnu.org.\nTexinfo home page: https://www.gnu.org/software/texinfo/"));
       text_append_n (&help_message, "\n", 1);
 
-      encoded_message = encode_message (help_message.text);
+      encoded_message = GNUT_encode_message (help_message.text);
       free (help_message.text);
       printf ("%s", encoded_message);
       free (encoded_message);
@@ -1825,7 +1631,7 @@ main (int argc, char *argv[], char *env[])
      one is better, load within the command line loop, or after */
   memset (&init_file_dirs, 0, sizeof (STRING_LIST));
 
-  test_option = get_conf (program_options.options->TEST.number);
+  test_option = GNUT_get_conf (program_options.options->TEST.number);
   if (test_option && test_option->o.integer > 0)
     test_mode_set = 1;
 
@@ -1848,7 +1654,7 @@ main (int argc, char *argv[], char *env[])
   free_strings_list (&init_file_dirs);
   free_strings_list (&init_files);
 
-  html_math_option = get_conf (program_options.options->HTML_MATH.number);
+  html_math_option = GNUT_get_conf (program_options.options->HTML_MATH.number);
   if (html_math_option && html_math_option->o.string
       && !strcmp (html_math_option->o.string, "l2h"))
     locate_and_load_extension_file ("latex2html.pm", &internal_extension_dirs);
@@ -1858,18 +1664,18 @@ main (int argc, char *argv[], char *env[])
     locate_and_load_extension_file ("tex4ht.pm", &internal_extension_dirs);
 
   highlight_syntax_option
-    = get_conf (program_options.options->HIGHLIGHT_SYNTAX.number);
+    = GNUT_get_conf (program_options.options->HIGHLIGHT_SYNTAX.number);
   if (highlight_syntax_option && highlight_syntax_option->o.string
       && strlen (highlight_syntax_option->o.string))
     locate_and_load_extension_file ("highlight_syntax.pm",
                                     &internal_extension_dirs);
 
   /* re-set in case it was set in init files */
-  test_option = get_conf (program_options.options->TEST.number);
+  test_option = GNUT_get_conf (program_options.options->TEST.number);
   if (test_option && test_option->o.integer > 0)
     test_mode_set = 1;
 
-  no_warn_option = get_conf (program_options.options->NO_WARN.number);
+  no_warn_option = GNUT_get_conf (program_options.options->NO_WARN.number);
   if (no_warn_option && no_warn_option->o.integer > 0)
     no_warn = 1;
 
@@ -1888,13 +1694,13 @@ main (int argc, char *argv[], char *env[])
   texinfo_output_format_env = getenv ("TEXINFO_OUTPUT_FORMAT");
   if (texinfo_output_format_env && strlen (texinfo_output_format_env))
     {
-      char *format_name = decode_input (texinfo_output_format_env);
+      char *format_name = GNUT_decode_input (texinfo_output_format_env);
       set_format (format_name);
       free (format_name);
     }
 
   output_format_option
-    = get_conf (program_options.options->TEXINFO_OUTPUT_FORMAT.number);
+    = GNUT_get_conf (program_options.options->TEXINFO_OUTPUT_FORMAT.number);
   output_format = output_format_option->o.string;
 
   if (!test_mode_set
@@ -1942,8 +1748,8 @@ main (int argc, char *argv[], char *env[])
     }
   for (i = 0; i < default_expanded_formats.number; i++)
     {
-      add_to_option_list (expanded_formats_option,
-                          default_expanded_formats.list[i]);
+      txi_config_add_to_option_list (expanded_formats_option,
+                                     default_expanded_formats.list[i], 0);
     }
 
   free_strings_list (&default_expanded_formats);
@@ -1995,7 +1801,7 @@ main (int argc, char *argv[], char *env[])
           /*
           fprintf (stderr, "FORMAT_MENU %s\n", conversion_format_menu_default);
            */
-          set_customization_default (format_menu_option_nr,
+          GNUT_set_customization_default (format_menu_option_nr,
                                      conversion_format_menu_default);
         }
 
@@ -2004,7 +1810,7 @@ main (int argc, char *argv[], char *env[])
 
   /* special case for FORMAT_MENU of delayed setting based in
      some case on converter */
-  format_menu_option = get_conf (format_menu_option_nr);
+  format_menu_option = GNUT_get_conf (format_menu_option_nr);
   if (format_menu_option && format_menu_option->o.string
       && !strcmp (format_menu_option->o.string,
                   "set_format_menu_from_cmdline_header_option"))
@@ -2012,16 +1818,17 @@ main (int argc, char *argv[], char *env[])
       if (conversion_format_menu_default
           && strcmp (conversion_format_menu_default, "nomenu"))
         {
-          set_from_cmdline (&cmdline_options, format_menu_option_nr,
+          GNUT_set_from_cmdline (&cmdline_options, format_menu_option_nr,
                             conversion_format_menu_default);
         }
       else
-        set_from_cmdline (&cmdline_options, format_menu_option_nr, "menu");
+        GNUT_set_from_cmdline (&cmdline_options,
+                               format_menu_option_nr, "menu");
     }
 
   free (conversion_format_menu_default);
 
-  format_menu_option = get_conf (format_menu_option_nr);
+  format_menu_option = GNUT_get_conf (format_menu_option_nr);
   if (format_menu_option && (!format_menu_option->o.string
                              || !strcmp (format_menu_option->o.string,
                                          "menu")))
@@ -2037,7 +1844,7 @@ main (int argc, char *argv[], char *env[])
           /* note that INCLUDE_DIRECTORIES is reset before parsing
              to add prepended directories, current directory and manual
              directory */
-          OPTION *option = get_conf (parser_option->number);
+          OPTION *option = GNUT_get_conf (parser_option->number);
           if (option)
             {
               options_list_add_option_number (&parser_options,
@@ -2093,7 +1900,7 @@ main (int argc, char *argv[], char *env[])
 
       xasprintf (&formatted_message, _("%s: missing file argument."),
                  program_file);
-      encoded_message = encode_message (formatted_message);
+      encoded_message = GNUT_encode_message (formatted_message);
       free (formatted_message);
       fprintf (stderr, "%s\n", encoded_message);
       free (encoded_message);
@@ -2101,7 +1908,7 @@ main (int argc, char *argv[], char *env[])
       xasprintf (&formatted_message,
                  _("Try `%s --help' for more information."),
                  program_file);
-      encoded_message = encode_message (formatted_message);
+      encoded_message = GNUT_encode_message (formatted_message);
       free (formatted_message);
       fprintf (stderr, "%s\n", encoded_message);
       free (encoded_message);
@@ -2153,7 +1960,7 @@ main (int argc, char *argv[], char *env[])
           corrected = strdup (arg_basename);
           memcpy (corrected + strlen (corrected) -strlen (".info"), ".texi",
                   strlen (".texi"));
-          document_warn ("input file %s; did you mean %s?",
+          txi_config_document_warn ("input file %s; did you mean %s?",
                          arg_basename, corrected);
           free (corrected);
           free (arg_basename);
@@ -2221,7 +2028,7 @@ main (int argc, char *argv[], char *env[])
         }
 
       trace_includes_option
-         = get_conf (program_options.options->TRACE_INCLUDES.number);
+         = GNUT_get_conf (program_options.options->TRACE_INCLUDES.number);
       if (trace_includes_option && trace_includes_option->o.integer > 0)
         {
           errors_count = handle_errors (errors_nr, errors_count, &opened_files);
@@ -2240,13 +2047,13 @@ main (int argc, char *argv[], char *env[])
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 
       macro_expand_option
-        = get_conf (program_options.options->MACRO_EXPAND.number);
+        = GNUT_get_conf (program_options.options->MACRO_EXPAND.number);
       if (macro_expand_option && macro_expand_option->o.string && i == 0)
         {
           const char *encoded_macro_expand_file_name
             = macro_expand_option->o.string;
           char *macro_expand_file_name
-            = decode_input((char *) encoded_macro_expand_file_name);
+            = GNUT_decode_input ((char *) encoded_macro_expand_file_name);
           FILE *file_fh;
           OUTPUT_FILES_INFORMATION output_files_information;
           char *open_error_message;
@@ -2275,7 +2082,7 @@ main (int argc, char *argv[], char *env[])
               const ENCODING_CONVERSION *conversion = 0;
               char *result_texinfo = 0;
               OPTION *out_encoding_option
-           = get_conf (program_options.options->OUTPUT_ENCODING_NAME.number);
+      = GNUT_get_conf (program_options.options->OUTPUT_ENCODING_NAME.number);
               if (out_encoding_option && out_encoding_option->o.string
                   && strcmp (out_encoding_option->o.string, "utf-8"))
                 {
@@ -2309,14 +2116,15 @@ main (int argc, char *argv[], char *env[])
 
               if (fclose (file_fh))
                 {
-                  document_warn ("error on closing macro expand file %s: %s",
+                  txi_config_document_warn (
+                               "error on closing macro expand file %s: %s",
                                  macro_expand_file_name, strerror (errno));
                   error_macro_expand_file = 1;
                 }
             }
           else
             {
-              document_warn ("could not open %s for writing: %s",
+              txi_config_document_warn ("could not open %s for writing: %s",
                              macro_expand_file_name, open_error_message);
               error_macro_expand_file = 1;
             }
@@ -2337,7 +2145,7 @@ main (int argc, char *argv[], char *env[])
         }
 
       dump_texi_option
-        = get_conf (program_options.options->DUMP_TEXI.number);
+        = GNUT_get_conf (program_options.options->DUMP_TEXI.number);
 
       if (dump_texi_option && dump_texi_option->o.integer > 0)
         {
@@ -2361,7 +2169,7 @@ main (int argc, char *argv[], char *env[])
 
       /* conversion initialization */
       copy_options_list (&convert_options, &program_options);
-      copy_options_list (&convert_options, &init_files_options);
+      copy_options_list (&convert_options, init_files_options);
       copy_options_list (&convert_options, &cmdline_options);
 
       /* prepend to INCLUDE_DIRECTORIES by resetting include directories to
@@ -2450,7 +2258,7 @@ main (int argc, char *argv[], char *env[])
   free (program_file);
 
   free_options_list (&cmdline_options);
-  free_options_list (&init_files_options);
+  free_options_list (init_files_options);
   free_options_list (&program_options);
 
   free_strings_list (&conf_dirs);

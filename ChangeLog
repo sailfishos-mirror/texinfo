@@ -1,3 +1,23 @@
+2024-12-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (C_libtexinfo_sources),
+	tp/Texinfo/XS/main/txi_config.c (GNUT_initialize_customization)
+	(GNUT_get_conf, GNUT_decode_input, GNUT_encode_message)
+	(txi_config_document_warn, set_option_value)
+	(GNUT_set_customization_default, GNUT_set_from_cmdline)
+	(GNUT_set_from_init_file, txi_config_add_to_option_list)
+	(txi_config_remove_from_option_list), tp/Texinfo/XS/texi2any.c:
+	move configuration related functions out of texi2any.c to the new
+	main/txi_config.c file to get an interface similar to Texinfo::Config.
+
+	* tp/Makefile.am (modulesdir), tp/Texinfo/Config.pm (%XS_overrides)
+	(import), tp/Texinfo/ConfigXS.pm, tp/Texinfo/XS/Makefile.am
+	(xs_LTLIBRARIES, ConfigXS_la_*), tp/Texinfo/XS/main/txi_config.c
+	(texinfo_get_conf_by_name) (texinfo_find_command_line_option_name)
+	(texinfo_find_init_file_option_name)
+	(texinfo_command_line_option_add_option_number): add an XS interface
+	for Texinfo::Config functions related to customization options.
+
 2024-12-24  Patrice Dumas  <pertusus@free.fr>
 
 	README-hacking, tp/Texinfo/XS/convert/call_conversion_perl.c: add

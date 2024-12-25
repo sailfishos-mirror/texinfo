@@ -46,6 +46,33 @@ use Encode;
 # for __( and __p( and some functions
 use Texinfo::Common;
 
+use Texinfo::ConfigXS;
+
+our %XS_overrides = (
+  "Texinfo::Config::texinfo_get_conf"
+    => "Texinfo::ConfigXS::texinfo_get_conf",
+  "Texinfo::Config::texinfo_add_to_option_list"
+    => "Texinfo::ConfigXS::texinfo_add_to_option_list",
+  "Texinfo::Config::texinfo_remove_from_option_list"
+    => "Texinfo::ConfigXS::texinfo_remove_from_option_list",
+  "Texinfo::Config::texinfo_set_from_init_file"
+    => "Texinfo::ConfigXS::texinfo_set_from_init_file"
+);
+
+our $module_loaded = 0;
+sub import {
+  if (!$module_loaded) {
+    # override only if Perl is embedded
+    if ($Texinfo::XSLoader::embedded_xs) {
+      for my $sub (keys %XS_overrides) {
+        Texinfo::XSLoader::override($sub, $XS_overrides{$sub});
+      }
+    }
+    $module_loaded = 1;
+  }
+  # The usual import method
+  goto &Exporter::import;
+}
 
 # for error messages, passed from main calling context through initialization
 # function.

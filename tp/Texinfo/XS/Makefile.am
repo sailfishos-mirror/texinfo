@@ -205,6 +205,8 @@ C_libtexinfo_sources = \
 		      main/manipulate_indices.c \
 		      main/output_unit.c \
 		      main/output_unit.h \
+		      main/txi_config.c \
+		      main/txi_config.h \
 		      parsetexi/api.c \
 		      parsetexi/api.h \
 		      parsetexi/parser.c \
@@ -602,6 +604,24 @@ ConvertXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 ConvertXS_la_LIBADD = libtexinfo-convertxs.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(platform_PERL_LIBADD)
 ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
+########################## ConfigXS
+
+if HAVE_ICONV
+xs_LTLIBRARIES += ConfigXS.la
+endif
+
+nodist_ConfigXS_la_SOURCES = main/ConfigXS.c
+CLEANFILES += main/ConfigXS.c
+
+ConfigXS_la_SOURCES =
+
+EXTRA_DIST += main/ConfigXS.xs
+
+# To locate include files under out-of-source builds.
+ConfigXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+ConfigXS_la_CFLAGS = $(XSLIBS_CFLAGS)
+ConfigXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
+ConfigXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ############################################### demonstrator of the API
 
