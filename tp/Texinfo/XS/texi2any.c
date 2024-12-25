@@ -1697,6 +1697,9 @@ main (int argc, char *argv[], char *env[])
       add_option_value (&program_options, "PACKAGE_URL", 0,
                                      "https://www.gnu.org/software/texinfo/");
       add_option_value (&program_options, "PROGRAM", 0, "texi2any");
+
+      free (program_file);
+      program_file = strdup ("texi2any");
     }
 
   init_file_format = GNUT_get_format_from_init_file ();
@@ -1884,9 +1887,9 @@ main (int argc, char *argv[], char *env[])
   free (conversion_format_menu_default);
 
   format_menu_option = GNUT_get_conf (format_menu_option_nr);
-  if (format_menu_option && (!format_menu_option->o.string
-                             || !strcmp (format_menu_option->o.string,
-                                         "menu")))
+  if (!format_menu_option || !format_menu_option->o.string
+                          || !strcmp (format_menu_option->o.string,
+                                         "menu"))
     do_menu = 1;
 
   initialize_options_list (&parser_options);
@@ -2016,7 +2019,7 @@ main (int argc, char *argv[], char *env[])
           memcpy (corrected + strlen (corrected) -strlen (".info"), ".texi",
                   strlen (".texi"));
           txi_config_document_warn ("input file %s; did you mean %s?",
-                         arg_basename, corrected);
+                                    arg_basename, corrected);
           free (corrected);
           free (arg_basename);
         }

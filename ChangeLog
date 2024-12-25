@@ -1,5 +1,13 @@
 2024-12-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/texi2any.c (main): set program_file to be "texi2any"
+	if TEST is set.
+
+	* tp/Texinfo/XS/texi2any.c (main): if FORMAT_MENU is not set a all,
+	consider that menus are to be checked.
+
+2024-12-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/texi2any.c (main): reset the format_specification to
 	the converted format format_specification if the output format is
 	different from the converted format.
