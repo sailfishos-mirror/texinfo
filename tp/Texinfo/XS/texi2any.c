@@ -1745,7 +1745,18 @@ main (int argc, char *argv[], char *env[])
                                     &internal_extension_dirs);
 
   if (format_specification->converted_format)
-    converted_format = format_specification->converted_format;
+    {
+      converted_format = format_specification->converted_format;
+  /* reset the format_specification to the converted_format specification */
+      for (i = 0; formats_table[i].name; i++)
+        {
+          if (!strcmp (formats_table[i].name, converted_format))
+            {
+              format_specification = &formats_table[i];
+              break;
+            }
+        }
+    }
   else
     converted_format = output_format;
 
