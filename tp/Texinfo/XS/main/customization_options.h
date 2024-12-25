@@ -77,6 +77,7 @@ OPTION *add_new_button_option (OPTIONS_LIST *options_list,
                               BUTTON_SPECIFICATION_LIST *buttons);
 OPTION *add_option_strlist_value (OPTIONS_LIST *options_list,
                           const char *option_name, const STRING_LIST *strlist);
+char *show_options_list_options_set (OPTIONS_LIST *options_list);
 
 
 

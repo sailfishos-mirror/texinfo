@@ -61,6 +61,12 @@ GNUT_initialize_customization (const char *real_command_name,
 
   initialize_options_list (&init_files_options);
 
+  /*
+  char *program_options_str = show_options_list_options_set (program_options);
+  fprintf (stderr, "options_defaults: %s\n", program_options_str);
+  free (program_options_str);
+   */
+
   program_file = real_command_name;
 
   return &init_files_options;

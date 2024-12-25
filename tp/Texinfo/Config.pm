@@ -130,8 +130,8 @@ sub GNUT_initialize_customization($$$) {
     $options_as_lists{$cmdline_option} = 1;
   }
 
-  #print STDERR "options_defaults: ".join('|',keys(%$options_defaults))."\n";
-  #print STDERR "cmdline_options: ".join('|',keys(%$cmdline_options))."\n";
+  #print STDERR "options_defaults: ".join('|',sort(keys(%$options_defaults)))."\n";
+  #print STDERR "cmdline_options: ".join('|',sort(keys(%$cmdline_options)))."\n";
   return $init_files_options;
 }
 

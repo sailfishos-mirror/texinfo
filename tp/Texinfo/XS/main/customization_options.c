@@ -604,6 +604,28 @@ add_option_strlist_value (OPTIONS_LIST *options_list,
   return option;
 }
 
+/* for debugging */
+char *
+show_options_list_options_set (OPTIONS_LIST *options_list)
+{
+  static STRING_LIST options_names;
+  size_t i;
+  char *result;
+
+  for (i = 0; i < options_list->number; i++)
+    {
+      OPTION *option = options_list->sorted_options[options_list->list[i] -1];
+      add_string (option->name, &options_names);
+    }
+
+  sort_strings_list (&options_names);
+  result = join_strings_list (&options_names);
+
+  clear_strings_list (&options_names);
+
+  return result;
+}
+
 
 
 /* misc other functions */

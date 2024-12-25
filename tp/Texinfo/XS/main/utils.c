@@ -1040,6 +1040,47 @@ destroy_strings_list (STRING_LIST *strings)
   free (strings);
 }
 
+static int
+compare_strings (const void *a, const void *b)
+{
+  const char **str_a = (const char **) a;
+  const char **str_b = (const char **) b;
+
+  return strcmp (*str_a, *str_b);
+}
+
+/* for debugging */
+void
+sort_strings_list (STRING_LIST *strings)
+{
+  qsort (strings->list, strings->number,
+         sizeof (char **), compare_strings);
+}
+
+/* for debugging */
+char *
+join_strings_list (STRING_LIST *strings)
+{
+  size_t i;
+  TEXT text;
+
+  text_init (&text);
+  text_append (&text, "");
+
+  for (i = 0; i < strings->number; i++)
+    {
+      if (i != 0)
+        text_append_n (&text, "|", 1);
+      text_append (&text, strings->list[i]);
+    }
+
+  /*
+  fprintf (stderr, "%s\n", text.text);
+   */
+  return text.text;
+}
+
+
 /* Note: the Perl code (in Common.pm, 'locate_include_file') handles
    a volume in a path (like "A:") using the File::Spec module. */
 static int

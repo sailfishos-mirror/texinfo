@@ -155,6 +155,8 @@ void merge_strings (STRING_LIST *strings_list,
                     const STRING_LIST *merged_strings);
 void copy_strings (STRING_LIST *dest_list, const STRING_LIST *source_list);
 size_t find_string (const STRING_LIST *strings_list, const char *string);
+void sort_strings_list (STRING_LIST *strings);
+char *join_strings_list (STRING_LIST *strings);
 
 void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
