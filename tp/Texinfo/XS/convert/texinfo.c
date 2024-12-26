@@ -32,6 +32,8 @@
 #include "option_types.h"
 #include "options_defaults.h"
 #include "api.h"
+/* fatal */
+#include "base_utils.h"
 #include "conf.h"
 #include "errors.h"
 /* parse_file_path messages_and_encodings_setup */
@@ -147,8 +149,7 @@ txi_customization_loading_setup (int embedded_interpreter,
 {
   const char *load_txi_modules_basename = "load_txi_modules";
   if (embedded_interpreter)
-    {/* setup paths here to avoid memory management as much as possible
-        in Perl C */
+    {
       char *load_modules_path;
       int status;
       if (conversion_paths_info.texinfo_uninstalled)
@@ -162,7 +163,14 @@ txi_customization_loading_setup (int embedded_interpreter,
       status = call_init_perl (argc_ref, argv_ref, env_ref, load_modules_path);
       /* status < 0 means no functioning call_init_perl */
       if (status > 0)
-        fprintf (stderr, "ERROR: call_init_perl status: %d\n", status);
+        {
+          char *message;
+          /* unexpected failure, no point continuing, the output needs
+             the interpreter and libperl will segfault */
+          xasprintf (&message, "call_init_perl status: %d", status);
+          fatal (message);
+          free (message);
+        }
       else if (status < 0)
         fprintf (stderr, "WARNING: no embedded interpreter available\n");
       free (load_modules_path);

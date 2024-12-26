@@ -1850,9 +1850,7 @@ main (int argc, char *argv[], char *env[])
 
   format_menu_option_nr = program_options.options->FORMAT_MENU.number;
 
-  /* in Perl the presence of a module in format specification is used to
-     determine if there are format defaults.  Here check if format_defaults
-     is set */
+  /* Converters may set format_defaults to NULL (Text converter) */
   if (format_defaults)
     {
       if (format_defaults->conf.options->FORMAT_MENU.o.string)

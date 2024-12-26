@@ -70,10 +70,10 @@
 /* Should be kept in sync with enum converter_format
    and TXI_CONVERSION_FORMAT_NR */
 CONVERTER_FORMAT_DATA converter_format_data[] = {
-  {"html", "Texinfo::Convert::HTML", &html_converter_defaults,
+  {"html", "Texinfo::Convert::HTML", 0, &html_converter_defaults,
    &html_converter_initialize, &html_output, &html_convert, 0,
    &html_reset_converter, &html_free_converter},
-  {"plaintexinfo", "Texinfo::Convert::PlainTexinfo",
+  {"plaintexinfo", "Texinfo::Convert::PlainTexinfo", 0,
    &plaintexinfo_converter_defaults, 0, &plaintexinfo_output,
    &plaintexinfo_convert, &plaintexinfo_convert_tree, 0, 0},
 };
@@ -288,6 +288,8 @@ init_generic_converter (CONVERTER *self)
   self->translated_commands[0].translation = strdup ("error@arrow{}");
 }
 
+/* Allocate a converter without any initialization such as to leave
+   open the choice of functions used to setup the converter */
 /* descriptor starts at 1, 0 is not found or an error */
 size_t
 new_converter (enum converter_format format)
@@ -401,17 +403,24 @@ apply_converter_info (CONVERTER *converter,
  */
 void
 set_converter_init_information (CONVERTER *converter,
-                            CONVERTER_INITIALIZATION_INFO *format_defaults,
-                            const CONVERTER_INITIALIZATION_INFO *user_conf)
+                       const CONVERTER_INITIALIZATION_INFO *format_defaults,
+                       const CONVERTER_INITIALIZATION_INFO *user_conf)
 {
   init_generic_converter (converter);
 
-  apply_converter_info (converter, format_defaults, 0);
+  if (format_defaults)
+    {
+      apply_converter_info (converter, format_defaults, 0);
 
-  /* Also keep format_defaults options as an OPTIONS structure */
-  converter->format_defaults_conf = new_options ();
-  copy_options (converter->format_defaults_conf,
-                format_defaults->conf.options);
+      /* Also keep format_defaults options as an OPTIONS structure */
+      /* TODO not done in Perl.  Used in later codes, so probably done
+         differently, to be checked, maybe linked with the comment
+         just below on converter_init_conf.
+        */
+      converter->format_defaults_conf = new_options ();
+      copy_options (converter->format_defaults_conf,
+                    format_defaults->conf.options);
+    }
 
   if (user_conf)
     apply_converter_info (converter, user_conf, 1);
@@ -539,19 +548,30 @@ CONVERTER *
 converter_converter (enum converter_format format,
                      const CONVERTER_INITIALIZATION_INFO *user_conf)
 {
-  CONVERTER_INITIALIZATION_INFO *format_defaults;
-
   size_t converter_descriptor = new_converter (format);
   CONVERTER *converter = retrieve_converter (converter_descriptor);
 
-  format_defaults = converter_defaults (converter->format, user_conf);
+  if (converter->format != COF_none
+      && converter_format_data[converter->format].converter_converter)
+    {/* corresponds, in Perl, to a converter not inheriting
+        Texinfo::Convert::Converter, such as the Text converter to rawtext */
+      void (* format_converter_converter) (CONVERTER *self,
+                         const CONVERTER_INITIALIZATION_INFO *user_conf)
+        = converter_format_data[converter->format].converter_converter;
+      format_converter_converter (converter, user_conf);
+    }
+  else
+    {
+      CONVERTER_INITIALIZATION_INFO *format_defaults;
 
-  set_converter_init_information (converter, format_defaults, user_conf);
+      format_defaults = converter_defaults (converter->format, user_conf);
 
-  destroy_converter_initialization_info (format_defaults);
+      set_converter_init_information (converter, format_defaults, user_conf);
 
-  converter_initialize (converter);
+      destroy_converter_initialization_info (format_defaults);
 
+      converter_initialize (converter);
+    }
   return converter;
 }
 

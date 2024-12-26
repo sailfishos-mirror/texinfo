@@ -1,3 +1,14 @@
+2024-12-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/converter.c (converter_format_data)
+	(converter_converter), tp/Texinfo/XS/convert/converter.h
+	(CONVERTER_FORMAT_DATA): add converter_converter field in
+	CONVERTER_FORMAT_DATA and use it in converter_converter to be able to
+	do a different converter initialization for a format.
+
+	* tp/Texinfo/XS/convert/converter.c (set_converter_init_information),
+	tp/texi2any.pl: handle NULL/undef converter_defaults return.
+
 2024-12-25  Patrice Dumas  <pertusus@free.fr>
 
 	PlainTexinfo converter in C
@@ -55,7 +66,7 @@
 	* tp/Texinfo/XS/texi2any.c (main): set program_file to be "texi2any"
 	if TEST is set.
 
-	* tp/Texinfo/XS/texi2any.c (main): if FORMAT_MENU is not set a all,
+	* tp/Texinfo/XS/texi2any.c (main): if FORMAT_MENU is not set at all,
 	consider that menus are to be checked.
 
 2024-12-25  Patrice Dumas  <pertusus@free.fr>

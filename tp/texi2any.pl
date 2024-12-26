@@ -1617,7 +1617,9 @@ if (defined($formats_table{$converted_format}->{'module'})) {
   # possibly different customization variable values.
   my $converter_defaults
      = $converter_class->converter_defaults($cmdline_options);
-  if (defined($converter_defaults->{'FORMAT_MENU'})) {
+  # some converters may return undef for $converter_defaults (Text for example)
+  if ($converter_defaults
+      and defined($converter_defaults->{'FORMAT_MENU'})) {
     # could be done for other customization options
     set_main_program_default('FORMAT_MENU',
                              $converter_defaults->{'FORMAT_MENU'});
