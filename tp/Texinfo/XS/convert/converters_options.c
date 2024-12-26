@@ -187,6 +187,20 @@ add_html_converter_regular_options_defaults (OPTIONS_LIST *options_list)
 }
 
 void
+set_plaintexinfo_converter_regular_options_defaults (OPTIONS *options)
+{
+  option_set_conf (&options->EXTENSION, -2, "texi");
+  option_set_conf (&options->OUTFILE, -2, "-");
+}
+
+void
+add_plaintexinfo_converter_regular_options_defaults (OPTIONS_LIST *options_list)
+{
+  add_option_value (options_list, "EXTENSION", -2, "texi");
+  add_option_value (options_list, "OUTFILE", -2, "-");
+}
+
+void
 set_texi2html_regular_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->FORMAT_MENU, -2, "menu");

@@ -60,16 +60,22 @@
 #include "unicode.h"
 #include "manipulate_indices.h"
 #include "document.h"
-#include "html_converter_api.h"
 #include "api_to_perl.h"
+#include "html_converter_api.h"
+#include "plaintexinfo_converter_api.h"
 #include "converter.h"
 
 /* table used to dispatch format specific functions.
    Same purpose as inherited methods in Texinfo::Convert::Converter */
+/* Should be kept in sync with enum converter_format
+   and TXI_CONVERSION_FORMAT_NR */
 CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"html", "Texinfo::Convert::HTML", &html_converter_defaults,
-   &html_converter_initialize, &html_output, &html_convert,
+   &html_converter_initialize, &html_output, &html_convert, 0,
    &html_reset_converter, &html_free_converter},
+  {"plaintexinfo", "Texinfo::Convert::PlainTexinfo",
+   &plaintexinfo_converter_defaults, 0, &plaintexinfo_output,
+   &plaintexinfo_convert, &plaintexinfo_convert_tree, 0, 0},
 };
 
 /* associate lower case no brace accent command to the upper case
@@ -479,9 +485,9 @@ copy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *dst_info,
    functions are already called (and possibly overriden).  Inheritance
    in Perl is replaced by dispatching using a table here.
 
-   converter_initialize cannot be overriden fully in HTML because Perl
+   converter_initialize cannot be overriden fully in HTML as long as Perl
    code is needed to setup customization in Perl.  Therefore, there is
-   no prospect of overriding converter_initialize fully, and therefore
+   no prospect of overriding converter_initialize for now, and therefore
    of overridding converter_converter.  Those functions are only meant
    for pure C.
  */
@@ -490,19 +496,31 @@ CONVERTER_INITIALIZATION_INFO *
 converter_defaults (enum converter_format converter_format,
                     const CONVERTER_INITIALIZATION_INFO *user_conf)
 {
-  if (converter_format != COF_none
-      && converter_format_data[converter_format].converter_defaults)
+  if (converter_format != COF_none)
     {
-      CONVERTER_INITIALIZATION_INFO *
-         (* format_converter_defaults) (enum converter_format format,
+      if (converter_format_data[converter_format].converter_defaults)
+        {
+          CONVERTER_INITIALIZATION_INFO *
+            (* format_converter_defaults) (enum converter_format format,
                              const CONVERTER_INITIALIZATION_INFO *conf)
-        = converter_format_data[converter_format].converter_defaults;
-      return format_converter_defaults (converter_format, user_conf);
+            = converter_format_data[converter_format].converter_defaults;
+          return format_converter_defaults (converter_format, user_conf);
+        }
+      else
+        { /* Texinfo::Convert::Converter implementation */
+          CONVERTER_INITIALIZATION_INFO *format_defaults
+           = new_converter_initialization_info ();
+
+          add_converter_defaults_regular_options_defaults
+                                               (&format_defaults->conf);
+          return format_defaults;
+        }
     }
   return 0;
 }
 
 /* corresponds to Perl $converter->converter_initialize() Converter */
+/* default is to do nothing */
 void
 converter_initialize (CONVERTER *converter)
 {
@@ -590,6 +608,230 @@ converter_set_document (CONVERTER *converter, DOCUMENT *document)
 
   converter->convert_text_options
     = copy_converter_options_for_convert_text (converter);
+}
+
+/* default implementation */
+void
+converter_conversion_initialization (CONVERTER *converter, DOCUMENT *document)
+{
+  converter_set_document (converter, document);
+}
+
+/* output fo $fh if defined, otherwise return the text. */
+void
+write_or_return (const ENCODING_CONVERSION *conversion,
+                 const char *encoded_out_filepath,
+                 FILE *file_fh, TEXT *result, char *text)
+{
+  if (file_fh)
+    {
+      char *result;
+      size_t res_len;
+      size_t write_len;
+
+      if (conversion)
+        {
+          result = encode_with_iconv (conversion->iconv,
+                                      text, 0);
+          res_len = strlen (result);
+        }
+      else
+        {
+          result = text;
+          res_len = strlen (text);
+        }
+      write_len = fwrite (result, sizeof (char),
+                          res_len, file_fh);
+      if (conversion)
+        free (result);
+      if (write_len != res_len)
+        { /* register error message instead? */
+          fprintf (stderr,
+                   "ERROR: write to %s failed (%zu/%zu)\n",
+                   encoded_out_filepath, write_len, res_len);
+        }
+    }
+  else
+    text_append (result, text);
+}
+
+char *
+converter_output_tree (CONVERTER *converter, DOCUMENT *document,
+    void * (* conversion_initialization)
+                   (CONVERTER *converter, DOCUMENT *document),
+    char * (* conversion_output_begin)
+                   (CONVERTER *converter,
+                    const char *output_file, const char *output_filename),
+    char * (* conversion_output_end) (CONVERTER *converter),
+    void * (* conversion_finalization) (CONVERTER *converter))
+{
+  int status = 1;
+  ELEMENT *root = document->tree;
+  int i;
+  char *paths[5];
+  char *dir_encoding;
+  const char *output_file;
+  const char *destination_directory;
+  const char *output_filename;
+  FILE *file_fh = 0;
+  char *encoded_destination_directory;
+  int succeeded;
+  const ENCODING_CONVERSION *conversion = 0;
+  TEXT result;
+  char *encoded_out_filepath = 0;
+  char *tree_result;
+
+  char *(* format_convert_tree) (CONVERTER *converter,
+                                 const ELEMENT *tree)
+    = converter_format_data[converter->format].converter_convert_tree;
+
+  if (conversion_initialization)
+    {
+      conversion_initialization (converter, document);
+    }
+  else
+    converter_conversion_initialization (converter, document);
+
+  determine_files_and_directory (converter,
+                    converter->conf->TEXINFO_OUTPUT_FORMAT.o.string, paths);
+
+  output_file = paths[0];
+  destination_directory = paths[1];
+  output_filename = paths[2];
+
+  /* cast to remove const since the encoded_output_file_name argument cannot
+     be const even though the string is not modified */
+  encoded_destination_directory = encoded_output_file_name (converter->conf,
+                                            &converter->document->global_info,
+                                           (char *)destination_directory,
+                                                       &dir_encoding, 0);
+  free (dir_encoding);
+
+  succeeded = create_destination_directory (converter,
+                                     encoded_destination_directory,
+                                           destination_directory);
+
+  free (encoded_destination_directory);
+
+  if (!succeeded)
+    {
+      if (conversion_finalization)
+        conversion_finalization (converter);
+      status = 0;
+      goto finalization;
+    }
+
+  if (strlen (output_file))
+    {
+      char *path_encoding;
+      int overwritten_file;
+      char *open_error_message;
+
+      encoded_out_filepath = encoded_output_file_name (converter->conf,
+                                       &converter->document->global_info,
+                                  (char *)output_file, &path_encoding, 0);
+      /* overwritten_file being set cannot happen */
+      file_fh = output_files_open_out (&converter->output_files_information,
+                                   encoded_out_filepath, &open_error_message,
+                                   &overwritten_file, 0);
+      free (path_encoding);
+
+      if (!file_fh)
+        {
+          message_list_document_error (&converter->error_messages,
+                             converter->conf, 0,
+                             "could not open %s for writing: %s",
+                             output_file, open_error_message);
+          free (open_error_message);
+          free (encoded_out_filepath);
+
+          if (conversion_finalization)
+            conversion_finalization (converter);
+          status = 0;
+          goto finalization;
+        }
+    }
+
+  text_init (&result);
+  text_append (&result, "");
+
+  if (file_fh)
+    {
+      if (converter->conf->OUTPUT_ENCODING_NAME.o.string
+          && strcmp (converter->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8"))
+        {
+          conversion
+             = get_encoding_conversion (
+                           converter->conf->OUTPUT_ENCODING_NAME.o.string,
+                                              &output_conversions);
+        }
+    }
+
+  if (conversion_output_begin)
+    {
+      char *output_beginning = conversion_output_begin (converter,
+                                                        output_file,
+                                                        output_filename);
+      if (output_beginning)
+        {
+          write_or_return (conversion, encoded_out_filepath,
+                           file_fh, &result, output_beginning);
+          free (output_beginning);
+        }
+    }
+  tree_result = format_convert_tree (converter, root);
+  if (tree_result)
+    {
+      write_or_return (conversion, encoded_out_filepath,
+                       file_fh, &result, tree_result);
+      free (tree_result);
+    }
+
+  if (conversion_output_end)
+    {
+      char *output_end = conversion_output_end (converter);
+      if (output_end)
+        {
+          write_or_return (conversion, encoded_out_filepath,
+                           file_fh, &result, output_end);
+          free (output_end);
+        }
+    }
+
+  if (file_fh && !strcmp (output_file, "-"))
+    {
+       output_files_register_closed
+                         (&converter->output_files_information, 
+                          encoded_out_filepath);
+      if (fclose (file_fh))
+        {
+          message_list_document_error (
+             &converter->error_messages, converter->conf, 0,
+             "error on closing %s: %s",
+             output_file, strerror (errno));
+        }
+    }
+
+  if (encoded_out_filepath)
+    free (encoded_out_filepath);
+
+  if (conversion_finalization)
+    conversion_finalization (converter);
+
+ finalization:
+
+  for (i = 0; i < 5; i++)
+    {
+      free (paths[i]);
+    }
+
+  if (status)
+    return result.text;
+  else
+    {
+      free (result.text);
+      return 0;
+    }
 }
 
 

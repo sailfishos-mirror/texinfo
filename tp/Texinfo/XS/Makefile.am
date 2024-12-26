@@ -505,6 +505,8 @@ C_libtexinfo_convert_sources = \
                        convert/html_conversion_api.h \
                        convert/html_converter_api.c \
                        convert/html_converter_api.h \
+                       convert/plaintexinfo_converter_api.c \
+                       convert/plaintexinfo_converter_api.h \
                        convert/texinfo.c \
                        convert/texinfo.h
 

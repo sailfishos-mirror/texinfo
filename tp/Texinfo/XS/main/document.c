@@ -199,7 +199,7 @@ set_document_options (DOCUMENT *document, const OPTIONS_LIST *program_options,
                                     sorted_options,
                                     &document_options, 0);
 
-  clear_options_list (&document_options);
+  free_options_list (&document_options);
 
   register_document_options (document, options, sorted_options);
 }

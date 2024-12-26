@@ -64,6 +64,10 @@ PACKAGE_VERSION
 PACKAGE_URL           https://www.gnu.org/software/texinfo/
 PROGRAM               
 
+# Texinfo::Convert::PlainTexinfo
+- plaintexinfo_converter
+EXTENSION             texi
+OUTFILE               -
 
 - html_converter
 

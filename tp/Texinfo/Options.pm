@@ -358,6 +358,13 @@ my %html_converter_regular_options_defaults = (
 
 $regular_options_types{'html_converter'} = \%html_converter_regular_options_defaults;
 
+my %plaintexinfo_converter_regular_options_defaults = (
+  'EXTENSION'                        => 'texi',
+  'OUTFILE'                          => '-',
+);
+
+$regular_options_types{'plaintexinfo_converter'} = \%plaintexinfo_converter_regular_options_defaults;
+
 my %texi2html_regular_options_defaults = (
   'FORMAT_MENU'                      => 'menu',
   'USE_SETFILENAME_EXTENSION'        => 0,

@@ -129,6 +129,7 @@ static FORMAT_SPECIFICATION formats_table[] = {
   {"debugtree", STTF_split,
    NULL, "Texinfo::DebugTree", NULL},
   {"textcontent", 0, NULL, "Texinfo::Convert::TextContent", NULL},
+  {"plaintexinfo", 0, NULL, NULL, NULL},
   {"parse", 0, NULL, NULL, NULL},
   {"structure", STTF_nodes_tree | STTF_floats | STTF_split, NULL, NULL, NULL},
   {NULL, 0, NULL, NULL, NULL}
@@ -1854,8 +1855,9 @@ main (int argc, char *argv[], char *env[])
      is set */
   if (format_defaults)
     {
-      conversion_format_menu_default
-        = strdup (format_defaults->conf.options->FORMAT_MENU.o.string);
+      if (format_defaults->conf.options->FORMAT_MENU.o.string)
+        conversion_format_menu_default
+          = strdup (format_defaults->conf.options->FORMAT_MENU.o.string);
       if (conversion_format_menu_default != 0)
         {
           /*

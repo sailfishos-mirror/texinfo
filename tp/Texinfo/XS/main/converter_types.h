@@ -36,6 +36,7 @@ struct TEXT_OPTIONS;
 enum converter_format {
    COF_none = -1,
    COF_html,
+   COF_plaintexinfo,
 };
 
 /* for string information passing to/from perl */

@@ -25,6 +25,8 @@ package Texinfo::Convert::PlainTexinfo;
 use 5.006;
 use strict;
 
+use Texinfo::Options;
+
 use Texinfo::Convert::ConvertXS;
 use Texinfo::XSLoader;
 
@@ -54,13 +56,9 @@ sub import {
   goto &Exporter::import;
 }
 
-
-my %defaults = (
-  # Customization option variables
-  'EXTENSION'            => 'texi',
-  # different from the default, which is undef
-  'OUTFILE'              => '-',
-);
+my $regular_defaults
+  = Texinfo::Options::get_regular_options('plaintexinfo_converter');
+my %defaults = %{$regular_defaults};
 
 sub converter_defaults($$)
 {

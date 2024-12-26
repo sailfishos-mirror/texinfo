@@ -66,7 +66,7 @@
             } \
           break;
 
-#define TXI_CONVERSION_FORMAT_NR (COF_html +1)
+#define TXI_CONVERSION_FORMAT_NR (COF_plaintexinfo +1)
 
 typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
     const ELEMENT *caption;
@@ -99,11 +99,11 @@ typedef struct CONVERTER_FORMAT_DATA {
     void (* converter_initialize) (CONVERTER *self);
     char * (* converter_output) (CONVERTER *converter, DOCUMENT *document);
     char * (* converter_convert) (CONVERTER *converter, DOCUMENT *document);
-    /* API to be determined, in HTML there is a debugging explanation
+    /* TODO API to be determined, in HTML there is a debugging explanation
        argument
-    char *(* converter_convert_tree) (CONVERTER *converter,
-                                      const ELEMENT *tree);
      */
+    char * (* converter_convert_tree) (CONVERTER *converter,
+                                       const ELEMENT *tree);
     void (* converter_reset) (CONVERTER *self);
     void (* converter_free) (CONVERTER *self);
 } CONVERTER_FORMAT_DATA;
@@ -154,6 +154,16 @@ void destroy_converter_initialization_info (
                             CONVERTER_INITIALIZATION_INFO *defaults);
 
 void converter_set_document (CONVERTER *converter, DOCUMENT *document);
+
+char *
+converter_output_tree (CONVERTER *converter, DOCUMENT *document,
+    void * (* conversion_initialization)
+                   (CONVERTER *converter, DOCUMENT *document),
+    char * (* conversion_output_begin)
+                   (CONVERTER *converter,
+                    const char *output_file, const char *output_filename),
+    char * (* conversion_output_end) (CONVERTER *converter),
+    void * (* conversion_finalization) (CONVERTER *converter));
 
 char *converter_output (CONVERTER *self, DOCUMENT *document);
 char *converter_convert (CONVERTER *self, DOCUMENT *document);

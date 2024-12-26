@@ -1,5 +1,36 @@
 2024-12-25  Patrice Dumas  <pertusus@free.fr>
 
+	PlainTexinfo converter in C
+
+	* tp/Texinfo/Convert/PlainTexinfo.pm (%defaults),
+	tp/Texinfo/Convert/converters_defaults.txt (plaintexinfo_converter):
+	add PlainTexinfo converter defaults to converters_defaults.txt.
+
+	* tp/Texinfo/XS/convert/converter.c (converter_defaults)
+	(converter_conversion_initialization): add default implementations.
+
+	* tp/Texinfo/XS/convert/converter.h (CONVERTER_FORMAT_DATA),
+	tp/Texinfo/XS/convert/converter.c (write_or_return)
+	(converter_output_tree): implement converter_output_tree.
+
+	* tp/Texinfo/XS/Makefile.am (C_libtexinfo_convert_sources),
+	tp/Texinfo/XS/convert/plaintexinfo_converter_api.c
+	(plaintexinfo_converter_defaults, plaintexinfo_output)
+	(plaintexinfo_convert, plaintexinfo_convert_tree): implement a
+	converter for PlainTexinfo.
+
+	* tp/Texinfo/XS/texi2any.c (formats_table),
+	tp/Texinfo/XS/convert/converter.c (converter_format_data):
+	register the PlainTexinfo C converter.
+
+	* tp/Texinfo/XS/texi2any.c (main): check if FORMAT_MENU string is set
+	before accessing.
+
+	* tp/Texinfo/XS/main/document.c (set_document_options): free temporary
+	document_options options list.
+
+2024-12-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/document.c (set_document_options): replace
 	initialize_document_options by set_document_options, which uses a
 	temporary OPTIONS_LIST and uses program_options, cmdline_options
