@@ -629,6 +629,43 @@ set_expanded_formats_from_options (EXPANDED_FORMAT *formats,
 }
 
 
+
+void
+add_translated_command (TRANSLATED_COMMAND_LIST *translated_commands,
+                        enum command_id cmd,
+                        const char *translation)
+{
+  TRANSLATED_COMMAND *translated_command;
+  if (translated_commands->number >= translated_commands->space)
+    {
+      translated_commands->space += 5;
+      translated_commands->list
+         = realloc (translated_commands->list,
+                    translated_commands->space * sizeof (TRANSLATED_COMMAND));
+      if (!translated_commands->list)
+        fatal ("realloc failed");
+    }
+  translated_command = &translated_commands->list[translated_commands->number];
+  translated_command->cmd = cmd;
+  translated_command->translation = strdup (translation);
+
+  translated_commands->number++;
+}
+
+void
+clear_translated_commands (TRANSLATED_COMMAND_LIST *translated_commands)
+{
+  size_t i;
+
+  for (i = 0; i < translated_commands->number; i++)
+    {
+      free (translated_commands->list[i].translation);
+    }
+  translated_commands->number = 0;
+}
+
+
+
 /* Return the parent if in an item_line command, @*table */
 ELEMENT *
 item_line_parent (ELEMENT *current)
@@ -708,8 +745,110 @@ index_number_index_by_name (const SORTED_INDEX_NAMES *sorted_indices,
   return 0;
 }
 
-
 
+
+typedef struct STRING_AND_LEN {
+    const char *string;
+    int len;
+} STRING_AND_LEN;
+
+/* in perl there is also .tx matched, but it is incorrect */
+static const STRING_AND_LEN texinfo_extensions[5] = {
+  {".texi", 5},
+  {".texinfo", 8},
+  {".txinfo", 7},
+  {".txi", 4},
+  {".tex", 4}
+};
+
+/* similar to s/\.te?x(i|info)?$// in Perl */
+char *
+texinfo_input_file_basename (const char *input_basefile)
+{
+  char *input_basename;
+
+  int i;
+  int basefile_len = strlen (input_basefile);
+  for (i = 0; i < 5; i++)
+    {
+      int len = texinfo_extensions[i].len;
+      if (basefile_len >= len
+          && !memcmp (input_basefile + basefile_len - len,
+                      texinfo_extensions[i].string, len))
+        {
+          input_basename = strndup (input_basefile,
+                                    basefile_len - len);
+          return input_basename;
+        }
+    }
+
+  input_basename = strdup (input_basefile);
+
+  return input_basename;
+}
+
+/* result to be freed */
+char *
+remove_extension (const char *input_string)
+{
+  char *result;
+  const char *p = strchr (input_string, '.');
+  if (p)
+    {
+      while (1)
+        {
+          const char *q = strchr (p + 1, '.');
+          if (q)
+            p = q;
+          else
+            break;
+        }
+      result = strndup (input_string, p - input_string);
+    }
+  else result = strdup (input_string);
+
+  return result;
+}
+
+/* try to do at least part of what File::Spec->canonpath does to have
+   tests passing */
+char *
+canonpath (const char *input_file)
+{
+  TEXT result;
+  const char *p = strchr (input_file, '/');
+
+  if (p)
+    {
+      text_init (&result);
+      text_append_n (&result, input_file, p - input_file);
+      while (1)
+        {
+          const char *q;
+          p++;
+          while (*p == '/')
+            p++;
+          /* omit a / at the end of the path */
+          if (!*p)
+            return (result.text);
+          text_append_n (&result, "/", 1);
+          q = strchr (p, '/');
+          if (q)
+            {
+              text_append_n (&result, p, q - p);
+              p = q;
+            }
+          else
+            {
+              text_append (&result, p);
+              return (result.text);
+            }
+        }
+    }
+  else
+    return strdup (input_file);
+}
+
 /* text parsing functions used in diverse situations */
 /* Determine if there is a name used for @set, @value and translations
    arguments and its length. */

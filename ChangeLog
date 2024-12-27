@@ -1,3 +1,46 @@
+2024-12-27  Patrice Dumas  <pertusus@free.fr>
+
+	Raw text converter in C
+
+	* tp/Texinfo/XS/convert/converter.c, tp/Texinfo/XS/main/utils.c
+	(STRING_AND_LEN, texinfo_extensions, remove_extension, canonpath)
+	(determine_files_and_directory, texinfo_input_file_basename): move
+	remove_extension and canonpath to utils.c.  Create
+	texinfo_input_file_basename in utils.c based on
+	determine_files_and_directory code, move STRING_AND_LEN and
+	texinfo_extensions to utils.c.
+
+	* tp/Texinfo/XS/convert/converter.c (apply_converter_info)
+	(write_or_return), tp/Texinfo/XS/main/converter_types.h
+	(ENCODING_CONVERSION): make apply_converter_info and write_or_return
+	public, move ENCODING_CONVERSION to converter_types.h.
+
+	* tp/Texinfo/XS/convert/converter.c (init_generic_converter)
+	(copy_translated_commands, free_translated_commands)
+	(apply_converter_info, clear_converter_initialization_info)
+	(destroy_converter_initialization_info)
+	(copy_converter_initialization_info),
+	tp/Texinfo/XS/main/converter_types.h (TRANSLATED_COMMAND_LIST)
+	(CONVERTER, CONVERTER_INITIALIZATION_INFO), tp/Texinfo/XS/main/utils.c
+	(add_translated_command, clear_translated_commands),
+	tp/Texinfo/XS/main/build_perl_info.c (set_translated_commands,
+	get_converter_info_from_sv): add TRANSLATED_COMMAND_LIST for
+	translated command list with the number of items.  Use it instead of
+	TRANSLATED_COMMAND arrays in CONVERTER_INITIALIZATION_INFO and
+	CONVERTER.  Add add_translated_command and clear_translated_commands
+	and modify the other functions.  Update callers.
+
+	* tp/Texinfo/XS/Makefile.am (C_libtexinfo_convert_sources),
+	tp/Texinfo/XS/convert/rawtext_converter_api.c (rawtext_converter)
+	(initialize_options_encoding, rawtext_output, rawtext_convert)
+	(rawtext_convert_tree), tp/Texinfo/XS/convert/converter.c
+	(converter_format_data), tp/Texinfo/XS/main/converter_types.h (enum
+	converter_format), tp/Texinfo/XS/texi2any.c (formats_table): add
+	rawtext converter.
+
+	* tp/Texinfo/Convert/Text.pm (_initialize_options_encoding): change a
+	variable name.
+
 2024-12-26  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/converter.c (converter_format_data)

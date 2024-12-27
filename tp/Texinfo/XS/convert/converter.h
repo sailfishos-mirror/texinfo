@@ -4,6 +4,7 @@
 
 #include <stddef.h>
 
+#include "text.h"
 #include "command_ids.h"
 #include "tree_types.h"
 #include "converter_types.h"
@@ -158,6 +159,8 @@ void clear_converter_initialization_info (
 void destroy_converter_initialization_info (
                             CONVERTER_INITIALIZATION_INFO *defaults);
 
+void apply_converter_info (CONVERTER *converter,
+         const CONVERTER_INITIALIZATION_INFO *init_info, int set_configured);
 void converter_set_document (CONVERTER *converter, DOCUMENT *document);
 
 char *
@@ -188,6 +191,10 @@ void set_global_document_commands (CONVERTER *converter,
 
 char *node_information_filename (CONVERTER *self, const char *normalized,
                                  const ELEMENT *label_element);
+
+void write_or_return (const ENCODING_CONVERSION *conversion,
+                 const char *encoded_out_filepath,
+                 FILE *file_fh, TEXT *result, char *text);
 
 TREE_ADDED_ELEMENTS *new_tree_added_elements
                       (enum tree_added_elements_status status);

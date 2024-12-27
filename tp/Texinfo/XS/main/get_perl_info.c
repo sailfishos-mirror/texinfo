@@ -1347,12 +1347,13 @@ get_language_document_hv_sorted_indices (HV *document_hv, const char *key,
 
 /* the following is only needed in converters, but we still define here
    such that it is available for functions called from C */
-static TRANSLATED_COMMAND *
-set_translated_commands (SV *translated_commands_sv)
+static void
+set_translated_commands (SV *translated_commands_sv,
+                         TRANSLATED_COMMAND_LIST *translated_commands)
 {
-  TRANSLATED_COMMAND *translated_commands = 0;
-
   dTHX;
+
+  clear_translated_commands (translated_commands);
 
   if (translated_commands_sv)
     {
@@ -1370,11 +1371,6 @@ set_translated_commands (SV *translated_commands_sv)
           hv_number = hv_iterinit (translated_commands_hv);
         }
 
-      translated_commands = (TRANSLATED_COMMAND *)
-        non_perl_malloc ((hv_number +1) * sizeof (TRANSLATED_COMMAND));
-      memset (translated_commands, 0,
-              (hv_number +1) * sizeof (TRANSLATED_COMMAND));
-
       for (i = 0; i < hv_number; i++)
         {
           char *cmdname;
@@ -1390,15 +1386,12 @@ set_translated_commands (SV *translated_commands_sv)
               else
                 {
                   char *tmp_spec = (char *) SvPVutf8_nolen (translation_sv);
-                  TRANSLATED_COMMAND *translated_command
-                    = &translated_commands[i];
-                  translated_command->translation = non_perl_strdup (tmp_spec);
-                  translated_command->cmd = cmd;
+                  add_translated_command (translated_commands, cmd,
+                                          tmp_spec);
                 }
             }
         }
     }
-  return translated_commands;
 }
 
 static void
@@ -1491,8 +1484,8 @@ get_converter_info_from_sv (SV *conf_sv, const char *class_name,
                 &initialization_info->non_valid_customization);
 
               if (!strcmp (key, "translated_commands"))
-                initialization_info->translated_commands
-                  = set_translated_commands (value_sv);
+                set_translated_commands (value_sv,
+                       &initialization_info->translated_commands);
               else if (!strcmp (key, "deprecated_config_directories"))
                 {
                   get_deprecated_config_directories_sv (value_sv,

@@ -114,7 +114,7 @@ copy_options_for_convert_text (OPTIONS *options)
   copy_strings (&text_options->include_directories,
                 options->INCLUDE_DIRECTORIES.o.strlist);
 
-  /* not a copy , but a reference to the options */
+  /* not a copy but a reference to the options */
   text_options->other_converter_options = options;
 
   return text_options;

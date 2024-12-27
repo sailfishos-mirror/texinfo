@@ -130,6 +130,7 @@ static FORMAT_SPECIFICATION formats_table[] = {
    NULL, "Texinfo::DebugTree", NULL},
   {"textcontent", 0, NULL, "Texinfo::Convert::TextContent", NULL},
   {"plaintexinfo", 0, NULL, NULL, NULL},
+  {"rawtext", 0, NULL, NULL, NULL},
   {"parse", 0, NULL, NULL, NULL},
   {"structure", STTF_nodes_tree | STTF_floats | STTF_split, NULL, NULL, NULL},
   {NULL, 0, NULL, NULL, NULL}

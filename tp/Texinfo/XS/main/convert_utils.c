@@ -667,10 +667,10 @@ ELEMENT *
 translated_command_tree (CONVERTER *self, enum command_id cmd)
 {
   size_t i;
-  for (i = 0; self->translated_commands[i].cmd; i++)
+  for (i = 0; i < self->translated_commands.number; i++)
     {
       TRANSLATED_COMMAND *translated_command
-        = &self->translated_commands[i];
+        = &self->translated_commands.list[i];
       if (translated_command->cmd == cmd
           && translated_command->translation)
         {

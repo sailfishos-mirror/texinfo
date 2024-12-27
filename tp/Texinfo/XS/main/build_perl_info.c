@@ -3063,7 +3063,7 @@ build_sv_options_from_options_list (const OPTIONS_LIST *options_list,
 /* pass generic converter information to Perl */
 
 static HV *
-build_translated_commands (const TRANSLATED_COMMAND *translated_commands)
+build_translated_commands (const TRANSLATED_COMMAND_LIST *translated_commands)
 {
   size_t i;
   HV *translated_hv;
@@ -3071,10 +3071,10 @@ build_translated_commands (const TRANSLATED_COMMAND *translated_commands)
   dTHX;
 
   translated_hv = newHV ();
-  for (i = 0; translated_commands[i].cmd; i++)
+  for (i = 0; i < translated_commands->number; i++)
     {
-      enum command_id cmd = translated_commands[i].cmd;
-      const char *translation = translated_commands[i].translation;
+      enum command_id cmd = translated_commands->list[i].cmd;
+      const char *translation = translated_commands->list[i].translation;
       const char *command_name = builtin_command_name (cmd);
       hv_store (translated_hv, command_name, strlen (command_name),
                 newSVpv_utf8 (translation, 0), 0);
@@ -3116,7 +3116,7 @@ pass_generic_converter_to_converter_sv (SV *converter_sv,
   STORE("expanded_formats", newRV_noinc ((SV *) expanded_formats_hv));
 
   translated_commands_hv
-    = build_translated_commands (converter->translated_commands);
+    = build_translated_commands (&converter->translated_commands);
   STORE("translated_commands", newRV_noinc ((SV *) translated_commands_hv));
 
   /* store converter_descriptor in perl converter */

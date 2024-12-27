@@ -44,7 +44,7 @@
 #include "tree.h"
 #include "extra.h"
 /* for COMMAND_OPTION_DEFAULT ACCENTS_STACK
-   fatal xasprintf get_command_option ... */
+   fatal xasprintf get_command_option texinfo_input_file_basename ... */
 #include "utils.h"
 #include "customization_options.h"
 #include "errors.h"
@@ -63,6 +63,7 @@
 #include "api_to_perl.h"
 #include "html_converter_api.h"
 #include "plaintexinfo_converter_api.h"
+#include "rawtext_converter_api.h"
 #include "converter.h"
 
 /* table used to dispatch format specific functions.
@@ -73,6 +74,9 @@ CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"html", "Texinfo::Convert::HTML", 0, &html_converter_defaults,
    &html_converter_initialize, &html_output, &html_convert, 0,
    &html_reset_converter, &html_free_converter},
+  {"rawtext", "Texinfo::Convert::Text", &rawtext_converter,
+   0, 0, &rawtext_output,
+   &rawtext_convert, &rawtext_convert_tree, 0, 0},
   {"plaintexinfo", "Texinfo::Convert::PlainTexinfo", 0,
    &plaintexinfo_converter_defaults, 0, &plaintexinfo_output,
    &plaintexinfo_convert, &plaintexinfo_convert_tree, 0, 0},
@@ -279,13 +283,8 @@ init_generic_converter (CONVERTER *self)
 
   /* set 'translated_commands'  => {'error' => 'error@arrow{}',}, */
 
-  self->translated_commands = (TRANSLATED_COMMAND *)
-        malloc ((1 +1) * sizeof (TRANSLATED_COMMAND));
-  memset (self->translated_commands, 0,
-              (1 +1) * sizeof (TRANSLATED_COMMAND));
-
-  self->translated_commands[0].cmd = CM_error;
-  self->translated_commands[0].translation = strdup ("error@arrow{}");
+  add_translated_command (&self->translated_commands, CM_error,
+                          "error@arrow{}");
 }
 
 /* Allocate a converter without any initialization such as to leave
@@ -334,52 +333,32 @@ new_converter (enum converter_format format)
   return converter_index +1;
 }
 
-static TRANSLATED_COMMAND *
-copy_translated_commands (const TRANSLATED_COMMAND *translated_commands)
+void
+copy_translated_commands (TRANSLATED_COMMAND_LIST *dst_translated_commands,
+                    const TRANSLATED_COMMAND_LIST *translated_commands)
 {
-  size_t translated_cmds_nr, i;
-  TRANSLATED_COMMAND *result;
+  size_t i;
 
-  for (translated_cmds_nr = 0; translated_commands[translated_cmds_nr].cmd;
-       translated_cmds_nr++)
-    {}
-
-  result = (TRANSLATED_COMMAND *)
-        malloc ((translated_cmds_nr +1) * sizeof (TRANSLATED_COMMAND));
-  memset (result, 0,
-              (translated_cmds_nr +1) * sizeof (TRANSLATED_COMMAND));
-
-  if (translated_cmds_nr)
+  for (i = 0; i < translated_commands->number; i++)
     {
-      for (i = 0; i < translated_cmds_nr; i++)
-        {
-          const TRANSLATED_COMMAND *reference_translated_command
-            = &translated_commands[i];
-          TRANSLATED_COMMAND *translated_command_copy = &result[i];
+      const TRANSLATED_COMMAND *reference_translated_command
+            = &translated_commands->list[i];
 
-          translated_command_copy->cmd = reference_translated_command->cmd;
-          translated_command_copy->translation
-            = strdup (reference_translated_command->translation);
-        }
+      add_translated_command (dst_translated_commands,
+                              reference_translated_command->cmd,
+                              reference_translated_command->translation);
     }
-  return result;
 }
 
 void
-destroy_translated_commands (TRANSLATED_COMMAND *translated_commands)
+free_translated_commands (TRANSLATED_COMMAND_LIST *translated_commands)
 {
-  TRANSLATED_COMMAND *translated_command;
-
-  for (translated_command = translated_commands;
-       translated_command->translation; translated_command++)
-    {
-      free (translated_command->translation);
-    }
-  free (translated_commands);
+  clear_translated_commands (translated_commands);
+  free (translated_commands->list);
 }
 
 /* apply initialization information from one source */
-static void
+void
 apply_converter_info (CONVERTER *converter,
          const CONVERTER_INITIALIZATION_INFO *init_info, int set_configured)
 {
@@ -387,11 +366,11 @@ apply_converter_info (CONVERTER *converter,
                                     converter->sorted_options,
                                     &init_info->conf, set_configured);
 
-  if (init_info->translated_commands)
+  if (init_info->translated_commands.number)
     {
-      destroy_translated_commands (converter->translated_commands);
-      converter->translated_commands
-        = copy_translated_commands (init_info->translated_commands);
+      clear_translated_commands (&converter->translated_commands);
+      copy_translated_commands (&converter->translated_commands,
+                                &init_info->translated_commands);
     }
 
   copy_deprecated_dirs (&converter->deprecated_config_directories,
@@ -445,11 +424,7 @@ set_converter_init_information (CONVERTER *converter,
 void
 clear_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
 {
-  if (init_info->translated_commands)
-    {
-      destroy_translated_commands (init_info->translated_commands);
-      init_info->translated_commands = 0;
-    }
+  clear_translated_commands (&init_info->translated_commands);
 
   clear_options_list (&init_info->conf);
 
@@ -461,8 +436,7 @@ clear_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
 void
 destroy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
 {
-  if (init_info->translated_commands)
-    destroy_translated_commands (init_info->translated_commands);
+  free_translated_commands (&init_info->translated_commands);
 
   free_options_list (&init_info->conf);
 
@@ -482,11 +456,11 @@ copy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *dst_info,
 
   copy_options_list (&dst_info->conf, &src_info->conf);
 
-  if (src_info->translated_commands)
+  if (src_info->translated_commands.number)
     {
-      destroy_translated_commands (dst_info->translated_commands);
-      dst_info->translated_commands
-        = copy_translated_commands (src_info->translated_commands);
+      clear_translated_commands (&dst_info->translated_commands);
+      copy_translated_commands (&dst_info->translated_commands,
+                                &src_info->translated_commands);
     }
 }
 
@@ -630,7 +604,7 @@ converter_set_document (CONVERTER *converter, DOCUMENT *document)
     = copy_converter_options_for_convert_text (converter);
 }
 
-/* default implementation */
+/* default implementation used in converter_output_tree */
 void
 converter_conversion_initialization (CONVERTER *converter, DOCUMENT *document)
 {
@@ -821,7 +795,7 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
   if (file_fh && !strcmp (output_file, "-"))
     {
        output_files_register_closed
-                         (&converter->output_files_information, 
+                         (&converter->output_files_information,
                           encoded_out_filepath);
       if (fclose (file_fh))
         {
@@ -855,82 +829,6 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
 }
 
 
-
-/* result to be freed */
-static char *
-remove_extension (const char *input_string)
-{
-  char *result;
-  const char *p = strchr (input_string, '.');
-  if (p)
-    {
-      while (1)
-        {
-          const char *q = strchr (p + 1, '.');
-          if (q)
-            p = q;
-          else
-            break;
-        }
-      result = strndup (input_string, p - input_string);
-    }
-  else result = strdup (input_string);
-
-  return result;
-}
-
-/* try to do at least part of what File::Spec->canonpath does to have
-   tests passing */
-static char *
-canonpath (const char *input_file)
-{
-  TEXT result;
-  const char *p = strchr (input_file, '/');
-
-  if (p)
-    {
-      text_init (&result);
-      text_append_n (&result, input_file, p - input_file);
-      while (1)
-        {
-          const char *q;
-          p++;
-          while (*p == '/')
-            p++;
-          /* omit a / at the end of the path */
-          if (!*p)
-            return (result.text);
-          text_append_n (&result, "/", 1);
-          q = strchr (p, '/');
-          if (q)
-            {
-              text_append_n (&result, p, q - p);
-              p = q;
-            }
-          else
-            {
-              text_append (&result, p);
-              return (result.text);
-            }
-        }
-    }
-  else
-    return strdup (input_file);
-}
-
-typedef struct STRING_AND_LEN {
-    const char *string;
-    int len;
-} STRING_AND_LEN;
-
-/* in perl there is also .tx matched, but it is incorrect */
-static const STRING_AND_LEN texinfo_extensions[5] = {
-  {".texi", 5},
-  {".texinfo", 8},
-  {".txinfo", 7},
-  {".txi", 4},
-  {".tex", 4}
-};
 
 /* RESULT should be a char * array of dimension 5 */
 /* results to be freed by the caller */
@@ -995,22 +893,7 @@ determine_files_and_directory (CONVERTER *self, const char *output_format,
     input_basename = strdup ("stdin");
   else
     {
-      int i;
-      int basefile_len = strlen (input_basefile);
-      for (i = 0; i < 5; i++)
-        {
-          int len = texinfo_extensions[i].len;
-          if (basefile_len >= len
-              && !memcmp (input_basefile + basefile_len - len,
-                          texinfo_extensions[i].string, len))
-            {
-              input_basename = strndup (input_basefile,
-                                        basefile_len - len);
-              break;
-            }
-        }
-      if (!input_basename)
-        input_basename = strdup (input_basefile);
+      input_basename = texinfo_input_file_basename (input_basefile);
     }
 
   if (self->conf->setfilename.o.string)
@@ -2094,10 +1977,7 @@ free_generic_converter (CONVERTER *self)
         }
     }
 
-  if (self->translated_commands)
-    {
-      destroy_translated_commands (self->translated_commands);
-    }
+  free_translated_commands (&self->translated_commands);
 
   free_deprecated_dirs_list (&self->deprecated_config_directories);
 

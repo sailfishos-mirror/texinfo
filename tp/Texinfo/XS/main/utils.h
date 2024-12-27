@@ -60,11 +60,6 @@ extern char *html_command_text_type_name[];
 
 extern const EXPANDED_FORMAT default_expanded_formats[];
 
-typedef struct ENCODING_CONVERSION {
-    char *encoding_name;
-    iconv_t iconv;
-} ENCODING_CONVERSION;
-
 typedef struct ENCODING_CONVERSION_LIST {
     ENCODING_CONVERSION *list;
     size_t number;
@@ -129,6 +124,9 @@ void wipe_values (VALUE_LIST *values);
 void delete_global_info (GLOBAL_INFO *global_info_ref);
 void delete_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 
+char *texinfo_input_file_basename (const char *input_basefile);
+char *remove_extension (const char *input_string);
+char *canonpath (const char *input_file);
 char *normalize_encoding_name (const char *text, int *possible_encoding);
 ELEMENT *item_line_parent (ELEMENT *current);
 ELEMENT *get_label_element (const ELEMENT *e);
@@ -204,6 +202,11 @@ int format_expanded_p (const EXPANDED_FORMAT *formats, const char *format);
 size_t expanded_formats_number (void);
 void set_expanded_formats_from_options (EXPANDED_FORMAT *formats,
                                         const OPTIONS *options);
+
+void add_translated_command (TRANSLATED_COMMAND_LIST *translated_commands,
+                        enum command_id cmd,
+                        const char *translation);
+void clear_translated_commands (TRANSLATED_COMMAND_LIST *translated_commands);
 
 char *enumerate_item_representation (char *specification, int number);
 

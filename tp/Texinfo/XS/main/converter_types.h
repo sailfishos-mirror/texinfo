@@ -20,6 +20,8 @@
 #include <stddef.h>
 /* for FILE */
 #include <stdio.h>
+/* for iconv_t */
+#include <iconv.h>
 
 /* for enum special_unit_info_type SPECIAL_UNIT_INFO_TYPE_NR ... */
 #include "html_conversion_data.h"
@@ -36,6 +38,7 @@ struct TEXT_OPTIONS;
 enum converter_format {
    COF_none = -1,
    COF_html,
+   COF_rawtext,
    COF_plaintexinfo,
 };
 
@@ -391,6 +394,12 @@ typedef struct TRANSLATED_COMMAND {
     enum command_id cmd;
     char *translation;
 } TRANSLATED_COMMAND;
+
+typedef struct TRANSLATED_COMMAND_LIST {
+    size_t number;
+    size_t space;
+    TRANSLATED_COMMAND *list;
+} TRANSLATED_COMMAND_LIST;
 
 typedef struct COMMAND_INTEGER_INFORMATION {
     enum command_id cmd;
@@ -764,7 +773,7 @@ typedef struct DEPRECATED_DIRS_LIST {
 /* information on converter configuration from a source of configuration
    (either output format or user customization) */
 typedef struct CONVERTER_INITIALIZATION_INFO {
-    TRANSLATED_COMMAND *translated_commands;
+    TRANSLATED_COMMAND_LIST translated_commands;
     OPTIONS_LIST conf;
     DEPRECATED_DIRS_LIST deprecated_config_directories;
     /* gather strings that are not customization options */
@@ -790,7 +799,7 @@ typedef struct CONVERTER {
     OPTIONS *init_conf;
     OPTIONS *format_defaults_conf;
     EXPANDED_FORMAT *expanded_formats;
-    TRANSLATED_COMMAND *translated_commands;
+    TRANSLATED_COMMAND_LIST translated_commands;
 
     ERROR_MESSAGE_LIST error_messages;
     /* for error messages registered in the converter */
@@ -980,6 +989,11 @@ typedef struct TARGET_DIRECTORY_FILENAME {
     char *directory;
     char *target;
 } TARGET_DIRECTORY_FILENAME;
+
+typedef struct ENCODING_CONVERSION {
+    char *encoding_name;
+    iconv_t iconv;
+} ENCODING_CONVERSION;
 
 
 #endif

@@ -134,11 +134,12 @@ my @text_indicator_converter_options
 sub _initialize_options_encoding($$)
 {
   my $self = shift;
-  my $options = shift;
+  my $text_options = shift;
 
   if ($self->get_conf('ENABLE_ENCODING')
        and defined($self->get_conf('OUTPUT_ENCODING_NAME'))) {
-    $options->{'enabled_encoding'} = $self->get_conf('OUTPUT_ENCODING_NAME');
+    $text_options->{'enabled_encoding'}
+       = $self->get_conf('OUTPUT_ENCODING_NAME');
   }
 }
 
@@ -982,6 +983,7 @@ sub output($$)
       $outfile .= '.txt';
     }
     if (defined($self->{'SUBDIR'})) {
+      # FIXME in theory here $outfile could be undef.  Check if possible
       my $destination_directory = File::Spec->canonpath($self->{'SUBDIR'});
       my ($encoded_destination_directory, $destination_directory_encoding)
         = Texinfo::Convert::Utils::encoded_output_file_name($self,
