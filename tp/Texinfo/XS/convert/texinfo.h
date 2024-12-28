@@ -50,8 +50,8 @@ CONVERTER_INITIALIZATION_INFO *txi_converter_format_defaults (
                                const char *external_module,
                                OPTIONS_LIST *customizations);
 
-void txi_parser (const char *file_path, const char *locale_encoding,
-                 const VALUE_LIST *values, OPTIONS_LIST *options);
+void txi_parser (const char *file_path, const VALUE_LIST *values,
+                 OPTIONS_LIST *options);
 
 DOCUMENT *txi_parse_texi_file (const char *input_file_path, int *status);
 

@@ -816,6 +816,7 @@ main (int argc, char *argv[], char *env[])
   OPTION *no_warn_option;
   OPTION *format_menu_option;
   OPTION *debug_option;
+  OPTION *message_encoding_option;
   int no_warn = 0;
   int test_mode_set = 0;
   int debug = 0;
@@ -847,6 +848,7 @@ main (int argc, char *argv[], char *env[])
   const char *external_module = 0;
   int default_is_html = 1;
   char *init_file_format;
+  const char *set_message_encoding = 0;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -1944,6 +1946,11 @@ main (int argc, char *argv[], char *env[])
                         configured_name_version);
     }
 
+  message_encoding_option
+    = GNUT_get_conf (program_options.options->MESSAGE_ENCODING.number);
+  if (message_encoding_option && message_encoding_option->o.string)
+    set_message_encoding = message_encoding_option->o.string;
+
   if (optind < argc)
     {
       int j;
@@ -2068,14 +2075,14 @@ main (int argc, char *argv[], char *env[])
 
       /* Texinfo file parsing */
       /* initialize parser */
-      txi_parser (input_file_path, locale_encoding, &values, &parser_options);
+      txi_parser (input_file_path, &values, &parser_options);
 
       /* Texinfo document tree parsing */
       document = txi_parse_texi_file (input_file_path, &status);
 
       errors_nr
         = txi_handle_parser_error_messages (document, no_warn, test_mode_set,
-                                            locale_encoding);
+                                            set_message_encoding);
       if (status)
         {
           errors_count = handle_errors (errors_nr, errors_count, &opened_files);
@@ -2224,7 +2231,7 @@ main (int argc, char *argv[], char *env[])
       errors_nr
         = txi_handle_document_error_messages (document, no_warn,
                                               test_mode_set,
-                                              locale_encoding);
+                                              set_message_encoding);
 
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 
@@ -2288,7 +2295,7 @@ main (int argc, char *argv[], char *env[])
 
       errors_nr
         = txi_handle_converter_error_messages (converter, no_warn,
-                                           test_mode_set, locale_encoding);
+                                       test_mode_set, set_message_encoding);
 
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 

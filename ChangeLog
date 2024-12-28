@@ -1,5 +1,14 @@
 2024-12-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/texi2any.c (main): add set_message_encoding and set
+	the variable to the customized MESSAGE_ENCODING value.  Use
+	set_message_encoding for calls to txi_handle_*error_messages.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_parser): remove locale_encoding
+	argument, take it from options_list only.  Update caller.
+
+2024-12-27  Patrice Dumas  <pertusus@free.fr>
+
 	Raw text converter in C
 
 	* tp/Texinfo/XS/convert/converter.c, tp/Texinfo/XS/main/utils.c

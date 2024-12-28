@@ -256,8 +256,8 @@ txi_converter_format_defaults (const char *converted_format,
    Also sets INCLUDE_DIRECTORIES minimally if not specified in options.
    The implementation is similar to parsetexi/Parsetexi.pm on purpose. */
 void
-txi_parser (const char *file_path, const char *locale_encoding,
-            const VALUE_LIST *values, OPTIONS_LIST *options_list)
+txi_parser (const char *file_path, const VALUE_LIST *values,
+            OPTIONS_LIST *options_list)
 {
   char *input_file_name_and_directory[2];
   char *input_directory;
@@ -286,9 +286,6 @@ txi_parser (const char *file_path, const char *locale_encoding,
                                  values->list[i].value);
         }
     }
-
-  /* set from arguments.  Options override */
-  parser_conf_set_LOCALE_ENCODING (locale_encoding);
 
   if (options_list)
     {
@@ -551,7 +548,7 @@ txi_handle_parser_error_messages (DOCUMENT *document, int no_warn,
                                   const char *message_encoding)
 {
   return output_error_messages (&document->parser_error_messages, no_warn,
-                         use_filename, message_encoding);
+                                use_filename, message_encoding);
 }
 
 size_t
@@ -560,7 +557,7 @@ txi_handle_document_error_messages (DOCUMENT *document, int no_warn,
                                     const char *message_encoding)
 {
   return output_error_messages (&document->error_messages, no_warn,
-                         use_filename, message_encoding);
+                                use_filename, message_encoding);
 
 }
 
