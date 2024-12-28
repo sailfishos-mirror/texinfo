@@ -10,7 +10,7 @@ build
 **/autom4te.cache
 **/config.cache
 **/config.h
-**/config.in
+**/config.h.in
 **/config.status
 **/config.log
 **/configure

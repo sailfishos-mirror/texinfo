@@ -1,5 +1,13 @@
 2024-12-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Rename config.in to config.h.in.
+
+	* configure.ac (AM_INIT_AUTOMAKE),
+	* tp/Texinfo/XS/configure.ac (AM_INIT_AUTOMAKE):
+	Move config.in to config.h.in.
+
+2024-12-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove DJGPP support
 
 	* configure.ac,

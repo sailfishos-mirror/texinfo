@@ -167,7 +167,7 @@ if test x$disable_xs != xyes; then
   PERL_INC=${PERL_CONF_archlibexp}/CORE
   XSUBPPARGS="-typemap ${PERL_CONF_privlibexp}/ExtUtils/typemap"
   
-  AC_CONFIG_HEADERS([config.h:config.in])
+  AC_CONFIG_HEADERS([config.h])
 fi # not disable_xs
 
 AC_SUBST([PERL_INC], [$PERL_INC])

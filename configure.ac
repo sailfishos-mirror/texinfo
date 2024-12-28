@@ -20,7 +20,7 @@ AM_INIT_AUTOMAKE([1.16.1 dist-xz
 AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4])
 
 # Where to generate output; srcdir location.
-AC_CONFIG_HEADERS([config.h:config.in])
+AC_CONFIG_HEADERS([config.h])
 
 AC_CONFIG_SRCDIR([info/info.c])
 
