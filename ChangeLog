@@ -1,5 +1,16 @@
 2024-12-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Move defines out of system.h
+
+	* system.h [O_BINARY]:
+	Remove some system-dependent defines.
+	* info/info.h [O_BINARY]:
+	Re-add defines which were relevant to 'info'.
+	* install-info/install-info.c: [O_BINARY]
+	Re-add defines for NULL_DEVICE.
+
+2024-12-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Rename config.in to config.h.in.
 
 	* configure.ac (AM_INIT_AUTOMAKE),

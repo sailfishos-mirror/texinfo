@@ -16,6 +16,19 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include "system.h"
+
+#if O_BINARY
+# ifdef __MSDOS__
+#  ifdef __DJGPP__
+#   define NULL_DEVICE "/dev/null"
+#  else
+#   define NULL_DEVICE "NUL"
+#  endif
+# else /* !__MSDOS__ */
+#  define NULL_DEVICE "NUL"
+# endif
+#endif
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>

@@ -59,19 +59,6 @@
 # ifdef HAVE_IO_H
 #  include <io.h>
 # endif
-# ifdef __MSDOS__
-#  include <limits.h>
-#  ifdef __DJGPP__
-#   define NULL_DEVICE	"/dev/null"
-#   define DEFAULT_INFOPATH "c:/djgpp/info;/usr/local/info;/usr/info;."
-#  else  /* O_BINARY && !__DJGPP__ */
-#   define NULL_DEVICE	"NUL"
-#  endif /* O_BINARY && !__DJGPP__ */
-#  define SET_SCREEN_SIZE_HELPER terminal_prep_terminal()
-#  define DEFAULT_INFO_PRINT_COMMAND ">PRN"
-# else   /* O_BINARY && !__MSDOS__ */
-#  define NULL_DEVICE	"NUL"
-# endif  /* O_BINARY && !__MSDOS__ */
 # ifdef __CYGWIN__
 #  define PATH_SEP	":"
 #  define STRIP_DOT_EXE	0
@@ -79,10 +66,6 @@
 #  define NULL_DEVICE "/dev/null"
 #  define PIPE_USE_FORK	1
 # else  /* O_BINARY && !__CYGWIN__ */
-#  ifdef __MINGW32__
-#   define SET_SCREEN_SIZE_HELPER terminal_prep_terminal()
-extern int kill (pid_t, int);
-#  endif  /* _WIN32 */
 #  define PATH_SEP	";"
 #  define STRIP_DOT_EXE	1
 #  define PIPE_USE_FORK	0

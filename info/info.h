@@ -22,6 +22,28 @@
 
 /* System dependencies.  */
 #include "system.h"
+
+#if O_BINARY
+# ifdef __MSDOS__
+#  ifdef __DJGPP__
+#   define NULL_DEVICE "/dev/null"
+#   define DEFAULT_INFOPATH "c:/djgpp/info;/usr/local/info;/usr/info;."
+#  else
+#   define NULL_DEVICE "NUL"
+#  endif
+#  define SET_SCREEN_SIZE_HELPER terminal_prep_terminal()
+#  define DEFAULT_INFO_PRINT_COMMAND ">PRN"
+# else /* !__MSDOS__ */
+#  define NULL_DEVICE "NUL"
+# endif
+# ifndef __CYGWIN__
+#  ifdef __MINGW32__
+#   define SET_SCREEN_SIZE_HELPER terminal_prep_terminal()
+extern int kill (pid_t, int);
+#  endif
+# endif
+#endif
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
