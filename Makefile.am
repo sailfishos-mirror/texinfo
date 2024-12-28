@@ -20,8 +20,7 @@ noinst_SCRIPTS = pre-inst-env
 # Additional files to distribute.
 EXTRA_DIST = ChangeLog.46 ChangeLog.65 ChangeLog.70 \
   INSTALL.generic README-hacking \
-  system.h gnulib/m4/gnulib-cache.m4 \
-  djgpp
+  system.h gnulib/m4/gnulib-cache.m4
 
 # This is to prevent texinfo.tex from being included in the top-level
 # distribution directory.
@@ -130,7 +129,7 @@ po-check:
 	    # don't look at sources from some subdirs.			\
 	    case $$file in						\
 	      contrib/* ) continue;;					\
-	      djgpp/* | man/* ) continue;;	\
+	      man/* ) continue;;	\
 	      gnulib/lib/*) continue;;					\
 	      texinfo-*/*) continue;;					\
               tp/maintain/* ) continue;;				\
@@ -158,7 +157,7 @@ po_document-check:
 	    # don't look at sources from some subdirs.			\
 	    case $$file in						\
 	      contrib/* ) continue;;					\
-	      djgpp/* | man/* ) continue;;	\
+	      man/* ) continue;;	\
 	      texinfo-*/*) continue;;					\
 	      tp/maintain/*) continue;;					\
 	      tp/init/documentation_examples.pm) continue;;		\

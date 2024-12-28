@@ -100,9 +100,6 @@ Installation notes specific to Texinfo:
   translation method is activated where XS code calls back into the Perl
   interpreter to get translations, which does work.
 
-* For instructions on compiling this distribution with DJGPP tools
-  for MS-DOS and MS-Windows, see the file djgpp/README.
-
 * The Info tree uses a file `dir' as its root node; the `dir-example'
   file in this distribution is included as a possible starting point.
   Use it, modify it, or ignore it just as you like.

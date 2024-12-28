@@ -241,7 +241,7 @@ PERL_LIBS="-L$PERL_INC $PERL_CONF_libperl"
 # `(gnulib)Libtool and Windows'.  The -L and -l options in
 # platform_PERL_LIBADD show where to find the undefined symbols when
 # linking against Perl.
-case "$host" in *-mingw32 | *-mingw64 | *-msdosdjgpp | *-cygwin )
+case "$host" in *-mingw32 | *-mingw64 | *-cygwin )
   perl_conf_LDFLAGS="$perl_conf_LDFLAGS -no-undefined"
   platform_PERL_LIBADD=$PERL_LIBS
   # to be used for shared libraries not linked against Perl.

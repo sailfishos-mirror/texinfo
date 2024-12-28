@@ -64,13 +64,7 @@
 
 /* FIXME not sure if __CYGWIN__ is correctly handled here, like a UNIX. */
 const char *null_device_names[] = {
-#ifdef __MSDOS__
-# ifdef __DJGPP__
- "NUL", "/dev/null",
-# else
- "NUL",
-# endif
-#elif _WIN32
+#ifdef _WIN32
  "NUL",
 #else
  "/dev/null",

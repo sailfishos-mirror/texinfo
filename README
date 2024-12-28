@@ -89,7 +89,6 @@ Printing-related files:
     util/texi2pdf          Generate PDF (wrapper for texi2dvi).
 
 Source directories: 
-  djgpp/                   Support for compiling under DJGPP.
   gnulib/                  Support files from Gnulib.
   info/                    Standalone Info reader.
   install-info/            Maintain the Info dir file.

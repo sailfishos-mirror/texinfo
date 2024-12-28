@@ -105,16 +105,11 @@ sub pgdt_context($$)
 }
 
 
-# determine the null devices
+# determine the null device
 my $default_null_device = File::Spec->devnull();
 our %null_device_file = (
   $default_null_device => 1
 );
-# special case, djgpp recognizes both null devices
-if ($Config{osname} eq 'dos' and $Config{osvers} eq 'djgpp') {
-  $null_device_file{'/dev/null'} = 1;
-  $null_device_file{'NUL'} = 1;
-}
 
 
 # Customization options

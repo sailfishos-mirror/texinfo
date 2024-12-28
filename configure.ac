@@ -21,9 +21,6 @@ AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4])
 
 # Where to generate output; srcdir location.
 AC_CONFIG_HEADERS([config.h:config.in])
-# We keep filename to 8.3 for MS-DOS, as long as it is possible that
-# we still support DJGPP.  Generating config.h would likely clobber
-# config.h.in even if filename truncation was otherwise unproblematic.
 
 AC_CONFIG_SRCDIR([info/info.c])
 
@@ -277,8 +274,7 @@ AC_MSG_CHECKING([pseudottys tests requirements])
 AC_MSG_RESULT([$ptys_tests])
 AM_CONDITIONAL([PTYS_TESTS], [test "z$ptys_tests" = 'zyes'])
 
-# We want to recognize djgpp to avoid the useless warning about no
-# term library.
+# Set $build to canonical build-system type
 AC_CANONICAL_BUILD
 
 # We need to run some of our own binaries, most notably makedoc, but as
@@ -631,7 +627,7 @@ AM_CONDITIONAL([BUILD_PERL_API_TEXI], [test "z$build_perl_api_texi" = 'zyes'])
 
 host_is_windows=no
 case "$host" in
-   *-mingw32 | *-mingw64 | *-msdosdjgpp )  host_is_windows=yes ;;
+   *-mingw32 | *-mingw64 )  host_is_windows=yes ;;
 esac
 AM_CONDITIONAL([HOST_IS_WINDOWS], [test "x$host_is_windows" = "xyes"])
 HOST_IS_WINDOWS_VARIABLE=
