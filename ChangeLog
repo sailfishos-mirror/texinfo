@@ -1,5 +1,20 @@
 2024-12-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	No skipping lines after no-arg macro at end of line
+
+	* doc/texinfo.tex (\endlineisspace, \ignoreactivenewline):
+	Replace \endlineisspace with \ignoreactivenewline.
+	(\macrodef) <no args>: Call \ignoreactivenewline.  Rather
+	than changing the catcode of newline to space so that newlines
+	following the macro name are skipped, this only changes the definition
+	of active newline so that it is ignored.  This is an issue if
+	the macro is called at the end of a line inside an environment
+	such as @example where newlines are active, at the end of a line.
+	* doc/texinfo-tex-test.texi (Braceless at end of line):
+	update test cases.
+
+2024-12-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/tests/run_parser_all.sh (post_process_output):
 	Remove code stripping out lines with file names from output
 	as we unconditionally use forward slash as the directory separator,
