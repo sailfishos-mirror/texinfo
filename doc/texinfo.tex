@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2024-11-04.20}
+\def\texinfoversion{2024-12-29.21}
 %
 % Copyright 1985, 1986, 1988, 1990-2024 Free Software Foundation, Inc.
 %
@@ -156,8 +156,9 @@
 % Give the space character the catcode for a space.
 \def\spaceisspace{\catcode`\ =10\relax}
 
-% Likewise for ^^M, the end of line character.
-\def\endlineisspace{\catcode13=10\relax}
+% Used to ignore an active newline that may appear immediately after
+% a macro name.
+{\catcode13=\active \gdef\ignoreactivenewline{\let^^M\empty}}
 
 \chardef\dashChar  = `\-
 \chardef\slashChar = `\/
@@ -8535,7 +8536,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \expandafter\xdef\csname\the\macname\endcsname{%
       \begingroup
         \noexpand\spaceisspace
-        \noexpand\endlineisspace
+        \noexpand\ignoreactivenewline
         \noexpand\expandafter % skip any whitespace after the macro name.
         \expandafter\noexpand\csname\the\macname @@@\endcsname}%
     \expandafter\xdef\csname\the\macname @@@\endcsname{%

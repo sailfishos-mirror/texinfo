@@ -489,6 +489,7 @@ Output should be doubled
 @end example
 @end macro
 
+
 x
 @Example
 aaagroff
@@ -589,14 +590,18 @@ II JJ @Mac
 
 KLM
 
-II JJ valueKLM
+II JJ value
+
+KLM
 
 KK LL @Mac
 
 
 MMM
 
-KK LL valueMMM
+KK LL value
+
+MMM
 
 @section @,c in macro argument
 
