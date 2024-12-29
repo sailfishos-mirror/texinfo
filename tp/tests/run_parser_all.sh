@@ -151,14 +151,9 @@ post_process_output ()
     # with tex4ht.
     rm "${outdir}$dir/$basename.2"
   else
-    # Delete error message that may have directories in file name and
-    # account for variant output under MS-Windows.
-    sed_cmds='/^could not open/d; /: overwriting file/d; /: overwriting output file/d; s/^htmlxref/.\/htmlxref/'
-
     if test "$use_latex2html" = 'yes' ; then
       sed -e 's/^texexpand.*/texexpand /' \
           -e '/is no longer supported at.*line/d' \
-          -e "$sed_cmds" \
           $raw_outdir$dir/$basename.2 > $outdir$dir/$basename.2
       # "*"_images.pl" files are not guaranteed to be present
       for file in "${raw_outdir}$dir/"*"_labels.pl"; do
@@ -190,8 +185,6 @@ post_process_output ()
         rm -f ${outdir}$dir/*info_math2img.aux ${outdir}$dir/*info_math2img.log \
           ${outdir}$dir/*info_math2img.dvi
       fi
-      sed -e "$sed_cmds" \
-          $raw_outdir$dir/$basename.2 > $outdir$dir/$basename.2
     fi
   fi
 }

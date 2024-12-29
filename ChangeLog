@@ -1,3 +1,10 @@
+2024-12-29  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/tests/run_parser_all.sh (post_process_output):
+	Remove code stripping out lines with file names from output
+	as we unconditionally use forward slash as the directory separator,
+	so results should not be different on MS-Windows.
+
 2024-12-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Move defines out of system.h
