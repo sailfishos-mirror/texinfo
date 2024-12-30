@@ -1,3 +1,9 @@
+2024-12-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/tests/run_parser_all.sh (post_process_output):
+	Do not create raw output directory except in certain cases,
+	as stderr output is no longer filtered for all tests.
+
 2024-12-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	No skipping lines after no-arg macro at end of line

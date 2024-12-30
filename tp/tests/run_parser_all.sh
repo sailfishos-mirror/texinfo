@@ -139,10 +139,6 @@ post_process_output ()
           ${outdir}$dir/*_tex4ht_*.idv ${outdir}$dir/*_tex4ht_*.dvi \
           ${outdir}$dir/*_l2h.html.*
           #${outdir}$dir/*_tex4ht_tex.html*
-  else
-    # Otherwise it's only the standard error that needs to be modified.
-    mkdir -p "${raw_outdir}$dir"
-    cp -p ${outdir}$dir/${basename}.2 "${raw_outdir}$dir"
   fi
 
   if test "$use_tex4ht" = 'yes' ; then
