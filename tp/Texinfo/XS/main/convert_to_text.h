@@ -30,6 +30,9 @@ typedef struct TEXT_OPTIONS {
       in which case other_options is set */
     OPTIONS *self_converter_options; /* text converter options available
                                         as the OPTIONS structure */
+    ERROR_MESSAGE_LIST error_messages; /* used if there is a Perl text
+                              converter, XS is used and there is no C
+                              converter */
     size_t document_descriptor;
 } TEXT_OPTIONS;
 

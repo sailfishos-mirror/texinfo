@@ -734,6 +734,25 @@ text_convert_tree (SV *options_in, SV *tree_in)
 
             result = convert_to_text (document->tree, text_options);
 
+            /* in case we were called from a text converter, pass the
+               error messages.  If not called from a Perl converter they
+               probably will be ignored, but the errors should only come
+               from errors with @verbatiminclude in case there is not already
+               a converter to get the errors, which should only happen with
+               a text converter */
+            if (text_options->error_messages.number > 0
+                && SvOK (options_in))
+              {
+                const char* key = "error_warning_messages";
+                AV *errors_av
+                   = build_errors (text_options->error_messages.list,
+                                      text_options->error_messages.number);
+                HV *options_hv = (HV *) SvRV (options_in);
+                hv_store (options_hv, key, strlen (key),
+                          newRV_noinc ((SV *) errors_av), 0);
+                wipe_error_message_list (&text_options->error_messages);
+              }
+
             destroy_text_options (text_options);
             RETVAL = newSVpv_utf8 (result, 0);
             non_perl_free (result);

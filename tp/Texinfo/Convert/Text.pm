@@ -35,6 +35,7 @@ use Encode qw(decode);
 use Texinfo::Convert::ConvertXS;
 use Texinfo::XSLoader;
 
+use Texinfo::Report;
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Unicode;
@@ -57,19 +58,37 @@ our $VERSION = '7.2';
 
 my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 
+my %XS_overrides = (
+  # We do not override directly convert_to_text, we must check at runtime
+  # that the document tree was stored by the XS parser.
+  "Texinfo::Convert::Text::_convert_tree_with_XS"
+   => "Texinfo::Convert::ConvertXS::text_convert_tree",
+  "Texinfo::Convert::Text::destroy"
+   => "Texinfo::Convert::ConvertXS::destroy",
+
+
+  # if the output or convert functions are overriden the following
+  # should probably be overriden using that kind of function
+  #"Texinfo::Convert::Text::get_converter_errors"
+  # => "Texinfo::Convert::ConvertXS::get_converter_errors",
+
+  # Probably no use overriding, as if XS/C is used they are only
+  # called from C
+  #"Texinfo::Convert::Text::converter_line_error"
+  # => "Texinfo::Convert::ConvertXS::converter_line_error",
+  #"Texinfo::Convert::Text::converter_document_warn"
+  # => "Texinfo::Convert::ConvertXS::converter_document_warn",
+);
+
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
     if ($XS_convert) {
-      # We do not simply override, we must check at runtime
-      # that the document tree was stored by the XS parser.
-      Texinfo::XSLoader::override(
-        "Texinfo::Convert::Text::_convert_tree_with_XS",
-        "Texinfo::Convert::ConvertXS::text_convert_tree");
-      Texinfo::XSLoader::override(
-       "Texinfo::Convert::Text::destroy",
-       "Texinfo::Convert::ConvertXS::destroy");
+      foreach my $sub (keys(%XS_overrides)) {
+        Texinfo::XSLoader::override($sub, $XS_overrides{$sub});
+      }
     }
+
     $module_loaded = 1;
   }
   # The usual import method
@@ -851,7 +870,8 @@ sub convert_to_text($;$)
 }
 
 
-# Implement the converters API, but as simply as possible
+# Implement the converters API simply.  The POD documentation does not
+# cover this possibility for doing the conversion.
 # initialization
 sub converter($;$)
 {
@@ -1081,17 +1101,43 @@ sub set_conf($$$)
   return 1;
 }
 
-sub converter_line_error()
+# used in Texinfo::Convert::Utils::expand_verbatiminclude
+sub converter_line_error($$$;$)
 {
+  my $self = shift;
+  my $text = shift;
+  my $error_location_info = shift;
+  my $continuation = shift;
+
+  my $message = Texinfo::Report::format_line_message('error', $text,
+                                 $error_location_info, $continuation,
+                                            $self->get_conf('DEBUG'));
+  push @{$self->{'error_warning_messages'}}, $message;
 }
 
-sub converter_document_warn()
+# used in Texinfo::Convert::Utils::expand_verbatiminclude
+sub converter_document_warn($$;$)
 {
+  my $self = shift;
+  my $text = shift;
+  my $continuation = shift;
+
+  my $program_name;
+
+  if ($self->get_conf('PROGRAM') && $self->get_conf('PROGRAM') ne '') {
+    $program_name = $self->get_conf('PROGRAM');
+  }
+
+  my $message
+      = Texinfo::Report::format_document_message('warning', $text,
+                                        $program_name, $continuation);
+  push @{$self->{'error_warning_messages'}}, $message;
 }
 
 sub get_converter_errors($)
 {
-  return undef;
+  my $self = shift;
+  return $self->{'error_warning_messages'};
 }
 
 sub converter_defaults()

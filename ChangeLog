@@ -1,3 +1,22 @@
+2024-12-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Text.pm (converter_line_error)
+	(converter_document_warn, get_converter_errors): implement the
+	functions needed in Texinfo::Convert::Utils::expand_verbatiminclude to
+	get the error messages by using the Texinfo::Convert::Converter code.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (text_convert_tree),
+	tp/Texinfo/XS/main/convert_to_text.c (destroy_text_options)
+	(convert_to_text_internal), tp/Texinfo/XS/main/convert_to_text.h
+	(TEXT_OPTIONS): add ERROR_MESSAGE_LIST error_messages field to
+	TEXT_OPTIONS.  Use if for verbatiminclude if there is no associated
+	converter, be it text or other output converter, which means that we
+	are in C callde from Perl Text Converter.  Pass the error_messages
+	information back to Perl.
+
+	* tp/Texinfo/Convert/Text.pm (import): use a hash to specify overriden
+	functions.
+
 2024-12-30  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/tests/run_parser_all.sh (post_process_output):

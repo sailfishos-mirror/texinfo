@@ -57,9 +57,9 @@ verbatiminclude_names_latin1_html verbatiminclude_names_latin1.texi --html -c ME
 
 verbatiminclude_names_latin1_html_explicit_encoding verbatiminclude_names_latin1.texi --html -c INPUT_FILE_NAME_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -D 'neednonasciifilenames Need non-ASCII file names'
 
-verbatiminclude_names_latin1_rawtext verbatiminclude_names_latin1.texi -c TEXINFO_OUTPUT_FORMAT=rawtext -D 'neednonasciifilenames Need non-ASCII file names'
+verbatiminclude_names_latin1_rawtext verbatiminclude_names_latin1.texi -c TEXINFO_OUTPUT_FORMAT=rawtext -c MESSAGE_ENCODING=UTF-8 -D 'neednonasciifilenames Need non-ASCII file names'
 
-verbatiminclude_names_latin1_explicit_encoding_rawtext verbatiminclude_names_latin1.texi -c TEXINFO_OUTPUT_FORMAT=rawtext -c INPUT_FILE_NAME_ENCODING=UTF-8 -D 'neednonasciifilenames Need non-ASCII file names'
+verbatiminclude_names_latin1_explicit_encoding_rawtext verbatiminclude_names_latin1.texi -c TEXINFO_OUTPUT_FORMAT=rawtext -c INPUT_FILE_NAME_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -D 'neednonasciifilenames Need non-ASCII file names'
 
 # test that a file with some latin1 characters, typically used for person names
 # but no declared encoding does not give a result that is too bad, and lead

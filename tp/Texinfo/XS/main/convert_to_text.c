@@ -36,6 +36,8 @@
 #include "customization_options.h"
 #include "utils.h"
 #include "unicode.h"
+/* wipe_error_message_list */
+#include "errors.h"
 /* for PARSED_DEF cdt_tree find_innermost_accent_contents add_heading_number
    translated_command_tree ... */
 #include "convert_utils.h"
@@ -80,6 +82,11 @@ destroy_text_options (TEXT_OPTIONS *text_options)
       free_options (text_options->self_converter_options);
       free (text_options->self_converter_options);
     }
+  if (text_options->error_messages.number)
+    fprintf (stderr,
+             "WARNING: destroy_text_options error messages ignored: %zu\n",
+             text_options->error_messages.number);
+  wipe_error_message_list (&text_options->error_messages);
   free (text_options);
 }
 
@@ -982,6 +989,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                                        0, element);
               } else {
                 GLOBAL_INFO *global_information = 0;
+                error_messages = &text_options->error_messages;
                 if (text_options->document_descriptor) {
                   DOCUMENT *document
                     = retrieve_document (text_options->document_descriptor);
@@ -989,7 +997,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                     global_information = &document->global_info;
                 }
                 verbatim_include_verbatim
-                  = expand_verbatiminclude (0,
+                  = expand_verbatiminclude (error_messages,
                                 text_options->self_converter_options,
                                         global_information, element);
               }
