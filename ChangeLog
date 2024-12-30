@@ -1,5 +1,24 @@
 2024-12-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove \bfafterword for def formatting
+
+	* doc/texinfo.tex (\bfafterword): Remove.  This made the
+	second word in parentheses bold on a definition line, but
+	only after an &keyword.  So in "@defun func &word (foo bar)",
+	"bar" would be printed in bold.
+	
+	I do not know the purpose of this but it is presumably something
+	to do with Emacs Lisp syntax.  But in some cases in the Emacs Lisp
+	manual this font style appeared inappropriate, for example in
+	
+	@defmac cl-defmethod name [qualifier] arguments [&context (expr spec)@dots{}] &rest [docstring] body
+	
+	the word "spec" was in bold, and nothing else.  As no attempt is
+	made to do anything like this in texi2any and it is likely not
+	appropriate in many cases, we are better getting rid of the feature.
+
+2024-12-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\boldbrax, \parenbrackglpyhs):
 	Rename \boldbrax as it is not just for square brackets and
 	does not only use bold.
