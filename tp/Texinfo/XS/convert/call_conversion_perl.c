@@ -219,16 +219,19 @@ call_convert_converter (const char *module_name,
   return result;
 }
 
+/* call both converter->output and converter->output_files_information and
+   return an OUTPUT_TEXT_FILES_INFO which contains both the resulting text
+   and the output files information. */
 /* FIXME it would probably be better to be able to keep the converter
    SV to keep the blessing information instead of needing the module name */
-char *
+OUTPUT_TEXT_FILES_INFO *
 call_converter_output (const char *module_name, CONVERTER *self,
                        DOCUMENT *document)
 {
   SV *document_sv;
   SV *converter_sv;
   int count;
-  char *result;
+  OUTPUT_TEXT_FILES_INFO *result;
   const char *result_ret;
   STRLEN len;
   SV *result_sv;
@@ -244,6 +247,9 @@ call_converter_output (const char *module_name, CONVERTER *self,
 
   hv_stash = gv_stashpv (module_name, 0);
   sv_bless (converter_sv, hv_stash);
+
+  result = (OUTPUT_TEXT_FILES_INFO *)
+    non_perl_malloc (sizeof (OUTPUT_TEXT_FILES_INFO));
 
   dSP;
 
@@ -267,7 +273,32 @@ call_converter_output (const char *module_name, CONVERTER *self,
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
-  result = non_perl_strndup (result_ret, len);
+  result->text = non_perl_strndup (result_ret, len);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 1);
+
+  PUSHs(sv_2mortal (converter_sv));
+  PUTBACK;
+
+  count = call_method ("output_files_information",
+                       G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak ("call_output should return 1 item\n");
+
+  result_sv = POPs;
+  result->output_files_information = get_output_files_information (result_sv);
 
   PUTBACK;
 
@@ -276,6 +307,7 @@ call_converter_output (const char *module_name, CONVERTER *self,
 
   return result;
 }
+
 
 /* following is used to embed a Perl interpreter */
 static PerlInterpreter *my_perl;

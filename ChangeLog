@@ -62,6 +62,27 @@
 
 2024-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_utils.c (register_unclosed_file), 
+	tp/Texinfo/XS/main/utils.c (new_output_files_information)
+	(allocate_file_stream): add allocate_file_stream based on
+	register_unclosed_file code, with code doing the allocation of a
+	FILE_STREAM in OUTPUT_FILES_INFORMATION unclosed_files.  Add
+	new_output_files_information.
+
+	* tp/Texinfo/XS/convert/call_conversion_perl.c
+	(call_converter_output), tp/Texinfo/XS/convert/texinfo.c
+	(txi_converter_output), tp/Texinfo/XS/main/converter_types.h
+	(OUTPUT_TEXT_FILES_INFO), tp/Texinfo/XS/main/get_perl_info.c
+	(get_output_files_information): in call_converter_output, call also
+	converter->output_files_information and return both the output text
+	and output files information in OUTPUT_TEXT_FILES_INFO struct.
+	Add get_output_files_information to setup OUTPUT_FILES_INFORMATION
+	based on Perl data returned by converter->output_files_information.
+	Copy opened_files and unclosed_files returned by call_converter_output
+	to the converter output_files_information in txi_converter_output.
+
+2024-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Text.pm (converter_line_error)
 	(converter_document_warn, get_converter_errors): implement the
 	functions needed in Texinfo::Convert::Utils::expand_verbatiminclude to

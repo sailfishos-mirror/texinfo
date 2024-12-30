@@ -995,6 +995,11 @@ typedef struct ENCODING_CONVERSION {
     iconv_t iconv;
 } ENCODING_CONVERSION;
 
+typedef struct OUTPUT_TEXT_FILES_INFO {
+    OUTPUT_FILES_INFORMATION *output_files_information;
+    char *text;
+} OUTPUT_TEXT_FILES_INFO;
+
 
 #endif
 

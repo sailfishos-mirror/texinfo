@@ -15,8 +15,8 @@ CONVERTER_INITIALIZATION_INFO *call_converter_converter_defaults (
 
 CONVERTER *call_convert_converter (const char *module_name,
                         const CONVERTER_INITIALIZATION_INFO *conf);
-char *call_converter_output (const char *module_name, CONVERTER *self,
-                             DOCUMENT *document);
+OUTPUT_TEXT_FILES_INFO *call_converter_output (const char *module_name,
+                                     CONVERTER *self, DOCUMENT *document);
 
 int call_config_GNUT_load_init_file (const char *file_path);
 

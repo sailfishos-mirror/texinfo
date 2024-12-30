@@ -687,20 +687,20 @@ translated_command_tree (CONVERTER *self, enum command_id cmd)
   API to open, set encoding and register files.
 */
 
-/* in Texinfo::Common (because it is also used by main program) */
+/* in Texinfo::Convert::Utils (also used by main program) */
 
 /* in contrast with perl, we do not handle conversion to output encoding
    in output_files_open_out, but in the caller program */
 
-static void
+void
 register_unclosed_file (OUTPUT_FILES_INFORMATION *self, const char *file_path,
                         FILE *stream)
 {
-  FILE_STREAM *file_stream;
-  int slot_found = 0;
+  FILE_STREAM *file_stream = 0;
   size_t file_stream_index;
   if (self->unclosed_files.number)
     {
+      int slot_found = 0;
       size_t i;
       for (i = 0; i < self->unclosed_files.number; i++)
         {
@@ -718,24 +718,15 @@ register_unclosed_file (OUTPUT_FILES_INFORMATION *self, const char *file_path,
             }
           else if (!slot_found)
             {
-              file_stream_index = i;
               slot_found = 1;
+              file_stream_index = i;
+              file_stream = &self->unclosed_files.list[file_stream_index];
             }
         }
     }
 
-  if (!slot_found)
-    {
-      if (self->unclosed_files.number == self->unclosed_files.space)
-        {
-          self->unclosed_files.list = realloc (self->unclosed_files.list,
-             (self->unclosed_files.space += 5) * sizeof (FILE_STREAM));
-        }
-      file_stream_index = self->unclosed_files.number;
-      self->unclosed_files.number++;
-    }
-
-  file_stream = &self->unclosed_files.list[file_stream_index];
+  if (!file_stream)
+    file_stream = allocate_file_stream (self);
 
   file_stream->file_path = strdup (file_path);
   file_stream->stream = stream;

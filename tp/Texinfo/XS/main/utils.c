@@ -660,6 +660,38 @@ clear_translated_commands (TRANSLATED_COMMAND_LIST *translated_commands)
 
 
 
+/* in Texinfo::Convert::Utils in Perl.  Most of the API is in convert_utils.c,
+   this is here to be used in code related to XS */
+
+/* not used a lot, as in general the OUTPUT_FILES_INFORMATION is not allocated
+   as a pointer, but used in code related to XS */
+
+OUTPUT_FILES_INFORMATION *
+new_output_files_information (void)
+{
+  OUTPUT_FILES_INFORMATION *result = (OUTPUT_FILES_INFORMATION *)
+     malloc (sizeof (OUTPUT_FILES_INFORMATION));
+  memset (result, 0, sizeof (OUTPUT_FILES_INFORMATION));
+  return result;
+}
+
+FILE_STREAM *
+allocate_file_stream (OUTPUT_FILES_INFORMATION *self)
+{
+  size_t file_stream_index;
+  if (self->unclosed_files.number == self->unclosed_files.space)
+    {
+      self->unclosed_files.list = realloc (self->unclosed_files.list,
+         (self->unclosed_files.space += 5) * sizeof (FILE_STREAM));
+    }
+  file_stream_index = self->unclosed_files.number;
+  self->unclosed_files.number++;
+
+  return &self->unclosed_files.list[file_stream_index];
+}
+
+
+
 /* Return the parent if in an item_line command, @*table */
 ELEMENT *
 item_line_parent (ELEMENT *current)

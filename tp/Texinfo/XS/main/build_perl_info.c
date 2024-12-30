@@ -3238,7 +3238,7 @@ pass_output_unit_files (SV *converter_sv,
 
 
 
-/* Texinfo::Common output_files_information API */
+/* Texinfo::Convert::Utils output_files_information API */
 static void
 build_output_files_unclosed_files (HV *hv,
                  const OUTPUT_FILES_INFORMATION *output_files_information)

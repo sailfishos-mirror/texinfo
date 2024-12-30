@@ -43,6 +43,7 @@
 #include "translations.h"
 #include "structuring.h"
 #include "transformations.h"
+#include "convert_utils.h"
 #include "converter.h"
 #include "html_converter_api.h"
 #include "call_conversion_perl.h"
@@ -510,9 +511,36 @@ txi_converter_output (const char *external_module,
 {
   if (external_module)
     {
-      char *result = call_converter_output (external_module,
+      size_t i;
+      OUTPUT_TEXT_FILES_INFO *output_text_files_info
+                = call_converter_output (external_module,
                                             converter, document);
-      return result;
+      OUTPUT_FILES_INFORMATION *output_files_information
+                = output_text_files_info->output_files_information;
+      FILE_STREAM_LIST *unclosed_files
+         = &output_files_information->unclosed_files;
+
+      char *text_result = 0;
+      if (output_text_files_info->text)
+        {
+          text_result = strdup (output_text_files_info->text);
+          free (output_text_files_info->text);
+        }
+
+      copy_strings (&converter->output_files_information.opened_files,
+                    &output_files_information->opened_files);
+      /* copy unclosed files */
+      for (i = 0; i < unclosed_files->number; i++)
+        {
+          register_unclosed_file (
+               &converter->output_files_information,
+               unclosed_files->list[i].file_path,
+               unclosed_files->list[i].stream);
+        }
+      free_output_files_information (output_files_information);
+      free (output_files_information);
+      free (output_text_files_info);
+      return text_result;
     }
   return converter_output (converter, document);
 }

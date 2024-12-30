@@ -31,7 +31,7 @@ call_convert_converter (const char *module_name,
   return 0;
 }
 
-char *
+OUTPUT_TEXT_FILES_INFO *
 call_converter_output (const char *module_name, CONVERTER *self,
                        DOCUMENT *document)
 {

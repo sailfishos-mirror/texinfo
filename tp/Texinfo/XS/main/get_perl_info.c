@@ -1345,6 +1345,103 @@ get_language_document_hv_sorted_indices (HV *document_hv, const char *key,
   return 0;
 }
 
+
+
+/* Note that it is not really possible to get FILE from a filehandle associated
+   to a file to be closed in unclosed_files.  See comment in
+   build_output_files_unclosed_files */
+OUTPUT_FILES_INFORMATION *
+get_output_files_information (SV *output_files_sv)
+{
+  OUTPUT_FILES_INFORMATION *output_files_information;
+  SV **unclosed_files_sv;
+  SV **opened_files_sv;
+  HV *hv;
+
+  dTHX;
+
+  if (!SvOK (output_files_sv))
+    return 0;
+
+  output_files_information = new_output_files_information ();
+
+  hv = (HV *) SvRV (output_files_sv);
+
+  opened_files_sv = hv_fetch (hv, "opened_files",
+                                strlen ("opened_files"), 0);
+
+  if (opened_files_sv)
+    {
+      HV *opened_files_hv = (HV *) SvRV (*opened_files_sv);
+      I32 hv_number;
+      I32 i;
+
+      hv_number = hv_iterinit (opened_files_hv);
+
+      for (i = 0; i < hv_number; i++)
+        {
+          HE *next = hv_iternext (opened_files_hv);
+          SV *file_name_sv = hv_iterkeysv (next);
+          const char *file_name = (char *) SvPVutf8_nolen (file_name_sv);
+          add_string (file_name, &output_files_information->opened_files);
+          /* no real need for the value, still check that it is 1 */
+          SV *value_sv = HeVAL(next);
+          if (!SvOK (value_sv) || !looks_like_number (value_sv)
+              || SvIV (value_sv) != 1)
+            {
+              fprintf (stderr, "BUG? Unexpected opened_files value for `%s'\n",
+                                file_name);
+            }
+        }
+    }
+  unclosed_files_sv = hv_fetch (hv, "unclosed_files",
+                                strlen ("unclosed_files"), 0);
+
+  if (unclosed_files_sv)
+    {
+      HV *unclosed_files_hv = (HV *) SvRV (*unclosed_files_sv);
+      I32 hv_number;
+      I32 i;
+
+      hv_number = hv_iterinit (unclosed_files_hv);
+
+      for (i = 0; i < hv_number; i++)
+        {
+          FILE_STREAM *file_stream;
+          HE *next = hv_iternext (unclosed_files_hv);
+          SV *file_name_sv = hv_iterkeysv (next);
+          const char *file_name = (char *) SvPVutf8_nolen (file_name_sv);
+          /* Should be two possibilities, undef meaning the a FILE was opened
+             in C, or Perl file handle.
+             In case of undef, it could be possible to find the FILE, by adding
+             a converter argument to the function, and using code similar
+             to get_unclosed_stream.
+             However, from Perl it is not possible to do the same, so we
+             do not try to do it in either case.
+           */
+          SV *value_sv = HeVAL(next);
+          if (!SvOK (value_sv))
+            {
+              fprintf (stderr, "REMARK: unclosed C stream for `%s'\n",
+                       file_name);
+            }
+          else
+            {/* SvTYPE(SvRV(value_sv)) should be SVt_PVGV,
+                Glob (possibly a file handle) */
+              fprintf (stderr,
+                       "REMARK: unclosed SV: %d (expected %d) for `%s'\n",
+                       SvTYPE(SvRV(value_sv)), SVt_PVGV, file_name);
+            }
+          file_stream = allocate_file_stream (output_files_information);
+          file_stream->file_path = strdup (file_name);
+          file_stream->stream = 0;
+        }
+    }
+  return output_files_information;
+}
+
+
+
 /* the following is only needed in converters, but we still define here
    such that it is available for functions called from C */
 static void
