@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2024-12-29.21}
+\def\texinfoversion{2024-12-29.23}
 %
 % Copyright 1985, 1986, 1988, 1990-2024 Free Software Foundation, Inc.
 %
@@ -7926,7 +7926,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     {\rm\enskip}% hskip 0.5 em of \rmfont
   }{}%
   %
-  \boldbrax
+  \parenbrackglyphs
   % arguments will be output next, if any.
 }
 
@@ -7953,8 +7953,9 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \let\lparen = ( \let\rparen = )
 
 % Be sure that we always have a definition for `(', etc.  For example,
-% if the fn name has parens in it, \boldbrax will not be in effect yet,
-% so TeX would otherwise complain about undefined control sequence.
+% if the fn name has parens in it, \parenbrackglyphs will not be in
+% effect yet, so TeX would otherwise complain about undefined control
+% sequence.
 {
   \activeparens
   \gdef\defcharsdefault{%
@@ -7964,7 +7965,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   }
   \globaldefs=1 \defcharsdefault
 
-  \gdef\boldbrax{\let(=\opnr\let)=\clnr\let[=\lbrb\let]=\rbrb}
+  \gdef\parenbrackglyphs{\let(=\opnr\let)=\clnr\let[=\lbrb\let]=\rbrb}
   \gdef\magicamp{\let&=\amprm}
 }
 \let\ampchar\&
@@ -7981,7 +7982,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     % otherwise use the default font.
     \ifnum \parencount=1 \rm \fi
   \else
-    % The \sf parens (in \boldbrax) actually are a little bolder than
+    % The \sf parens (in \parenbrackglyphs) actually are a little bolder than
     % the contained text.  This is especially needed for [ and ] .
     \sf
   \fi
@@ -7995,18 +7996,20 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 }
 \def\bfafterword#1 {#1 \bf}
 
+% opening and closing parentheses in roman font
 \def\opnr{%
   \global\advance\parencount by 1
   {\parenfont(}%
   \infirstlevel \bfafterword
 }
-\def\clnr{%
+\def\cpnr{%
   {\parenfont)}%
   \infirstlevel \sl
   \global\advance\parencount by -1
 }
 
 \newcount\brackcount
+% left and right square brackets in bold font
 \def\lbrb{%
   \global\advance\brackcount by 1
   {\bf[}%

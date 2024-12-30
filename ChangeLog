@@ -1,3 +1,13 @@
+2024-12-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\boldbrax, \parenbrackglpyhs):
+	Rename \boldbrax as it is not just for square brackets and
+	does not only use bold.
+	(\clnr, \cpnr): Rename to \cpnr as the old name does not
+	seem to make sense.
+	(\opnr,  \cpnr, \lbrb, \rbrb):
+	Add comments about what the names of the macros stand for.
+
 2024-12-30  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Text.pm (converter_line_error)
