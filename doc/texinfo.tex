@@ -7987,13 +7987,6 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \sf
   \fi
 }
-\def\infirstlevel#1{%
-  \ifampseen
-    \ifnum\parencount=1
-      #1%
-    \fi
-  \fi
-}
 
 % opening and closing parentheses in roman font
 \def\opnr{%
@@ -8002,7 +7995,6 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 }
 \def\cpnr{%
   {\parenfont)}%
-  \infirstlevel \sl
   \global\advance\parencount by -1
 }
 

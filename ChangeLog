@@ -1,5 +1,14 @@
 2024-12-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove def formatting font switching
+
+	* doc/texinfo.tex (\cpnr): remove conditional switch to \sl
+	font after a close bracket (but only for the outermost level of
+	brackets).
+	(\infirstlevel): remove now unused macro
+
+2024-12-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove \bfafterword for def formatting
 
 	* doc/texinfo.tex (\bfafterword): Remove.  This made the
