@@ -130,6 +130,9 @@ info_parse_node (char *string)
     }
 }
 
+#define INFO_QUOTE '\177'
+#define INFO_QUOTE_STR "\177"
+
 /* Set *OUTPUT to a copy of the string starting at START and finishing at
    a character in TERMINATOR, unless START[0] == INFO_QUOTE, in which case
    copy string from START+1 until the next occurence of INFO_QUOTE.  If
@@ -161,7 +164,7 @@ read_quoted_string (char *start, char *terminator, size_t lines, char **output)
         }
     }
 
-  if (start[0] != '\177')
+  if (start[0] != INFO_QUOTE)
     {
       len = strcspn (start, terminator);
 
@@ -179,11 +182,11 @@ read_quoted_string (char *start, char *terminator, size_t lines, char **output)
     }
   else
     {
-      len = strcspn (start + 1, "\177");
+      len = strcspn (start + 1, INFO_QUOTE_STR);
 
       if (*terminator && !(start + 1)[len])
         {
-          /* No closing 177 byte. */
+          /* No closing quote byte. */
           len = 0;
           *output = 0;
         }
@@ -192,7 +195,7 @@ read_quoted_string (char *start, char *terminator, size_t lines, char **output)
           *output = xmalloc (len + 1);
           strncpy (*output, start + 1, len);
           (*output)[len] = '\0';
-          len += 2; /* Count the two 177 bytes. */
+          len += 2; /* Count the two quote bytes. */
         }
 
     }
@@ -1126,7 +1129,7 @@ scan_reference_label (REFERENCE *entry, int in_index)
     max_lines = 1;
   else
     max_lines = 2;
-  if (!in_index || inptr[label_len] == '\177')
+  if (!in_index || inptr[label_len] == INFO_QUOTE)
     {
       len = read_quoted_string (inptr + label_len, ":", max_lines,
                                 &entry->nodename);
@@ -1148,7 +1151,7 @@ scan_reference_label (REFERENCE *entry, int in_index)
 
       while (1)
         {
-          n = strcspn (p, ":\n\177");
+          n = strcspn (p, ":\n");
           if (p[n] == ':')
             {
               m += n + 1;
@@ -1325,7 +1328,7 @@ scan_reference_target (REFERENCE *entry, NODE *node, int in_parentheses)
       char *node_start = inptr + length;
 
       /* First check for . followed by space or end of line. */
-      if (*node_start != '\x7f')
+      if (*node_start != INFO_QUOTE)
         {
           /* Confine search to present line. */
           char *nl = strchr (node_start, '\n');
@@ -1612,9 +1615,9 @@ scan_node_contents (NODE *node, FILE_BUFFER *fb, TAG **tag_ptr)
 
               /* Remove the DEL bytes from a label like "(FOO)^?BAR^?::". */
               label_len = strlen (entry->label);
-              if (label_len >= 2 && entry->label[label_len - 1] == 0177)
+              if (label_len >= 2 && entry->label[label_len - 1] == INFO_QUOTE)
                 {
-                  char *p = strchr (entry->label, '\177');
+                  char *p = strchr (entry->label, INFO_QUOTE);
                   memmove (p, p + 1, label_len - (p - entry->label) - 1);
                   entry->label[label_len - 2] = '\0';
                 }
