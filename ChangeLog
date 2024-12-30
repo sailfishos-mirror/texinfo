@@ -1,3 +1,12 @@
+2024-12-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Italic correction on def line
+
+	* doc/texinfo.tex (\opnr, \cpnr):
+	add an italic correction before parenthesis.
+	(\defunargs) <@set codevaristt>:
+	add a kern at end of redefintion of @var to prevent italic correction.
+
 2024-12-30  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/texi2any.c (main): free macro expansion file output

@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2024-12-30.00}
+\def\texinfoversion{2024-12-30.21}
 %
 % Copyright 1985, 1986, 1988, 1990-2024 Free Software Foundation, Inc.
 %
@@ -7936,7 +7936,10 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \def\^^M{}% for line continuation
     \df \ifdoingtypefn \tt \else \sl \fi
     \ifflagclear{txicodevaristt}{}%
-       {\def\var##1{{\setregularquotes \ttsl ##1}}}%
+       % use \ttsl for @var in both @def* and @deftype*.
+       % the kern prevents an italic correction at end, which appears
+       % too much for ttsl.
+       {\def\var##1{{\setregularquotes \ttsl ##1\kern 0pt }}}%
     #1%
   \egroup
 }
@@ -7990,10 +7993,12 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 % opening and closing parentheses in roman font
 \def\opnr{%
+  \ptexslash % italic correction
   \global\advance\parencount by 1
   {\parenfont(}%
 }
 \def\cpnr{%
+  \ptexslash % italic correction
   {\parenfont)}%
   \global\advance\parencount by -1
 }
