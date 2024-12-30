@@ -1321,8 +1321,42 @@ scan_reference_target (REFERENCE *entry, NODE *node, int in_parentheses)
       length += strspn (inptr + length, " ");
 
       /* Get the node name. */
-      length += read_quoted_string (inptr + length, ",.\t\n", 2,
-                                    &entry->nodename);
+      entry->nodename = 0;
+      char *node_start = inptr + length;
+
+      /* First check for . followed by space or end of line. */
+      if (*node_start != '\x7f')
+        {
+          /* Confine search to present line. */
+          char *nl = strchr (node_start, '\n');
+          if (nl)
+            *nl = '\0';
+
+          char *node_end = strstr (node_start, ". ");
+          if (!node_end)
+            {
+              /* Check for . at end of line. */
+              if (nl && nl > node_start && nl[-1] == '.')
+                node_end = &nl[-1];
+            }
+
+          if (nl)
+            *nl = '\n';
+
+          if (node_end)
+            {
+              entry->nodename = xmalloc (node_end - node_start + 1);
+              memcpy (entry->nodename, node_start,
+                      node_end - node_start);
+              entry->nodename[node_end - node_start] = '\0';
+              length += node_end - node_start;
+            }
+        }
+      if (!entry->nodename)
+        {
+          length += read_quoted_string (inptr + length, ",.\t\n", 2,
+                                        &entry->nodename);
+        }
       if (inptr[length] == '.') /* A '.' terminating the entry. */
         length++;
       canonicalize_whitespace (entry->nodename);

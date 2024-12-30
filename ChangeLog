@@ -1,5 +1,14 @@
 2024-12-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	". " terminator for index entry node name
+
+	* info/scan.c (scan_reference_target):
+	First check for a ". " and ".\n" terminator for node name in menu,
+	rather than just a ".".  This allows index entries referring to
+	nodes with "." in their names.  Report from Bruno Haible.
+
+2024-12-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/scan.c [__hpux]: remove define of __va_copy which isn't
 	used in this file.
 
