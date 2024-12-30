@@ -3,9 +3,10 @@
 	* info/scan.c (INFO_QUOTE, INFO_QUOTE_STR):
 	Define to avoid using \177 literals or equivalent.  This should
 	make the purpose of the code clearer.
-	(scan_node_contents, read_quoted_string, scan_reference_target)
-	(info_parse_node, scan_reference_label):
-	Use.
+	(scan_node_contents, read_quoted_string)
+	(scan_reference_target, scan_reference_label): Use.
+	(scan_reference_label): Do not check for INFO_QUOTE in a place
+	it should not be necessary.
 
 2024-12-30  Gavin Smith <gavinsmith0123@gmail.com>
 
