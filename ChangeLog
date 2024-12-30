@@ -1,5 +1,10 @@
 2024-12-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/scan.c [__hpux]: remove define of __va_copy which isn't
+	used in this file.
+
+2024-12-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove def formatting font switching
 
 	* doc/texinfo.tex (\cpnr): remove conditional switch to \sl

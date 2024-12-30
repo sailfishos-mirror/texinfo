@@ -38,10 +38,6 @@ extern char * rpl_nl_langinfo (nl_item);
 #undef wcwidth
 #endif
 
-#ifdef __hpux
-#define va_copy(ap1,ap2) memcpy((&ap1),(&ap2),sizeof(va_list))
-#endif
-
 /* Variable which holds the most recent filename parsed as a result of
    calling info_parse_xxx (). */
 char *info_parsed_filename = NULL;
