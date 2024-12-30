@@ -62,6 +62,11 @@
 
 2024-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/texi2any.c (main): free macro expansion file output
+	files information.
+
+2024-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_utils.c (register_unclosed_file), 
 	tp/Texinfo/XS/main/utils.c (new_output_files_information)
 	(allocate_file_stream): add allocate_file_stream based on

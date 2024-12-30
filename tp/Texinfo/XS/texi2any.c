@@ -2210,7 +2210,7 @@ main (int argc, char *argv[], char *env[])
               errors_count = handle_errors (error_macro_expand_file,
                                             errors_count, &opened_files);
             }
-
+          free_output_files_information (&output_files_information);
           free (macro_expand_file_name);
           free (texinfo_text);
         }
