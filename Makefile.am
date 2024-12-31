@@ -18,7 +18,7 @@ ACLOCAL_AMFLAGS = -I build-aux/m4 -I gnulib/m4
 noinst_SCRIPTS = pre-inst-env
 
 # Additional files to distribute.
-EXTRA_DIST = ChangeLog.46 ChangeLog.65 ChangeLog.70 \
+EXTRA_DIST = ChangeLog.46 ChangeLog.65 ChangeLog.70 ChangeLog.72 \
   INSTALL.generic README-hacking \
   system.h gnulib/m4/gnulib-cache.m4
 
