@@ -252,6 +252,8 @@ tp/t/locales
 tp/t/output_files
 tp/t/*.trs
 tp/t/*.log
+tp/t/z_misc/*.trs
+tp/t/z_misc/*.log
 
 tp/tests/*/tests.log
 tp/tests/*/tests.out
