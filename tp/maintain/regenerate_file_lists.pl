@@ -45,7 +45,7 @@ my %tap_files;
 find (\&wanted_tap_files, ('t'));
 sub wanted_tap_files
 {
-  if (/\.t$/ and $File::Find::dir =~ /t$/) {
+  if (/\.t$/ and $File::Find::dir =~ /t(\/z_misc)?$/) {
     $tap_files{$File::Find::name} = 1;
   }
 }

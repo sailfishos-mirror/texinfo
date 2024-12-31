@@ -1,3 +1,39 @@
+2024-12-31  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Separate sui generis tp/t tests
+
+	* tp/t/01use.t,
+	* tp/t/accents.t,
+	* tp/t/automatic_menus.t,
+	* tp/t/automatic_nodes.t,
+	* tp/t/convert_to_text.t,
+	* tp/t/do_master_menu.t,
+	* tp/t/index_before_item.t,
+	* tp/t/no_structure_test.t,
+	* tp/t/nodenormalization.t,
+	* tp/t/paragraph.t,
+	* tp/t/protect_character_in_texinfo.t,
+	* tp/t/raw_text_converter.t,
+	* tp/t/reference_to_text_in_tree.t,
+	* tp/t/same_parser_multiple_files.t,
+	* tp/t/test_brace_count.t,
+	* tp/t/test_converter_option.t,
+	* tp/t/test_document.t,
+	* tp/t/test_fill_gaps_in_sectioning.t,
+	* tp/t/test_is_content_empty.t,
+	* tp/t/test_parse_texi_line.t,
+	* tp/t/test_protect_contents.t,
+	* tp/t/test_protect_hashchar_at_line_beginning.t,
+	* tp/t/test_sort.t,
+	* tp/t/test_tree_copy.t:
+	Move all these tests to a subdirectory, tp/t/z_misc.  These
+	are the tests that do not use the tp/t/test_utils.pl framework.
+	This makes it clearer which tests may need manual updating as
+	"maintain/all_tests.sh generate" won't work for these.  It also
+	means that our instructions for running these tests with valgrind
+	(by changing Perl::Destruct::Level test_utils.pl) do not work and
+	this will make this exception more apparent.
+
 2024-12-30  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Italic correction on def line
