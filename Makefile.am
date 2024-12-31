@@ -172,3 +172,5 @@ po_document-check:
 	  rm -f $@-1 $@-2;						\
 	fi
 
+EXTRA_DIST += po/texinfo.pot-header \
+              po_document/texinfo_document.pot-header

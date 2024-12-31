@@ -1,5 +1,17 @@
 2024-12-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Add pot headers to advertise both translation domains
+
+	* po/texinfo.pot-header,
+	* po_document/texinfo_document.pot-header: Add headers to be
+	used at the start of texinfo.pot and texinfo_document.pot.  This
+	will hopefully encourage more translators to translate the
+	"texinfo_document" domain as well as "texinfo".
+	* Makefile.am (EXTRA_DIST): Reference these files as they are
+	not distributed otherwise.
+
+2024-12-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Reset linemacro counter
 
 	* tp/Texinfo/XS/parsetexi/macro.c (expand_linemacro_arguments):
