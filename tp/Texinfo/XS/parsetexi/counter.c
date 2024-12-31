@@ -128,7 +128,7 @@ counter_element_value (COUNTER *c, ELEMENT *elt)
 /* If NOT_EMPTY_MESSAGE is set, check that the counter values list
    is empty, if not, show a debugging message */
 void
-counter_reset (COUNTER *c, const char* not_empty_message)
+counter_reset (COUNTER *c, const char *not_empty_message)
 {
   if (not_empty_message && c->nvalues > 0)
     {

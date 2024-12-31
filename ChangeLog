@@ -1,5 +1,16 @@
 2024-12-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Reset linemacro counter
+
+	* tp/Texinfo/XS/parsetexi/macro.c (expand_linemacro_arguments):
+	Declare COUNTER object as a local variable as it is not used
+	outside the function.  Call counter_reset before and after using
+	it.
+	* tp/Texinfo/XS/parsetexi/counter.c (counter_element_value):
+	adjust formatting.
+
+2024-12-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Separate sui generis tp/t tests
 
 	* tp/t/01use.t,

@@ -50,7 +50,6 @@ static size_t macro_space;
 
 static size_t free_slots_nr;
 
-COUNTER argument_brace_groups;
 
 
 /* Macro definition. */
@@ -463,6 +462,8 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   add_to_element_contents (argument, argument_content);
   arg = argument_content->e.text;
 
+  static COUNTER argument_brace_groups;
+  counter_reset (&argument_brace_groups, "argument_brace_groups");
   counter_push (&argument_brace_groups, argument_content, 0);
 
   spaces_nr = strspn (pline, whitespace_chars_except_newline);
@@ -631,8 +632,8 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
               argument_content->type = ET_bracketed_linemacro_arg;
             }
         }
-      counter_remove_element (&argument_brace_groups, argument_content);
     }
+  counter_reset (&argument_brace_groups, 0);
   debug ("END LINEMACRO ARGS EXPANSION");
 
   *line_inout = line;
