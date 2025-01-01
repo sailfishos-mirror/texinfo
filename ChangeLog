@@ -1,3 +1,14 @@
+2025-01-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XSLoader.pm (init): if embedded_xs is set, reset
+	TEXINFO_XS variable and environment variable if TEXINFO_XS was omit,
+	as it is not possible to omit XS if Perl is embedded.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_converter_setup): call fatal if
+	call_convert_converter did not succeed.
+
+	* tp/Texinfo/XSLoader.pm (_fatal): show message if embedded_xs is set.
+
 2025-01-01  Gavin Smith <gavinsmith0123@gmail.com>
 
 	No change for txicodevaristt

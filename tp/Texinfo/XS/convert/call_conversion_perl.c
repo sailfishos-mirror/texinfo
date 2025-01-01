@@ -353,7 +353,8 @@ call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref,
   if (parse_status)
     return parse_status;
   /*
-  fprintf (stderr, "call_init_perl parse_status: %d\n", parse_status);
+  fprintf (stderr, "call_init_perl %s parse_status: %d\n",
+           load_txi_modules_path, parse_status);
    */
   run_status = perl_run(my_perl);
   /*

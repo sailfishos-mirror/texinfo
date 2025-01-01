@@ -89,7 +89,8 @@ sub _fatal($) {
   my $msg = shift;
   if ($TEXINFO_XS eq 'debug'
       or $TEXINFO_XS eq 'required'
-      or $TEXINFO_XS eq 'warn') {
+      or $TEXINFO_XS eq 'warn'
+      or $embedded_xs) {
     warn $msg . "\n";
   }
 }
@@ -207,6 +208,13 @@ sub init {
     $TEXINFO_XS = '';
   }
 
+  if ($embedded_xs and $TEXINFO_XS eq 'omit') {
+    warn "ignoring TEXINFO_XS environment variable set to 'omit' ".
+         "for embedded Perl\n";
+    $ENV{'TEXINFO_XS'} = '';
+    $TEXINFO_XS = '';
+  }
+
   if ($TEXINFO_XS eq 'omit') {
     # Don't try to use the XS module
     goto FALLBACK;
@@ -298,9 +306,13 @@ sub init {
   return $module;
 
  FALLBACK:
-  if ($TEXINFO_XS eq 'required') {
-    die "set the TEXINFO_XS environment variable to 'omit' to use the "
-       ."pure Perl modules\n";
+  if ($TEXINFO_XS eq 'required' or $embedded_xs) {
+    if ($embedded_xs) {
+      die "Cannot load XS with embedded Perl\n";
+    } else {
+      die "set the TEXINFO_XS environment variable to 'omit' to use the "
+         ."pure Perl modules\n";
+    }
   } elsif ($TEXINFO_XS eq 'warn' or $TEXINFO_XS eq 'debug') {
     if (defined($fallback_module)) {
       warn "falling back to pure Perl module $fallback_module\n";

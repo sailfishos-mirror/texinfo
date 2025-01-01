@@ -482,9 +482,13 @@ txi_converter_setup (const char *external_module,
     {
       self = call_convert_converter (external_module, converter_init_info);
       if (!self)
-        fprintf (stderr,
-                 "ERROR: no interpreter or NULL return for module: %s\n",
-                 external_module);
+        {
+          char *message;
+          xasprintf (&message, "no interpreter or NULL return for module: %s",
+                     external_module);
+          fatal (message);
+          free (message);
+        }
       else
         return self;
     }
