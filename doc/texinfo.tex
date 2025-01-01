@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2024-12-30.21}
+\def\texinfoversion{2025-01-01.13}
 %
 % Copyright 1985, 1986, 1988, 1990-2024 Free Software Foundation, Inc.
 %
@@ -7973,33 +7973,18 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 }
 \let\ampchar\&
 
+\def\amprm#1 {{\rm\&#1 }}
+
 \newcount\parencount
-
-% If we encounter &foo, then turn on ()-hacking afterwards
-\newif\ifampseen
-\def\amprm#1 {\ampseentrue{\rm\&#1 }}
-
-\def\parenfont{%
-  \ifampseen
-    % At the first level, print parens in roman,
-    % otherwise use the default font.
-    \ifnum \parencount=1 \rm \fi
-  \else
-    % The \sf parens (in \parenbrackglyphs) actually are a little bolder than
-    % the contained text.  This is especially needed for [ and ] .
-    \sf
-  \fi
-}
-
 % opening and closing parentheses in roman font
 \def\opnr{%
   \ptexslash % italic correction
   \global\advance\parencount by 1
-  {\parenfont(}%
+  {\sf(}%
 }
 \def\cpnr{%
   \ptexslash % italic correction
-  {\parenfont)}%
+  {\sf)}%
   \global\advance\parencount by -1
 }
 

@@ -1,5 +1,20 @@
 2025-01-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\opnr, \cpnr): unconditionally use \sf
+	font for opening or closing parenthesis, regardless of
+	whether an &keyword has been seen and whether we are at
+	the first level of parenthesis. 
+	
+	The purpose of this was unknown but it was not correct for input
+	such as:
+	
+	@defmac define-advice symbol (where lambda-list &optional name depth) &rest body
+
+	where the closing ) would be printed in a different font to the
+	opening (.
+
+2025-01-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* po/ChangeLog, po_document/ChangeLog: delete these files
 	as they only include automatically generated content
 
