@@ -46,4 +46,7 @@ void html_reset_converter (CONVERTER *self);
 
 void html_free_converter (CONVERTER *self);
 
+/* in format_html.c */
+char *html_output_internal_links (CONVERTER *self);
+
 #endif

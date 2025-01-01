@@ -12849,3 +12849,164 @@ html_default_format_special_body_about (CONVERTER *self,
   text_append (result, "</li>\n    </ul>\n  </li>\n</ul>\n");
 }
 
+
+
+/* This is called from the main program on the converter. */
+char *
+html_output_internal_links (CONVERTER *self)
+{
+  TEXT out_string;
+  size_t document_units_descriptor
+    = self->output_units_descriptors[OUDT_units];
+  const OUTPUT_UNIT_LIST *output_units;
+  char *language;
+  INDEX_SORTED_BY_LETTER *index_entries_by_letter
+    = get_converter_indices_sorted_by_letter (self, &language);
+  const INDEX_SORTED_BY_LETTER *index_sorted;
+
+  text_init (&out_string);
+
+  output_units = retrieve_output_units (self->document,
+                                        document_units_descriptor);
+
+  if (output_units)
+    {
+      size_t i;
+      for (i = 0; i < output_units->number; i++)
+        {
+          const OUTPUT_UNIT *output_unit = output_units->list[i];
+          const ELEMENT *command = output_unit->uc.unit_command;
+
+          if (command)
+            { /* Use "" for filename, to force a filename in href. */
+              char *href = html_command_href (self, command, "", 0, 0);
+              char *text = 0;
+              TREE_ADDED_ELEMENTS *command_tree
+               = html_internal_command_tree (self, command, 0);
+
+              if (command_tree->tree)
+                {
+                  text = convert_to_text (command_tree->tree,
+                                      self->convert_text_options);
+                }
+
+              if (href || text)
+                {
+                  if (href)
+                    {
+                      text_append (&out_string, href);
+                      free (href);
+                    }
+                  text_append_n (&out_string, "\ttoc\t", 5);
+                  if (text)
+                    {
+                      text_append (&out_string, text);
+                      free (text);
+                    }
+                  text_append_n (&out_string, "\n", 1);
+                }
+            }
+        }
+    }
+
+  if (index_entries_by_letter)
+    {
+      for (index_sorted = index_entries_by_letter; index_sorted->name;
+           index_sorted++)
+        {
+          size_t i;
+          for (i = 0; i < index_sorted->letter_number; i++)
+            {
+              const LETTER_INDEX_ENTRIES *letter_entry
+                = &index_sorted->letter_entries[i];
+              size_t j;
+              for (j = 0; j < letter_entry->entries_number; j++)
+                {
+                  const INDEX_ENTRY *index_entry_ref = letter_entry->entries[j];
+                  const ELEMENT *main_entry_element
+                           = index_entry_ref->entry_element;
+                  const ELEMENT *seeentry;
+                  const ELEMENT *seealso;
+                  char *href;
+                  char *index_term;
+                  int in_code;
+                  size_t entry_index_nr;
+                  const INDEX *entry_index;
+                  ELEMENT *entry_content_element;
+                  ELEMENT *entry_ref_tree;
+                  ELEMENT_LIST *subentries_tree;
+
+                  seeentry = lookup_extra_element (main_entry_element,
+                                               AI_key_seeentry);
+                  if (seeentry)
+                    continue;
+                  seealso = lookup_extra_element (main_entry_element,
+                                              AI_key_seealso);
+                  if (seealso)
+                    continue;
+
+                  href = html_command_href (self, main_entry_element, "", 0, 0);
+
+                  /* Obtain term by converting to text */
+                  entry_content_element
+                    = index_content_element (main_entry_element, 0);
+
+                  entry_index_nr
+                    = index_number_index_by_name (&self->sorted_index_names,
+                                                  index_entry_ref->index_name);
+                  entry_index = self->sorted_index_names.list[entry_index_nr-1];
+                  in_code = entry_index->in_code;
+                  if (in_code)
+                    self->convert_text_options->code_state++;
+
+                  entry_ref_tree = new_element (ET_NONE);
+
+                  add_to_contents_as_array (entry_ref_tree,
+                                            entry_content_element);
+                  subentries_tree
+                    = comma_index_subentries_tree (main_entry_element, 0);
+                  if (subentries_tree)
+                    {
+                      insert_list_slice_into_contents (entry_ref_tree,
+                               entry_ref_tree->e.c->contents.number,
+                               subentries_tree, 0,
+                               subentries_tree->number);
+                    }
+
+                  index_term = convert_to_text (entry_ref_tree,
+                                      self->convert_text_options);
+
+                  if (in_code)
+                    self->convert_text_options->code_state--;
+
+                  if (subentries_tree)
+                    free_comma_index_subentries_tree (subentries_tree);
+
+                  destroy_element (entry_ref_tree);
+
+                  if (index_term
+                 && index_term[strspn (index_term, whitespace_chars)] != '\0')
+                    {
+                      if (href)
+                        text_append (&out_string, href);
+                      text_printf (&out_string, "\t%s\t", index_sorted->name);
+                      text_append (&out_string, index_term);
+                      text_append_n (&out_string, "\n", 1);
+                    }
+
+                  free (href);
+                  free (index_term);
+                }
+            }
+        }
+    }
+
+  if (out_string.end == 0)
+    {
+      free (out_string.text);
+      return 0;
+    }
+  else
+    return out_string.text;
+}
+

@@ -27,9 +27,11 @@
    and regenerate_master_menu */
 #define STTF_complete_menus_use_sections            0x0800
 
-/* not strictly a structuring and transformations selection flag, used to
-   mark that splitting is possible for a format */
+/* not strictly a structuring and transformations selection flags */
+/* used to mark that splitting is possible for a format */
 #define STTF_split                                  0x1000
+/* used to mark that internal links can be output for that format */
+#define STTF_internal_links                         0x2000
 
 void txi_general_setup (int texinfo_uninstalled,
                    const char *converterdatadir, const char *tp_builddir,

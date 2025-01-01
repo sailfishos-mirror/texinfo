@@ -1,5 +1,18 @@
 2025-01-01  Patrice Dumas  <pertusus@free.fr>
 
+	Implement internal links in C
+
+	* tp/Texinfo/XS/convert/format_html.c (html_output_internal_links):
+	implement output_internal_links.
+
+	* tp/Texinfo/XS/texi2any.c (write_to_file): add function based on code
+	related to macro expansion file;
+
+	* tp/Texinfo/XS/texi2any.c (formats_table, long_options, main): add
+	internal-links option and implement outputting internal links text.
+
+2025-01-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XSLoader.pm (init): if embedded_xs is set, reset
 	TEXINFO_XS variable and environment variable if TEXINFO_XS was omit,
 	as it is not possible to omit XS if Perl is embedded.

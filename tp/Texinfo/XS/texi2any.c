@@ -67,6 +67,8 @@
 #include "convert_utils.h"
 /* destroy_converter_initialization_info new_converter_initialization_info */
 #include "converter.h"
+/* for html_output_internal_links */
+#include "html_converter_api.h"
 #include "texinfo.h"
 
 #define LOCALEDIR DATADIR "/locale"
@@ -93,8 +95,6 @@ static FORMAT_REGION_NAME converter_format_expanded_region_name[] = {
   {NULL, NULL},
 };
 
-/* TODO for internal_links add a flag or set to a function called to do
-        the internal links? */
 typedef struct FORMAT_SPECIFICATION {
     const char *name;
     unsigned long flags;
@@ -112,7 +112,8 @@ static FORMAT_SPECIFICATION formats_table[] = {
            | STTF_move_index_entries_after_items
            | STTF_no_warn_non_empty_parts
            | STTF_nodes_tree | STTF_floats | STTF_split
-           | STTF_setup_index_entries_sort_strings,
+           | STTF_setup_index_entries_sort_strings
+           | STTF_internal_links,
    NULL, "Texinfo::Convert::HTML", NULL},
   {"plaintext", STTF_nodes_tree | STTF_floats | STTF_split
                 | STTF_setup_index_entries_sort_strings,
@@ -651,6 +652,46 @@ locate_and_load_extension_file (const char *filename, STRING_LIST *directories)
     }
 }
 
+static void
+write_to_file (char *output_text, FILE *file_fh,
+               const char *encoded_file_name)
+{
+  size_t write_len;
+  size_t res_len;
+  const ENCODING_CONVERSION *conversion = 0;
+  char *result_text = 0;
+  OPTION *out_encoding_option
+      = GNUT_get_conf (program_options.options->OUTPUT_ENCODING_NAME.number);
+  if (out_encoding_option && out_encoding_option->o.string
+      && strcmp (out_encoding_option->o.string, "utf-8"))
+    {
+      conversion
+        = get_encoding_conversion (out_encoding_option->o.string,
+                                   &output_conversions);
+      if (conversion)
+        result_text = encode_with_iconv (conversion->iconv,
+                                            output_text, 0);
+    }
+
+  if (!result_text)
+    result_text = output_text;
+
+  res_len = strlen (result_text);
+
+  write_len = fwrite (result_text, sizeof (char),
+                      res_len, file_fh);
+
+  if (conversion)
+    free (result_text);
+
+  if (write_len != res_len)
+    { /* register error message instead? */
+       fprintf (stderr,
+          "ERROR: write to %s failed (%zu/%zu)\n",
+                encoded_file_name, write_len, res_len);
+    }
+}
+
 const char *input_file_suffixes[] = {
 ".txi",".texinfo",".texi",".txinfo", "", NULL
 };
@@ -689,6 +730,7 @@ static int embed_interpreter_p;
 #define NO_WARN_OPT 20
 #define _FORMAT_OPT 21
 #define XML_OPT 22
+#define INTERNAL_LINKS_OPT 23
 /* can add here */
 #define TRACE_INCLUDES_OPT 33
 #define NO_VERBOSE_OPT 34
@@ -738,6 +780,7 @@ static struct option long_options[] = {
   {"no-headers", 0, 0, NO_HEADERS_OPT},
   {"help", 0, 0, 'h'},
   {"init-file", required_argument, 0, INIT_FILE_OPT},
+  {"internal-links", required_argument, 0, INTERNAL_LINKS_OPT},
   {"macro-expand", required_argument, 0, 'E'},
   {"node-files", 0, 0, NODE_FILES_OPT},
   {"no-node-files", 0, 0, NO_NODE_FILES_OPT},
@@ -1063,6 +1106,11 @@ main (int argc, char *argv[], char *env[])
           GNUT_set_from_cmdline (&cmdline_options,
                             cmdline_options.options->ENABLE_ENCODING.number,
                             "1");
+          break;
+        case INTERNAL_LINKS_OPT:
+          GNUT_set_from_cmdline (&cmdline_options,
+                            cmdline_options.options->INTERNAL_LINKS.number,
+                            optarg);
           break;
         case NODE_FILES_OPT:
           GNUT_set_from_cmdline (&cmdline_options,
@@ -1531,6 +1579,9 @@ main (int argc, char *argv[], char *env[])
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --css-ref=URL           generate CSS reference to URL."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
+   "      --internal-links=FILE   produce list of internal links in FILE."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',\n                                `section' or `node'."));
@@ -2148,43 +2199,11 @@ main (int argc, char *argv[], char *env[])
 
           if (file_fh)
             {
-              size_t write_len;
-              size_t res_len;
-              const ENCODING_CONVERSION *conversion = 0;
-              char *result_texinfo = 0;
-              OPTION *out_encoding_option
-      = GNUT_get_conf (program_options.options->OUTPUT_ENCODING_NAME.number);
-              if (out_encoding_option && out_encoding_option->o.string
-                  && strcmp (out_encoding_option->o.string, "utf-8"))
-                {
-                  conversion
-                    = get_encoding_conversion (out_encoding_option->o.string,
-                                               &output_conversions);
-                  if (conversion)
-                    result_texinfo = encode_with_iconv (conversion->iconv,
-                                                        texinfo_text, 0);
-                }
+              write_to_file (texinfo_text, file_fh,
+                             encoded_macro_expand_file_name);
 
-              if (!result_texinfo)
-                result_texinfo = texinfo_text;
-
-              res_len = strlen (result_texinfo);
-
-              write_len = fwrite (result_texinfo, sizeof (char),
-                                  res_len, file_fh);
-
-              if (conversion)
-                free (result_texinfo);
-
-              if (write_len != res_len)
-                { /* register error message instead? */
-                   fprintf (stderr,
-                      "ERROR: write to %s failed (%zu/%zu)\n",
-                            encoded_macro_expand_file_name, write_len, res_len);
-                }
               output_files_register_closed (&output_files_information,
                                             encoded_macro_expand_file_name);
-
               if (fclose (file_fh))
                 {
                   txi_config_document_warn (
@@ -2298,6 +2317,80 @@ main (int argc, char *argv[], char *env[])
                                        test_mode_set, set_message_encoding);
 
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
+
+      if (format_specification->flags & STTF_internal_links && i == 0)
+        {
+          OPTION *internal_links_option
+            = GNUT_get_conf (program_options.options->INTERNAL_LINKS.number);
+          if (internal_links_option && internal_links_option->o.string)
+            {
+              char *internal_links_file_name;
+              char *internal_links_text
+               = html_output_internal_links (converter);
+              FILE *file_fh;
+              OUTPUT_FILES_INFORMATION output_files_information;
+              char *open_error_message;
+              int overwritten_file;
+              char *encoded_internal_links_file_name
+                = internal_links_option->o.string;
+              int error_internal_links_file = 0;
+
+              if (!internal_links_text)
+                internal_links_text = strdup ("");
+
+              internal_links_file_name
+                 = GNUT_decode_input (encoded_internal_links_file_name);
+
+              memset (&output_files_information, 0,
+                      sizeof (OUTPUT_FILES_INFORMATION));
+
+              file_fh = output_files_open_out (&output_files_information,
+                                        encoded_internal_links_file_name,
+                                               &open_error_message,
+                                               &overwritten_file, 0);
+
+          /* overwritten_file, set if the file has already been used
+             in this files_information is not checked as this cannot happen.
+           */
+
+              if (file_fh)
+                {
+                  write_to_file (internal_links_text, file_fh,
+                                 encoded_internal_links_file_name);
+
+                  output_files_register_closed (&output_files_information,
+                                            encoded_internal_links_file_name);
+                  if (fclose (file_fh))
+                    {
+                      txi_config_document_warn (
+                               "error on closing internal links file %s: %s",
+                               internal_links_file_name, strerror (errno));
+                      error_internal_links_file = 1;
+                    }
+                }
+              else
+                {
+                  txi_config_document_warn ("could not open %s for writing: %s",
+                                 internal_links_file_name, open_error_message);
+                  error_internal_links_file = 1;
+                }
+
+              error_internal_links_file
+                = merge_opened_files (&opened_files,
+                                  &output_files_information.opened_files,
+                                  error_internal_links_file);
+
+              if (error_internal_links_file)
+                {
+                  errors_count = handle_errors (error_internal_links_file,
+                                                errors_count, &opened_files);
+                }
+
+              free_output_files_information (&output_files_information);
+              free (internal_links_file_name);
+              free (internal_links_text);
+            }
+        }
 
       /* free after output */
       txi_converter_reset (converter);
