@@ -109,3 +109,11 @@ Installation notes specific to Texinfo:
   @afourpaper by default.  See the `Preparing for TeX' node in
   the Texinfo manual for more details.  You don't have to create the
   file if you have nothing to put in it.
+
+* Texinfo uses code from the Gnulib portability library.  For correct
+  localization of Gnulib strings, you may need to install a 'gnulib-l10n'
+  package.
+  + Documentation:
+    https://www.gnu.org/software/gnulib/manual/html_node/Localization.html
+  + Download:
+    https://ftp.gnu.org/gnu/gnulib/gnulib-l10n-*
