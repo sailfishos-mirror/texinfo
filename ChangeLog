@@ -1,3 +1,8 @@
+2025-01-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* po/ChangeLog, po_document/ChangeLog: delete these files
+	as they only include automatically generated content
+
 2025-01-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Plaintext.pm (_process_text_internal): use a hash
