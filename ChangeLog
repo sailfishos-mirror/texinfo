@@ -1,5 +1,10 @@
 2025-01-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\b): Call \defcharsdefault so that
+	"@defun foo @b{&bar}" doesn't break.
+
+2025-01-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\opnr, \cpnr): unconditionally use \sf
 	font for opening or closing parenthesis, regardless of
 	whether an &keyword has been seen and whether we are at
