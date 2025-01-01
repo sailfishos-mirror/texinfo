@@ -1,5 +1,16 @@
 2025-01-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	No change for txicodevaristt
+
+	* doc/texinfo.tex (\var): change comments to no longer say that
+	we will turn off "@set txicodevaristt".  In practice users appear
+	happy with the current behaviour.
+
+	* TODO,
+	* doc/texinfo.texi (@var): update
+
+2025-01-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\b): Call \defcharsdefault so that
 	"@defun foo @b{&bar}" doesn't break.
 

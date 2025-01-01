@@ -5202,13 +5202,12 @@ is correct for them (see the next section).
 The effect of @code{@@var} in the Info file is to change the case of
 the argument to all uppercase.  In the printed manual, the argument
 is output in slanted type.
-@footnote{In @TeX{} output, @code{@@var} currently uses a
-slanted typewriter font in code contexts such as @code{@@code}
-or @code{@@example}.  We plan to change this in the next release to
-use a variable-width, slanted roman font in all contexts.  To avoid
-this change, set the @samp{txicodevaristt} flag using @code{@@set};
-specify @samp{@@clear txicodevaristt} to make this change now
-(@pxref{@code{@@set @@value}}).  Note that this flag does nothing in
+@footnote{In @TeX{} output, @code{@@var} uses a slanted typewriter font
+in code contexts such as @code{@@code} or @code{@@example}.  To use a
+variable-width, slanted roman font in all contexts, specify @samp{@@clear
+txicodevaristt} (@pxref{@code{@@set @@value}}).   This gives consistency
+for parameter names whether they are in @code{@@def}, @code{@@table
+@@code}, or a regular paragraph.  Note that this flag does nothing in
 @LaTeX{} output.}
 
 @need 700

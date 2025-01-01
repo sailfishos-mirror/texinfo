@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-01-01.14}
+\def\texinfoversion{2025-01-01.15}
 %
 % Copyright 1985, 1986, 1988, 1990-2024 Free Software Foundation, Inc.
 %
@@ -2773,15 +2773,15 @@ end
 % @cite unconditionally uses \sl with \smartitaliccorrection.
 \def\cite#1{{\sl #1}\smartitaliccorrection}
 
-% @var unconditionally uses \sl.  This gives consistency for
-% parameter names whether they are in @def, @table @code or a
-% regular paragraph.
-%  To get ttsl font for @var when used in code context, @set txicodevaristt.
-% The \null is to reset \spacefactor.
+% By default, use ttsl font for @var when used in code context.
+% To unconditionally use \sl for @var, @clear txicodevaristt.  This
+% gives consistency for parameter names whether they are in @def,
+% @table @code or a regular paragraph.
 \def\aftersmartic{}
 \def\var#1{%
   \let\saveaftersmartic = \aftersmartic
   \def\aftersmartic{\null\let\aftersmartic=\saveaftersmartic}%
+  % The \null is to reset \spacefactor.
   %
   \ifflagclear{txicodevaristt}%
     {\def\varnext{{{\sl #1}}\smartitaliccorrection}}%
@@ -2789,7 +2789,6 @@ end
   \varnext
 }
 
-% To be removed after next release
 \def\SETtxicodevaristt{}% @set txicodevaristt
 
 \let\i=\smartitalic

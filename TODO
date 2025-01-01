@@ -83,7 +83,6 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
       are not shown in emacs.  Ask AUCTeX/Emacs Info for help/tests?
 
 * TeX:
-  - should we turn off @set txicodevaristt?
   - Index above @item allows page break.
   - Table of contents is misaligned if there are 10 or more [sub]sections.
   - @float captions should be typeset in a smaller font?
