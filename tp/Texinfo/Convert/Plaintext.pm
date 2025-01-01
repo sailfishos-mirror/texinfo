@@ -843,12 +843,22 @@ sub _protect_sentence_ends($) {
   return $text;
 }
 
+my %dash_text = ('---' => '--', '--' => '-');
+
 sub _process_text_internal($) {
   my ($text) = @_;
 
-  $text =~ s/---/\x{1F}/g;
-  $text =~ s/--/-/g;
-  $text =~ s/\x{1F}/--/g;
+  # \x{1F} is a control character, ^_ that should not be present in Texinfo
+  # manuals, this is why it had been choosen here.  It is used in Info, though
+  # so it can happen in tests.  Not using any placeholder is better anyway
+  # and simple timing showed no difference.  The use of a placeholder could
+  # be reinstated but with another control character if something faster is
+  # needed and using a placeholder is faster.  However, as long as there is
+  # an XS override for the functions, this is probably unneeded.
+  #$text =~ s/---/\x{1F}/g;
+  #$text =~ s/--/-/g;
+  #$text =~ s/\x{1F}/--/g;
+  $text =~ s/(---|--)/$dash_text{$1}/g;
   $text =~ s/``/"/g;
   $text =~ s/\'\'/"/g;
   $text =~ s/`/'/g;

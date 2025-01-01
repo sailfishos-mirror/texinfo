@@ -1,3 +1,15 @@
+2025-01-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_process_text_internal): use a hash
+	to substitute --- before -- instead of using a control character as
+	placeholder, in case a binary file with that character is given in
+	input.  Also to get the same output as in C.
+
+	* tp/tests/formatting/Makefile.am (EXTRA_DIST),
+	tp/tests/formatting/foo.info: add an input file for the
+	info_extension_warning test such as to have an output independent of
+	the build directory location.
+
 2024-12-31  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Add pot headers to advertise both translation domains

@@ -1,3 +1,5 @@
+# foo.info is not a Texinfo file, but an Info file, to test mistaking
+# the input file, both for the file name and content.
 EXTRA_DIST = \
  simplest.texi documentlanguage.texi \
  defxcond.texi \
@@ -6,7 +8,7 @@ EXTRA_DIST = \
  index_entries_relate_to_item.texi \
  inc_file.texi \
  lightweight_markups.texi   japanese_long_name.texi  \
- no_content.texi \
+ no_content.texi foo.info \
  file.css list-of-tests  res_parser
 
 DISTCLEANFILES = tests.log tests.out
