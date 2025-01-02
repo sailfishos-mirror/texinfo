@@ -219,9 +219,9 @@ call_convert_converter (const char *module_name,
   return result;
 }
 
-/* call both converter->output and converter->output_files_information and
-   return an OUTPUT_TEXT_FILES_INFO which contains both the resulting text
-   and the output files information. */
+/* call converter->output and converter->output_files_information if needed
+   and return an OUTPUT_TEXT_FILES_INFO which contains both the resulting text
+   and the output files information, if not already in the converter. */
 /* FIXME it would probably be better to be able to keep the converter
    SV to keep the blessing information instead of needing the module name */
 OUTPUT_TEXT_FILES_INFO *
@@ -274,11 +274,18 @@ call_converter_output (const char *module_name, CONVERTER *self,
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
   result->text = non_perl_strndup (result_ret, len);
+  result->output_files_information = 0;
 
   PUTBACK;
 
   FREETMPS;
   LEAVE;
+
+  /* already set in the converter, no need to get from Perl.
+     Case of converters implemented in C, for instance HTML */
+  if (self->output_files_information.opened_files.number > 0
+      || self->output_files_information.unclosed_files.number > 0)
+    return result;
 
   ENTER;
   SAVETMPS;
