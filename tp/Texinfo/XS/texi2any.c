@@ -1841,6 +1841,8 @@ main (int argc, char *argv[], char *env[])
     {
       if (!strcmp (converted_format, "html"))
         {
+          /* TODO INTERNAL_LINKS implemented in C anymore, but need to do
+             an XS interface */
           OPTION *internal_links_option
             = GNUT_get_conf (program_options.options->INTERNAL_LINKS.number);
           /* setup of need_latex to be kept in sync with setup of

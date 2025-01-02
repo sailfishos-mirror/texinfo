@@ -531,18 +531,21 @@ txi_converter_output (const char *external_module,
           free (output_text_files_info->text);
         }
 
-      copy_strings (&converter->output_files_information.opened_files,
-                    &output_files_information->opened_files);
-      /* copy unclosed files */
-      for (i = 0; i < unclosed_files->number; i++)
+      if (output_files_information)
         {
-          register_unclosed_file (
-               &converter->output_files_information,
-               unclosed_files->list[i].file_path,
-               unclosed_files->list[i].stream);
+          copy_strings (&converter->output_files_information.opened_files,
+                        &output_files_information->opened_files);
+          /* copy unclosed files */
+          for (i = 0; i < unclosed_files->number; i++)
+            {
+              register_unclosed_file (
+                   &converter->output_files_information,
+                   unclosed_files->list[i].file_path,
+                   unclosed_files->list[i].stream);
+            }
+          free_output_files_information (output_files_information);
+          free (output_files_information);
         }
-      free_output_files_information (output_files_information);
-      free (output_files_information);
       free (output_text_files_info);
       return text_result;
     }
