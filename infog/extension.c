@@ -95,7 +95,7 @@ send_datagram (GString *s)
 static char *current_manual;
 
 int
-load_manual (char *manual)
+load_manual (WebKitWebPage *web_page, char *manual)
 {
   current_manual = manual;
 
@@ -106,7 +106,7 @@ load_manual (char *manual)
   g_string_append (s1, "new-manual\n");
   g_string_append (s1, manual);
 
-  send_datagram (s1);
+  send_js_message (web_page, s1->str);
 
   g_string_free (s1, TRUE);
   
@@ -177,7 +177,7 @@ request_callback (WebKitWebPage     *web_page,
 
       if (!current_manual || strcmp(manual, current_manual) != 0)
         {
-          load_manual (manual);
+          load_manual (web_page, manual);
         }
 
       /* Ask main process to load node for us.  */
@@ -205,7 +205,7 @@ request_callback (WebKitWebPage     *web_page,
 
       if (!current_manual || strcmp(manual, current_manual) != 0)
         {
-          load_manual (manual);
+          load_manual (web_page, manual);
         }
 
       /* Update sidebar */

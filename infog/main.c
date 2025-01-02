@@ -602,6 +602,18 @@ handle_script_message (WebKitUserContentManager *manager,
       p++;
       load_index_nodes (p);
     }
+  else if (!strcmp (message, "new-manual"))
+    {
+      if (new_manual (p + 1))
+        {
+          GString *s = g_string_new (NULL);
+          g_string_append (s, "file:");
+          g_string_append (s, current_manual_dir);
+          g_string_append (s, "/index.html?top-node");
+          webkit_web_view_load_uri (hiddenWebView, s->str);
+          g_string_free (s, TRUE);
+        }
+    }
 }
 
 
@@ -639,18 +651,6 @@ socket_cb (GSocket *socket,
 
           if (save_completions (p))
             continue_to_load_index_nodes ();
-        }
-      else if (!strcmp (buffer, "new-manual"))
-        {
-          if (!new_manual (p + 1))
-            break;
-
-          GString *s = g_string_new (NULL);
-          g_string_append (s, "file:");
-          g_string_append (s, current_manual_dir);
-          g_string_append (s, "/index.html?top-node");
-          webkit_web_view_load_uri (hiddenWebView, s->str);
-          g_string_free (s, TRUE);
         }
       else if (!strcmp (buffer, "toc"))
         {
