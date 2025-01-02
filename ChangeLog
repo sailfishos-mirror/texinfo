@@ -1,3 +1,8 @@
+2025-01-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/texi2any.c (long_options, main): remove the
+	demonstration mode.
+
 2025-01-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/txi_config.c (program_file)

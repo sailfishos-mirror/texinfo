@@ -696,9 +696,6 @@ const char *input_file_suffixes[] = {
 ".txi",".texinfo",".texi",".txinfo", "", NULL
 };
 
-/* Non-zero means demonstration mode */
-static int demonstration_p;
-
 /* If non-zero, show help and exit */
 static int print_help_p;
 
@@ -758,7 +755,6 @@ static int embed_interpreter_p;
 
 static struct option long_options[] = {
   /* next not in texi2any */
-  {"demonstration", 0, &demonstration_p, 1},
   {"mimick", 0, 0, MIMICK_OPT},
   {"embed-interpreter", 0, &embed_interpreter_p, 1},
   {"no-embed-interpreter", 0, &embed_interpreter_p, -1},
@@ -837,7 +833,6 @@ main (int argc, char *argv[], char *env[])
   /*
   char *command_directory;
    */
-  BUTTON_SPECIFICATION_LIST *custom_node_footer_buttons;
   OPTIONS_LIST parser_options;
   OPTIONS_LIST convert_options;
   size_t errors_count = 0;
@@ -1968,16 +1963,6 @@ main (int argc, char *argv[], char *env[])
               copy_option (parser_option, option);
             }
         }
-    }
-
-  if (demonstration_p)
-    {
-      /* customize buttons.  It is a bit silly to use link buttons for
-         footer, it is for the demonstration */
-      custom_node_footer_buttons = new_base_links_buttons (0);
-      add_new_button_option (&program_options,
-                     "NODE_FOOTER_BUTTONS", custom_node_footer_buttons);
-      add_option_value (&program_options, "PROGRAM_NAME_IN_FOOTER", 1, 0);
     }
 
   message_encoding_option
