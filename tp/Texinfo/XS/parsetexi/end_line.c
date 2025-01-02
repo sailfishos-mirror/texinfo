@@ -1515,49 +1515,41 @@ end_line_misc_line (ELEMENT *current)
           else if (current->e.c->cmd == CM_documentlanguage)
             {
               const char *p;
+              char *lang = 0;
+              const char *region_code = 0;
 
-              /* Texinfo::Common::warn_unknown_language checks with
-                 tp/Texinfo/Documentlanguages.pm, which is an automatically
-                 generated list of official IANA language codes.  For now,
-                 just check if the language code looks right. */
-
+              /* Determine if the language code is in the form ll_CC,
+                 language code followed by country code. */
               p = text;
-              while (isascii_alpha (*p))
+              while (isascii_alpha (*p) && isascii_lower (*p))
                 p++;
-              if (*p && *p != '_')
+              if (p > text && *p == '_')
                 {
-                   /* non-alphabetic char in language code */
-                  command_warn (current, "%s is not a valid language code",
-                                text);
+                  const char *lang_end = p;
+                  p++;
+                  while (isascii_alpha (*p) && isascii_upper (*p))
+                    p++;
+                  if (!*p && p > lang_end + 2)
+                    {
+                      region_code = lang_end +1;
+                      lang = strndup (text, lang_end - text);
+                    }
                 }
-              else
+              /* No country code */
+              if (!lang)
+                lang = strdup (text);
+
+              if (!txi_in_language_codes (lang, strlen (lang)))
                 {
-                  if (p - text > 4)
-                    {
-                      /* looks too long */
-                      char *lang = strndup (text, p - text);
-                      command_warn (current, "%s is not a valid language code",
-                                    lang);
-                      free (lang);
-                    }
-                  if (*p == '_')
-                    {
-                      const char *region_code;
-                      p++;
-                      region_code = p;
-                      /* Language code should be of the form LL_CC,
-                         language code followed by country code. */
-                      while (isascii_alpha (*p))
-                        p++;
-                      if (*p || p - region_code > 4)
-                        {
-                          /* non-alphabetic char in country code or code
-                             is too long. */
-                          command_warn (current,
-                                        "%s is not a valid region code",
+                  command_warn (current, "%s is not a valid language code",
+                                lang);
+                }
+              free (lang);
+              if (region_code && !txi_in_language_regions (region_code,
+                                                         strlen (region_code)))
+                {
+                  command_warn (current, "%s is not a valid region code",
                                         region_code);
-                        }
-                    }
                 }
            /* Set the document language unless it was set on the command line. */
               if (!global_parser_conf.global_documentlanguage_fixed)

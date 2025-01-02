@@ -630,7 +630,7 @@ sub warn_unknown_language($) {
   my $lang_code = $lang;
   my $region_code;
 
-  if ($lang =~ /^([a-z]+)_([A-Z]+)/) {
+  if ($lang =~ /^([a-z]+)_([A-Z]+)$/) {
     $lang_code = $1;
     $region_code = $2;
   }

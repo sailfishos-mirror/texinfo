@@ -1,5 +1,16 @@
 2025-01-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (warn_unknown_language): do not allow trailing
+	characters after region code.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): warn about
+	invalid @documentlanguage argument exactly like in Perl.
+
+	* tp/Makefile.tres, tp/t/languages.t (invalid_documentlanguage): test
+	invalid @documentlanguage.
+
+2025-01-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (C_libtexinfo_sources),
 	tp/maintain/regenerate_documentlanguages-loc.pl, README-hacking:
 	generate C source files with hash functions to check if a language or

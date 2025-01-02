@@ -169,6 +169,34 @@ Another unknown language. @xref{Top}.
 @defivar AAA BBB CCC
 @end defivar
 '],
+['invalid_documentlanguage',
+'
+@documentlanguage %bm_AA
+@documentlanguage cu*_FR
+@documentlanguage _JP
+@documentlanguage *_ZM
+@documentlanguage tia_JJ
+@documentlanguage fr_
+@documentlanguage be_
+@documentlanguage de_*
+@documentlanguage it_G%
+@documentlanguage it_FR^
+@documentlanguage en_US !
+@documentlanguage ab gh
+@documentlanguage  es@c in comment
+@documentlanguage az
+@documentlanguage bhé
+@documentlanguage AB_FR
+@documentlanguage ab_us
+@documentlanguage
+
+@node Top
+@top top
+
+@defivar Which Language Selected?
+@end defivar
+
+'],
 ['documentlanguage_generated_master_menu',
 '@documentlanguage pt
 
