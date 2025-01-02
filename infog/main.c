@@ -576,7 +576,32 @@ handle_script_message (WebKitUserContentManager *manager,
           free (pending_node); pending_node = 0;
         }
     }
-
+  else if (!strcmp (message, "inform-new-node"))
+    {
+      p++;
+      if (toc_paths)
+        {
+          switch_node (p);
+        }
+      else
+        {
+          free (pending_node); pending_node = strdup (p);
+          debug (1, "TOC PATHS NOT READY\n");
+        }
+      free (next_link); free (prev_link); free (up_link);
+      next_link = prev_link = up_link = 0;
+    }
+  else if (!strcmp (message, "new-node"))
+    {
+      p++;
+      load_node (p);
+    }
+  else if (!strcmp (message, "index-nodes"))
+    {
+      /* Receive URL of files containing an index. */
+      p++;
+      load_index_nodes (p);
+    }
 }
 
 
@@ -627,36 +652,10 @@ socket_cb (GSocket *socket,
           webkit_web_view_load_uri (hiddenWebView, s->str);
           g_string_free (s, TRUE);
         }
-      else if (!strcmp (buffer, "inform-new-node"))
-        {
-          p++;
-          if (toc_paths)
-            {
-              switch_node (p);
-            }
-          else
-            {
-              free (pending_node); pending_node = strdup (p);
-              debug (1, "TOC PATHS NOT READY\n");
-            }
-          free (next_link); free (prev_link); free (up_link);
-          next_link = prev_link = up_link = 0;
-        }
-      else if (!strcmp (buffer, "new-node"))
-        {
-          p++;
-          load_node (p);
-        }
       else if (!strcmp (buffer, "toc"))
         {
           p++;
           load_toc (p);
-        }
-      else if (!strcmp (buffer, "index-nodes"))
-        {
-          /* Receive URL of files containing an index. */
-          p++;
-          load_index_nodes (p);
         }
       else
         {

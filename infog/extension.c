@@ -37,6 +37,31 @@ debug (int level, char *fmt, ...)
   va_end (v);
 }
 
+void
+send_js_message (WebKitWebPage *web_page, char *message)
+{
+  if (strchr (message, '`'))
+    {
+      debug (1, "BUG - MESSAGE CONTAINS BACKTICK\n");
+      return;
+    }
+  char *js;
+  asprintf (&js,
+    "window.webkit.messageHandlers.channel.postMessage(`%s`);", message);
+  /* NB this won't work if message contains a ` */
+
+  WebKitFrame *frame = webkit_web_page_get_main_frame (web_page);
+  if (!frame)
+    return;
+  JSCContext *jsc = webkit_frame_get_js_context (frame);
+  if (!jsc)
+    return;
+  JSCValue *jscValue = jsc_context_evaluate (jsc, js, -1);
+
+  free (js);
+}
+
+
 /* For communicating with the main Gtk process */
 static struct sockaddr_un main_name;
 static size_t main_name_size;
@@ -159,7 +184,7 @@ request_callback (WebKitWebPage     *web_page,
       GString *s = g_string_new (NULL);
       g_string_append (s, "new-node\n");
       g_string_append (s, node);
-      send_datagram (s);
+      send_js_message (web_page, s->str);
       g_string_free (s, TRUE);
 
       return TRUE; /* Cancel load request */
@@ -187,7 +212,7 @@ request_callback (WebKitWebPage     *web_page,
       GString *s = g_string_new (NULL);
       g_string_append (s, "inform-new-node\n");
       g_string_append (s, node);
-      send_datagram (s);
+      send_js_message (web_page, s->str);
       g_string_free (s, TRUE);
     }
   
@@ -197,7 +222,8 @@ request_callback (WebKitWebPage     *web_page,
 /* Given the main index.html Top node in the document, find the nodes 
    containing indices. */
 void
-find_indices (WebKitDOMHTMLCollection *links, gulong num_links)
+find_indices (WebKitWebPage *web_page,
+              WebKitDOMHTMLCollection *links, gulong num_links)
 {
   debug (1, "looking for indices\n");
 
@@ -248,7 +274,7 @@ find_indices (WebKitDOMHTMLCollection *links, gulong num_links)
       free (rel); free (id);
     }
 
-  send_datagram (s);
+  send_js_message (web_page, s->str);
   g_string_free (s, TRUE);
 }
 
@@ -395,30 +421,6 @@ build_toc_string (GString *toc, WebKitDOMElement *elt)
 }
 
 void
-send_js_message (WebKitWebPage *web_page, char *message)
-{
-  if (strchr (message, '`'))
-    {
-      debug (1, "BUG - MESSAGE CONTAINS BACKTICK\n");
-      return;
-    }
-  char *js;
-  asprintf (&js,
-    "window.webkit.messageHandlers.channel.postMessage(`%s`);", message);
-  /* NB this won't work if message contains a ` */`
-
-  WebKitFrame *frame = webkit_web_page_get_main_frame (web_page);
-  if (!frame)
-    return;
-  JSCContext *jsc = webkit_frame_get_js_context (frame);
-  if (!jsc)
-    return;
-  JSCValue *jscValue = jsc_context_evaluate (jsc, js, -1);
-
-  free (js);
-}
-
-void
 send_toc (WebKitWebPage *web_page, WebKitDOMDocument *dom_document)
 {
   GString *toc;
@@ -533,7 +535,7 @@ document_loaded_callback (WebKitWebPage *web_page,
   if (top_node_p)
     {
       send_toc (web_page, dom_document);
-      find_indices (links, num_links);
+      find_indices (web_page, links, num_links);
       return;
     }
 
