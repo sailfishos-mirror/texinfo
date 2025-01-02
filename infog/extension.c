@@ -279,9 +279,11 @@ find_indices (WebKitWebPage *web_page,
 }
 
 /* Split up msg into packets of size no more than PACKET_SIZE so it can
-   be sent over the socket. */
+   be sent over the socket.
+   FIXME: this is no longer necessary as we no longer use a socket to
+   communicate across threads. */
 void
-packetize (char *msg_type, GString *msg)
+packetize (WebKitWebPage *web_page, char *msg_type, GString *msg)
 {
   GString *s;
   char *p, *q;
@@ -305,7 +307,7 @@ next_packet:
           if (try == 1)
             break;
           g_string_truncate (s, old_len);
-          send_datagram (s);
+          send_js_message (web_page, s->str);
           try = 1;
           goto next_packet;
         }
@@ -313,12 +315,13 @@ next_packet:
       try = 0;
       p = q + 1;
     }
-  send_datagram (s);
+  send_js_message (web_page, s->str);
   g_string_free (s, TRUE);
 }
 
 void
-send_index (WebKitDOMHTMLCollection *links, gulong num_links)
+send_index (WebKitWebPage *web_page,
+            WebKitDOMHTMLCollection *links, gulong num_links)
 {
   debug (1, "trying to send index\n");
 
@@ -361,7 +364,7 @@ send_index (WebKitDOMHTMLCollection *links, gulong num_links)
   g_string_append (s, "\n");
   g_string_append (s, "\n");
 
-  packetize ("index", s);
+  packetize (web_page, "index", s);
 
   g_string_free (s, TRUE);
 
@@ -434,7 +437,7 @@ send_toc (WebKitWebPage *web_page, WebKitDOMDocument *dom_document)
 
   build_toc_string (toc, toc_elt);
 
-  packetize ("toc", toc);
+  packetize (web_page, "toc", toc);
   g_string_free (toc, TRUE);
 
   send_js_message (web_page, "toc-finished\n");
@@ -528,7 +531,7 @@ document_loaded_callback (WebKitWebPage *web_page,
 
   if (send_index_p)
     {
-      send_index (links, num_links);
+      send_index (web_page, links, num_links);
       return;
     }
 

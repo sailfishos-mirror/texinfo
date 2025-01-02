@@ -614,6 +614,18 @@ handle_script_message (WebKitUserContentManager *manager,
           g_string_free (s, TRUE);
         }
     }
+  else if (!strcmp (message, "index"))
+    {
+      p++; /* Set p to the first byte after index line. */
+
+      if (save_completions (p))
+        continue_to_load_index_nodes ();
+    }
+  else if (!strcmp (message, "toc"))
+    {
+      p++;
+      load_toc (p);
+    }
 }
 
 
@@ -645,19 +657,7 @@ socket_cb (GSocket *socket,
       *p = 0;
       //debug (1, "received message of type |%s|\n", buffer);
 
-      if (!strcmp (buffer, "index"))
-        {
-          p++; /* Set p to the first byte after index line. */
-
-          if (save_completions (p))
-            continue_to_load_index_nodes ();
-        }
-      else if (!strcmp (buffer, "toc"))
-        {
-          p++;
-          load_toc (p);
-        }
-      else
+      if (1)
         {
           g_print ("Unknown message type '%s'\n", buffer);
         }
