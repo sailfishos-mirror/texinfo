@@ -1,5 +1,15 @@
 2025-01-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (analyze_documentlanguage_argument),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): move code
+	checking documentlanguage validity to a function,
+	analyze_documentlanguage_argument.
+
+	* tp/Texinfo/XS/texi2any.c (main): check the validity of
+	document-language option value.
+
+2025-01-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (warn_unknown_language): do not allow trailing
 	characters after region code.
 

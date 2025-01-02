@@ -35,7 +35,8 @@
 /* for whitespace_chars read_flag_len
    indices_info_index_by_name ultimate_index */
 #include "utils.h"
-/* for parse_float_type add_to_float_record_list */
+/* for parse_float_type add_to_float_record_list
+   analyze_documentlanguage_argument */
 #include "floats.h"
 /* for parse_node_manual */
 #include "manipulate_tree.h"
@@ -1514,39 +1515,20 @@ end_line_misc_line (ELEMENT *current)
             }
           else if (current->e.c->cmd == CM_documentlanguage)
             {
-              const char *p;
-              char *lang = 0;
-              const char *region_code = 0;
+              const char *region_code;
+              int lang_is_valid;
+              int region_is_valid;
+              char *lang = analyze_documentlanguage_argument (text,
+                                        &region_code,
+                                        &lang_is_valid, &region_is_valid);
 
-              /* Determine if the language code is in the form ll_CC,
-                 language code followed by country code. */
-              p = text;
-              while (isascii_alpha (*p) && isascii_lower (*p))
-                p++;
-              if (p > text && *p == '_')
-                {
-                  const char *lang_end = p;
-                  p++;
-                  while (isascii_alpha (*p) && isascii_upper (*p))
-                    p++;
-                  if (!*p && p > lang_end + 2)
-                    {
-                      region_code = lang_end +1;
-                      lang = strndup (text, lang_end - text);
-                    }
-                }
-              /* No country code */
-              if (!lang)
-                lang = strdup (text);
-
-              if (!txi_in_language_codes (lang, strlen (lang)))
+              if (!lang_is_valid)
                 {
                   command_warn (current, "%s is not a valid language code",
                                 lang);
                 }
               free (lang);
-              if (region_code && !txi_in_language_regions (region_code,
-                                                         strlen (region_code)))
+              if (!region_is_valid)
                 {
                   command_warn (current, "%s is not a valid region code",
                                         region_code);
