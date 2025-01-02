@@ -246,47 +246,6 @@ find_indices (WebKitWebPage *web_page,
   g_string_free (s, TRUE);
 }
 
-/* Split up msg into packets of size no more than PACKET_SIZE so it can
-   be sent over the socket.
-   FIXME: this is no longer necessary as we no longer use a socket to
-   communicate across threads. */
-void
-packetize (WebKitWebPage *web_page, char *msg_type, GString *msg)
-{
-  GString *s;
-  char *p, *q;
-  int try = 0; /* To check if a single record is too long for a packet. */
-
-  p = msg->str;
-  s = g_string_new (NULL);
-
-next_packet:
-  g_string_truncate (s, 0);
-  g_string_append (s, msg_type);
-  g_string_append (s, "\n");
-
-  /* Get next two lines and try to fit them in the buffer. */
-  while ((q = strchr (p, '\n')) && (q = strchr (q + 1, '\n')))
-    {
-      gsize old_len = s->len;
-      g_string_append_len (s, p, q - p + 1);
-      if (s->len > PACKET_SIZE)
-        {
-          if (try == 1)
-            break;
-          g_string_truncate (s, old_len);
-          send_js_message (web_page, s->str);
-          try = 1;
-          goto next_packet;
-        }
-
-      try = 0;
-      p = q + 1;
-    }
-  send_js_message (web_page, s->str);
-  g_string_free (s, TRUE);
-}
-
 void
 send_index (WebKitWebPage *web_page,
             WebKitDOMHTMLCollection *links, gulong num_links)
@@ -295,6 +254,8 @@ send_index (WebKitWebPage *web_page,
 
   gulong i = 0;
   GString *s = g_string_new (NULL);
+
+  g_string_append (s, "index\n");
 
   for (; i < num_links; i++)
     {
@@ -332,7 +293,7 @@ send_index (WebKitWebPage *web_page,
   g_string_append (s, "\n");
   g_string_append (s, "\n");
 
-  packetize (web_page, "index", s);
+  send_js_message (web_page, s->str);
 
   g_string_free (s, TRUE);
 
@@ -403,9 +364,10 @@ send_toc (WebKitWebPage *web_page, WebKitDOMDocument *dom_document)
 
   toc = g_string_new (NULL);
 
+  g_string_append (toc, "toc\n");
   build_toc_string (toc, toc_elt);
 
-  packetize (web_page, "toc", toc);
+  send_js_message (web_page, toc->str);
   g_string_free (toc, TRUE);
 
   send_js_message (web_page, "toc-finished\n");
