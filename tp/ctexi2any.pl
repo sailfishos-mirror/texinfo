@@ -14,5 +14,5 @@ if (defined($top_srcdir)) {
   $command_dir = $command_directory;
   $ENV{'top_srcdir'} = "$command_dir/..";
 }
-exec("${command_dir}/Texinfo/XS/ctexi2any", @ARGV);
+exec("${command_dir}/Texinfo/XS/ctexi2any", '--mimick', @ARGV);
 

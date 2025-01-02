@@ -1,3 +1,12 @@
+2025-01-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/texi2any.c (long_options, main): change the mimick
+	option to only reset the program_file name, and have it change it as
+	soon as the option is encountered.
+
+	* tp/ctexi2any.pl: set the --mimick option to get texi2any in early
+	messages.
+
 2025-01-01  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Index initials in PDF outline

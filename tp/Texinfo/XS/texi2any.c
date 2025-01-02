@@ -699,9 +699,6 @@ const char *input_file_suffixes[] = {
 /* Non-zero means demonstration mode */
 static int demonstration_p;
 
-/* Non-zero means mimick texi2any mode */
-static int mimick_p;
-
 /* If non-zero, show help and exit */
 static int print_help_p;
 
@@ -731,6 +728,7 @@ static int embed_interpreter_p;
 #define _FORMAT_OPT 21
 #define XML_OPT 22
 #define INTERNAL_LINKS_OPT 23
+#define MIMICK_OPT 24
 /* can add here */
 #define TRACE_INCLUDES_OPT 33
 #define NO_VERBOSE_OPT 34
@@ -761,7 +759,7 @@ static int embed_interpreter_p;
 static struct option long_options[] = {
   /* next not in texi2any */
   {"demonstration", 0, &demonstration_p, 1},
-  {"mimick", 0, &mimick_p, 1},
+  {"mimick", 0, 0, MIMICK_OPT},
   {"embed-interpreter", 0, &embed_interpreter_p, 1},
   {"no-embed-interpreter", 0, &embed_interpreter_p, -1},
 
@@ -1064,6 +1062,10 @@ main (int argc, char *argv[], char *env[])
           break;
         case XML_OPT:
           set_cmdline_format ("texinfoxml");
+          break;
+        case MIMICK_OPT:
+          free (program_file);
+          program_file = strdup ("texi2any");
           break;
         case 'c':
           get_cmdline_customization_option (&cmdline_options, optarg);
@@ -1976,25 +1978,6 @@ main (int argc, char *argv[], char *env[])
       add_new_button_option (&program_options,
                      "NODE_FOOTER_BUTTONS", custom_node_footer_buttons);
       add_option_value (&program_options, "PROGRAM_NAME_IN_FOOTER", 1, 0);
-    }
-
-  if (mimick_p)
-    {
-      /* mimick texi2any.pl, under the assumption that
-         teximakehtml output will be compared to calls of in-source
-         texi2any.pl */
-      const char *configured_version = PACKAGE_VERSION_CONFIG "+dev";
-      const char *configured_name_version
-         = PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG "+dev";
-
-      free (program_file);
-      program_file = strdup ("texi2any");
-
-      add_option_value (&program_options, "PROGRAM", 0, program_file);
-      add_option_value (&program_options, "PACKAGE_VERSION", 0,
-                        configured_version);
-      add_option_value (&program_options, "PACKAGE_AND_VERSION", 0,
-                        configured_name_version);
     }
 
   message_encoding_option
