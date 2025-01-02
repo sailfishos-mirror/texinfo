@@ -395,7 +395,31 @@ build_toc_string (GString *toc, WebKitDOMElement *elt)
 }
 
 void
-send_toc (WebKitDOMDocument *dom_document)
+send_js_message (WebKitWebPage *web_page, char *message)
+{
+  if (strchr (message, '`'))
+    {
+      debug (1, "BUG - MESSAGE CONTAINS BACKTICK\n");
+      return;
+    }
+  char *js;
+  asprintf (&js,
+    "window.webkit.messageHandlers.channel.postMessage(`%s`);", message);
+  /* NB this won't work if message contains a ` */`
+
+  WebKitFrame *frame = webkit_web_page_get_main_frame (web_page);
+  if (!frame)
+    return;
+  JSCContext *jsc = webkit_frame_get_js_context (frame);
+  if (!jsc)
+    return;
+  JSCValue *jscValue = jsc_context_evaluate (jsc, js, -1);
+
+  free (js);
+}
+
+void
+send_toc (WebKitWebPage *web_page, WebKitDOMDocument *dom_document)
 {
   GString *toc;
 
@@ -411,14 +435,12 @@ send_toc (WebKitDOMDocument *dom_document)
   packetize ("toc", toc);
   g_string_free (toc, TRUE);
 
-  GString *s1 = g_string_new (NULL);
-  g_string_append (s1, "toc-finished\n");
-  send_datagram (s1);
-  g_string_free (s1, TRUE);
+  send_js_message (web_page, "toc-finished\n");
 }
 
 void
-send_pointer (WebKitDOMElement *link_elt,
+send_pointer (WebKitWebPage *web_page,
+              WebKitDOMElement *link_elt,
               const char *rel, const char *current_uri)
 {
   char *link = 0;
@@ -443,18 +465,8 @@ send_pointer (WebKitDOMElement *link_elt,
           strcpy (link + (p - current_uri), href);
 
           char *message;
-          long len;
-          len = asprintf (&message, "%s\n%s\n", rel, link);
-
-          ssize_t result;
-          result = sendto (socket_id, message, len, 0,
-                 (struct sockaddr *) &main_name, main_name_size);
-
-          if (result == -1)
-            {
-              debug (1, "socket write failed: %s\n",
-                       strerror(errno));
-            }
+          asprintf (&message, "%s\n%s\n", rel, link);
+          send_js_message (web_page, message);
 
           free (message);
         }
@@ -520,7 +532,7 @@ document_loaded_callback (WebKitWebPage *web_page,
 
   if (top_node_p)
     {
-      send_toc (dom_document);
+      send_toc (web_page, dom_document);
       find_indices (links, num_links);
       return;
     }
@@ -543,17 +555,17 @@ document_loaded_callback (WebKitWebPage *web_page,
   link_elt = webkit_dom_document_query_selector
     (dom_document, "a[rel=\"up\"]", NULL);
   if (link_elt)
-    send_pointer (link_elt, "up", current_uri);
+    send_pointer (web_page, link_elt, "up", current_uri);
   
   link_elt = webkit_dom_document_query_selector
     (dom_document, "a[rel=\"next\"]", NULL);
   if (link_elt)
-    send_pointer (link_elt, "next", current_uri);
+    send_pointer (web_page, link_elt, "next", current_uri);
 
   link_elt = webkit_dom_document_query_selector
     (dom_document, "a[rel=\"prev\"]", NULL);
   if (link_elt)
-    send_pointer (link_elt, "prev", current_uri);
+    send_pointer (web_page, link_elt, "prev", current_uri);
 }
 
 

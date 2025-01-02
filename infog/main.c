@@ -530,6 +530,55 @@ load_node (char *p)
   g_string_free (s, TRUE);
 }
 
+void
+handle_script_message (WebKitUserContentManager *manager,
+                       WebKitJavascriptResult   *js_result,
+                       gpointer                  user_data)
+{
+  JSCValue *jscValue = webkit_javascript_result_get_js_value (js_result);
+  char *message = jsc_value_to_string (jscValue);
+  debug (1, "--------------> recvd mesg %s\n", message);
+
+  char *p, *q;
+  p = strchr (message, '\n');
+  if (!p)
+    {
+      free (message);
+      return;
+    }
+  *p = 0;
+
+  char **save_where = 0;
+  if (!strcmp (message, "next"))
+    save_where = &next_link;
+  else if (!strcmp (message, "prev"))
+    save_where = &prev_link;
+  else if (!strcmp (message, "up"))
+    save_where = &up_link;
+  if (save_where)
+    {
+      p++;
+      q = strchr (p, '\n');
+      if (q)
+        {
+          *q = 0;
+          free (*save_where);
+          *save_where = strdup (p);
+        }
+    }
+  else if (!strcmp (message, "toc-finished"))
+    {
+      debug (1, "TOC FINISHED\n");
+      if (pending_node)
+        {
+          debug (1, "HANDLE PENDING NODE %s\n", pending_node);
+          switch_node (pending_node);
+          free (pending_node); pending_node = 0;
+        }
+    }
+
+}
+
 
 gboolean
 socket_cb (GSocket *socket,
@@ -559,24 +608,7 @@ socket_cb (GSocket *socket,
       *p = 0;
       //debug (1, "received message of type |%s|\n", buffer);
 
-      char **save_where = 0;
-      if (!strcmp (buffer, "next"))
-        save_where = &next_link;
-      else if (!strcmp (buffer, "prev"))
-        save_where = &prev_link;
-      else if (!strcmp (buffer, "up"))
-        save_where = &up_link;
-      if (save_where)
-        {
-          p++;
-          q = strchr (p, '\n');
-          if (!q)
-            break;
-          *q = 0;
-          free (*save_where);
-          *save_where = strdup (p);
-        }
-      else if (!strcmp (buffer, "index"))
+      if (!strcmp (buffer, "index"))
         {
           p++; /* Set p to the first byte after index line. */
 
@@ -619,16 +651,6 @@ socket_cb (GSocket *socket,
         {
           p++;
           load_toc (p);
-        }
-      else if (!strcmp (buffer, "toc-finished"))
-        {
-          debug (1, "TOC FINISHED\n");
-          if (pending_node)
-            {
-              debug (1, "HANDLE PENDING NODE %s\n", pending_node);
-              switch_node (pending_node);
-              free (pending_node); pending_node = 0;
-            }
         }
       else if (!strcmp (buffer, "index-nodes"))
         {
@@ -912,10 +934,6 @@ help_clicked_cb (GtkButton *button, gpointer user_data)
 void
 build_gui (void)
 {
-  /* Disable JavaScript */
-  WebKitSettings *settings = webkit_settings_new ();
-  webkit_settings_set_enable_javascript (settings, FALSE);
-
   main_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
   gtk_window_set_default_size(GTK_WINDOW(main_window), 800, 700);
 
@@ -971,7 +989,6 @@ build_gui (void)
   gtk_paned_set_position (paned, 200);
   gtk_paned_pack1 (paned, GTK_WIDGET(toc_scroll), FALSE, TRUE);
 
-  webView = WEBKIT_WEB_VIEW(webkit_web_view_new_with_settings(settings));
   gtk_paned_pack2 (paned, GTK_WIDGET(webView), TRUE, TRUE);
 
   index_entry = GTK_ENTRY(gtk_entry_new ());
@@ -1026,7 +1043,6 @@ main (int argc, char *argv[])
     if (signal (SIGTERM, termination_handler) == SIG_IGN)
       signal (SIGTERM, SIG_IGN);
 
-
     /* This is used to use a separate process for the web browser
        that looks up the index files.  This stops the program from freezing 
        while the index files are processed.  */
@@ -1044,10 +1060,29 @@ main (int argc, char *argv[])
 		      G_CALLBACK (initialize_web_extensions),
 		      NULL);
 
+    /* Disable JavaScript */
+    WebKitSettings *settings = webkit_settings_new ();
+    webkit_settings_set_enable_javascript (settings, FALSE);
+
+    webView = WEBKIT_WEB_VIEW(webkit_web_view_new_with_settings(settings));
+
+    WebKitUserContentManager *manager1, *manager2;
+
+    manager1 = webkit_web_view_get_user_content_manager (webView);
+    g_signal_connect (manager1, "script-message-received::channel",
+                      G_CALLBACK (handle_script_message), NULL);
+    webkit_user_content_manager_register_script_message_handler (manager1,
+                                                                 "channel");
     build_gui ();
 
     /* Create a web view to parse index files.  */
     hiddenWebView = WEBKIT_WEB_VIEW(webkit_web_view_new());
+
+    manager2 = webkit_web_view_get_user_content_manager (hiddenWebView);
+    g_signal_connect (manager2, "script-message-received::channel",
+                      G_CALLBACK (handle_script_message), NULL);
+    webkit_user_content_manager_register_script_message_handler (manager2,
+                                                                 "channel");
 
 #define FIRST_MANUAL "texinfo"
 
