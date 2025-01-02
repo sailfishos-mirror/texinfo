@@ -23,7 +23,7 @@
 
 #include "option_types.h"
 
-OPTIONS_LIST *GNUT_initialize_customization (const char *real_command_name,
+OPTIONS_LIST *GNUT_initialize_customization (char * const *real_command_name,
                                OPTIONS_LIST *main_options_defaults,
                                OPTIONS_LIST *main_cmdline_options);
 

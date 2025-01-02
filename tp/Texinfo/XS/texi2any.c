@@ -1037,7 +1037,7 @@ main (int argc, char *argv[], char *env[])
   memset (&init_files, 0, sizeof (STRING_LIST));
 
   init_files_options =
-    GNUT_initialize_customization (program_file, &program_options,
+    GNUT_initialize_customization (&program_file, &program_options,
                                    &cmdline_options);
   /* initialize_options_list (&init_files_options); */
 

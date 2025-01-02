@@ -46,13 +46,13 @@
 static OPTIONS_LIST *program_options;
 static OPTIONS_LIST *cmdline_options;
 static OPTIONS_LIST init_files_options;
-static const char *program_file;
+static char * const *program_file;
 
 /* to be called from the main program.  This allows to share
    the options lists among the main program and this file */
 
 OPTIONS_LIST *
-GNUT_initialize_customization (const char *real_command_name,
+GNUT_initialize_customization (char * const *real_command_name,
                                OPTIONS_LIST *main_options_defaults,
                                OPTIONS_LIST *main_cmdline_options)
 {
@@ -145,10 +145,10 @@ txi_config_document_warn (const char *format, ...)
 #ifdef ENABLE_NLS
   xasprintf (&formatted_message,
           pgettext ("program name: warning: warning_message",
-                    "%s: warning: %s"), program_file, message);
+                    "%s: warning: %s"), *program_file, message);
 #else
   xasprintf (&formatted_message, "%s: warning: %s",
-                              program_file, message);
+                              *program_file, message);
 #endif
   if (!formatted_message) fatal ("asprintf failed");
   free (message);
