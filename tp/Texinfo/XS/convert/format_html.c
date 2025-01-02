@@ -12862,7 +12862,6 @@ html_output_internal_links (CONVERTER *self)
   char *language;
   INDEX_SORTED_BY_LETTER *index_entries_by_letter
     = get_converter_indices_sorted_by_letter (self, &language);
-  const INDEX_SORTED_BY_LETTER *index_sorted;
 
   text_init (&out_string);
 
@@ -12911,14 +12910,37 @@ html_output_internal_links (CONVERTER *self)
 
   if (index_entries_by_letter)
     {
-      for (index_sorted = index_entries_by_letter; index_sorted->name;
-           index_sorted++)
+      size_t i;
+      for (i = 0; i < self->sorted_index_names.number; i++)
         {
-          size_t i;
-          for (i = 0; i < index_sorted->letter_number; i++)
+          const INDEX *current_index = self->sorted_index_names.list[i];
+          const INDEX_SORTED_BY_LETTER *index_sorted;
+          int found = 0;
+          size_t l;
+
+          if (current_index->merged_in)
+            continue;
+
+          for (index_sorted = index_entries_by_letter; index_sorted->name;
+               index_sorted++)
+            {
+              if (!strcmp (current_index->name, index_sorted->name))
+                {
+                  found = 1;
+                  break;
+                }
+            }
+          if (!found)
+            {
+              fprintf (stderr, "BUG: index %s not found in sorted indices\n",
+                       current_index->name);
+              continue;
+            }
+
+          for (l = 0; l < index_sorted->letter_number; l++)
             {
               const LETTER_INDEX_ENTRIES *letter_entry
-                = &index_sorted->letter_entries[i];
+                = &index_sorted->letter_entries[l];
               size_t j;
               for (j = 0; j < letter_entry->entries_number; j++)
                 {
