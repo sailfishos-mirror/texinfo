@@ -1,5 +1,12 @@
 2025-01-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (C_libtexinfo_sources),
+	tp/maintain/regenerate_documentlanguages-loc.pl, README-hacking:
+	generate C source files with hash functions to check if a language or
+	a region code is valid using gperf.
+
+2025-01-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_conversion_perl.c
 	(call_converter_output): do not get output_files_information from the
 	Perl converter if it is already in the C converter.

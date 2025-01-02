@@ -13,7 +13,8 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
-# Calling that script for each release could be a good idea.
+# Calling that script for the tp directory for each release could be
+# a good idea.
 
 use strict;
 
@@ -25,12 +26,12 @@ use List::Util qw(first);
 # not in Perl core standard modules
 use Text::CSV;
 
-my $dir = 'maintain';
+my $dir = 'maintain/documentlanguage';
 system ("cd $dir && wget -N https://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt");
 # the ISO 3166-1 alpha-2 codes are not easily accessible from the ISO website, there is
 # an interface not a raw download (seems incredible, but true...).
 # Use the country code project list instead
-system ("cd $dir && wget -N https://raw.githubusercontent.com/datasets/country-codes/master/data/country-codes.csv");
+#system ("cd $dir && wget -N https://raw.githubusercontent.com/datasets/country-codes/master/data/country-codes.csv");
 
 open(TXT, "$dir/ISO-639-2_utf-8.txt") or die "Open $dir/ISO-639-2_utf-8.txt: $!\n";
 binmode(TXT, ":utf8");
@@ -69,6 +70,14 @@ my $program_name = basename($0);
 
 open(OUT, ">Texinfo/Documentlanguages.pm") or die "Open Texinfo/Documentlanguages.pm: $!\n";
 
+my $declarations = "%{\n#include <config.h>\n%}\n"
+                   ."%includes\n%%\n";
+open(LANGUAGES, ">$dir/languages.gperf") or die "Open $dir/languages.gperf: $!\n";
+print LANGUAGES $declarations;
+
+open(REGIONS, ">$dir/regions.gperf") or die "Open $dir/regions.gperf: $!\n";
+print REGIONS $declarations;
+
 print OUT "# This file was automatically generated from $program_name\n\n";
 
 print OUT "package Texinfo::Documentlanguages;\n\n";
@@ -76,11 +85,18 @@ print OUT "package Texinfo::Documentlanguages;\n\n";
 print OUT 'our %language_codes = ('."\n";
 foreach my $entry (sort @entries) {
   print OUT "'$entry' => 1,\n";
+  print LANGUAGES "$entry\n";
 }
 print OUT ");\n\n";
 
 print OUT 'our %region_codes = ('."\n";
 foreach my $region (sort keys %regions) {
   print OUT "'$region' => 1,\n";
+  print REGIONS "$region\n";
 }
 print OUT ");\n\n1;\n";
+
+system ("gperf --output-file=Texinfo/XS/main/txi_documentlanguage_languages.c -N txi_in_language_codes $dir/languages.gperf");
+system ("gperf --output-file=Texinfo/XS/main/txi_documentlanguage_regions.c -N txi_in_language_regions $dir/regions.gperf");
+
+1;

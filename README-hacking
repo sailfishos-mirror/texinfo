@@ -23,7 +23,9 @@ You'll also need help2man (for building man pages) and gperf (for building
 texindex/ti.twjr, you'll need gawk >= 4.0.  All of these programs are
 available from https://ftp.gnu.org/gnu.  You'll also need pod2man
 for building a man page, which should be part of the Perl core
-distribution.
+distribution.  To regenerate the languages codes you'll need the
+Text::CSV Perl module, gperf, wget and access to the internet.
+
 
 After getting the development sources, and installing the tools above,
 you can run
@@ -545,8 +547,10 @@ to check that LINGUAS under po and po_document match actual file list.
 
 - Official releases only:
 version and date in NEWS.
-(cd tp && maintain/regenerate_documentlanguages-loc.pl)
-  -- regenerates tp/Texinfo/Documentlanguages.pm (requires Text::CSV)
+(cd tp && ./maintain/regenerate_documentlanguages-loc.pl)
+  -- regenerates tp/Texinfo/Documentlanguages.pm and
+     tp/Texinfo/XS/main/txi_documentlanguage_*.c (requires Text::CSV
+     Perl module, wget and gperf and access to the internet)
 
 notice in ChangeLog.
 one last "git diff" to check release commit looks good
