@@ -5,8 +5,6 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/socket.h>
-#include <sys/un.h>
 
 #include <glib.h>
 #include <gtk/gtk.h>
@@ -61,36 +59,6 @@ send_js_message (WebKitWebPage *web_page, char *message)
   free (js);
 }
 
-
-/* For communicating with the main Gtk process */
-static struct sockaddr_un main_name;
-static size_t main_name_size;
-
-/* The socket that we create in this process to send to the socket
-   of the main process. */
-static int socket_id;
-
-void
-send_datagram (GString *s)
-{
-  ssize_t result;
-
-  //debug (2, "send datagram %s", s->str);
-  if (s->len > PACKET_SIZE)
-    {
-      debug (0, "datagram too big");
-      return;
-    }
-
-  result = sendto (socket_id, s->str, s->len + 1, 0,
-         (struct sockaddr *) &main_name, main_name_size);
-
-  if (result == -1)
-    {
-      debug (0, "sending datagram failed: %s\n",
-               strerror(errno));
-    }
-}
 
 static char *current_manual;
 
@@ -592,32 +560,10 @@ web_page_created_callback (WebKitWebExtension *extension,
                       NULL, 0);
 }
 
-void
-initialize_socket (const char *main_socket_file)
-{
-  /* Create the socket. */
-  socket_id = socket (PF_LOCAL, SOCK_DGRAM, 0);
-  if (socket_id < 0)
-    {
-      perror ("socket (web process)");
-      exit (EXIT_FAILURE);
-    }
-
-  /* Set the address of the socket in the main Gtk process. */
-  main_name.sun_family = AF_LOCAL;
-  strcpy (main_name.sun_path, main_socket_file);
-  main_name_size = strlen (main_name.sun_path) + sizeof (main_name.sun_family);
-}
-
 G_MODULE_EXPORT void
 webkit_web_extension_initialize_with_user_data (WebKitWebExtension *extension,
                                                 GVariant *user_data)
 {
-  const char *socket_file = g_variant_get_bytestring (user_data);
-  debug (1, "thread id %s\n", socket_file);
-
-  initialize_socket (socket_file);
-  
   g_signal_connect (extension, "page-created", 
                     G_CALLBACK (web_page_created_callback), 
                     NULL);

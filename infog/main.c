@@ -5,15 +5,12 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/socket.h>
-#include <sys/un.h>
 #include <time.h>
 #include <stdarg.h>
 #include <signal.h>
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
-#include <gio/gunixsocketaddress.h>
 #include <webkit2/webkit2.h>
 
 #include "common.h"
@@ -46,16 +43,6 @@ static gboolean closeWebViewCb(WebKitWebView* webView, GtkWidget* window);
 static gboolean key_press_cb(GtkWidget *webView,
                              GdkEvent  *event,
                              gpointer   user_data);
-
-static char *socket_file;
-
-static void
-remove_socket (void)
-{
-  debug (1, "removing socket %s\n", socket_file);
-  if (socket_file)
-    unlink (socket_file);
-}
 
 WebKitWebView *webView = 0;
 
@@ -628,103 +615,18 @@ handle_script_message (WebKitUserContentManager *manager,
     }
 }
 
-
-gboolean
-socket_cb (GSocket *socket,
-           GIOCondition condition,
-           gpointer user_data)
-{
-  static char buffer[PACKET_SIZE+1];
-  GError *err = 0;
-  gssize result;
-
-  switch (condition)
-    {
-    case G_IO_IN:
-      result = g_socket_receive (socket, buffer, sizeof buffer, NULL, &err);
-      if (result <= 0)
-        {
-          debug (1, "socket receive error: %s\n", err->message);
-          gtk_main_quit ();
-        }
-
-      buffer[PACKET_SIZE] = '\0';
-
-      char *p, *q;
-      p = strchr (buffer, '\n'); 
-      if (!p)
-        break;
-      *p = 0;
-      //debug (1, "received message of type |%s|\n", buffer);
-
-      if (1)
-        {
-          g_print ("Unknown message type '%s'\n", buffer);
-        }
-
-      break;
-    case G_IO_ERR:
-    case G_IO_HUP:
-      g_print ("socket error\n");
-      gtk_main_quit ();
-      break;
-    default:
-      g_print ("unhandled socket connection\n");
-      gtk_main_quit ();
-      break;
-    }
-  return true;
-}
-
 char *extensions_directory;
 
 static void
 initialize_web_extensions (WebKitWebContext *context,
                            gpointer          user_data)
 {
-  /* Make a Unix domain socket for communication with the browser process.
-     Some example code and documentation for WebKitGTK uses dbus instead. */
-  if (!socket_file)
-    {
-      socket_file = tmpnam (0);
-
-      GError *err = 0;
-
-      err = 0;
-      GSocket *gsocket = g_socket_new (G_SOCKET_FAMILY_UNIX,
-                                       G_SOCKET_TYPE_DATAGRAM,
-                                       0,
-                                       &err);
-      if (!gsocket)
-        {
-          g_print ("no socket: %s\n", err->message);
-          gtk_main_quit ();
-        }
-
-      err = 0;
-      GSocketAddress *address = g_unix_socket_address_new (socket_file);
-      if (!g_socket_bind (gsocket, address, FALSE, &err))
-        {
-          g_print ("bind socket: %s\n", err->message);
-          gtk_main_quit ();
-        }
-      err = 0;
-
-      GSource *gsource = g_socket_create_source (gsocket, G_IO_IN, NULL);
-      g_source_set_callback (gsource, (GSourceFunc)(socket_cb), NULL, NULL);
-      g_source_attach (gsource, NULL);
-      g_object_unref (address);
-
-      atexit (&remove_socket);
-    }
-
   char *d;
   asprintf (&d, "%s/%s", extensions_directory, ".libs");
   webkit_web_context_set_web_extensions_directory (context, d);
   free (d);
 
-  webkit_web_context_set_web_extensions_initialization_user_data (
-     context, g_variant_new_bytestring (socket_file));
+  webkit_web_context_set_web_extensions_initialization_user_data (context, 0);
 }
 
 void
