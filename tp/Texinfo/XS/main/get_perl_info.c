@@ -857,7 +857,7 @@ html_fill_direction_icons (const CONVERTER *converter,
 
   if (direction_icons->number == 0)
     {
-      /* consistent with direction_unit_direction_name size */
+      /* consistent with main_units_direction_names size */
       direction_icons->number = converter->special_unit_varieties.number
                                  + NON_SPECIAL_DIRECTIONS_NR;
       direction_icons->list = (char **) malloc
@@ -866,10 +866,10 @@ html_fill_direction_icons (const CONVERTER *converter,
 
   icons_hv = (HV *)SvRV ((SV *)direction_icons->sv);
 
-  for (i = 0; converter->direction_unit_direction_name[i]; i++)
+  for (i = 0; converter->main_units_direction_names[i]; i++)
     {
       const char *direction_name
-        = converter->direction_unit_direction_name[i];
+        = converter->main_units_direction_names[i];
       SV **direction_icon_sv = hv_fetch (icons_hv, direction_name,
                                          strlen (direction_name), 0);
       if (direction_icon_sv && SvOK (*direction_icon_sv))
@@ -901,7 +901,7 @@ html_get_direction_icons_sv (const CONVERTER *converter,
   SvREFCNT_inc ((SV *) icons_sv);
   direction_icons->sv = icons_sv;
 
-  if (!converter || !converter->direction_unit_direction_name)
+  if (!converter || !converter->main_units_direction_names)
     return;
 
   html_fill_direction_icons (converter, direction_icons);

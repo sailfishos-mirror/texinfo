@@ -881,16 +881,16 @@ typedef struct CONVERTER {
     /* set for a converter, modified in a document */
     HTML_NO_ARG_COMMAND_CONVERSION html_no_arg_command_conversion[BUILTIN_CMD_NUMBER][NO_ARG_COMMAND_CONTEXT_NR];
     char ***directions_strings[TDS_TYPE_MAX_NR];
-    const char **direction_unit_direction_name;
+    const char **main_units_direction_names;
 
     /* set for a document */
     size_t output_units_descriptors[OUDT_external_nodes_units+1];
     enum htmlxref_split_type document_htmlxref_split_type;
     const OUTPUT_UNIT **global_units_directions;
-    SPECIAL_UNIT_DIRECTION *special_units_direction_name;
+    SPECIAL_UNIT_DIRECTION *special_units_direction_names;
     /* both for global units associated to normal output units and
        for special output units, sorted according to direction name */
-    SPECIAL_UNIT_DIRECTION_LIST global_units_direction_name;
+    SPECIAL_UNIT_DIRECTION_LIST global_units_direction_names;
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
     SORTED_INDEX_NAMES sorted_index_names;
     void *registered_ids_c_hashmap;

@@ -2127,7 +2127,7 @@ from_element_direction (CONVERTER *self, int direction,
 
   /* To debug:
   fprintf (stderr, "FED: %s %s\n", html_command_text_type_name[type],
-                              self->direction_unit_direction_name[direction]);
+                              self->main_units_direction_names[direction]);
    */
 
   if (direction < D_direction_Space)
@@ -2560,7 +2560,7 @@ direction_string (CONVERTER *self, int direction,
   fprintf (stderr, "DS: %d %s %s %s\n", direction,
                               direction_string_type_names[string_type],
                                   direction_string_context_names[context],
-                              self->direction_unit_direction_name[direction]);
+                              self->main_units_direction_names[direction]);
    */
   if (direction >= FIRSTINFILE_MIN_IDX && direction <= FIRSTINFILE_MAX_IDX)
     {
@@ -2586,7 +2586,7 @@ direction_string (CONVERTER *self, int direction,
           const char *direction_name;
           text_init (&translation_context);
           direction_name
-           = self->direction_unit_direction_name[direction_unit_direction_idx];
+           = self->main_units_direction_names[direction_unit_direction_idx];
           text_append (&translation_context, direction_name);
 
           if (direction == RUD_type_This)

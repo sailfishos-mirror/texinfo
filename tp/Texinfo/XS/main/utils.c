@@ -2058,11 +2058,11 @@ int
 html_get_direction_index (const CONVERTER *converter, const char *direction)
 {
   int i;
-  if (converter && converter->direction_unit_direction_name)
+  if (converter && converter->main_units_direction_names)
     {
-      for (i = 0; converter->direction_unit_direction_name[i]; i++)
+      for (i = 0; converter->main_units_direction_names[i]; i++)
         {
-          if (!strcmp (direction, converter->direction_unit_direction_name[i]))
+          if (!strcmp (direction, converter->main_units_direction_names[i]))
             return i;
         }
       return -2;
@@ -2077,8 +2077,8 @@ direction_unit_direction_name (int direction, const CONVERTER *converter)
     return 0;
   else if (direction < NON_SPECIAL_DIRECTIONS_NR)
     return html_button_direction_names[direction];
-  else if (converter && converter->direction_unit_direction_name)
-    return converter->direction_unit_direction_name[direction];
+  else if (converter && converter->main_units_direction_names)
+    return converter->main_units_direction_names[direction];
   else
    return 0;
 }

@@ -1187,8 +1187,8 @@ html_find_direction_name_global_unit (const CONVERTER *self,
 
   searched_direction.direction = direction_name;
   result = (SPECIAL_UNIT_DIRECTION *) bsearch (&searched_direction,
-                self->global_units_direction_name.list,
-                self->global_units_direction_name.number,
+                self->global_units_direction_names.list,
+                self->global_units_direction_names.number,
                 sizeof (SPECIAL_UNIT_DIRECTION),
                 compare_global_units_direction_name);
   if (!result)

@@ -191,12 +191,12 @@ html_reset_converter (CONVERTER *self)
   free (self->sorted_index_names.list);
   memset (&self->sorted_index_names, 0, sizeof (INDEX_LIST));
 
-  free (self->global_units_direction_name.list);
-  self->global_units_direction_name.list = 0;
-  self->global_units_direction_name.number = 0;
+  free (self->global_units_direction_names.list);
+  self->global_units_direction_names.list = 0;
+  self->global_units_direction_names.number = 0;
 
-  free (self->special_units_direction_name);
-  self->special_units_direction_name = 0;
+  free (self->special_units_direction_names);
+  self->special_units_direction_names = 0;
   free (self->output_unit_file_indices);
   self->output_unit_file_indices = 0;
   free (self->special_unit_file_indices);
@@ -323,7 +323,7 @@ html_free_converter (CONVERTER *self)
 
   free_strings_list (&self->customized_special_unit_varieties);
 
-  free (self->direction_unit_direction_name);
+  free (self->main_units_direction_names);
 
   free (self->special_unit_body);
   free (self->special_unit_body_formatting);

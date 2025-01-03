@@ -1895,19 +1895,19 @@ html_converter_customize (CONVERTER *self)
      customized information, mainly nr_special_units, which we
      pretend could be customize (even though it cannot for now) */
 
-  self->direction_unit_direction_name = (const char **) malloc
+  self->main_units_direction_names = (const char **) malloc
      ((nr_special_units + NON_SPECIAL_DIRECTIONS_NR +1) * sizeof (char *));
-  memcpy (self->direction_unit_direction_name, html_button_direction_names,
+  memcpy (self->main_units_direction_names, html_button_direction_names,
           NON_SPECIAL_DIRECTIONS_NR * sizeof (char *));
-  memcpy (self->direction_unit_direction_name + NON_SPECIAL_DIRECTIONS_NR,
+  memcpy (self->main_units_direction_names + NON_SPECIAL_DIRECTIONS_NR,
           self->special_unit_info[SUI_type_direction],
           nr_special_units * sizeof (char *));
-  self->direction_unit_direction_name[
+  self->main_units_direction_names[
                nr_special_units + NON_SPECIAL_DIRECTIONS_NR] = 0;
   /*
-  for (l = 0; self->direction_unit_direction_name[l]; l++)
+  for (l = 0; self->main_units_direction_names[l]; l++)
     fprintf (stderr, "DEBUG: direction unit names: %d '%s'\n", l,
-             self->direction_unit_direction_name[l]);
+             self->main_units_direction_names[l]);
    */
 
 
@@ -4730,9 +4730,9 @@ html_prepare_output_units_global_targets (CONVERTER *self)
         all_special_units_nr += units_list->number;
     }
 
-  self->special_units_direction_name = (SPECIAL_UNIT_DIRECTION *)
+  self->special_units_direction_names = (SPECIAL_UNIT_DIRECTION *)
    malloc (sizeof (SPECIAL_UNIT_DIRECTION) * (all_special_units_nr+1));
-  memset (self->special_units_direction_name, 0,
+  memset (self->special_units_direction_names, 0,
           sizeof (SPECIAL_UNIT_DIRECTION) * (all_special_units_nr+1));
 
   s = 0;
@@ -4754,8 +4754,8 @@ html_prepare_output_units_global_targets (CONVERTER *self)
               self->global_units_directions[special_unit_direction_index]
                 = special_unit;
 
-              self->special_units_direction_name[s].output_unit = special_unit;
-              self->special_units_direction_name[s].direction
+              self->special_units_direction_names[s].output_unit = special_unit;
+              self->special_units_direction_names[s].direction
                 = html_special_unit_info (self, SUI_type_direction,
                                           special_unit_variety);
               s++;
@@ -4779,50 +4779,50 @@ compare_global_units_direction_name (const void *a, const void *b)
 void
 html_setup_global_units_direction_names (CONVERTER *self)
 {
-  SPECIAL_UNIT_DIRECTION *global_units_direction_names;
+  SPECIAL_UNIT_DIRECTION *global_units_directions_list;
   int i;
   int global_directions_nr = 0;
   int global_units_direction_idx = 0;
-  const SPECIAL_UNIT_DIRECTION *special_units_direction_name
-    = self->special_units_direction_name;
+  const SPECIAL_UNIT_DIRECTION *special_units_direction_names
+    = self->special_units_direction_names;
 
   for (i = 0; i < D_Last+1; i++)
     if (self->global_units_directions[i])
       global_directions_nr++;
 
-  for (i = 0; special_units_direction_name[i].output_unit; i++)
+  for (i = 0; special_units_direction_names[i].output_unit; i++)
     global_directions_nr++;
 
-  global_units_direction_names = (SPECIAL_UNIT_DIRECTION *)
+  global_units_directions_list = (SPECIAL_UNIT_DIRECTION *)
    malloc (sizeof (SPECIAL_UNIT_DIRECTION) * (global_directions_nr));
 
   for (i = 0; i < D_Last+1; i++)
     {
       if (self->global_units_directions[i])
         {
-          global_units_direction_names[global_units_direction_idx].direction
+          global_units_directions_list[global_units_direction_idx].direction
             = html_global_unit_direction_names[i];
-          global_units_direction_names[global_units_direction_idx].output_unit
+          global_units_directions_list[global_units_direction_idx].output_unit
             = self->global_units_directions[i];
           global_units_direction_idx++;
         }
     }
 
-  for (i = 0; special_units_direction_name[i].output_unit; i++)
+  for (i = 0; special_units_direction_names[i].output_unit; i++)
     {
-      global_units_direction_names[global_units_direction_idx].direction
-        = special_units_direction_name[i].direction;
-      global_units_direction_names[global_units_direction_idx].output_unit
-        = special_units_direction_name[i].output_unit;
+      global_units_directions_list[global_units_direction_idx].direction
+        = special_units_direction_names[i].direction;
+      global_units_directions_list[global_units_direction_idx].output_unit
+        = special_units_direction_names[i].output_unit;
       global_units_direction_idx++;
     }
 
-  qsort (global_units_direction_names,
+  qsort (global_units_directions_list,
          global_directions_nr,
          sizeof (SPECIAL_UNIT_DIRECTION), compare_global_units_direction_name);
 
-  self->global_units_direction_name.list = global_units_direction_names;
-  self->global_units_direction_name.number = global_directions_nr;
+  self->global_units_direction_names.list = global_units_directions_list;
+  self->global_units_direction_names.number = global_directions_nr;
 }
 
 static char *

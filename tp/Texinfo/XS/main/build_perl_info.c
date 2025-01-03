@@ -2947,17 +2947,17 @@ html_build_direction_icons (const CONVERTER *converter,
   if (!direction_icons)
     return newSV (0);
 
-  if (!converter || !converter->direction_unit_direction_name)
+  if (!converter || !converter->main_units_direction_names)
     return newSV (0);
 
   icons_hv = newHV ();
 
-  for (i = 0; converter->direction_unit_direction_name[i]; i++)
+  for (i = 0; converter->main_units_direction_names[i]; i++)
     {
       if (direction_icons->list[i])
         {
           const char *direction_name
-            = converter->direction_unit_direction_name[i];
+            = converter->main_units_direction_names[i];
           hv_store (icons_hv, direction_name, strlen (direction_name),
                     newSVpv_utf8 (direction_icons->list[i], 0), 0);
         }

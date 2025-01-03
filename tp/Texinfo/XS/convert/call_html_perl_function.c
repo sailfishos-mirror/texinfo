@@ -2283,7 +2283,7 @@ call_button_direction_function (CONVERTER *self,
   EXTEND(SP, 3);
 
   PUSHs(sv_2mortal (newRV_inc (self->hv)));
-  PUSHs(sv_2mortal (newSVpv (self->direction_unit_direction_name[direction],
+  PUSHs(sv_2mortal (newSVpv (self->main_units_direction_names[direction],
                              0)));
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
 
