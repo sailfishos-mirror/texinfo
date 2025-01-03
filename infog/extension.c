@@ -407,25 +407,30 @@ send_pointer (WebKitWebPage *web_page,
 /* Use variadic macro to allow for commas in argument */
 #define QUOTE(...) #__VA_ARGS__
 
+/* Rewrite URLs to other Texinfo manuals to private scheme. */
 const char *INJECTED_JAVASCRIPT = QUOTE(
-  var x = document.getElementsByClassName("texi-manual");
+  var x = document.querySelectorAll("a[data-manual]");
   for (var i = 0; i < x.length; i++) {
-    var a = x[i].href;
-    var re = new RegExp('^http://|^https://');
-    if (a && a.match(re)) {
-      var array = a.match(/([^/]*)\\/manual\\/html_node\\/([^/]*)$/);
-      if (!Array.isArray(array) || array.length < 2) {
-        array = a.match(/([^/]*)\\/([^/]*)$/);
-      }
-      if (Array.isArray(array) && array.length >= 2) {
-        a = 'private:/' + array[1] + '/' + array[2];
-        x[i].href = a;
-      }
+    var manual = x[i].attributes["data-manual"].value;
+    if (x[i].protocol == "https:" || x[i].protocol == "http:") {
+      var node = x[i].pathname.split('/').pop();
+      x[i].href = 'private:/' + manual + '/' + node;
     }
   };
 );
 
 
+static void
+inject_javascript (WebKitWebPage *web_page)
+{
+  WebKitFrame *frame = webkit_web_page_get_main_frame (web_page);
+  if (!frame)
+    return;
+  JSCContext *jsc = webkit_frame_get_js_context (frame);
+  if (!jsc)
+    return;
+  JSCValue *result = jsc_context_evaluate (jsc, INJECTED_JAVASCRIPT, -1);
+}
 
 
 void
@@ -466,16 +471,7 @@ document_loaded_callback (WebKitWebPage *web_page,
       return;
     }
 
-#if 1
-  WebKitFrame *frame = webkit_web_page_get_main_frame (web_page);
-  if (!frame)
-    return;
-  JSCContext *jsc = webkit_frame_get_js_context (frame);
-  if (!jsc)
-    return;
-  (void) jsc_context_evaluate (jsc, INJECTED_JAVASCRIPT, -1);
-  debug (1, "INJECT |%s|\n", INJECTED_JAVASCRIPT);
-#endif
+  inject_javascript (web_page);
 
   WebKitDOMElement *link_elt;
 

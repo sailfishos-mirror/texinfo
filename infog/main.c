@@ -434,10 +434,9 @@ new_manual (char *manual)
 {
   debug (1, "NEW MANUAL %s\n", manual);
 
-  free (current_manual_dir);
-  current_manual_dir = locate_manual (manual);
+  char *new_manual_dir = locate_manual (manual);
 
-  if (!current_manual_dir)
+  if (!new_manual_dir)
     {
       debug (1, "MANUAL NOT FOUND\n");
       GtkDialogFlags flags = GTK_DIALOG_DESTROY_WITH_PARENT;
@@ -451,6 +450,8 @@ new_manual (char *manual)
       gtk_widget_destroy (dialog);
       return 0;
     }
+  free (current_manual_dir);
+  current_manual_dir = new_manual_dir;
   debug (1, "NEW MANUAL AT %s\n", current_manual_dir);
 
   free (current_manual);
@@ -524,7 +525,7 @@ handle_script_message (WebKitUserContentManager *manager,
 {
   JSCValue *jscValue = webkit_javascript_result_get_js_value (js_result);
   char *message = jsc_value_to_string (jscValue);
-  debug (1, "--------------> recvd mesg %s\n", message);
+  //debug (1, "--------------> recvd mesg %s\n", message);
 
   char *p, *q;
   p = strchr (message, '\n');
