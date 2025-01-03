@@ -38,25 +38,19 @@ debug (int level, char *fmt, ...)
 void
 send_js_message (WebKitWebPage *web_page, char *message)
 {
-  if (strchr (message, '`'))
-    {
-      debug (1, "BUG - MESSAGE CONTAINS BACKTICK\n");
-      return;
-    }
-  char *js;
-  asprintf (&js,
-    "window.webkit.messageHandlers.channel.postMessage(`%s`);", message);
-  /* NB this won't work if message contains a ` */
-
   WebKitFrame *frame = webkit_web_page_get_main_frame (web_page);
   if (!frame)
     return;
   JSCContext *jsc = webkit_frame_get_js_context (frame);
   if (!jsc)
     return;
-  JSCValue *jscValue = jsc_context_evaluate (jsc, js, -1);
 
-  free (js);
+  JSCValue *js_string = jsc_value_new_string (jsc, message);
+  jsc_context_set_value (jsc, "texinfoMsgString", js_string);
+
+  JSCValue *jscValue = jsc_context_evaluate (jsc,
+    "window.webkit.messageHandlers.channel.postMessage(texinfoMsgString);",
+    -1);
 }
 
 
