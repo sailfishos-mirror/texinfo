@@ -1000,6 +1000,11 @@ typedef struct OUTPUT_TEXT_FILES_INFO {
     char *text;
 } OUTPUT_TEXT_FILES_INFO;
 
+typedef struct CONVERTER_TEXT_INFO {
+    CONVERTER *converter;
+    char *text;
+} CONVERTER_TEXT_INFO;
+
 
 #endif
 

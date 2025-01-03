@@ -38,6 +38,14 @@ call_converter_output (const char *module_name, CONVERTER *self,
   return 0;
 }
 
+char *
+call_sort_element_counts (const char *module_name, CONVERTER *self,
+                          DOCUMENT *document, int use_sections,
+                          int count_words)
+{
+  return 0;
+}
+
 int
 call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref,
                 char *load_txi_modules_path)

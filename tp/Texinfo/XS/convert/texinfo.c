@@ -552,6 +552,52 @@ txi_converter_output (const char *external_module,
   return converter_output (converter, document);
 }
 
+/* corresponds to, in texi2any.pl:
+   - load elements count module
+   - initialize converter
+   - call the converter specific method
+ */
+CONVERTER_TEXT_INFO *
+txi_sort_element_counts (const char *external_module,
+                         const OPTIONS_LIST *customizations,
+                         DOCUMENT *document, int use_sections,
+                         int count_words)
+{
+  if (external_module)
+    {
+      CONVERTER_INITIALIZATION_INFO *converter_init_info
+       = new_converter_initialization_info ();
+      CONVERTER_TEXT_INFO *result = (CONVERTER_TEXT_INFO *)
+        malloc (sizeof (CONVERTER_TEXT_INFO));
+
+      txi_converter_initialization_setup (converter_init_info,
+                                          0, customizations);
+
+      call_eval_use_module (external_module);
+      result->converter
+         = call_convert_converter (external_module, converter_init_info);
+      if (!result->converter)
+        {
+          char *message;
+          xasprintf (&message,
+            "no interpreter or NULL return for sort element count module: %s",
+                     external_module);
+          fatal (message);
+          free (message);
+          return 0;
+        }
+
+      result->text = call_sort_element_counts (external_module,
+                                           result->converter, document,
+                                           use_sections, count_words);
+
+      destroy_converter_initialization_info (converter_init_info);
+      return result;
+    }
+  /* a pure C implementation would be called here */
+  return 0;
+}
+
 /* similar to Texinfo::Convert::XXX->convert */
 char *
 txi_converter_convert (CONVERTER *converter, DOCUMENT *document)

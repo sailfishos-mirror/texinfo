@@ -315,6 +315,67 @@ call_converter_output (const char *module_name, CONVERTER *self,
   return result;
 }
 
+/* FIXME it would probably be better to be able to keep the converter
+   SV to keep the blessing information instead of needing the module name */
+char *
+call_sort_element_counts (const char *module_name, CONVERTER *self,
+                          DOCUMENT *document, int use_sections,
+                          int count_words)
+{
+  SV *document_sv;
+  SV *converter_sv;
+  int count;
+  const char *result_ret;
+  char *result;
+  STRLEN len;
+  SV *result_sv;
+  HV *hv_stash;
+
+  dTHX;
+
+  document_sv = get_document (document->descriptor);
+  SvREFCNT_inc (document_sv);
+
+  converter_sv = newRV_inc (self->hv);
+  SvREFCNT_inc (converter_sv);
+
+  hv_stash = gv_stashpv (module_name, 0);
+  sv_bless (converter_sv, hv_stash);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 4);
+
+  PUSHs(sv_2mortal (converter_sv));
+  PUSHs(sv_2mortal (document_sv));
+  PUSHs(sv_2mortal (newSViv (use_sections)));
+  PUSHs(sv_2mortal (newSViv (count_words)));
+  PUTBACK;
+
+  count = call_method ("sort_element_counts",
+                       G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak ("call_sort_element_counts should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
+  result = non_perl_strndup (result_ret, len);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
 
 /* following is used to embed a Perl interpreter */
 static PerlInterpreter *my_perl;

@@ -65,7 +65,8 @@
 #include "builtin_commands.h"
 /* output_files_open_out output_files_register_closed */
 #include "convert_utils.h"
-/* destroy_converter_initialization_info new_converter_initialization_info */
+/* destroy_converter_initialization_info new_converter_initialization_info
+   encoded_output_file_name*/
 #include "converter.h"
 /* for html_output_internal_links */
 #include "html_converter_api.h"
@@ -2387,6 +2388,126 @@ main (int argc, char *argv[], char *env[])
 
       /* destroy converter */
       txi_converter_destroy (converter);
+
+      if (i == 0)
+        {
+          OPTION *sort_element_count_option
+           = GNUT_get_conf (program_options.options->SORT_ELEMENT_COUNT.number);
+          if (sort_element_count_option && sort_element_count_option->o.string)
+            {
+              char *sort_element_count_text;
+              CONVERTER_TEXT_INFO *sort_element_count_info;
+              OPTION *use_nodes_option
+               = GNUT_get_conf (program_options.options->USE_NODES.number);
+              int no_use_nodes = (use_nodes_option
+                                  && use_nodes_option->o.integer == 0);
+              int use_sections
+                = (!(format_specification->flags & STTF_nodes_tree)
+                   || no_use_nodes);
+
+              OPTION *sort_element_count_words_option
+                = GNUT_get_conf (
+                    program_options.options->SORT_ELEMENT_COUNT_WORDS.number);
+
+              FILE *file_fh;
+              OUTPUT_FILES_INFORMATION output_files_information;
+              char *open_error_message;
+              int overwritten_file;
+              const char *sort_element_count_file_name
+                = sort_element_count_option->o.string;
+              char *path_encoding;
+              char *encoded_sort_element_count_file_name;
+              int error_element_count_file = 0;
+
+              /* reuse converter options list memory */
+              clear_options_list (&convert_options);
+
+              copy_options_list (&convert_options, &program_options);
+              copy_options_list (&convert_options, init_files_options);
+              copy_options_list (&convert_options, &cmdline_options);
+
+          /* prepend to INCLUDE_DIRECTORIES by resetting include directories to
+             merged prepended directories and command line include directories */
+              converter_include_dirs_option
+                = &convert_options.options->INCLUDE_DIRECTORIES;
+              converter_include_dirs = converter_include_dirs_option->o.strlist;
+              clear_strings_list (converter_include_dirs);
+              copy_strings (converter_include_dirs, &prepended_include_directories);
+              copy_strings (converter_include_dirs, cmdline_include_dirs);
+
+              sort_element_count_info
+               = txi_sort_element_counts ("Texinfo::Convert::TextContent",
+                     &convert_options, document,
+                     use_sections, (sort_element_count_words_option
+                         && sort_element_count_words_option->o.integer > 0));
+
+              sort_element_count_text = sort_element_count_info->text;
+
+              if (!sort_element_count_text)
+                sort_element_count_text = strdup ("");
+
+              encoded_sort_element_count_file_name
+                  = encoded_output_file_name (
+                                   sort_element_count_info->converter->conf,
+                                              &document->global_info,
+                     (char *)sort_element_count_file_name, &path_encoding, 0);
+              free (path_encoding);
+
+              memset (&output_files_information, 0,
+                      sizeof (OUTPUT_FILES_INFORMATION));
+
+              file_fh = output_files_open_out (&output_files_information,
+                                        encoded_sort_element_count_file_name,
+                                               &open_error_message,
+                                               &overwritten_file, 0);
+
+          /* overwritten_file, set if the file has already been used
+             in this files_information is not checked as this cannot happen.
+           */
+
+              if (file_fh)
+                {
+                  write_to_file (sort_element_count_text, file_fh,
+                                 encoded_sort_element_count_file_name);
+
+                  output_files_register_closed (&output_files_information,
+                                         encoded_sort_element_count_file_name);
+                  if (fclose (file_fh))
+                    {
+                      txi_config_document_warn (
+                               "error on closing internal links file %s: %s",
+                               sort_element_count_file_name, strerror (errno));
+                      error_element_count_file = 1;
+                    }
+                }
+              else
+                {
+                  txi_config_document_warn ("could not open %s for writing: %s",
+                             sort_element_count_file_name, open_error_message);
+                  error_element_count_file = 1;
+                }
+              free (encoded_sort_element_count_file_name);
+              free (sort_element_count_text);
+
+              /* destroy converter and sort_element_count_info */
+              txi_converter_reset (sort_element_count_info->converter);
+              txi_converter_destroy (sort_element_count_info->converter);
+              free (sort_element_count_info);
+
+              error_element_count_file
+                = merge_opened_files (&opened_files,
+                                  &output_files_information.opened_files,
+                                  error_element_count_file);
+
+              if (error_element_count_file)
+                {
+                  errors_count = handle_errors (error_element_count_file,
+                                                errors_count, &opened_files);
+                }
+
+              free_output_files_information (&output_files_information);
+            }
+        }
 
     next_input_file:
       /* destroy document */

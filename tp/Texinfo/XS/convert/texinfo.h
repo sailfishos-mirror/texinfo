@@ -74,6 +74,11 @@ char *txi_converter_output (const char *external_module,
                             CONVERTER *converter, DOCUMENT *document);
 char *txi_converter_convert (CONVERTER *converter, DOCUMENT *document);
 
+CONVERTER_TEXT_INFO *txi_sort_element_counts (const char *external_module,
+                               const OPTIONS_LIST *customizations,
+                               DOCUMENT *document, int use_options,
+                               int count_words);
+
 size_t txi_handle_parser_error_messages (DOCUMENT *document, int no_warn,
                                        int use_filename,
                                        const char *message_encoding);
