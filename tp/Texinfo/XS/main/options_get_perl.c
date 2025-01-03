@@ -34,11 +34,5 @@ html_fill_sv_options (OPTIONS *options, const CONVERTER *converter)
   if (options->CHAPTER_BUTTONS.o.buttons)
     html_fill_button_sv_specification_list (converter, options->CHAPTER_BUTTONS.o.buttons);
 
-  if (options->ACTIVE_ICONS.o.icons)
-    html_fill_direction_icons (converter, options->ACTIVE_ICONS.o.icons);
-
-  if (options->PASSIVE_ICONS.o.icons)
-    html_fill_direction_icons (converter, options->PASSIVE_ICONS.o.icons);
-
 }
 

@@ -2031,10 +2031,12 @@ void html_clear_direction_icons (DIRECTION_ICON_LIST *direction_icons)
       size_t i;
       for (i = 0; i < direction_icons->number; i++)
         {
-          free (direction_icons->list[i]);
-          direction_icons->list[i] = 0;
+          DIRECTION_ICON *icon = &direction_icons->icons_list[i];
+          free (icon->name);
+          free (icon->direction_name);
         }
     }
+  direction_icons->number = 0;
 }
 
 void
@@ -2044,9 +2046,9 @@ html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons)
     return;
 
   html_clear_direction_icons (direction_icons);
-  free (direction_icons->list);
-  direction_icons->number = 0;
-  direction_icons->list = 0;
+  free (direction_icons->icons_list);
+  direction_icons->space = 0;
+  direction_icons->icons_list = 0;
   if (direction_icons->sv)
     unregister_perl_data (direction_icons->sv);
 }

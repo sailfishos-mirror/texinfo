@@ -931,6 +931,9 @@ typedef struct CONVERTER {
     void (* current_format_protect_text) (const char *text, TEXT *result);
     int added_title_tree;
     char *date_in_header;
+    /* next two setup based on conf before starting the conversion */
+    char **html_active_icons;
+    char **html_passive_icons;
 
     /* state common with perl converter */
     int document_global_context;

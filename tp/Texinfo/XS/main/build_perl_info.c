@@ -2936,32 +2936,33 @@ html_build_buttons_specification (CONVERTER *converter,
 }
 
 SV *
-html_build_direction_icons (const CONVERTER *converter,
-                            const DIRECTION_ICON_LIST *direction_icons)
+html_build_direction_icons (const DIRECTION_ICON_LIST *direction_icons)
 {
   HV *icons_hv;
-  int i;
+  size_t i;
 
   dTHX;
 
   if (!direction_icons)
     return newSV (0);
 
-  if (!converter || !converter->main_units_direction_names)
-    return newSV (0);
-
   icons_hv = newHV ();
 
-  for (i = 0; converter->main_units_direction_names[i]; i++)
+  for (i = 0; i < direction_icons->number; i++)
     {
-      if (direction_icons->list[i])
+      DIRECTION_ICON *icon = &direction_icons->icons_list[i];
+      if (icon->direction_name)
         {
-          const char *direction_name
-            = converter->main_units_direction_names[i];
-          hv_store (icons_hv, direction_name, strlen (direction_name),
-                    newSVpv_utf8 (direction_icons->list[i], 0), 0);
+          SV *name_sv;
+          SV *direction_name_sv = newSVpv_utf8 (icon->direction_name, 0);
+          if (icon->name)
+            name_sv = newSVpv_utf8 (icon->name, 0);
+          else
+            name_sv = newSV (0);
+          hv_store_ent (icons_hv, direction_name_sv, name_sv, 0);
         }
     }
+
   return newRV_noinc ((SV *)icons_hv);
 }
 
@@ -3015,7 +3016,7 @@ build_sv_option (const OPTION *option, CONVERTER *converter)
         break;
 
       case GOT_icons:
-        return html_build_direction_icons (converter, option->o.icons);
+        return html_build_direction_icons (option->o.icons);
         break;
 
       default:

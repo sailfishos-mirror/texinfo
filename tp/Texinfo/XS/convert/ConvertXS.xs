@@ -988,6 +988,7 @@ html_prepare_simpletitle (SV *converter_in)
         self = get_sv_converter (converter_in, "html_prepare_simpletitle");
         if (self)
           {
+            html_prepare_direction_icons (self);
             html_prepare_simpletitle (self);
           }
 
@@ -1315,6 +1316,7 @@ html_convert (SV *converter_in, SV *document_in)
         build_html_formatting_state (self);
 
         /* html_prepare_simpletitle */
+        html_prepare_direction_icons (self);
         html_prepare_simpletitle (self);
 
         /* html_prepare_title_titlepage */

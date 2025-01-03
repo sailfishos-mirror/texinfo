@@ -780,6 +780,84 @@ html_prepare_simpletitle (CONVERTER *self)
     }
 }
 
+void
+html_free_direction_icons_array (CONVERTER *self, char ***direction_icons)
+{
+  if (*direction_icons)
+    {
+      size_t i;
+      for (i = 0; self->main_units_direction_names[i]; i++)
+        free ((*direction_icons)[i]);
+      free (*direction_icons);
+      *direction_icons = 0;
+    }
+}
+
+static int
+compare_direction_icon (const void *a, const void *b)
+{
+  const DIRECTION_ICON *dicon_a = (const DIRECTION_ICON *) a;
+  const DIRECTION_ICON *dicon_b = (const DIRECTION_ICON *) b;
+
+  return strcmp (dicon_a->direction_name, dicon_b->direction_name);
+}
+
+static void
+prepare_direction_icons_list (CONVERTER *self,
+                              DIRECTION_ICON_LIST *direction_icons,
+                              char ***direction_icon_names,
+                              size_t icons_nr)
+{
+  /* if the converter has been properly reset after each call to output or
+     convert, freeing should not be useful */
+  html_free_direction_icons_array (self, direction_icon_names);
+
+  /* there are always directions, so should always be true */
+  if (icons_nr > 0)
+    {
+      DIRECTION_ICON searched;
+      size_t i;
+
+      *direction_icon_names = (char **) malloc (icons_nr * sizeof (char *));
+
+      qsort (direction_icons->icons_list, direction_icons->number,
+             sizeof (DIRECTION_ICON), compare_direction_icon);
+
+      for (i = 0; self->main_units_direction_names[i]; i++)
+        {
+          const DIRECTION_ICON *icon;
+          searched.direction_name = (char *)self->main_units_direction_names[i];
+
+          icon = (const DIRECTION_ICON *) bsearch (&searched,
+                direction_icons->icons_list, direction_icons->number,
+                sizeof (DIRECTION_ICON), compare_direction_icon);
+          if (icon && icon->name && strlen (icon->name))
+            (*direction_icon_names)[i] = strdup (icon->name);
+          else
+            (*direction_icon_names)[i] = 0;
+        }
+    }
+}
+
+void
+html_prepare_direction_icons (CONVERTER *self)
+{
+  /* consistent with main_units_direction_names size */
+  size_t icons_nr = self->special_unit_varieties.number
+                       + NON_SPECIAL_DIRECTIONS_NR;
+
+  if (self->conf->ICONS.o.integer > 0)
+    {
+      if (self->conf->ACTIVE_ICONS.o.icons->number > 0)
+        prepare_direction_icons_list (self, self->conf->ACTIVE_ICONS.o.icons,
+                &self->html_active_icons, icons_nr);
+
+      if (self->conf->PASSIVE_ICONS.o.icons->number > 0)
+        prepare_direction_icons_list (self, self->conf->PASSIVE_ICONS.o.icons,
+                &self->html_passive_icons, icons_nr);
+    }
+}
+
 /* setup a page (+global context) in case there are no files, ie called
    with convert or output with an empty string as filename. */
 void
@@ -879,6 +957,8 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       && (!default_document_language || !preamble_document_language
           || strcmp (default_document_language, preamble_document_language)))
     html_translate_names (self);
+
+  html_prepare_direction_icons (self);
 
   /*
    prepare title.  fulltitle uses more possibility than simpletitle for

@@ -54,7 +54,8 @@ FILE_SOURCE_INFO_LIST *html_prepare_units_directions_files (CONVERTER *self,
 /* in convert_html.c */
 void html_translate_names (CONVERTER *self);
 
-/* next two called separately for convert() */
+/* next three called separately for convert() */
+void html_prepare_direction_icons (CONVERTER *self);
 void html_prepare_simpletitle (CONVERTER *self);
 void html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
                                    const char *output_filename);

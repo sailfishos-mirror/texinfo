@@ -1,5 +1,38 @@
 2025-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	Pass direction icons to C options using names
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_simpletitle)
+	(html_convert), tp/Texinfo/XS/convert/convert_html.c
+	(html_free_direction_icons_array, compare_direction_icon)
+	(prepare_direction_icons_list, html_prepare_direction_icons)
+	(html_prepare_converted_output_info),
+	tp/Texinfo/XS/convert/format_html.c (html_default_format_button)
+	(html_default_format_special_body_about),
+	tp/Texinfo/XS/convert/html_converter_api.c (html_convert),
+	tp/Texinfo/XS/main/build_perl_info.c (html_build_direction_icons),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER),
+	tp/Texinfo/XS/main/customization_options.c (copy_option),
+	tp/Texinfo/XS/main/get_perl_info.c (get_sv_option)
+	(html_get_direction_icons_sv), tp/Texinfo/XS/main/option_types.h
+	(DIRECTION_ICON, DIRECTION_ICON_LIST), tp/Texinfo/XS/main/utils.c
+	(html_clear_direction_icons, html_free_direction_icons),
+	tp/Texinfo/XS/convert/html_converter_finish.c (html_reset_converter),
+	tp/maintain/regenerate_C_options_info.pl: add the DIRECTION_ICON type
+	to specify a direction name associated to an icon file name.  Modify
+	DIRECTION_ICON_LIST in options to hold a list of DIRECTION_ICON,
+	such that the direction names do not have to be known when filling
+	direction icons information.  Remove converter arguments of
+	html_build_direction_icons and html_get_direction_icons_sv.  Inline
+	html_fill_direction_icons in html_get_direction_icons_sv.
+	Add arrays of icon file name strings to CONVERTER, similar to the
+	former direction icons options, filled with the new function
+	html_prepare_direction_icons based on direction icons options, and use
+	them in conversion in format_html.c.  Call
+	html_prepare_direction_icons before starting the tree conversion.
+
+2025-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/converter_types.h (CONVERTER): rename
 	direction_unit_direction_name field as main_units_direction_names,
 	special_units_direction_name as special_units_direction_names and

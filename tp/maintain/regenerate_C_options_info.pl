@@ -582,9 +582,6 @@ foreach my $category (sort(keys(%converter_option_categories))) {
     if ($type eq 'buttons') {
       print GET "  if (options->$option.o.buttons)\n"
                 ."    html_fill_button_sv_specification_list (converter, options->$option.o.buttons);\n\n";
-    } elsif ($type eq 'icons') {
-      print GET "  if (options->$option.o.icons)\n"
-                ."    html_fill_direction_icons (converter, options->$option.o.icons);\n\n";
     }
   }
 }

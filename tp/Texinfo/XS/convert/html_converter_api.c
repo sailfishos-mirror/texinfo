@@ -154,6 +154,8 @@ html_convert (CONVERTER *converter, DOCUMENT *document)
 
   html_translate_names (converter);
 
+  html_prepare_direction_icons (converter);
+
   html_prepare_simpletitle (converter);
 
   html_prepare_title_titlepage (converter, "", "");

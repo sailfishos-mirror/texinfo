@@ -4374,18 +4374,15 @@ html_default_format_button (CONVERTER *self,
       else if (button->b.direction == D_direction_Space)
         {
           /* handle space button */
-          if (self->conf->ICONS.o.integer > 0
-              && self->conf->ACTIVE_ICONS.o.icons->number > 0
-              && self->conf->ACTIVE_ICONS.o.icons->list[button->b.direction]
-              && strlen
-                  (self->conf->ACTIVE_ICONS.o.icons->list[button->b.direction]))
+          if (self->html_active_icons
+              && self->html_active_icons[button->b.direction])
             {
               const char *button_name_string = direction_string (self,
                                      button->b.direction, TDS_type_button,
                                                       TDS_context_string);
               formatted_button->active
                 = format_button_icon_img (self, button_name_string,
-                 self->conf->ACTIVE_ICONS.o.icons->list[button->b.direction], 0);
+                         self->html_active_icons[button->b.direction], 0);
             }
           else
             {
@@ -4410,14 +4407,10 @@ html_default_format_button (CONVERTER *self,
                = direction_string (self, button->b.direction,
                                    TDS_type_description, TDS_context_string);
 
-              if (self->conf->ICONS.o.integer > 0
-                  && self->conf->ACTIVE_ICONS.o.icons->number > 0
-                  && self->conf->ACTIVE_ICONS.o.icons->list[button->b.direction]
-                  && strlen (self->conf->ACTIVE_ICONS.o.icons
-                                             ->list[button->b.direction]))
+              if (self->html_active_icons
+                  && self->html_active_icons[button->b.direction])
                 {
-                  active_icon = self->conf->ACTIVE_ICONS.o.icons
-                                               ->list[button->b.direction];
+                  active_icon = self->html_active_icons[button->b.direction];
                 }
 
               text_init (&active_text);
@@ -4483,14 +4476,11 @@ html_default_format_button (CONVERTER *self,
 
               text_init (&passive_text);
 
-              if (self->conf->ICONS.o.integer > 0
-                  && self->conf->PASSIVE_ICONS.o.icons->number > 0
-                  && self->conf->PASSIVE_ICONS.o.icons->list[button->b.direction]
-                  && strlen (self->conf->PASSIVE_ICONS.o.icons
-                                              ->list[button->b.direction]))
+              if (self->html_passive_icons
+                  && self->html_passive_icons[button->b.direction])
                 {
                   passive_icon
-                    = self->conf->PASSIVE_ICONS.o.icons->list[button->b.direction];
+                    = self->html_passive_icons[button->b.direction];
                 }
               if (passive_icon)
                 {
@@ -12749,16 +12739,14 @@ html_default_format_special_body_about (CONVERTER *self,
 
       if (button->type == BST_direction)
         {
-          if (self->conf->ICONS.o.integer > 0
-              && self->conf->ACTIVE_ICONS.o.icons->number > 0
-              && self->conf->ACTIVE_ICONS.o.icons->list[direction]
-              && strlen (self->conf->ACTIVE_ICONS.o.icons->list[direction]))
+          if (self->html_active_icons
+              && self->html_active_icons[direction])
             {
               const char *button_name_string
                    = direction_string (self, direction,
                                        TDS_type_button, TDS_context_string);
               char *button = format_button_icon_img (self, button_name_string,
-                        self->conf->ACTIVE_ICONS.o.icons->list[direction], 0);
+                                        self->html_active_icons[direction], 0);
               text_append (result, button);
               free (button);
             }

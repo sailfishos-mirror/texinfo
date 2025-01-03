@@ -31,7 +31,9 @@
 #include "api_to_perl.h"
 #include "hashmap.h"
 /* html_reset_translated_special_unit_info_tree
-   html_clear_direction_string_type */
+   html_clear_direction_string_type
+   html_free_direction_icons_array
+ */
 #include "convert_html.h"
 #include "html_converter_api.h"
 
@@ -194,6 +196,9 @@ html_reset_converter (CONVERTER *self)
   free (self->global_units_direction_names.list);
   self->global_units_direction_names.list = 0;
   self->global_units_direction_names.number = 0;
+
+  html_free_direction_icons_array (self, &self->html_active_icons);
+  html_free_direction_icons_array (self, &self->html_passive_icons);
 
   free (self->special_units_direction_names);
   self->special_units_direction_names = 0;

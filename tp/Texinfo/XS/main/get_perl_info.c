@@ -501,8 +501,8 @@ get_sv_option (OPTION *option, SV *value, int force,
         break;
 
       case GOT_icons:
-        html_free_direction_icons (option->o.icons);
-        html_get_direction_icons_sv (converter, option->o.icons, value);
+        html_clear_direction_icons (option->o.icons);
+        html_get_direction_icons_sv (option->o.icons, value);
 
         break;
 
@@ -841,70 +841,57 @@ html_get_button_specification_list (const CONVERTER *converter,
   return result;
 }
 
-/* set direction icons.
-   To be called after direction names have been collected */
-void
-html_fill_direction_icons (const CONVERTER *converter,
-                           DIRECTION_ICON_LIST *direction_icons)
-{
-  HV *icons_hv;
-  int i;
-
-  dTHX;
-
-  if (!direction_icons->sv)
-    return;
-
-  if (direction_icons->number == 0)
-    {
-      /* consistent with main_units_direction_names size */
-      direction_icons->number = converter->special_unit_varieties.number
-                                 + NON_SPECIAL_DIRECTIONS_NR;
-      direction_icons->list = (char **) malloc
-           (direction_icons->number * sizeof (char *));
-    }
-
-  icons_hv = (HV *)SvRV ((SV *)direction_icons->sv);
-
-  for (i = 0; converter->main_units_direction_names[i]; i++)
-    {
-      const char *direction_name
-        = converter->main_units_direction_names[i];
-      SV **direction_icon_sv = hv_fetch (icons_hv, direction_name,
-                                         strlen (direction_name), 0);
-      if (direction_icon_sv && SvOK (*direction_icon_sv))
-        {
-          direction_icons->list[i]
-            = non_perl_strdup (SvPVutf8_nolen (*direction_icon_sv));
-        }
-      else
-        direction_icons->list[i] = 0;
-    }
-}
-
+/* set direction icons. */
 /* HTML specific, but needs to be there for options_get_perl.c */
 void
-html_get_direction_icons_sv (const CONVERTER *converter,
-                             DIRECTION_ICON_LIST *direction_icons,
+html_get_direction_icons_sv (DIRECTION_ICON_LIST *direction_icons,
                              SV *icons_sv)
 {
+  HV *icons_hv;
+  I32 hv_number;
+  I32 i;
+
   dTHX;
 
   if (!SvOK (icons_sv))
     return;
 
-  /* the following is for consistency, but is not possible */
-  if (converter && converter->special_unit_varieties.number
-                     + NON_SPECIAL_DIRECTIONS_NR <= 0)
-    return;
-
   SvREFCNT_inc ((SV *) icons_sv);
   direction_icons->sv = icons_sv;
 
-  if (!converter || !converter->main_units_direction_names)
-    return;
+  icons_hv = (HV *)SvRV ((SV *) icons_sv);
 
-  html_fill_direction_icons (converter, direction_icons);
+  hv_number = hv_iterinit (icons_hv);
+
+  if (direction_icons->space != (size_t) hv_number)
+    {
+      direction_icons->space = hv_number;
+      if (direction_icons->space == 0)
+        {
+          free (direction_icons->icons_list);
+          direction_icons->icons_list = 0;
+        }
+      else
+        direction_icons->icons_list = (DIRECTION_ICON *) realloc
+                  (direction_icons->icons_list,
+                   direction_icons->space * sizeof (DIRECTION_ICON));
+    }
+
+  direction_icons->number = hv_number;
+  for (i = 0; i < hv_number; i++)
+    {
+      HE *next = hv_iternext (icons_hv);
+      SV *direction_sv = hv_iterkeysv (next);
+      char *direction = (char *) SvPVutf8_nolen (direction_sv);
+      SV *value_sv = HeVAL(next);
+      if (SvOK (value_sv))
+        {
+          DIRECTION_ICON *icon = &direction_icons->icons_list[i];
+          char *value = (char *) SvPVutf8_nolen (value_sv);
+          icon->name = non_perl_strdup (value);
+          icon->direction_name = non_perl_strdup (direction);
+        }
+    }
 }
 
 static const INDEX_ENTRY *

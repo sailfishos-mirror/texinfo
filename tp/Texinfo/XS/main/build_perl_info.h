@@ -82,8 +82,7 @@ SV *build_convert_text_options (struct TEXT_OPTIONS *text_options);
 void pass_document_to_converter_sv (const CONVERTER *converter,
                                     SV *converter_sv, SV *document_in);
 
-SV *html_build_direction_icons (const CONVERTER *converter,
-                            const DIRECTION_ICON_LIST *direction_icons);
+SV *html_build_direction_icons (const DIRECTION_ICON_LIST *direction_icons);
 SV *html_build_buttons_specification (CONVERTER *converter,
                                       BUTTON_SPECIFICATION_LIST *buttons);
 SV *build_sv_option (const OPTION *option, CONVERTER *converter);

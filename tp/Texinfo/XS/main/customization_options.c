@@ -289,19 +289,27 @@ copy_option (OPTION *destination, const OPTION *source)
           if (source_icons)
             {
               dest_icons->number = source_icons->number;
+              dest_icons->space = source_icons->space;
               dest_icons->sv = source_icons->sv;
               register_perl_data (dest_icons->sv);
-              if (dest_icons->number)
+              if (dest_icons->space)
                 {
                   size_t i;
-                  dest_icons->list = (char **) malloc
-                               (dest_icons->number * sizeof (char *));
+                  dest_icons->icons_list = (DIRECTION_ICON *) malloc
+                             (dest_icons->space * sizeof (DIRECTION_ICON));
                   for (i = 0; i < dest_icons->number; i++)
                     {
-                      if (!source_icons->list[i])
-                        dest_icons->list[i] = 0;
+                      DIRECTION_ICON *dest_icon = &dest_icons->icons_list[i];
+                      DIRECTION_ICON *src_icon = &source_icons->icons_list[i];
+                      if (src_icon->direction_name)
+                        dest_icon->name = strdup (src_icon->name);
                       else
-                        dest_icons->list[i] = strdup (source_icons->list[i]);
+                        dest_icon->name = 0;
+                      if (src_icon->direction_name)
+                        dest_icon->direction_name
+                          = strdup (src_icon->direction_name);
+                      else
+                        dest_icon->direction_name = 0;
                     }
                 }
             }

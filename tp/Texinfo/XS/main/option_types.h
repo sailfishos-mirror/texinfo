@@ -161,12 +161,18 @@ typedef struct FORMATTED_BUTTON_INFO {
     int need_delimiter;
 } FORMATTED_BUTTON_INFO;
 
+typedef struct DIRECTION_ICON {
+    char *direction_name;
+    char *name;
+} DIRECTION_ICON;
+
 typedef struct DIRECTION_ICON_LIST {
   /* perl reference. This should be SV *sv,
      but we don't want to include the Perl headers everywhere; */
     void *sv;
     size_t number;
-    char **list;
+    size_t space;
+    DIRECTION_ICON *icons_list;
 } DIRECTION_ICON_LIST;
 
 #define OF_configured          0x0001

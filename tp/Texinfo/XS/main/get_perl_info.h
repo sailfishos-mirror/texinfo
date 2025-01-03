@@ -51,10 +51,7 @@ BUTTON_SPECIFICATION_LIST *html_get_button_specification_list
                                 (const CONVERTER *converter, const SV *buttons_sv);
 void html_fill_button_sv_specification_list (const CONVERTER *converter,
                                      BUTTON_SPECIFICATION_LIST *result);
-void html_fill_direction_icons (const CONVERTER *converter,
-                                DIRECTION_ICON_LIST *direction_icons);
-void html_get_direction_icons_sv (const CONVERTER *converter,
-                             DIRECTION_ICON_LIST *direction_icons,
+void html_get_direction_icons_sv (DIRECTION_ICON_LIST *direction_icons,
                              SV *icons_sv);
 
 const ELEMENT *find_element_from_sv (const CONVERTER *converter,
