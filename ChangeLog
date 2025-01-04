@@ -1,5 +1,14 @@
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/build_html_perl_info.c
+	(html_pass_conversion_initialization): always call
+	call_common_set_output_perl_encoding, even if there is no formatting
+	of HTML as Perl, as the Perl converter encoding may be used in the
+	main program for calls to
+	Texinfo::Convert::Utils::output_files_open_out.
+
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl: move code around to correspond better to texi2any.c
 	code.
 

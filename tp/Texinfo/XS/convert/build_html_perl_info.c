@@ -330,12 +330,17 @@ html_pass_conversion_initialization (CONVERTER *converter,
                     newRV_noinc ((SV *)options_latex_math_hv), 0);
         }
 
+      /* if INTERNAL_LINKS is set, the Perl converter encoding must be set as
+         it is used from the main program in Perl in a call to
+          Texinfo::Convert::Utils::output_files_open_out
+         So we set it even if there is no conversion happening in Perl.
+       */
+      call_common_set_output_perl_encoding (converter);
+
       if (converter->external_references_number > 0)
         {
           html_pass_converter_initialization_state (converter, converter_hv,
                                                     document_in);
-
-          call_common_set_output_perl_encoding (converter);
         }
     }
 }
