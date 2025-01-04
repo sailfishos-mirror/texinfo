@@ -66,7 +66,7 @@
 /* output_files_open_out output_files_register_closed */
 #include "convert_utils.h"
 /* destroy_converter_initialization_info new_converter_initialization_info
-   encoded_output_file_name converter_setup */
+   encoded_output_file_name generic_setup_main_converter */
 #include "converter.h"
 /* for html_output_internal_links */
 #include "html_converter_api.h"
@@ -1102,8 +1102,8 @@ main (int argc, char *argv[], char *env[])
      Done earlier than in Perl because options defaults are used in help
      and paths setup for converters are used to locate file used for
      interpreter embedding */
-  converter_setup (texinfo_uninstalled, converterdatadir, tp_builddir,
-                   top_srcdir);
+  generic_setup_main_converter (texinfo_uninstalled, converterdatadir,
+                                tp_builddir, top_srcdir);
   free (tp_builddir);
   free (top_srcdir);
 
@@ -1922,12 +1922,12 @@ main (int argc, char *argv[], char *env[])
   output_format = output_format_option->o.string;
 
   if (!test_mode_set
-      && conversion_paths_info.texinfo_uninstalled
-      && conversion_paths_info.p.uninstalled.top_srcdir)
+      && txi_paths_info.texinfo_uninstalled
+      && txi_paths_info.p.uninstalled.top_srcdir)
     {
       char *in_source_util_dir;
       xasprintf (&in_source_util_dir, "%s/util",
-                 conversion_paths_info.p.uninstalled.top_srcdir);
+                 txi_paths_info.p.uninstalled.top_srcdir);
       add_string (in_source_util_dir, texinfo_language_config_dirs);
       free (in_source_util_dir);
     }

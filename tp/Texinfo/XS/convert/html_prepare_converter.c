@@ -1115,13 +1115,13 @@ load_htmlxref_files (CONVERTER *self)
         {
           /* to have reproducible tests, do not use system or user
              directories if TEST is set. */
-          if (conversion_paths_info.texinfo_uninstalled)
+          if (txi_paths_info.texinfo_uninstalled)
             {
-              if (conversion_paths_info.p.uninstalled.top_srcdir)
+              if (txi_paths_info.p.uninstalled.top_srcdir)
                 {
                   char *path;
                   xasprintf (&path, "%s/tp/t/input_files",
-                             conversion_paths_info.p.uninstalled.top_srcdir);
+                             txi_paths_info.p.uninstalled.top_srcdir);
                   add_string (path, &htmlxref_dirs);
                   free (path);
                 }

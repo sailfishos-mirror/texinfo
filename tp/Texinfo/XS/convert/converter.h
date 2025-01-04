@@ -129,11 +129,12 @@ extern const char *xml_text_entity_no_arg_commands_formatting[];
 
 extern COMMAND_ACCENT_ENTITY_INFO xml_accent_text_entities[];
 
-extern PATHS_INFORMATION conversion_paths_info;
+extern PATHS_INFORMATION txi_paths_info;
 
 extern CONVERTER_FORMAT_DATA converter_format_data[];
 
-void converter_setup (int texinfo_uninstalled, const char *converterdatadir,
+void generic_setup_main_converter (int texinfo_uninstalled,
+                                   const char *converterdatadir,
                       const char *tp_builddir, const char *top_srcdir);
 
 enum converter_format find_format_name_converter_format (const char *format);

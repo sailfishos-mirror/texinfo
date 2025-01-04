@@ -92,8 +92,8 @@ init (SV *texinfo_uninstalled_sv, SV *converterdatadir_sv, SV *tp_builddir_sv, S
         else
           converterdatadir = SvPVbyte_nolen (converterdatadir_sv);
 
-        converter_setup (texinfo_uninstalled, converterdatadir, tp_builddir,
-                         top_srcdir);
+        generic_setup_main_converter (texinfo_uninstalled, converterdatadir,
+                                      tp_builddir, top_srcdir);
         RETVAL = 1;
     OUTPUT:
         RETVAL

@@ -111,15 +111,15 @@ txi_general_setup (int use_external_translate_string)
   char *locales_dir;
 
   /* code in texinfo.pl */
-  if (conversion_paths_info.texinfo_uninstalled)
+  if (txi_paths_info.texinfo_uninstalled)
     {
       struct stat finfo;
       int not_found = 1;
 
-      if (conversion_paths_info.p.uninstalled.tp_builddir)
+      if (txi_paths_info.p.uninstalled.tp_builddir)
         {
           xasprintf (&locales_dir, "%s/LocaleData",
-                     conversion_paths_info.p.uninstalled.tp_builddir);
+                     txi_paths_info.p.uninstalled.tp_builddir);
 
           if (stat (locales_dir, &finfo) == 0 && S_ISDIR (finfo.st_mode))
             {
@@ -132,10 +132,10 @@ txi_general_setup (int use_external_translate_string)
       if (not_found)
         fprintf (stderr, "Locales dir for document strings not found\n");
     }
-  else if (conversion_paths_info.p.installed.converterdatadir)
+  else if (txi_paths_info.p.installed.converterdatadir)
     {
       xasprintf (&locales_dir, "%s/locale",
-                 conversion_paths_info.p.installed.converterdatadir);
+                 txi_paths_info.p.installed.converterdatadir);
       configure_output_strings_translations (locales_dir, 0,
                                            use_external_translate_string);
     }
@@ -155,13 +155,13 @@ txi_customization_loading_setup (int embedded_interpreter,
     {
       char *load_modules_path;
       int status;
-      if (conversion_paths_info.texinfo_uninstalled)
+      if (txi_paths_info.texinfo_uninstalled)
         xasprintf (&load_modules_path, "%s/tp/%s.pl",
-                      conversion_paths_info.p.uninstalled.top_srcdir,
+                      txi_paths_info.p.uninstalled.top_srcdir,
                                        load_txi_modules_basename);
       else
         xasprintf (&load_modules_path, "%s/%s",
-                  conversion_paths_info.p.installed.converterdatadir,
+                  txi_paths_info.p.installed.converterdatadir,
                    load_txi_modules_basename);
       status = call_init_perl (argc_ref, argv_ref, env_ref, load_modules_path,
                                version_checked);

@@ -1,5 +1,13 @@
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (txi_paths_info)
+	(setup_txi_paths_information, generic_setup_main_converter): rename
+	conversion_paths_info as txi_paths_info,
+	setup_converter_paths_information as setup_txi_paths_information and
+	converter_setup as generic_setup_main_converter.
+
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/texinfo.c (txi_general_setup),
 	tp/Texinfo/XS/texi2any.c (main): remove call of converter_setup from
 	txi_general_setup, use conversion_paths_info.  Call converter_setup

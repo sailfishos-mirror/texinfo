@@ -59,7 +59,7 @@
 #include "call_html_perl_function.h"
 /* for unregister_document_merge_with_document */
 #include "document.h"
-/* conversion_paths_info create_destination_directory
+/* txi_paths_info create_destination_directory
    set_global_document_commands clear_tree_added_elements
    register_normalize_case_filename */
 #include "converter.h"
@@ -2617,19 +2617,19 @@ html_do_js_files (CONVERTER *self)
           int i;
           if (self->conf->TEST.o.integer <= 0)
             {
-              /* conversion_paths_info paths are byte strings */
+              /* txi_paths_info paths are byte strings */
               char *jssrcdir;
-              if (!conversion_paths_info.texinfo_uninstalled)
+              if (!txi_paths_info.texinfo_uninstalled)
                 {
                   xasprintf (&jssrcdir, "%s/%s",
-                        conversion_paths_info.p.installed.converterdatadir,
+                        txi_paths_info.p.installed.converterdatadir,
                              "js");
                 }
               else
                 {
-                  if (conversion_paths_info.p.uninstalled.top_srcdir)
+                  if (txi_paths_info.p.uninstalled.top_srcdir)
                     xasprintf (&jssrcdir, "%s/%s",
-                               conversion_paths_info.p.uninstalled.top_srcdir,
+                               txi_paths_info.p.uninstalled.top_srcdir,
                                "js");
                   else
                     jssrcdir = strdup ("js");
