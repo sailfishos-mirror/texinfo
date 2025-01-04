@@ -38,8 +38,21 @@ debug (int level, char *fmt, ...)
   va_end (v);
 }
 
-static void destroyWindowCb(GtkWidget *widget, GtkWidget *window);
-static gboolean closeWebViewCb(WebKitWebView* webView, GtkWidget* window);
+static GMainLoop *main_loop;
+
+static void
+destroy_window_cb (GtkWidget *widget, GtkWidget *window)
+{
+  g_main_loop_quit (main_loop);
+}
+
+static gboolean
+close_web_view_cb(WebKitWebView *webView, GtkWidget *window)
+{
+  gtk_widget_destroy (window);
+  return TRUE;
+}
+
 static gboolean key_press_cb(GtkWidget *webView,
                              GdkEvent  *event,
                              gpointer   user_data);
@@ -111,11 +124,18 @@ hide_index (void)
   gtk_widget_grab_focus (GTK_WIDGET(webView));
 }
 
+void
+clear_completions (void)
+{
+  if (index_store)
+    gtk_list_store_clear (index_store);
+}
+
 gboolean
-match_selected_cb (GtkEntryCompletion *widget,
-                   GtkTreeModel       *model,
-                   GtkTreeIter        *iter,
-                   gpointer            user_data)
+index_match_selected_cb (GtkEntryCompletion *widget,
+                         GtkTreeModel       *model,
+                         GtkTreeIter        *iter,
+                         gpointer            user_data)
 {
   GValue value = G_VALUE_INIT;
 
@@ -130,13 +150,6 @@ match_selected_cb (GtkEntryCompletion *widget,
   return FALSE;
 }
 
-void
-clear_completions (void)
-{
-  if (index_store)
-    gtk_list_store_clear (index_store);
-}
-
 /* Save index entries.  Return 1 if it is the end of this index. */
 int
 save_completions (char *p)
@@ -148,7 +161,7 @@ save_completions (char *p)
       index_store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_STRING);
       index_completion = gtk_entry_completion_new ();
       g_signal_connect (index_completion, "match-selected",
-                        G_CALLBACK(match_selected_cb), NULL);
+                        G_CALLBACK(index_match_selected_cb), NULL);
       gtk_entry_completion_set_model (index_completion,
                                       GTK_TREE_MODEL(index_store));
       gtk_entry_completion_set_text_column (index_completion, 0);
@@ -636,9 +649,9 @@ show_index (void)
 
 
 gboolean
-hide_index_cb (GtkWidget *widget,
-               GdkEvent  *event,
-               gpointer   user_data)
+index_search_box_focus_out_cb (GtkWidget *widget,
+                               GdkEvent  *event,
+                               gpointer   user_data)
 {
   hide_index ();
   return FALSE;
@@ -739,7 +752,6 @@ find_extensions_directory (int argc, char *argv[])
 }
 
 
-static GMainLoop *main_loop;
 
 static GtkWidget *toc_button;
 static GtkWidget *back_button;
@@ -899,15 +911,17 @@ build_gui (void)
 
   /* Hide the index search box when it loses focus. */
   g_signal_connect (index_entry, "focus-out-event",
-                    G_CALLBACK(hide_index_cb), NULL);
+                    G_CALLBACK(index_search_box_focus_out_cb), NULL);
 
   g_signal_connect (webView, "decide-policy",
                     G_CALLBACK(decide_policy_cb), NULL);
 
   // Set up callbacks so that if either the main window or the browser 
   // instance is closed, the program will exit.
-  g_signal_connect(main_window, "destroy", G_CALLBACK(destroyWindowCb), NULL);
-  g_signal_connect(webView, "close", G_CALLBACK(closeWebViewCb), main_window);
+  g_signal_connect(main_window, "destroy",
+                   G_CALLBACK(destroy_window_cb), NULL);
+  g_signal_connect(webView, "close",
+                   G_CALLBACK(close_web_view_cb), main_window);
 
   g_signal_connect(webView, "key-press-event", G_CALLBACK(key_press_cb), NULL);
 
@@ -1031,16 +1045,3 @@ key_press_cb (GtkWidget *widget,
 
 }
 
-
-static void
-destroyWindowCb (GtkWidget *widget, GtkWidget *window)
-{
-  g_main_loop_quit (main_loop);
-}
-
-static gboolean
-closeWebViewCb(WebKitWebView *webView, GtkWidget *window)
-{
-  gtk_widget_destroy (window);
-  return TRUE;
-}
