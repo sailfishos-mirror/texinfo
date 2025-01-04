@@ -39,7 +39,7 @@ void txi_set_base_default_options (OPTIONS_LIST *options,
                                    const char *locale_encoding,
                                    const char *program_file);
 
-void txi_general_setup (int use_external_translate_string);
+void txi_general_output_strings_setup (int use_external_translate_string);
 
 void txi_customization_loading_setup (int embedded_interpreter,
                    int *argc_ref, char ***argv_ref, char ***env_ref,

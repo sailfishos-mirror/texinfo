@@ -1932,8 +1932,8 @@ main (int argc, char *argv[], char *env[])
       free (in_source_util_dir);
     }
 
-  /* Setup paths and output string translations (including Locales path). */
-  txi_general_setup (0);
+  /* Setup output string translations (including Locales path). */
+  txi_general_output_strings_setup (0);
 
   for (i = 0; formats_table[i].name; i++)
     {

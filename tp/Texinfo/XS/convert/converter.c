@@ -179,6 +179,7 @@ static int generic_setup_main_converter_called;
 /* TODO do not call XS Modules init from XSLoader.pm if
    $embedded_xs is set, under the assumption that the corresponding
    code would already be called in C code? */
+/* used in converters and in main C program at earlier steps, not in Parser */
 void
 generic_setup_main_converter (int texinfo_uninstalled,
                               const char *converterdatadir,
@@ -186,7 +187,6 @@ generic_setup_main_converter (int texinfo_uninstalled,
 {
   int i;
 
-  /* used in converters and in main C program at earlier steps */
   setup_txi_paths_information (texinfo_uninstalled,
                              converterdatadir, tp_builddir, top_srcdir);
 

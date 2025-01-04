@@ -1,5 +1,11 @@
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/texinfo.c (txi_general_output_strings_setup):
+	rename txi_general_setup as txi_general_output_strings_setup.  Update
+	caller.
+
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (txi_paths_info)
 	(setup_txi_paths_information, generic_setup_main_converter): rename
 	conversion_paths_info as txi_paths_info,

@@ -103,10 +103,10 @@ txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
   add_program_customization_options_defaults (main_program_set_options);
 }
 
-/* initialization of the library for parsing and conversion (generic),
-   to be called once */
+/* initialization of the library for output strings translations for
+   parsing and conversion (generic), to be called once */
 void
-txi_general_setup (int use_external_translate_string)
+txi_general_output_strings_setup (int use_external_translate_string)
 {
   char *locales_dir;
 
