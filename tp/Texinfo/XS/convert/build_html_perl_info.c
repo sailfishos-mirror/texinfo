@@ -317,9 +317,6 @@ html_pass_conversion_initialization (CONVERTER *converter,
 
   if (converter)
     {
-    /* internal links code is in Perl */
-      if (converter->conf->INTERNAL_LINKS.o.string)
-        converter->external_references_number++;
     /* Conversion to LaTeX is in Perl */
       if (converter->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
         converter->external_references_number++;

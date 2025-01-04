@@ -1341,6 +1341,24 @@ html_convert (SV *converter_in, SV *document_in)
     OUTPUT:
         RETVAL
 
+SV *
+html_output_internal_links (SV *converter_in)
+     PREINIT:
+        CONVERTER *self;
+     CODE:
+        self = get_sv_converter (converter_in, "html_output_internal_links");
+        if (self)
+          {
+            char *result = html_output_internal_links (self);
+            RETVAL = newSVpv_utf8 (result, 0);
+            non_perl_free (result);
+          }
+        else
+          RETVAL = newSV(0);
+    OUTPUT:
+        RETVAL
+
+
 # Diverse overriden functions, implementing the texi2any HTML Perl
 # customization API, in particular through overriding conversion functions
 # setting the state.

@@ -118,6 +118,9 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::convert"
    => "Texinfo::Convert::ConvertXS::html_convert",
 
+  "Texinfo::Convert::HTML::output_internal_links"
+    => "Texinfo::Convert::ConvertXS::html_output_internal_links",
+
   # following are not called when output and convert are overriden
   "Texinfo::Convert::HTML::conversion_initialization"
    => "Texinfo::Convert::ConvertXS::html_conversion_initialization",

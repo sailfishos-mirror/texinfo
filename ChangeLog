@@ -1,5 +1,16 @@
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_output_internal_links): add
+	an XS interface for output_internal_links.
+
+	* tp/Texinfo/XS/convert/build_html_perl_info.c
+	(html_pass_conversion_initialization), tp/Texinfo/XS/texi2any.c
+	(main): update now that output_internal_links do not need Perl
+	anymore.
+
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/texi2any.c (main): exit with an error and a message if
 	there is no interpreter and SORT_ELEMENT_COUNT is set.
 

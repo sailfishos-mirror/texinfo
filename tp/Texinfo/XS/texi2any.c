@@ -1874,10 +1874,6 @@ main (int argc, char *argv[], char *env[])
     {
       if (!strcmp (converted_format, "html"))
         {
-          /* TODO INTERNAL_LINKS implemented in C anymore, but need to do
-             an XS interface */
-          OPTION *internal_links_option
-            = GNUT_get_conf (program_options.options->INTERNAL_LINKS.number);
           /* setup of need_latex to be kept in sync with setup of
              CONVERT_TO_LATEX_IN_MATH in html_initialize_output_state
              based on HTML_MATH */
@@ -1897,9 +1893,7 @@ main (int argc, char *argv[], char *env[])
           /* to be kept in sync with build_html_perl_info.c
               html_pass_conversion_initialization */
           /* internal links code is in Perl */
-          if (loaded_init_files_nr > 0
-              || need_latex || (internal_links_option
-                                && internal_links_option->o.string))
+          if (loaded_init_files_nr > 0 || need_latex)
             external_module = format_specification->module;
         }
       else
