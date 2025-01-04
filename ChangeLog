@@ -1,5 +1,15 @@
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	Never consider stdin to be the input file when calling texi2dvi
+
+	* tp/texi2any.pl (@input_files): do not add - to input_files if there
+	is something on stdin when call_texi2dvi is set.  texi2dvi do not
+	support reading files on stdin and will give an error message of it
+	own, but it is better to catch the missing file as soon as possible
+	in texi2any.
+
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl: move error related to call_texi2dvi down, where
 	call_texi2dvi is set.
 

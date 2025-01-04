@@ -1672,7 +1672,8 @@ if (get_conf('SHOW_BUILTIN_CSS_RULES')) {
 # Note that the input file names are binary strings and are not decoded
 my @input_files = @ARGV;
 # use STDIN if not a tty, like makeinfo does
-@input_files = ('-') if (!scalar(@input_files) and !-t STDIN);
+@input_files = ('-') if (!scalar(@input_files) and !-t STDIN
+                         and !$call_texi2dvi);
 die _encode_message(
     sprintf(__("%s: missing file argument.")."\n", $real_command_name)
    .sprintf(__("Try `%s --help' for more information.")."\n", $real_command_name))
