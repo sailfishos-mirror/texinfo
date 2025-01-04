@@ -1,5 +1,18 @@
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	Support formats handled by texi2dvi in ctexi2any
+
+	* tp/texi2any.pl: handle TEXI2DVI being undef or empty by exiting with
+	error.
+
+	* tp/Texinfo/XS/texi2any.c (FORMAT_NAME, format_names)
+	(name_of_format): add.
+
+	* tp/Texinfo/XS/texi2any.c (formats_table, format_expanded_formats)
+	(long_options, main): add support for formats handled by texi2dvi.
+
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	Never consider stdin to be the input file when calling texi2dvi
 
 	* tp/texi2any.pl (@input_files): do not add - to input_files if there

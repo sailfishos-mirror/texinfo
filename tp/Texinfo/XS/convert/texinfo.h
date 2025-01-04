@@ -32,6 +32,8 @@
 #define STTF_split                                  0x1000
 /* used to mark that internal links can be output for that format */
 #define STTF_internal_links                         0x2000
+/* mark a format handled by texi2dvi */
+#define STTF_texi2dvi_format                        0x4000
 
 void txi_general_setup (int texinfo_uninstalled,
                    const char *converterdatadir, const char *tp_builddir,

@@ -2210,12 +2210,18 @@ foreach my $unclosed_file (keys(%main_unclosed_files)) {
   }
 }
 
+my $texi2dvi = get_conf('TEXI2DVI');
 if ($call_texi2dvi) {
-  if (get_conf('DEBUG') or get_conf('VERBOSE')) {
-    print STDERR "EXEC "
+  if (defined($texi2dvi) and $texi2dvi ne '') {
+    if (get_conf('DEBUG') or get_conf('VERBOSE')) {
+      print STDERR "EXEC "
            .join('|', (get_conf('TEXI2DVI'), @texi2dvi_args, @ARGV))."\n";
+    }
+    exec { get_conf('TEXI2DVI') } (get_conf('TEXI2DVI'), @texi2dvi_args, @ARGV);
+  } else {
+    $error_count++;
+    _exit($error_count, \%opened_files);
   }
-  exec { get_conf('TEXI2DVI') } (get_conf('TEXI2DVI'), @texi2dvi_args, @ARGV);
 }
 
 1;

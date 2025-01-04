@@ -128,6 +128,10 @@ static FORMAT_SPECIFICATION formats_table[] = {
   {"epub3", 0, "html", NULL, "epub3.pm"},
   {"texinfoxml", STTF_nodes_tree,
    NULL, "Texinfo::Convert::TexinfoXML", NULL},
+  {"pdf", STTF_texi2dvi_format, NULL, NULL, NULL},
+  {"ps", STTF_texi2dvi_format, NULL, NULL, NULL},
+  {"dvi", STTF_texi2dvi_format, NULL, NULL, NULL},
+  {"dvipdf", STTF_texi2dvi_format, NULL, NULL, NULL},
   {"debugtree", STTF_split,
    NULL, "Texinfo::DebugTree", NULL},
   {"textcontent", 0, NULL, "Texinfo::Convert::TextContent", NULL},
@@ -419,13 +423,26 @@ unset_expansion (OPTIONS_LIST *options_list, STRING_LIST *ignored_formats,
 
 static void
 format_expanded_formats (STRING_LIST *default_expanded_formats,
-                         FORMAT_SPECIFICATION *format_specification)
+                         FORMAT_SPECIFICATION *format_specification,
+                         STRING_LIST *texi2dvi_args, int *call_texi2dvi)
 {
   const char *converter_format;
   const char *expanded_region = 0;
   size_t i;
 
-  if (format_specification->converted_format)
+  if (format_specification->flags & STTF_texi2dvi_format)
+    {
+      char *format_option;
+
+      *call_texi2dvi = 1;
+      xasprintf (&format_option, "--%s",
+                 format_specification->name);
+      add_string (format_option, texi2dvi_args);
+      free (format_option);
+
+      converter_format = "tex";
+    }
+  else if (format_specification->converted_format)
     converter_format = format_specification->converted_format;
   else
     converter_format = format_specification->name;
@@ -693,6 +710,35 @@ write_to_file (char *output_text, FILE *file_fh,
     }
 }
 
+typedef struct FORMAT_NAME {
+    const char *format;
+    const char *name;
+} FORMAT_NAME;
+
+static const FORMAT_NAME format_names[] = {
+  {"info", "Info"},
+  {"html", "HTML"},
+  {"docbook", "DocBook"},
+  {"epub3", "EPUB 3"},
+  {"plaintext", "Plain Text"},
+  {"texinfoxml", "Texinfo XML"},
+  {NULL, NULL},
+};
+
+static const char *
+name_of_format (const char *format)
+{
+  int i;
+
+  for (i = 0; format_names[i].format; i++)
+    {
+      if (!strcmp (format, format_names[i].format))
+        return format_names[i].name;
+    }
+
+  return format;
+}
+
 const char *input_file_suffixes[] = {
 ".txi",".texinfo",".texi",".txinfo", "", NULL
 };
@@ -727,6 +773,8 @@ static int embed_interpreter_p;
 #define XML_OPT 22
 #define INTERNAL_LINKS_OPT 23
 #define MIMICK_OPT 24
+#define XOPT_OPT 25
+#define _SILENT_OPT 26
 /* can add here */
 #define TRACE_INCLUDES_OPT 33
 #define NO_VERBOSE_OPT 34
@@ -799,6 +847,9 @@ static struct option long_options[] = {
   {"verbose", 0, 0, 'v'},
   {"no-verbose", 0, 0, NO_VERBOSE_OPT},
   {"version", 0, 0, 'V'},
+  {"Xopt", required_argument, 0, XOPT_OPT},
+  {"silent", 0, 0, _SILENT_OPT},
+  {"quiet", 0, 0, _SILENT_OPT},
   {"html", 0, 0, _FORMAT_OPT},
   {"plaintext", 0, 0, _FORMAT_OPT},
   {"latex", 0, 0, _FORMAT_OPT},
@@ -806,6 +857,10 @@ static struct option long_options[] = {
   {"docbook", 0, 0, _FORMAT_OPT},
   {"epub3", 0, 0, _FORMAT_OPT},
   {"xml", 0, 0, XML_OPT},
+  {"dvi", 0, 0, _FORMAT_OPT},
+  {"dvipdf", 0, 0, _FORMAT_OPT},
+  {"ps", 0, 0, _FORMAT_OPT},
+  {"pdf", 0, 0, _FORMAT_OPT},
   IFFORMAT_TABLE(DOCBOOK, docbook)
   IFFORMAT_TABLE(INFO, info)
   IFFORMAT_TABLE(HTML, html)
@@ -869,6 +924,7 @@ main (int argc, char *argv[], char *env[])
   STRING_LIST internal_extension_dirs;
   STRING_LIST init_files;
   STRING_LIST init_file_dirs;
+  STRING_LIST texi2dvi_args;
   char *extensions_dir;
   char *texinfo_output_format_env;
   OPTION *output_format_option;
@@ -889,6 +945,9 @@ main (int argc, char *argv[], char *env[])
   char *init_file_format;
   const char *set_message_encoding = 0;
   const char *version_for_embedded_interpreter_check;
+  int call_texi2dvi = 0;
+  int Xopt_arg_nr = 0;
+  char *texi2dvi = 0;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -971,7 +1030,7 @@ main (int argc, char *argv[], char *env[])
   else
     add_option_value (&program_options, "TEXINFO_OUTPUT_FORMAT", 0, "info");
 
-  /*
+  /* TODO
    if ($^O eq 'MSWin32') {
      $main_program_set_options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'} = 0;
    }
@@ -1042,6 +1101,7 @@ main (int argc, char *argv[], char *env[])
 
   memset (&ignored_formats, 0, sizeof (STRING_LIST));
   memset (&init_files, 0, sizeof (STRING_LIST));
+  memset (&texi2dvi_args, 0, sizeof (STRING_LIST));
 
   init_files_options =
     GNUT_initialize_customization (&program_file, &program_options,
@@ -1106,6 +1166,7 @@ main (int argc, char *argv[], char *env[])
           GNUT_set_from_cmdline (&cmdline_options,
                             cmdline_options.options->DEBUG.number,
                             optarg);
+          add_string ("--debug", &texi2dvi_args);
           break;
         case 'e':
           GNUT_set_from_cmdline (&cmdline_options,
@@ -1198,6 +1259,7 @@ main (int argc, char *argv[], char *env[])
         case 'v':
           GNUT_set_from_cmdline (&cmdline_options,
                             cmdline_options.options->VERBOSE.number, "1");
+          add_string ("--verbose", &texi2dvi_args);
           break;
         case NO_VERBOSE_OPT:
           GNUT_set_from_cmdline (&cmdline_options,
@@ -1233,6 +1295,8 @@ main (int argc, char *argv[], char *env[])
           {
             OPTION *option = &cmdline_options.options->INCLUDE_DIRECTORIES;
             push_include_directory (option->o.strlist, optarg);
+            add_string ("-I", &texi2dvi_args);
+            add_string (optarg, &texi2dvi_args);
           }
           break;
         case 'P':
@@ -1261,17 +1325,31 @@ main (int argc, char *argv[], char *env[])
         case INIT_FILE_OPT:
           add_string (optarg, &init_files);
           break;
+        case XOPT_OPT:
+          add_string (optarg, &texi2dvi_args);
+          Xopt_arg_nr++;
+          break;
+        case _SILENT_OPT:
+          {
+            char *format_option;
+            xasprintf (&format_option, "--%s",
+                       long_options[getopt_long_index].name);
+            add_string (format_option, &texi2dvi_args);
+            free (format_option);
+          }
+          break;
         case 'D':
           {
-           /* actually const but constrained by prototypes */
-            char *value = GNUT_decode_input ((char *) optarg);
-            const char *p = value;
-            size_t flag_len = strcspn (value, whitespace_chars);
+            const char *p = optarg;
+            size_t flag_len = strcspn (optarg, whitespace_chars);
             if (flag_len)
               {
                 size_t spaces_len;
                 const char *flag_value = 0;
-                char *flag = strndup (value, flag_len);
+                char *decoded_flag_value;
+                char *flag = strndup (optarg, flag_len);
+                char *decoded_flag = GNUT_decode_input (flag);
+                char *texi2dvi_option;
 
                 p += flag_len;
                 spaces_len = strspn (p, whitespace_chars);
@@ -1279,22 +1357,42 @@ main (int argc, char *argv[], char *env[])
                   {
                     p += spaces_len;
                     if (*p)
-                      flag_value = p;
+                      {
+                        flag_value = p;
+                    /* actually const but constrained by prototypes */
+                        decoded_flag_value
+                          = GNUT_decode_input ((char *) flag_value);
+                      }
                   }
                 if (!flag_value)
-                  flag_value = "1";
-                store_value (&values, flag, flag_value);
+                  {
+                    flag_value = "1";
+                    decoded_flag_value = strdup (flag_value);
+                  }
+                store_value (&values, decoded_flag, decoded_flag_value);
+                free (decoded_flag);
+                free (decoded_flag_value);
+
+                xasprintf (&texi2dvi_option, "--command=@set %s %s",
+                           flag, flag_value);
+                add_string (texi2dvi_option, &texi2dvi_args);
+                free (texi2dvi_option);
+
                 free (flag);
               }
-            free (value);
           }
           break;
         case 'U':
           {
+            char *texi2dvi_option;
            /* actually const but constrained by prototypes */
             char *value = GNUT_decode_input ((char *) optarg);
             clear_value (&values, value);
             free (value);
+
+            xasprintf (&texi2dvi_option, "--command=@clear %s", optarg);
+            add_string (texi2dvi_option, &texi2dvi_args);
+            free (texi2dvi_option);
           }
           break;
         case 'V':
@@ -1395,6 +1493,9 @@ main (int argc, char *argv[], char *env[])
             GNUT_set_from_cmdline (&cmdline_options,
                                    option->number, decoded_string);
             free (decoded_string);
+
+            add_string ("-o", &texi2dvi_args);
+            add_string (optarg, &texi2dvi_args);
           }
           break;
         case NO_SPLIT_OPT:
@@ -1553,6 +1654,9 @@ main (int argc, char *argv[], char *env[])
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _("      --xml                   output Texinfo XML."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
+        _("      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n                                after checking validity of TEXINFO-FILE."));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("General output options:"));
@@ -1860,7 +1964,8 @@ main (int argc, char *argv[], char *env[])
     converted_format = output_format;
 
   memset (&default_expanded_formats, 0, sizeof (STRING_LIST));
-  format_expanded_formats (&default_expanded_formats, format_specification);
+  format_expanded_formats (&default_expanded_formats, format_specification,
+                           &texi2dvi_args, &call_texi2dvi);
 
   expanded_formats_option = &cmdline_options.options->EXPANDED_FORMATS;
 
@@ -1878,6 +1983,29 @@ main (int argc, char *argv[], char *env[])
     }
 
   free_strings_list (&default_expanded_formats);
+
+  if (call_texi2dvi)
+    {
+      OPTION *outfile_option
+        = GNUT_get_conf (program_options.options->OUTFILE.number);
+      if (outfile_option && outfile_option->o.string && argc - optind > 1)
+        {
+          char *formatted_message;
+          char *encoded_message;
+
+          xasprintf (&formatted_message,
+    _("%s: when generating %s, only one input FILE may be specified with -o"),
+                     program_file, name_of_format (output_format));
+          encoded_message = GNUT_encode_message (formatted_message);
+          free (formatted_message);
+          fprintf (stderr, "%s\n", encoded_message);
+          free (encoded_message);
+
+          exit (EXIT_FAILURE);
+        }
+    }
+  else if (Xopt_arg_nr)
+    txi_config_document_warn ("%s", "--Xopt option without printed output");
 
   if (format_specification->module)
     {
@@ -2017,7 +2145,7 @@ main (int argc, char *argv[], char *env[])
       for (j = optind; j < argc; j++)
         add_string (argv[j], &input_files);
     }
-  else if (!isatty (fileno (stdin)))
+  else if (!isatty (fileno (stdin)) && !call_texi2dvi)
     {
       add_string ("-", &input_files);
     }
@@ -2246,7 +2374,8 @@ main (int argc, char *argv[], char *env[])
       dump_texi_option
         = GNUT_get_conf (program_options.options->DUMP_TEXI.number);
 
-      if (dump_texi_option && dump_texi_option->o.integer > 0)
+      if (dump_texi_option && dump_texi_option->o.integer > 0
+          || format_specification->flags & STTF_texi2dvi_format)
         {
           errors_count = handle_errors (errors_nr, errors_count, &opened_files);
           goto next_input_file;
@@ -2553,6 +2682,43 @@ main (int argc, char *argv[], char *env[])
   free_strings_list (&prepended_include_directories);
   free_options_list (&convert_options);
 
+  if (call_texi2dvi)
+    {
+      OPTION *texi2dvi_option
+        = GNUT_get_conf (program_options.options->TEXI2DVI.number);
+
+     /* For efficiency, reuse debug variable value for verbose too */
+      OPTION *verbose_option
+        = GNUT_get_conf (program_options.options->VERBOSE.number);
+      if (verbose_option && verbose_option->o.integer > 0)
+        debug = 1;
+
+      if (!texi2dvi_option || !texi2dvi_option->o.string
+          || !strlen (texi2dvi_option->o.string))
+        {
+          errors_count = handle_errors (1, errors_count, &opened_files);
+        }
+      else
+        {
+          STRING_LIST tmp_strings;
+
+          memset (&tmp_strings, 0, sizeof (STRING_LIST));
+
+          texi2dvi = strdup (texi2dvi_option->o.string);
+
+          /* prepend texi2dvi to texi2dvi_args */
+          copy_strings (&tmp_strings, &texi2dvi_args);
+          clear_strings_list (&texi2dvi_args);
+          add_string (texi2dvi, &texi2dvi_args);
+          merge_strings (&texi2dvi_args, &tmp_strings);
+          tmp_strings.number = 0;
+          free_strings_list (&tmp_strings);
+
+          merge_strings (&texi2dvi_args, &input_files);
+          input_files.number = 0;
+        }
+    }
+
   free_strings_list (&input_files);
 
   free_options_list (&parser_options);
@@ -2581,4 +2747,25 @@ main (int argc, char *argv[], char *env[])
   txi_customization_loading_finish (embedded_interpreter);
 
   free_strings_list (&opened_files);
+
+  if (call_texi2dvi && texi2dvi)
+    {
+      char **argv;
+      size_t i;
+
+      if (debug)
+        {
+          char *texi2dvi_call = join_strings_list (&texi2dvi_args);
+          fprintf (stderr, "EXEC %s\n", texi2dvi_call);
+          free (texi2dvi_call);
+        }
+      argv = (char **) malloc ((texi2dvi_args.number +1) * sizeof (char *));
+      for (i = 0; i < texi2dvi_args.number; i++)
+        argv[i] = strdup (texi2dvi_args.list[i]);
+      argv[texi2dvi_args.number] = NULL;
+
+      free_strings_list (&texi2dvi_args);
+
+      execvp (texi2dvi, argv);
+    }
 }
