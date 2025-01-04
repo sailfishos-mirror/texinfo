@@ -60,17 +60,20 @@ locate_manual (const char *manual)
       closedir (d);
 
       char *s = 0;
+      asprintf(&s, "%s/%s", datadir, manual);
+      debug (1, "CHECK %s\n", manual);
+
+      struct stat dummy;
+      if (stat (s, &dummy) != -1)
+        return s;
+      free (s);
 
       asprintf(&s, "%s/%s_html", datadir, manual);
 
       debug (1, "CHECK %s\n", s);
 
-      struct stat dummy;
       if (stat (s, &dummy) != -1)
-        {
-          return s;
-        }
-
+        return s;
       free (s);
     }
   return 0;
