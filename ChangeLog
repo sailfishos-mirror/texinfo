@@ -1,5 +1,13 @@
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/texinfo.c (txi_general_setup),
+	tp/Texinfo/XS/texi2any.c (main): remove call of converter_setup from
+	txi_general_setup, use conversion_paths_info.  Call converter_setup
+	directly in main and earlier, to have txi_base_sorted_options setup
+	early.  Call txi_general_setup later on, in the same place as in Perl.
+
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	Support formats handled by texi2dvi in ctexi2any
 
 	* tp/texi2any.pl: handle TEXI2DVI being undef or empty by exiting with

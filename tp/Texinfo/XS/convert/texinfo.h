@@ -35,13 +35,11 @@
 /* mark a format handled by texi2dvi */
 #define STTF_texi2dvi_format                        0x4000
 
-void txi_general_setup (int texinfo_uninstalled,
-                   const char *converterdatadir, const char *tp_builddir,
-                   const char *top_srcdir, int use_external_translate_string);
-
 void txi_set_base_default_options (OPTIONS_LIST *options,
                                    const char *locale_encoding,
                                    const char *program_file);
+
+void txi_general_setup (int use_external_translate_string);
 
 void txi_customization_loading_setup (int embedded_interpreter,
                    int *argc_ref, char ***argv_ref, char ***env_ref,

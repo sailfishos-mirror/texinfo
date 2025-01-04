@@ -185,8 +185,7 @@ converter_setup (int texinfo_uninstalled, const char *converterdatadir,
 {
   int i;
 
-  /* for now the following information is only used in converters, although
-     it may have been relevant at earlier steps */
+  /* used in converters and in main C program at earlier steps */
   setup_converter_paths_information (texinfo_uninstalled,
                              converterdatadir, tp_builddir, top_srcdir);
 

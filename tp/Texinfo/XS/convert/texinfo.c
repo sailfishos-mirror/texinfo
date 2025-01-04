@@ -106,38 +106,41 @@ txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
 /* initialization of the library for parsing and conversion (generic),
    to be called once */
 void
-txi_general_setup (int texinfo_uninstalled, const char *converterdatadir,
-                   const char *tp_builddir, const char *top_srcdir,
-                   int use_external_translate_string)
+txi_general_setup (int use_external_translate_string)
 {
   char *locales_dir;
 
   /* code in texinfo.pl */
-  if (texinfo_uninstalled)
+  if (conversion_paths_info.texinfo_uninstalled)
     {
       struct stat finfo;
+      int not_found = 1;
 
-      xasprintf (&locales_dir, "%s/LocaleData", tp_builddir);
-
-      if (stat (locales_dir, &finfo) == 0 && S_ISDIR (finfo.st_mode))
+      if (conversion_paths_info.p.uninstalled.tp_builddir)
         {
-          configure_output_strings_translations (locales_dir, 0,
+          xasprintf (&locales_dir, "%s/LocaleData",
+                     conversion_paths_info.p.uninstalled.tp_builddir);
+
+          if (stat (locales_dir, &finfo) == 0 && S_ISDIR (finfo.st_mode))
+            {
+              not_found = 0;
+              configure_output_strings_translations (locales_dir, 0,
                                            use_external_translate_string);
+            }
         }
-      else
+
+      if (not_found)
         fprintf (stderr, "Locales dir for document strings not found\n");
     }
-  else
+  else if (conversion_paths_info.p.installed.converterdatadir)
     {
-      xasprintf (&locales_dir, "%s/locale", converterdatadir);
+      xasprintf (&locales_dir, "%s/locale",
+                 conversion_paths_info.p.installed.converterdatadir);
       configure_output_strings_translations (locales_dir, 0,
                                            use_external_translate_string);
     }
 
   free (locales_dir);
-
-  converter_setup (texinfo_uninstalled, converterdatadir, tp_builddir,
-                   top_srcdir);
 }
 
 /* to be called before loading init file to get the opportunity to

@@ -66,7 +66,7 @@
 /* output_files_open_out output_files_register_closed */
 #include "convert_utils.h"
 /* destroy_converter_initialization_info new_converter_initialization_info
-   encoded_output_file_name*/
+   encoded_output_file_name converter_setup */
 #include "converter.h"
 /* for html_output_internal_links */
 #include "html_converter_api.h"
@@ -1098,6 +1098,16 @@ main (int argc, char *argv[], char *env[])
   options_list_add_option_number (&cmdline_options,
                      cmdline_options.options->EXPANDED_FORMATS.number);
 
+  /* setup paths and defauts.
+     Done earlier than in Perl because options defaults are used in help
+     and paths setup for converters are used to locate file used for
+     interpreter embedding */
+  converter_setup (texinfo_uninstalled, converterdatadir, tp_builddir,
+                   top_srcdir);
+  free (tp_builddir);
+  free (top_srcdir);
+
+  /* Parse command line */
 
   memset (&ignored_formats, 0, sizeof (STRING_LIST));
   memset (&init_files, 0, sizeof (STRING_LIST));
@@ -1106,7 +1116,6 @@ main (int argc, char *argv[], char *env[])
   init_files_options =
     GNUT_initialize_customization (&program_file, &program_options,
                                    &cmdline_options);
-  /* initialize_options_list (&init_files_options); */
 
   while (1)
     {
@@ -1809,15 +1818,6 @@ main (int argc, char *argv[], char *env[])
       store_value (&values, "TEXI2HTML", "1");
     }
 
-  /* Setup paths and output string translations (including Locales path).
-     Done earlier than in Perl because paths setup for converters are used
-     to locate file used for interpreter embedding */
-  txi_general_setup (texinfo_uninstalled, converterdatadir,
-                     tp_builddir, top_srcdir, 0);
-
-  free (tp_builddir);
-  free (top_srcdir);
-
   if (embed_interpreter_p == -1)
     embedded_interpreter = 0;
   else if (embed_interpreter_p == 1)
@@ -1932,6 +1932,8 @@ main (int argc, char *argv[], char *env[])
       free (in_source_util_dir);
     }
 
+  /* Setup paths and output string translations (including Locales path). */
+  txi_general_setup (0);
 
   for (i = 0; formats_table[i].name; i++)
     {
