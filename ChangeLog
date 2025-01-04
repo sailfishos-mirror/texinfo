@@ -1,12 +1,14 @@
-2025-01-04  Gavin Smith <gavinsmith0123@gmail.com>
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/texi2any.pl: remove end of line in htlp message translated
+	strings.  Report from Benno Schulenberg.
+
+	* tp/Texinfo/XS/texi2any.c (main): add --Xopt message, reorder help
+	message to be the same as texi2any.pl.
 
 2025-01-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/txi-fi.tex: recode from Latin-1 into UTF-8
-
-2025-01-04  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* doc/txi-pl.tex: recode from Latin-2 into UTF-8
 
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
@@ -22,6 +24,10 @@
 	* tp/Texinfo/XS/texi2any.c (main): setup tree transformation flags
 	based on TREE_TRANSFORMATIONS, calling txi_find_tree_transformation
 	and add them to the txi_complete_document call.
+
+2025-01-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/txi-fi.tex: recode from Latin-2 into UTF-8
 
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 

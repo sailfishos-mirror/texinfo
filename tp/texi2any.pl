@@ -1071,9 +1071,8 @@ the behavior is identical, and does not depend on the installed name.")."\n"
 .__("      --node-files            produce redirection files for nodes and
                                 anchors; default is set only if split.")
 ."\n\n";
-  # TODO: avoid \n in translated strings.  Report from Benno Schulenberg
-  $makeinfo_help .= __("Options for DVI/PS/PDF:
-      --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n")
+  $makeinfo_help .= __("Options for DVI/PS/PDF:")."\n"
+.__("      --Xopt=OPT              pass OPT to texi2dvi; can be repeated.")."\n"
 ."\n";
   $makeinfo_help .= __("Input file options:")."\n"
 .__(" -D VAR                       define the variable VAR, as with \@set.")."\n"

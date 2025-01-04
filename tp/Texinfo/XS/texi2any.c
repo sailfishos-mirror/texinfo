@@ -1622,13 +1622,13 @@ main (int argc, char *argv[], char *env[])
         _("      --no-validate           suppress node cross-reference validation."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
+        _("      --no-warn               suppress warnings (but not errors)."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message,
         _("      --conf-dir=DIR          search also for initialization files in DIR."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _("      --init-file=FILE        load FILE to modify the default behavior."));
-      text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-        _("      --no-warn               suppress warnings (but not errors)."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _("  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n                                to value VAL."));
@@ -1735,6 +1735,12 @@ main (int argc, char *argv[], char *env[])
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --node-files            produce redirection files for nodes and\n                                anchors; default is set only if split."));
+      text_append_n (&help_message, "\n\n", 2);
+
+      text_append (&help_message, _("Options for DVI/PS/PDF:"));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
+   "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated."));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("Input file options:"));
