@@ -911,6 +911,7 @@ main (int argc, char *argv[], char *env[])
   OPTION *message_encoding_option;
   OPTION *sort_element_count_option;
   OPTION *tree_transformations_option;
+  OPTION *split_option;
   int no_warn = 0;
   int test_mode_set = 0;
   int debug = 0;
@@ -1997,6 +1998,26 @@ main (int argc, char *argv[], char *env[])
     }
   else
     converted_format = output_format;
+
+  split_option = GNUT_get_conf (program_options.options->SPLIT.number);
+  if (split_option && split_option->o.string
+      && strlen (split_option->o.string)
+      && !(format_specification->flags & STTF_split))
+    {
+      if (strcmp (converted_format, output_format))
+        {
+          txi_config_document_warn (
+            "ignoring splitting for converted format %s (for %s)",
+            name_of_format (converted_format), name_of_format (output_format));
+        }
+      else
+        {
+          txi_config_document_warn ("ignoring splitting for format %s",
+                                    name_of_format (converted_format));
+        }
+      GNUT_set_from_cmdline (&cmdline_options,
+                       program_options.options->SPLIT.number, "");
+    }
 
   memset (&default_expanded_formats, 0, sizeof (STRING_LIST));
   format_expanded_formats (&default_expanded_formats, format_specification,

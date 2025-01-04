@@ -1,6 +1,10 @@
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/texi2any.pl: remove end of line in htlp message translated
+	* tp/Texinfo/XS/texi2any.c (main): add ignoring splitting message.
+
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/texi2any.pl: remove end of line in help message translated
 	strings.  Report from Benno Schulenberg.
 
 	* tp/Texinfo/XS/texi2any.c (main): add --Xopt message, reorder help
