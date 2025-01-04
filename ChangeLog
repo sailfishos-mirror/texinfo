@@ -8,6 +8,21 @@
 
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	TREE_TRANSFORMATIONS in ctexi2any
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_tree_transformation_table)
+	(txi_find_tree_transformation), tp/Texinfo/XS/convert/texinfo.h
+	(TRANSFORMATION_NAME_FLAG, TT_TYPES_LIST): add.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_complete_document): add missing
+	insert_nodes_for_sectioning_commands call.
+
+	* tp/Texinfo/XS/texi2any.c (main): setup tree transformation flags
+	based on TREE_TRANSFORMATIONS, calling txi_find_tree_transformation
+	and add them to the txi_complete_document call.
+
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/texinfo.c (txi_general_output_strings_setup):
 	rename txi_general_setup as txi_general_output_strings_setup.  Update
 	caller.

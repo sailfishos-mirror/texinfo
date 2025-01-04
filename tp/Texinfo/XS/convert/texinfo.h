@@ -8,7 +8,26 @@
 #include "converter_types.h"
 #include "option_types.h"
 
-/* document transformations selection flags */
+typedef struct TRANSFORMATION_NAME_FLAG {
+    const char *name;
+    unsigned long flag;
+} TRANSFORMATION_NAME_FLAG;
+
+extern const TRANSFORMATION_NAME_FLAG txi_tree_transformation_table[];
+
+/* tree transformations, keep in sync with
+   Texinfo::Common::valid_tree_transformations and STTF flags just below */
+#define TT_TYPES_LIST \
+  tt_type(complete_tree_nodes_menus) \
+  tt_type(complete_tree_nodes_missing_menu) \
+  tt_type(fill_gaps_in_sectioning) \
+  tt_type(insert_nodes_for_sectioning_commands) \
+  tt_type(move_index_entries_after_items) \
+  tt_type(regenerate_master_menu) \
+  tt_type(relate_index_entries_to_table_items)
+
+
+/* document tree transformations selection flags */
 #define STTF_complete_tree_nodes_menus              0x0001
 #define STTF_complete_tree_nodes_missing_menu       0x0002
 #define STTF_fill_gaps_in_sectioning                0x0004
@@ -34,6 +53,8 @@
 #define STTF_internal_links                         0x2000
 /* mark a format handled by texi2dvi */
 #define STTF_texi2dvi_format                        0x4000
+
+unsigned long txi_find_tree_transformation (const char *transformation_name);
 
 void txi_set_base_default_options (OPTIONS_LIST *options,
                                    const char *locale_encoding,

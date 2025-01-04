@@ -910,6 +910,7 @@ main (int argc, char *argv[], char *env[])
   OPTION *debug_option;
   OPTION *message_encoding_option;
   OPTION *sort_element_count_option;
+  OPTION *tree_transformations_option;
   int no_warn = 0;
   int test_mode_set = 0;
   int debug = 0;
@@ -948,6 +949,7 @@ main (int argc, char *argv[], char *env[])
   int call_texi2dvi = 0;
   int Xopt_arg_nr = 0;
   char *texi2dvi = 0;
+  unsigned long transformation_flags = 0;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -1921,8 +1923,7 @@ main (int argc, char *argv[], char *env[])
     = GNUT_get_conf (program_options.options->TEXINFO_OUTPUT_FORMAT.number);
   output_format = output_format_option->o.string;
 
-  if (!test_mode_set
-      && txi_paths_info.texinfo_uninstalled
+  if (!test_mode_set && txi_paths_info.texinfo_uninstalled
       && txi_paths_info.p.uninstalled.top_srcdir)
     {
       char *in_source_util_dir;
@@ -1935,6 +1936,7 @@ main (int argc, char *argv[], char *env[])
   /* Setup output string translations (including Locales path). */
   txi_general_output_strings_setup (0);
 
+  /* determine the format_specification now that the output format is known */
   for (i = 0; formats_table[i].name; i++)
     {
       if (!strcmp (formats_table[i].name, output_format))
@@ -1942,6 +1944,31 @@ main (int argc, char *argv[], char *env[])
           format_specification = &formats_table[i];
           break;
         }
+    }
+
+  tree_transformations_option
+    = GNUT_get_conf (program_options.options->TREE_TRANSFORMATIONS.number);
+  if (tree_transformations_option && tree_transformations_option->o.string
+      && strlen (tree_transformations_option->o.string))
+    {
+      char *text = strdup (tree_transformations_option->o.string);
+      char *transformation = strtok (text, ",");
+
+      while (transformation)
+        {
+          if (strlen (transformation))
+            {
+              unsigned long transfo_flag
+                = txi_find_tree_transformation (transformation);
+              if (transfo_flag)
+                transformation_flags |= transfo_flag;
+              else
+                txi_config_document_warn ("unknown tree transformation %s",
+                                          transformation);
+            }
+          transformation = strtok (NULL, ",");
+        }
+      free (text);
     }
 
   /* for a format setup with an init file */
@@ -2385,7 +2412,8 @@ main (int argc, char *argv[], char *env[])
 
       /* structure and transformations */
       /* do_menu corresponds to FORMAT_MENU undef or set to menu */
-      txi_complete_document (document, format_specification->flags, do_menu);
+      txi_complete_document (document, format_specification->flags
+                                       | transformation_flags, do_menu);
 
       errors_nr
         = txi_handle_document_error_messages (document, no_warn,

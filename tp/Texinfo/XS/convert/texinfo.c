@@ -51,6 +51,26 @@
 #include "xs_utils.h"
 #include "texinfo.h"
 
+const TRANSFORMATION_NAME_FLAG txi_tree_transformation_table[] = {
+#define tt_type(name) {#name, STTF_ ## name},
+   TT_TYPES_LIST
+#undef tt_type
+  {NULL, 0}
+};
+
+/* returns the flag associated to the transformation */
+unsigned long
+txi_find_tree_transformation (const char *transformation_name)
+{
+  int i;
+  for (i = 0; txi_tree_transformation_table[i].name; i++)
+    {
+      if (!strcmp (transformation_name, txi_tree_transformation_table[i].name))
+        return txi_tree_transformation_table[i].flag;
+    }
+  return 0;
+}
+
 static void
 err_add_option_value (OPTIONS_LIST *options_list, const char *option_name,
                       int int_value, const char *char_value)
@@ -418,6 +438,9 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
 
   if (flags & STTF_move_index_entries_after_items)
     move_index_entries_after_items_in_tree (document->tree);
+
+  if (flags & STTF_insert_nodes_for_sectioning_commands)
+    insert_nodes_for_sectioning_commands (document);
 
   associate_internal_references (document);
 
