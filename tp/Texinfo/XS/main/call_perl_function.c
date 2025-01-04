@@ -98,6 +98,11 @@ call_nodenamenormalization_unicode_to_transliterate (const char *text)
 
   dTHX;
 
+  /* this happens if the customization variable TEST is set and
+     --no-embed is passed */
+  if (get_no_perl_interpreter ())
+    return 0;
+
   dSP;
 
   ENTER;
@@ -142,6 +147,10 @@ call_translations_translate_string (const char *string, const char *in_lang,
 
   dTHX;
 
+  /* this happens if USE_LIBINTL_PERL_IN_XS is set and --no-embed is passed */
+  if (get_no_perl_interpreter ())
+    return 0;
+
   dSP;
 
   ENTER;
@@ -184,6 +193,11 @@ call_setup_collator (int use_unicode_collation, const char *locale_lang)
   SV *collator_sv = 0;
 
   dTHX;
+
+  /* this happens if XS_STRXFRM_COLLATION_LOCALE=undef and --no-embed
+     is passed */
+  if (get_no_perl_interpreter ())
+    return 0;
 
   dSP;
 

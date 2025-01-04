@@ -624,8 +624,9 @@ setup_collator (int use_unicode_collation, const char *collation_language,
 
       result->coll.sv = call_setup_collator (1, 0);
       if (result->coll.sv == 0)
-        /* not sure that it may happen with Perl, but if not linked against
-           Perl, this is a likely outcome */
+        /* if not linked against Perl or there is no strxfrm_l, this is
+           a likely outcome.  This also happens if called as ctexi2any
+           with --no-embed and XS_STRXFRM_COLLATION_LOCALE=undef */
         result->type = ctn_no_unicode;
       else
         result->type = ctn_unicode;

@@ -64,14 +64,11 @@ get_perl_scalar_reference_value (const void *sv_string)
   return 0;
 }
 
+/* it is up to the caller to do something useful if NULL is returned */
 char *
 call_nodenamenormalization_unicode_to_transliterate (const char *text)
 {
-  int status;
-  /* the encode_string argument cannot be const, but we also want to keep
-     the same prototype as the replaced function, so we drop with a cast */
-  char *result = encode_string ((char *)text, "us-ascii//TRANSLIT", &status, 0);
-  return result;
+  return 0;
 }
 
 char *

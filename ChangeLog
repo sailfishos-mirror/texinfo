@@ -1,5 +1,18 @@
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/node_name_normalization.c
+	(unicode_to_transliterate), tp/Texinfo/XS/main/replace_perl_api_call.c
+	(call_nodenamenormalization_unicode_to_transliterate): check return of
+	call_nodenamenormalization_unicode_to_transliterate in
+	unicode_to_transliterate, and call C code if NULL.
+
+	* tp/Texinfo/XS/main/call_perl_function.c
+	(call_nodenamenormalization_unicode_to_transliterate)
+	(call_translations_translate_string, call_setup_collator): check
+	get_no_perl_interpreter and return an appropriate value if set.
+
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	Build ctexi2any even if DISABLE_ADDITIONAL_CHECKS is set
 
 	* tp/Texinfo/XS/Makefile.am (noinst_PROGRAMS): remove

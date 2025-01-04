@@ -328,9 +328,13 @@ unicode_to_transliterate (char *text, int external)
   char *result;
   int status;
   if (external)
-    result = call_nodenamenormalization_unicode_to_transliterate (text);
-  else
-    result = encode_string (text, "us-ascii//TRANSLIT", &status, 0);
+    {
+      result = call_nodenamenormalization_unicode_to_transliterate (text);
+      if (result)
+        return result;
+    }
+
+  result = encode_string (text, "us-ascii//TRANSLIT", &status, 0);
 
   return result;
 }
