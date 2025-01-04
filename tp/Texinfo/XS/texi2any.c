@@ -53,7 +53,7 @@
 /* for xvasprintf */
 #include "text.h"
 /* parse_file_path whitespace_chars encode_string xasprintf digit_chars
-   wipe_values locate_file_in_dirs */
+   wipe_values locate_file_in_dirs messages_and_encodings_setup */
 #include "utils.h"
 #include "customization_options.h"
 #include "txi_config.h"
@@ -879,6 +879,7 @@ main (int argc, char *argv[], char *env[])
   int do_menu = 0;
   size_t format_menu_option_nr;
   char *conversion_format_menu_default = 0;
+  /* FIXME what could be used to determine if installed or not? */
   int texinfo_uninstalled = 1;
   const char *converterdatadir = DATADIR "/" CONVERTER_CONFIG;
   const char *curdir = ".";
@@ -903,8 +904,7 @@ main (int argc, char *argv[], char *env[])
   if (top_srcdir)
     top_srcdir = strdup (top_srcdir);
   else
-    /* equivalent to setting top_srcdir based on updirs in ModulePath.pm
-       adapted to a program without any in-source version */
+    /* a wild guess likely to be incorrect */
     top_srcdir = strdup ("../../..");
 
   top_builddir = getenv ("top_builddir");
@@ -927,11 +927,8 @@ main (int argc, char *argv[], char *env[])
 
   add_string (extensions_dir, &internal_extension_dirs);
 
-  txi_general_setup (texinfo_uninstalled, converterdatadir,
-                     tp_builddir, top_srcdir, 0);
-
-  free (tp_builddir);
-  free (top_srcdir);
+  /* sets up gettext and iconv */
+  messages_and_encodings_setup ();
 
   /* from Gnulib codeset.m4 */
 #ifdef HAVE_LANGINFO_CODESET
@@ -1704,6 +1701,15 @@ main (int argc, char *argv[], char *env[])
       set_format ("html");
       store_value (&values, "TEXI2HTML", "1");
     }
+
+  /* Setup paths and output string translations (including Locales path).
+     Done earlier than in Perl because paths setup for converters are used
+     to locate file used for interpreter embedding */
+  txi_general_setup (texinfo_uninstalled, converterdatadir,
+                     tp_builddir, top_srcdir, 0);
+
+  free (tp_builddir);
+  free (top_srcdir);
 
   if (embed_interpreter_p == -1)
     embedded_interpreter = 0;
