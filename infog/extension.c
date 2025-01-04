@@ -363,8 +363,6 @@ send_toc (WebKitWebPage *web_page, WebKitDOMDocument *dom_document)
 
   send_js_message (web_page, toc->str);
   g_string_free (toc, TRUE);
-
-  send_js_message (web_page, "toc-finished\n");
 }
 
 void

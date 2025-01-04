@@ -554,16 +554,6 @@ handle_script_message (WebKitUserContentManager *manager,
           *save_where = strdup (p);
         }
     }
-  else if (!strcmp (message, "toc-finished"))
-    {
-      debug (1, "TOC FINISHED\n");
-      if (pending_node)
-        {
-          debug (1, "HANDLE PENDING NODE %s\n", pending_node);
-          switch_node (pending_node);
-          free (pending_node); pending_node = 0;
-        }
-    }
   else if (!strcmp (message, "inform-new-node"))
     {
       p++;
@@ -613,6 +603,13 @@ handle_script_message (WebKitUserContentManager *manager,
     {
       p++;
       load_toc (p);
+      debug (1, "TOC FINISHED\n");
+      if (pending_node)
+        {
+          debug (1, "HANDLE PENDING NODE %s\n", pending_node);
+          switch_node (pending_node);
+          free (pending_node); pending_node = 0;
+        }
     }
 }
 
