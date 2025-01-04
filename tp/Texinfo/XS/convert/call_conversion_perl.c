@@ -123,6 +123,7 @@ get_sv_converter (SV *sv_in, const char *warn_string)
   return converter;
 }
 
+/* FIXME rename something like call_module_converter_defaults */
 CONVERTER_INITIALIZATION_INFO *
 call_converter_converter_defaults (const char *module_name,
                                    OPTIONS_LIST *customizations)
@@ -399,13 +400,20 @@ xs_init(pTHX)
     newXS("DynaLoader::boot_DynaLoader", boot_DynaLoader, file);
 }
 
-/* load a Perl intperpreter and load Texinfo modules.  To be called once */
+/* load a Perl interpreter.  Also load Texinfo modules by running the
+   LOAD_TXI_MODULES_PATH Perl script.  To be called once.
+   VERSION_CHECKED is passed as command-line argument to the
+   LOAD_TXI_MODULES_PATH script run when starting the embedded interpreter,
+   to allow for a version check of VERSION_CHECKED against a version coming
+   from a Perl module.
+ */
 int
 call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref,
-                char *load_txi_modules_path)
+                char *load_txi_modules_path, const char *version_checked)
 {
   int parse_status, run_status;
-  char *embedding[] = { "", load_txi_modules_path, NULL };
+  char *embedding[] = { "", load_txi_modules_path,
+                       (char *)version_checked, NULL };
   /* The need and use of arguments of PERL_SYS_INIT3 are not explained
      clearly anywhere.  In perlembed they seem to be mandatory, but
      there is nothing very explicit.  We follow perlembed:
@@ -417,7 +425,7 @@ call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref,
   my_perl = perl_alloc();
   perl_construct(my_perl);
   PL_exit_flags |= PERL_EXIT_DESTRUCT_END;
-  parse_status = perl_parse(my_perl, xs_init, 2, embedding, (char **)NULL);
+  parse_status = perl_parse(my_perl, xs_init, 3, embedding, (char **)NULL);
   if (parse_status)
     return parse_status;
   /*

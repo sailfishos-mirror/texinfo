@@ -55,7 +55,7 @@ BEGIN
      = fileparse($0, '.pl');
   my $updir = File::Spec->updir();
 
-  # These are substituted by the Makefile to create "texi2any".
+  # These are substituted by the Makefile to create "load_txi_modules".
   my $datadir = '@datadir@';
   my $converter = '@CONVERTER@';
   my $libdir = '@libdir@';
@@ -110,7 +110,7 @@ BEGIN
 
 BEGIN {
   # important to load early to set XS embedded before loading any
-  # package loading XS modules
+  # package with XS modules
   use Texinfo::XSLoader;
   Texinfo::XSLoader::set_XS_embedded();
   my $enable_xs = '@enable_xs@';
@@ -234,13 +234,29 @@ if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
 
 # Compare the version of this file with the version of the modules
 # it is using.  If they are different, don't go any further.  This
-# can happen if multiple versions of texi2any are installed under a
+# can happen if multiple versions are installed under a
 # different names, e.g. with the --program-suffix option to 'configure'.
 # The version in Common.pm is checked because that file has been present
 # since Texinfo 5.0 (the first release with texi2any in Perl).
 if ($configured_version ne $Texinfo::Common::VERSION
     and $configured_version ne $Texinfo::Common::VERSION."+dev") {
   warn "This is texi2any $configured_version but modules ".
+       "for texi2any $Texinfo::Common::VERSION found!\n";
+  die "Your installation of Texinfo is broken; aborting.\n";
+}
+
+# Compare the version of the code embedding Perl passed on the
+# command-line with the version of the modules it is using.
+# If the version on the command-line cannot be read or
+# the versions are different, don't go any further.
+if ($#ARGV != 0 or !defined($ARGV[0]) or $ARGV[0] eq '') {
+  die "$0: Unexpected command-line argument\n";
+}
+
+my $caller_version = $ARGV[0];
+if ($caller_version ne $Texinfo::Common::VERSION
+    and $caller_version ne $Texinfo::Common::VERSION."+dev") {
+  warn "The caller version is $caller_version but modules ".
        "for texi2any $Texinfo::Common::VERSION found!\n";
   die "Your installation of Texinfo is broken; aborting.\n";
 }

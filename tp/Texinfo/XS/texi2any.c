@@ -886,6 +886,7 @@ main (int argc, char *argv[], char *env[])
   int default_is_html = 1;
   char *init_file_format;
   const char *set_message_encoding = 0;
+  const char *version_for_embedded_interpreter_check;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -951,6 +952,15 @@ main (int argc, char *argv[], char *env[])
   /* program_options corresponds to main_program_set_options in texi2any */
   txi_set_base_default_options (&program_options, locale_encoding,
                                 program_file);
+
+  version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
+
+  if (texinfo_uninstalled)
+    {
+      add_option_value (&program_options, "PACKAGE_AND_VERSION", 0,
+                        PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG "+dev");
+      version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+dev";
+    }
 
   /* set default output format.  Is info in texi2any */
   /* better than making it the default value independently of the
@@ -1704,7 +1714,8 @@ main (int argc, char *argv[], char *env[])
     add_option_value (&program_options, "XS_STRXFRM_COLLATION_LOCALE", 0,
                       "en_US");
 
-  txi_customization_loading_setup (embedded_interpreter, &argc, &argv, &env);
+  txi_customization_loading_setup (embedded_interpreter, &argc, &argv, &env,
+                                   version_for_embedded_interpreter_check);
 
   /* TODO different from Perl, to be discussed on the list which
      one is better, load within the command line loop, or after */

@@ -1,5 +1,21 @@
 2025-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	Check same version in ctexi2any caller and embedded Perl modules
+
+	* tp/Texinfo/XS/texi2any.c (main): postpend +dev to the
+	PACKAGE_AND_VERSION program customization option if uninstalled,
+	similar with texi2any.pl.
+
+	* tp/Texinfo/XS/convert/call_conversion_perl.c (call_init_perl),
+	tp/Texinfo/XS/convert/texinfo.c (txi_customization_loading_setup),
+	tp/Texinfo/XS/texi2any.c (main), tp/load_txi_modules.pl: pass the
+	version down to call_init_perl.  In call_init_perl pass the version
+	as argument to load_txi_modules(.pl).  In load_txi_modules.pl
+	check that the version on the command-line matches with the Perl
+	modules version.
+
+2025-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	Pass direction icons to C options using names
 
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_simpletitle)

@@ -146,7 +146,8 @@ txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
    start an embedded interpreter */
 void
 txi_customization_loading_setup (int embedded_interpreter,
-                   int *argc_ref, char ***argv_ref, char ***env_ref)
+                   int *argc_ref, char ***argv_ref, char ***env_ref,
+                   const char *version_checked)
 {
   const char *load_txi_modules_basename = "load_txi_modules";
   if (embedded_interpreter)
@@ -161,7 +162,8 @@ txi_customization_loading_setup (int embedded_interpreter,
         xasprintf (&load_modules_path, "%s/%s",
                   conversion_paths_info.p.installed.converterdatadir,
                    load_txi_modules_basename);
-      status = call_init_perl (argc_ref, argv_ref, env_ref, load_modules_path);
+      status = call_init_perl (argc_ref, argv_ref, env_ref, load_modules_path,
+                               version_checked);
       /* status < 0 means no functioning call_init_perl */
       if (status > 0)
         {
