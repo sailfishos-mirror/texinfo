@@ -224,6 +224,29 @@ Locale::Messages::bindtextdomain($messages_textdomain,
                                 File::Spec->catdir($datadir, 'locale'));
 
 
+# the encoding used to decode command line arguments, and also for
+# file names encoding, Perl is expecting sequences of bytes, not unicode
+# code points.
+my $locale_encoding;
+
+eval 'require I18N::Langinfo';
+if (!$@) {
+  $locale_encoding = I18N::Langinfo::langinfo(I18N::Langinfo::CODESET());
+  $locale_encoding = undef if ($locale_encoding eq '');
+}
+
+if (!defined($locale_encoding) and $^O eq 'MSWin32') {
+  eval 'require Win32::API';
+  if (!$@) {
+    Win32::API::More->Import("kernel32", "int GetACP()");
+    my $CP = GetACP();
+    if (defined($CP)) {
+      $locale_encoding = 'cp'.$CP;
+    }
+  }
+}
+
+
 # Set initial configuration
 
 # Version setting is complicated, because we cope with
@@ -310,28 +333,6 @@ if ($texinfo_dtd_version eq '@' . 'TEXINFO_DTD_VERSION@') {
   }
 }
 
-# the encoding used to decode command line arguments, and also for
-# file names encoding, perl is expecting sequences of bytes, not unicode
-# code points.
-my $locale_encoding;
-
-eval 'require I18N::Langinfo';
-if (!$@) {
-  $locale_encoding = I18N::Langinfo::langinfo(I18N::Langinfo::CODESET());
-  $locale_encoding = undef if ($locale_encoding eq '');
-}
-
-if (!defined($locale_encoding) and $^O eq 'MSWin32') {
-  eval 'require Win32::API';
-  if (!$@) {
-    Win32::API::More->Import("kernel32", "int GetACP()");
-    my $CP = GetACP();
-    if (defined($CP)) {
-      $locale_encoding = 'cp'.$CP;
-    }
-  }
-}
-
 # Used in case it is not hardcoded in configure and for standalone perl module
 $texinfo_dtd_version = $configured_version
   if (!defined($texinfo_dtd_version));
@@ -369,6 +370,13 @@ foreach my $configured_variable (keys(%$configured_information)) {
     = $configured_information->{$configured_variable};
 }
 
+# defaults for options relevant in the main program. Also used as
+# defaults for all the converters.
+my $main_program_default_options = {
+  %$main_program_set_options,
+  %Texinfo::Common::default_main_program_customization_options,
+};
+
 # In Windows, a character in file name is encoded according to the current
 # codepage, and converted to/from UTF-16 in the filesystem.  If a file name is
 # not encoded in the current codepage, the file name will appear with erroneous
@@ -380,13 +388,6 @@ foreach my $configured_variable (keys(%$configured_information)) {
 if ($^O eq 'MSWin32') {
   $main_program_set_options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'} = 0;
 }
-
-# defaults for options relevant in the main program. Also used as
-# defaults for all the converters.
-my $main_program_default_options = {
-  %$main_program_set_options,
-  %Texinfo::Common::default_main_program_customization_options,
-};
 
 
 # determine configuration directories.

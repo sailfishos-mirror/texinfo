@@ -1,5 +1,10 @@
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl: move code around to correspond better to texi2any.c
+	code.
+
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/texinfo.c (txi_general_setup),
 	tp/Texinfo/XS/texi2any.c (main): call messages_and_encodings_setup
 	directly in main and not in txi_general_setup.  Call txi_general_setup

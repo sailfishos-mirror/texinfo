@@ -930,11 +930,13 @@ main (int argc, char *argv[], char *env[])
   /* sets up gettext and iconv */
   messages_and_encodings_setup ();
 
+  /* the encoding used to decode command line arguments, and also for
+     file names encoding */
   /* from Gnulib codeset.m4 */
 #ifdef HAVE_LANGINFO_CODESET
   locale_encoding = nl_langinfo (CODESET);
 #endif
-  /*
+  /* TODO
   if (!defined($locale_encoding) and $^O eq 'MSWin32') {
     eval 'require Win32::API';
     if (!$@) {
@@ -947,6 +949,7 @@ main (int argc, char *argv[], char *env[])
   }
    */
 
+  /* Set initial configuration */
   /* program_options corresponds to main_program_set_options in texi2any */
   txi_set_base_default_options (&program_options, locale_encoding,
                                 program_file);
@@ -960,7 +963,7 @@ main (int argc, char *argv[], char *env[])
       version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+dev";
     }
 
-  /* set default output format.  Is info in texi2any */
+  /* set default output format.  Is info in texi2any.pl */
   /* better than making it the default value independently of the
      implementation */
   if (default_is_html)
