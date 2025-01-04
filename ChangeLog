@@ -1,3 +1,11 @@
+2025-01-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/txi-fi.tex: recode from Latin-2 into UTF-8
+
+2025-01-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/txi-fi.tex: recode into UTF-8
+
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/texinfo.c (txi_general_output_strings_setup):
