@@ -655,10 +655,8 @@ teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/ma
 
 ############################################### main program in C
 
-if ! DISABLE_ADDITIONAL_CHECKS
 if HAVE_ICONV
 noinst_PROGRAMS += ctexi2any
-endif
 endif
 
 ctexi2any_SOURCES = \
