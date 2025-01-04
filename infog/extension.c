@@ -22,7 +22,7 @@ vmsg (char *fmt, va_list v)
 int debug_level = 1;
 
 void
-debug (int level, char *fmt, ...)
+debug (WebKitWebPage *web_page, int level, char *fmt, ...)
 {
   if (level > debug_level)
     return;
@@ -30,7 +30,7 @@ debug (int level, char *fmt, ...)
   va_list v;
   va_start (v, fmt);
 
-  printf ("SUBTHREAD: ");
+  printf ("PAGE[%lu]: ", webkit_web_page_get_id (web_page));
   vmsg (fmt, v);
   va_end (v);
 }
@@ -83,8 +83,7 @@ request_callback (WebKitWebPage     *web_page,
 {
   const char *uri = webkit_uri_request_get_uri (request);
 
-  debug (1, "Intercepting link <%s> (page %d)\n", uri,
-             webkit_web_page_get_id (web_page));
+  debug (web_page, 1, "Intercepting link <%s>\n", uri);
 
   /* Clear flags on WebKitWebPage object.  These flags are checked after
      the page is actually loaded.  We can't use global variables for this
@@ -100,11 +99,11 @@ request_callback (WebKitWebPage     *web_page,
       char *new_uri = strdup (uri);
       new_uri[p - uri] = 0;
       webkit_uri_request_set_uri (request, new_uri);
-      debug (1, "new_uri %s\n", new_uri);
+      debug (web_page, 1, "new_uri %s\n", new_uri);
       free (new_uri);
 
       p++;
-      debug (1, "request type %s\n", p);
+      debug (web_page, 1, "request type %s\n", p);
       if (!strcmp (p, "send-index"))
         {
           g_object_set_data (G_OBJECT(web_page), "send-index",
@@ -130,12 +129,12 @@ request_callback (WebKitWebPage     *web_page,
       if (!manual || !node)
         {
           /* Possibly a *.css file or malformed link. */
-          debug (1, "COULDNT PARSE URL\n");
+          debug (web_page, 1, "COULDNT PARSE URL\n");
           free (manual); free (node);
           return FALSE;
         }
 
-      debug (1, "finding manual and node %s:%s\n", manual, node);
+      debug (web_page, 1, "finding manual and node %s:%s\n", manual, node);
 
       if (!current_manual || strcmp(manual, current_manual) != 0)
         {
@@ -163,7 +162,7 @@ request_callback (WebKitWebPage     *web_page,
           return FALSE;
         }
 
-      debug (1, "finding manual and node %s:%s\n", manual, node);
+      debug (web_page, 1, "finding manual and node %s:%s\n", manual, node);
 
       if (!current_manual || strcmp(manual, current_manual) != 0)
         {
@@ -187,7 +186,7 @@ void
 find_indices (WebKitWebPage *web_page,
               WebKitDOMHTMLCollection *links, gulong num_links)
 {
-  debug (1, "looking for indices\n");
+  debug (web_page, 1, "looking for indices\n");
 
   gulong i = 0;
   GString *s = g_string_new (NULL);
@@ -200,7 +199,7 @@ find_indices (WebKitWebPage *web_page,
         = webkit_dom_html_collection_item (links, i);
       if (!node)
         {
-          debug (1, "No node\n");
+          debug (web_page, 1, "No node\n");
           return;
         }
 
@@ -212,7 +211,7 @@ find_indices (WebKitWebPage *web_page,
       else
         {
           /* When would this happen? */
-          debug (1, "Not an DOM element\n");
+          debug (web_page, 1, "Not an DOM element\n");
           continue;
         }
 
@@ -229,7 +228,7 @@ find_indices (WebKitWebPage *web_page,
           && id && !strncmp (id, "toc-", 4)
           && rel && !strcmp(rel, "index"))
         {
-          debug (1, "index node at |%s|\n", href);
+          debug (web_page, 1, "index node at |%s|\n", href);
           g_string_append (s, href);
           g_string_append (s, "\n");
         }
@@ -244,7 +243,7 @@ void
 send_index (WebKitWebPage *web_page,
             WebKitDOMHTMLCollection *links, gulong num_links)
 {
-  debug (1, "trying to send index\n");
+  debug (web_page, 1, "trying to send index\n");
 
   gulong i = 0;
   GString *s = g_string_new (NULL);
@@ -257,7 +256,7 @@ send_index (WebKitWebPage *web_page,
         = webkit_dom_html_collection_item (links, i);
       if (!node)
         {
-          debug (1, "No node\n");
+          debug (web_page, 1, "No node\n");
           return;
         }
 
@@ -269,7 +268,7 @@ send_index (WebKitWebPage *web_page,
       else
         {
           /* When would this happen? */
-          debug (1, "Not an DOM element\n");
+          debug (web_page, 1, "Not an DOM element\n");
           continue;
         }
 
@@ -291,7 +290,7 @@ send_index (WebKitWebPage *web_page,
 
   g_string_free (s, TRUE);
 
-  debug (1, "index sent\n");
+  debug (web_page, 1, "index sent\n");
 }
 
 void
@@ -435,15 +434,14 @@ void
 document_loaded_callback (WebKitWebPage *web_page,
                           gpointer       user_data)
 {
-  debug (1, "Page %d loaded for %s\n", webkit_web_page_get_id (web_page),
-           webkit_web_page_get_uri (web_page));
+  debug (web_page, 1, "Page loaded\n");
 
   WebKitDOMDocument *dom_document
     = webkit_web_page_get_dom_document (web_page);
 
   if (!dom_document)
     {
-      debug (1, "No DOM document\n");
+      debug (web_page, 1, "No DOM document\n");
       return;
     }
 
@@ -497,7 +495,7 @@ web_page_created_callback (WebKitWebExtension *extension,
                            WebKitWebPage      *web_page,
                            gpointer            user_data)
 {
-    debug (1, "Page %d created for %s\n",
+    debug (web_page, 1, "Page %d created for %s\n",
              webkit_web_page_get_id (web_page),
              webkit_web_page_get_uri (web_page));
 

@@ -33,7 +33,7 @@ debug (int level, char *fmt, ...)
   va_list v;
   va_start (v, fmt);
 
-  printf ("%lu: ", clock ());
+  printf ("MAIN/%lu: ", clock ());
   vmsg (fmt, v);
   va_end (v);
 }
