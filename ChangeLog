@@ -1,5 +1,10 @@
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/texi2any.c (main): exit with an error and a message if
+	there is no interpreter and SORT_ELEMENT_COUNT is set.
+
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/node_name_normalization.c
 	(unicode_to_transliterate), tp/Texinfo/XS/main/replace_perl_api_call.c
 	(call_nodenamenormalization_unicode_to_transliterate): check return of

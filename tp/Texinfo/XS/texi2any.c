@@ -854,6 +854,7 @@ main (int argc, char *argv[], char *env[])
   OPTION *format_menu_option;
   OPTION *debug_option;
   OPTION *message_encoding_option;
+  OPTION *sort_element_count_option;
   int no_warn = 0;
   int test_mode_set = 0;
   int debug = 0;
@@ -1979,6 +1980,9 @@ main (int argc, char *argv[], char *env[])
                                          "menu"))
     do_menu = 1;
 
+  sort_element_count_option
+    = GNUT_get_conf (program_options.options->SORT_ELEMENT_COUNT.number);
+
   initialize_options_list (&parser_options);
   /* Copy relevant customization variables into the parser options. */
   for (i = 0; i < TXI_OPTIONS_NR; i++)
@@ -2402,9 +2406,21 @@ main (int argc, char *argv[], char *env[])
 
       if (i == 0)
         {
-          OPTION *sort_element_count_option
-           = GNUT_get_conf (program_options.options->SORT_ELEMENT_COUNT.number);
+          const char *sort_element_count_file_name = 0;
           if (sort_element_count_option && sort_element_count_option->o.string)
+            {
+              sort_element_count_file_name
+                = sort_element_count_option->o.string;
+            }
+
+          if (sort_element_count_file_name && !embedded_interpreter)
+            {
+              fprintf (stderr,
+                       "ERROR: no interpreter for SORT_ELEMENT_COUNT\n");
+              exit (EXIT_FAILURE);
+            }
+
+          if (sort_element_count_file_name)
             {
               char *sort_element_count_text;
               CONVERTER_TEXT_INFO *sort_element_count_info;
@@ -2424,8 +2440,6 @@ main (int argc, char *argv[], char *env[])
               OUTPUT_FILES_INFORMATION output_files_information;
               char *open_error_message;
               int overwritten_file;
-              const char *sort_element_count_file_name
-                = sort_element_count_option->o.string;
               char *path_encoding;
               char *encoded_sort_element_count_file_name;
               int error_element_count_file = 0;
