@@ -1393,7 +1393,7 @@ my %format_names = (
  'texinfoxml' => 'Texinfo XML',
 );
 
-sub format_name($)
+sub name_of_format($)
 {
   my $format = shift;
   if ($format_names{$format}) {
@@ -1414,17 +1414,6 @@ if (defined($ENV{'TEXINFO_OUTPUT_FORMAT'})
 }
 
 my $output_format = get_conf('TEXINFO_OUTPUT_FORMAT');
-
-if ($call_texi2dvi) {
-  if (defined(get_conf('OUTFILE')) and @ARGV > 1) {
-    die _encode_message(
-      sprintf(
- __('%s: when generating %s, only one input FILE may be specified with -o')."\n",
-                $real_command_name, format_name($output_format)));
-  }
-} elsif($Xopt_arg_nr) {
-  document_warn(__('--Xopt option without printed output'));
-}
 
 sub _exit($$)
 {
@@ -1572,10 +1561,11 @@ if (get_conf('SPLIT') and !$formats_table{$converted_format}->{'split'}) {
   if ($converted_format ne $output_format) {
     document_warn(sprintf(
               __('ignoring splitting for converted format %s (for %s)'),
-                format_name($converted_format), format_name($output_format)));
+                name_of_format($converted_format),
+                name_of_format($output_format)));
   } else {
     document_warn(sprintf(__('ignoring splitting for format %s'),
-                          format_name($converted_format)));
+                          name_of_format($converted_format)));
   }
   set_from_cmdline('SPLIT', '');
 }
@@ -1585,6 +1575,18 @@ foreach my $ignored_format (keys(%ignored_formats)) {
   delete $default_expanded_formats->{$ignored_format};
 }
 add_to_option_list('EXPANDED_FORMATS', [sort(keys(%$default_expanded_formats))]);
+
+if ($call_texi2dvi) {
+  if (defined(get_conf('OUTFILE')) and @ARGV > 1) {
+    die _encode_message(
+      sprintf(
+ __('%s: when generating %s, only one input FILE may be specified with -o')."\n",
+                $real_command_name, name_of_format($output_format)));
+  }
+} elsif($Xopt_arg_nr) {
+  document_warn(__('--Xopt option without printed output'));
+}
+
 
 if (defined($formats_table{$converted_format}->{'module'})) {
   # Speed up initialization by only loading the module we need.

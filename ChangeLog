@@ -1,5 +1,13 @@
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl: move error related to call_texi2dvi down, where
+	call_texi2dvi is set.
+
+	* tp/texi2any.pl (name_of_format): rename format_name as
+	name_of_format.
+
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/build_html_perl_info.c
 	(html_pass_conversion_initialization): always call
 	call_common_set_output_perl_encoding, even if there is no formatting
