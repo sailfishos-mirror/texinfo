@@ -31,7 +31,7 @@ system ("cd $dir && wget -N https://www.loc.gov/standards/iso639-2/ISO-639-2_utf
 # the ISO 3166-1 alpha-2 codes are not easily accessible from the ISO website, there is
 # an interface not a raw download (seems incredible, but true...).
 # Use the country code project list instead
-#system ("cd $dir && wget -N https://raw.githubusercontent.com/datasets/country-codes/master/data/country-codes.csv");
+system ("cd $dir && wget -N https://raw.githubusercontent.com/datasets/country-codes/master/data/country-codes.csv");
 
 open(TXT, "$dir/ISO-639-2_utf-8.txt") or die "Open $dir/ISO-639-2_utf-8.txt: $!\n";
 binmode(TXT, ":utf8");
@@ -75,6 +75,9 @@ while (my $row = $csv->getline ($fh)) {
     $regions{$row->[$code_header_index]} = 1;
   }
 }
+# Namibia NA ISO3166-1-Alpha-2 code is missing in 2025, add it
+# https://www.iso.org/obp/ui/#iso:code:3166:NA
+$regions{'NA'} = 1;
 
 my $program_name = basename($0);
 
