@@ -220,7 +220,7 @@ sub _get_language($$$)
         and scalar(@{$arguments_line->{'contents'}}) > 0) {
       $converted_language
         = Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
-                                                 $command->{'contents'}->[0]);
+                                          $arguments_line->{'contents'}->[0]);
       if ($converted_language eq '') {
         $converted_language = undef;
       }

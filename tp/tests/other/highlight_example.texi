@@ -33,7 +33,8 @@ sub do ($) @{
 @}
 @end example
 
-@example perl
+@c with another argument
+@example perl, titi
 my @@SECTION_BUTTONS =
   (
    \&singular_banner,
