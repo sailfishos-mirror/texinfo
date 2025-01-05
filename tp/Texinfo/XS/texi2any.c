@@ -2885,4 +2885,6 @@ main (int argc, char *argv[], char *env[])
 
       execvp (texi2dvi, argv);
     }
+
+  free_strings_list (&texi2dvi_args);
 }

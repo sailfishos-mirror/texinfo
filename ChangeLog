@@ -1,5 +1,10 @@
 2025-01-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/texi2any.c (main): free texi2dvi_args also in case
+	texi2dvi is not called.
+
+2025-01-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/customization_options.c (clear_option)
 	(clear_options_list): remove the OF_set_in_list flag in clear_option
 	and not in clear_options_list, to be able to do it for individual
