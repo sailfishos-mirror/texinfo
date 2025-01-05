@@ -660,8 +660,11 @@ sub normalized_sectioning_command_filename($$)
 
   my $label_element;
   if ($Texinfo::Commands::root_commands{$command->{'cmdname'}}) {
+    # for root level sectioning commands, the first element is the
+    # arguments_line element, it contains the label element
     $label_element = $command->{'contents'}->[0]->{'contents'}->[0];
   } else {
+    # @*heading commands
     $label_element = $command->{'contents'}->[0];
   }
   my $normalized_name
@@ -942,10 +945,14 @@ sub set_output_units_files($$$$$$)
                                $root_command->{'extra'}->{'normalized'}})) {
               $node_filename = 'unknown_node';
             } else {
+              # arguments_line type element
+              my $arguments_line = $root_command->{'contents'}->[0];
               $node_filename
                = $self->node_information_filename(
                                $root_command->{'extra'}->{'normalized'},
-                       $root_command->{'contents'}->[0]->{'contents'}->[0]);
+                        # node label is the first arguments_line content,
+                        # the first argument on the line
+                                  $arguments_line->{'contents'}->[0]);
             }
             $node_filename .= $extension;
             $self->set_file_path($node_filename,$destination_directory);
@@ -1720,7 +1727,9 @@ sub sort_element_counts($$;$$)
     my $name;
     if ($output_unit->{'unit_command'}) {
       my $command = $output_unit->{'unit_command'};
-      my $line_arg = $command->{'contents'}->[0]->{'contents'}->[0];
+      # arguments_line type element
+      my $arguments_line = $command->{'contents'}->[0];
+      my $line_arg = $arguments_line->{'contents'}->[0];
       if ($line_arg->{'contents'}) {
         # convert contents to avoid outputting end of lines
         $name = "\@$command->{'cmdname'} "

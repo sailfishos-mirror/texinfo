@@ -172,12 +172,13 @@ sub fill_gaps_in_sectioning($;$)
         };
         $new_section->{'info'} = {'spaces_before_argument' =>
                                               {'text' => ' ',}};
-        my $arguments = {'type' => 'arguments_line', 'parent' => $new_section};
+        my $arguments_line = {'type' => 'arguments_line',
+                              'parent' => $new_section};
 
-        my $line_arg = {'type' => 'line_arg', 'parent' => $arguments,
+        my $line_arg = {'type' => 'line_arg', 'parent' => $arguments_line,
                         'info' => {'spaces_after_argument'
                                                  => {'text' => "\n",}}};
-        $arguments->{'contents'} = [$line_arg];
+        $arguments_line->{'contents'} = [$line_arg];
 
         my $line_content;
         if ($commands_heading_content) {
@@ -193,7 +194,7 @@ sub fill_gaps_in_sectioning($;$)
           $line_content = $asis_command;
         }
         $line_arg->{'contents'} = [$line_content];
-        $new_section->{'contents'} = [$arguments,
+        $new_section->{'contents'} = [$arguments_line,
                                       {'type' => 'empty_line',
                                        'text' => "\n",
                                        'parent' => $new_section}];
@@ -377,11 +378,11 @@ sub _new_node($$;$)
     $node = {'cmdname' => 'node', 'extra' => {}};
     $node->{'info'} = {'spaces_before_argument' => {'text' => ' '}};
 
-    my $argument = {'type' => 'arguments_line', 'parent' => $node};
-    $node->{'contents'} = [$argument];
+    my $arguments_line = {'type' => 'arguments_line', 'parent' => $node};
+    $node->{'contents'} = [$arguments_line];
 
-    my $node_line_arg = {'type' => 'line_arg', 'parent' => $argument};
-    $argument->{'contents'} = [$node_line_arg];
+    my $node_line_arg = {'type' => 'line_arg', 'parent' => $arguments_line};
+    $arguments_line->{'contents'} = [$node_line_arg];
     $node_line_arg->{'info'} = {'spaces_after_argument' =>
                                      {'text' => $spaces_after_argument}};
     $node_line_arg->{'info'}->{'comment_at_end'} = $comment_at_end
@@ -479,7 +480,8 @@ sub insert_nodes_for_sectioning_commands($)
       if ($content->{'cmdname'} eq 'top') {
         $new_node_tree = {'contents' => [{'text' => 'Top'}]};
       } else {
-        my $line_arg = $content->{'contents'}->[0]->{'contents'}->[0];
+        my $arguments_line = $content->{'contents'}->[0];
+        my $line_arg = $arguments_line->{'contents'}->[0];
         $new_node_tree
          = Texinfo::ManipulateTree::copy_contentsNonXS($line_arg);
       }

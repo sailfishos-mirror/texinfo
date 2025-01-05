@@ -1282,7 +1282,9 @@ sub process_footnotes($;$)
       $node_element = $element->{'unit_command'};
       if ($node_element->{'extra'}
           and defined($node_element->{'extra'}->{'normalized'})) {
-        $label_element = $node_element->{'contents'}->[0]->{'contents'}->[0];
+        # arguments_line type element
+        my $arguments_line = $node_element->{'contents'}->[0];
+        $label_element = $arguments_line->{'contents'}->[0];
       }
     }
 
@@ -1539,8 +1541,9 @@ sub format_contents($$$)
     my $section = $top_section;
  SECTION:
     while ($section) {
-      my $argument = $section->{'contents'}->[0];
-      my $line_arg = $argument->{'contents'}->[0];
+      # arguments_line type element
+      my $arguments_line = $section->{'contents'}->[0];
+      my $line_arg = $arguments_line->{'contents'}->[0];
       my $section_title_tree;
       if (defined($section->{'extra'}->{'section_number'})
           and ($self->get_conf('NUMBER_SECTIONS')
@@ -3207,13 +3210,16 @@ sub _convert($$)
         my $footnotestyle = $self->get_conf('footnotestyle');
         if (defined($footnotestyle) and $footnotestyle eq 'separate'
             and $self->{'current_node'}) {
+          # arguments_line type element
+          my $arguments_line = $self->{'current_node'}->{'contents'}->[0];
+          my $line_arg = $arguments_line->{'contents'}->[0];
           _convert($self, {'contents' =>
            [{'text' => ' ('},
             {'cmdname' => 'pxref',
              'contents' => [
                {'type' => 'brace_arg',
                 'contents' => [
-                   $self->{'current_node'}->{'contents'}->[0]->{'contents'}->[0],
+                   $line_arg,
                    {'text' => "-Footnote-$self->{'footnote_index'}"}
                 ]
                }
@@ -3550,8 +3556,11 @@ sub _convert($$)
       my $heading_element;
       my $line_arg;
       if ($root_commands{$cmdname}) {
-        $line_arg = $element->{'contents'}->[0]->{'contents'}->[0];
+        # arguments_line type element
+        my $arguments_line = $element->{'contents'}->[0];
+        $line_arg = $arguments_line->{'contents'}->[0];
       } else {
+        # @heading* commands
         $line_arg = $element->{'contents'}->[0];
       }
       if ($cmdname ne 'part' and $line_arg->{'contents'}) {

@@ -3532,7 +3532,9 @@ sub _convert($$)
             if (defined($self->get_conf('xrefautomaticsectiontitle'))
                 and $self->get_conf('xrefautomaticsectiontitle') eq 'on'
                 and $section_command) {
-              $name = $section_command->{'contents'}->[0]->{'contents'}->[0];
+              # arguments_line type element
+              my $arguments_line = $section_command->{'contents'}->[0];
+              $name = $arguments_line->{'contents'}->[0];
             } else {
               $name = {'contents' => $reference_node_content};
             }
@@ -3973,9 +3975,11 @@ sub _convert($$)
         # add the label only if not associated with a section
         if (!$element->{'extra'}
             or not $element->{'extra'}->{'associated_section'}) {
+          # arguments_line type element
+          my $arguments_line = $element->{'contents'}->[0];
+          my $line_arg = $arguments_line->{'contents'}->[0];
           my $node_label
-            = _tree_anchor_label(
-                $element->{'contents'}->[0]->{'contents'}->[0]->{'contents'});
+            = _tree_anchor_label($line_arg->{'contents'});
           $result .= "\\label{$node_label}%\n";
         }
       } else {
@@ -3987,8 +3991,11 @@ sub _convert($$)
           my $heading = '';
           my $line_arg;
           if ($root_commands{$element->{'cmdname'}}) {
-            $line_arg = $element->{'contents'}->[0]->{'contents'}->[0];
+            # arguments_line type element
+            my $arguments_line = $element->{'contents'}->[0];
+            $line_arg = $arguments_line->{'contents'}->[0];
           } else {
+            # @heading* command
             $line_arg = $element->{'contents'}->[0];
           }
           if ($line_arg->{'contents'}) {
@@ -4020,9 +4027,11 @@ sub _convert($$)
         # be for the Top node, as another node ends in_skipped_node_top).
         if ($element->{'extra'} and $element->{'extra'}->{'associated_node'}) {
           my $associated_node = $element->{'extra'}->{'associated_node'};
+          # arguments_line type element
+          my $arguments_line = $associated_node->{'contents'}->[0];
+          my $line_arg = $arguments_line->{'contents'}->[0];
           my $node_label
-            = _tree_anchor_label(
-             $associated_node->{'contents'}->[0]->{'contents'}->[0]->{'contents'});
+            = _tree_anchor_label($line_arg->{'contents'});
           $result .= "\\label{$node_label}%\n";
         }
       }

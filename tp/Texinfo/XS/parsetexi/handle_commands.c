@@ -928,9 +928,9 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
       if (command_data(data_cmd).flags & CF_root)
         {
-          ELEMENT *arguments = new_element (ET_arguments_line);
-          add_to_element_contents (current, arguments);
-          add_to_element_contents (arguments, arg);
+          ELEMENT *arguments_line = new_element (ET_arguments_line);
+          add_to_element_contents (current, arguments_line);
+          add_to_element_contents (arguments_line, arg);
         }
       else /* def or line command */
         add_to_element_contents (current, arg);
@@ -986,7 +986,17 @@ handle_line_command (ELEMENT *current, const char **line_inout,
         current = last_contents_child (current);
       else if (command_data(data_cmd).flags & CF_root)
         {
-          current = last_contents_child (current->e.c->contents.list[0]);
+          /* arguments_line type element */
+          const ELEMENT *arguments_line = current->e.c->contents.list[0];
+          if (arguments_line->type != ET_arguments_line)
+            {
+              bug_message (
+                "root command first content is not arguments_line type: %s",
+                type_data[arguments_line->type].name);
+
+              abort ();
+            }
+          current = last_contents_child (arguments_line);
           push_context (ct_line, cmd);
         }
       else

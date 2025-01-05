@@ -1200,8 +1200,11 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
   const ELEMENT *label_element;
 
   if (builtin_command_data[command->e.c->cmd].flags & CF_root)
+    /* for root level sectioning commands, the first element is the
+       arguments_line element, it contains the label element */
     label_element = command->e.c->contents.list[0]->e.c->contents.list[0];
   else
+    /* @*heading commands */
     label_element = command->e.c->contents.list[0];
 
   normalized_name

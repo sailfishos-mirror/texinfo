@@ -74,11 +74,14 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
                || e->e.c->cmd == CM_sortas
                || e->e.c->cmd == CM_seealso
                || e->e.c->cmd == CM_seeentry)
-             /* here ignore the line commands */
+             /* here ignore the 'regular' line commands */
               || (e->e.c->contents.number > 0
                   && (e->e.c->contents.list[0]->type == ET_line_arg
                       || e->e.c->contents.list[0]->type == ET_rawline_arg))
+             /* here ignore the root-level line commands, @node and
+                sectioning commands */
               || (e->e.c->contents.number > 0
+                  && e->e.c->contents.list[0]->type == ET_arguments_line
                   && e->e.c->contents.list[0]->e.c->contents.number > 0
                   && e->e.c->contents.list[0]->e.c->contents.list[0]->type
                                                    == ET_line_arg))))

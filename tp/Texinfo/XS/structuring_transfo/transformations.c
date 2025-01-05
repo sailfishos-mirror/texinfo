@@ -249,7 +249,7 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
               ELEMENT *spaces_before_argument
                  = new_text_element (ET_other_text);
               ELEMENT *line_arg = new_element (ET_line_arg);
-              ELEMENT *arguments = new_element (ET_arguments_line);
+              ELEMENT *arguments_line = new_element (ET_arguments_line);
               ELEMENT *spaces_after_argument = new_text_element (ET_other_text);
               ELEMENT *empty_line = new_text_element (ET_empty_line);
 
@@ -262,11 +262,11 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
                              = spaces_before_argument;
               text_append (spaces_after_argument->e.text, "\n");
 
-              add_to_element_contents (new_section, arguments);
+              add_to_element_contents (new_section, arguments_line);
 
               line_arg->elt_info[eit_spaces_after_argument]
                        = spaces_after_argument;
-              add_to_element_contents (arguments, line_arg);
+              add_to_element_contents (arguments_line, line_arg);
 
               if (commands_heading_content)
                 {
@@ -646,14 +646,14 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       char *non_hyphen_char;
       ELEMENT *target = 0;
       ELEMENT *appended_text = 0;
-      ELEMENT *arguments = new_element (ET_arguments_line);
+      ELEMENT *arguments_line = new_element (ET_arguments_line);
       ELEMENT *node_line_arg = new_element (ET_line_arg);
       ELEMENT *spaces_before = new_text_element (ET_other_text);
       ELEMENT *spaces_after = new_text_element (ET_other_text);
 
       node = new_command_element (ET_line_command, CM_node);
-      add_to_element_contents (node, arguments);
-      add_to_element_contents (arguments, node_line_arg);
+      add_to_element_contents (node, arguments_line);
+      add_to_element_contents (arguments_line, node_line_arg);
       text_append (spaces_before->e.text, " ");
       text_append (spaces_after->e.text, spaces_after_argument.text);
       node->elt_info[eit_spaces_before_argument] = spaces_before;
@@ -828,8 +828,10 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                 }
               else
                 {
+                  const ELEMENT *arguments_line
+                    = content->e.c->contents.list[0];
                   const ELEMENT *line_arg
-                    = content->e.c->contents.list[0]->e.c->contents.list[0];
+                    = arguments_line->e.c->contents.list[0];
                   new_node_tree = copy_contents (line_arg, ET_NONE);
                 }
               added_node = new_node (&document->error_messages, new_node_tree,

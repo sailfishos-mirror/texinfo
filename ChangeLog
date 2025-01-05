@@ -1,5 +1,22 @@
 2025-01-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/*.pm, tp/Texinfo/ParserNonXS.pm,
+	tp/Texinfo/Structuring.pm, tp/Texinfo/Transformations.pm,
+	tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/convert/converter.c,
+	tp/Texinfo/XS/convert/format_html.c,
+	tp/Texinfo/XS/main/convert_to_texinfo.c,
+	tp/Texinfo/XS/main/convert_to_text.c,
+	tp/Texinfo/XS/main/node_name_normalization.c,
+	tp/Texinfo/XS/parsetexi/end_line.c,
+	tp/Texinfo/XS/parsetexi/handle_commands.c,
+	tp/Texinfo/XS/structuring_transfo/structuring.c,
+	tp/Texinfo/XS/structuring_transfo/transformations.c: add comments,
+	change variables names and add checks to make clearer when an
+	arguments_line element is used.
+
+2025-01-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/ext/highlight_syntax.pm (_get_language): use the first argument
 	to get the language.
 

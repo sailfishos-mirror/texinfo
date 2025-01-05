@@ -173,6 +173,12 @@ sub root_heading_command_to_texinfo($)
   if ($element->{'cmdname'}) {
     if (($element->{'cmdname'} eq 'node'
          or $sectioning_heading_commands{$element->{'cmdname'}})
+        and $element->{'contents'}->[0]->{'type'}
+        and $element->{'contents'}->[0]->{'type'} eq 'arguments_line'
+        and $element->{'contents'}->[0]->{'contents'}->[0]->{'type'}
+        # Should always be true
+        and $element->{'contents'}->[0]->{'contents'}->[0]->{'type'}
+                                                           eq 'line_arg'
         and $element->{'contents'}->[0]->{'contents'}->[0]->{'contents'}) {
       $tree = $element->{'contents'}->[0]->{'contents'}->[0];
     }

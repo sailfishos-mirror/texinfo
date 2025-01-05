@@ -497,8 +497,9 @@ sub conversion_output_begin($;$$)
     # if there is a legalnotice, we really want to have a title
     # preceding it, so we also use @top
     my $command = $global_commands->{'top'};
-    my $line_arg
-      = $global_commands->{'top'}->{'contents'}->[0]->{'contents'}->[0];
+    # arguments_line type element
+    my $arguments_line = $global_commands->{'top'}->{'contents'}->[0];
+    my $line_arg = $arguments_line->{'contents'}->[0];
     $fulltitle_command = $command
       if ($line_arg->{'contents'});
   }

@@ -696,9 +696,10 @@ sub _convert($$)
              or $cmdname eq 'smallquotation'
              or $cmdname eq 'float'
              or $cmdname eq 'cartouche') {
-      my $argument = $element->{'contents'}->[0];
-      foreach my $arg (@{$argument->{'contents'}}) {
-        my $converted_arg = _convert($options, $arg);
+      # arguments_line type element
+      my $arguments_line = $element->{'contents'}->[0];
+      foreach my $block_line_arg (@{$arguments_line->{'contents'}}) {
+        my $converted_arg = _convert($options, $block_line_arg);
         if ($converted_arg =~ /\S/) {
           $result .= $converted_arg.", ";
         }
@@ -709,8 +710,11 @@ sub _convert($$)
     } elsif ($Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
       my $line_arg;
       if ($Texinfo::Commands::root_commands{$cmdname}) {
-        $line_arg = $element->{'contents'}->[0]->{'contents'}->[0];
+        # arguments_line type element
+        my $arguments_line = $element->{'contents'}->[0];
+        $line_arg = $arguments_line->{'contents'}->[0];
       } else {
+        # @heading* command
         $line_arg = $element->{'contents'}->[0];
       }
       my $heading_text = _convert($options, $line_arg);

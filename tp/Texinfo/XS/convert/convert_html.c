@@ -983,9 +983,10 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
   if (!fulltitle_tree
       && self->document->global_commands.top)
     {
-      const ELEMENT *argument
+      /* arguments_line type element */
+      const ELEMENT *arguments_line
        = self->document->global_commands.top->e.c->contents.list[0];
-      ELEMENT *line_arg = argument->e.c->contents.list[0];
+      ELEMENT *line_arg = arguments_line->e.c->contents.list[0];
 
       if (line_arg->e.c->contents.number > 0)
         fulltitle_tree = line_arg;
@@ -2938,9 +2939,11 @@ html_node_redirections (CONVERTER *self,
                     {
                       const ELEMENT *conflicting_section
                         = file_source_info->element;
+                      /* arguments_line type element */
+                      const ELEMENT *arguments_line
+                        = conflicting_section->e.c->contents.list[0];
                       const ELEMENT *line_arg
-                        = conflicting_section->e.c->contents.list[0]
-                                    ->e.c->contents.list[0];
+                        = arguments_line->e.c->contents.list[0];
                       char *section_texi
                         = convert_contents_to_texinfo (line_arg);
                      pmessage_list_command_warn (&self->error_messages,

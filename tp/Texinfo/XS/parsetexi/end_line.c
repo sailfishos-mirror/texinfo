@@ -120,7 +120,11 @@ parse_line_command_args (ELEMENT *line_command)
   cmd = line_command->e.c->cmd;
 
   if (command_data(cmd).flags & CF_root)
-    line_arg = line_command->e.c->contents.list[0]->e.c->contents.list[0];
+    {
+      /* arguments_line type element */
+      const ELEMENT *arguments_line = line_command->e.c->contents.list[0];
+      line_arg = arguments_line->e.c->contents.list[0];
+    }
   else
     line_arg = line_command->e.c->contents.list[0];
 
@@ -1247,8 +1251,11 @@ end_line_misc_line (ELEMENT *current)
 
   if (current->parent->type == ET_arguments_line)
     {
+      const ELEMENT *arguments_line;
+
       command_element = current->parent->parent;
-      line_arg = command_element->e.c->contents.list[0]->e.c->contents.list[0];
+      arguments_line = command_element->e.c->contents.list[0];
+      line_arg = arguments_line->e.c->contents.list[0];
     }
   else
     {
@@ -1571,42 +1578,43 @@ end_line_misc_line (ELEMENT *current)
   else if (current->e.c->cmd == CM_node)
     {
       size_t i;
-      ELEMENT *argument = current->e.c->contents.list[0];
-      ELEMENT *label_element;
+      /* arguments_line type element */
+      ELEMENT *arguments_line = current->e.c->contents.list[0];
 
-      for (i = 1; i < argument->e.c->contents.number && i < 4; i++)
+      for (i = 1; i < arguments_line->e.c->contents.number && i < 4; i++)
         {
-          ELEMENT * arg = argument->e.c->contents.list[i];
-          NODE_SPEC_EXTRA *direction_label_info = parse_node_manual (arg, 1);
+          ELEMENT *node_line_arg = arguments_line->e.c->contents.list[i];
+          NODE_SPEC_EXTRA *direction_label_info
+            = parse_node_manual (node_line_arg, 1);
           if (direction_label_info->node_content)
             {
               ELEMENT *tmp = new_element (ET_NONE);
               char *normalized;
 
-              add_extra_container (arg, AI_key_node_content,
+              add_extra_container (node_line_arg, AI_key_node_content,
                                    direction_label_info->node_content);
 
-              tmp->e.c->contents = direction_label_info->node_content->e.c->contents;
+              tmp->e.c->contents
+                 = direction_label_info->node_content->e.c->contents;
               normalized = convert_to_identifier (tmp);
               tmp->e.c->contents.list = 0;
               destroy_element (tmp);
 
-              add_extra_string (arg, AI_key_normalized, normalized);
+              add_extra_string (node_line_arg, AI_key_normalized, normalized);
             }
           if (direction_label_info->manual_content)
-            add_extra_container (arg, AI_key_manual_content,
+            add_extra_container (node_line_arg, AI_key_manual_content,
                                  direction_label_info->manual_content);
           free (direction_label_info);
         }
 
       /* Now take care of the node itself */
-      label_element = argument->e.c->contents.list[0];
-      if (label_element->e.c->contents.number == 0)
+      if (line_arg->e.c->contents.number == 0)
         {
           line_error_ext (MSG_error, 0, &current->e.c->source_info,
                           "empty argument in @%s", command_name (cmd));
         }
-      check_register_target_element_label (label_element, current);
+      check_register_target_element_label (line_arg, current);
 
       if (current_part
           && !lookup_extra_element (current_part,

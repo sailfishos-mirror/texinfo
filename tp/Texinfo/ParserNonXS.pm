@@ -3642,7 +3642,8 @@ sub _end_line_misc_line($$$)
   if ($current->{'parent'}->{'type'}
       and $current->{'parent'}->{'type'} eq 'arguments_line') {
     $command_element = $current->{'parent'}->{'parent'};
-    $line_arg = $command_element->{'contents'}->[0]->{'contents'}->[0];
+    my $arguments_line = $command_element->{'contents'}->[0];
+    $line_arg = $arguments_line->{'contents'}->[0];
   } else {
     $command_element = $current->{'parent'};
     $line_arg = $command_element->{'contents'}->[0];
@@ -3851,33 +3852,33 @@ sub _end_line_misc_line($$$)
                      $command, $texi_line);
     }
   } elsif ($command eq 'node') {
-    my $argument = $current->{'contents'}->[0];
-    for (my $i = 1; $i < scalar(@{$argument->{'contents'}}); $i++) {
-      my $arg = $argument->{'contents'}->[$i];
+    # arguments_line type element
+    my $arguments_line = $current->{'contents'}->[0];
+    for (my $i = 1; $i < scalar(@{$arguments_line->{'contents'}}); $i++) {
+      my $node_line_arg = $arguments_line->{'contents'}->[$i];
       my $arg_label_manual_info
-        = Texinfo::Common::parse_node_manual($arg, 1);
+        = Texinfo::Common::parse_node_manual($node_line_arg, 1);
       if (defined($arg_label_manual_info)) {
         # 'node_content' 'manual_content'
         foreach my $label_info (keys(%$arg_label_manual_info)) {
-          $arg->{'extra'} = {} if (!$arg->{'extra'});
-          $arg->{'extra'}->{$label_info}
+          $node_line_arg->{'extra'} = {} if (!$node_line_arg->{'extra'});
+          $node_line_arg->{'extra'}->{$label_info}
             = $arg_label_manual_info->{$label_info};
         }
-        if ($arg->{'extra'}->{'node_content'}) {
+        if ($node_line_arg->{'extra'}->{'node_content'}) {
           my $normalized
             = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-              $arg->{'extra'}->{'node_content'});
-          $arg->{'extra'}->{'normalized'} = $normalized;
+              $node_line_arg->{'extra'}->{'node_content'});
+          $node_line_arg->{'extra'}->{'normalized'} = $normalized;
         }
       }
     }
-    my $label_element = $argument->{'contents'}->[0];
-    if (not $label_element or not $label_element->{'contents'}) {
+    if (not $line_arg or not $line_arg->{'contents'}) {
       $self->_line_error(
         sprintf(__("empty argument in \@%s"),
           $current->{'cmdname'}), $current->{'source_info'});
     }
-    _check_register_target_element_label($self, $label_element,
+    _check_register_target_element_label($self, $line_arg,
                                          $current, $source_info);
 
     if ($self->{'current_part'}) {
@@ -5961,10 +5962,10 @@ sub _handle_line_command($$$$$$)
     }
     $current = $current->{'contents'}->[-1];
     if ($root_commands{$data_cmdname}) {
-      my $arguments = {'type' => 'arguments_line', 'parent' => $current};
-      $current->{'contents'} = [$arguments];
-      $arguments->{'contents'} = [{ 'type' => 'line_arg',
-                                  'parent' => $arguments }];
+      my $arguments_line = {'type' => 'arguments_line', 'parent' => $current};
+      $current->{'contents'} = [$arguments_line];
+      $arguments_line->{'contents'} = [{ 'type' => 'line_arg',
+                                         'parent' => $arguments_line }];
     } else {# def or line command
       $current->{'contents'} = [{ 'type' => 'line_arg',
                                   'parent' => $current }];
@@ -6027,7 +6028,14 @@ sub _handle_line_command($$$$$$)
     if ($def_commands{$data_cmdname}) {
       $current = $current->{'contents'}->[-1];
     } elsif ($root_commands{$data_cmdname}) {
-      $current = $current->{'contents'}->[0]->{'contents'}->[-1];
+      # arguments_line type element
+      my $arguments_line = $current->{'contents'}->[0];
+      if (!$arguments_line->{'type'}
+          or $arguments_line->{'type'} ne 'arguments_line') {
+        confess(
+  "root command first content is not arguments_line type: $arguments_line->{'type'}");
+      }
+      $current = $arguments_line->{'contents'}->[-1];
       $self->_push_context('ct_line', $command);
     } else {
       $current = $current->{'contents'}->[-1];
@@ -7959,7 +7967,9 @@ sub _parse_line_command_args($$$)
   my $command = $line_command->{'cmdname'};
   my $line_arg;
   if ($root_commands{$command}) {
-    $line_arg = $line_command->{'contents'}->[0]->{'contents'}->[0];
+    # arguments_line type element
+    my $arguments_line = $line_command->{'contents'}->[0];
+    $line_arg = $arguments_line->{'contents'}->[0];
   } else {
     $line_arg = $line_command->{'contents'}->[0];
   }

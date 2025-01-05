@@ -1287,7 +1287,9 @@ sub _internal_command_tree($$$)
         if ($command->{'cmdname'} eq 'anchor') {
           $label_element = $command->{'contents'}->[0];
         } else {
-          $label_element = $command->{'contents'}->[0]->{'contents'}->[0];
+          # arguments_line type element
+          my $arguments_line = $command->{'contents'}->[0];
+          $label_element = $arguments_line->{'contents'}->[0];
         }
         $tree = {'type' => '_code',
                  'contents' => [$label_element]};
@@ -1296,8 +1298,11 @@ sub _internal_command_tree($$$)
       } else {
         my $line_arg;
         if ($root_commands{$command->{'cmdname'}}) {
-          $line_arg = $command->{'contents'}->[0]->{'contents'}->[0];
+          # arguments_line type element
+          my $arguments_line = $command->{'contents'}->[0];
+          $line_arg = $arguments_line->{'contents'}->[0];
         } else {
+          # @heading* commands
           $line_arg = $command->{'contents'}->[0];
         }
         if ($line_arg->{'contents'}) {
@@ -4593,9 +4598,10 @@ sub _convert_heading_command($$$$$)
         if ($element->{'extra'} and $element->{'extra'}->{'associated_node'});
 
       if ($node) {
-        my $argument = $node->{'contents'}->[0];
+        # arguments_line type element
+        my $arguments_line = $node->{'contents'}->[0];
         my $automatic_directions = 1;
-        if (scalar(@{$argument->{'contents'}}) > 1) {
+        if (scalar(@{$arguments_line->{'contents'}}) > 1) {
           $automatic_directions = 0;
         }
 
@@ -11137,8 +11143,11 @@ sub _file_header_information($$;$)
       if ($self->get_conf('SECTION_NAME_IN_TITLE')
           and $command->{'extra'}
           and $command->{'extra'}->{'associated_section'}){
-        $element_tree = $command->{'extra'}->{'associated_section'}
-            ->{'contents'}->[0]->{'contents'}->[0];
+        # associated section arguments_line type element
+        my $arguments_line
+          = $command->{'extra'}->{'associated_section'}->{'contents'}->[0];
+        # line_arg type element containing the sectioning command line argument
+        $element_tree = $arguments_line->{'contents'}->[0];
       } else {
         # this should not happen, as the command_string should be empty already
         $element_tree = $self->command_tree($command);
@@ -12618,8 +12627,9 @@ sub _prepare_converted_output_info($$$$)
       }
     }
     if (!$fulltitle_tree and $global_commands->{'top'}) {
-      my $argument = $global_commands->{'top'}->{'contents'}->[0];
-      my $line_arg = $argument->{'contents'}->[0];
+      # arguments_line type element
+      my $arguments_line = $global_commands->{'top'}->{'contents'}->[0];
+      my $line_arg = $arguments_line->{'contents'}->[0];
       if ($line_arg->{'contents'}) {
         $fulltitle_tree = $line_arg;
       }
@@ -12985,13 +12995,15 @@ sub _node_redirections($$$$)
               $conflicting_node->{'source_info'}, 1);
           } elsif ($file_info_type eq 'section') {
             my $conflicting_section = $file_source->{'file_info_element'};
+            # arguments_line type element
+            my $arguments_line = $conflicting_section->{'contents'}->[0];
+            my $line_arg = $arguments_line->{'contents'}->[0];
             $self->converter_line_warn(
          sprintf(__p('conflict of redirection file with file based on section name',
                      "conflict with \@%s `%s' file"),
                  $conflicting_section->{'cmdname'},
-                 Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                   => $conflicting_section->{'contents'}->[0]
-                                        ->{'contents'}->[0]->{'contents'}}),
+                 Texinfo::Convert::Texinfo::convert_to_texinfo(
+                             {'contents' => $line_arg->{'contents'}}),
                  ),
               $conflicting_section->{'source_info'}, 1);
           } elsif ($file_info_type eq 'special_unit') {

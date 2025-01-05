@@ -910,8 +910,9 @@ sub _convert($$;$)
           $result .= $self->txi_markup_open_element('node',
                           [['name', $nodename], _leading_spaces_arg($element)]);
           push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
-          my $argument = $element->{'contents'}->[0];
-          my $line_arg = $argument->{'contents'}->[0];
+          # arguments_line type element
+          my $arguments_line = $element->{'contents'}->[0];
+          my $line_arg = $arguments_line->{'contents'}->[0];
           $result .= $self->txi_markup_open_element('nodename',
                                [_trailing_spaces_arg($line_arg)]);
           $result .= $self->_convert({'contents'
@@ -929,15 +930,15 @@ sub _convert($$;$)
                   = $element->{'extra'}->{'node_directions'}->{lc($direction)};
               my $node_name = '';
               my $attributes = [];
-              if ($argument->{'contents'}->[$direction_index]) {
+              if ($arguments_line->{'contents'}->[$direction_index]) {
                 push @$attributes, _leading_trailing_spaces_arg(
-                                 $argument->{'contents'}->[$direction_index]);
+                          $arguments_line->{'contents'}->[$direction_index]);
               }
-              if (scalar(@{$argument->{'contents'}}) < $direction_index +1
-                  or !defined($argument->{'contents'}->[$direction_index]->{'extra'})
-                  or !(defined($argument->{'contents'}->[$direction_index]
+              if (scalar(@{$arguments_line->{'contents'}}) < $direction_index +1
+                  or !defined($arguments_line->{'contents'}->[$direction_index]->{'extra'})
+                  or !(defined($arguments_line->{'contents'}->[$direction_index]
                                                     ->{'extra'}->{'manual_node'}
-                       or defined($argument->{'contents'}->[$direction_index]
+                       or defined($arguments_line->{'contents'}->[$direction_index]
                                                      ->{'extra'}->{'normalized'})))) {
                 push @$attributes, ['automatic', 'on'];
 
@@ -950,7 +951,8 @@ sub _convert($$;$)
                 }
               } else {
                 $node_name
-                  = $self->_convert($argument->{'contents'}->[$direction_index]);
+                  = $self->_convert(
+                          $arguments_line->{'contents'}->[$direction_index]);
               }
               $result .= "$pending_empty_directions".
                 $self->txi_markup_open_element($format_element, $attributes)
@@ -958,11 +960,11 @@ sub _convert($$;$)
                 $self->txi_markup_close_element($format_element);
               $pending_empty_directions = '';
             } else {
-              if ($argument->{'contents'}->[$direction_index]) {
+              if ($arguments_line->{'contents'}->[$direction_index]) {
                 $pending_empty_directions .=
                   $self->txi_markup_open_element($format_element,
                     [_leading_trailing_spaces_arg(
-                                 $argument->{'contents'}->[$direction_index])])
+                          $arguments_line->{'contents'}->[$direction_index])])
                             .$self->txi_markup_close_element($format_element);
               }
             }

@@ -528,9 +528,9 @@ sub check_nodes_are_referenced($)
       # the nodes appearing in the automatic menu are referenced.
       # Note that the menu may not be actually setup, but
       # it is better not to warn for nothing.
-      my $argument = $node->{'contents'}->[0];
+      my $arguments_line = $node->{'contents'}->[0];
       my $automatic_directions
-        = (not (scalar(@{$argument->{'contents'}}) > 1));
+        = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
       if ($automatic_directions) {
         my @node_childs = get_node_node_childs_from_sectioning($node);
         foreach my $node_child (@node_childs) {
@@ -723,9 +723,9 @@ sub complete_node_tree_with_menus($)
   my %cached_menu_nodes;
   # Go through all the nodes
   foreach my $node (@{$nodes_list}) {
-    my $argument = $node->{'contents'}->[0];
+    my $arguments_line = $node->{'contents'}->[0];
     my $automatic_directions
-      = (not (scalar(@{$argument->{'contents'}}) > 1));
+      = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
 
     my $normalized = $node->{'extra'}->{'normalized'};
     my $menu_directions = $node->{'extra'}->{'menu_directions'};
@@ -938,9 +938,9 @@ sub nodes_tree($)
     }
     push @nodes_list, $node;
 
-    my $argument = $node->{'contents'}->[0];
+    my $arguments_line = $node->{'contents'}->[0];
     my $automatic_directions
-      = (not (scalar(@{$argument->{'contents'}}) > 1));
+      = (not (scalar(@{$arguments_line->{'contents'}}) > 1));
 
     if ($automatic_directions) {
       if (!$top_node or $node ne $top_node) {
@@ -995,8 +995,8 @@ sub nodes_tree($)
         }
       }
     } else { # explicit directions
-      for (my $i = 1; $i < scalar(@{$argument->{'contents'}}); $i++) {
-        my $direction_element = $argument->{'contents'}->[$i];
+      for (my $i = 1; $i < scalar(@{$arguments_line->{'contents'}}); $i++) {
+        my $direction_element = $arguments_line->{'contents'}->[$i];
         my $direction = $node_directions_names[$i-1];
 
         # external node
@@ -1190,7 +1190,8 @@ sub new_node_menu_entry
 
   my $node_name_element;
   if ($node->{'extra'} and $node->{'extra'}->{'is_target'}) {
-    $node_name_element = $node->{'contents'}->[0]->{'contents'}->[0];
+    my $arguments_line = $node->{'contents'}->[0];
+    $node_name_element = $arguments_line->{'contents'}->[0];
   }
 
   # can happen with node without argument or with empty argument
@@ -1200,9 +1201,9 @@ sub new_node_menu_entry
   if ($use_sections) {
     my $name_element;
     if (defined $node->{'extra'}->{'associated_section'}) {
-      $name_element
-        = $node->{'extra'}->{'associated_section'}
-              ->{'contents'}->[0]->{'contents'}->[0];
+      my $arguments_line = $node->{'extra'}->{'associated_section'}
+               ->{'contents'}->[0];
+      $name_element = $arguments_line->{'contents'}->[0];
     } else {
       $name_element = $node_name_element; # shouldn't happen
     }
@@ -1286,12 +1287,12 @@ sub new_block_command($$)
 
   $element->{'cmdname'} = $command_name;
 
-  my $arguments = {'type' => 'arguments_line', 'parent' => $element};
-  $arguments->{'contents'} = [{'type' => 'block_line_arg',
-                               'parent' => $arguments,
-                                'info' => { 'spaces_after_argument' =>
+  my $arguments_line = {'type' => 'arguments_line', 'parent' => $element};
+  $arguments_line->{'contents'} = [{'type' => 'block_line_arg',
+                                    'parent' => $arguments_line,
+                                    'info' => { 'spaces_after_argument' =>
                                                {'text' => "\n",}}}];
-  unshift @{$element->{'contents'}}, $arguments;
+  unshift @{$element->{'contents'}}, $arguments_line;
 
   my $end = {'cmdname' => 'end', 'parent' => $element,
              'extra' => {'text_arg' => $command_name}};
@@ -1383,8 +1384,8 @@ sub new_complete_node_menu
         my $part_added = 0;
         my $associated_part = $child_section->{'extra'}->{'associated_part'};
         if ($associated_part) {
-          my $part_line_arg
-            = $associated_part->{'contents'}->[0]->{'contents'}->[0];
+          my $part_arguments_line = $associated_part->{'contents'}->[0];
+          my $part_line_arg = $part_arguments_line->{'contents'}->[0];
           my $part_title_copy
             = Texinfo::ManipulateTree::copy_contentsNonXS($part_line_arg);
           my $part_title
@@ -1563,10 +1564,11 @@ sub _print_down_menus($$$$$;$)
     my $node_name_element;
     if ($node->{'extra'}->{'associated_section'}) {
       my $associated_section = $node->{'extra'}->{'associated_section'};
-      $node_name_element
-        = $associated_section->{'contents'}->[0]->{'contents'}->[0];
+      my $arguments_line = $associated_section->{'contents'}->[0];
+      $node_name_element = $arguments_line->{'contents'}->[0];
     } else {
-      $node_name_element = $node->{'contents'}->[0]->{'contents'}->[0];
+      my $arguments_line = $node->{'contents'}->[0];
+      $node_name_element = $arguments_line->{'contents'}->[0];
     }
 
     my $node_title_copy

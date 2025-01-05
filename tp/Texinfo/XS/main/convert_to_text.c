@@ -875,15 +875,18 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         {
           size_t i;
           TEXT args_line;
-          ELEMENT *argument = element->e.c->contents.list[0];
+          /* arguments_line type element */
+          ELEMENT *arguments_line = element->e.c->contents.list[0];
 
           text_init (&args_line);
-          for (i = 0; i < argument->e.c->contents.number; i++)
+          for (i = 0; i < arguments_line->e.c->contents.number; i++)
             {
-              const ELEMENT *arg = argument->e.c->contents.list[i];
+              const ELEMENT *block_line_arg
+                    = arguments_line->e.c->contents.list[i];
               TEXT converted_arg;
               text_init (&converted_arg);
-              convert_to_text_internal (arg, text_options, &converted_arg);
+              convert_to_text_internal (block_line_arg, text_options,
+                                        &converted_arg);
               if (converted_arg.end > 0)
                 {
                   int spaces_nr
@@ -922,8 +925,13 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           text_append (&text, "");
 
           if (builtin_command_data[data_cmd].flags & CF_root)
-            line_arg = element->e.c->contents.list[0]->e.c->contents.list[0];
+            {
+              /* arguments_line type element */
+              const ELEMENT *arguments_line = element->e.c->contents.list[0];
+              line_arg = arguments_line->e.c->contents.list[0];
+            }
           else
+            /* @heading* command */
             line_arg = element->e.c->contents.list[0];
 
           convert_to_text_internal (line_arg, text_options, &text);

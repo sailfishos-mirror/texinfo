@@ -1790,8 +1790,12 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
               if (command->e.c->cmd == CM_anchor)
                 label_element = command->e.c->contents.list[0];
               else
-                label_element
-                  = command->e.c->contents.list[0]->e.c->contents.list[0];
+                {
+                  /* arguments_line type element */
+                  const ELEMENT *arguments_line
+                    = command->e.c->contents.list[0];
+                  label_element = arguments_line->e.c->contents.list[0];
+                }
               add_to_contents_as_array (root_code, label_element);
               tree->tree = root_code;
               add_tree_to_build (self, tree->tree);
@@ -1807,9 +1811,14 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
               ELEMENT *line_arg;
 
               if (builtin_command_data[command->e.c->cmd].flags & CF_root)
-                line_arg
-                  = command->e.c->contents.list[0]->e.c->contents.list[0];
+                {
+                  /* arguments_line type element */
+                  const ELEMENT *arguments_line
+                    = command->e.c->contents.list[0];
+                  line_arg = arguments_line->e.c->contents.list[0];
+                }
               else
+                /* @heading* commands */
                 line_arg = command->e.c->contents.list[0];
 
               if (line_arg->e.c->contents.number > 0)
@@ -3707,8 +3716,11 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
                 = lookup_extra_element (command, AI_key_associated_section);
               if (associated_section)
                 {
-                  command_tree = associated_section->e.c->contents.list[0]
-                                                     ->e.c->contents.list[0];
+                  /* associated section arguments_line type element */
+                  const ELEMENT *arguments_line
+                    = associated_section->e.c->contents.list[0];
+    /* line_arg type element containing the sectioning command line argument */
+                  command_tree = arguments_line->e.c->contents.list[0];
                 }
             }
 
@@ -7162,8 +7174,10 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
             = lookup_extra_element (element, AI_key_associated_node);
           if (node)
             {
-              const ELEMENT *argument = node->e.c->contents.list[0];
-              int automatic_directions = (argument->e.c->contents.number <= 1);
+              /* arguments_line type element */
+              const ELEMENT *arguments_line = node->e.c->contents.list[0];
+              int automatic_directions
+                = (arguments_line->e.c->contents.number <= 1);
               const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node,
                                                               AI_key_menus);
               if (!menus && automatic_directions)

@@ -276,12 +276,16 @@ sub _convert($)
   return '' if (($element->{'type'} and $ignored_types{$element->{'type'}})
           or ($element->{'cmdname'}
              and ($ignored_brace_commands{$element->{'cmdname'}}
-             # here ignore the line commands
+                 # here ignore the 'regular' line commands
                  or ($element->{'contents'} and $element->{'contents'}->[0]
                      and $element->{'contents'}->[0]->{'type'}
                      and ($element->{'contents'}->[0]->{'type'} eq 'line_arg'
                          or $element->{'contents'}->[0]->{'type'} eq 'rawline_arg')
+                 # here ignore the root-level line commands, @node and
+                 # sectioning commands
                  or ($element->{'contents'}
+                     and $element->{'contents'}->[0]->{'type'}
+                     and $element->{'contents'}->[0]->{'type'} eq 'arguments_line'
                      and $element->{'contents'}->[0]->{'contents'}
              and $element->{'contents'}->[0]->{'contents'}->[0]->{'type'}
    and $element->{'contents'}->[0]->{'contents'}->[0]->{'type'} eq 'line_arg')))));
