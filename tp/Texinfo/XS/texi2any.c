@@ -894,6 +894,9 @@ main (int argc, char *argv[], char *env[])
   /* used except for the first file, to remove some options that are only
      relevant for the first file */
   OPTIONS_LIST non_first_file_cmdline_options;
+  /* make sure that non_first_file_cmdline_options was initialized,
+     even if a file was skipped */
+  int non_first_file_cmdline_initialized = 0;
   size_t errors_count = 0;
   size_t errors_nr;
   STRING_LIST *texinfo_language_config_dirs;
@@ -957,6 +960,7 @@ main (int argc, char *argv[], char *env[])
   unsigned long transformation_flags = 0;
   const char *txi_xs_external_conversion;
   const char *txi_xs_external_formatting;
+  FILE *main_program_unclosed_stdout = 0;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -2491,7 +2495,11 @@ main (int argc, char *argv[], char *env[])
 
       if (i != 0)
         {
-          initialize_options_list (&non_first_file_cmdline_options);
+          if (!non_first_file_cmdline_initialized)
+            {
+              initialize_options_list (&non_first_file_cmdline_options);
+              non_first_file_cmdline_initialized = 1;
+            }
           copy_options_list (&non_first_file_cmdline_options,
                              &cmdline_options);
           options_list_remove_option_number (&non_first_file_cmdline_options,
@@ -2513,6 +2521,9 @@ main (int argc, char *argv[], char *env[])
       copy_options_list (&convert_options, &program_options);
       copy_options_list (&convert_options, init_files_options);
       copy_options_list (&convert_options, file_cmdline_options);
+
+      if (i != 0)
+        clear_options_list (&non_first_file_cmdline_options);
 
       /* prepend to INCLUDE_DIRECTORIES by resetting include directories to
          merged prepended directories and command line include directories */
@@ -2569,6 +2580,34 @@ main (int argc, char *argv[], char *env[])
                                        test_mode_set, set_message_encoding);
 
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
+
+      if (converter->output_files_information.unclosed_files.number > 0)
+        {
+          FILE_STREAM_LIST *unclosed_files
+            = &converter->output_files_information.unclosed_files;
+
+          for (j = 0; j < unclosed_files->number; j++)
+            {
+              FILE_STREAM *file_stream = &unclosed_files->list[j];
+               /*
+              fprintf (stderr, "Unclosed file '%s' %p\n",
+                file_stream->file_path, file_stream->stream);
+                */
+              if (!strcmp (file_stream->file_path, "-"))
+                main_program_unclosed_stdout = file_stream->stream;
+              else
+                {
+                  if (fclose (file_stream->stream))
+                    {
+                      fprintf (stderr, _("%s: error on closing %s: %s"),
+                               program_file, file_stream->file_path,
+                               strerror (errno));
+                      errors_count = handle_errors (1,
+                                                errors_count, &opened_files);
+                    }
+                }
+            }
+        }
 
       if (format_specification->flags & STTF_internal_links && i == 0)
         {
@@ -2791,9 +2830,19 @@ main (int argc, char *argv[], char *env[])
       clear_options_list (&convert_options);
     }
 
+  if (main_program_unclosed_stdout)
+    {
+      if (fclose (main_program_unclosed_stdout))
+        {
+          fprintf (stderr, _("%s: error on closing %s: %s"),
+                   program_file, "-", strerror (errno));
+          errors_count = handle_errors (1, errors_count, &opened_files);
+        }
+    }
+
   destroy_converter_initialization_info (converter_init_info);
 
-  if (input_files.number > 1)
+  if (non_first_file_cmdline_initialized)
     free_options_list (&non_first_file_cmdline_options);
 
   free_strings_list (&prepended_include_directories);
