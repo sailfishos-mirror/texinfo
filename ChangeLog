@@ -1,3 +1,21 @@
+2025-01-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/customization_options.c (clear_option)
+	(clear_options_list): remove the OF_set_in_list flag in clear_option
+	and not in clear_options_list, to be able to do it for individual
+	options.
+
+	* tp/Texinfo/XS/main/customization_options.c
+	(options_list_remove_option_number): add.
+
+	* tp/Texinfo/XS/texi2any.c (main): set XS_EXTERNAL_CONVERSION and
+	XS_EXTERNAL_FORMATTING.
+
+	* tp/Texinfo/XS/texi2any.c (main): remove the options that are only
+	relevant for the first processed file for the other files.
+
+	* tp/texi2any.pl: comment out unused code.
+
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
 	SHOW_BUILTIN_CSS_RULES in ctexi2any

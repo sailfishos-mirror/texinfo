@@ -62,6 +62,8 @@ void free_options_list (OPTIONS_LIST *options_list);
 int option_number_in_option_list (OPTIONS_LIST *options_list, size_t number);
 void options_list_add_option_number (OPTIONS_LIST *options_list,
                                      size_t number);
+OPTION *options_list_remove_option_number (OPTIONS_LIST *options_list,
+                                           size_t number);
 void copy_options_list (OPTIONS_LIST *options_list,
                         const OPTIONS_LIST *options_src);
 void copy_options_list_set_configured (OPTIONS *options,

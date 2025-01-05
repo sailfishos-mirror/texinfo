@@ -141,6 +141,11 @@ clear_option (OPTION *option)
       default:
         break;
     }
+  /* need to reset the flags too, otherwise the options will not be readded
+     to the list.  Note that we do that for all the options, while we could
+     have selected the options in thelist only, but this allows to clear
+     an option individually */
+  option->flags &= ~OF_set_in_list;
 }
 
 /* option is not supposed to be accessed again */
@@ -438,15 +443,6 @@ free_options_list (OPTIONS_LIST *options_list)
 void
 clear_options_list (OPTIONS_LIST *options_list)
 {
-  size_t i;
-
-  /* need to reset the flags too, otherwise the options will not be readded
-     to the list */
-  for (i = 0; i < options_list->number; i++)
-    {
-      size_t index = options_list->list[i] -1;
-      options_list->sorted_options[index]->flags &= ~OF_set_in_list;
-    }
   options_list->number = 0;
   clear_options (options_list->options);
 }
@@ -489,6 +485,34 @@ options_list_add_option_name (OPTIONS_LIST *options_list,
   options_list_add_option_number (options_list, option->number);
 
   return option;
+}
+
+/* remove and clear */
+OPTION *
+options_list_remove_option_number (OPTIONS_LIST *options_list,
+                                   size_t number)
+{
+  size_t i;
+
+  if (!(options_list->sorted_options[number -1]->flags & OF_set_in_list))
+    return 0;
+
+  for (i = 0; i < options_list->number; i++)
+    {
+      size_t index = options_list->list[i] - 1;
+      OPTION *option = options_list->sorted_options[index];
+      if (option->number == number)
+        {
+          if (i < options_list->number -1)
+            memmove (&options_list->list[i], &options_list->list[i+1],
+                     (options_list->number - (i+1)) * sizeof (size_t));
+          options_list->number--;
+          clear_option (option);
+          return option;
+        }
+    }
+  /* should never happen */
+  return 0;
 }
 
 /* copy OPTIONS_LIST options to an OPTIONS structure */

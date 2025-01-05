@@ -891,6 +891,9 @@ main (int argc, char *argv[], char *env[])
    */
   OPTIONS_LIST parser_options;
   OPTIONS_LIST convert_options;
+  /* used except for the first file, to remove some options that are only
+     relevant for the first file */
+  OPTIONS_LIST non_first_file_cmdline_options;
   size_t errors_count = 0;
   size_t errors_nr;
   STRING_LIST *texinfo_language_config_dirs;
@@ -952,6 +955,8 @@ main (int argc, char *argv[], char *env[])
   int Xopt_arg_nr = 0;
   char *texi2dvi = 0;
   unsigned long transformation_flags = 0;
+  const char *txi_xs_external_conversion;
+  const char *txi_xs_external_formatting;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -2019,6 +2024,7 @@ main (int argc, char *argv[], char *env[])
       GNUT_set_from_cmdline (&cmdline_options,
                        program_options.options->SPLIT.number, "");
     }
+  split_option = GNUT_get_conf (program_options.options->SPLIT.number);
 
   memset (&default_expanded_formats, 0, sizeof (STRING_LIST));
   format_expanded_formats (&default_expanded_formats, format_specification,
@@ -2241,6 +2247,19 @@ main (int argc, char *argv[], char *env[])
       exit (EXIT_FAILURE);
     }
 
+  /* NOTE there is an effect only if Perl converter is used */
+  txi_xs_external_conversion = getenv ("TEXINFO_XS_EXTERNAL_CONVERSION");
+  if (txi_xs_external_conversion && strlen (txi_xs_external_conversion)
+      && strcmp (txi_xs_external_conversion, "0"))
+    GNUT_set_from_cmdline (&cmdline_options,
+        program_options.options->XS_EXTERNAL_CONVERSION.number, "1");
+
+  txi_xs_external_formatting = getenv ("TEXINFO_XS_EXTERNAL_FORMATTING");
+  if (txi_xs_external_formatting && strlen (txi_xs_external_formatting)
+      && strcmp (txi_xs_external_formatting, "0"))
+    GNUT_set_from_cmdline (&cmdline_options,
+        program_options.options->XS_EXTERNAL_FORMATTING.number, "1");
+
   initialize_options_list (&convert_options);
 
   memset (&opened_files, 0, sizeof (STRING_LIST));
@@ -2269,6 +2288,7 @@ main (int argc, char *argv[], char *env[])
       char *input_file_path = 0;
       size_t file_path_len;
       size_t j;
+      OPTIONS_LIST *file_cmdline_options;
 
       input_file_arg = input_files.list[i];
 
@@ -2337,6 +2357,9 @@ main (int argc, char *argv[], char *env[])
 
       /* Texinfo document tree parsing */
       document = txi_parse_texi_file (input_file_path, &status);
+
+      /* In Perl, the tree can be dumped with Data::Dumper here, we do not
+         provide the same in C */
 
       errors_nr
         = txi_handle_parser_error_messages (document, no_warn, test_mode_set,
@@ -2466,10 +2489,30 @@ main (int argc, char *argv[], char *env[])
       if (!strcmp (output_format, "structure"))
         goto next_input_file;
 
+      if (i != 0)
+        {
+          initialize_options_list (&non_first_file_cmdline_options);
+          copy_options_list (&non_first_file_cmdline_options,
+                             &cmdline_options);
+          options_list_remove_option_number (&non_first_file_cmdline_options,
+                                 program_options.options->OUTFILE.number);
+          options_list_remove_option_number (&non_first_file_cmdline_options,
+                                 program_options.options->PREFIX.number);
+          if (split_option && split_option->o.string
+              && strlen (split_option->o.string))
+            options_list_remove_option_number (
+                                 &non_first_file_cmdline_options,
+                                 program_options.options->SUBDIR.number);
+
+          file_cmdline_options = &non_first_file_cmdline_options;
+        }
+      else
+        file_cmdline_options = &cmdline_options;
+
       /* conversion initialization */
       copy_options_list (&convert_options, &program_options);
       copy_options_list (&convert_options, init_files_options);
-      copy_options_list (&convert_options, &cmdline_options);
+      copy_options_list (&convert_options, file_cmdline_options);
 
       /* prepend to INCLUDE_DIRECTORIES by resetting include directories to
          merged prepended directories and command line include directories */
@@ -2749,6 +2792,9 @@ main (int argc, char *argv[], char *env[])
     }
 
   destroy_converter_initialization_info (converter_init_info);
+
+  if (input_files.number > 1)
+    free_options_list (&non_first_file_cmdline_options);
 
   free_strings_list (&prepended_include_directories);
   free_options_list (&convert_options);

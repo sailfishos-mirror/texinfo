@@ -1723,8 +1723,8 @@ while(@input_files) {
     $input_directory = $curdir;
   }
 
-  my $input_file_base = $input_file_name;
-  $input_file_base =~ s/\.te?x(i|info)?$//;
+  #my $input_file_base = $input_file_name;
+  #$input_file_base =~ s/\.te?x(i|info)?$//;
 
   # a shallow copy is not sufficient for arrays and hashes to make
   # sure that the $parser_options are not modified if $parser_file_options
