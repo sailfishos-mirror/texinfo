@@ -1,5 +1,13 @@
 2025-01-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/texi2any.c (main): if uninstalled, prepend +dev to
+	PACKAGE_VERSION too.
+
+	* tp/Texinfo/XS/texi2any.c (main): if the mimick option is set, reset
+	PROGRAM program_options too.
+
+2025-01-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/regenerate_documentlanguages-loc.pl: update country
 	codes.  Add Namibia country code which seems to be missing.
 

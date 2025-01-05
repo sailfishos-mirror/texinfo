@@ -1032,6 +1032,8 @@ main (int argc, char *argv[], char *env[])
     {
       add_option_value (&program_options, "PACKAGE_AND_VERSION", 0,
                         PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG "+dev");
+      add_option_value (&program_options, "PACKAGE_VERSION", 0,
+                        PACKAGE_VERSION_CONFIG "+dev");
       version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+dev";
     }
 
@@ -1155,6 +1157,9 @@ main (int argc, char *argv[], char *env[])
         case MIMICK_OPT:
           free (program_file);
           program_file = strdup ("texi2any");
+          GNUT_set_from_cmdline (&program_options,
+                         cmdline_options.options->PROGRAM.number,
+                                 program_file);
           break;
         case 'c':
           get_cmdline_customization_option (&cmdline_options, optarg);
