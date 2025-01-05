@@ -19,6 +19,7 @@ extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
 
 
 /* void html_format_setup (void); */
+/* char *html_builtin_default_css_text (void); */
 
 
 

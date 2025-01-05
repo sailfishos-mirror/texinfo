@@ -616,6 +616,29 @@ html_format_setup (void)
   free (css_string_text.text);
 }
 
+/* Texinfo::Convert::HTML builtin_default_css_text */
+/* should be called after html_format_setup */
+char *
+html_builtin_default_css_text (void)
+{
+  TEXT css_text;
+  size_t i;
+
+  text_init (&css_text);
+  text_append (&css_text, "");
+
+  for (i = 0; i < default_css_element_class_styles.number; i++)
+    {
+      CSS_SELECTOR_STYLE *selector_style
+        = &default_css_element_class_styles.list[i];
+      if (selector_style->style && strlen (selector_style->style))
+        text_printf (&css_text, "%s {%s}\n", selector_style->selector,
+                                             selector_style->style);
+    }
+
+  return css_text.text;
+}
+
 
 
 /* converter_initialize functions.

@@ -58,7 +58,8 @@ const TRANSFORMATION_NAME_FLAG txi_tree_transformation_table[] = {
   {NULL, 0}
 };
 
-/* returns the flag associated to the transformation */
+/* similar to Texinfo::Common::valid_tree_transformation */
+/* Also returns the flag associated to the transformation */
 unsigned long
 txi_find_tree_transformation (const char *transformation_name)
 {
@@ -676,4 +677,13 @@ txi_handle_converter_error_messages (CONVERTER *converter, int no_warn,
 {
   return output_error_messages (&converter->error_messages, no_warn,
                          use_filename, message_encoding);
+}
+
+/* used to show the built-in CSS rules */
+char *
+txi_builtin_default_css_text (void)
+{
+  html_format_setup ();
+
+  return html_builtin_default_css_text ();
 }

@@ -1586,6 +1586,13 @@ if ($call_texi2dvi) {
   document_warn(__('--Xopt option without printed output'));
 }
 
+# special case, show all the built in HTML CSS rules and exit
+if (get_conf('SHOW_BUILTIN_CSS_RULES')) {
+  require Texinfo::Convert::HTML;
+  print STDOUT Texinfo::Convert::HTML::builtin_default_css_text();
+  exit(0);
+}
+
 
 if (defined($formats_table{$converted_format}->{'module'})) {
   # Speed up initialization by only loading the module we need.
@@ -1658,13 +1665,6 @@ foreach my $parser_settable_option (@parser_settable_options) {
     $parser_options->{$parser_settable_option}
        = get_conf($parser_settable_option);
   }
-}
-
-# special case, show all the built in HTML CSS rules and exit
-if (get_conf('SHOW_BUILTIN_CSS_RULES')) {
-  require Texinfo::Convert::HTML;
-  print STDOUT Texinfo::Convert::HTML::builtin_default_css_text();
-  exit(0);
 }
 
 # Main processing, process all the files given on the command line

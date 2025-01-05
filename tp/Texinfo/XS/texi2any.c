@@ -912,6 +912,7 @@ main (int argc, char *argv[], char *env[])
   OPTION *sort_element_count_option;
   OPTION *tree_transformations_option;
   OPTION *split_option;
+  OPTION *show_builtin_css_rules_option;
   int no_warn = 0;
   int test_mode_set = 0;
   int debug = 0;
@@ -2062,6 +2063,19 @@ main (int argc, char *argv[], char *env[])
     }
   else if (Xopt_arg_nr)
     txi_config_document_warn ("%s", "--Xopt option without printed output");
+
+  /* special case, show all the built in HTML CSS rules and exit */
+  show_builtin_css_rules_option
+    = GNUT_get_conf (program_options.options->SHOW_BUILTIN_CSS_RULES.number);
+  if (show_builtin_css_rules_option
+      && show_builtin_css_rules_option->o.integer > 0)
+    {
+      char *default_css_text;
+      default_css_text = txi_builtin_default_css_text ();
+      printf ("%s", default_css_text);
+      free (default_css_text);
+      exit (EXIT_SUCCESS);
+    }
 
   if (format_specification->module)
     {

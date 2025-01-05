@@ -24,6 +24,7 @@
 
 /* in html_prepare_converter.c */
 void html_format_setup (void);
+char *html_builtin_default_css_text (void);
 
 /* in html_converter_init_options.c */
 CONVERTER_INITIALIZATION_INFO *html_converter_defaults (

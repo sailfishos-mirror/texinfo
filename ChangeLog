@@ -1,5 +1,18 @@
 2025-01-04  Patrice Dumas  <pertusus@free.fr>
 
+	SHOW_BUILTIN_CSS_RULES in ctexi2any
+
+	* tp/texi2any.pl: move code related to SHOW_BUILTIN_CSS_RULES earlier.
+
+	* tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_builtin_default_css_text), tp/Texinfo/XS/convert/texinfo.c
+	(txi_builtin_default_css_text): add.
+
+	* tp/Texinfo/XS/texi2any.c (main): handle SHOW_BUILTIN_CSS_RULES by
+	calling txi_builtin_default_css_text.
+
+2025-01-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/texi2any.c (main): add ignoring splitting message.
 
 2025-01-04  Patrice Dumas  <pertusus@free.fr>

@@ -116,4 +116,5 @@ void txi_document_remove (DOCUMENT *document);
 void txi_converter_reset (CONVERTER *converter);
 void txi_converter_destroy (CONVERTER *converter);
 
+char *txi_builtin_default_css_text (void);
 #endif
