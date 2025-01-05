@@ -1,5 +1,11 @@
 2025-01-05  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (@code{@@documentlanguage}),
+	tp/maintain/regenerate_documentlanguages-loc.pl: add three letter
+	languages that correspond to individual languages.
+
+2025-01-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/texi2any.c (main): use a variable to be more robust
 	for non_first_file_cmdline_options initialization and free'ing.
 

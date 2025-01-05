@@ -11789,7 +11789,8 @@ locale.  Write it on a line by itself, near the beginning of the file.
 @@documentlanguage @var{ll}[_@var{cc}]
 @end example
 
-Include a two-letter ISO@tie{}639-2 language code (@var{ll}) following
+Include a two-letter (or three-letter) ISO@tie{}639-2 language code
+(@var{ll}) following
 the command name, optionally followed by an underscore and two-letter
 ISO@tie{}3166 two-letter country code (@var{cc}).  If you have a
 multilingual document, the intent is to be able to use this command

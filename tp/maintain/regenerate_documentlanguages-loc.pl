@@ -41,6 +41,16 @@ while (<TXT>) {
   my @entry = split /\|/;
   if ($entry[2] ne '') {
     push @entries, $entry[2];
+  # only individual languages
+  } elsif ($entry[3] !~ /languages$/) {
+    # there are 4 special codes
+    # mis Uncoded languages
+    # mul Multiple languages
+    # und Undetermined
+    # zxx No linguistic content; Not applicable
+    # This is not very useful, but we accept mis and und, but not mul,
+    # as multiple @documentlanguage are valid, nor zxx
+    push @entries, $entry[0] unless ($entry[0] eq 'zxx' or $entry[0] eq 'mul');
   }
 }
 
