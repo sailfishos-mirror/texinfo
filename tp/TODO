@@ -20,8 +20,6 @@ Move C code?
 Handle TODO: split each line in a translatable string? in texi2any.pl and
 then add the messages to ctexi2any help
 
-Add number-footnotes to help.  See mailing list.
-
 
 Bugs
 ====

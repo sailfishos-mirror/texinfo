@@ -1027,6 +1027,8 @@ the behavior is identical, and does not depend on the installed name.")."\n"
 "      --[no-]number-sections  output chapter and sectioning numbers;
                                 default is on.")."\n"
 .__(
+"      --[no-]number-footnotes  number footnotes sequentially; default is on.")."\n"
+.__(
 "  -o, --output=DEST           output to DEST.
                                 With split output, create DEST as a directory
                                 and put the output files there.

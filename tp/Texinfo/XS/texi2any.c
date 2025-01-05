@@ -1701,6 +1701,9 @@ main (int argc, char *argv[], char *env[])
    "      --[no-]number-sections  output chapter and sectioning numbers;\n                                default is on."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
+   "      --[no-]number-footnotes  number footnotes sequentially; default is on."));
+      text_append_n (&help_message, "\n", 1);
+      text_append (&help_message, _(
    "  -o, --output=DEST           output to DEST.\n                                With split output, create DEST as a directory\n                                and put the output files there.\n                                With non-split output, if DEST is already\n                                a directory or ends with a /,\n                                put the output file there.\n                                Otherwise, DEST names the output file."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
