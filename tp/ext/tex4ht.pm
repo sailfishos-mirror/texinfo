@@ -221,6 +221,8 @@ sub tex4ht_prepare($$)
           $tree = $element->{'contents'}->[0];
         } elsif ($element->{'contents'}) {
           my $contents_nr = scalar(@{$element->{'contents'}});
+          # first content is arguments_line, the block command is considered
+          # empty if it contains the arguments_line element only.
           next if ($contents_nr <= 1);
           $tree = {'contents' => [@{$element->{'contents'}}]};
           while (scalar(@{$tree->{'contents'}})

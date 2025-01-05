@@ -486,7 +486,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
 
                   /* Note that the "row_number" extra value
                      isn't actually used anywhere at present. */
-                  /* -2 because of the 'argument' */
+                  /* -2 because of the 'arguments_line' */
                   add_extra_integer (row, AI_key_row_number,
                                      parent->e.c->contents.number - 2);
 

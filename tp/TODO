@@ -10,8 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-See Gavin private mail on new tree
-
 Use system.h macros used in info for File::Spec replacement in C in
 texi2any too
 

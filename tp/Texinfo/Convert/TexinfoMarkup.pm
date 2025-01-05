@@ -775,8 +775,9 @@ sub _convert($$;$)
         $result .= $self->txi_markup_open_element('listitem',
                                 [_leading_spaces_arg($element)]);
         if ($element->{'parent'}->{'cmdname'} eq 'itemize') {
-          my $argument = $element->{'parent'}->{'contents'}->[0];
-          my $block_line_arg = $argument->{'contents'}->[0];
+          # parent line arguments_line type element
+          my $arguments_line = $element->{'parent'}->{'contents'}->[0];
+          my $block_line_arg = $arguments_line->{'contents'}->[0];
           $result .= $self->txi_markup_open_element('prepend')
             .$self->_convert($block_line_arg)
             .$self->txi_markup_close_element('prepend');
@@ -1410,6 +1411,7 @@ sub _convert($$;$)
             }
           }
         }
+        # through arguments_line type and macro_line type
         my $line = $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
         chomp($line);
         if ($line ne '') {
@@ -1531,8 +1533,9 @@ sub _convert($$;$)
             # in that case the end of line is in the columnfractions line
             # or in the columnprototypes.
             if ($element->{'cmdname'} eq 'multitable') {
-              my $argument = $element->{'contents'}->[0];
-              my $block_line_arg = $argument->{'contents'}->[0];
+              # arguments_line type element
+              my $arguments_line = $element->{'contents'}->[0];
+              my $block_line_arg = $arguments_line->{'contents'}->[0];
               if ($block_line_arg->{'contents'}
                   and (($element->{'extra'}
                         and $element->{'extra'}->{'columnfractions'})

@@ -1267,6 +1267,7 @@ float_type_number (CONVERTER *self, const ELEMENT *float_e)
   char *float_number = lookup_extra_string (float_e, AI_key_float_number);
 
   if (float_type && strlen (float_type))
+    /* first content of arguments_line type element */
     type_element = float_e->e.c->contents.list[0]->e.c->contents.list[0];
 
   if (float_number)
@@ -1315,6 +1316,7 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
     caption_element = lookup_extra_element (float_e, AI_key_shortcaption);
 
   if (float_type && strlen (float_type))
+    /* first content of arguments_line type element */
     type_element = float_e->e.c->contents.list[0]->e.c->contents.list[0];
 
   if (float_number)

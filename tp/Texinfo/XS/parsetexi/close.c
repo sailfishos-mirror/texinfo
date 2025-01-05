@@ -291,6 +291,7 @@ close_command_cleanup (ELEMENT *current)
       || current->e.c->cmd == CM_ftable
       || current->e.c->cmd == CM_vtable)
     {
+      /* > 1 for the arguments_line */
       if (current->e.c->contents.number > 1)
         gather_previous_item (current, CM_NONE);
     }
@@ -298,6 +299,7 @@ close_command_cleanup (ELEMENT *current)
   /* Block commands that contain @item's - e.g. @multitable, @table,
      @itemize. */
   if (command_data(current->e.c->cmd).flags & CF_blockitem
+      /* > 1 for the arguments_line */
       && current->e.c->contents.number > 1
       && current->e.c->contents.list[1]->type == ET_before_item)
     {
@@ -309,6 +311,7 @@ close_command_cleanup (ELEMENT *current)
       if (is_container_empty (before_item)
           && !before_item->source_mark_list)
         {
+          /* remove empty before_item, leaving out the arguments_line */
           ELEMENT *removed = remove_from_contents (current, 1);
           destroy_element (removed);
         }
@@ -317,6 +320,7 @@ close_command_cleanup (ELEMENT *current)
           /* The elements that can appear right in a block item command
              besides before_item are either an @*item or are associated
              with items */
+          /* arguments_line is the first content */
           if (current->e.c->contents.number == 2)
             {
        /* no @*item, only before_item.  Warn if before_item is not empty */

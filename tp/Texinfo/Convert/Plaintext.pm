@@ -3468,8 +3468,9 @@ sub _convert($$)
         }
       }
       if ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
-        my $argument = $element->{'contents'}->[0];
-        my $block_line_arg = $argument->{'contents'}->[0];
+        # arguments_line type element
+        my $arguments_line = $element->{'contents'}->[0];
+        my $block_line_arg = $arguments_line->{'contents'}->[0];
         if ($block_line_arg->{'contents'}) {
           my $prepended = $self->cdt('@b{{quotation_arg}:} ',
                                 {'quotation_arg' => $block_line_arg});
@@ -3494,8 +3495,9 @@ sub _convert($$)
                        * $self->{'text_element_context'}->[-1]->{'max'} +0.5);
           }
         } else {
-          my $argument = $element->{'contents'}->[0];
-          my $block_line_arg = $argument->{'contents'}->[0];
+          # arguments_line type element
+          my $arguments_line = $element->{'contents'}->[0];
+          my $block_line_arg = $arguments_line->{'contents'}->[0];
           if ($block_line_arg->{'contents'}) {
             foreach my $content (@{$block_line_arg->{'contents'}}) {
               if ($content->{'type'} and $content->{'type'} eq 'bracketed_arg') {
@@ -3523,8 +3525,9 @@ sub _convert($$)
           _anchor($self, $element);
         }
       } elsif ($cmdname eq 'cartouche') {
-        my $argument = $element->{'contents'}->[0];
-        my $block_line_arg = $argument->{'contents'}->[0];
+        # arguments_line type element
+        my $arguments_line = $element->{'contents'}->[0];
+        my $block_line_arg = $arguments_line->{'contents'}->[0];
         if ($block_line_arg->{'contents'}) {
           my $prepended = $self->cdt('@center @b{{cartouche_arg}}',
                                  {'cartouche_arg' => $block_line_arg});
@@ -3617,8 +3620,9 @@ sub _convert($$)
                  $element->{'extra'}->{'item_number'}) . '. '),
             $line->{'container'});
       } else {
-        my $argument = $element->{'parent'}->{'contents'}->[0];
-        my $block_line_args = $argument->{'contents'}->[0];
+        # arguments_line type element
+        my $arguments_line = $element->{'parent'}->{'contents'}->[0];
+        my $block_line_args = $arguments_line->{'contents'}->[0];
         # this is the text prepended to items.
         _convert($self, $block_line_args);
         _convert($self, { 'text' => ' ' });

@@ -1785,6 +1785,7 @@ sub _gather_previous_item($$;$$)
   # itemx and put it into the $type.
   my $contents_count = scalar(@{$current->{'contents'}});
   my $begin;
+  # >= 2 because first content is the arguments_line
   for (my $position = $contents_count; $position >= 2; $position--) {
     my $content_element = $current->{'contents'}->[$position - 1];
     if ($content_element->{'cmdname'}
@@ -1794,6 +1795,7 @@ sub _gather_previous_item($$;$$)
       last;
     }
   }
+  # not 0 because 0 is the arguments_line index
   $begin = 1 if !defined($begin);
 
   # Find the end
@@ -1959,7 +1961,8 @@ sub _gather_def_item($$;$)
   my $gathered_content_count = scalar(@{$def_item->{'contents'}});
   if ($gathered_content_count) {
     if ($current->{'cmdname'} eq 'defblock'
-      # all content between @defblock argument and first @def*line
+      # all content between @defblock arguments_line element and
+      # first @def*line
         and $gathered_content_count == $contents_count -1) {
       $def_item->{'type'} = 'before_defline';
     }
@@ -2021,6 +2024,7 @@ sub _close_command_cleanup($$) {
       and $block_commands{$current->{'cmdname'}} eq 'item_line') {
     # At this point the end command hasn't been added to the command contents.
     # so checks cannot be done at this point.
+    # > 1 for the arguments_line
     if (scalar(@{$current->{'contents'}}) > 1) {
       _gather_previous_item($self, $current);
     }
@@ -2032,18 +2036,20 @@ sub _close_command_cleanup($$) {
   # remove empty before_item.
   # warn if not empty before_item, but format is empty
   if ($blockitem_commands{$current->{'cmdname'}}) {
+    # > 1 for the arguments_line
     if (scalar(@{$current->{'contents'}} > 1)
         and $current->{'contents'}->[1]->{'type'}
         and $current->{'contents'}->[1]->{'type'} eq 'before_item') {
       my $before_item = $current->{'contents'}->[1];
       if (_is_container_empty($before_item)
           and not $before_item->{'source_marks'}) {
-        # remove empty before_item
+        # remove empty before_item, leaving out the arguments_line
         splice(@{$current->{'contents'}}, 1, 1);
       } else {
-        # The elements that can appear right in a block item command
-        # besides before_item are either an @*item or are associated
-        # with items
+        # The elements that can appear right after arguments_line in a block
+        # item command besides before_item are either an @*item or are
+        # associated with items.
+        # arguments_line is the first content
         if (scalar(@{$current->{'contents'}}) == 2) {
           # no @*item, only before_item.  Warn if before_item is not empty
           my $empty_before_item = 1;
@@ -4239,18 +4245,20 @@ sub _end_line_starting_block($$$)
   }
   delete $current->{'remaining_args'};
 
-  my $argument = $current->{'contents'}->[0];
-  my $block_line_arg = $argument->{'contents'}->[0];
+  # arguments_line type element
+  my $arguments_line = $current->{'contents'}->[0];
+  my $block_line_arg = $arguments_line->{'contents'}->[0];
 
   # @float args
   if ($command eq 'float') {
-    if (scalar(@{$argument->{'contents'}} >= 2)) {
-      my $float_label_element = $argument->{'contents'}->[1];
+    if (scalar(@{$arguments_line->{'contents'}} >= 2)) {
+      my $float_label_element = $arguments_line->{'contents'}->[1];
       _check_register_target_element_label($self, $float_label_element,
                                            $current, $source_info);
     }
 
-    my $float_type = _parse_float_type($current, $argument->{'contents'}->[0]);
+    my $float_type = _parse_float_type($current,
+                                       $arguments_line->{'contents'}->[0]);
     push @{$document->{'listoffloats_list'}->{$float_type}}, $current;
 
     if (defined($self->{'current_section'})) {
@@ -4372,8 +4380,9 @@ sub _end_line_starting_block($$$)
     } elsif ($block_commands{$command} eq 'item_line') {
       $current->{'extra'} = {} if (!$current->{'extra'});
       if (!$current->{'extra'}->{'command_as_argument'}) {
-        my $argument = $current->{'contents'}->[0];
-        my $block_line_arg = $argument->{'contents'}->[0];
+        # arguments_line type element
+        my $arguments_line = $current->{'contents'}->[0];
+        my $block_line_arg = $arguments_line->{'contents'}->[0];
         my $inserted =  { 'cmdname' => 'asis',
                           'info' => {'inserted' => 1},
                           'parent' => $current };

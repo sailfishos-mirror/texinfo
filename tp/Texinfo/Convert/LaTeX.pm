@@ -2354,12 +2354,13 @@ sub _set_environment_options($$$)
   my $element = shift;
 
   if (exists($LaTeX_environment_options{$command})) {
-   my $option = $LaTeX_environment_options{$command};
-   if ($command eq 'cartouche') {
-     my $argument = $element->{'contents'}->[0];
-     my $block_line_arg = $argument->{'contents'}->[0];
-     if ($block_line_arg->{'contents'}
-         and scalar(@{$block_line_arg->{'contents'}})) {
+    my $option = $LaTeX_environment_options{$command};
+    if ($command eq 'cartouche') {
+      # arguments_line type element
+      my $arguments_line = $element->{'contents'}->[0];
+      my $block_line_arg = $arguments_line->{'contents'}->[0];
+      if ($block_line_arg->{'contents'}
+          and scalar(@{$block_line_arg->{'contents'}})) {
         $option
           = {'mdframed' => $option->{'mdframed'} . ', frametitle={'
                . $self->_convert({'contents' => $block_line_arg->{'contents'}})
@@ -2397,8 +2398,9 @@ sub _set_environment_options($$$)
       # but using an empty label is more consistent with the Texinfo manual
       return {$environment => 'label={}'};
     } else {
-      my $argument = $element->{'contents'}->[0];
-      my $block_line_arg = $argument->{'contents'}->[0];
+      # arguments_line type element
+      my $arguments_line = $element->{'contents'}->[0];
+      my $block_line_arg = $arguments_line->{'contents'}->[0];
       my $label_element = $block_line_arg->{'contents'}->[0];
       # NOTE when @itemize is in a preformatted environment (@example...),
       # we are not in a preformatted type here, such that the conversion
@@ -3881,8 +3883,9 @@ sub _convert($$)
         # this is only used to avoid @author converted as
         # a @titlepage author, for a @quotation in @titlepage @author
         $self->{'formatting_context'}->[-1]->{'in_quotation'} += 1;
-        my $argument = $element->{'contents'}->[0];
-        my $block_line_arg = $argument->{'contents'}->[0];
+        # arguments_line type element
+        my $arguments_line = $element->{'contents'}->[0];
+        my $block_line_arg = $arguments_line->{'contents'}->[0];
         if ($block_line_arg->{'contents'}
             and scalar(@{$block_line_arg->{'contents'}})) {
           my $prepended = $self->cdt('@b{{quotation_arg}:} ',
@@ -3898,8 +3901,9 @@ sub _convert($$)
           @fractions
       = @{$element->{'extra'}->{'columnfractions'}->{'extra'}->{'misc_args'}};
         } else {
-          my $argument = $element->{'contents'}->[0];
-          my $block_line_arg = $argument->{'contents'}->[0];
+          # arguments_line type element
+          my $arguments_line = $element->{'contents'}->[0];
+          my $block_line_arg = $arguments_line->{'contents'}->[0];
           if ($block_line_arg->{'contents'}) {
             my @prototypes_length;
             my $total_length = 0.;
@@ -4616,7 +4620,7 @@ sub convert_math_to_images($$$;$)
       $tree = $element->{'contents'}->[0];
     } elsif ($element->{'contents'}) {
       $tree = {'contents' => [@{$element->{'contents'}}]};
-      # remove the line argument
+      # remove the arguments_line element
       shift @{$tree->{'contents'}};
       if (scalar(@{$tree->{'contents'}})
           and $tree->{'contents'}->[0]->{'type'}

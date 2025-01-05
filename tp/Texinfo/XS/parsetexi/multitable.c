@@ -65,6 +65,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
   enum element_type type;
   size_t i, contents_count;
   size_t position;
+  /* not 0 because 0 is the arguments_line index */
   size_t begin_idx = 1;
   size_t end_pos, term_begin_idx;
 
@@ -82,6 +83,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
   /* Starting from the end, collect everything that is not a ET_item
      or ET_itemx and put it into the ET_table_definition/ET_inter_item. */
   contents_count = current->e.c->contents.number;
+  /* > 1 because first content is the arguments_line */
   for (position = contents_count; position > 1; position--)
     {
       e = contents_child_by_index (current, position -1);

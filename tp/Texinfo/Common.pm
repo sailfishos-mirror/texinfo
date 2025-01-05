@@ -1723,12 +1723,14 @@ sub get_label_element($)
   my $current = shift;
   return undef if (!defined($current->{'cmdname'}));
   if ($current->{'cmdname'} eq 'node') {
+    # first content of arguments_line type element
     return $current->{'contents'}->[0]->{'contents'}->[0];
   } elsif ($current->{'cmdname'} eq 'anchor'
            and $current->{'contents'} and scalar(@{$current->{'contents'}})) {
     return $current->{'contents'}->[0];
   } elsif ($current->{'cmdname'} eq 'float'
            and scalar(@{$current->{'contents'}->[0]->{'contents'}}) >= 2) {
+    # second content of arguments_line, ie second argument on line
     return $current->{'contents'}->[0]->{'contents'}->[1];
   }
   return undef;

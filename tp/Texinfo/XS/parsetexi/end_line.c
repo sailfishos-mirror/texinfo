@@ -794,7 +794,7 @@ ELEMENT *
 end_line_starting_block (ELEMENT *current)
 {
   KEY_PAIR *k;
-  const ELEMENT *argument;
+  const ELEMENT *arguments_line;
   ELEMENT *block_line_arg;
 
   enum command_id command;
@@ -893,21 +893,23 @@ end_line_starting_block (ELEMENT *current)
   if (counter_value (&count_remaining_args, current) != -1)
     counter_pop (&count_remaining_args);
 
-  argument = current->e.c->contents.list[0];
-  block_line_arg = argument->e.c->contents.list[0];
+  /* arguments_line type element */
+  arguments_line = current->e.c->contents.list[0];
+  block_line_arg = arguments_line->e.c->contents.list[0];
 
   if (command == CM_float)
     {
       char *float_type = 0;
 
       current->e.c->source_info = current_source_info;
-      if (argument->e.c->contents.number >= 2)
+      if (arguments_line->e.c->contents.number >= 2)
         {
           ELEMENT *float_label_element
-            = contents_child_by_index (argument, 1);
+            = contents_child_by_index (arguments_line, 1);
           check_register_target_element_label (float_label_element, current);
         }
-      float_type = parse_float_type (current, argument->e.c->contents.list[0]);
+      float_type = parse_float_type (current,
+                                     arguments_line->e.c->contents.list[0]);
 
       /* add to global 'floats' array */
       add_to_float_record_list (&parsed_document->floats, float_type, current);

@@ -4919,8 +4919,9 @@ sub _convert_preformatted_command($$$$$)
   }
 
   if ($cmdname eq 'example') {
-    my $argument = $command->{'contents'}->[0];
-    foreach my $example_arg (@{$argument->{'contents'}}) {
+    # arguments_line type element
+    my $arguments_line = $command->{'contents'}->[0];
+    foreach my $example_arg (@{$arguments_line->{'contents'}}) {
       # convert or remove all @-commands, using simple ascii and unicode
       # characters
       my $converted_arg
@@ -5545,8 +5546,9 @@ sub _convert_itemize_command($$$$$)
     return $self->html_attribute_class('ul', [$cmdname])
          .">\n" . $content. "</ul>\n";
   } else {
-    my $argument = $command->{'contents'}->[0];
-    my $block_line_arg = $argument->{'contents'}->[0];
+    # arguments_line type element
+    my $arguments_line = $command->{'contents'}->[0];
+    my $block_line_arg = $arguments_line->{'contents'}->[0];
     my $css_string
       = $self->html_convert_css_string_for_list_mark($block_line_arg,
                                                      'itemize arg');
@@ -6793,8 +6795,9 @@ sub _open_quotation_command($$$)
   my $command = shift;
 
   my $formatted_quotation_arg_to_prepend;
-  my $argument = $command->{'contents'}->[0];
-  my $block_line_args = $argument->{'contents'}->[0];
+  # arguments_line type element
+  my $arguments_line = $command->{'contents'}->[0];
+  my $block_line_args = $arguments_line->{'contents'}->[0];
   if ($block_line_args->{'contents'}
       and scalar(@{$block_line_args->{'contents'}})) {
     $formatted_quotation_arg_to_prepend

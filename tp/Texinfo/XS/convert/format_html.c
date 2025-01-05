@@ -8096,11 +8096,12 @@ html_convert_preformatted_command (CONVERTER *self, const enum command_id cmd,
 
   if (cmd == CM_example)
     {
-      const ELEMENT *argument = element->e.c->contents.list[0];
+      /* arguments_line type element */
+      const ELEMENT *arguments_line = element->e.c->contents.list[0];
       size_t i;
-      for (i = 0; i < argument->e.c->contents.number; i++)
+      for (i = 0; i < arguments_line->e.c->contents.number; i++)
         {
-          const ELEMENT *example_arg = argument->e.c->contents.list[i];
+          const ELEMENT *example_arg = arguments_line->e.c->contents.list[i];
        /* convert or remove all @-commands, using simple ascii and unicode
           characters */
           char *converted_arg = convert_to_normalized (example_arg);
@@ -8746,8 +8747,9 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
 
   if (!selector_style && self->conf->NO_CSS.o.integer <= 0)
     {
-      const ELEMENT *argument = element->e.c->contents.list[0];
-      const ELEMENT *block_line_arg = argument->e.c->contents.list[0];
+      /* arguments_line type element */
+      const ELEMENT *arguments_line = element->e.c->contents.list[0];
+      const ELEMENT *block_line_arg = arguments_line->e.c->contents.list[0];
       char *css_string
         = html_convert_css_string_for_list_mark (self, block_line_arg,
                                                  "itemize arg");
@@ -10869,8 +10871,9 @@ html_open_quotation_command (CONVERTER *self, const enum command_id cmd,
 {
   const char *cmdname = element_command_name (element);
   char *formatted_quotation_arg_to_prepend = 0;
-  const ELEMENT *argument = element->e.c->contents.list[0];
-  ELEMENT *block_line_args = argument->e.c->contents.list[0];
+  /* arguments_line type element */
+  const ELEMENT *arguments_line = element->e.c->contents.list[0];
+  ELEMENT *block_line_args = arguments_line->e.c->contents.list[0];
 
   if (block_line_args->e.c->contents.number > 0)
     {

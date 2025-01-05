@@ -1429,6 +1429,7 @@ sub float_type_number($$)
 
   my $type_element;
   if ($float->{'extra'}->{'float_type'} ne '') {
+    # first content of arguments_line type element
     $type_element = $float->{'contents'}->[0]->{'contents'}->[0];
   }
   my $float_number = $float->{'extra'}->{'float_number'};
@@ -1480,6 +1481,7 @@ sub float_name_caption($$)
   my $prepended;
   if ($element->{'extra'} and defined($element->{'extra'}->{'float_type'})
       and $element->{'extra'}->{'float_type'} ne '') {
+    # first content of arguments_line type element
     $substrings->{'float_type'}
        = $element->{'contents'}->[0]->{'contents'}->[0];
     if ($caption_element) {

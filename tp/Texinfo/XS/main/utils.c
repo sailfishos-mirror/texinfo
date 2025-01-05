@@ -718,11 +718,13 @@ ELEMENT *
 get_label_element (const ELEMENT *e)
 {
   if (e->e.c->cmd == CM_node)
+    /* first content of arguments_line type element */
     return e->e.c->contents.list[0]->e.c->contents.list[0];
   else if (e->e.c->cmd == CM_anchor && e->e.c->contents.number > 0)
     return e->e.c->contents.list[0];
   else if (e->e.c->cmd == CM_float
            && e->e.c->contents.list[0]->e.c->contents.number >= 2)
+    /* second content of arguments_line, ie second argument on line */
     return e->e.c->contents.list[0]->e.c->contents.list[1];
   return 0;
 }

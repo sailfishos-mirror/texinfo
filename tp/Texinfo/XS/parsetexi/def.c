@@ -80,7 +80,8 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
       ELEMENT *def_item;
 
       if (current->e.c->cmd == CM_defblock
-       /* all content between @defblock argument and first @def*line */
+       /* all content between @defblock arguments_line element and
+          first @def*line */
           && pos == 1)
         type = ET_before_defline;
       else if (next_command

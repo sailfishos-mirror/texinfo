@@ -878,8 +878,9 @@ sub _convert($$;$)
                   and $element->{'parent'}->{'extra'}->{'command_as_argument'}
                   and $element->{'parent'}->{'extra'}->{'command_as_argument'}
                                                ->{'cmdname'} eq 'bullet')) {
-          my $argument = $element->{'parent'}->{'contents'}->[0];
-          my $block_line_arg = $argument->{'contents'}->[0];
+          # parent line arguments_line type element
+          my $arguments_line = $element->{'parent'}->{'contents'}->[0];
+          my $block_line_arg = $arguments_line->{'contents'}->[0];
           $self->{'pending_prepend'}
             = _convert($self, $block_line_arg);
           $self->{'pending_prepend'} .= " ";
@@ -1651,11 +1652,13 @@ sub _convert($$;$)
           my @fractions;
           my $multiply;
           if ($element->{'extra'}->{'columnfractions'}) {
-            @fractions = @{$element->{'extra'}->{'columnfractions'}->{'extra'}->{'misc_args'}};
+            @fractions = @{$element->{'extra'}->{'columnfractions'}
+                                                  ->{'extra'}->{'misc_args'}};
             $multiply = 100;
           } else {
-            my $argument = $element->{'contents'}->[0];
-            my $block_line_arg = $argument->{'contents'}->[0];
+            # @multitable line arguments_line type element
+            my $arguments_line = $element->{'contents'}->[0];
+            my $block_line_arg = $arguments_line->{'contents'}->[0];
             if ($block_line_arg->{'contents'}) {
               $multiply = 1;
               foreach my $content (@{$block_line_arg->{'contents'}}) {
@@ -1704,8 +1707,9 @@ sub _convert($$;$)
             }
           }
         }
-        my $argument = $element->{'contents'}->[0];
-        my $block_line_arg = $argument->{'contents'}->[0];
+        # arguments_line type element
+        my $arguments_line = $element->{'contents'}->[0];
+        my $block_line_arg = $arguments_line->{'contents'}->[0];
         if ($block_line_arg->{'contents'}) {
           my $quotation_arg_text
             = Texinfo::Convert::Text::convert_to_text($block_line_arg,
@@ -1722,8 +1726,9 @@ sub _convert($$;$)
         push @format_elements, $format_element;
       } elsif ($cmdname eq 'cartouche') {
         push @format_elements, 'sidebar';
-        my $argument = $element->{'contents'}->[0];
-        my $block_line_arg = $argument->{'contents'}->[0];
+        # arguments_line type element
+        my $arguments_line = $element->{'contents'}->[0];
+        my $block_line_arg = $arguments_line->{'contents'}->[0];
         if ($block_line_arg->{'contents'}) {
           my $title = _convert($self, $block_line_arg);
           if ($title ne '') {
