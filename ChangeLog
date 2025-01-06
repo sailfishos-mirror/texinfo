@@ -1,5 +1,15 @@
 2025-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/configure.ac: remove the warning messages at the end,
+	the check for enabled XS is done in the top configure.ac.
+
+	* tp/Texinfo/XS/configure.ac (embedded_perl, PERL_EMBEDDED): add
+	a full check for linking against the Perl interpreter library.  Even
+	it the Perl XS infrastructure including headers and ExtUtils::Embed
+	is present the Perl interpreter library may not be installed.
+
+2025-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/configure.ac: improve a message.
 
 2025-01-06  Patrice Dumas  <pertusus@free.fr>

@@ -664,8 +664,8 @@ endif
 ctexi2any_SOURCES = \
                        texi2any.c
 
-# FIXME the PERL_EXTUTILS_EMBED_ldopts variable contains program-specific
-# linker flags that have to be in LDFLAGS according to the automake
+# NOTE the PERL_EXTUTILS_EMBED_ldopts variable contains program-specific
+# linker flags that should be in LDFLAGS according to the automake
 # documentation, but also -L and -l flags that need to be last
 # on LDADD.  We favor LDADD otherwise linking fails.
 # gnulib is directly needed on some platforms for getopt-gnu

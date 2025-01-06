@@ -88,8 +88,6 @@ else
 fi
 AC_MSG_RESULT($extutils_embed)
 
-AM_CONDITIONAL([PERL_EMBEDDED], [test "z$extutils_embed" = 'zyes'])
-
 PERL_EXTUTILS_EMBED_ccopts=
 PERL_EXTUTILS_EMBED_ldopts=
 if test "z$extutils_embed" = 'zyes' ; then
@@ -242,6 +240,97 @@ if test $use_libintl_perl_in_xs = yes ; then
             [Define to 1 if Perl libintl-perl should be called from XS])
 fi
 
+
+embedded_perl=no
+
+if test x$disable_xs != xyes -a $extutils_embed = yes ; then
+  # having XS enabled and ExtUtils::Embed installed does not ensures
+  # that the Perl library needed for embedding a Perl interpreter
+  # is present.  In Debian, for instance, it is in the libperl-dev
+  # package that contain only that library.
+  AC_MSG_CHECKING(for embedded Perl)
+
+  old_LIBS=$LIBS
+  # NOTE the PERL_EXTUTILS_EMBED_ldopts variable contains program-specific
+  # linker flags that should be in LDFLAGS according to the automake
+  # documentation, but also -L and -l flags that need to be last.
+  # We favor having the variable last and use LIBS otherwise linking fails.
+
+  LIBS="$PERL_EXTUTILS_EMBED_ldopts"
+  CFLAGS="$PERL_EXT_CFLAGS $PERL_EXTUTILS_EMBED_ccopts"
+  LDFLAGS="$PERL_EXT_LDFLAGS"
+
+  # NOTE The following code is a simplified extract of
+  # tp/Texinfo/XS/convert/call_conversion_perl.c
+  # NOTE Code requiring ppport.h for pTHX_ and PERL_UNUSED_CONTEXT is
+  # commented out.
+  AC_LINK_IFELSE([AC_LANG_PROGRAM([[
+#define context perl_context
+
+#define PERL_NO_GET_CONTEXT
+#include "EXTERN.h"
+#include "perl.h"
+#include "XSUB.h"
+
+#undef context
+
+static PerlInterpreter *my_perl;
+
+EXTERN_C void xs_init (pTHX);
+
+/*
+EXTERN_C void boot_DynaLoader (pTHX_ CV* cv);
+ */
+
+EXTERN_C void
+xs_init(pTHX)
+{
+    /*
+    static const char file[] = __FILE__;
+     */
+    dXSUB_SYS;
+    /*
+    PERL_UNUSED_CONTEXT;
+
+    newXS("DynaLoader::boot_DynaLoader", boot_DynaLoader, file);
+     */
+}
+
+int
+call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref)
+{
+  int parse_status, run_status;
+  char *embedding[] = { "", NULL };
+  PERL_SYS_INIT3 (argc_ref, argv_ref, env_ref);
+  my_perl = perl_alloc();
+  perl_construct(my_perl);
+  PL_exit_flags |= PERL_EXIT_DESTRUCT_END;
+  parse_status = perl_parse(my_perl, xs_init, 1, embedding, (char **)NULL);
+  if (parse_status)
+    return parse_status;
+  run_status = perl_run(my_perl);
+  if (run_status)
+    return run_status;
+  return 0;
+}
+
+void
+call_finish_perl (void)
+{
+  perl_destruct(my_perl);
+  perl_free(my_perl);
+  PERL_SYS_TERM();
+}
+
+]], [[call_init_perl (0, 0, 0); call_finish_perl ();]])],
+    [embedded_perl=yes], [embedded_perl=no])
+
+  AC_MSG_RESULT($embedded_perl)
+  LIBS=$old_LIBS
+fi
+
+AM_CONDITIONAL([PERL_EMBEDDED], [test "z$embedded_perl" = 'zyes'])
+
 # Do not include Perl configuration values when outputting these variables,
 # as advised in the automake manual for CFLAGS and LDFLAGS, which could be
 # reset by the user.  Here PERL_EXT_CFLAGS and PERL_EXT_LDFLAGS play the
@@ -299,7 +388,3 @@ AC_DEFINE_UNQUOTED([TEXINFO_DTD_VERSION_CONFIG], ["$TEXINFO_DTD_VERSION"],
 AC_CONFIG_FILES([Makefile gnulib/lib/Makefile])
 AC_OUTPUT
 
-if test x$disable_xs != xyes -a "z$extutils_embed" != 'zyes' ; then
-  AC_MSG_WARN([Perl XS enabled but the ExtUtils::Embed module was not found])
-  AC_MSG_WARN([Main program in C embedding a Perl interpreter disabled])
-fi
