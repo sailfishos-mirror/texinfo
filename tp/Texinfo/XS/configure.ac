@@ -80,6 +80,23 @@ AC_DEFUN([lookup_perl_conf_values],
           [m4_foreach([var], [$1], [lookup_perl_conf(var)])
 ])
 
+AC_MSG_CHECKING([ExtUtils::Embed])
+if $PERL -e "use 5.008_001; use ExtUtils::Embed;" >/dev/null 2>&1; then
+  extutils_embed='yes'
+else
+  extutils_embed='no'
+fi
+AC_MSG_RESULT($extutils_embed)
+
+AM_CONDITIONAL([PERL_EMBEDDED], [test "z$extutils_embed" = 'zyes'])
+
+PERL_EXTUTILS_EMBED_ccopts=
+PERL_EXTUTILS_EMBED_ldopts=
+if test "z$extutils_embed" = 'zyes' ; then
+  PERL_EXTUTILS_EMBED_ccopts=`${PERL} -MExtUtils::Embed -e ccopts`
+  PERL_EXTUTILS_EMBED_ldopts=`${PERL} -MExtUtils::Embed -e ldopts`
+fi
+
 AC_ARG_ENABLE([additional-checks],
     AS_HELP_STRING([--enable-additional-checks], [run tests on non-distributed components]),
     [ enable_additional_tests=$enableval],
@@ -255,6 +272,9 @@ AC_SUBST([platform_LDFLAGS], [$platform_LDFLAGS])
 AC_SUBST([platform_PERL_LIBADD], [$platform_PERL_LIBADD])
 AC_SUBST([PERL_LIBS], [$PERL_LIBS])
 
+AC_SUBST([PERL_EXTUTILS_EMBED_ccopts], [$PERL_EXTUTILS_EMBED_ccopts])
+AC_SUBST([PERL_EXTUTILS_EMBED_ldopts], [$PERL_EXTUTILS_EMBED_ldopts])
+
 AC_CHECK_FUNCS(newlocale strxfrm_l)
 
 # Output these with the _CONFIG suffix as we use the originals as names
@@ -278,3 +298,8 @@ AC_DEFINE_UNQUOTED([TEXINFO_DTD_VERSION_CONFIG], ["$TEXINFO_DTD_VERSION"],
 
 AC_CONFIG_FILES([Makefile gnulib/lib/Makefile])
 AC_OUTPUT
+
+if test x$disable_xs != xyes -a "z$extutils_embed" != 'zyes' ; then
+  AC_MSG_WARN([Perl XS enabled but the ExtUtils::Embed was not found])
+  AC_MSG_WARN([Main program in C embedding a Perl interpreter disabled])
+fi

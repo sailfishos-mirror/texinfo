@@ -1,3 +1,13 @@
+2025-01-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (ctexi2any, ctexi2any_LDADD)
+	(ctexi2any_CFLAGS, ctexi2any_LDFLAGS), tp/Texinfo/XS/configure.ac
+	(PERL_EMBEDDED, PERL_EXTUTILS_EMBED_ccopts)
+	(PERL_EXTUTILS_EMBED_ldopts): check if ExtUtils::Embed is present, if
+	not do not build ctexi2any, if yes, use "perl -MExtUtils::Embed -e
+	ccopts" in ctexi2any CFLAGS and "perl -MExtUtils::Embed -e ldopts"
+	in ctexi2any LDADD.
+
 2025-01-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/*.pm, tp/Texinfo/ParserNonXS.pm,

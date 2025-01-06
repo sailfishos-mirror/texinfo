@@ -655,22 +655,25 @@ teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/ma
 
 ############################################### main program in C
 
+if PERL_EMBEDDED
 if HAVE_ICONV
 noinst_PROGRAMS += ctexi2any
+endif
 endif
 
 ctexi2any_SOURCES = \
                        texi2any.c
 
-# NOTE PERL_LIBS is needed on GNU/Linux too, but see just below ExtUtils::Embed
-# should be used
-# FIXME use perl -MExtUtils::Embed -e ccopts
-# FIXME use perl -MExtUtils::Embed -e ldopts
-# TODO not sure that gnulib is directly needed
-ctexi2any_LDADD = libtexinfo-convertxs.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD) $(PERL_LIBS)
+# FIXME the PERL_EXTUTILS_EMBED_ldopts variable contains program-specific
+# linker flags that have to be in LDFLAGS according to the automake
+# documentation, but also -L and -l flags that need to be last
+# on LDADD.  We favor LDADD otherwise linking fails.
+# gnulib is directly needed on some platforms for getopt-gnu
+ctexi2any_LDADD = libtexinfo-convertxs.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts)
 #ctexi2any_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
-ctexi2any_LDFLAGS = $(perl_conf_LDFLAGS)
+#ctexi2any_LDFLAGS = $(PERL_EXTUTILS_EMBED_ldopts)
 
+ctexi2any_CFLAGS = $(PERL_EXTUTILS_EMBED_ccopts)
 ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
 
 
