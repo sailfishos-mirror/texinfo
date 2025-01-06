@@ -1,5 +1,9 @@
 2025-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/configure.ac: improve a message.
+
+2025-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (ctexi2any, ctexi2any_LDADD)
 	(ctexi2any_CFLAGS, ctexi2any_LDFLAGS), tp/Texinfo/XS/configure.ac
 	(PERL_EMBEDDED, PERL_EXTUTILS_EMBED_ccopts)

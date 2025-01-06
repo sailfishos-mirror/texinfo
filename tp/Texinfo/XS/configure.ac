@@ -300,6 +300,6 @@ AC_CONFIG_FILES([Makefile gnulib/lib/Makefile])
 AC_OUTPUT
 
 if test x$disable_xs != xyes -a "z$extutils_embed" != 'zyes' ; then
-  AC_MSG_WARN([Perl XS enabled but the ExtUtils::Embed was not found])
+  AC_MSG_WARN([Perl XS enabled but the ExtUtils::Embed module was not found])
   AC_MSG_WARN([Main program in C embedding a Perl interpreter disabled])
 fi
