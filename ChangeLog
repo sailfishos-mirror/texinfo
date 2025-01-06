@@ -1,5 +1,30 @@
 2025-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	Separate library for main program to isolate Perl embedding code
+
+	* tp/Texinfo/XS/convert/call_conversion_perl.c,
+	tp/Texinfo/XS/convert/call_embed_perl.c (call_eval_use_module)
+	(my_perl, xs_init, call_init_perl, call_finish_perl): move functions
+	related to Perl embedding to a different file, to be able to use
+	the ExtUtils::Embed compile flags for this file only.
+
+	* tp/Texinfo/XS/Makefile.am (C_libtexinfo_convert_sources)
+	(libtexinfo_convert_la_CPPFLAGS, libtexinfo-main.la)
+	(C_libtexinfo_main_sources, libperlembed_libtexinfo_main.la)
+	(libperlembed_libtexinfo_main_la_SOURCES)
+	(libperlembed_libtexinfo_main_la_CFLAGS)
+	(libperlembed_libtexinfo_main_la_LDFLAGS)
+	(libperlembed_libtexinfo_main_la_LIBADD, libtexinfo_main_la_SOURCES)
+	(libtexinfo_main_la_CPPFLAGS, libtexinfo_main_la_LIBADD)
+	(libtexinfo_main_la_LDFLAGS, teximakehtml_SOURCES)
+	(ctexi2any_LDADD): add the libtexinfo-main small library to use the
+	ExtUtils::Embed library flags for this library only.  The C part
+	contains texinfo.c and there is also a convenience library for
+	call_embed_perl.c.  Do not use ExtUtils::Embed compile flags
+	for the main program.
+
+2025-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/configure.ac: remove the warning messages at the end,
 	the check for enabled XS is done in the top configure.ac.
 

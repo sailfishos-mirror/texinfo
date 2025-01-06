@@ -801,6 +801,10 @@ Turkish locale, interesting as ASCII upper-case letter I can become
 a (non-ASCII) dotless i when lower casing.  (Eli recommendation).
 export LANG=tr_TR.UTF-8; export LANGUAGE=tr_TR.UTF-8; export LC_ALL=tr_TR.UTF-8
 
+On ExtUtils::Embed flags (the documentation tends to be inaccurate):
+  ldopts: ccdlflags ldflags "libperl and perllibs through MakeMaker + static_ext"
+  ccopts: ccflags perl_inc
+
 convert to pdf from docbook
 xsltproc -o intermediate-fo-file.fo /usr/share/xml/docbook/stylesheet/docbook-xsl/fo/docbook.xsl texinfo.xml
 fop -r -pdf texinfo-dbk.pdf -fo intermediate-fo-file.fo

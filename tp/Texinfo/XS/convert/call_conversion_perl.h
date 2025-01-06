@@ -7,8 +7,6 @@
 #include "document_types.h"
 #include "converter_types.h"
 
-void call_eval_use_module (const char *module_name);
-
 CONVERTER_INITIALIZATION_INFO *call_converter_converter_defaults (
                                    const char *module_name,
                                    OPTIONS_LIST *customizations);
@@ -24,7 +22,4 @@ char *call_sort_element_counts (const char *module_name, CONVERTER *self,
 
 int call_config_GNUT_load_init_file (const char *file_path);
 
-int call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref,
-                    char *load_txi_modules_path, const char *version_checked);
-void call_finish_perl (void);
 #endif

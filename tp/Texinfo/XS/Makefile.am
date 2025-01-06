@@ -46,6 +46,10 @@ xsdir = $(converterlibdir)
 
 # -------------------------------------------------------
 
+# XSLIBS_CPPFLAGS and XSLIBS_CFLAGS should be used for XS
+# modules compilation and can also be used for libraries whose
+# source files include Perl headers.
+
 # XS_VERSION is used in version check in the bootstrap function created
 # by xsubpp in C code generated from .xs, and called in XSLoader.pm
 XSLIBS_CPPFLAGS = -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(XS_VERSION)\"
@@ -53,7 +57,7 @@ XSLIBS_CPPFLAGS += -I$(PERL_INC)
 
 XSLIBS_CFLAGS = $(perl_conf_CFLAGS)
 
-# Flags specially recognized by libtool
+# Flags specially recognized by libtool.  For dlopened modules, here XS.
 XSLIBS_LDFLAGS = -avoid-version -module
 
 XSLIBS_LDFLAGS += $(perl_conf_LDFLAGS)
@@ -510,9 +514,7 @@ C_libtexinfo_convert_sources = \
                        convert/plaintexinfo_converter_api.c \
                        convert/plaintexinfo_converter_api.h \
                        convert/rawtext_converter_api.c \
-                       convert/rawtext_converter_api.h \
-                       convert/texinfo.c \
-                       convert/texinfo.h
+                       convert/rawtext_converter_api.h
 
 # convenience library for C Perl called from libtexinfo-convert C code,
 # call_html_perl_function.c, to be able to have different flags from
@@ -539,8 +541,7 @@ libtexinfo_convert_la_SOURCES = \
    $(C_libtexinfo_convert_sources)
 
 # locate include files under out-of-source builds.
-# parsetexi is only needed for texinfo.c
-libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
+libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la libcallperl_libtexinfo_convert.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
 libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 # example to trigger errors associated with no undefined
@@ -629,6 +630,52 @@ ConfigXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 ConfigXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
 ConfigXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
+############################################### main program library
+# hide some details from the main program.
+
+# TODO could also be a convenience library, as there is no shared state
+# with modules.
+
+if HAVE_ICONV
+xs_LTLIBRARIES += libtexinfo-main.la
+endif
+
+C_libtexinfo_main_sources = \
+                       convert/texinfo.c \
+                       convert/texinfo.h
+
+# convenience library for embedded Perl called from libtexinfo-main C code,
+# to be able to specific flags for compilation and linking.
+# Internal for libtexinfo-main.
+if HAVE_ICONV
+noinst_LTLIBRARIES += libperlembed_libtexinfo_main.la
+endif
+
+libperlembed_libtexinfo_main_la_SOURCES = \
+                       convert/call_embed_perl.c \
+                       convert/call_embed_perl.h
+#libperlembed_libtexinfo_main_la_CPPFLAGS = 
+libperlembed_libtexinfo_main_la_CFLAGS = $(PERL_EXTUTILS_EMBED_ccopts)
+# there are some duplications between LDFLAGS and LIBADD,
+# namely ccdlflags should be in both.  It should not be problematic.
+libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LDFLAGS)
+libperlembed_libtexinfo_main_la_LIBADD = $(PERL_EXTUTILS_EMBED_ldopts)
+
+
+libtexinfo_main_la_SOURCES = \
+   $(C_libtexinfo_main_sources)
+
+# locate include files under out-of-source builds.
+# NOTE not sure that Gnulib is directly used, but it does
+# not harm to add.
+libtexinfo_main_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
+libtexinfo_main_la_LIBADD = libtexinfoxs.la libtexinfo.la libtexinfo-convert.la libperlembed_libtexinfo_main.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts)
+# FIXME are $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) needed?
+libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+# example to trigger errors associated with no undefined
+#libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(PERL_LIBS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+
+
 ############################################### demonstrator of the API
 
 noinst_PROGRAMS =
@@ -642,6 +689,7 @@ endif
 teximakehtml_SOURCES = \
                        $(C_libtexinfo_sources) \
                        $(C_libtexinfo_convert_sources) \
+                       $(C_libtexinfo_main_sources) \
                        texi2any.c \
                        main/replace_perl_api_call.c \
                        convert/replace_perl_call_html_function.c \
@@ -669,11 +717,10 @@ ctexi2any_SOURCES = \
 # documentation, but also -L and -l flags that need to be last
 # on LDADD.  We favor LDADD otherwise linking fails.
 # gnulib is directly needed on some platforms for getopt-gnu
-ctexi2any_LDADD = libtexinfo-convertxs.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts)
+ctexi2any_LDADD = libtexinfo-main.la libtexinfo-convertxs.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts)
+# FIXME needed?
 #ctexi2any_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
-#ctexi2any_LDFLAGS = $(PERL_EXTUTILS_EMBED_ldopts)
 
-ctexi2any_CFLAGS = $(PERL_EXTUTILS_EMBED_ccopts)
 ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
 
 

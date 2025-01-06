@@ -47,6 +47,7 @@
 #include "converter.h"
 #include "html_converter_api.h"
 #include "call_conversion_perl.h"
+#include "call_embed_perl.h"
 /* set_no_perl_interpreter */
 #include "xs_utils.h"
 #include "texinfo.h"

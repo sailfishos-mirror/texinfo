@@ -153,8 +153,11 @@ if test x$disable_xs != xyes; then
   ac_cv_prog_CC= ; unset ac_cv_prog_CC
   ac_cv_prog_ac_ct_CC= ; unset ac_cv_prog_ac_ct_CC
 
+  # cccdlflags: compilation flags to compile modules to be used to
+  #             create a shared library that will be used for dynamic loading
   lookup_perl_conf_values([[ccflags], [cccdlflags], [optimize]])
   
+  # ccdlflags: link flags with a shared library for dynamic loading
   # flags for linking the extension, e.g. -rpath.
   lookup_perl_conf([ccdlflags])
 
