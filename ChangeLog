@@ -1,5 +1,10 @@
 2025-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (ctexi2any_LDADD): remove
+	libtexinfo-convertxs.la, it is not used at all in the program.
+
+2025-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	Separate library for main program to isolate Perl embedding code
 
 	* tp/Texinfo/XS/convert/call_conversion_perl.c,

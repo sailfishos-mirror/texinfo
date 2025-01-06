@@ -633,8 +633,8 @@ ConfigXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 ############################################### main program library
 # hide some details from the main program.
 
-# TODO could also be a convenience library, as there is no shared state
-# with modules.
+# TODO could also be a convenience library or maybe always linked directly in
+# the main programs, as there is no shared state with modules.
 
 if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfo-main.la
@@ -645,7 +645,8 @@ C_libtexinfo_main_sources = \
                        convert/texinfo.h
 
 # convenience library for embedded Perl called from libtexinfo-main C code,
-# to be able to specific flags for compilation and linking.
+# to be able to specific flags for compilation and linking different from
+# other libraries with code including Perl headers, and without Gnulib.
 # Internal for libtexinfo-main.
 if HAVE_ICONV
 noinst_LTLIBRARIES += libperlembed_libtexinfo_main.la
@@ -657,7 +658,10 @@ libperlembed_libtexinfo_main_la_SOURCES = \
 #libperlembed_libtexinfo_main_la_CPPFLAGS = 
 libperlembed_libtexinfo_main_la_CFLAGS = $(PERL_EXTUTILS_EMBED_ccopts)
 # there are some duplications between LDFLAGS and LIBADD,
-# namely ccdlflags should be in both.  It should not be problematic.
+# namely ccdlflags should be in both.  This is mainly because program-specific
+# linker flags that should be in LDFLAGS according to the automake
+# documentation are in PERL_EXTUTILS_EMBED_ldopts.  It should not be
+# problematic.
 libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LDFLAGS)
 libperlembed_libtexinfo_main_la_LIBADD = $(PERL_EXTUTILS_EMBED_ldopts)
 
@@ -717,7 +721,7 @@ ctexi2any_SOURCES = \
 # documentation, but also -L and -l flags that need to be last
 # on LDADD.  We favor LDADD otherwise linking fails.
 # gnulib is directly needed on some platforms for getopt-gnu
-ctexi2any_LDADD = libtexinfo-main.la libtexinfo-convertxs.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts)
+ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts)
 # FIXME needed?
 #ctexi2any_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
