@@ -129,7 +129,9 @@ switch_messages_locale (void)
   if ((!locale || setenv_status) && !locale_command)
     {
       FILE *p;
-      locale_command = "locale -a";
+    /* we ignore the errors as we have a more general warning message below
+       and we are not really interested by locale errors */
+      locale_command = "locale -a 2>/dev/null";
 
       p = popen (locale_command, "r");
       if (p)

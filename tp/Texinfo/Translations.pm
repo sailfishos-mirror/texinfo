@@ -134,7 +134,9 @@ sub _switch_messages_locale
   # try the output of 'locale -a' (but only once)
   our $locale_command;
   if (!$locale and !$locale_command) {
-    $locale_command = "locale -a";
+    # we ignore the errors as we have a more general warning message below
+    # and we are not really interested by locale errors
+    $locale_command = "locale -a 2>/dev/null";
     my @local_command_locales = split("\n", `$locale_command`);
     if ($? == 0) {
       foreach my $try (@local_command_locales) {
