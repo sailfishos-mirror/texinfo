@@ -34,6 +34,9 @@ use POSIX qw(setlocale LC_ALL LC_MESSAGES);
 use Carp qw(cluck);
 use Locale::Messages;
 
+# for __()
+use Texinfo::Common;
+
 # note that there is a circular dependency with the parser module, as
 # the parser uses complete_indices() from this modules, while this module
 # uses a parser.  This is not problematic, however, as the
@@ -141,7 +144,19 @@ sub _switch_messages_locale
       }
     }
   }
-  $working_locale = $locale;
+  if ($locale) {
+    if ($locale ne 'C' and $locale ne 'POSIX') {
+      $working_locale = $locale;
+    } elsif (!defined($working_locale)) {
+      # There is no access to converter/document/... so the warning
+      # is unconditionally output here and now.  This may be
+      # annoying if the user cannot fix the issue, but let's wait for
+      # actual cases
+      warn
+  __("Cannot switch to a locale compatible with document strings translations")."\n";
+      $working_locale = $locale;
+    }
+  }
 }
 
 # Return a translated string.

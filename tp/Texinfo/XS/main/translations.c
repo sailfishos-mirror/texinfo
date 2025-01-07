@@ -25,9 +25,10 @@
 #include <stddef.h>
 
 #ifdef ENABLE_NLS
-#include <gettext.h>
 #include <libintl.h>
 #endif
+/* also to have a definition of gettext in case ENABLE_NLS is not set */
+#include "gettext.h"
 
 #include "text.h"
 #include "command_ids.h"
@@ -48,6 +49,8 @@
 /* for debugging */
 #include "convert_to_texinfo.h"
 #include "translations.h"
+
+#define _(String) gettext (String)
 
 /*
 my $DEFAULT_ENCODING = 'utf-8';
@@ -161,11 +164,7 @@ switch_messages_locale (void)
             }
         }
     }
-  /* check that the locale set is not "C"/"POSIX" as we want to set
-     to other locales for LANGUAGE.  The locale returned by setlocale
-     can be these one of these locales even if the locale passed
-     in argument is not */
-  if (locale && strcmp (locale, "C") && strcmp (locale, "POSIX"))
+  if (locale)
     {
       /*
       char *current_lang = getenv ("LANG");
@@ -176,8 +175,26 @@ switch_messages_locale (void)
           fprintf (stderr, "LANG %s != locale %s\n", current_lang, locale);
         }
       */
-      free (working_locale);
-      working_locale = strdup (locale);
+  /* check that the locale set is not "C"/"POSIX" as we want to set
+     to other locales for LANGUAGE.  The locale returned by setlocale
+     can be these one of these locales even if the locale passed
+     in argument is not */
+      if (strcmp (locale, "C") && strcmp (locale, "POSIX"))
+        {
+          free (working_locale);
+          working_locale = strdup (locale);
+        }
+      else if (!working_locale)
+        {
+          /* There is no access to converter/document/... so the warning
+             is unconditionally output here and now.  This may be
+             annoying if the user cannot fix the issue, but let's wait for
+             actual cases */
+          fprintf (stderr, "%s\n",
+ _("Cannot switch to a locale compatible with document strings translations"));
+          free (working_locale);
+          working_locale = strdup (locale);
+        }
     }
 }
 

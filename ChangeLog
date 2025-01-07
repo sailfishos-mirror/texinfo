@@ -1,5 +1,12 @@
 2025-01-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Translations.pm (_switch_messages_locale),
+	tp/Texinfo/XS/main/translations.c (switch_messages_locale): warn
+	immediately if the switch to a locale other than C and POSIX did not
+	succeed.
+
+2025-01-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_embed_perl.c (call_init_perl): set
 	PL_perl_destruct_level to 0 to decrease the time needed for the
 	destruction of the embedded Perl interpreter.  Using
