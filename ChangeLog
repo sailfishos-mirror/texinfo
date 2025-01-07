@@ -1,3 +1,8 @@
+2025-01-07  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Target Tree Element Link): correct the order
+	of the return arguments of get_element_root_command_element.
+
 2025-01-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/Makefile.am (ctexi2any_LDADD): remove

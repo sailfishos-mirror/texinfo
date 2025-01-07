@@ -3211,8 +3211,8 @@ For elements that are not target elements, use
 element and the output unit containing the element:
 
 @anchor{@code{get_element_root_command_element}}
-@deftypefun {@var{\%top_level_element}, @var{\%output_unit} =} @var{$converter}->get_element_root_command_element (@var{\%element})
-Return the top level element and output unit a Texinfo tree
+@deftypefun {@var{\%output_unit}, @var{\%top_level_element} =} @var{$converter}->get_element_root_command_element (@var{\%element})
+Return the output unit and top level element a Texinfo tree
 @var{\%element} is in.  Both the top level element and the output unit may be
 undefined, depending on how the converter is called and on the Texinfo tree.
 The top level element returned is also determined by the customization variable

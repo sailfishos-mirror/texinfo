@@ -15,8 +15,28 @@ texi2any too
 
 Move C code?
 
+Version libraries?
+
 Handle TODO: split each line in a translatable string? in texi2any.pl and
 then add the messages to ctexi2any help
+
+
+Missing texi2any_api information
+* some information on how to practically modify buttons formatting
+  in "Simple Navigation Panel Customization".  For example
+    tp/t/init/t2h_buttons.pm
+    tp/t/init/redefined_buttons.pm
+    tp/t/init/t2h_singular.init (singular_banner)
+    tp/t/init/button_replacement_for_special_unit_direction.pm
+* some information on what to use in user-defined buttons formatting
+  functions that would link heavily to "Target Tree Element Link"
+  and a bit to "Navigation Panel Button Formatting" for direction_string,
+  $converter->global_direction_unit and from_element_direction.  For example
+    tp/t/init/t2h_singular.init (singular_banner)
+    tp/t/init/redefined_buttons.pm
+
+Show example of use of document API, for global_commands_information,
+for example, or global_information... ?
 
 
 Bugs
