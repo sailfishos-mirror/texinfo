@@ -108,6 +108,11 @@ call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref,
 void
 call_finish_perl (void)
 {
+  /* The default is 1, which lead to 5% of the total time for destruction
+     for the Texinfo manual formatted to Info.
+     PERL_DESTRUCT_LEVEL env variable overrides the value.
+   */
+  PL_perl_destruct_level = 0;
   perl_destruct(my_perl);
   perl_free(my_perl);
   PERL_SYS_TERM();

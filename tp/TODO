@@ -929,6 +929,7 @@ Using callgrind to find the time used by functions
 valgrind --tool=callgrind perl -w texi2any.pl ../doc/texinfo.texi --html
 # to avoid cycles (some remain in Perl only code) that mess up the graph:
 valgrind --tool=callgrind --separate-callers=3 --separate-recs=10 perl -w texi2any.pl ../doc/texinfo.texi --html
+valgrind --tool=callgrind --separate-callers=4 --separate-recs=11 perl -w texi2any.pl ../doc/texinfo.texi
 kcachegrind callgrind.out.XXXXXX
 
 This is obsolete with output overriding, although the distribution changed
