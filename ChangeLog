@@ -1,3 +1,10 @@
+2025-01-07  Patrice Dumas  <pertusus@free.fr>
+
+	texi2any usage message
+
+	* tp/texi2any.pl (makeinfo_help) <Examples>: substitute
+	$real_command_name instead of hardcoding it.
+
 2025-01-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	texi2any usage message
