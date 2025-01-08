@@ -1084,33 +1084,21 @@ the behavior is identical, and does not depend on the installed name.")."\n"
 .__(" -U VAR                       undefine the variable VAR, as with \@clear.")."\n"
 ."\n"
 .__("Conditional processing in input:")."\n"
-.__("  --ifdocbook       process \@ifdocbook and \@docbook even if
-                      not generating Docbook.")."\n"
-.__("  --ifhtml          process \@ifhtml and \@html even if not generating HTML.")."\n"
-.__("  --ifinfo          process \@ifinfo even if not generating Info.")."\n"
-.__("  --iflatex         process \@iflatex and \@latex.")."\n"
-.__("  --ifplaintext     process \@ifplaintext even if not generating plain text.")."\n"
-.__("  --iftex           process \@iftex and \@tex.")."\n"
-.__("  --ifxml           process \@ifxml and \@xml.")."\n"
-.__("  --no-ifdocbook    do not process \@ifdocbook and \@docbook text.")."\n"
-.__("  --no-ifhtml       do not process \@ifhtml and \@html text.")."\n"
-.__("  --no-ifinfo       do not process \@ifinfo text.")."\n"
-.__("  --no-iflatex      do not process \@iflatex and \@latex text.")."\n"
-.__("  --no-ifplaintext  do not process \@ifplaintext text.")."\n"
-.__("  --no-iftex        do not process \@iftex and \@tex text.")."\n"
-.__("  --no-ifxml        do not process \@ifxml and \@xml text.")."\n"
+.__("      --ifdocbook       process \@ifdocbook and \@docbook")."\n"
+.__("      --ifhtml          process \@ifhtml and \@html")."\n"
+.__("      --ifinfo          process \@ifinfo")."\n"
+.__("      --iflatex         process \@iflatex and \@latex")."\n"
+.__("      --ifplaintext     process \@ifplaintext")."\n"
+.__("      --iftex           process \@iftex and \@tex")."\n"
+.__("      --ifxml           process \@ifxml and \@xml")."\n"
 ."\n"
-.__("  Also, for the --no-ifFORMAT options, do process \@ifnotFORMAT text.")."\n"
-."\n";
-  # TODO: split each line in a translatable string?
-  $makeinfo_help
-    .= __("  The defaults for the \@if... conditionals depend on the output format:
-  if generating Docbook, --ifdocbook is on and the others are off;
-  if generating HTML, --ifhtml is on and the others are off;
-  if generating Info, --ifinfo is on and the others are off;
-  if generating plain text, --ifplaintext is on and the others are off;
-  if generating LaTeX, --iflatex is on and the others are off;
-  if generating XML, --ifxml is on and the others are off.")."\n"
+.__("  By default, an --ifFORMAT setting is on only when the output format
+  is FORMAT; for example, --ifhtml is on when outputting HTML.
+  Also, when --ifFORMAT is on, \@ifnotFORMAT text is not processed.")."\n"
+."\n"
+.__("  Each --ifFORMAT option may be prefixed with \`--no-' to negate it;
+  for example, --no-ifhtml means not to process \@ifhtml or \@html text,
+  and to process \@ifnothtml text.")."\n"
 ."\n";
   # TODO: avoid \n in translated strings, Report from Benno Schulenberg.
   # TODO: split each line in a translatable string?

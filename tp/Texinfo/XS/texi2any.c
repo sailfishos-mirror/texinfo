@@ -1780,53 +1780,46 @@ main (int argc, char *argv[], char *env[])
         _(" -U VAR                       undefine the variable VAR, as with @clear."));
       text_append_n (&help_message, "\n\n", 2);
 
-      text_append (&help_message, _("Conditional processing in input:"));
+      text_append (&help_message, _(
+"Conditional processing in input:"));
       text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-  _("  --ifdocbook       process @ifdocbook and @docbook even if\n                      not generating Docbook."));
+      text_append (&help_message, _(
+"      --ifdocbook       process @ifdocbook and @docbook"));
       text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-  _("  --ifhtml          process @ifhtml and @html even if not generating HTML."));
+      text_append (&help_message, _(
+"      --ifhtml          process @ifhtml and @html"));
       text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-  _("  --ifinfo          process @ifinfo even if not generating Info."));
+      text_append (&help_message, _(
+"      --ifinfo          process @ifinfo"));
       text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-  _("  --iflatex         process @iflatex and @latex."));
+      text_append (&help_message, _(
+"      --iflatex         process @iflatex and @latex"));
       text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-  _("  --ifplaintext     process @ifplaintext even if not generating plain text."));
+      text_append (&help_message, _(
+"      --ifplaintext     process @ifplaintext"));
       text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-  _("  --iftex           process @iftex and @tex."));
+      text_append (&help_message, _(
+"      --iftex           process @iftex and @tex"));
       text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-  _("  --ifxml           process @ifxml and @xml."));
+      text_append (&help_message, _(
+"      --ifxml           process @ifxml and @xml"));
       text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-  _("  --no-ifdocbook    do not process @ifdocbook and @docbook text."));
+
       text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-  _("  --no-ifhtml       do not process @ifhtml and @html text."));
-      text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-  _("  --no-ifinfo       do not process @ifinfo text."));
-      text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-  _("  --no-iflatex      do not process @iflatex and @latex text."));
-      text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-  _("  --no-ifplaintext  do not process @ifplaintext text."));
-      text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-  _("  --no-iftex        do not process @iftex and @tex text."));
-      text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-  _("  --no-ifxml        do not process @ifxml and @xml text."));
+
+      text_append (&help_message, _(
+"  By default, an --ifFORMAT setting is on only when the output format\n"
+"  is FORMAT; for example, --ifhtml is on when outputting HTML.\n"
+"  Also, when --ifFORMAT is on, @ifnotFORMAT text is not processed."));
+
       text_append_n (&help_message, "\n\n", 2);
 
-      text_append (&help_message,
-  _("  Also, for the --no-ifFORMAT options, do process @ifnotFORMAT text."));
+      text_append (&help_message, _(
+"  Each --ifFORMAT option may be prefixed with `--no-' to negate it;\n"
+"  for example, --no-ifhtml means not to process @ifhtml or @html text,\n"
+"  and to process @ifnothtml text."));
+
+
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("Email bug reports to bug-texinfo@gnu.org,\ngeneral questions and discussion to help-texinfo@gnu.org.\nTexinfo home page: https://www.gnu.org/software/texinfo/"));
