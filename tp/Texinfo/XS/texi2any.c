@@ -1850,8 +1850,37 @@ main (int argc, char *argv[], char *env[])
 "  Each --ifFORMAT option may be prefixed with `--no-' to negate it;\n"
 "  for example, --no-ifhtml means not to process @ifhtml or @html text,\n"
 "  and to process @ifnothtml text."));
+      text_append_n (&help_message, "\n\n", 2);
 
+      text_append (&help_message, _("Examples:"));
+      text_append_n (&help_message, "\n", 1);
+      text_printf (&help_message, _(
+"  %s foo.texi                      write Info"), program_file);
+      text_append_n (&help_message, "\n", 1);
+      text_printf (&help_message, _(
+"  %s --html foo.texi               write HTML"), program_file);
+      text_append_n (&help_message, "\n", 1);
+      text_printf (&help_message, _(
+"  %s --xml foo.texi                write Texinfo XML"), program_file);
+      text_append_n (&help_message, "\n", 1);
+      text_printf (&help_message, _(
+"  %s --docbook foo.texi            write Docbook XML"), program_file);
+      text_append_n (&help_message, "\n", 1);
+      text_printf (&help_message, _(
+"  %s --plaintext foo.texi          write plain text to standard output"), program_file);
+      text_append_n (&help_message, "\n", 1);
+      text_printf (&help_message, _(
+"  %s --pdf foo.texi                write PDF using texi2dvi"), program_file);
+      text_append_n (&help_message, "\n\n", 2);
 
+      text_printf (&help_message, _(
+"  %s --html --no-headers foo.texi  write html without node lines, menus"), program_file);
+      text_append_n (&help_message, "\n", 1);
+      text_printf (&help_message, _(
+"  %s --number-sections foo.texi    write Info with numbered sections"), program_file);
+      text_append_n (&help_message, "\n", 1);
+      text_printf (&help_message, _(
+"  %s --no-split foo.texi           write one Info file however big"), program_file);
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("Email bug reports to bug-texinfo@gnu.org,\n"
