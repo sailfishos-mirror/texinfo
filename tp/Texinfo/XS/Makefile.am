@@ -697,7 +697,8 @@ teximakehtml_SOURCES = \
                        texi2any.c \
                        main/replace_perl_api_call.c \
                        convert/replace_perl_call_html_function.c \
-                       convert/replace_call_conversion_perl.c
+                       convert/replace_call_conversion_perl.c \
+                       convert/replace_call_embed_perl.c
 
 teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la
 teximakehtml_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)

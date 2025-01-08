@@ -1,5 +1,13 @@
 2025-01-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (teximakehtml_SOURCES),
+	tp/Texinfo/XS/convert/replace_call_conversion_perl.c,
+	tp/Texinfo/XS/convert/replace_call_embed_perl.c: split
+	replace_call_embed_perl.c out of replace_call_conversion_perl.c with
+	replacements for call_embed_perl.c functions only.
+
+2025-01-08  Patrice Dumas  <pertusus@free.fr>
+
 	pod2texi usage message
 
 	* Pod-Simple-Texinfo/pod2texi.pl: use ; instead of . to separate
