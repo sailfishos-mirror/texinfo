@@ -1,5 +1,12 @@
 2025-01-08  Patrice Dumas  <pertusus@free.fr>
 
+	pod2texi usage message
+
+	* Pod-Simple-Texinfo/pod2texi.pl: use ; instead of . to separate
+	information.  Indent second line of option description by two spaces.
+
+2025-01-08  Patrice Dumas  <pertusus@free.fr>
+
 	texi2any usage message
 
 	* tp/Texinfo/XS/texi2any.c (main), tp/texi2any.pl: remove periods from

@@ -151,18 +151,18 @@ and all the \@include is generated.");
   $pod2texi_help .= __("    --base-level=NUM|NAME   level of the head1 commands; default 0")."\n";
   $pod2texi_help .= __("    --debug=NUM             set debugging level")."\n";
   $pod2texi_help .= __("    --generate-setfilename  generate \@setfilename for standalone
-                            manuals")."\n";
+                              manuals")."\n";
   $pod2texi_help .= __("    --headings-as-sections  no structuring command for sections")."\n";
   $pod2texi_help .= __("    --help                  display this help and exit")."\n";
   $pod2texi_help .= __("    --no-fill-section-gaps  do not fill sectioning gaps")."\n";
   $pod2texi_help .= __("    --no-section-nodes      use anchors for sections instead of nodes")."\n";
   $pod2texi_help .= __("    --menus                 generate node menus")."\n";
-  $pod2texi_help .= __("    --outdir=NAME           output included files in NAME.
-                                                    Defaults to --subdir")."\n";
+  $pod2texi_help .= __("    --outdir=NAME           output included files in NAME;
+                              defaults to --subdir")."\n";
   $pod2texi_help .= __("    --output=NAME           output to NAME for the first or main manual
-                            instead of standard output")."\n";
-  $pod2texi_help .= __("    --preamble=STR          insert STR as beginning boilerplate.
-                            Defaults to a minimal Texinfo document beginning")."\n";
+                              instead of standard output")."\n";
+  $pod2texi_help .= __("    --preamble=STR          insert STR as beginning boilerplate;
+                              defaults to a minimal Texinfo document beginning")."\n";
   $pod2texi_help .= __("    --setfilename           \@setfilename for the main manual")."\n";
   $pod2texi_help .= __("    --subdir=NAME           include files from NAME in the main manual")."\n";
   $pod2texi_help .= __("    --top                   top for the main manual")."\n";
