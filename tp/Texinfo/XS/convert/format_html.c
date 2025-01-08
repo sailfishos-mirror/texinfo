@@ -2668,14 +2668,11 @@ direction_href_attributes (CONVERTER *self, int direction, TEXT *result)
         text_printf (result, " accesskey=\"%s\"", accesskey);
     }
 
-  if (self->conf->USE_REL_REV.o.integer > 0)
-    {
-      const char *button_rel
-        = direction_string (self, direction, TDS_type_rel,
-                                    TDS_context_string);
-      if (button_rel && strlen (button_rel))
-        text_printf (result, " rel=\"%s\"", button_rel);
-    }
+  const char *button_rel
+    = direction_string (self, direction, TDS_type_rel,
+                                TDS_context_string);
+  if (button_rel && strlen (button_rel))
+    text_printf (result, " rel=\"%s\"", button_rel);
 }
 
 static char *
@@ -4439,14 +4436,11 @@ html_default_format_button (CONVERTER *self,
                   if (accesskey && strlen (accesskey))
                     text_printf (&active_text, " accesskey=\"%s\"", accesskey);
                 }
-              if (self->conf->USE_REL_REV.o.integer > 0)
-                {
-                  const char *button_rel
-                    = direction_string (self, button->b.direction,
-                                        TDS_type_rel, TDS_context_string);
-                  if (button_rel && strlen (button_rel))
-                    text_printf (&active_text, " rel=\"%s\"", button_rel);
-                }
+              const char *button_rel
+                = direction_string (self, button->b.direction,
+                                    TDS_type_rel, TDS_context_string);
+              if (button_rel && strlen (button_rel))
+                text_printf (&active_text, " rel=\"%s\"", button_rel);
               text_append_n (&active_text, ">", 1);
               if (active_icon)
                 {

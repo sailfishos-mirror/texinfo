@@ -124,7 +124,6 @@ USE_ISO                1
 USE_LINKS              1
 USE_NODES              1
 USE_NODE_DIRECTIONS    undef
-USE_REL_REV            1
 USE_TITLEPAGE_FOR_TITLE  1
 WORDS_IN_PAGE          300
 # for internal cross references
@@ -147,7 +146,6 @@ USE_ACCESSKEY                0
 NODE_NAME_IN_MENU            0
 SHORT_TOC_LINK_TO_TOC        0
 SHOW_TITLE                   1
-USE_REL_REV                  0
 USE_LINKS                    0
 USE_NODES                    0
 SPLIT    

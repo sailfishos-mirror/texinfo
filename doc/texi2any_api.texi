@@ -1304,13 +1304,6 @@ If the customization variable @code{USE_ACCESSKEY} is set, the
 direction string is then used for the @code{accesskey} attributes
 (@pxref{Direction Strings}).
 
-@vindex USE_REL_REV
-@cindex @code{rel} navigation
-Similarly, if the @code{USE_REL_REV} customization variable is set,
-the @code{rel} attribute is used in navigation.  In that case the
-@code{rel} direction string is used for the @code{rel}
-attribute (@pxref{Direction Strings}).
-
 
 @node User Defined Functions
 @chapter User Defined Functions
@@ -4531,8 +4524,7 @@ The buttons images can be formatted with @code{format_button_icon_img}
 
 Simple navigation panel
 customization (@pxref{Simple Navigation Panel Customization}),
-@code{USE_ACCESSKEY},
-@code{USE_REL_REV} and direction strings
+@code{USE_ACCESSKEY} and direction strings
 customization (@pxref{Direction Strings Customization})
 can be relevant for the
 formatting of a button.

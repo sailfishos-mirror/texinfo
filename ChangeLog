@@ -1,3 +1,21 @@
+2025-01-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Remove USE_REL_REV variable
+
+	* tp/Texinfo/options_data.txt,
+	* tp/Texinfo/Convert/converters_defaults.txt,
+	* tp/Texinfo/Convert/HTML.pm
+	(_direction_href_attributes, _default_format_button)
+	* tp/Texinfo/XS/convert/format_html.c
+	(direction_href_attributes, html_default_format_button)
+	* tp/Texinfo/XS/main/options_data.h,
+	* tp/t/init/redefined_buttons.pm
+	(_redefined_buttons_button_dynamic_direction),
+	* doc/texinfo.texi (File Names and Links Customization for HTML),
+	* doc/texi2any_api.texi (Simple Navigation Panel Customization),
+	* NEWS:
+	Remove USE_REL_REV.
+
 2025-01-07  Patrice Dumas  <pertusus@free.fr>
 
 	texi2any usage message

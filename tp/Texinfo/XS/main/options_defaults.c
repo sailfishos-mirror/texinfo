@@ -213,7 +213,6 @@ set_converter_customization_options_defaults (OPTIONS *options)
   option_set_conf (&options->USE_NODES, -1, 0);
   option_set_conf (&options->USE_NODE_DIRECTIONS, -1, 0);
   option_set_conf (&options->USE_NUMERIC_ENTITY, -1, 0);
-  option_set_conf (&options->USE_REL_REV, -1, 0);
   option_set_conf (&options->USE_SETFILENAME_EXTENSION, -1, 0);
   option_set_conf (&options->USE_TITLEPAGE_FOR_TITLE, -1, 0);
   option_set_conf (&options->USE_UNIDECODE, -1, 0);
@@ -359,7 +358,6 @@ add_converter_customization_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "USE_NODES", -1, 0);
   add_option_value (options_list, "USE_NODE_DIRECTIONS", -1, 0);
   add_option_value (options_list, "USE_NUMERIC_ENTITY", -1, 0);
-  add_option_value (options_list, "USE_REL_REV", -1, 0);
   add_option_value (options_list, "USE_SETFILENAME_EXTENSION", -1, 0);
   add_option_value (options_list, "USE_TITLEPAGE_FOR_TITLE", -1, 0);
   add_option_value (options_list, "USE_UNIDECODE", -1, 0);

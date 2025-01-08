@@ -18226,19 +18226,10 @@ the output file name for the top element.  This is, in general,
 only taken into account when output is split.
 
 @vindex USE_ACCESSKEY
-@vindex USE_REL_REV
 If @code{USE_ACCESSKEY} is set, the default, the @code{accesskey} attribute
 is used to provide keyboard shortcuts on some navigation hyperlinks.
 @kbd{n} is used for links to the next node or section, @kbd{p} for links to
 the previous node or section, and @kbd{u} for up direction links.
-Similarly, if the @code{USE_REL_REV} customization variable is set, the
-default, the @code{rel} attribute is used in navigation to define the
-relationship between the current page and the linked resource.  For example,
-the @samp{contents} @code{rel} attribute is set for a link to the table of
-contents, the @samp{next} @code{rel} attribute is set for a link to the next
-node or section.
-@c name of USE_REL_REV is a reference to the 'rev' attribute which is
-@c not actually used
 
 @c internal links
 
@@ -19292,9 +19283,6 @@ determine the link string, only where the links points to; see @ref{Three
 Arguments, , xrefautomaticsectiontitle} for the link string customization.  If
 nodes and sections are systematically associated, this customization has no
 practical effect.
-
-@item USE_REL_REV
-Use @code{rel} in cross-references; default true.
 
 @item USE_TITLEPAGE_FOR_TITLE
 Use the full @code{@@titlepage} as the title, not a simple title string;

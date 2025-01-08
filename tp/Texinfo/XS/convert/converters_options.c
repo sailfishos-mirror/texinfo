@@ -120,7 +120,6 @@ set_html_converter_regular_options_defaults (OPTIONS *options)
   option_set_conf (&options->USE_LINKS, 1, 0);
   option_set_conf (&options->USE_NODES, 1, 0);
   option_set_conf (&options->USE_NODE_DIRECTIONS, -1, 0);
-  option_set_conf (&options->USE_REL_REV, 1, 0);
   option_set_conf (&options->USE_TITLEPAGE_FOR_TITLE, 1, 0);
   option_set_conf (&options->WORDS_IN_PAGE, 300, 0);
   option_set_conf (&options->XREF_USE_NODE_NAME_ARG, -1, 0);
@@ -178,7 +177,6 @@ add_html_converter_regular_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "USE_LINKS", 1, 0);
   add_option_value (options_list, "USE_NODES", 1, 0);
   add_option_value (options_list, "USE_NODE_DIRECTIONS", -1, 0);
-  add_option_value (options_list, "USE_REL_REV", 1, 0);
   add_option_value (options_list, "USE_TITLEPAGE_FOR_TITLE", 1, 0);
   add_option_value (options_list, "WORDS_IN_PAGE", 300, 0);
   add_option_value (options_list, "XREF_USE_NODE_NAME_ARG", -1, 0);
@@ -212,7 +210,6 @@ set_texi2html_regular_options_defaults (OPTIONS *options)
   option_set_conf (&options->NODE_NAME_IN_MENU, 0, 0);
   option_set_conf (&options->SHORT_TOC_LINK_TO_TOC, 0, 0);
   option_set_conf (&options->SHOW_TITLE, 1, 0);
-  option_set_conf (&options->USE_REL_REV, 0, 0);
   option_set_conf (&options->USE_LINKS, 0, 0);
   option_set_conf (&options->USE_NODES, 0, 0);
   option_set_conf (&options->SPLIT, -2, "");
@@ -240,7 +237,6 @@ add_texi2html_regular_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "NODE_NAME_IN_MENU", 0, 0);
   add_option_value (options_list, "SHORT_TOC_LINK_TO_TOC", 0, 0);
   add_option_value (options_list, "SHOW_TITLE", 1, 0);
-  add_option_value (options_list, "USE_REL_REV", 0, 0);
   add_option_value (options_list, "USE_LINKS", 0, 0);
   add_option_value (options_list, "USE_NODES", 0, 0);
   add_option_value (options_list, "SPLIT", -2, "");

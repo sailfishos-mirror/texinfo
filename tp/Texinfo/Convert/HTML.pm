@@ -4067,11 +4067,9 @@ sub _direction_href_attributes($$)
       $href_attributes = " accesskey=\"$accesskey\"";
     }
   }
-  if ($self->get_conf('USE_REL_REV')) {
-    my $button_rel = $self->direction_string($direction, 'rel', 'string');
-    if (defined($button_rel) and ($button_rel ne '')) {
-      $href_attributes .= " rel=\"$button_rel\"";
-    }
+  my $button_rel = $self->direction_string($direction, 'rel', 'string');
+  if (defined($button_rel) and ($button_rel ne '')) {
+    $href_attributes .= " rel=\"$button_rel\"";
   }
   return $href_attributes;
 }
@@ -4172,11 +4170,9 @@ sub _default_format_button($$;$)
           $btitle .= " accesskey=\"$accesskey\"";
         }
       }
-      if ($self->get_conf('USE_REL_REV')) {
-        my $button_rel = $self->direction_string($button, 'rel', 'string');
-        if (defined($button_rel) and $button_rel ne '') {
-          $btitle .= " rel=\"$button_rel\"";
-        }
+      my $button_rel = $self->direction_string($button, 'rel', 'string');
+      if (defined($button_rel) and $button_rel ne '') {
+        $btitle .= " rel=\"$button_rel\"";
       }
       if ($self->get_conf('ICONS')) {
         my $active_icon;
