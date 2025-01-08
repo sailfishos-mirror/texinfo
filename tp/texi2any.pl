@@ -1100,20 +1100,17 @@ the behavior is identical, and does not depend on the installed name.")."\n"
   for example, --no-ifhtml means not to process \@ifhtml or \@html text,
   and to process \@ifnothtml text.")."\n"
 ."\n";
-  # TODO: avoid \n in translated strings, Report from Benno Schulenberg.
-  # TODO: split each line in a translatable string?
-  # string.  Report from Benno Schulenberg
-  $makeinfo_help .= __("Examples:
-  makeinfo foo.texi                      write Info to foo's \@setfilename
-  makeinfo --html foo.texi               write HTML to \@setfilename
-  makeinfo --xml foo.texi                write Texinfo XML to \@setfilename
-  makeinfo --docbook foo.texi            write Docbook XML to \@setfilename
-  makeinfo --plaintext foo.texi          write plain text to standard output
-  makeinfo --pdf foo.texi                write PDF using texi2dvi
-
-  makeinfo --html --no-headers foo.texi  write html without node lines, menus
-  makeinfo --number-sections foo.texi    write Info with numbered sections
-  makeinfo --no-split foo.texi           write one Info file however big\n")
+  $makeinfo_help .= __("Examples:")."\n"
+.__("  texi2any foo.texi                      write Info")."\n"
+.__("  texi2any --html foo.texi               write HTML")."\n"
+.__("  texi2any --xml foo.texi                write Texinfo XML")."\n"
+.__("  texi2any --docbook foo.texi            write Docbook XML")."\n"
+.__("  texi2any --plaintext foo.texi          write plain text to standard output")."\n"
+.__("  texi2any --pdf foo.texi                write PDF using texi2dvi")."\n"
+."\n"
+.__("  texi2any --html --no-headers foo.texi  write html without node lines, menus")."\n"
+.__("  texi2any --number-sections foo.texi    write Info with numbered sections")."\n"
+.__("  texi2any --no-split foo.texi           write one Info file however big")."\n"
 ."\n";
   $makeinfo_help .= __("Email bug reports to bug-texinfo\@gnu.org,
 general questions and discussion to help-texinfo\@gnu.org.

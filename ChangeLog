@@ -2,6 +2,14 @@
 
 	texi2any usage message
 	
+	* tp/texi2any.pl (makeinfo_help) <Examples>: Split translation
+	string, remove newline from translation string, do not mention
+	@setfilename in examples, refer to "texi2any" rather than "makeinfo".
+
+2025-01-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	texi2any usage message
+	
 	* tp/texi2any.pl (makeinfo_help) <conditionals>,
 	* tp/Texinfo/XS/texi2any.c (main) <--help output> <conditionals>
 	Remove trailing '.'.  Describe default settings generically.
