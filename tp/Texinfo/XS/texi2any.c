@@ -1629,42 +1629,42 @@ main (int argc, char *argv[], char *env[])
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
    _("      --document-language=STR locale to use in translating Texinfo keywords\n"
-     "                                for the output document (default C)."));
+     "                                for the output document (default C)"));
       text_append_n (&help_message, "\n", 1);
       text_printf (&help_message,
-        _("      --error-limit=NUM       quit after NUM errors (default %d)."),
+        _("      --error-limit=NUM       quit after NUM errors (default %d)"),
         error_limit_option->o.integer);
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --force                 preserve output even if errors."));
+        _("      --force                 preserve output even if errors"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --help                  display this help and exit."));
+        _("      --help                  display this help and exit"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --no-validate           suppress node cross-reference validation."));
+        _("      --no-validate           suppress node cross-reference validation"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --no-warn               suppress warnings (but not errors)."));
+        _("      --no-warn               suppress warnings (but not errors)"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --conf-dir=DIR          search also for initialization files in DIR."));
+        _("      --conf-dir=DIR          search also for initialization files in DIR"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --init-file=FILE        load FILE to modify the default behavior."));
+        _("      --init-file=FILE        load FILE to modify the default behavior"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _("  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n"
-          "                                to value VAL."));
+          "                                to value VAL"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --trace-includes        print names of included files."));
+        _("      --trace-includes        print names of included files"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("  -v, --verbose               explain what is being done."));
+        _("  -v, --verbose               explain what is being done"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --version               display version information and exit."));
+        _("      --version               display version information and exit"));
       text_append_n (&help_message, "\n\n", 2);
 
       if (default_is_html)
@@ -1673,33 +1673,33 @@ main (int argc, char *argv[], char *env[])
         text_append (&help_message, _("Output format selection (default is to produce Info):"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --docbook               output Docbook XML."));
+        _("      --docbook               output Docbook XML"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --html                  output HTML."));
+        _("      --html                  output HTML"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --epub3                 output EPUB 3."));
+        _("      --epub3                 output EPUB 3"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --latex                 output LaTeX."));
+        _("      --latex                 output LaTeX"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --plaintext             output plain text rather than Info."));
+        _("      --plaintext             output plain text rather than Info"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --xml                   output Texinfo XML."));
+        _("      --xml                   output Texinfo XML"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _("      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
-          "                                after checking validity of TEXINFO-FILE."));
+          "                                after checking validity of TEXINFO-FILE"));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("General output options:"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
-   "                                ignoring any @setfilename."));
+   "                                ignoring any @setfilename"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --no-headers            suppress node separators, Node: lines, and menus\n"
@@ -1710,14 +1710,14 @@ main (int argc, char *argv[], char *env[])
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --no-split              suppress any splitting of the output;\n"
-   "                                generate only one output file."));
+   "                                generate only one output file"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --[no-]number-sections  output chapter and sectioning numbers;\n"
-   "                                default is on."));
+   "                                default is on"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "      --[no-]number-footnotes  number footnotes sequentially; default is on."));
+   "      --[no-]number-footnotes  number footnotes sequentially; default is on"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "  -o, --output=DEST           output to DEST.\n"
@@ -1731,23 +1731,23 @@ main (int argc, char *argv[], char *env[])
       text_append (&help_message, _(
    "      --disable-encoding      do not output accented and special characters\n"
    "                                in Info and plain text output based on document\n"
-   "                                encoding."));
+   "                                encoding"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "      --enable-encoding       override --disable-encoding (default)."));
+   "      --enable-encoding       override --disable-encoding (default)"));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("Options for Info and plain text:"));
       text_append_n (&help_message, "\n", 1);
       text_printf (&help_message, _(
-   "      --fill-column=NUM       break Info lines at NUM columns (default %d)."),
+   "      --fill-column=NUM       break Info lines at NUM columns (default %d)"),
   txi_base_sorted_options[program_options.options->FILLCOLUMN.number -1]->o.integer);
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n"
    "                                `separate' to put them in their own node;\n"
    "                                `end' to put them at the end of the node, in\n"
-   "                                which they are defined (this is the default)."));
+   "                                which they are defined (this is the default)"));
       text_append_n (&help_message, "\n", 1);
 
       option_value
@@ -1760,7 +1760,7 @@ main (int argc, char *argv[], char *env[])
                    paragraphindent_size);
       text_append_n (&help_message, "\n", 1);
       text_printf (&help_message, _(
-   "      --split-size=NUM        split Info files at size NUM (default %d)."),
+   "      --split-size=NUM        split Info files at size NUM (default %d)"),
   txi_base_sorted_options[program_options.options->SPLIT_SIZE.number -1]->o.integer);
       text_append_n (&help_message, "\n\n", 2);
 
@@ -1768,48 +1768,48 @@ main (int argc, char *argv[], char *env[])
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --css-include=FILE      include FILE in HTML <style> output;\n"
-   "                                read stdin if FILE is -."));
+   "                                read stdin if FILE is -"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "      --css-ref=URL           generate CSS reference to URL."));
+   "      --css-ref=URL           generate CSS reference to URL"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "      --internal-links=FILE   produce list of internal links in FILE."));
+   "      --internal-links=FILE   produce list of internal links in FILE"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',\n"
-   "                                `section' or `node'."));
+   "                                `section' or `node'"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "      --transliterate-file-names  use file names in ASCII transliteration."));
+   "      --transliterate-file-names  use file names in ASCII transliteration"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --node-files            produce redirection files for nodes and\n"
-   "                                anchors; default is set only if split."));
+   "                                anchors; default is set only if split"));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("Options for DVI/PS/PDF:"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated."));
+   "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated"));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("Input file options:"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _(" -D VAR                       define the variable VAR, as with @set."));
+        _(" -D VAR                       define the variable VAR, as with @set"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _(" -D 'VAR VAL'                 define VAR to VAL (one shell argument)."));
+        _(" -D 'VAR VAL'                 define VAR to VAL (one shell argument)"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _(" -I DIR                       append DIR to the @include search path."));
+        _(" -I DIR                       append DIR to the @include search path"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _(" -P DIR                       prepend DIR to the @include search path."));
+        _(" -P DIR                       prepend DIR to the @include search path"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _(" -U VAR                       undefine the variable VAR, as with @clear."));
+        _(" -U VAR                       undefine the variable VAR, as with @clear"));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _(

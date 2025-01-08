@@ -984,36 +984,36 @@ the behavior is identical, and does not depend on the installed name.")."\n"
 ."\n";
   $makeinfo_help .= __("General options:")."\n"
 .__("      --document-language=STR locale to use in translating Texinfo keywords
-                                for the output document (default C).")."\n"
-.sprintf(__("      --error-limit=NUM       quit after NUM errors (default %d)."),
+                                for the output document (default C)")."\n"
+.sprintf(__("      --error-limit=NUM       quit after NUM errors (default %d)"),
          get_conf('ERROR_LIMIT'))."\n"
-.__("      --force                 preserve output even if errors.")."\n"
-.__("      --help                  display this help and exit.")."\n"
-.__("      --no-validate           suppress node cross-reference validation.")."\n"
-.__("      --no-warn               suppress warnings (but not errors).")."\n"
-.__("      --conf-dir=DIR          search also for initialization files in DIR.")."\n"
-.__("      --init-file=FILE        load FILE to modify the default behavior.")."\n"
+.__("      --force                 preserve output even if errors")."\n"
+.__("      --help                  display this help and exit")."\n"
+.__("      --no-validate           suppress node cross-reference validation")."\n"
+.__("      --no-warn               suppress warnings (but not errors)")."\n"
+.__("      --conf-dir=DIR          search also for initialization files in DIR")."\n"
+.__("      --init-file=FILE        load FILE to modify the default behavior")."\n"
 .__("  -c, --set-customization-variable VAR=VAL  set customization variable VAR
-                                to value VAL.")."\n"
-.__("      --trace-includes        print names of included files.")."\n"
-.__("  -v, --verbose               explain what is being done.")."\n"
-.__("      --version               display version information and exit.")."\n"
+                                to value VAL")."\n"
+.__("      --trace-includes        print names of included files")."\n"
+.__("  -v, --verbose               explain what is being done")."\n"
+.__("      --version               display version information and exit")."\n"
 ."\n";
   $makeinfo_help .= __("Output format selection (default is to produce Info):")."\n"
-.__("      --docbook               output Docbook XML.")."\n"
-.__("      --html                  output HTML.")."\n"
-.__("      --epub3                 output EPUB 3.")."\n"
-.__("      --latex                 output LaTeX.")."\n"
-.__("      --plaintext             output plain text rather than Info.")."\n"
-.__("      --xml                   output Texinfo XML.")."\n"
+.__("      --docbook               output Docbook XML")."\n"
+.__("      --html                  output HTML")."\n"
+.__("      --epub3                 output EPUB 3")."\n"
+.__("      --latex                 output LaTeX")."\n"
+.__("      --plaintext             output plain text rather than Info")."\n"
+.__("      --xml                   output Texinfo XML")."\n"
 .__("      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,
-                                after checking validity of TEXINFO-FILE.")."\n"
+                                after checking validity of TEXINFO-FILE")."\n"
 ."\n";
 
   $makeinfo_help .= __("General output options:")."\n"
 .__(
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,
-                                ignoring any \@setfilename.")."\n"
+                                ignoring any \@setfilename")."\n"
 .__(
 "      --no-headers            suppress node separators, Node: lines, and menus
                                 from Info output (thus producing plain text)
@@ -1022,12 +1022,12 @@ the behavior is identical, and does not depend on the installed name.")."\n"
                                 standard output by default.")."\n"
 .__(
 "      --no-split              suppress any splitting of the output;
-                                generate only one output file.")."\n"
+                                generate only one output file")."\n"
 .__(
 "      --[no-]number-sections  output chapter and sectioning numbers;
-                                default is on.")."\n"
+                                default is on")."\n"
 .__(
-"      --[no-]number-footnotes  number footnotes sequentially; default is on.")."\n"
+"      --[no-]number-footnotes  number footnotes sequentially; default is on")."\n"
 .__(
 "  -o, --output=DEST           output to DEST.
                                 With split output, create DEST as a directory
@@ -1039,24 +1039,24 @@ the behavior is identical, and does not depend on the installed name.")."\n"
 .__(
 "      --disable-encoding      do not output accented and special characters
                                 in Info and plain text output based on document
-                                encoding.")."\n"
+                                encoding")."\n"
 .__(
-"      --enable-encoding       override --disable-encoding (default).")."\n"
+"      --enable-encoding       override --disable-encoding (default)")."\n"
 ."\n";
   $makeinfo_help .= sprintf(__("Options for Info and plain text:")."\n"
 .__(
-"      --fill-column=NUM       break Info lines at NUM columns (default %d).")."\n"
+"      --fill-column=NUM       break Info lines at NUM columns (default %d)")."\n"
 .__(
 "      --footnote-style=STYLE  output footnotes in Info according to STYLE:
                                 `separate' to put them in their own node;
                                 `end' to put them at the end of the node, in
-                                which they are defined (this is the default).")."\n"
+                                which they are defined (this is the default)")."\n"
 .__(
 "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default %d).
                                 If VAL is `none', do not indent; if VAL is
                                 `asis', preserve existing indentation.")."\n"
 .__(
-"      --split-size=NUM        split Info files at size NUM (default %d).")."\n"
+"      --split-size=NUM        split Info files at size NUM (default %d)")."\n"
 ."\n",
     _get_converter_default('FILLCOLUMN'),
     _get_converter_default('paragraphindent'),
@@ -1064,24 +1064,24 @@ the behavior is identical, and does not depend on the installed name.")."\n"
 
   $makeinfo_help .= __("Options for HTML:")."\n"
 .__("      --css-include=FILE      include FILE in HTML <style> output;
-                                read stdin if FILE is -.")."\n"
-.__("      --css-ref=URL           generate CSS reference to URL.")."\n"
-.__("      --internal-links=FILE   produce list of internal links in FILE.")."\n"
+                                read stdin if FILE is -")."\n"
+.__("      --css-ref=URL           generate CSS reference to URL")."\n"
+.__("      --internal-links=FILE   produce list of internal links in FILE")."\n"
 .__("      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',
-                                `section' or `node'.")."\n"
-.__("      --transliterate-file-names  use file names in ASCII transliteration.")."\n"
+                                `section' or `node'")."\n"
+.__("      --transliterate-file-names  use file names in ASCII transliteration")."\n"
 .__("      --node-files            produce redirection files for nodes and
-                                anchors; default is set only if split.")
+                                anchors; default is set only if split")
 ."\n\n";
   $makeinfo_help .= __("Options for DVI/PS/PDF:")."\n"
-.__("      --Xopt=OPT              pass OPT to texi2dvi; can be repeated.")."\n"
+.__("      --Xopt=OPT              pass OPT to texi2dvi; can be repeated")."\n"
 ."\n";
   $makeinfo_help .= __("Input file options:")."\n"
-.__(" -D VAR                       define the variable VAR, as with \@set.")."\n"
-.__(" -D 'VAR VAL'                 define VAR to VAL (one shell argument).")."\n"
-.__(" -I DIR                       append DIR to the \@include search path.")."\n"
-.__(" -P DIR                       prepend DIR to the \@include search path.")."\n"
-.__(" -U VAR                       undefine the variable VAR, as with \@clear.")."\n"
+.__(" -D VAR                       define the variable VAR, as with \@set")."\n"
+.__(" -D 'VAR VAL'                 define VAR to VAL (one shell argument)")."\n"
+.__(" -I DIR                       append DIR to the \@include search path")."\n"
+.__(" -P DIR                       prepend DIR to the \@include search path")."\n"
+.__(" -U VAR                       undefine the variable VAR, as with \@clear")."\n"
 ."\n"
 .__("Conditional processing in input:")."\n"
 .__("      --ifdocbook       process \@ifdocbook and \@docbook")."\n"

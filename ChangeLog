@@ -2,6 +2,14 @@
 
 	texi2any usage message
 
+	* tp/Texinfo/XS/texi2any.c (main), tp/texi2any.pl: remove periods from
+	options descriptions unless they end a proper sentence starting with
+	an upper-cased letter.
+
+2025-01-08  Patrice Dumas  <pertusus@free.fr>
+
+	texi2any usage message
+
 	* tp/Texinfo/XS/texi2any.c (main): add examples to help message.
 
 2025-01-08  Patrice Dumas  <pertusus@free.fr>
