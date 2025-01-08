@@ -1434,7 +1434,10 @@ main (int argc, char *argv[], char *env[])
             free (encoded_message);
 
             xasprintf (&formatted_message, _(
-  "Copyright (C) %s Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law."),
+  "Copyright (C) %s Free Software Foundation, Inc.\n"
+  "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n"
+  "This is free software: you are free to change and redistribute it.\n"
+  "There is NO WARRANTY, to the extent permitted by law."),
                        "2024");
             encoded_message = GNUT_encode_message (formatted_message);
             free (formatted_message);
@@ -1616,13 +1619,17 @@ main (int argc, char *argv[], char *env[])
       else
     /* lie on the name, but this is no such a big lie */
         text_append (&help_message,
-   _("Translate Texinfo source documentation to various other formats, by default\nInfo files suitable for reading online with Emacs or standalone GNU Info.\n\nThis program is commonly installed as both `makeinfo' and `texi2any';\nthe behavior is identical, and does not depend on the installed name."));
+   _("Translate Texinfo source documentation to various other formats, by default\n"
+  "Info files suitable for reading online with Emacs or standalone GNU Info.\n\n"
+  "This program is commonly installed as both `makeinfo' and `texi2any';\n"
+  "the behavior is identical, and does not depend on the installed name."));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("General options:"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-   _("      --document-language=STR locale to use in translating Texinfo keywords\n                                for the output document (default C)."));
+   _("      --document-language=STR locale to use in translating Texinfo keywords\n"
+     "                                for the output document (default C)."));
       text_append_n (&help_message, "\n", 1);
       text_printf (&help_message,
         _("      --error-limit=NUM       quit after NUM errors (default %d)."),
@@ -1647,7 +1654,8 @@ main (int argc, char *argv[], char *env[])
         _("      --init-file=FILE        load FILE to modify the default behavior."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n                                to value VAL."));
+        _("  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n"
+          "                                to value VAL."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _("      --trace-includes        print names of included files."));
@@ -1683,31 +1691,47 @@ main (int argc, char *argv[], char *env[])
         _("      --xml                   output Texinfo XML."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
-        _("      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n                                after checking validity of TEXINFO-FILE."));
+        _("      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
+          "                                after checking validity of TEXINFO-FILE."));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("General output options:"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n                                ignoring any @setfilename."));
+   "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
+   "                                ignoring any @setfilename."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "      --no-headers            suppress node separators, Node: lines, and menus\n                                from Info output (thus producing plain text)\n                                or from HTML (thus producing shorter output).\n                                Also, if producing Info, write to\n                                standard output by default."));
+   "      --no-headers            suppress node separators, Node: lines, and menus\n"
+   "                                from Info output (thus producing plain text)\n"
+   "                                or from HTML (thus producing shorter output).\n"
+   "                                Also, if producing Info, write to\n"
+   "                                standard output by default."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "      --no-split              suppress any splitting of the output;\n                                generate only one output file."));
+   "      --no-split              suppress any splitting of the output;\n"
+   "                                generate only one output file."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "      --[no-]number-sections  output chapter and sectioning numbers;\n                                default is on."));
+   "      --[no-]number-sections  output chapter and sectioning numbers;\n"
+   "                                default is on."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --[no-]number-footnotes  number footnotes sequentially; default is on."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "  -o, --output=DEST           output to DEST.\n                                With split output, create DEST as a directory\n                                and put the output files there.\n                                With non-split output, if DEST is already\n                                a directory or ends with a /,\n                                put the output file there.\n                                Otherwise, DEST names the output file."));
+   "  -o, --output=DEST           output to DEST.\n"
+   "                                With split output, create DEST as a directory\n"
+   "                                and put the output files there.\n"
+   "                                With non-split output, if DEST is already\n"
+   "                                a directory or ends with a /,\n"
+   "                                put the output file there.\n"
+   "                                Otherwise, DEST names the output file."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "      --disable-encoding      do not output accented and special characters\n                                in Info and plain text output based on document\n                                encoding."));
+   "      --disable-encoding      do not output accented and special characters\n"
+   "                                in Info and plain text output based on document\n"
+   "                                encoding."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --enable-encoding       override --disable-encoding (default)."));
@@ -1720,14 +1744,19 @@ main (int argc, char *argv[], char *env[])
   txi_base_sorted_options[program_options.options->FILLCOLUMN.number -1]->o.integer);
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n                                `separate' to put them in their own node;\n                                `end' to put them at the end of the node, in\n                                which they are defined (this is the default)."));
+   "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n"
+   "                                `separate' to put them in their own node;\n"
+   "                                `end' to put them at the end of the node, in\n"
+   "                                which they are defined (this is the default)."));
       text_append_n (&help_message, "\n", 1);
 
       option_value
   = txi_base_sorted_options[program_options.options->paragraphindent.number -1]->o.string;
       paragraphindent_size = strtol (option_value, &endptr, 10);
       text_printf (&help_message, _(
-   "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default %d).\n                                If VAL is `none', do not indent; if VAL is\n                                `asis', preserve existing indentation."),
+   "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default %d).\n"
+   "                                If VAL is `none', do not indent; if VAL is\n"
+   "                                `asis', preserve existing indentation."),
                    paragraphindent_size);
       text_append_n (&help_message, "\n", 1);
       text_printf (&help_message, _(
@@ -1738,7 +1767,8 @@ main (int argc, char *argv[], char *env[])
       text_append (&help_message, _("Options for HTML:"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "      --css-include=FILE      include FILE in HTML <style> output;\n                                read stdin if FILE is -."));
+   "      --css-include=FILE      include FILE in HTML <style> output;\n"
+   "                                read stdin if FILE is -."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --css-ref=URL           generate CSS reference to URL."));
@@ -1747,13 +1777,15 @@ main (int argc, char *argv[], char *env[])
    "      --internal-links=FILE   produce list of internal links in FILE."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',\n                                `section' or `node'."));
+   "      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',\n"
+   "                                `section' or `node'."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
    "      --transliterate-file-names  use file names in ASCII transliteration."));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message, _(
-   "      --node-files            produce redirection files for nodes and\n                                anchors; default is set only if split."));
+   "      --node-files            produce redirection files for nodes and\n"
+   "                                anchors; default is set only if split."));
       text_append_n (&help_message, "\n\n", 2);
 
       text_append (&help_message, _("Options for DVI/PS/PDF:"));
@@ -1822,7 +1854,9 @@ main (int argc, char *argv[], char *env[])
 
       text_append_n (&help_message, "\n\n", 2);
 
-      text_append (&help_message, _("Email bug reports to bug-texinfo@gnu.org,\ngeneral questions and discussion to help-texinfo@gnu.org.\nTexinfo home page: https://www.gnu.org/software/texinfo/"));
+      text_append (&help_message, _("Email bug reports to bug-texinfo@gnu.org,\n"
+  "general questions and discussion to help-texinfo@gnu.org.\n"
+  "Texinfo home page: https://www.gnu.org/software/texinfo/"));
       text_append_n (&help_message, "\n", 1);
 
       encoded_message = GNUT_encode_message (help_message.text);

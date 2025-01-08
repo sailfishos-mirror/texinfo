@@ -1,3 +1,8 @@
+2025-01-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/texi2any.c (main): split translated strings at end of
+	lines.
+
 2025-01-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Remove USE_REL_REV variable
@@ -16,7 +21,7 @@
 	* NEWS:
 	Remove USE_REL_REV.
 
-2025-01-07  Patrice Dumas  <pertusus@free.fr>
+2025-01-08  Patrice Dumas  <pertusus@free.fr>
 
 	texi2any usage message
 
