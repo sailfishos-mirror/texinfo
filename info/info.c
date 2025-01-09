@@ -1095,77 +1095,80 @@ There is NO WARRANTY, to the extent permitted by law.\n"),
 static void
 info_short_help (void)
 {
-   /* Note: split usage information up into separate strings when usage
-      revised to make it easier for translators. */
-
-  printf (_("\
-Usage: %s [OPTION]... [MENU-ITEM...]\n\
+  printf (_(
+"Usage: %s [OPTION]... [MENU-ITEM...]\n\
 \n\
 Read documentation in Info format.\n"), program_name);
   puts ("");
 
-  puts (_("\
-Frequently-used options:\n\
-  -a, --all                    use all matching manuals\n\
-  -k, --apropos=STRING         look up STRING in all indices of all manuals\n\
-  -d, --directory=DIR          add DIR to INFOPATH\n\
-  -f, --file=MANUAL            specify Info manual to visit"));
+/* mark strings to be translated */
+#undef _
+#define _(String) String
 
-  puts (_("\
-  -h, --help                   display this help and exit\n\
-      --index-search=STRING    go to node pointed by index entry STRING\n\
-  -n, --node=NODENAME          specify nodes in first visited Info file\n\
-  -o, --output=FILE            output selected nodes to FILE"));
+  char *message_lines[] = {
+
+_("Frequently-used options:"),
+_("  -a, --all                    use all matching manuals"),
+_("  -k, --apropos=STRING         look up STRING in all indices of all manuals"),
+_("  -d, --directory=DIR          add DIR to INFOPATH"),
+_("  -f, --file=MANUAL            specify Info manual to visit"),
+_("  -h, --help                   display this help and exit"),
+_("      --index-search=STRING    go to node pointed by index entry STRING"),
+_("  -n, --node=NODENAME          specify nodes in first visited Info file"),
+_("  -o, --output=FILE            output selected nodes to FILE"),
 
 #if defined(__MSDOS__) || defined(__MINGW32__)
-  puts (_("\
-  -b, --speech-friendly        be friendly to speech synthesizers"));
+_("  -b, --speech-friendly        be friendly to speech synthesizers"),
 #endif
 
-  puts (_("\
-      --subnodes               recursively output menu items\n\
-  -v, --variable VAR=VALUE     assign VALUE to Info variable VAR\n\
-      --version                display version information and exit\n\
-  -w, --where, --location      print physical location of Info file"));
+_("      --subnodes               recursively output menu items"),
+_("  -v, --variable VAR=VALUE     assign VALUE to Info variable VAR"),
+_("      --version                display version information and exit"),
+_("  -w, --where, --location      print physical location of Info file"),
 
-  puts (_("\n\
-The first non-option argument, if present, is the menu entry to start from;\n\
+"",
+_(
+"The first non-option argument, if present, is the menu entry to start from;\n\
 it is searched for in all 'dir' files along INFOPATH.\n\
 If it is not present, info merges all 'dir' files and shows the result.\n\
 Any remaining arguments are treated as the names of menu\n\
-items relative to the initial node visited."));
+items relative to the initial node visited."),
 
-  puts (_("\n\
-For a summary of key bindings, type H within Info."));
-  puts ("");
+"",
+_("For a summary of key bindings, type H within Info."),
+"",
 
-puts (_("\
-Examples:"));
+_(" Examples:"),
+_("  info                         show top-level dir menu"),
+_("  info info-stnd               show the manual for this Info program"),
+_("  info emacs                   start at emacs node from top-level dir"),
+_("  info emacs buffers           select buffers menu entry in emacs manual"),
+_("  info emacs -n Files          start at Files node within emacs manual"),
+_("  info '(emacs)Files'          alternative way to start at Files node"),
+_("  info --subnodes -o out.txt emacs\n\
+                               dump entire emacs manual to out.txt"),
+_("  info -f ./foo.info           show file ./foo.info, not searching dir"),
 
-puts (_("\
-  info                         show top-level dir menu"));
-puts (_("\
-  info info-stnd               show the manual for this Info program"));
-puts (_("\
-  info emacs                   start at emacs node from top-level dir"));
-puts (_("\
-  info emacs buffers           select buffers menu entry in emacs manual"));
-puts (_("\
-  info emacs -n Files          start at Files node within emacs manual"));
-puts (_("\
-  info '(emacs)Files'          alternative way to start at Files node"));
-puts (_("\
-  info --subnodes -o out.txt emacs\n\
-                               dump entire emacs manual to out.txt"));
-puts (_("\
-  info -f ./foo.info           show file ./foo.info, not searching dir"));
+"",
 
-  puts ("");
-
-  puts (_("\
-Email bug reports to bug-texinfo@gnu.org,\n\
+"Email bug reports to bug-texinfo@gnu.org,\n\
 general questions and discussion to help-texinfo@gnu.org.\n\
-Texinfo home page: https://www.gnu.org/software/texinfo/"));
+Texinfo home page: https://www.gnu.org/software/texinfo/"
+
+  };
+#undef _
+#define _(String) gettext (String)
+
+  char **p;
+  for (p = message_lines;
+       p < &message_lines[sizeof message_lines/sizeof message_lines[0]];
+       p++)
+    {
+      if ((*p)[0] == '\0')
+        puts ("");
+      else
+        puts (_(*p));
+    }
 
   exit (EXIT_SUCCESS);
 }
