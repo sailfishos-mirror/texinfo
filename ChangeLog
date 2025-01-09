@@ -1,5 +1,18 @@
 2025-01-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/replace_call_embed_perl.c,
+	tp/Texinfo/XS/convert/replace_call_conversion_perl.c: move
+	call_eval_use_module to replace_call_embed_perl.c.
+
+	* tp/Texinfo/XS/Makefile.am (libperlembed_libtexinfo_main_la_SOURCES)
+	(libperlembed_libtexinfo_main_la_LIBADD, libtexinfo_main_la_LIBADD):
+	if PERL_EMBEDDED is not set use replace_call_embed_perl.c instead of
+	call_embed_perl.c in libperlembed_libtexinfo_main and do not use
+	PERL_EXTUTILS_EMBED_ldopts.  The resulting library won't embed a Perl
+	interpreter.  Based on a report from Gavin.
+
+2025-01-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (teximakehtml_SOURCES),
 	tp/Texinfo/XS/convert/replace_call_conversion_perl.c,
 	tp/Texinfo/XS/convert/replace_call_embed_perl.c: split

@@ -636,6 +636,14 @@ ConfigXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 # TODO could also be a convenience library or maybe always linked directly in
 # the main programs, as there is no shared state with modules.
 
+# NOTE we build libtexinfo-main.la even if PERL_EMBEDDED is not set as some
+# code in libtexinfo-main (the texinfo.c part) do not directly need a Perl
+# interpreter.  In that case, there will not be any interpreter loaded by the
+# library and the library will lack all the features involving the interpreter,
+# may not load if libperl is no already loaded in memory when the library is
+# loaded and could crash.  Testing this configuration is not easy as ctexi2any
+# does not build in that situation.
+
 if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfo-main.la
 endif
@@ -653,8 +661,14 @@ noinst_LTLIBRARIES += libperlembed_libtexinfo_main.la
 endif
 
 libperlembed_libtexinfo_main_la_SOURCES = \
-                       convert/call_embed_perl.c \
                        convert/call_embed_perl.h
+
+if PERL_EMBEDDED
+libperlembed_libtexinfo_main_la_SOURCES += convert/call_embed_perl.c
+else
+libperlembed_libtexinfo_main_la_SOURCES += convert/replace_call_embed_perl.c
+endif
+
 #libperlembed_libtexinfo_main_la_CPPFLAGS = 
 libperlembed_libtexinfo_main_la_CFLAGS = $(PERL_EXTUTILS_EMBED_ccopts)
 # there are some duplications between LDFLAGS and LIBADD,
@@ -662,8 +676,10 @@ libperlembed_libtexinfo_main_la_CFLAGS = $(PERL_EXTUTILS_EMBED_ccopts)
 # linker flags that should be in LDFLAGS according to the automake
 # documentation are in PERL_EXTUTILS_EMBED_ldopts.  It should not be
 # problematic.
-libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LDFLAGS)
+if PERL_EMBEDDED
 libperlembed_libtexinfo_main_la_LIBADD = $(PERL_EXTUTILS_EMBED_ldopts)
+endif
+libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
 
 libtexinfo_main_la_SOURCES = \
@@ -673,7 +689,10 @@ libtexinfo_main_la_SOURCES = \
 # NOTE not sure that Gnulib is directly used, but it does
 # not harm to add.
 libtexinfo_main_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
-libtexinfo_main_la_LIBADD = libtexinfoxs.la libtexinfo.la libtexinfo-convert.la libperlembed_libtexinfo_main.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts)
+libtexinfo_main_la_LIBADD = libtexinfoxs.la libtexinfo.la libtexinfo-convert.la libperlembed_libtexinfo_main.la $(top_builddir)/gnulib/lib/libgnu.la
+if PERL_EMBEDDED
+libtexinfo_main_la_LIBADD += $(PERL_EXTUTILS_EMBED_ldopts)
+endif
 # FIXME are $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) needed?
 libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 # example to trigger errors associated with no undefined
@@ -708,6 +727,18 @@ teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/ma
 
 ############################################### main program in C
 
+# if PERL_EMBEDDED is not set, it is possible that libperl.so is not there and
+# -lperl is not resolved.  The libperl symbols are needed at link time for the
+# libraries linked against ctexi2any that are compiled against the Perl
+# headers, as they need symbols defined in libperl. Therefore, we only build
+# ctexi2any if PERL_EMBEDDED is true.
+
+# The libraries themselves do not need -lperl because they can have undefined
+# symbols at link time (if not linked with -no-undefined), in contrast with
+# programs such as ctexi2any.  At run time, when the libraries are dlopened
+# by XSLoader.pm from a Perl interpreter they will resolve the undefined
+# symbols using the libperl integrated in the Perl interpreter, even though
+# the symbols where undefined at link time.
 if PERL_EMBEDDED
 if HAVE_ICONV
 noinst_PROGRAMS += ctexi2any

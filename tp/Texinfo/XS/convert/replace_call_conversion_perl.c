@@ -6,11 +6,6 @@
 #include "document_types.h"
 #include "call_conversion_perl.h"
 
-void
-call_eval_use_module (const char *module_name)
-{
-}
-
 int
 call_config_GNUT_load_init_file (const char *file_path)
 {
