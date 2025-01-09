@@ -110,48 +110,68 @@ sub _find_file($) {
   return undef;
 }
 
+my $added_converterxsdir;
+
+# If $TRY_DIRECT_LOAD is set and no .la file is found in @INC, add
+# the converterxsdir to DynaLoader path and let DynaLoader find the module
+# file using the usual file names.
+# This allows to have modules found even if packagers remove .la files
+# installed in the default case on platforms where modules have usual names
+# and are found by DynaLoader.
 sub load_libtool_library {
-  my ($module_name) = @_;
+  my ($module_name, $try_direct_load) = @_;
+
+  my $dlname;
 
   my ($libtool_dir, $libtool_archive) = _find_file("$module_name.la");
   if (!$libtool_archive) {
-    _fatal("$module_name: couldn't find Libtool archive file");
-    return 0;
-  }
-
-  my $dlname = undef;
-
-  my $fh;
-  open $fh, $libtool_archive;
-  if (!$fh) {
-    _fatal("$module_name: couldn't open Libtool archive file");
-    return 0;
-  }
-
-  # Look for the line in XS*.la giving the name of the loadable object.
-  while (my $line = <$fh>) {
-    if ($line =~ /^\s*dlname\s*=\s*'([^']+)'\s$/) {
-      $dlname = $1;
-      last;
+    if (!$try_direct_load) {
+      _fatal("$module_name: couldn't find Libtool archive file");
+      return 0;
+    } else {
+      $dlname = $module_name;
+      if (!defined($added_converterxsdir)
+          and defined($Texinfo::ModulePath::converterxsdir)) {
+        unshift @DynaLoader::dl_library_path,
+                $Texinfo::ModulePath::converterxsdir;
+        $added_converterxsdir = $Texinfo::ModulePath::converterxsdir;
+      }
+      _debug("try direct load $module_name: $added_converterxsdir");
     }
-  }
-  if (!defined($dlname) or $dlname eq '') {
-    _fatal("$module_name: couldn't find name of shared object");
-    return 0;
-  }
+  } else {
+    my $fh;
+    open $fh, $libtool_archive;
+    if (!$fh) {
+      _fatal("$module_name: couldn't open Libtool archive file");
+      return 0;
+    }
 
-  # Use unshift to place directories at start of search path.  This
-  # way we avoid accidentally loading the wrong library, e.g. if someone
-  # has some random /usr/lib/libtexinfo.so file.
-  # The *.so file is under .libs in the build directory.
-  # Consider that we are in the build directory if texinfo_uninstalled
-  # is set, or if Texinfo::ModulePath has not been called, as is the
-  # case when TestXS is called, as it is not called from a Perl script.
-  if (not defined($Texinfo::ModulePath::texinfo_uninstalled)
-      or $Texinfo::ModulePath::texinfo_uninstalled) {
-    unshift @DynaLoader::dl_library_path, "$libtool_dir/.libs";
+    # Look for the line in XS*.la giving the name of the loadable object.
+    while (my $line = <$fh>) {
+      if ($line =~ /^\s*dlname\s*=\s*'([^']+)'\s$/) {
+        $dlname = $1;
+        last;
+      }
+    }
+    if (!defined($dlname) or $dlname eq '') {
+      _fatal("$module_name: couldn't find name of shared object");
+      return 0;
+    }
+
+    # FIXME adds the directory each time a module is loaded.
+    # Use unshift to place directories at start of search path.  This
+    # way we avoid accidentally loading the wrong library, e.g. if someone
+    # has some random /usr/lib/libtexinfo.so file.
+    # The *.so file is under .libs in the build directory.
+    # Consider that we are in the build directory if texinfo_uninstalled
+    # is set, or if Texinfo::ModulePath has not been called, as is the
+    # case when TestXS is called, as it is not called from a Perl script.
+    if (not defined($Texinfo::ModulePath::texinfo_uninstalled)
+        or $Texinfo::ModulePath::texinfo_uninstalled) {
+      unshift @DynaLoader::dl_library_path, "$libtool_dir/.libs";
+    }
+    unshift @DynaLoader::dl_library_path, $libtool_dir;
   }
-  unshift @DynaLoader::dl_library_path, $libtool_dir;
 
   my @found_files = DynaLoader::dl_findfile($dlname);
   if (scalar(@found_files) == 0) {
@@ -229,6 +249,12 @@ sub init {
     goto FALLBACK;
   }
 
+  # Consider that we are in the build directory if texinfo_uninstalled
+  # is set, or if Texinfo::ModulePath has not been called, as is the
+  # case when TestXS is called, as it is not called from a Perl script.
+  my $uninstalled = (not defined($Texinfo::ModulePath::texinfo_uninstalled)
+                     or $Texinfo::ModulePath::texinfo_uninstalled);
+
   if ($additional_libraries) {
     for my $additional_library_name (@{$additional_libraries}) {
       my $additional_library = 'lib' . $additional_library_name;
@@ -238,8 +264,7 @@ sub init {
         # they will be found as there are RUNPATH or similar pointing
         # to the installation directory in the XS modules objects themselves,
         # so we do not fallback if the libraries are not found.
-        if (!$ref and (not defined($Texinfo::ModulePath::texinfo_uninstalled)
-                       or $Texinfo::ModulePath::texinfo_uninstalled)) {
+        if (!$ref and $uninstalled) {
           goto FALLBACK;
         } else {
           $loaded_additional_libraries->{$additional_library} = $ref;
@@ -248,7 +273,9 @@ sub init {
     }
   }
 
-  my $libref = load_libtool_library($module_name);
+  # If installed, try direct load of modules if la file is not found, as
+  # it should in general work in that case.
+  my $libref = load_libtool_library($module_name, !$uninstalled);
   if (!$libref) {
     goto FALLBACK;
   }

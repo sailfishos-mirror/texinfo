@@ -738,7 +738,7 @@ teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/ma
 # programs such as ctexi2any.  At run time, when the libraries are dlopened
 # by XSLoader.pm from a Perl interpreter they will resolve the undefined
 # symbols using the libperl integrated in the Perl interpreter, even though
-# the symbols where undefined at link time.
+# the symbols were undefined at link time.
 if PERL_EMBEDDED
 if HAVE_ICONV
 noinst_PROGRAMS += ctexi2any

@@ -247,10 +247,12 @@ fi
 embedded_perl=no
 
 if test x$disable_xs != xyes -a $extutils_embed = yes ; then
-  # having XS enabled and ExtUtils::Embed installed does not ensures
-  # that the Perl library needed for embedding a Perl interpreter
-  # is present.  In Debian, for instance, it is in the libperl-dev
-  # package that contain only that library.
+  # having XS enabled, the Perl headers corresponding to libperl and
+  # ExtUtils::Embed installed do not ensure
+  # that the Perl library .so/.a file needed for linking against libperl
+  # to embed a Perl interpreter is present.  In Debian, for instance,
+  # it is in the libperl-dev package that contain only the static library
+  # and the .so symlink.
   AC_MSG_CHECKING(for embedded Perl)
 
   old_LIBS=$LIBS
@@ -263,8 +265,8 @@ if test x$disable_xs != xyes -a $extutils_embed = yes ; then
   CFLAGS="$PERL_EXT_CFLAGS $PERL_EXTUTILS_EMBED_ccopts"
   LDFLAGS="$PERL_EXT_LDFLAGS"
 
-  # NOTE The following code is a simplified extract of
-  # tp/Texinfo/XS/convert/call_conversion_perl.c
+  # NOTE The following code is a simplified version of
+  # tp/Texinfo/XS/convert/call_embed_perl.c
   # NOTE Code requiring ppport.h for pTHX_ and PERL_UNUSED_CONTEXT is
   # commented out.
   AC_LINK_IFELSE([AC_LANG_PROGRAM([[

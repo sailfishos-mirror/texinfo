@@ -32,6 +32,7 @@ our $top_srcdir;
 
 # installed locations paths, if not $Texinfo::ModulePath::texinfo_uninstalled
 our $converterdatadir;
+our $converterxsdir;
 
 # Other information passed to modules from configure
 our $conversion_from_euc_cn = '@ICONV_CONVERTS_EUC_CN@';
@@ -49,7 +50,7 @@ our $conversion_from_euc_cn = '@ICONV_CONVERTS_EUC_CN@';
 # and 'top_builddir' environment variables.
 sub init {
   my $lib_dir = shift;
-  my $libexec_dir = shift;
+  $converterxsdir = shift;
   $converterdatadir = shift;
   my %named_args = @_;
 
@@ -99,8 +100,8 @@ sub init {
       unshift @INC, $lib_dir;
     }
     # for the XS libraries
-    if (defined($libexec_dir)) {
-      unshift @INC, $libexec_dir;
+    if (defined($converterxsdir)) {
+      unshift @INC, $converterxsdir;
     }
   }
 

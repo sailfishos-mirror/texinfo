@@ -1,3 +1,20 @@
+2025-01-09  Patrice Dumas  <pertusus@free.fr>
+
+	If installed, try to find XS module even if .la file is missing
+
+	* tp/Texinfo/ModulePath.pm.in ($converterxsdir): add.
+
+	* tp/Texinfo/XSLoader.pm ($added_converterxsdir, load_libtool_library)
+	(init): if called from installed Texinfo and loading an XS module and
+	the la file is not found,
+	 - add $converterxsdir, where the XS modules are installed to
+	   DynaLoader path
+	 - let DynaLoader find the module file using the usual file names.
+
+	This allows to have modules found even if packagers remove .la files
+	installed in the default case on platforms where modules have usual
+	names and are found by DynaLoader.
+
 2025-01-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/info.c (info_short_help):
