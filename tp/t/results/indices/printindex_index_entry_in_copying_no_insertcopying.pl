@@ -779,7 +779,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
       ],
       'extra' => {
         'is_target' => 1,
-        'isindex' => 1,
         'normalized' => 'chapter'
       },
       'info' => {
@@ -822,38 +821,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
           'text' => '
 ',
           'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fn'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'fn'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 32
-          }
         },
         {
           'text' => '
@@ -910,7 +877,6 @@ Top.
 @chapter Chapter
 
 
-@printindex fn
 
 ';
 
@@ -949,7 +915,6 @@ $result_sectioning{'printindex_index_entry_in_copying_no_insertcopying'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'isindex' => 1,
                     'normalized' => 'chapter'
                   }
                 },
@@ -997,7 +962,6 @@ $result_nodes{'printindex_index_entry_in_copying_no_insertcopying'} = [
                 'section_number' => '1'
               }
             },
-            'isindex' => 1,
             'node_directions' => {
               'prev' => {},
               'up' => {}
@@ -1120,32 +1084,6 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcop
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 
 
-<div class="printindex fn-printindex">
-<table class="index-letters-header-printindex fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter_fn_letter-C"><b>C</b></a>
- &nbsp; 
-<a class="summary-letter-printindex" href="#chapter_fn_letter-F"><b>F</b></a>
- &nbsp; 
-<a class="summary-letter-printindex" href="#chapter_fn_letter-X"><b>X</b></a>
- &nbsp; 
-</td></tr></table>
-<table class="index-entries-printindex fn-entries-printindex">
-<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chapter_fn_letter-C">C</th></tr>
-<tr><td class="printindex-index-entry"><a href="#index-copying-Copying-this-document"><code>Copying this document</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chapter_fn_letter-F">F</th></tr>
-<tr><td class="printindex-index-entry"><a href="#index-copying-ftable-item"><code>ftable item</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td class="printindex-index-entry"><a href="#index-copying-fun"><code>fun</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><th class="index-letter-header-printindex fn-letter-header-printindex" colspan="2" id="chapter_fn_letter-X">X</th></tr>
-<tr><td class="printindex-index-entry"><a href="#index-copying-xf"><code>xf</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td class="printindex-index-entry"><a href="#index-copying-xftable-xitem"><code>xftable xitem</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-</table>
-<table class="index-letters-footer-printindex fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter_fn_letter-C"><b>C</b></a>
- &nbsp; 
-<a class="summary-letter-printindex" href="#chapter_fn_letter-F"><b>F</b></a>
- &nbsp; 
-<a class="summary-letter-printindex" href="#chapter_fn_letter-X"><b>X</b></a>
- &nbsp; 
-</td></tr></table>
-</div>
 
 </div>
 </div>
@@ -1184,7 +1122,6 @@ $result_converted{'xml'}->{'printindex_index_entry_in_copying_no_insertcopying'}
 <chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
 
 
-<printindex spaces=" " value="fn" line="fn"></printindex>
 
 </chapter>
 ';

@@ -1,3 +1,13 @@
+2025-01-11  Patrice Dumas  <pertusus@free.fr>
+
+	Use last @printindex for Index direction in HTML
+
+	* NEWS, doc/texi2any_api.texi (Directions), tp/Texinfo/Convert/HTML.pm
+	(_prepare_output_units_global_targets),
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_prepare_output_units_global_targets): use last @printindex for
+	the Index global direction in HTML.  Report from Werner Lemberg.
+
 2025-01-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XSLoader.pm (%dl_path_prepended_dirs)

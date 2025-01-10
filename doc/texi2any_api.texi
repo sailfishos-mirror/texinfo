@@ -972,7 +972,7 @@ Overview: short table of contents.
 Corresponds to the @code{Footnotes} output unit (@pxref{Output Units}).
 
 @item Index
-The first output unit with @code{@@printindex}.
+Output unit with @code{@@printindex}.
 
 @end table
 

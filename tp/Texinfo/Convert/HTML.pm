@@ -10456,14 +10456,18 @@ sub _prepare_output_units_global_targets($$$$)
     $global_commands = $self->{'document'}->global_commands_information();
   }
 
-  # It is always the first printindex, even if it is not output (for example
+  # Associate Index with the last @printindex.  According to Werner Lemberg,
+  # "the most general index is normally the last one, not the first"
+  # https://lists.gnu.org/archive/html/bug-texinfo/2025-01/msg00019.html
+  #
+  # It is always the last printindex, even if it is not output (for example
   # it is in @copying and @titlepage, which are certainly wrong constructs).
   if ($global_commands and $global_commands->{'printindex'}) {
     # Here document_unit can only be a document unit, or maybe undef if there
     # are no document unit at all
     my ($document_unit, $root_command)
      = $self->_html_get_tree_root_element(
-                               $global_commands->{'printindex'}->[0]);
+                               $global_commands->{'printindex'}->[-1]);
     if (defined($document_unit)) {
       if ($root_command and $root_command->{'cmdname'} eq 'node'
           and $root_command->{'extra'}->{'associated_section'}) {

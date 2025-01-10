@@ -4669,13 +4669,19 @@ html_prepare_output_units_global_targets (CONVERTER *self)
 
   self->global_units_directions[D_Top] = top_output_unit;
 
-  /* It is always the first printindex, even if it is not output (for example
+  /*
+  Associate Index with the last @printindex.  According to Werner Lemberg,
+  "the most general index is normally the last one, not the first"
+  https://lists.gnu.org/archive/html/bug-texinfo/2025-01/msg00019.html
+   */
+  /* It is always the last printindex, even if it is not output (for example
      it is in @copying and @titlepage, which are certainly wrong constructs).
    */
   if (self->document->global_commands.printindex.number > 0)
     {
       const ELEMENT *printindex
-        = self->document->global_commands.printindex.list[0];
+        = self->document->global_commands.printindex.list[
+               self->document->global_commands.printindex.number -1];
       ROOT_AND_UNIT *root_unit
         = html_get_tree_root_element (self, printindex, 0);
       if (root_unit->output_unit)

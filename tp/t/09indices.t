@@ -443,7 +443,6 @@ Top.
 @chapter Chapter
 
 
-@printindex fn
 
 '],
 ['index_entry_before_first_node',

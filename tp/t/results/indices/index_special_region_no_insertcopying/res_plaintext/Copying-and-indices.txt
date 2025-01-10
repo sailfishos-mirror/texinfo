@@ -9,16 +9,6 @@ reference for reference on the licence.
    Titlepage anchor for the titlepage.  Titlepage footnote anchor for
 reference on the titlepage.
 
-* Menu:
-
-* Copying appendix:                      Copying and indices.  (line 20)
-
-* Menu:
-
-* another fun:                           Copying and indices.  (line 20)
-* findex entry:                          Top.                  (line  9)
-* fun:                                   Top.                  (line 13)
-
 Top
 1 Chapter
 Appendix A Copying and indices
