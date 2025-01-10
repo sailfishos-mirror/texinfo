@@ -111,6 +111,7 @@ sub _find_file($) {
 }
 
 my $added_converterxsdir;
+my %dl_path_prepended_dirs;
 
 # If $TRY_DIRECT_LOAD is set and no .la file is found in @INC, add
 # the converterxsdir to DynaLoader path and let DynaLoader find the module
@@ -132,9 +133,8 @@ sub load_libtool_library {
       $dlname = $module_name;
       if (!defined($added_converterxsdir)
           and defined($Texinfo::ModulePath::converterxsdir)) {
-        unshift @DynaLoader::dl_library_path,
-                $Texinfo::ModulePath::converterxsdir;
         $added_converterxsdir = $Texinfo::ModulePath::converterxsdir;
+        unshift @DynaLoader::dl_library_path, $added_converterxsdir;
       }
       _debug("try direct load $module_name: $added_converterxsdir");
     }
@@ -158,7 +158,6 @@ sub load_libtool_library {
       return 0;
     }
 
-    # FIXME adds the directory each time a module is loaded.
     # Use unshift to place directories at start of search path.  This
     # way we avoid accidentally loading the wrong library, e.g. if someone
     # has some random /usr/lib/libtexinfo.so file.
@@ -168,9 +167,13 @@ sub load_libtool_library {
     # case when TestXS is called, as it is not called from a Perl script.
     if (not defined($Texinfo::ModulePath::texinfo_uninstalled)
         or $Texinfo::ModulePath::texinfo_uninstalled) {
-      unshift @DynaLoader::dl_library_path, "$libtool_dir/.libs";
+      if (!$dl_path_prepended_dirs{"$libtool_dir/.libs"}) {
+        unshift @DynaLoader::dl_library_path, "$libtool_dir/.libs";
+      }
     }
-    unshift @DynaLoader::dl_library_path, $libtool_dir;
+    if (!$dl_path_prepended_dirs{$libtool_dir}) {
+      unshift @DynaLoader::dl_library_path, $libtool_dir;
+    }
   }
 
   my @found_files = DynaLoader::dl_findfile($dlname);
