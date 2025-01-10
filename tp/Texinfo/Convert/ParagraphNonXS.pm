@@ -35,10 +35,9 @@ use Unicode::EastAsianWidth;
 use Texinfo::Convert::Unicode;
 use Carp qw(cluck);
 
-# initialize a paragraph object.
-sub new($;$)
+# initialize a paragraph hash.
+sub new(;$)
 {
-  my $class = shift;
   my $conf = shift;
   my $self = {'max' => 72, 'indent_length' => 0, 'counter' => 0,
               'word_counter' => 0, 'space' => '', 'frenchspacing' => 0,
@@ -49,7 +48,7 @@ sub new($;$)
       $self->{$key} = $conf->{$key};
     }
   }
-  bless $self, $class;
+  return $self;
 }
 
 # for debugging

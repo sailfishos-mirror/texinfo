@@ -445,7 +445,7 @@ sub _info_header($$$)
   push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                      'locations' => []};
 
-  my $paragraph = Texinfo::Convert::Paragraph->new();
+  my $paragraph = Texinfo::Convert::Paragraph::new();
   my $result = add_text($paragraph, "This is ");
   # This ensures that spaces in file are kept.
   $result .= add_next($paragraph, $output_filename);

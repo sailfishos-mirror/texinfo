@@ -900,14 +900,12 @@ sub new_formatter($$;$)
 
   my $container;
   if ($type eq 'paragraph') {
-    $container = Texinfo::Convert::Paragraph->new($container_conf);
+    # nothing to change
   } elsif ($type eq 'line') {
     $container_conf->{'max'} = 10000001;
     $container_conf->{'keep_end_lines'} = 1;
     $container_conf->{'no_final_newline'} = 1;
     $container_conf->{'add_final_space'} = 1;
-
-    $container = Texinfo::Convert::Paragraph->new($container_conf);
   } elsif ($type eq 'unfilled') {
     $container_conf->{'max'} = 10000000;
     $container_conf->{'ignore_columns'} = 1;
@@ -915,11 +913,10 @@ sub new_formatter($$;$)
     $container_conf->{'frenchspacing'} = 1;
     $container_conf->{'unfilled'} = 1;
     $container_conf->{'no_final_newline'} = 1;
-
-    $container = Texinfo::Convert::Paragraph->new($container_conf);
   } else {
     die "Unknown container type $type\n";
   }
+  $container = Texinfo::Convert::Paragraph::new($container_conf);
 
   if ($flush_commands{$self->{'context'}->[-1]}) {
     set_space_protection($container, undef, 1, 1);

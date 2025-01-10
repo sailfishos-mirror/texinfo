@@ -263,7 +263,8 @@ sub init {
         # if the libraries are installed but .la were removed, in general
         # they will be found as there are RUNPATH or similar pointing
         # to the installation directory in the XS modules objects themselves,
-        # so we do not fallback if the libraries are not found.
+        # so we only fallback if the libraries are not found and we are
+        # in-source.
         if (!$ref and $uninstalled) {
           goto FALLBACK;
         } else {
@@ -273,7 +274,7 @@ sub init {
     }
   }
 
-  # If installed, try direct load of modules if la file is not found, as
+  # If installed, try direct load of modules if .la file is not found, as
   # it should in general work in that case.
   my $libref = load_libtool_library($module_name, !$uninstalled);
   if (!$libref) {

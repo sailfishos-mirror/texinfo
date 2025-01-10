@@ -27,12 +27,11 @@ PROTOTYPES: ENABLE
 void
 xspara_set_state (int state)
 
-# Return a reference blessed into the XSParagraph class
-# CLASS is ignored because we know it is "XSParagraph".  Optional
-# CONF parameter.
+# Return an identifier for the paragraph container.  In Perl the paragraph
+# container hash reference itself is returned.
+# Optional CONF parameter.
 SV *
-xspara_new (class, ...)
-        SV * class
+xspara_new (...)
     PREINIT:
         HV *conf = 0;
         int id;
@@ -43,11 +42,10 @@ xspara_new (class, ...)
                       {xspara_set_conf_##variable (SvIV (value_sv));} \
                   }
     CODE:
-        items--;
         if (items > 0)
           {
-            if (SvROK(ST(1)) && SvTYPE(SvRV(ST(1))) == SVt_PVHV)
-              conf = (HV *) SvRV(ST(1));
+            if (SvROK(ST(0)) && SvTYPE(SvRV(ST(0))) == SVt_PVHV)
+              conf = (HV *) SvRV(ST(0));
           }
         id = xspara_new ();
 
@@ -67,7 +65,7 @@ xspara_new (class, ...)
                 if (0)
                   {}
      /* XSPARA_CONF_VARIABLES_LIST is replaced by xspara_SET_CONF(variable)
-        for each of the configuration variables */
+        for each of the configuration variables, which starts with else if */
                 XSPARA_CONF_VARIABLES_LIST
               }
           }
