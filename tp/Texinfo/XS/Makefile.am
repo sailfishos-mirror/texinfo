@@ -109,7 +109,6 @@ libparagraph_la_LDFLAGS = $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC3
 xs_LTLIBRARIES += XSParagraph.la
 nodist_XSParagraph_la_SOURCES = XSParagraph.c
 CLEANFILES += XSParagraph.c
-# FIXME not included?
 XSParagraph_la_CFLAGS = $(XSLIBS_CFLAGS)
 XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 XSParagraph_la_LIBADD = libparagraph.la $(platform_PERL_LIBADD)
@@ -131,16 +130,18 @@ libperlcall_utils_la_SOURCES = \
 libperlcall_utils_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libperlcall_utils_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 
-########################## shared common library and parser library
+########################## shared common, parser and structure library
 
 if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfo.la
 endif
 
 # The files in the main directory correspond to code used both
-# by the parser and by converters.  The files in the parsetexi
-# directory correspond to the parser code.  They depend on the files
-# in main but not the other way around.
+# by the parser, by converters an by C code used for interfacing with
+# Perl.  In particular, conversion of the tree to Texinfo code and to raw text
+# is in the main directory.
+# The files in the parsetexi directory correspond to the parser code.  They
+# depend on the files in main but not the other way around.
 # Files in structuring_transfo depend only on the files in main and not
 # the other way around.
 C_libtexinfo_sources = \
@@ -265,7 +266,7 @@ libtexinfo_la_SOURCES = \
    $(C_libtexinfo_sources)
 
 # convenience library separate from but only used in libtexinfo to have
-# different CPPFLAGS to make sure that gnulib header files are not used
+# different CPPFLAGS to make sure that Gnulib header files are not used
 # in compilation.
 noinst_LTLIBRARIES += libcallperl_libtexinfo.la
 
@@ -481,7 +482,7 @@ StructuringTransfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 
 ########################## shared C library for conversion
-# conversion to raw text and to Texinfo code is in the libtexinfo library.
+# Conversion to raw text and to Texinfo code is in the libtexinfo library.
 # Note that having a library and not reusing source files is important to
 # share converter data among the XS objects used for conversion.
 
@@ -520,6 +521,7 @@ C_libtexinfo_convert_sources = \
 # call_html_perl_function.c, to be able to have different flags from
 # libtexinfo-convert, to avoid Gnulib flags.  Internal for libtexinfo-convert.
 # build_html_perl_state.c functions are called from call_html_perl_function.c.
+# call_conversion_perl.c is also included.
 if HAVE_ICONV
 noinst_LTLIBRARIES += libcallperl_libtexinfo_convert.la
 endif
@@ -641,8 +643,8 @@ ConfigXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 # interpreter.  In that case, there will not be any interpreter loaded by the
 # library and the library will lack all the features involving the interpreter,
 # may not load if libperl is no already loaded in memory when the library is
-# loaded and could crash.  Testing this configuration is not easy as ctexi2any
-# does not build in that situation.
+# loaded (and could crash?).  Testing this configuration is not easy as
+# ctexi2any cannot be built in that situation.
 
 if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfo-main.la
@@ -666,6 +668,7 @@ libperlembed_libtexinfo_main_la_SOURCES = \
 if PERL_EMBEDDED
 libperlembed_libtexinfo_main_la_SOURCES += convert/call_embed_perl.c
 else
+# replace by functions doing nothing, needed for linking
 libperlembed_libtexinfo_main_la_SOURCES += convert/replace_call_embed_perl.c
 endif
 
@@ -699,9 +702,46 @@ libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(EUIDACCE
 #libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(PERL_LIBS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 
-############################################### demonstrator of the API
+############################################### main program in C
 
 noinst_PROGRAMS =
+
+# if PERL_EMBEDDED is not set, it is possible that libperl.so is not there and
+# -lperl is not resolved.  The libperl symbols are needed at link time for the
+# libraries linked against ctexi2any that are compiled against the Perl
+# headers, as they need symbols defined in libperl. Therefore, we only build
+# ctexi2any if PERL_EMBEDDED is true.
+
+# The libraries themselves do not need -lperl because they can have undefined
+# symbols at link time (if not linked with -no-undefined), in contrast with
+# programs such as ctexi2any.  At run time, when the libraries are dlopened
+# by XSLoader.pm from a Perl interpreter they will resolve the undefined
+# symbols using the libperl integrated in the Perl interpreter, even though
+# the symbols were undefined at link time.
+
+if PERL_EMBEDDED
+if HAVE_ICONV
+noinst_PROGRAMS += ctexi2any
+endif
+endif
+
+ctexi2any_SOURCES = \
+                       texi2any.c
+
+# NOTE the PERL_EXTUTILS_EMBED_ldopts variable contains program-specific
+# linker flags that should be in LDFLAGS according to the automake
+# documentation, but also -L and -l flags that need to be last
+# on LDADD.  We favor LDADD otherwise linking fails.
+# Gnulib is directly needed on some platforms for getopt-gnu
+ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts)
+# FIXME needed?
+#ctexi2any_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+
+ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
+
+
+
+################################# C only static main program demonstrator
 
 if ! DISABLE_ADDITIONAL_CHECKS
 if HAVE_ICONV
@@ -723,40 +763,5 @@ teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la
 teximakehtml_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\"
-
-
-############################################### main program in C
-
-# if PERL_EMBEDDED is not set, it is possible that libperl.so is not there and
-# -lperl is not resolved.  The libperl symbols are needed at link time for the
-# libraries linked against ctexi2any that are compiled against the Perl
-# headers, as they need symbols defined in libperl. Therefore, we only build
-# ctexi2any if PERL_EMBEDDED is true.
-
-# The libraries themselves do not need -lperl because they can have undefined
-# symbols at link time (if not linked with -no-undefined), in contrast with
-# programs such as ctexi2any.  At run time, when the libraries are dlopened
-# by XSLoader.pm from a Perl interpreter they will resolve the undefined
-# symbols using the libperl integrated in the Perl interpreter, even though
-# the symbols were undefined at link time.
-if PERL_EMBEDDED
-if HAVE_ICONV
-noinst_PROGRAMS += ctexi2any
-endif
-endif
-
-ctexi2any_SOURCES = \
-                       texi2any.c
-
-# NOTE the PERL_EXTUTILS_EMBED_ldopts variable contains program-specific
-# linker flags that should be in LDFLAGS according to the automake
-# documentation, but also -L and -l flags that need to be last
-# on LDADD.  We favor LDADD otherwise linking fails.
-# gnulib is directly needed on some platforms for getopt-gnu
-ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts)
-# FIXME needed?
-#ctexi2any_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
-
-ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
 
 
