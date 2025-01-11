@@ -15,11 +15,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-/* the program can be compiled standalone with all the required C code,
-   or use libraries with the required C code and also possibilities
-   to embed an interpreter, for now Perl and call Perl code.
- */
-
 #include <config.h>
 
 #include <stdlib.h>
@@ -75,6 +70,8 @@
 #define LOCALEDIR DATADIR "/locale"
 
 #define _(String) gettext (String)
+
+static const char *conf_file_name = "texi2any-config.pm";
 
 typedef struct FORMAT_COMMAND_LINE_NAME {
     const char *command_line_name;
@@ -566,6 +563,7 @@ is_ascii_digit (const char *text)
   return 0;
 }
 
+/* warn and also clear deprecated_dirs_used */
 static void
 warn_deprecated_dirs (DEPRECATED_DIRS_LIST *deprecated_dirs_used)
 {
@@ -587,6 +585,8 @@ warn_deprecated_dirs (DEPRECATED_DIRS_LIST *deprecated_dirs_used)
 
           free (dir_name);
           free (replacement_dir);
+          free (deprecated_dir_info->obsolete_dir);
+          free (deprecated_dir_info->reference_dir);
         }
     }
   deprecated_dirs_used->number = 0;
@@ -903,6 +903,8 @@ main (int argc, char *argv[], char *env[])
   STRING_LIST ignored_formats;
   STRING_LIST default_expanded_formats;
   STRING_LIST prepend_dirs;
+  STRING_LIST reversed_converter_config_dirs;
+  STRING_LIST config_init_files;
   CONVERTER_INITIALIZATION_INFO *format_defaults;
   DEPRECATED_DIRS_LIST deprecated_directories;
   char *top_srcdir;
@@ -961,6 +963,7 @@ main (int argc, char *argv[], char *env[])
   const char *txi_xs_external_conversion;
   const char *txi_xs_external_formatting;
   FILE *main_program_unclosed_stdout = 0;
+  DEPRECATED_DIRS_LIST deprecated_dirs_used;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -1063,6 +1066,8 @@ main (int argc, char *argv[], char *env[])
   add_string (curdir, &converter_config_dirs);
   copy_strings (&converter_config_dirs, converter_config_dirs_array_ref);
 
+  destroy_strings_list (converter_config_dirs_array_ref);
+
   memset (&converter_init_dirs, 0, sizeof (STRING_LIST));
   copy_strings (&converter_init_dirs, &converter_config_dirs);
 
@@ -1122,15 +1127,50 @@ main (int argc, char *argv[], char *env[])
   free (tp_builddir);
   free (top_srcdir);
 
+  init_files_options =
+    GNUT_initialize_customization (&program_file, &program_options,
+                                   &cmdline_options);
+
+  /*
+  read initialization files.  Better to do that after
+  Texinfo::Config::GNUT_initialize_customization() in case loaded
+  files replace default options.
+   */
+  memset (&config_init_files, 0, sizeof (STRING_LIST));
+  memset (&reversed_converter_config_dirs, 0, sizeof (STRING_LIST));
+  memset (&deprecated_dirs_used, 0, sizeof (DEPRECATED_DIRS_LIST));
+
+  if (converter_config_dirs.number > 0)
+    {
+      for (i = converter_config_dirs.number; i > 0; i--)
+        {
+          add_string (converter_config_dirs.list[i-1],
+                      &reversed_converter_config_dirs);
+        }
+    }
+
+  locate_file_in_dirs (conf_file_name, &reversed_converter_config_dirs,
+                       &config_init_files,
+                       &deprecated_directories, &deprecated_dirs_used);
+
+  free_strings_list (&reversed_converter_config_dirs);
+
+  for (i = 0; i < config_init_files.number; i++)
+    {
+      /* TODO 0 should be instead embedded_interpreter */
+      int status = txi_load_init_file (config_init_files.list[i], 0);
+      if (status)
+        loaded_init_files_nr++;
+    }
+
+  warn_deprecated_dirs (&deprecated_dirs_used);
+  free_strings_list (&config_init_files);
+
   /* Parse command line */
 
   memset (&ignored_formats, 0, sizeof (STRING_LIST));
   memset (&init_files, 0, sizeof (STRING_LIST));
   memset (&texi2dvi_args, 0, sizeof (STRING_LIST));
-
-  init_files_options =
-    GNUT_initialize_customization (&program_file, &program_options,
-                                   &cmdline_options);
 
   while (1)
     {
@@ -2965,9 +3005,9 @@ main (int argc, char *argv[], char *env[])
   free_strings_list (&converter_init_dirs);
   free_strings_list (&converter_config_dirs);
 
+  free_deprecated_dirs_list (&deprecated_dirs_used);
   free_deprecated_dirs_list (&deprecated_directories);
 
-  destroy_strings_list (converter_config_dirs_array_ref);
   destroy_strings_list (texinfo_language_config_dirs);
   wipe_values (&values);
 

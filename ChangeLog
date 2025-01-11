@@ -1,5 +1,16 @@
 2025-01-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/texi2any.c (conf_file_name, main): read
+	texi2any-config.pm customization files.
+
+	* tp/Texinfo/XS/texi2any.c (warn_deprecated_dirs): free
+	deprecated_dir_info strings too.
+
+	* tp/Texinfo/XS/texi2any.c (main): destroy
+	converter_config_dirs_array_ref earlier.
+
+2025-01-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/configure.ac, README-hacking: do not use
 	AC_LINK_IFELSE nor ready-o-use Autoconf code to test for Perl
 	embedding, as it does not seems possible to avoid AC_DEFINE results
