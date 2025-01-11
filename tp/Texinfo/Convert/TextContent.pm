@@ -33,7 +33,7 @@ use Texinfo::Convert::Converter;
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
-our $VERSION = '7.2';
+our $VERSION = '7.2dev';
 
 
 my %ignored_brace_commands;

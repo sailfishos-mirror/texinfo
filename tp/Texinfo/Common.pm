@@ -63,7 +63,7 @@ our @EXPORT = qw(
 __ __p
 );
 
-our $VERSION = '7.2';
+our $VERSION = '7.2dev';
 
 # i18n
 # For the messages translations.

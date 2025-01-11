@@ -10,7 +10,7 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #
-AC_INIT([GNU Texinfo], [7.2])
+AC_INIT([GNU Texinfo], [7.2dev])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE
 AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4])
@@ -137,7 +137,9 @@ if test x$disable_xs != xyes; then
   #PACKAGE_XS_VERSION=`${PERL} -e 'use version; print version->declare('"$PACKAGE_VERSION"')->numify;'`
   # to check that Perl module loading the XS objects and XS objects versions
   # match.  A hyphen is also turned to a dot for the Perl module version.
-  PACKAGE_XS_VERSION=`echo $PACKAGE_VERSION | sed 's/-/./g'`
+  # We remove a "dev" suffix because the XS bootstrap functions choke on
+  # non-numeric versions.
+  PACKAGE_XS_VERSION=`echo $PACKAGE_VERSION | sed 's/-/./g ; s/dev$//'`
 
   if test -n "$PERL_EXT_CC" ; then
     CC=$PERL_EXT_CC

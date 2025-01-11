@@ -35,12 +35,13 @@ BEGIN {
 
 our $TEXINFO_XS;
 
-our $VERSION = '7.2';
+our $VERSION = '7.2dev';
 
 # used for comparison with XS_VERSION passed through configure and make.
 # The github CI adds the date after a hyphen, turn the hyphen to a dot.
 my $xs_version = $VERSION;
 $xs_version =~ s/-/./g;
+$xs_version =~ s/dev$//; # XS bootstrap functions choke on non-numeric version
 #my $xs_version = version->declare($VERSION)->numify;
 
 # Set from code to notify that Perl is embedded in C, and that XS needs to

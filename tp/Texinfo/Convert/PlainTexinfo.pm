@@ -35,7 +35,7 @@ use Texinfo::Convert::Converter;
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
-our $VERSION = '7.2';
+our $VERSION = '7.2dev';
 
 my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 

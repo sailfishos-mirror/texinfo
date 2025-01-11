@@ -19,7 +19,7 @@ package Texinfo::StructTransfXS;
 use strict;
 use warnings;
 
-our $VERSION = '7.2';
+our $VERSION = '7.2dev';
 
 use Texinfo::XSLoader;
 

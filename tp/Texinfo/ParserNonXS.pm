@@ -112,7 +112,7 @@ sub import {
   goto &Exporter::import;
 }
 
-our $VERSION = '7.2';
+our $VERSION = '7.2dev';
 
 
 # Document information set in the parser.  The initialization is done by

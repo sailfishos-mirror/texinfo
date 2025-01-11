@@ -1,3 +1,10 @@
+2025-01-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* configure.ac (AC_INIT): bump version to 7.2dev.
+	* tp/Texinfo/XSLoader.pm,
+	* tp/Texinfo/XS/configure.ac (XS_VERSION): strip off dev suffix
+	as XS bootstrap function doesn't accept it.
+
 2025-01-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/texi2any.c (conf_file_name, main): read
