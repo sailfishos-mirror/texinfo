@@ -1031,13 +1031,18 @@ main (int argc, char *argv[], char *env[])
 
   version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
 
+  /* FIXME this is different from Perl.  In Perl, there is a distinction
+     between not configured and uninstalled, and +nc is only postpended
+     if not configured.  This code is always configured.  We still
+     set to not configured if not installed, to correspond to texi2any.pl
+     being called in the build directory */
   if (texinfo_uninstalled)
     {
       add_option_value (&program_options, "PACKAGE_AND_VERSION", 0,
-                        PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG "+dev");
+                        PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG "+nc");
       add_option_value (&program_options, "PACKAGE_VERSION", 0,
-                        PACKAGE_VERSION_CONFIG "+dev");
-      version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+dev";
+                        PACKAGE_VERSION_CONFIG "+nc");
+      version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+nc";
     }
 
   /* set default output format.  Is info in texi2any.pl */

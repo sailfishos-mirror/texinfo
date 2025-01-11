@@ -1,3 +1,12 @@
+2025-01-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/texi2any.c (main), tp/load_txi_modules.pl,
+	tp/texi2any.pl: postpend +nc instead of +dev when the Perl script
+	called is not configured, to avoid possible confusion with the dev
+	string in the main version used for the development version.  Also do
+	that for texi2any.c if uninstalled, as there is no possibility to be
+	non-configured in C.
+
 2025-01-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* configure.ac (AC_INIT): bump version to 7.2dev.

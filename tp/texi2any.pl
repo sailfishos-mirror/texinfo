@@ -273,7 +273,10 @@ if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
                                        'configure.ac'))) {
       while (<CONFIGURE>) {
         if (/^AC_INIT\(\[[^\]]+\]\s*,\s*\[([^\]]+)\]\s*,/) {
-          $configured_version = "$1+dev"; # +dev to distinguish from installed
+          # add +nc to distinguish from configured and, in general, installed.
+          # If called from build directory with TEXINFO_DEV_SOURCE=1, however
+          # there will not be +nc as the $configured_version is set.
+          $configured_version = "$1+nc";
           last;
         }
       }
@@ -296,7 +299,7 @@ if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
 # The version in Common.pm is checked because that file has been present
 # since Texinfo 5.0 (the first release with texi2any in Perl).
 if ($configured_version ne $Texinfo::Common::VERSION
-    and $configured_version ne $Texinfo::Common::VERSION."+dev") {
+    and $configured_version ne $Texinfo::Common::VERSION."+nc") {
   warn "This is texi2any $configured_version but modules ".
        "for texi2any $Texinfo::Common::VERSION found!\n";
   die "Your installation of Texinfo is broken; aborting.\n";
