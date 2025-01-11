@@ -392,6 +392,11 @@ check at latest automake/autoconf/gettext/help2man version:
     and/or "autoreconf --verbose --force --install" to update ancilliary
     files in build-aux and elsewhere.  Check changes before committing.
 
+  . In tp/Texinfo/XS/configure.ac the check "for embedded Perl" uses an
+    internal Autoconf variable and an internal shell function; it may be
+    relevant to check that it is still right, maybe compare to code generated
+    in configure by the used Autoconf version.
+
   . help2man upgrade -
       make -C man maintainer-clean ; ./config.status man/Makefile ; make -C man
   . mention new versions in NEWS
