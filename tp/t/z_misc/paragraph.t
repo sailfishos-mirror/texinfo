@@ -9,7 +9,8 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 BEGIN { plan tests => 122 ; }
 
-use Texinfo::Convert::Paragraph;
+use Texinfo::Convert::Paragraph qw(add_end_sentence add_next add_pending_word
+      add_text end_line remove_end_sentence set_space_protection);
 
 ok(1, "modules loading"); # If we made it this far, we're ok.
 

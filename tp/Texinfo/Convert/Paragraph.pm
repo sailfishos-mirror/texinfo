@@ -19,16 +19,10 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '7.2';
+require Exporter;
+our @ISA = qw(Exporter);
 
-use Texinfo::XSLoader;
-
-
-# Import symbols into the module that is using this one.  We don't
-# use the Exporter module because its symbols are lost when we override
-# this module with Texinfo::XSLoader::init.
-sub import {
-  my @EXPORT = qw(
+our @EXPORT_OK = qw(
     add_text
     add_next
     set_space_protection
@@ -40,26 +34,17 @@ sub import {
     get_pending
   );
 
-  my ($callpkg, $filename, $line) = caller(0);
-  for my $sym (@EXPORT) {
-    no strict 'refs';
-    *{"${callpkg}::$sym"} = \&{"Texinfo::Convert::Paragraph::${sym}"};
-  }
-}
+our $VERSION = '7.2';
+
+use Texinfo::XSLoader;
 
 BEGIN {
-  # Save reference to subroutine before we do anything.
-  my $import_fn = \&import;
-
   my $package = Texinfo::XSLoader::init (
     "Texinfo::Convert::Paragraph",
     "Texinfo::Convert::ParagraphNonXS",
     "XSParagraph",
     undef,
   );
-
-  no strict 'refs';
-  *{"${package}::import"} = $import_fn;
 }
 
 

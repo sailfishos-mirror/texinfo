@@ -37,7 +37,8 @@ use Texinfo::OutputUnits;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Plaintext;
 
-use Texinfo::Convert::Paragraph;
+use Texinfo::Convert::Paragraph qw(add_next add_text get_pending
+                                   set_space_protection);
 
 our @ISA = qw(Texinfo::Convert::Plaintext);
 

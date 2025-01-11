@@ -45,7 +45,9 @@ use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Converter;
-use Texinfo::Convert::Paragraph;
+use Texinfo::Convert::Paragraph qw(add_end_sentence add_next add_pending_word
+       add_text allow_end_sentence end_line remove_end_sentence
+       set_space_protection);
 
 require Exporter;
 our @ISA = qw(Texinfo::Convert::Converter);
