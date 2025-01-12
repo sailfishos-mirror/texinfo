@@ -82,12 +82,13 @@ set_option_buttons_specification (OPTION *option,
 void
 set_html_default_buttons_specifications (OPTIONS *options, CONVERTER *self)
 {
+  set_option_buttons_specification (&options->LINKS_DIRECTIONS,
+                                    new_base_links_buttons (self));
+
   set_option_buttons_specification (&options->SECTION_BUTTONS,
                                     new_base_navigation_section_buttons (self));
   set_option_buttons_specification (&options->SECTION_FOOTER_BUTTONS,
                            new_base_navigation_section_footer_buttons (self));
-  set_option_buttons_specification (&options->LINKS_BUTTONS,
-                                    new_base_links_buttons (self));
   set_option_buttons_specification (&options->NODE_FOOTER_BUTTONS,
            new_base_navigation_buttons (self, BFT_type_panel_node_footer, 0));
   set_option_buttons_specification (&options->CHAPTER_BUTTONS,
@@ -105,12 +106,13 @@ set_html_default_buttons_specifications (OPTIONS *options, CONVERTER *self)
 static void
 add_html_default_buttons_specifications (OPTIONS_LIST *options, CONVERTER *self)
 {
+  add_new_button_option (options, "LINKS_DIRECTIONS",
+                                    new_base_links_buttons (self));
+
   add_new_button_option (options, "SECTION_BUTTONS",
                                     new_base_navigation_section_buttons (self));
   add_new_button_option (options, "SECTION_FOOTER_BUTTONS",
                            new_base_navigation_section_footer_buttons (self));
-  add_new_button_option (options, "LINKS_BUTTONS",
-                                    new_base_links_buttons (self));
   add_new_button_option (options, "NODE_FOOTER_BUTTONS",
            new_base_navigation_buttons (self, BFT_type_panel_node_footer, 0));
   add_new_button_option (options, "CHAPTER_BUTTONS",

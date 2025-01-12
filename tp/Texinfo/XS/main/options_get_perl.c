@@ -7,8 +7,8 @@
 void
 html_fill_sv_options (OPTIONS *options, const CONVERTER *converter)
 {
-  if (options->LINKS_BUTTONS.o.buttons)
-    html_fill_button_sv_specification_list (converter, options->LINKS_BUTTONS.o.buttons);
+  if (options->LINKS_DIRECTIONS.o.buttons)
+    html_fill_button_sv_specification_list (converter, options->LINKS_DIRECTIONS.o.buttons);
 
   if (options->TOP_BUTTONS.o.buttons)
     html_fill_button_sv_specification_list (converter, options->TOP_BUTTONS.o.buttons);

@@ -1208,9 +1208,6 @@ there is no section navigation.
 Specifies the buttons appearing at the beginning of special output units
 and, if the output is split, at the end of such units.
 
-@item LINKS_BUTTONS
-Used for @code{<link>} elements if they are output in the HTML @code{<head>}.
-
 @item TOP_BUTTONS
 @itemx TOP_FOOTER_BUTTONS
 Specifies the buttons used in the top output unit (@pxref{Output Units}).
@@ -4800,13 +4797,12 @@ customization variable) is used in the header
 (@pxref{@code{@@documentdescription},,, texinfo, Texinfo}).
 
 @vindex USE_LINKS
-@vindex LINKS_BUTTONS @subentry In file beginning
-@vindex BUTTONS_REL @subentry In file beginning
+@vindex LINKS_DIRECTIONS
 @code{<link>} elements are used in the header if @code{USE_LINKS} is
-set, in which case @code{LINKS_BUTTONS} determines which links are
-used and the @code{rel} direction string (@pxref{Direction Strings}) determines
-the link type associated with the @code{rel} attribute.  @xref{Simple
-Navigation Panel Customization}.
+set, in which case the @code{LINKS_DIRECTIONS} customization variable
+array determines which links are used and the @code{rel} direction string
+(@pxref{Direction Strings}) determines the link type associated with the
+@code{rel} attribute.  @xref{Navigation Panel Button Formatting}.
 
 @vindex HTML_ROOT_ELEMENT_ATTRIBUTES
 You can set @code{HTML_ROOT_ELEMENT_ATTRIBUTES} to add attributes to

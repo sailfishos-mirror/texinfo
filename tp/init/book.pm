@@ -75,7 +75,8 @@ foreach my $buttons ('MISC_BUTTONS', 'SECTION_FOOTER_BUTTONS',
 }
 
 texinfo_set_from_init_file('NODE_FOOTER_BUTTONS', ['Back', 'Forward']);
-texinfo_set_from_init_file('LINKS_BUTTONS',
+
+texinfo_set_from_init_file('LINKS_DIRECTIONS',
     ['Top', 'Index', 'Contents', 'About', 'Up', 'NextFile', 'PrevFile']);
 
 texinfo_set_from_init_file('WORDS_IN_PAGE', undef);

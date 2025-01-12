@@ -352,7 +352,7 @@ XS_STRXFRM_COLLATION_LOCALE        converter_customization undef   char
 _INLINE_STYLE_WIDTH                converter_customization undef   integer
 
 # Not strings
-LINKS_BUTTONS                      converter_other undef   buttons
+LINKS_DIRECTIONS                   converter_other undef   buttons
 TOP_BUTTONS                        converter_other undef   buttons
 TOP_FOOTER_BUTTONS                 converter_other undef   buttons
 SECTION_BUTTONS                    converter_other undef   buttons

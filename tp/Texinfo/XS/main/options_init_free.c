@@ -184,7 +184,7 @@ initialize_options (OPTIONS *options)
 
 /* converter_other */
 
-  initialize_option (&options->LINKS_BUTTONS, GOT_buttons, "LINKS_BUTTONS", 0);
+  initialize_option (&options->LINKS_DIRECTIONS, GOT_buttons, "LINKS_DIRECTIONS", 0);
   initialize_option (&options->TOP_BUTTONS, GOT_buttons, "TOP_BUTTONS", 0);
   initialize_option (&options->TOP_FOOTER_BUTTONS, GOT_buttons, "TOP_FOOTER_BUTTONS", 0);
   initialize_option (&options->SECTION_BUTTONS, GOT_buttons, "SECTION_BUTTONS", 0);
@@ -449,7 +449,7 @@ free_options (OPTIONS *options)
 
 /* converter_other */
 
-  free_option (&options->LINKS_BUTTONS);
+  free_option (&options->LINKS_DIRECTIONS);
   free_option (&options->TOP_BUTTONS);
   free_option (&options->TOP_FOOTER_BUTTONS);
   free_option (&options->SECTION_BUTTONS);
@@ -715,7 +715,7 @@ clear_options (OPTIONS *options)
 
 /* converter_other */
 
-  clear_option (&options->LINKS_BUTTONS);
+  clear_option (&options->LINKS_DIRECTIONS);
   clear_option (&options->TOP_BUTTONS);
   clear_option (&options->TOP_FOOTER_BUTTONS);
   clear_option (&options->SECTION_BUTTONS);
@@ -981,7 +981,7 @@ copy_options (OPTIONS *destination, const OPTIONS *source)
 
 /* converter_other */
 
-  copy_option (&destination->LINKS_BUTTONS, &source->LINKS_BUTTONS);
+  copy_option (&destination->LINKS_DIRECTIONS, &source->LINKS_DIRECTIONS);
   copy_option (&destination->TOP_BUTTONS, &source->TOP_BUTTONS);
   copy_option (&destination->TOP_FOOTER_BUTTONS, &source->TOP_FOOTER_BUTTONS);
   copy_option (&destination->SECTION_BUTTONS, &source->SECTION_BUTTONS);
@@ -1169,7 +1169,7 @@ setup_sortable_options (OPTION **to_sort, OPTIONS *options)
   to_sort[89] = &options->L2H_SKIP;   /* converter_customization */
   to_sort[90] = &options->L2H_TMP;   /* converter_customization */
   to_sort[91] = &options->LATEX_FLOATS_FILE_EXTENSION;   /* converter_customization */
-  to_sort[92] = &options->LINKS_BUTTONS;   /* converter_other */
+  to_sort[92] = &options->LINKS_DIRECTIONS;   /* converter_other */
   to_sort[93] = &options->LOCALE_ENCODING;   /* converter_customization */
   to_sort[94] = &options->MACRO_EXPAND;   /* program_cmdline */
   to_sort[95] = &options->MATHJAX_CONFIGURATION;   /* converter_customization */

@@ -1553,9 +1553,9 @@ A def.
  'OUTPUT_ENCODING_NAME' => undef,
  'HTML_MATH' => undef,
  'INDEX_ENTRY_COLON' => undef,
+ 'LINKS_DIRECTIONS' => undef, # requires USE_LINKS set
  'MENU_SYMBOL' => undef, # requires FORMAT_MENU menu
  'MENU_ENTRY_COLON' => undef, # requires FORMAT_MENU menu
- 'LINKS_BUTTONS' => undef, # requires USE_LINKS set
  'SECTION_BUTTONS' => undef, # more interesting with DO_ABOUT set
  # next are for Plaintext/Info and HTML
  'OPEN_QUOTE_SYMBOL' => undef,

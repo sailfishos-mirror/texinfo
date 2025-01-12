@@ -2559,12 +2559,14 @@ my %defaults = (
                               [ 'Prev', \&_default_panel_button_dynamic_direction_section_footer ],
                               [ 'Up', \&_default_panel_button_dynamic_direction_section_footer ], ' ',
                               'Contents', 'Index'],
-  'LINKS_BUTTONS'        => ['Top', 'Index', 'Contents', 'About',
-                              'NodeUp', 'NodeNext', 'NodePrev'],
   'NODE_FOOTER_BUTTONS'  => [[ 'Next', \&_default_panel_button_dynamic_direction_node_footer ],
                              [ 'Prev', \&_default_panel_button_dynamic_direction_node_footer ],
                              [ 'Up', \&_default_panel_button_dynamic_direction_node_footer ],
                              ' ', 'Contents', 'Index'],
+
+  'LINKS_DIRECTIONS'     => ['Top', 'Index', 'Contents', 'About',
+                              'NodeUp', 'NodeNext', 'NodePrev'],
+
   'ACTIVE_ICONS'         => undef,
   'PASSIVE_ICONS'        => undef,
 
@@ -11329,19 +11331,21 @@ sub _get_links($$$$)
 
   my $links = '';
   if ($self->get_conf('USE_LINKS')) {
-    my $link_buttons = $self->get_conf('LINKS_BUTTONS');
-    return $links if (!defined($link_buttons));
-    foreach my $link (@$link_buttons) {
-      my $link_href = $self->from_element_direction($link, 'href', $output_unit,
-                                                    $filename, $node_command);
-      #print STDERR "$link -> ".(defined($link_href) ? $link_href : 'UNDEF')."\n";
+    my $link_directions = $self->get_conf('LINKS_DIRECTIONS');
+    return $links if (!defined($link_directions));
+    foreach my $link_direction (@$link_directions) {
+      my $link_href = $self->from_element_direction($link_direction, 'href',
+                                    $output_unit, $filename, $node_command);
+      #print STDERR "$link_direction -> "
+      #            .(defined($link_href) ? $link_href : 'UNDEF')."\n";
       if (defined($link_href) and $link_href ne '') {
-        my $link_string = $self->from_element_direction($link, 'string',
-                                                        $output_unit);
+        my $link_string = $self->from_element_direction($link_direction,
+                                                'string', $output_unit);
         my $link_title = '';
         $link_title = " title=\"$link_string\"" if (defined($link_string));
         my $rel = '';
-        my $button_rel = $self->direction_string($link, 'rel', 'string');
+        my $button_rel
+          = $self->direction_string($link_direction, 'rel', 'string');
         $rel = " rel=\"".$button_rel.'"' if (defined($button_rel));
         $links .= $self->close_html_lone_element(
                     "<link href=\"$link_href\"${rel}${link_title}")."\n";

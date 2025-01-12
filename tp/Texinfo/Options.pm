@@ -169,7 +169,7 @@ our %converter_customization_options = (
 );
 
 our %converter_other_options = (
-  'LINKS_BUTTONS'                    => undef,
+  'LINKS_DIRECTIONS'                 => undef,
   'TOP_BUTTONS'                      => undef,
   'TOP_FOOTER_BUTTONS'               => undef,
   'SECTION_BUTTONS'                  => undef,

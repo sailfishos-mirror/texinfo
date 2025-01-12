@@ -3954,17 +3954,17 @@ get_links (CONVERTER* self, const char *filename,
            const ELEMENT *node_command, TEXT *result)
 {
   if (self->conf->USE_LINKS.o.integer > 0
-      && self->conf->LINKS_BUTTONS.o.buttons)
+      && self->conf->LINKS_DIRECTIONS.o.buttons)
     {
       size_t i;
-      const BUTTON_SPECIFICATION_LIST *link_buttons
-          = self->conf->LINKS_BUTTONS.o.buttons;
-      for (i = 0; i < link_buttons->number; i++)
+      const BUTTON_SPECIFICATION_LIST *link_directions
+          = self->conf->LINKS_DIRECTIONS.o.buttons;
+      for (i = 0; i < link_directions->number; i++)
         {
-          const BUTTON_SPECIFICATION *link = &link_buttons->list[i];
+          const BUTTON_SPECIFICATION *link = &link_directions->list[i];
           char *link_href;
           if (link->type != BST_direction)
-            fatal ("LINKS_BUTTONS should only contain directions");
+            fatal ("LINKS_DIRECTIONS should only contain directions");
           link_href = from_element_direction (self, link->b.direction,
                                               HTT_href, output_unit,
                                               filename, node_command);

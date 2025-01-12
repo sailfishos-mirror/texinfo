@@ -12,7 +12,7 @@ sub _texi2any_tests_special_unit_replace_button
                              'TOP_BUTTONS',
                        'CHAPTER_FOOTER_BUTTONS', 'SECTION_FOOTER_BUTTONS',
                        'NODE_FOOTER_BUTTONS', 'MISC_BUTTONS',
-                       'TOP_FOOTER_BUTTONS', 'LINKS_BUTTONS') {
+                       'TOP_FOOTER_BUTTONS', 'LINKS_DIRECTIONS') {
       my $buttons_list = $self->get_conf($buttons_spec);
       for (my $i = 0; $i < scalar (@$buttons_list); $i++) {
         if (ref($buttons_list->[$i]) eq ''

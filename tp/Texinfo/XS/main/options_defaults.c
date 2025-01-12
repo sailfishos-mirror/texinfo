@@ -378,7 +378,7 @@ add_converter_customization_options_defaults (OPTIONS_LIST *options_list)
 void
 set_converter_other_options_defaults (OPTIONS *options)
 {
-  clear_option (&options->LINKS_BUTTONS);
+  clear_option (&options->LINKS_DIRECTIONS);
   clear_option (&options->TOP_BUTTONS);
   clear_option (&options->TOP_FOOTER_BUTTONS);
   clear_option (&options->SECTION_BUTTONS);
@@ -396,7 +396,7 @@ add_converter_other_options_defaults (OPTIONS_LIST *options_list)
 {
   OPTION *option;
 
-  option = find_option_string (options_list->sorted_options, "LINKS_BUTTONS");
+  option = find_option_string (options_list->sorted_options, "LINKS_DIRECTIONS");
   options_list_add_option_number (options_list, option->number);
   clear_option (option);
   option = find_option_string (options_list->sorted_options, "TOP_BUTTONS");

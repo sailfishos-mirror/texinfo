@@ -255,8 +255,8 @@ add_texi2html_regular_options_defaults (OPTIONS_LIST *options_list)
 void
 html_fill_options_directions (OPTIONS *options, const CONVERTER *converter)
 {
-  if (options->LINKS_BUTTONS.o.buttons)
-    html_fill_button_directions_specification_list (converter, options->LINKS_BUTTONS.o.buttons);
+  if (options->LINKS_DIRECTIONS.o.buttons)
+    html_fill_button_directions_specification_list (converter, options->LINKS_DIRECTIONS.o.buttons);
 
   if (options->TOP_BUTTONS.o.buttons)
     html_fill_button_directions_specification_list (converter, options->TOP_BUTTONS.o.buttons);

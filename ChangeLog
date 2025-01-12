@@ -1,5 +1,23 @@
 2025-01-12  Patrice Dumas  <pertusus@free.fr>
 
+	Rename LINKS_BUTTONS customization variable to LINKS_DIRECTIONS
+
+	* tp/Texinfo/options_data.txt, tp/Texinfo/Convert/HTML.pm (%defaults,
+	_get_links), tp/Texinfo/XS/convert/format_html.c (get_links),
+	tp/Texinfo/XS/convert/html_converter_init_options.c
+	(set_html_default_buttons_specifications)
+	(add_html_default_buttons_specifications), tp/init/book.pm,
+	tp/t/converters_tests.t,
+	tp/t/init/button_replacement_for_special_unit_direction.pm: rename
+	LINKS_BUTTONS to LINKS_DIRECTIONS.  Also rename link_buttons variable
+	as link_directions and $link as $link_direction.
+
+	* NEWS, doc/texi2any_api.texi (Simple Navigation Panel Customization)
+	(Customizing HTML File Beginning): remove LINKS_DIRECTIONS from
+	"Simple Navigation Panel Customization" node.  Update.
+
+2025-01-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/texi2any.c (main), tp/load_txi_modules.pl,
 	tp/texi2any.pl: postpend +nc instead of +dev when the Perl script
 	called is not configured, to avoid possible confusion with the dev
